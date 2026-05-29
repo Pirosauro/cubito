@@ -1,6 +1,6 @@
 /*
 Hero
-──────────────────────────────────────────────────────────────────────────────
+---
 A full-width introductory section, typically at the top of a page.
 Pair with .region for vertical rhythm and .flow for inter-element spacing.
 
@@ -63,7 +63,7 @@ TOKENS
     margin-inline: auto;
   }
 
-  /* ── Split layout ────────────────────────────────────────────────────────── */
+  /* --- Split layout --- */
 
   .hero[data-layout="split"] {
     --hero-split-gap: var(--space-l);

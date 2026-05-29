@@ -1,0 +1,118 @@
+{% layout "layouts/base.liquid" %}
+{% block title %}Cubito UI — CSS Design System{% endblock %}
+
+{% block content %}
+<article class="flow">
+
+  <div class="padding-y-m margin-y-m" style="border-block-end: 1px solid var(--color-neutral-200);">
+    <h1 class="heading-xl">Cubito UI</h1>
+    <p class="text-l color-neutral-600">An enterprise-grade CSS design system built on <a href="https://cube.fyi">CUBE CSS</a> and <a href="https://every-layout.dev">Every Layout</a> principles. Pure CSS, no runtime, no framework.</p>
+    <div class="cluster" style="margin-block-start: var(--space-m)">
+      <a href="/getting-started" class="button">Get started</a>
+      <a href="/components/badge" class="button" data-variant="outline">Browse components</a>
+    </div>
+  </div>
+
+  <section>
+    <h2 class="heading-l">Design Tokens</h2>
+    <p>All values are CSS custom properties, overridable at any cascade scope.</p>
+    <div class="grid" style="--grid-min-item-size: 14rem;">
+      <a href="/tokens/colors" class="padding-m border border-neutral-200 text-no-underline">
+        <strong class="heading-s">Colors</strong>
+        <p class="text-s color-neutral-600">Neutral palette, semantic status colors, brand tokens.</p>
+      </a>
+      <a href="/tokens/spacing" class="padding-m border border-neutral-200 text-no-underline">
+        <strong class="heading-s">Spacing</strong>
+        <p class="text-s color-neutral-600">Fluid clamp() scale from tiny to huge.</p>
+      </a>
+      <a href="/tokens/typography" class="padding-m border border-neutral-200 text-no-underline">
+        <strong class="heading-s">Typography</strong>
+        <p class="text-s color-neutral-600">Fluid type scale, font families, line heights.</p>
+      </a>
+      <a href="/tokens/motion" class="padding-m border border-neutral-200 text-no-underline">
+        <strong class="heading-s">Motion</strong>
+        <p class="text-s color-neutral-600">Duration tokens and easing curves. Respects prefers-reduced-motion.</p>
+      </a>
+      <a href="/tokens/z-index" class="padding-m border border-neutral-200 text-no-underline">
+        <strong class="heading-s">Z-Index</strong>
+        <p class="text-s color-neutral-600">Named z-stack: dropdown → sticky → modal → tooltip.</p>
+      </a>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="heading-l">Layouts</h2>
+    <p>Every Layout primitives that compose without media queries.</p>
+    <div class="grid" style="--grid-min-item-size: 14rem;">
+      <a href="/layouts/cluster" class="padding-m border border-neutral-200 text-no-underline"><strong class="heading-s">Cluster</strong><p class="text-s color-neutral-600">Wrapping flex row with consistent gap.</p></a>
+      <a href="/layouts/cover" class="padding-m border border-neutral-200 text-no-underline"><strong class="heading-s">Cover</strong><p class="text-s color-neutral-600">Vertically centred content with pinned header/footer.</p></a>
+      <a href="/layouts/frame" class="padding-m border border-neutral-200 text-no-underline"><strong class="heading-s">Frame</strong><p class="text-s color-neutral-600">Aspect-ratio crop container for media.</p></a>
+      <a href="/layouts/grid" class="padding-m border border-neutral-200 text-no-underline"><strong class="heading-s">Grid</strong><p class="text-s color-neutral-600">Auto-fill responsive grid, no media queries.</p></a>
+      <a href="/layouts/reel" class="padding-m border border-neutral-200 text-no-underline"><strong class="heading-s">Reel</strong><p class="text-s color-neutral-600">Horizontal scroll row.</p></a>
+      <a href="/layouts/repel" class="padding-m border border-neutral-200 text-no-underline"><strong class="heading-s">Repel</strong><p class="text-s color-neutral-600">Space-between layout, stacks when narrow.</p></a>
+      <a href="/layouts/sidebar" class="padding-m border border-neutral-200 text-no-underline"><strong class="heading-s">Sidebar</strong><p class="text-s color-neutral-600">Fixed sidebar + flexible main content.</p></a>
+      <a href="/layouts/sticky-bar" class="padding-m border border-neutral-200 text-no-underline"><strong class="heading-s">Sticky Bar</strong><p class="text-s color-neutral-600">Fixed top or bottom full-width bar.</p></a>
+      <a href="/layouts/switcher" class="padding-m border border-neutral-200 text-no-underline"><strong class="heading-s">Switcher</strong><p class="text-s color-neutral-600">Horizontal ↔ stacked at a container threshold.</p></a>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="heading-l">Components</h2>
+    <p>Block-level components styled entirely through CSS custom properties.</p>
+    <div class="grid" style="--grid-min-item-size: 14rem;">
+      <a href="/components/avatar" class="padding-m border border-neutral-200 text-no-underline"><strong class="heading-s">Avatar</strong><p class="text-s color-neutral-600">User representation with status indicator.</p></a>
+      <a href="/components/badge" class="padding-m border border-neutral-200 text-no-underline"><strong class="heading-s">Badge</strong><p class="text-s color-neutral-600">Compact pill for status and counts.</p></a>
+      <a href="/components/banner" class="padding-m border border-neutral-200 text-no-underline"><strong class="heading-s">Banner</strong><p class="text-s color-neutral-600">Full-width sitewide announcement.</p></a>
+      <a href="/components/breadcrumb" class="padding-m border border-neutral-200 text-no-underline"><strong class="heading-s">Breadcrumb</strong><p class="text-s color-neutral-600">Hierarchical navigation aid.</p></a>
+      <a href="/components/callout" class="padding-m border border-neutral-200 text-no-underline"><strong class="heading-s">Callout</strong><p class="text-s color-neutral-600">Inline notification block.</p></a>
+      <a href="/components/card" class="padding-m border border-neutral-200 text-no-underline"><strong class="heading-s">Card</strong><p class="text-s color-neutral-600">Versatile content container.</p></a>
+      <a href="/components/data-list" class="padding-m border border-neutral-200 text-no-underline"><strong class="heading-s">Data List</strong><p class="text-s color-neutral-600">Structured key/value pairs.</p></a>
+      <a href="/components/dialog" class="padding-m border border-neutral-200 text-no-underline"><strong class="heading-s">Dialog</strong><p class="text-s color-neutral-600">Native modal dialog.</p></a>
+      <a href="/components/empty-state" class="padding-m border border-neutral-200 text-no-underline"><strong class="heading-s">Empty State</strong><p class="text-s color-neutral-600">Zero-results placeholder.</p></a>
+      <a href="/components/footnote" class="padding-m border border-neutral-200 text-no-underline"><strong class="heading-s">Footnote</strong><p class="text-s color-neutral-600">Numbered reference list.</p></a>
+      <a href="/components/hero" class="padding-m border border-neutral-200 text-no-underline"><strong class="heading-s">Hero</strong><p class="text-s color-neutral-600">Page intro section.</p></a>
+      <a href="/components/pagination" class="padding-m border border-neutral-200 text-no-underline"><strong class="heading-s">Pagination</strong><p class="text-s color-neutral-600">Page navigation with prev/next.</p></a>
+      <a href="/components/pictogram" class="padding-m border border-neutral-200 text-no-underline"><strong class="heading-s">Pictogram</strong><p class="text-s color-neutral-600">Icon + label feature rows.</p></a>
+      <a href="/components/price" class="padding-m border border-neutral-200 text-no-underline"><strong class="heading-s">Price</strong><p class="text-s color-neutral-600">Monetary display with sale support.</p></a>
+      <a href="/components/progress-bar" class="padding-m border border-neutral-200 text-no-underline"><strong class="heading-s">Progress Bar</strong><p class="text-s color-neutral-600">Accessible labelled progress indicator.</p></a>
+      <a href="/components/prose" class="padding-m border border-neutral-200 text-no-underline"><strong class="heading-s">Prose</strong><p class="text-s color-neutral-600">Long-form reading styles.</p></a>
+      <a href="/components/rating" class="padding-m border border-neutral-200 text-no-underline"><strong class="heading-s">Rating</strong><p class="text-s color-neutral-600">CSS-only star rating.</p></a>
+      <a href="/components/stepper" class="padding-m border border-neutral-200 text-no-underline"><strong class="heading-s">Stepper</strong><p class="text-s color-neutral-600">Quantity input control.</p></a>
+      <a href="/components/tabs" class="padding-m border border-neutral-200 text-no-underline"><strong class="heading-s">Tabs</strong><p class="text-s color-neutral-600">WAI-ARIA tabbed interface.</p></a>
+      <a href="/components/tag" class="padding-m border border-neutral-200 text-no-underline"><strong class="heading-s">Tag</strong><p class="text-s color-neutral-600">Taxonomy labels and selectable chips.</p></a>
+      <a href="/components/toast" class="padding-m border border-neutral-200 text-no-underline"><strong class="heading-s">Toast</strong><p class="text-s color-neutral-600">Dismissible notification overlay.</p></a>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="heading-l">Base Elements</h2>
+    <p>Styled HTML element defaults that work without class names.</p>
+    <div class="grid" style="--grid-min-item-size: 14rem;">
+      <a href="/base/button" class="padding-m border border-neutral-200 text-no-underline"><strong class="heading-s">Button</strong><p class="text-s color-neutral-600">Variants, states, loading, icon support.</p></a>
+      <a href="/base/form" class="padding-m border border-neutral-200 text-no-underline"><strong class="heading-s">Form</strong><p class="text-s color-neutral-600">Input, select, textarea, checkbox, radio, fieldset.</p></a>
+      <a href="/base/table" class="padding-m border border-neutral-200 text-no-underline"><strong class="heading-s">Table</strong><p class="text-s color-neutral-600">Striped, bordered, responsive tables.</p></a>
+      <a href="/base/nav" class="padding-m border border-neutral-200 text-no-underline"><strong class="heading-s">Nav</strong><p class="text-s color-neutral-600">Navigation element with main and sidebar variants.</p></a>
+      <a href="/base/code" class="padding-m border border-neutral-200 text-no-underline"><strong class="heading-s">Code</strong><p class="text-s color-neutral-600">Inline code, code blocks, keyboard shortcuts.</p></a>
+      <a href="/base/tooltip" class="padding-m border border-neutral-200 text-no-underline"><strong class="heading-s">Tooltip</strong><p class="text-s color-neutral-600">CSS-only tooltip positioning.</p></a>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="heading-l">Utilities</h2>
+    <p>Single-purpose helpers at the highest cascade layer.</p>
+    <div class="grid" style="--grid-min-item-size: 14rem;">
+      <a href="/utilities/accessibility" class="padding-m border border-neutral-200 text-no-underline"><strong class="heading-s">Accessibility</strong><p class="text-s color-neutral-600">Skip link, sr-only.</p></a>
+      <a href="/utilities/animation" class="padding-m border border-neutral-200 text-no-underline"><strong class="heading-s">Animation</strong><p class="text-s color-neutral-600">blink, fade-in, slide-up.</p></a>
+      <a href="/utilities/border" class="padding-m border border-neutral-200 text-no-underline"><strong class="heading-s">Border</strong><p class="text-s color-neutral-600">Border and radius utilities.</p></a>
+      <a href="/utilities/color" class="padding-m border border-neutral-200 text-no-underline"><strong class="heading-s">Color</strong><p class="text-s color-neutral-600">Foreground and background color helpers.</p></a>
+      <a href="/utilities/flow" class="padding-m border border-neutral-200 text-no-underline"><strong class="heading-s">Flow & Gap</strong><p class="text-s color-neutral-600">Vertical rhythm and flex/grid gap.</p></a>
+      <a href="/utilities/shadow" class="padding-m border border-neutral-200 text-no-underline"><strong class="heading-s">Shadow</strong><p class="text-s color-neutral-600">Box shadow and text shadow.</p></a>
+      <a href="/utilities/skeleton" class="padding-m border border-neutral-200 text-no-underline"><strong class="heading-s">Skeleton</strong><p class="text-s color-neutral-600">Loading placeholder.</p></a>
+      <a href="/utilities/spacing" class="padding-m border border-neutral-200 text-no-underline"><strong class="heading-s">Spacing</strong><p class="text-s color-neutral-600">Padding and margin utilities.</p></a>
+      <a href="/utilities/typography" class="padding-m border border-neutral-200 text-no-underline"><strong class="heading-s">Typography</strong><p class="text-s color-neutral-600">Heading, text size, weight, alignment.</p></a>
+      <a href="/utilities/wrapper" class="padding-m border border-neutral-200 text-no-underline"><strong class="heading-s">Wrapper</strong><p class="text-s color-neutral-600">Max-width container.</p></a>
+    </div>
+  </section>
+
+</article>
+{% endblock %}

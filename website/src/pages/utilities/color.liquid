@@ -1,0 +1,128 @@
+{% layout "layouts/base.liquid" %}
+{% block title %}Color — Cubito UI Docs{% endblock %}
+
+{% block content %}
+<article class="flow">
+
+  <header class="padding-y-m margin-y-m" style="border-block-end: 1px solid var(--color-neutral-200);">
+    <nav aria-label="Breadcrumb" class="breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/utilities/">Utilities</a></li>
+        <li aria-current="page">Color</li>
+      </ol>
+    </nav>
+    <h1>Color</h1>
+    <p class="text-l color-neutral-600">Convenience classes for applying colour tokens to text, backgrounds, and borders. All tokens are defined in the theme layer.</p>
+  </header>
+
+  <section>
+    <h2 class="heading-l">Text colour</h2>
+    <p>Use <code>.color-{name}</code> to set the text colour of an element to a design token value.</p>
+    
+    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
+<div class="flow" style="--flow-space: var(--space-xxs)">
+  <p class="color-brand">.color-brand</p>
+  <p class="color-accent">.color-accent</p>
+  <p class="color-status-ok">.color-status-ok</p>
+  <p class="color-status-warning">.color-status-warning</p>
+  <p class="color-status-ko">.color-status-ko</p>
+  <p class="color-status-info">.color-status-info</p>
+  <p class="color-neutral-500">.color-neutral-500</p>
+  <p class="color-neutral-700">.color-neutral-700</p>
+  <p class="color-neutral-900">.color-neutral-900</p>
+</div>
+    </div>
+
+    <details class="margin-y-s">
+      <summary class="padding-s">Show code</summary>
+      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div class=&quot;flow&quot; style=&quot;--flow-space: var(--space-xxs)&quot;&gt;
+  &lt;p class=&quot;color-brand&quot;&gt;.color-brand&lt;/p&gt;
+  &lt;p class=&quot;color-accent&quot;&gt;.color-accent&lt;/p&gt;
+  &lt;p class=&quot;color-status-ok&quot;&gt;.color-status-ok&lt;/p&gt;
+  &lt;p class=&quot;color-status-warning&quot;&gt;.color-status-warning&lt;/p&gt;
+  &lt;p class=&quot;color-status-ko&quot;&gt;.color-status-ko&lt;/p&gt;
+  &lt;p class=&quot;color-status-info&quot;&gt;.color-status-info&lt;/p&gt;
+  &lt;p class=&quot;color-neutral-500&quot;&gt;.color-neutral-500&lt;/p&gt;
+  &lt;p class=&quot;color-neutral-700&quot;&gt;.color-neutral-700&lt;/p&gt;
+  &lt;p class=&quot;color-neutral-900&quot;&gt;.color-neutral-900&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+    </details>
+  </section>
+
+  <section>
+    <h2 class="heading-l">Background colour</h2>
+    <p>Use <code>.background-{name}</code> to set the background colour of an element.</p>
+    
+    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr)); gap: var(--space-xs)">
+  <div class="background-brand" style="padding: var(--space-s); border-radius: var(--border-radius-m); color: white; font-size: var(--font-size-xs)">brand</div>
+  <div class="background-accent" style="padding: var(--space-s); border-radius: var(--border-radius-m); color: white; font-size: var(--font-size-xs)">accent</div>
+  <div class="background-status-ok" style="padding: var(--space-s); border-radius: var(--border-radius-m); color: white; font-size: var(--font-size-xs)">status-ok</div>
+  <div class="background-status-warning" style="padding: var(--space-s); border-radius: var(--border-radius-m); color: white; font-size: var(--font-size-xs)">status-warning</div>
+  <div class="background-status-ko" style="padding: var(--space-s); border-radius: var(--border-radius-m); color: white; font-size: var(--font-size-xs)">status-ko</div>
+  <div class="background-status-info" style="padding: var(--space-s); border-radius: var(--border-radius-m); color: white; font-size: var(--font-size-xs)">status-info</div>
+  <div class="background-neutral-100 border border-neutral-200" style="padding: var(--space-s); border-radius: var(--border-radius-m); font-size: var(--font-size-xs)">neutral-100</div>
+  <div class="background-neutral-200" style="padding: var(--space-s); border-radius: var(--border-radius-m); font-size: var(--font-size-xs)">neutral-200</div>
+  <div class="background-neutral-300" style="padding: var(--space-s); border-radius: var(--border-radius-m); font-size: var(--font-size-xs)">neutral-300</div>
+  <div class="background-neutral-400" style="padding: var(--space-s); border-radius: var(--border-radius-m); color: white; font-size: var(--font-size-xs)">neutral-400</div>
+  <div class="background-neutral-500" style="padding: var(--space-s); border-radius: var(--border-radius-m); color: white; font-size: var(--font-size-xs)">neutral-500</div>
+  <div class="background-neutral-600" style="padding: var(--space-s); border-radius: var(--border-radius-m); color: white; font-size: var(--font-size-xs)">neutral-600</div>
+  <div class="background-neutral-700" style="padding: var(--space-s); border-radius: var(--border-radius-m); color: white; font-size: var(--font-size-xs)">neutral-700</div>
+  <div class="background-neutral-800" style="padding: var(--space-s); border-radius: var(--border-radius-m); color: white; font-size: var(--font-size-xs)">neutral-800</div>
+  <div class="background-neutral-900" style="padding: var(--space-s); border-radius: var(--border-radius-m); color: white; font-size: var(--font-size-xs)">neutral-900</div>
+  <div class="background-neutral-950" style="padding: var(--space-s); border-radius: var(--border-radius-m); color: white; font-size: var(--font-size-xs)">neutral-950</div>
+</div>
+    </div>
+
+    <details class="margin-y-s">
+      <summary class="padding-s">Show code</summary>
+      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div style=&quot;display: grid; grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr)); gap: var(--space-xs)&quot;&gt;
+  &lt;div class=&quot;background-brand&quot; style=&quot;padding: var(--space-s); border-radius: var(--border-radius-m); color: white; font-size: var(--font-size-xs)&quot;&gt;brand&lt;/div&gt;
+  &lt;div class=&quot;background-accent&quot; style=&quot;padding: var(--space-s); border-radius: var(--border-radius-m); color: white; font-size: var(--font-size-xs)&quot;&gt;accent&lt;/div&gt;
+  &lt;div class=&quot;background-status-ok&quot; style=&quot;padding: var(--space-s); border-radius: var(--border-radius-m); color: white; font-size: var(--font-size-xs)&quot;&gt;status-ok&lt;/div&gt;
+  &lt;div class=&quot;background-status-warning&quot; style=&quot;padding: var(--space-s); border-radius: var(--border-radius-m); color: white; font-size: var(--font-size-xs)&quot;&gt;status-warning&lt;/div&gt;
+  &lt;div class=&quot;background-status-ko&quot; style=&quot;padding: var(--space-s); border-radius: var(--border-radius-m); color: white; font-size: var(--font-size-xs)&quot;&gt;status-ko&lt;/div&gt;
+  &lt;div class=&quot;background-status-info&quot; style=&quot;padding: var(--space-s); border-radius: var(--border-radius-m); color: white; font-size: var(--font-size-xs)&quot;&gt;status-info&lt;/div&gt;
+  &lt;div class=&quot;background-neutral-100 border border-neutral-200&quot; style=&quot;padding: var(--space-s); border-radius: var(--border-radius-m); font-size: var(--font-size-xs)&quot;&gt;neutral-100&lt;/div&gt;
+  &lt;div class=&quot;background-neutral-200&quot; style=&quot;padding: var(--space-s); border-radius: var(--border-radius-m); font-size: var(--font-size-xs)&quot;&gt;neutral-200&lt;/div&gt;
+  &lt;div class=&quot;background-neutral-300&quot; style=&quot;padding: var(--space-s); border-radius: var(--border-radius-m); font-size: var(--font-size-xs)&quot;&gt;neutral-300&lt;/div&gt;
+  &lt;div class=&quot;background-neutral-400&quot; style=&quot;padding: var(--space-s); border-radius: var(--border-radius-m); color: white; font-size: var(--font-size-xs)&quot;&gt;neutral-400&lt;/div&gt;
+  &lt;div class=&quot;background-neutral-500&quot; style=&quot;padding: var(--space-s); border-radius: var(--border-radius-m); color: white; font-size: var(--font-size-xs)&quot;&gt;neutral-500&lt;/div&gt;
+  &lt;div class=&quot;background-neutral-600&quot; style=&quot;padding: var(--space-s); border-radius: var(--border-radius-m); color: white; font-size: var(--font-size-xs)&quot;&gt;neutral-600&lt;/div&gt;
+  &lt;div class=&quot;background-neutral-700&quot; style=&quot;padding: var(--space-s); border-radius: var(--border-radius-m); color: white; font-size: var(--font-size-xs)&quot;&gt;neutral-700&lt;/div&gt;
+  &lt;div class=&quot;background-neutral-800&quot; style=&quot;padding: var(--space-s); border-radius: var(--border-radius-m); color: white; font-size: var(--font-size-xs)&quot;&gt;neutral-800&lt;/div&gt;
+  &lt;div class=&quot;background-neutral-900&quot; style=&quot;padding: var(--space-s); border-radius: var(--border-radius-m); color: white; font-size: var(--font-size-xs)&quot;&gt;neutral-900&lt;/div&gt;
+  &lt;div class=&quot;background-neutral-950&quot; style=&quot;padding: var(--space-s); border-radius: var(--border-radius-m); color: white; font-size: var(--font-size-xs)&quot;&gt;neutral-950&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </details>
+  </section>
+
+  <section>
+    <h2 class="heading-l">Border colour</h2>
+    <p>Use <code>.border-{name}</code> alongside a border-width utility (<code>.border-s</code>, <code>.border</code>, or <code>.border-l</code>) to apply a coloured border.</p>
+    
+    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
+<div style="display: flex; flex-wrap: wrap; gap: var(--space-s)">
+  <div class="border border-brand" style="padding: var(--space-s); border-radius: var(--border-radius-m); font-size: var(--font-size-xs)">.border-brand</div>
+  <div class="border border-accent" style="padding: var(--space-s); border-radius: var(--border-radius-m); font-size: var(--font-size-xs)">.border-accent</div>
+  <div class="border border-status-ok" style="padding: var(--space-s); border-radius: var(--border-radius-m); font-size: var(--font-size-xs)">.border-status-ok</div>
+  <div class="border border-status-ko" style="padding: var(--space-s); border-radius: var(--border-radius-m); font-size: var(--font-size-xs)">.border-status-ko</div>
+  <div class="border border-neutral-300" style="padding: var(--space-s); border-radius: var(--border-radius-m); font-size: var(--font-size-xs)">.border-neutral-300</div>
+</div>
+    </div>
+
+    <details class="margin-y-s">
+      <summary class="padding-s">Show code</summary>
+      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div style=&quot;display: flex; flex-wrap: wrap; gap: var(--space-s)&quot;&gt;
+  &lt;div class=&quot;border border-brand&quot; style=&quot;padding: var(--space-s); border-radius: var(--border-radius-m); font-size: var(--font-size-xs)&quot;&gt;.border-brand&lt;/div&gt;
+  &lt;div class=&quot;border border-accent&quot; style=&quot;padding: var(--space-s); border-radius: var(--border-radius-m); font-size: var(--font-size-xs)&quot;&gt;.border-accent&lt;/div&gt;
+  &lt;div class=&quot;border border-status-ok&quot; style=&quot;padding: var(--space-s); border-radius: var(--border-radius-m); font-size: var(--font-size-xs)&quot;&gt;.border-status-ok&lt;/div&gt;
+  &lt;div class=&quot;border border-status-ko&quot; style=&quot;padding: var(--space-s); border-radius: var(--border-radius-m); font-size: var(--font-size-xs)&quot;&gt;.border-status-ko&lt;/div&gt;
+  &lt;div class=&quot;border border-neutral-300&quot; style=&quot;padding: var(--space-s); border-radius: var(--border-radius-m); font-size: var(--font-size-xs)&quot;&gt;.border-neutral-300&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </details>
+  </section>
+
+</article>
+{% endblock %}

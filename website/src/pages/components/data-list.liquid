@@ -1,0 +1,141 @@
+{% layout "layouts/base.liquid" %}
+{% block title %}Data List — Cubito UI Docs{% endblock %}
+
+{% block content %}
+<article class="flow">
+
+  <header class="padding-y-m margin-y-m" style="border-block-end: 1px solid var(--color-neutral-200);">
+    <nav aria-label="Breadcrumb" class="breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/components/">Components</a></li>
+        <li aria-current="page">Data List</li>
+      </ol>
+    </nav>
+    <h1>Data List</h1>
+    <p class="text-l color-neutral-600">A styled <code>&lt;dl&gt;</code> for presenting structured key/value pairs — product specifications, order summaries, and user profile details.</p>
+  </header>
+
+  <section>
+    <h2 class="heading-l">Vertical (default)</h2>
+    <p>Each term/value pair is wrapped in a <code>&lt;div&gt;</code>. The term appears above the value, separated by a top border on each row.</p>
+    
+    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
+<dl class="data-list" style="max-width: 28rem;">
+  <div>
+    <dt>SKU</dt>
+    <dd>HB-2025-NVY</dd>
+  </div>
+  <div>
+    <dt>Material</dt>
+    <dd>100% organic cotton</dd>
+  </div>
+  <div>
+    <dt>Weight</dt>
+    <dd>280 gsm</dd>
+  </div>
+  <div>
+    <dt>Country of origin</dt>
+    <dd>Portugal</dd>
+  </div>
+</dl>
+    </div>
+
+    <details class="margin-y-s">
+      <summary class="padding-s">Show code</summary>
+      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;dl class=&quot;data-list&quot; style=&quot;max-width: 28rem;&quot;&gt;
+  &lt;div&gt;
+    &lt;dt&gt;SKU&lt;/dt&gt;
+    &lt;dd&gt;HB-2025-NVY&lt;/dd&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;dt&gt;Material&lt;/dt&gt;
+    &lt;dd&gt;100% organic cotton&lt;/dd&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;dt&gt;Weight&lt;/dt&gt;
+    &lt;dd&gt;280 gsm&lt;/dd&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;dt&gt;Country of origin&lt;/dt&gt;
+    &lt;dd&gt;Portugal&lt;/dd&gt;
+  &lt;/div&gt;
+&lt;/dl&gt;</code></pre>
+    </details>
+  </section>
+
+  <section>
+    <h2 class="heading-l">Horizontal layout</h2>
+    <p>Add <code>data-layout="horizontal"</code> to place the term on the left and value on the right — ideal for order summaries. Use the <code>data-list__total</code> class on the final row to apply bold styling and a heavier border.</p>
+    
+    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
+<dl class="data-list" data-layout="horizontal" style="max-width: 28rem;">
+  <div>
+    <dt>Subtotal</dt>
+    <dd>£112.00</dd>
+  </div>
+  <div>
+    <dt>Discount (SAVE10)</dt>
+    <dd>−£11.20</dd>
+  </div>
+  <div>
+    <dt>Shipping</dt>
+    <dd>Free</dd>
+  </div>
+  <div>
+    <dt>VAT (20%)</dt>
+    <dd>£20.16</dd>
+  </div>
+  <div class="data-list__total">
+    <dt>Total</dt>
+    <dd>£120.96</dd>
+  </div>
+</dl>
+    </div>
+
+    <details class="margin-y-s">
+      <summary class="padding-s">Show code</summary>
+      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;dl class=&quot;data-list&quot; data-layout=&quot;horizontal&quot; style=&quot;max-width: 28rem;&quot;&gt;
+  &lt;div&gt;
+    &lt;dt&gt;Subtotal&lt;/dt&gt;
+    &lt;dd&gt;£112.00&lt;/dd&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;dt&gt;Discount (SAVE10)&lt;/dt&gt;
+    &lt;dd&gt;−£11.20&lt;/dd&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;dt&gt;Shipping&lt;/dt&gt;
+    &lt;dd&gt;Free&lt;/dd&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;dt&gt;VAT (20%)&lt;/dt&gt;
+    &lt;dd&gt;£20.16&lt;/dd&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;data-list__total&quot;&gt;
+    &lt;dt&gt;Total&lt;/dt&gt;
+    &lt;dd&gt;£120.96&lt;/dd&gt;
+  &lt;/div&gt;
+&lt;/dl&gt;</code></pre>
+    </details>
+  </section>
+
+  <section>
+    <h2 class="heading-l">Tokens</h2>
+    <table class="">
+      <thead>
+        <tr><th>Token</th><th>Default</th><th>Description</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>--data-list-gap</code></td><td><code>--space-xs</code></td><td>Vertical gap between rows.</td></tr>
+        <tr><td><code>--data-list-border</code></td><td><code>1px solid --color-neutral-100</code></td><td>Divider border between rows.</td></tr>
+        <tr><td><code>--data-list-term-color</code></td><td><code>--color-neutral-500</code></td><td>Text colour for the <code>&lt;dt&gt;</code> term.</td></tr>
+        <tr><td><code>--data-list-term-size</code></td><td><code>--font-size-xs</code></td><td>Font size of the term label.</td></tr>
+        <tr><td><code>--data-list-value-size</code></td><td><code>--font-size-s</code></td><td>Font size of the value.</td></tr>
+        <tr><td><code>--data-list-value-weight</code></td><td><code>--font-weight-normal</code></td><td>Font weight of the value.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+</article>
+{% endblock %}

@@ -1,0 +1,147 @@
+{% layout "layouts/base.liquid" %}
+{% block title %}Card — Cubito UI Docs{% endblock %}
+
+{% block content %}
+<article class="flow">
+
+  <header class="padding-y-m margin-y-m" style="border-block-end: 1px solid var(--color-neutral-200);">
+    <nav aria-label="Breadcrumb" class="breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/components/">Components</a></li>
+        <li aria-current="page">Card</li>
+      </ol>
+    </nav>
+    <h1>Card</h1>
+    <p class="text-l color-neutral-600">A content container with an optional image, heading, and supporting text. The whole card is clickable via the pseudo-content trick, keeping inner links accessible.</p>
+  </header>
+
+  <section>
+    <h2 class="heading-l">Default card</h2>
+    <p>Use an <code>&lt;article&gt;</code> with the <code>card</code> class. The heading link becomes the primary click target for the whole card. Place the image as a direct child before the content <code>&lt;div&gt;</code>.</p>
+    
+    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
+<article class="card" style="max-width: 22rem;">
+  <div style="background: #e0e7ff; aspect-ratio: 3/2;"></div>
+  <div>
+    <h3><a href="#">Introducing the new dashboard</a></h3>
+    <p>A complete redesign of the analytics dashboard, with customisable widgets and real-time data.</p>
+    <p><time datetime="2025-05-15">15 May 2025</time></p>
+  </div>
+</article>
+    </div>
+
+    <details class="margin-y-s">
+      <summary class="padding-s">Show code</summary>
+      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;article class=&quot;card&quot; style=&quot;max-width: 22rem;&quot;&gt;
+  &lt;div style=&quot;background: #e0e7ff; aspect-ratio: 3/2;&quot;&gt;&lt;/div&gt;
+  &lt;div&gt;
+    &lt;h3&gt;&lt;a href=&quot;#&quot;&gt;Introducing the new dashboard&lt;/a&gt;&lt;/h3&gt;
+    &lt;p&gt;A complete redesign of the analytics dashboard, with customisable widgets and real-time data.&lt;/p&gt;
+    &lt;p&gt;&lt;time datetime=&quot;2025-05-15&quot;&gt;15 May 2025&lt;/time&gt;&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/article&gt;</code></pre>
+    </details>
+  </section>
+
+  <section>
+    <h2 class="heading-l">Reversed layout</h2>
+    <p>Add <code>data-layout="reversed"</code> to place the image below the content — useful for featured or promotional cards.</p>
+    
+    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
+<article class="card" data-layout="reversed" style="max-width: 22rem;">
+  <div style="background: #fce7f3; aspect-ratio: 3/2;"></div>
+  <div>
+    <h3><a href="#">Behind the scenes: our design process</a></h3>
+    <p>How we moved from Figma wireframes to a production-ready component library in six weeks.</p>
+    <p><time datetime="2025-04-28">28 Apr 2025</time></p>
+  </div>
+</article>
+    </div>
+
+    <details class="margin-y-s">
+      <summary class="padding-s">Show code</summary>
+      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;article class=&quot;card&quot; data-layout=&quot;reversed&quot; style=&quot;max-width: 22rem;&quot;&gt;
+  &lt;div style=&quot;background: #fce7f3; aspect-ratio: 3/2;&quot;&gt;&lt;/div&gt;
+  &lt;div&gt;
+    &lt;h3&gt;&lt;a href=&quot;#&quot;&gt;Behind the scenes: our design process&lt;/a&gt;&lt;/h3&gt;
+    &lt;p&gt;How we moved from Figma wireframes to a production-ready component library in six weeks.&lt;/p&gt;
+    &lt;p&gt;&lt;time datetime=&quot;2025-04-28&quot;&gt;28 Apr 2025&lt;/time&gt;&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/article&gt;</code></pre>
+    </details>
+  </section>
+
+  <section>
+    <h2 class="heading-l">Horizontal layout</h2>
+    <p>Add <code>data-layout="horizontal"</code> to place the image on the left. The image width defaults to <code>12rem</code> and can be adjusted via <code>--card-image-width</code>.</p>
+    
+    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
+<article class="card" data-layout="horizontal">
+  <div style="background: #d1fae5; width: 12rem; flex-shrink: 0; align-self: stretch;"></div>
+  <div>
+    <h3><a href="#">Accessibility audit results</a></h3>
+    <p>We audited every component against WCAG 2.2 AA. Here's what we found and fixed.</p>
+    <p><time datetime="2025-03-10">10 Mar 2025</time></p>
+  </div>
+</article>
+    </div>
+
+    <details class="margin-y-s">
+      <summary class="padding-s">Show code</summary>
+      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;article class=&quot;card&quot; data-layout=&quot;horizontal&quot;&gt;
+  &lt;div style=&quot;background: #d1fae5; width: 12rem; flex-shrink: 0; align-self: stretch;&quot;&gt;&lt;/div&gt;
+  &lt;div&gt;
+    &lt;h3&gt;&lt;a href=&quot;#&quot;&gt;Accessibility audit results&lt;/a&gt;&lt;/h3&gt;
+    &lt;p&gt;We audited every component against WCAG 2.2 AA. Here&#x27;s what we found and fixed.&lt;/p&gt;
+    &lt;p&gt;&lt;time datetime=&quot;2025-03-10&quot;&gt;10 Mar 2025&lt;/time&gt;&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/article&gt;</code></pre>
+    </details>
+  </section>
+
+  <section>
+    <h2 class="heading-l">Card without image</h2>
+    <p>The image is optional. The content <code>&lt;div&gt;</code> expands to fill the full card height.</p>
+    
+    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
+<article class="card" style="max-width: 22rem;">
+  <div>
+    <h3><a href="#">Release notes: v3.2.0</a></h3>
+    <p>This release includes performance improvements, a new token for focus ring colour, and several bug fixes reported by the community.</p>
+    <p><time datetime="2025-02-01">1 Feb 2025</time></p>
+  </div>
+</article>
+    </div>
+
+    <details class="margin-y-s">
+      <summary class="padding-s">Show code</summary>
+      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;article class=&quot;card&quot; style=&quot;max-width: 22rem;&quot;&gt;
+  &lt;div&gt;
+    &lt;h3&gt;&lt;a href=&quot;#&quot;&gt;Release notes: v3.2.0&lt;/a&gt;&lt;/h3&gt;
+    &lt;p&gt;This release includes performance improvements, a new token for focus ring colour, and several bug fixes reported by the community.&lt;/p&gt;
+    &lt;p&gt;&lt;time datetime=&quot;2025-02-01&quot;&gt;1 Feb 2025&lt;/time&gt;&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/article&gt;</code></pre>
+    </details>
+  </section>
+
+  <section>
+    <h2 class="heading-l">Tokens</h2>
+    <table class="">
+      <thead>
+        <tr><th>Token</th><th>Default</th><th>Description</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>--card-background</code></td><td><code>--color-white</code></td><td>Card surface fill.</td></tr>
+        <tr><td><code>--card-border</code></td><td><code>solid var(--border-m) --color-neutral-200</code></td><td>Full border shorthand.</td></tr>
+        <tr><td><code>--card-radius</code></td><td><code>--border-radius-l</code></td><td>Corner radius, also clips the image.</td></tr>
+        <tr><td><code>--card-padding</code></td><td><code>--space-s</code></td><td>Padding applied to the content <code>&lt;div&gt;</code>.</td></tr>
+        <tr><td><code>--card-image-ratio</code></td><td><code>3 / 2</code></td><td>Aspect ratio of the card image.</td></tr>
+        <tr><td><code>--card-image-width</code></td><td><code>12rem</code></td><td>Fixed image width in horizontal layout.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+</article>
+{% endblock %}

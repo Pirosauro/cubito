@@ -1,0 +1,94 @@
+{% layout "layouts/base.liquid" %}
+{% block title %}Cover — Cubito UI Docs{% endblock %}
+
+{% block content %}
+<article class="flow">
+
+  <header class="padding-y-m margin-y-m" style="border-block-end: 1px solid var(--color-neutral-200);">
+    <nav aria-label="Breadcrumb" class="breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/layouts/">Layouts</a></li>
+        <li aria-current="page">Cover</li>
+      </ol>
+    </nav>
+    <h1>Cover</h1>
+    <p class="text-l color-neutral-600">Vertically centres a principal element within a minimum-height area, with optional header and footer pinned to the top and bottom edges.</p>
+  </header>
+
+  <section>
+    <h2 class="heading-l">Basic</h2>
+    <p>Place a <code>&lt;header&gt;</code>, a main element, and a <code>&lt;footer&gt;</code> inside <code>.cover</code>. The middle element — any direct child that is not a <code>&lt;header&gt;</code> or <code>&lt;footer&gt;</code> — is vertically centred. The demo uses a fixed height so it renders well on the page.</p>
+    
+    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
+<div class="cover" style="--cover-min-height: 28rem; --cover-padding: var(--space-m); border: 1px solid #e2e8f0; border-radius: 0.5rem; overflow: hidden;">
+  <header style="background: #e0e7ff; padding: 0.75rem 1rem; border-radius: 0.25rem; text-align: center; font-size: 0.875rem; font-weight: 600;">
+    Site header — pinned to top
+  </header>
+
+  <main style="background: #6366f1; color: #fff; padding: 2rem; border-radius: 0.25rem; text-align: center;">
+    <h2 style="margin: 0 0 0.5rem; font-size: 1.5rem;">Hero heading</h2>
+    <p style="margin: 0; opacity: 0.85;">This element is vertically centred in the remaining space.</p>
+  </main>
+
+  <footer style="background: #e0e7ff; padding: 0.75rem 1rem; border-radius: 0.25rem; text-align: center; font-size: 0.875rem;">
+    Footer — pinned to bottom
+  </footer>
+</div>
+    </div>
+
+    <details class="margin-y-s">
+      <summary class="padding-s">Show code</summary>
+      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div class=&quot;cover&quot; style=&quot;--cover-min-height: 28rem; --cover-padding: var(--space-m); border: 1px solid #e2e8f0; border-radius: 0.5rem; overflow: hidden;&quot;&gt;
+  &lt;header style=&quot;background: #e0e7ff; padding: 0.75rem 1rem; border-radius: 0.25rem; text-align: center; font-size: 0.875rem; font-weight: 600;&quot;&gt;
+    Site header — pinned to top
+  &lt;/header&gt;
+
+  &lt;main style=&quot;background: #6366f1; color: #fff; padding: 2rem; border-radius: 0.25rem; text-align: center;&quot;&gt;
+    &lt;h2 style=&quot;margin: 0 0 0.5rem; font-size: 1.5rem;&quot;&gt;Hero heading&lt;/h2&gt;
+    &lt;p style=&quot;margin: 0; opacity: 0.85;&quot;&gt;This element is vertically centred in the remaining space.&lt;/p&gt;
+  &lt;/main&gt;
+
+  &lt;footer style=&quot;background: #e0e7ff; padding: 0.75rem 1rem; border-radius: 0.25rem; text-align: center; font-size: 0.875rem;&quot;&gt;
+    Footer — pinned to bottom
+  &lt;/footer&gt;
+&lt;/div&gt;</code></pre>
+    </details>
+
+    <div class="callout" data-variant="brand" role="note">
+      <p>Use <code>data-cover="principal"</code> on any child to explicitly mark it as the centred element, or <code>data-cover="edge"</code> to pin a child to the edge without using <code>&lt;header&gt;</code> / <code>&lt;footer&gt;</code> semantics.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="heading-l">Tokens</h2>
+    <table class="">
+      <thead>
+        <tr>
+          <th>Token</th>
+          <th>Default</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>--cover-min-height</code></td>
+          <td><code>100dvh</code></td>
+          <td>Minimum height of the cover area. Override inline (e.g. <code>600px</code> or <code>80dvh</code>) for partial-page use.</td>
+        </tr>
+        <tr>
+          <td><code>--cover-padding</code></td>
+          <td><code>var(--space-s)</code></td>
+          <td>Inline and block padding applied to the cover container.</td>
+        </tr>
+        <tr>
+          <td><code>--cover-gap</code></td>
+          <td><code>var(--space-s)</code></td>
+          <td>Gap between stacked children (header, principal content, footer).</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+</article>
+{% endblock %}

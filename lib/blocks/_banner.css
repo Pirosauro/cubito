@@ -1,6 +1,6 @@
 /*
 Banner
-──────────────────────────────────────────────────────────────────────────────
+---
 Full-width sitewide announcement. Typically rendered at the very top of the
 page — above the navigation — for cookie notices, promotional messages,
 maintenance warnings, and outage alerts.
@@ -109,7 +109,7 @@ TOKENS
     opacity: 1;
   }
 
-  /* ── Variants ────────────────────────────────────────────────────────────── */
+  /* --- Variants --- */
 
   .banner[data-variant="warning"] {
     --banner-background: color-mix(

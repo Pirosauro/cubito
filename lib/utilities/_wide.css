@@ -1,6 +1,6 @@
 /*
 Wide utility
-──────────────────────────────────────────────────────────────────────────────
+---
 Forces an element to take the full width of its container, overriding any
 inherited max-width (e.g. from a .wrapper ancestor).
 

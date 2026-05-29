@@ -1,6 +1,6 @@
 /*
 Color utilities
-──────────────────────────────────────────────────────────────────────────────
+---
 Convenience classes for applying colour tokens to background, text, and
 border. All tokens are defined in abstracts/_theme.css.
 
@@ -11,7 +11,7 @@ NAMING PATTERN
 */
 
 @layer utilities {
-  /* ── Background ─────────────────────────────────────────────────────────── */
+  /* --- Background --- */
 
   .background-white {
     background-color: var(--color-white);
@@ -71,7 +71,7 @@ NAMING PATTERN
     background-color: var(--color-neutral-950);
   }
 
-  /* ── Text color ─────────────────────────────────────────────────────────── */
+  /* --- Text color --- */
 
   .color-white {
     color: var(--color-white);
@@ -131,7 +131,7 @@ NAMING PATTERN
     color: var(--color-neutral-950);
   }
 
-  /* ── Border color — pair with .border, .border-s, or .border-l ──────────── */
+  /* --- Border color — pair with .border, .border-s, or .border-l --- */
 
   .border-white {
     border-color: var(--color-white);

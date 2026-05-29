@@ -1,0 +1,162 @@
+{% layout "layouts/base.liquid" %}
+{% block title %}Badge — Cubito UI Docs{% endblock %}
+
+{% block content %}
+<article class="flow">
+
+  <header class="padding-y-m margin-y-m" style="border-block-end: 1px solid var(--color-neutral-200);">
+    <nav aria-label="Breadcrumb" class="breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/components/">Components</a></li>
+        <li aria-current="page">Badge</li>
+      </ol>
+    </nav>
+    <h1>Badge</h1>
+    <p class="text-l color-neutral-600">A compact pill used for status indicators, counts, and categorical labels. Pairs naturally with avatars, nav items, and headings.</p>
+  </header>
+
+  <section>
+    <h2 class="heading-l">Basic badge</h2>
+    <p>An inline <code>&lt;span&gt;</code> with the <code>badge</code> class. No <code>data-variant</code> gives a neutral grey pill.</p>
+
+    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
+      <span class="badge">New</span>
+    </div>
+
+    <details class="margin-y-s">
+      <summary class="padding-s">Show code</summary>
+      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;span class="badge"&gt;New&lt;/span&gt;</code></pre>
+    </details>
+  </section>
+
+  <section>
+    <h2 class="heading-l">Variants</h2>
+    <p>Use <code>data-variant</code> to communicate meaning through colour.</p>
+
+    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
+      <div class="cluster">
+        <span class="badge">Neutral</span>
+        <span class="badge" data-variant="brand">Brand</span>
+        <span class="badge" data-variant="success">Active</span>
+        <span class="badge" data-variant="warning">Pending</span>
+        <span class="badge" data-variant="error">Rejected</span>
+        <span class="badge" data-variant="info">Beta</span>
+      </div>
+    </div>
+
+    <details class="margin-y-s">
+      <summary class="padding-s">Show code</summary>
+      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div class="cluster"&gt;
+  &lt;span class="badge"&gt;Neutral&lt;/span&gt;
+  &lt;span class="badge" data-variant="brand"&gt;Brand&lt;/span&gt;
+  &lt;span class="badge" data-variant="success"&gt;Active&lt;/span&gt;
+  &lt;span class="badge" data-variant="warning"&gt;Pending&lt;/span&gt;
+  &lt;span class="badge" data-variant="error"&gt;Rejected&lt;/span&gt;
+  &lt;span class="badge" data-variant="info"&gt;Beta&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+    </details>
+  </section>
+
+  <section>
+    <h2 class="heading-l">Dot layout</h2>
+    <p>Add <code>data-layout="dot"</code> to render a circular indicator with no text. Always provide an <code>aria-label</code> so the meaning is accessible.</p>
+
+    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
+      <div class="cluster" style="align-items: center;">
+        <span class="badge" data-variant="success" data-layout="dot" aria-label="Online"></span>
+        <span class="badge" data-variant="warning" data-layout="dot" aria-label="Degraded"></span>
+        <span class="badge" data-variant="error" data-layout="dot" aria-label="Offline"></span>
+        <span class="badge" data-layout="dot" aria-label="Unknown"></span>
+      </div>
+    </div>
+
+    <details class="margin-y-s">
+      <summary class="padding-s">Show code</summary>
+      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div class="cluster" style="align-items: center;"&gt;
+  &lt;span class="badge" data-variant="success" data-layout="dot" aria-label="Online"&gt;&lt;/span&gt;
+  &lt;span class="badge" data-variant="warning" data-layout="dot" aria-label="Degraded"&gt;&lt;/span&gt;
+  &lt;span class="badge" data-variant="error" data-layout="dot" aria-label="Offline"&gt;&lt;/span&gt;
+  &lt;span class="badge" data-layout="dot" aria-label="Unknown"&gt;&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+    </details>
+  </section>
+
+  <section>
+    <h2 class="heading-l">In context — nav item with count</h2>
+    <p>Pair a badge with <code>.with-icon</code> to attach a count to a navigation label. Use <code>aria-label</code> on the badge to provide the full accessible description.</p>
+
+    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
+      <nav>
+        <ul style="list-style: none; padding: 0; display: flex; gap: var(--space-s);">
+          <li>
+            <a href="#" class="with-icon">
+              Inbox
+              <span class="badge" data-variant="brand" aria-label="12 unread messages">12</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="with-icon">
+              Alerts
+              <span class="badge" data-variant="error" aria-label="3 alerts">3</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="with-icon">
+              Updates
+              <span class="badge" data-variant="info" aria-label="Beta feature">Beta</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <details class="margin-y-s">
+      <summary class="padding-s">Show code</summary>
+      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;nav&gt;
+  &lt;ul style="list-style: none; padding: 0; display: flex; gap: var(--space-s);"&gt;
+    &lt;li&gt;
+      &lt;a href="#" class="with-icon"&gt;
+        Inbox
+        &lt;span class="badge" data-variant="brand" aria-label="12 unread messages"&gt;12&lt;/span&gt;
+      &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href="#" class="with-icon"&gt;
+        Alerts
+        &lt;span class="badge" data-variant="error" aria-label="3 alerts"&gt;3&lt;/span&gt;
+      &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href="#" class="with-icon"&gt;
+        Updates
+        &lt;span class="badge" data-variant="info" aria-label="Beta feature"&gt;Beta&lt;/span&gt;
+      &lt;/a&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;</code></pre>
+    </details>
+  </section>
+
+  <section>
+    <h2 class="heading-l">Tokens</h2>
+    <div class="wrapper">
+      <table>
+        <thead>
+          <tr><th>Token</th><th>Default</th><th>Description</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>--badge-background</code></td><td><code>--color-neutral-200</code></td><td>Pill background fill.</td></tr>
+          <tr><td><code>--badge-color</code></td><td><code>--color-neutral-800</code></td><td>Text colour.</td></tr>
+          <tr><td><code>--badge-border</code></td><td><code>none</code></td><td>Full border shorthand.</td></tr>
+          <tr><td><code>--badge-radius</code></td><td><code>9999px</code></td><td>Corner radius — pill shape by default.</td></tr>
+          <tr><td><code>--badge-padding</code></td><td><code>0.2em 0.55em</code></td><td>Inner spacing.</td></tr>
+          <tr><td><code>--badge-font-size</code></td><td><code>--font-size-xxs</code></td><td>Text size.</td></tr>
+          <tr><td><code>--badge-dot-size</code></td><td><code>0.625rem</code></td><td>Diameter when using <code>data-layout="dot"</code>.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+</article>
+{% endblock %}

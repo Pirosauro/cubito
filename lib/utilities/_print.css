@@ -1,6 +1,6 @@
 /*
 Print
-──────────────────────────────────────────────────────────────────────────────
+---
 Utility classes and base overrides for print media.
 Import this file last (or after all other utilities) to ensure print styles
 take precedence.
@@ -13,7 +13,7 @@ USAGE
 */
 
 @layer utilities {
-  /* ── Screen: hide print-only elements ───────────────────────────────────── */
+  /* --- Screen: hide print-only elements --- */
 
   @media screen {
     .print-only {
@@ -21,7 +21,7 @@ USAGE
     }
   }
 
-  /* ── Print ───────────────────────────────────────────────────────────────── */
+  /* --- Print --- */
 
   @media print {
     /* Page setup */

@@ -1,6 +1,6 @@
 /*
 Tag / Chip
-──────────────────────────────────────────────────────────────────────────────
+---
 Compact label for taxonomy, filters, and attribute display.
 A static tag is purely presentational. A chip is interactive — it can be
 selected (toggle) or dismissed (remove).
@@ -135,7 +135,7 @@ TOKENS
     opacity: 1;
   }
 
-  /* ── Tag group — wrapping cluster of tags ────────────────────────────────── */
+  /* --- Tag group — wrapping cluster of tags --- */
 
   .tag-group {
     display: flex;
@@ -146,7 +146,7 @@ TOKENS
     padding: 0;
   }
 
-  /* ── Dark mode ───────────────────────────────────────────────────────────── */
+  /* --- Dark mode --- */
 
   @media (prefers-color-scheme: dark) {
     .tag {

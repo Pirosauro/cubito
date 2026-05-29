@@ -1,0 +1,390 @@
+{% layout "layouts/base.liquid" %}
+{% block title %}Spacing — Cubito UI Docs{% endblock %}
+
+{% block content %}
+<article class="flow">
+
+  <header class="padding-y-m margin-y-m" style="border-block-end: 1px solid var(--color-neutral-200);">
+    <nav aria-label="Breadcrumb" class="breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/tokens/spacing/">Tokens</a></li>
+        <li aria-current="page">Spacing</li>
+      </ol>
+    </nav>
+    <h1>Spacing</h1>
+    <p class="text-l color-neutral-600">A fluid spacing scale built with Utopia <code>clamp()</code> values that interpolate smoothly between a 320 px minimum and 1240 px maximum viewport — no discrete breakpoints needed.</p>
+  </header>
+
+  <section>
+    <h2 class="heading-l">Spacing scale</h2>
+    <p>Nine named steps from <code>--space-tiny</code> to <code>--space-huge</code>. Each bar below is sized using the actual token so you can see how the values relate to each other at your current viewport width.</p>
+
+    
+    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
+<div style="display: flex; flex-direction: column; gap: 0.75rem; padding: 1rem 0;">
+  <div class="cluster gap">
+    <div style="width: var(--space-tiny); height: 1rem; background: var(--color-brand, #0057d9); border-radius: 0.125rem; min-width: 2px;"></div>
+    <div class="flow" style="--flow-space: var(--space-xs);">
+      <span ><code>--space-tiny</code></span>
+      <span class="text-s color-neutral-600">clamp(0.25rem, calc(0.23rem + 0.11vw), 0.31rem)</span>
+    </div>
+  </div>
+  <div class="cluster gap">
+    <div style="width: var(--space-xxs); height: 1rem; background: var(--color-brand, #0057d9); border-radius: 0.125rem;"></div>
+    <div class="flow" style="--flow-space: var(--space-xs);">
+      <span ><code>--space-xxs</code></span>
+      <span class="text-s color-neutral-600">clamp(0.5rem, calc(0.46rem + 0.22vw), 0.63rem)</span>
+    </div>
+  </div>
+  <div class="cluster gap">
+    <div style="width: var(--space-xs); height: 1rem; background: var(--color-brand, #0057d9); border-radius: 0.125rem;"></div>
+    <div class="flow" style="--flow-space: var(--space-xs);">
+      <span ><code>--space-xs</code></span>
+      <span class="text-s color-neutral-600">clamp(0.75rem, calc(0.68rem + 0.33vw), 0.94rem)</span>
+    </div>
+  </div>
+  <div class="cluster gap">
+    <div style="width: var(--space-s); height: 1rem; background: var(--color-brand, #0057d9); border-radius: 0.125rem;"></div>
+    <div class="flow" style="--flow-space: var(--space-xs);">
+      <span ><code>--space-s</code></span>
+      <span class="text-s color-neutral-600">clamp(1rem, calc(0.91rem + 0.43vw), 1.25rem)</span>
+    </div>
+  </div>
+  <div class="cluster gap">
+    <div style="width: var(--space-m); height: 1rem; background: var(--color-brand, #0057d9); border-radius: 0.125rem;"></div>
+    <div class="flow" style="--flow-space: var(--space-xs);">
+      <span ><code>--space-m</code></span>
+      <span class="text-s color-neutral-600">clamp(1.5rem, calc(1.37rem + 0.65vw), 1.88rem)</span>
+    </div>
+  </div>
+  <div class="cluster gap">
+    <div style="width: var(--space-l); height: 1rem; background: var(--color-brand, #0057d9); border-radius: 0.125rem;"></div>
+    <div class="flow" style="--flow-space: var(--space-xs);">
+      <span ><code>--space-l</code></span>
+      <span class="text-s color-neutral-600">clamp(2rem, calc(1.83rem + 0.87vw), 2.5rem)</span>
+    </div>
+  </div>
+  <div class="cluster gap">
+    <div style="width: var(--space-xl); height: 1rem; background: var(--color-brand, #0057d9); border-radius: 0.125rem;"></div>
+    <div class="flow" style="--flow-space: var(--space-xs);">
+      <span ><code>--space-xl</code></span>
+      <span class="text-s color-neutral-600">clamp(3rem, calc(2.74rem + 1.3vw), 3.75rem)</span>
+    </div>
+  </div>
+  <div class="cluster gap">
+    <div style="width: var(--space-xxl); height: 1rem; background: var(--color-brand, #0057d9); border-radius: 0.125rem;"></div>
+    <div class="flow" style="--flow-space: var(--space-xs);">
+      <span ><code>--space-xxl</code></span>
+      <span class="text-s color-neutral-600">clamp(4rem, calc(3.65rem + 1.74vw), 5rem)</span>
+    </div>
+  </div>
+  <div class="cluster gap">
+    <div style="width: var(--space-huge); height: 1rem; background: var(--color-brand, #0057d9); border-radius: 0.125rem;"></div>
+    <div class="flow" style="--flow-space: var(--space-xs);">
+      <span ><code>--space-huge</code></span>
+      <span class="text-s color-neutral-600">clamp(6rem, calc(5.48rem + 2.61vw), 7.5rem)</span>
+    </div>
+  </div>
+</div>
+    </div>
+
+    <details class="margin-y-s">
+      <summary class="padding-s">Show code</summary>
+      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div style=&quot;display: flex; flex-direction: column; gap: 0.75rem; padding: 1rem 0;&quot;&gt;
+  &lt;div class=&quot;cluster gap-s&quot;&gt;
+    &lt;div style=&quot;flex-shrink: 0;&quot; style=&quot;width: var(--space-tiny); height: 1rem; background: var(--color-brand, #0057d9); border-radius: 0.125rem; min-width: 2px;&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;flow&quot; style=&quot;--flow-space: var(--space-xs);&quot;&gt;
+      &lt;span &gt;&lt;code&gt;--space-tiny&lt;/code&gt;&lt;/span&gt;
+      &lt;span class=&quot;text-s color-neutral-600&quot;&gt;clamp(0.25rem, calc(0.23rem + 0.11vw), 0.31rem)&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;cluster gap-s&quot;&gt;
+    &lt;div style=&quot;flex-shrink: 0;&quot; style=&quot;width: var(--space-xxs); height: 1rem; background: var(--color-brand, #0057d9); border-radius: 0.125rem;&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;flow&quot; style=&quot;--flow-space: var(--space-xs);&quot;&gt;
+      &lt;span &gt;&lt;code&gt;--space-xxs&lt;/code&gt;&lt;/span&gt;
+      &lt;span class=&quot;text-s color-neutral-600&quot;&gt;clamp(0.5rem, calc(0.46rem + 0.22vw), 0.63rem)&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;cluster gap-s&quot;&gt;
+    &lt;div style=&quot;flex-shrink: 0;&quot; style=&quot;width: var(--space-xs); height: 1rem; background: var(--color-brand, #0057d9); border-radius: 0.125rem;&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;flow&quot; style=&quot;--flow-space: var(--space-xs);&quot;&gt;
+      &lt;span &gt;&lt;code&gt;--space-xs&lt;/code&gt;&lt;/span&gt;
+      &lt;span class=&quot;text-s color-neutral-600&quot;&gt;clamp(0.75rem, calc(0.68rem + 0.33vw), 0.94rem)&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;cluster gap-s&quot;&gt;
+    &lt;div style=&quot;flex-shrink: 0;&quot; style=&quot;width: var(--space-s); height: 1rem; background: var(--color-brand, #0057d9); border-radius: 0.125rem;&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;flow&quot; style=&quot;--flow-space: var(--space-xs);&quot;&gt;
+      &lt;span &gt;&lt;code&gt;--space-s&lt;/code&gt;&lt;/span&gt;
+      &lt;span class=&quot;text-s color-neutral-600&quot;&gt;clamp(1rem, calc(0.91rem + 0.43vw), 1.25rem)&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;cluster gap-s&quot;&gt;
+    &lt;div style=&quot;flex-shrink: 0;&quot; style=&quot;width: var(--space-m); height: 1rem; background: var(--color-brand, #0057d9); border-radius: 0.125rem;&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;flow&quot; style=&quot;--flow-space: var(--space-xs);&quot;&gt;
+      &lt;span &gt;&lt;code&gt;--space-m&lt;/code&gt;&lt;/span&gt;
+      &lt;span class=&quot;text-s color-neutral-600&quot;&gt;clamp(1.5rem, calc(1.37rem + 0.65vw), 1.88rem)&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;cluster gap-s&quot;&gt;
+    &lt;div style=&quot;flex-shrink: 0;&quot; style=&quot;width: var(--space-l); height: 1rem; background: var(--color-brand, #0057d9); border-radius: 0.125rem;&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;flow&quot; style=&quot;--flow-space: var(--space-xs);&quot;&gt;
+      &lt;span &gt;&lt;code&gt;--space-l&lt;/code&gt;&lt;/span&gt;
+      &lt;span class=&quot;text-s color-neutral-600&quot;&gt;clamp(2rem, calc(1.83rem + 0.87vw), 2.5rem)&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;cluster gap-s&quot;&gt;
+    &lt;div style=&quot;flex-shrink: 0;&quot; style=&quot;width: var(--space-xl); height: 1rem; background: var(--color-brand, #0057d9); border-radius: 0.125rem;&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;flow&quot; style=&quot;--flow-space: var(--space-xs);&quot;&gt;
+      &lt;span &gt;&lt;code&gt;--space-xl&lt;/code&gt;&lt;/span&gt;
+      &lt;span class=&quot;text-s color-neutral-600&quot;&gt;clamp(3rem, calc(2.74rem + 1.3vw), 3.75rem)&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;cluster gap-s&quot;&gt;
+    &lt;div style=&quot;flex-shrink: 0;&quot; style=&quot;width: var(--space-xxl); height: 1rem; background: var(--color-brand, #0057d9); border-radius: 0.125rem;&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;flow&quot; style=&quot;--flow-space: var(--space-xs);&quot;&gt;
+      &lt;span &gt;&lt;code&gt;--space-xxl&lt;/code&gt;&lt;/span&gt;
+      &lt;span class=&quot;text-s color-neutral-600&quot;&gt;clamp(4rem, calc(3.65rem + 1.74vw), 5rem)&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;cluster gap-s&quot;&gt;
+    &lt;div style=&quot;flex-shrink: 0;&quot; style=&quot;width: var(--space-huge); height: 1rem; background: var(--color-brand, #0057d9); border-radius: 0.125rem;&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;flow&quot; style=&quot;--flow-space: var(--space-xs);&quot;&gt;
+      &lt;span &gt;&lt;code&gt;--space-huge&lt;/code&gt;&lt;/span&gt;
+      &lt;span class=&quot;text-s color-neutral-600&quot;&gt;clamp(6rem, calc(5.48rem + 2.61vw), 7.5rem)&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </details>
+  </section>
+
+  <section>
+    <h2 class="heading-l">One-up pairs</h2>
+    <p>Paired tokens that span two adjacent scale steps. They interpolate across a wider range than single-step tokens, making them ideal for gutters, section padding, and anywhere a larger responsive jump is helpful.</p>
+
+    
+    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
+<div style="display: flex; flex-direction: column; gap: 0.75rem; padding: 1rem 0;">
+  <div class="cluster gap">
+    <div style="width: var(--space-tiny-xxs); height: 1rem; background: var(--color-status-info, #26e); border-radius: 0.125rem; min-width: 2px;"></div>
+    <div class="flow" style="--flow-space: var(--space-xs);">
+      <span ><code>--space-tiny-xxs</code></span>
+      <span class="text-s color-neutral-600">clamp(0.25rem, calc(0.12rem + 0.65vw), 0.63rem)</span>
+    </div>
+  </div>
+  <div class="cluster gap">
+    <div style="width: var(--space-xxs-xs); height: 1rem; background: var(--color-status-info, #26e); border-radius: 0.125rem;"></div>
+    <div class="flow" style="--flow-space: var(--space-xs);">
+      <span ><code>--space-xxs-xs</code></span>
+      <span class="text-s color-neutral-600">clamp(0.5rem, calc(0.35rem + 0.76vw), 0.94rem)</span>
+    </div>
+  </div>
+  <div class="cluster gap">
+    <div style="width: var(--space-xs-s); height: 1rem; background: var(--color-status-info, #26e); border-radius: 0.125rem;"></div>
+    <div class="flow" style="--flow-space: var(--space-xs);">
+      <span ><code>--space-xs-s</code></span>
+      <span class="text-s color-neutral-600">clamp(0.75rem, calc(0.58rem + 0.87vw), 1.25rem)</span>
+    </div>
+  </div>
+  <div class="cluster gap">
+    <div style="width: var(--space-s-m); height: 1rem; background: var(--color-status-info, #26e); border-radius: 0.125rem;"></div>
+    <div class="flow" style="--flow-space: var(--space-xs);">
+      <span ><code>--space-s-m</code></span>
+      <span class="text-s color-neutral-600">clamp(1rem, calc(0.7rem + 1.52vw), 1.88rem)</span>
+    </div>
+  </div>
+  <div class="cluster gap">
+    <div style="width: var(--space-m-l); height: 1rem; background: var(--color-status-info, #26e); border-radius: 0.125rem;"></div>
+    <div class="flow" style="--flow-space: var(--space-xs);">
+      <span ><code>--space-m-l</code></span>
+      <span class="text-s color-neutral-600">clamp(1.5rem, calc(1.15rem + 1.74vw), 2.5rem)</span>
+    </div>
+  </div>
+  <div class="cluster gap">
+    <div style="width: var(--space-l-xl); height: 1rem; background: var(--color-status-info, #26e); border-radius: 0.125rem;"></div>
+    <div class="flow" style="--flow-space: var(--space-xs);">
+      <span ><code>--space-l-xl</code></span>
+      <span class="text-s color-neutral-600">clamp(2rem, calc(1.39rem + 3.04vw), 3.75rem)</span>
+    </div>
+  </div>
+  <div class="cluster gap">
+    <div style="width: var(--space-xl-xxl); height: 1rem; background: var(--color-status-info, #26e); border-radius: 0.125rem;"></div>
+    <div class="flow" style="--flow-space: var(--space-xs);">
+      <span ><code>--space-xl-xxl</code></span>
+      <span class="text-s color-neutral-600">clamp(3rem, calc(2.3rem + 3.48vw), 5rem)</span>
+    </div>
+  </div>
+  <div class="cluster gap">
+    <div style="width: var(--space-xxl-huge); height: 1rem; background: var(--color-status-info, #26e); border-radius: 0.125rem;"></div>
+    <div class="flow" style="--flow-space: var(--space-xs);">
+      <span ><code>--space-xxl-huge</code></span>
+      <span class="text-s color-neutral-600">clamp(4rem, calc(2.78rem + 6.09vw), 7.5rem)</span>
+    </div>
+  </div>
+</div>
+    </div>
+
+    <details class="margin-y-s">
+      <summary class="padding-s">Show code</summary>
+      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div style=&quot;display: flex; flex-direction: column; gap: 0.75rem; padding: 1rem 0;&quot;&gt;
+  &lt;div class=&quot;cluster gap-s&quot;&gt;
+    &lt;div style=&quot;flex-shrink: 0;&quot; style=&quot;width: var(--space-tiny-xxs); height: 1rem; background: var(--color-status-info, #26e); border-radius: 0.125rem; min-width: 2px;&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;flow&quot; style=&quot;--flow-space: var(--space-xs);&quot;&gt;
+      &lt;span &gt;&lt;code&gt;--space-tiny-xxs&lt;/code&gt;&lt;/span&gt;
+      &lt;span class=&quot;text-s color-neutral-600&quot;&gt;clamp(0.25rem, calc(0.12rem + 0.65vw), 0.63rem)&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;cluster gap-s&quot;&gt;
+    &lt;div style=&quot;flex-shrink: 0;&quot; style=&quot;width: var(--space-xxs-xs); height: 1rem; background: var(--color-status-info, #26e); border-radius: 0.125rem;&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;flow&quot; style=&quot;--flow-space: var(--space-xs);&quot;&gt;
+      &lt;span &gt;&lt;code&gt;--space-xxs-xs&lt;/code&gt;&lt;/span&gt;
+      &lt;span class=&quot;text-s color-neutral-600&quot;&gt;clamp(0.5rem, calc(0.35rem + 0.76vw), 0.94rem)&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;cluster gap-s&quot;&gt;
+    &lt;div style=&quot;flex-shrink: 0;&quot; style=&quot;width: var(--space-xs-s); height: 1rem; background: var(--color-status-info, #26e); border-radius: 0.125rem;&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;flow&quot; style=&quot;--flow-space: var(--space-xs);&quot;&gt;
+      &lt;span &gt;&lt;code&gt;--space-xs-s&lt;/code&gt;&lt;/span&gt;
+      &lt;span class=&quot;text-s color-neutral-600&quot;&gt;clamp(0.75rem, calc(0.58rem + 0.87vw), 1.25rem)&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;cluster gap-s&quot;&gt;
+    &lt;div style=&quot;flex-shrink: 0;&quot; style=&quot;width: var(--space-s-m); height: 1rem; background: var(--color-status-info, #26e); border-radius: 0.125rem;&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;flow&quot; style=&quot;--flow-space: var(--space-xs);&quot;&gt;
+      &lt;span &gt;&lt;code&gt;--space-s-m&lt;/code&gt;&lt;/span&gt;
+      &lt;span class=&quot;text-s color-neutral-600&quot;&gt;clamp(1rem, calc(0.7rem + 1.52vw), 1.88rem)&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;cluster gap-s&quot;&gt;
+    &lt;div style=&quot;flex-shrink: 0;&quot; style=&quot;width: var(--space-m-l); height: 1rem; background: var(--color-status-info, #26e); border-radius: 0.125rem;&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;flow&quot; style=&quot;--flow-space: var(--space-xs);&quot;&gt;
+      &lt;span &gt;&lt;code&gt;--space-m-l&lt;/code&gt;&lt;/span&gt;
+      &lt;span class=&quot;text-s color-neutral-600&quot;&gt;clamp(1.5rem, calc(1.15rem + 1.74vw), 2.5rem)&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;cluster gap-s&quot;&gt;
+    &lt;div style=&quot;flex-shrink: 0;&quot; style=&quot;width: var(--space-l-xl); height: 1rem; background: var(--color-status-info, #26e); border-radius: 0.125rem;&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;flow&quot; style=&quot;--flow-space: var(--space-xs);&quot;&gt;
+      &lt;span &gt;&lt;code&gt;--space-l-xl&lt;/code&gt;&lt;/span&gt;
+      &lt;span class=&quot;text-s color-neutral-600&quot;&gt;clamp(2rem, calc(1.39rem + 3.04vw), 3.75rem)&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;cluster gap-s&quot;&gt;
+    &lt;div style=&quot;flex-shrink: 0;&quot; style=&quot;width: var(--space-xl-xxl); height: 1rem; background: var(--color-status-info, #26e); border-radius: 0.125rem;&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;flow&quot; style=&quot;--flow-space: var(--space-xs);&quot;&gt;
+      &lt;span &gt;&lt;code&gt;--space-xl-xxl&lt;/code&gt;&lt;/span&gt;
+      &lt;span class=&quot;text-s color-neutral-600&quot;&gt;clamp(3rem, calc(2.3rem + 3.48vw), 5rem)&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;cluster gap-s&quot;&gt;
+    &lt;div style=&quot;flex-shrink: 0;&quot; style=&quot;width: var(--space-xxl-huge); height: 1rem; background: var(--color-status-info, #26e); border-radius: 0.125rem;&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;flow&quot; style=&quot;--flow-space: var(--space-xs);&quot;&gt;
+      &lt;span &gt;&lt;code&gt;--space-xxl-huge&lt;/code&gt;&lt;/span&gt;
+      &lt;span class=&quot;text-s color-neutral-600&quot;&gt;clamp(4rem, calc(2.78rem + 6.09vw), 7.5rem)&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </details>
+  </section>
+
+  <section>
+    <h2 class="heading-l">Custom pairs and gutter</h2>
+    <p><code>--space-s-l</code> is a custom pair skipping two steps, useful for larger layout jumps. <code>--gutter</code> is a special fluid token used as the default gap in all composition primitives — override it at the composition level to adjust spacing without touching the scale.</p>
+
+    
+    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
+<div style="display: flex; flex-direction: column; gap: 0.75rem; padding: 1rem 0;">
+  <div class="cluster gap">
+    <div style="width: var(--gutter); height: 1rem; background: var(--color-status-ok, #1a4); border-radius: 0.125rem;"></div>
+    <div class="flow" style="--flow-space: var(--space-xs);">
+      <span ><code>--gutter</code></span>
+      <span class="text-s color-neutral-600">clamp(1rem, calc(0.7rem + 1.52vw), 1.88rem)</span>
+    </div>
+  </div>
+  <div class="cluster gap">
+    <div style="width: var(--space-s-l); height: 1rem; background: var(--color-status-ok, #1a4); border-radius: 0.125rem;"></div>
+    <div class="flow" style="--flow-space: var(--space-xs);">
+      <span ><code>--space-s-l</code></span>
+      <span class="text-s color-neutral-600">clamp(1rem, calc(0.48rem + 2.61vw), 2.5rem)</span>
+    </div>
+  </div>
+</div>
+    </div>
+
+    <details class="margin-y-s">
+      <summary class="padding-s">Show code</summary>
+      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div style=&quot;display: flex; flex-direction: column; gap: 0.75rem; padding: 1rem 0;&quot;&gt;
+  &lt;div class=&quot;cluster gap-s&quot;&gt;
+    &lt;div style=&quot;flex-shrink: 0;&quot; style=&quot;width: var(--gutter); height: 1rem; background: var(--color-status-ok, #1a4); border-radius: 0.125rem;&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;flow&quot; style=&quot;--flow-space: var(--space-xs);&quot;&gt;
+      &lt;span &gt;&lt;code&gt;--gutter&lt;/code&gt;&lt;/span&gt;
+      &lt;span class=&quot;text-s color-neutral-600&quot;&gt;clamp(1rem, calc(0.7rem + 1.52vw), 1.88rem)&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;cluster gap-s&quot;&gt;
+    &lt;div style=&quot;flex-shrink: 0;&quot; style=&quot;width: var(--space-s-l); height: 1rem; background: var(--color-status-ok, #1a4); border-radius: 0.125rem;&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;flow&quot; style=&quot;--flow-space: var(--space-xs);&quot;&gt;
+      &lt;span &gt;&lt;code&gt;--space-s-l&lt;/code&gt;&lt;/span&gt;
+      &lt;span class=&quot;text-s color-neutral-600&quot;&gt;clamp(1rem, calc(0.48rem + 2.61vw), 2.5rem)&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </details>
+
+    <h3>Using <code>--gutter</code> in compositions</h3>
+    <p>Every layout composition uses <code>--gutter</code> as its default gap. Override it locally to adjust spacing for a specific section without affecting the global scale:</p>
+    <pre><code>&lt;!-- Default gutter --&gt;
+&lt;div class="cluster"&gt;
+  &lt;a href="/home/"&gt;Home&lt;/a&gt;
+  &lt;a href="/products/"&gt;Products&lt;/a&gt;
+&lt;/div&gt;
+
+&lt;!-- Tight gutter for a compact toolbar --&gt;
+&lt;div class="cluster" style="--gutter: var(--space-xs)"&gt;
+  &lt;button&gt;Bold&lt;/button&gt;
+  &lt;button&gt;Italic&lt;/button&gt;
+  &lt;button&gt;Underline&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+  </section>
+
+  <section>
+    <h2 class="heading-l">Legacy unit <code>--su</code></h2>
+    <p><code>--su</code> is a BBC GEL-derived spacing unit equal to <code>0.5rem</code> (~8px). It was used in the original utility classes (<code>.padding-*</code>, <code>.margin-*</code>) and is retained for backward compatibility. New component work should use the <code>--space-*</code> token scale instead.</p>
+    <div class="callout" data-variant="brand" role="note"><p><code>--su</code> is appropriate when hard 8 px-grid alignment is required — for example, icon gutters or toolbar gaps that must align to a pixel grid. In all other cases prefer the fluid <code>--space-*</code> scale.</p></div>
+  </section>
+
+  <section>
+    <h2 class="heading-l">Token table</h2>
+
+    <table class="">
+      <thead>
+        <tr><th>Token</th><th>Default (clamp)</th><th>Description</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>--su</code></td><td><code>0.5rem</code></td><td>Legacy BBC GEL 8 px unit — kept for compat</td></tr>
+        <tr><td><code>--gutter</code></td><td><code>clamp(1rem, calc(0.7rem + 1.52vw), 1.88rem)</code></td><td>Default gap for all composition primitives</td></tr>
+        <tr><td><code>--space-tiny</code></td><td><code>clamp(0.25rem, calc(0.23rem + 0.11vw), 0.31rem)</code></td><td>~4 px — icon nudges, hairline gaps</td></tr>
+        <tr><td><code>--space-xxs</code></td><td><code>clamp(0.5rem, calc(0.46rem + 0.22vw), 0.63rem)</code></td><td>~8 px — tight component padding</td></tr>
+        <tr><td><code>--space-xs</code></td><td><code>clamp(0.75rem, calc(0.68rem + 0.33vw), 0.94rem)</code></td><td>~12 px — button padding, small gaps</td></tr>
+        <tr><td><code>--space-s</code></td><td><code>clamp(1rem, calc(0.91rem + 0.43vw), 1.25rem)</code></td><td>~16 px — standard component padding</td></tr>
+        <tr><td><code>--space-m</code></td><td><code>clamp(1.5rem, calc(1.37rem + 0.65vw), 1.88rem)</code></td><td>~24 px — card padding, list gaps</td></tr>
+        <tr><td><code>--space-l</code></td><td><code>clamp(2rem, calc(1.83rem + 0.87vw), 2.5rem)</code></td><td>~32 px — section internal spacing</td></tr>
+        <tr><td><code>--space-xl</code></td><td><code>clamp(3rem, calc(2.74rem + 1.3vw), 3.75rem)</code></td><td>~48 px — between-section gaps</td></tr>
+        <tr><td><code>--space-xxl</code></td><td><code>clamp(4rem, calc(3.65rem + 1.74vw), 5rem)</code></td><td>~64 px — page-level regions</td></tr>
+        <tr><td><code>--space-huge</code></td><td><code>clamp(6rem, calc(5.48rem + 2.61vw), 7.5rem)</code></td><td>~96 px — hero sections, large blocks</td></tr>
+        <tr><td><code>--space-tiny-xxs</code></td><td><code>clamp(0.25rem, calc(0.12rem + 0.65vw), 0.63rem)</code></td><td>One-up pair: tiny → xxs</td></tr>
+        <tr><td><code>--space-xxs-xs</code></td><td><code>clamp(0.5rem, calc(0.35rem + 0.76vw), 0.94rem)</code></td><td>One-up pair: xxs → xs</td></tr>
+        <tr><td><code>--space-xs-s</code></td><td><code>clamp(0.75rem, calc(0.58rem + 0.87vw), 1.25rem)</code></td><td>One-up pair: xs → s</td></tr>
+        <tr><td><code>--space-s-m</code></td><td><code>clamp(1rem, calc(0.7rem + 1.52vw), 1.88rem)</code></td><td>One-up pair: s → m</td></tr>
+        <tr><td><code>--space-m-l</code></td><td><code>clamp(1.5rem, calc(1.15rem + 1.74vw), 2.5rem)</code></td><td>One-up pair: m → l</td></tr>
+        <tr><td><code>--space-l-xl</code></td><td><code>clamp(2rem, calc(1.39rem + 3.04vw), 3.75rem)</code></td><td>One-up pair: l → xl</td></tr>
+        <tr><td><code>--space-xl-xxl</code></td><td><code>clamp(3rem, calc(2.3rem + 3.48vw), 5rem)</code></td><td>One-up pair: xl → xxl</td></tr>
+        <tr><td><code>--space-xxl-huge</code></td><td><code>clamp(4rem, calc(2.78rem + 6.09vw), 7.5rem)</code></td><td>One-up pair: xxl → huge</td></tr>
+        <tr><td><code>--space-s-l</code></td><td><code>clamp(1rem, calc(0.48rem + 2.61vw), 2.5rem)</code></td><td>Custom pair skipping s → l</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+</article>
+{% endblock %}

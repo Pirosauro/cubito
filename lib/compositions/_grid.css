@@ -1,6 +1,6 @@
 /*
 Grid
-──────────────────────────────────────────────────────────────────────────────
+---
 Auto-fill CSS grid. Columns collapse responsively without media queries:
 each column is at least --grid-min-item-size wide; the grid adds as many
 columns as will fit.

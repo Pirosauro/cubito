@@ -1,6 +1,6 @@
 /*
 Pagination
-──────────────────────────────────────────────────────────────────────────────
+---
 Numbered page navigation with prev/next controls.
 
 MARKUP PATTERN
@@ -125,7 +125,7 @@ TOKENS
     gap: 0.3em;
   }
 
-  /* ── Dark mode ───────────────────────────────────────────────────────────── */
+  /* --- Dark mode --- */
 
   @media (prefers-color-scheme: dark) {
     .pagination {

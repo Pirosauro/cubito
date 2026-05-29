@@ -1,6 +1,6 @@
 /*
 Shadow utilities
-──────────────────────────────────────────────────────────────────────────────
+---
 Box-shadow and text-shadow helpers.
 
 USAGE
@@ -30,7 +30,7 @@ TOKENS
 }
 
 @layer utilities {
-  /* ── Box shadow ──────────────────────────────────────────────────────────── */
+  /* --- Box shadow --- */
 
   .shadow {
     box-shadow: var(--shadow-offset) var(--shadow-offset) 0 var(--shadow-color);
@@ -51,7 +51,7 @@ TOKENS
     );
   }
 
-  /* ── Text shadow (outline effect) ───────────────────────────────────────── */
+  /* --- Text shadow (outline effect) --- */
 
   .text-shadow {
     --shadow-color: currentColor;

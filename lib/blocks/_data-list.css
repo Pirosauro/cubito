@@ -1,6 +1,6 @@
 /*
 Data List
-──────────────────────────────────────────────────────────────────────────────
+---
 Styled <dl> for key/value pairs: product specs, order summaries, user profiles.
 
 MARKUP PATTERN
@@ -106,7 +106,7 @@ TOKENS
     margin: 0;
   }
 
-  /* ── Horizontal layout: dt left, dd right ────────────────────────────────── */
+  /* --- Horizontal layout: dt left, dd right --- */
 
   .data-list[data-layout="horizontal"] > div {
     flex-direction: row;
@@ -136,7 +136,7 @@ TOKENS
     padding-block-start: var(--data-list-gap) !important;
   }
 
-  /* ── Dark mode ───────────────────────────────────────────────────────────── */
+  /* --- Dark mode --- */
 
   @media (prefers-color-scheme: dark) {
     .data-list {

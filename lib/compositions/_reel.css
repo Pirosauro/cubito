@@ -1,6 +1,6 @@
 /*
 Reel
-──────────────────────────────────────────────────────────────────────────────
+---
 A horizontal scroll container for a row of same-sized items.
 Items don't wrap — they scroll off-screen. Optional scroll-snap alignment.
 
@@ -44,7 +44,7 @@ EXCEPTIONS
     margin-inline-start: var(--reel-space);
   }
 
-  /* ── Scroll snap ─────────────────────────────────────────────────────────── */
+  /* --- Scroll snap --- */
 
   .reel[data-scroll="snap"] {
     scroll-snap-type: x mandatory;
@@ -54,7 +54,7 @@ EXCEPTIONS
     scroll-snap-align: start;
   }
 
-  /* ── Image variant: fixed-height reel preserving aspect ratios ───────────── */
+  /* --- Image variant: fixed-height reel preserving aspect ratios --- */
 
   .reel[data-variant="img"] {
     block-size: var(--reel-height, 50vh);

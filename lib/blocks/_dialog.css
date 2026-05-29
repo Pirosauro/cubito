@@ -1,6 +1,6 @@
 /*
 Dialog
-──────────────────────────────────────────────────────────────────────────────
+---
 Styles for the native <dialog> element and ARIA role="dialog" fallback.
 Structural tokens (--dialog-background etc.) are first set in _reset.css
 and refined here with border-radius, max-size, and improved shadow.

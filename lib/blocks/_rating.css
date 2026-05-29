@@ -1,6 +1,6 @@
 /*
 Rating
-──────────────────────────────────────────────────────────────────────────────
+---
 Presentational star rating display. Uses the standard 5-star convention.
 Built with CSS only — no JavaScript needed for display.
 
@@ -101,7 +101,7 @@ TOKENS
     white-space: nowrap;
   }
 
-  /* ── Dark mode ───────────────────────────────────────────────────────────── */
+  /* --- Dark mode --- */
 
   @media (prefers-color-scheme: dark) {
     .rating {

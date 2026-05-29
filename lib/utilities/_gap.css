@@ -1,6 +1,6 @@
 /*
 Gap utility
-──────────────────────────────────────────────────────────────────────────────
+---
 Sets the gap between flex or grid children. Defaults to --space-xs.
 For fine-grained control, set --row-gap and/or --column-gap independently.
 

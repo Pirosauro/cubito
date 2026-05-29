@@ -1,6 +1,6 @@
 /*
 Tooltip
-──────────────────────────────────────────────────────────────────────────────
+---
 Non-interactive informational overlay. Follows WAI-ARIA Tooltip pattern.
 
 MARKUP PATTERN
@@ -89,7 +89,7 @@ ACCESSIBILITY
     border-top-color: var(--tooltip-background);
   }
 
-  /* ── Show on hover / focus ──────────────────────────────────────────────── */
+  /* --- Show on hover / focus --- */
 
   [data-tooltip]:hover [role="tooltip"],
   [data-tooltip] :is(button, a, [tabindex]):focus-visible + [role="tooltip"],
@@ -98,7 +98,7 @@ ACCESSIBILITY
     opacity: 1;
   }
 
-  /* ── Placement: bottom ──────────────────────────────────────────────────── */
+  /* --- Placement: bottom --- */
 
   [data-tooltip="bottom"] [role="tooltip"] {
     bottom: auto;
@@ -114,7 +114,7 @@ ACCESSIBILITY
     border-bottom-color: var(--tooltip-background);
   }
 
-  /* ── Placement: left ────────────────────────────────────────────────────── */
+  /* --- Placement: left --- */
 
   [data-tooltip="left"] [role="tooltip"] {
     bottom: auto;
@@ -132,7 +132,7 @@ ACCESSIBILITY
     border-left-color: var(--tooltip-background);
   }
 
-  /* ── Placement: right ───────────────────────────────────────────────────── */
+  /* --- Placement: right --- */
 
   [data-tooltip="right"] [role="tooltip"] {
     bottom: auto;
@@ -150,7 +150,7 @@ ACCESSIBILITY
     border-right-color: var(--tooltip-background);
   }
 
-  /* ── Reduced motion ─────────────────────────────────────────────────────── */
+  /* --- Reduced motion --- */
 
   @media (prefers-reduced-motion: reduce) {
     [role="tooltip"] {

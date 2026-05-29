@@ -109,12 +109,14 @@ Import layers in order. `_layers.css` must be the very first import.
 @import "@hobiri/ui/lib/utilities/_region.css";
 @import "@hobiri/ui/lib/utilities/_shadow.css";
 @import "@hobiri/ui/lib/utilities/_skeleton.css";
-@import "@hobiri/ui/lib/utilities/_spacing.css";
+@import "@hobiri/ui/lib/utilities/_space.css";
 @import "@hobiri/ui/lib/utilities/_typography.css";
 @import "@hobiri/ui/lib/utilities/_wide.css";
 @import "@hobiri/ui/lib/utilities/_with-icon.css";
 @import "@hobiri/ui/lib/utilities/_wrapper.css";
 ```
+
+> **Legacy:** `utilities/_spacing.css` (`.padding-1`, `.margin-2`, …) is deprecated in favour of `_space.css` (`.padding-s`, `.margin-m`, …). It remains importable for backward compatibility.
 
 ---
 

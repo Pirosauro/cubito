@@ -1,6 +1,6 @@
 /*
 Card
-──────────────────────────────────────────────────────────────────────────────
+---
 A content container that can optionally link to a detail view.
 Uses the pseudo-content trick to make the whole card clickable while keeping
 inner links accessible and reachable.
@@ -115,7 +115,7 @@ TOKENS
     text-decoration: none;
   }
 
-  /* ── Image ───────────────────────────────────────────────────────────────── */
+  /* --- Image --- */
 
   .card > img {
     aspect-ratio: var(--card-image-ratio);
@@ -124,7 +124,7 @@ TOKENS
     flex-shrink: 0;
   }
 
-  /* ── Content area ────────────────────────────────────────────────────────── */
+  /* --- Content area --- */
 
   .card > div {
     --flow-space: var(--space-xs);
@@ -144,13 +144,13 @@ TOKENS
     margin-bottom: var(--space-xs-s);
   }
 
-  /* ── Layout: reversed — image below content ──────────────────────────────*/
+  /* --- Layout: reversed — image below content --- */
 
   .card[data-layout="reversed"] {
     flex-direction: column-reverse;
   }
 
-  /* ── Layout: horizontal — image left, content right ─────────────────────*/
+  /* --- Layout: horizontal — image left, content right --- */
 
   .card[data-layout="horizontal"] {
     flex-direction: row;

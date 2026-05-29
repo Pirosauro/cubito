@@ -1,6 +1,6 @@
 /*
 Dialog composition
-──────────────────────────────────────────────────────────────────────────────
+---
 Fixed overlay wrapper that centres a dialog or panel on screen.
 Use when you need a custom overlay rather than the native <dialog> backdrop.
 

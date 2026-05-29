@@ -1,0 +1,241 @@
+{% layout "layouts/base.liquid" %}
+{% block title %}Stepper — Cubito UI Docs{% endblock %}
+
+{% block content %}
+<article class="flow">
+
+  <header class="padding-y-m margin-y-m" style="border-block-end: 1px solid var(--color-neutral-200);">
+    <nav aria-label="Breadcrumb" class="breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/components/">Components</a></li>
+        <li aria-current="page">Stepper</li>
+      </ol>
+    </nav>
+    <h1>Stepper</h1>
+    <p class="text-l color-neutral-600">A quantity input with decrement and increment buttons — the standard cart control for e-commerce interfaces.</p>
+  </header>
+
+  <section>
+    <h2 class="heading-l">Default</h2>
+    <p>Wrap the three controls in <code>.stepper</code> with <code>role="group"</code> and <code>aria-label</code>. Connect the buttons to the input via <code>aria-controls</code> pointing at the input's <code>id</code>. The native spin buttons are hidden via CSS; JavaScript should handle increment/decrement logic.</p>
+    
+    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
+<div class="stepper" role="group" aria-label="Quantity">
+  <button
+    type="button"
+    class="stepper__decrement"
+    aria-label="Decrease quantity"
+    aria-controls="qty-1"
+  >−</button>
+  <input
+    type="number"
+    id="qty-1"
+    class="stepper__input"
+    value="1"
+    min="0"
+    max="99"
+    aria-label="Quantity"
+  >
+  <button
+    type="button"
+    class="stepper__increment"
+    aria-label="Increase quantity"
+    aria-controls="qty-1"
+  >+</button>
+</div>
+    </div>
+
+    <details class="margin-y-s">
+      <summary class="padding-s">Show code</summary>
+      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div class=&quot;stepper&quot; role=&quot;group&quot; aria-label=&quot;Quantity&quot;&gt;
+  &lt;button
+    type=&quot;button&quot;
+    class=&quot;stepper__decrement&quot;
+    aria-label=&quot;Decrease quantity&quot;
+    aria-controls=&quot;qty-1&quot;
+  &gt;−&lt;/button&gt;
+  &lt;input
+    type=&quot;number&quot;
+    id=&quot;qty-1&quot;
+    class=&quot;stepper__input&quot;
+    value=&quot;1&quot;
+    min=&quot;0&quot;
+    max=&quot;99&quot;
+    aria-label=&quot;Quantity&quot;
+  &gt;
+  &lt;button
+    type=&quot;button&quot;
+    class=&quot;stepper__increment&quot;
+    aria-label=&quot;Increase quantity&quot;
+    aria-controls=&quot;qty-1&quot;
+  &gt;+&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+    </details>
+  </section>
+
+  <section>
+    <h2 class="heading-l">Disabled decrement</h2>
+    <p>Disable the decrement button when the value reaches its minimum to prevent invalid input.</p>
+    
+    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
+<div class="stepper" role="group" aria-label="Quantity">
+  <button
+    type="button"
+    class="stepper__decrement"
+    aria-label="Decrease quantity"
+    aria-controls="qty-2"
+    disabled
+  >−</button>
+  <input
+    type="number"
+    id="qty-2"
+    class="stepper__input"
+    value="0"
+    min="0"
+    max="99"
+    aria-label="Quantity"
+  >
+  <button
+    type="button"
+    class="stepper__increment"
+    aria-label="Increase quantity"
+    aria-controls="qty-2"
+  >+</button>
+</div>
+    </div>
+
+    <details class="margin-y-s">
+      <summary class="padding-s">Show code</summary>
+      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div class=&quot;stepper&quot; role=&quot;group&quot; aria-label=&quot;Quantity&quot;&gt;
+  &lt;button
+    type=&quot;button&quot;
+    class=&quot;stepper__decrement&quot;
+    aria-label=&quot;Decrease quantity&quot;
+    aria-controls=&quot;qty-2&quot;
+    disabled
+  &gt;−&lt;/button&gt;
+  &lt;input
+    type=&quot;number&quot;
+    id=&quot;qty-2&quot;
+    class=&quot;stepper__input&quot;
+    value=&quot;0&quot;
+    min=&quot;0&quot;
+    max=&quot;99&quot;
+    aria-label=&quot;Quantity&quot;
+  &gt;
+  &lt;button
+    type=&quot;button&quot;
+    class=&quot;stepper__increment&quot;
+    aria-label=&quot;Increase quantity&quot;
+    aria-controls=&quot;qty-2&quot;
+  &gt;+&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+    </details>
+  </section>
+
+  <section>
+    <h2 class="heading-l">Custom size</h2>
+    <p>Override <code>--stepper-size</code> inline to create a larger or more compact control.</p>
+    
+    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
+<div class="stepper" role="group" aria-label="Quantity" style="--stepper-size: 3.5rem; --stepper-input-width: 4rem">
+  <button
+    type="button"
+    class="stepper__decrement"
+    aria-label="Decrease quantity"
+    aria-controls="qty-3"
+  >−</button>
+  <input
+    type="number"
+    id="qty-3"
+    class="stepper__input"
+    value="3"
+    min="0"
+    max="99"
+    aria-label="Quantity"
+  >
+  <button
+    type="button"
+    class="stepper__increment"
+    aria-label="Increase quantity"
+    aria-controls="qty-3"
+  >+</button>
+</div>
+    </div>
+
+    <details class="margin-y-s">
+      <summary class="padding-s">Show code</summary>
+      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div class=&quot;stepper&quot; role=&quot;group&quot; aria-label=&quot;Quantity&quot; style=&quot;--stepper-size: 3.5rem; --stepper-input-width: 4rem&quot;&gt;
+  &lt;button
+    type=&quot;button&quot;
+    class=&quot;stepper__decrement&quot;
+    aria-label=&quot;Decrease quantity&quot;
+    aria-controls=&quot;qty-3&quot;
+  &gt;−&lt;/button&gt;
+  &lt;input
+    type=&quot;number&quot;
+    id=&quot;qty-3&quot;
+    class=&quot;stepper__input&quot;
+    value=&quot;3&quot;
+    min=&quot;0&quot;
+    max=&quot;99&quot;
+    aria-label=&quot;Quantity&quot;
+  &gt;
+  &lt;button
+    type=&quot;button&quot;
+    class=&quot;stepper__increment&quot;
+    aria-label=&quot;Increase quantity&quot;
+    aria-controls=&quot;qty-3&quot;
+  &gt;+&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+    </details>
+  </section>
+
+  <section>
+    <h2 class="heading-l">Tokens</h2>
+    <table class="">
+      <thead>
+        <tr>
+          <th>Token</th>
+          <th>Default</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>--stepper-size</code></td>
+          <td><code>2.75rem</code></td>
+          <td>Height of the control and width of each button.</td>
+        </tr>
+        <tr>
+          <td><code>--stepper-input-width</code></td>
+          <td><code>3rem</code></td>
+          <td>Width of the number input field.</td>
+        </tr>
+        <tr>
+          <td><code>--stepper-background</code></td>
+          <td><code>var(--color-white)</code></td>
+          <td>Background colour of the whole control.</td>
+        </tr>
+        <tr>
+          <td><code>--stepper-border</code></td>
+          <td><code>solid var(--border-s) var(--color-neutral-300)</code></td>
+          <td>Border shorthand applied to the outer wrapper and input dividers.</td>
+        </tr>
+        <tr>
+          <td><code>--stepper-radius</code></td>
+          <td><code>var(--border-radius-m)</code></td>
+          <td>Corner radius of the outer wrapper.</td>
+        </tr>
+        <tr>
+          <td><code>--stepper-color</code></td>
+          <td><code>currentColor</code></td>
+          <td>Text colour for buttons and input.</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+</article>
+{% endblock %}

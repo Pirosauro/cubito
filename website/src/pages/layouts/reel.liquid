@@ -1,0 +1,190 @@
+{% layout "layouts/base.liquid" %}
+{% block title %}Reel — Cubito UI Docs{% endblock %}
+
+{% block content %}
+<article class="flow">
+
+  <header class="padding-y-m margin-y-m" style="border-block-end: 1px solid var(--color-neutral-200);">
+    <nav aria-label="Breadcrumb" class="breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/layouts/">Layouts</a></li>
+        <li aria-current="page">Reel</li>
+      </ol>
+    </nav>
+    <h1>Reel</h1>
+    <p class="text-l color-neutral-600">A horizontal scroll container that keeps same-sized items in a single row — items never wrap, they scroll off-screen.</p>
+  </header>
+
+  <section>
+    <h2 class="heading-l">Basic scroll</h2>
+    <p>Items are given a fixed basis via <code>--reel-item-width</code> and do not shrink. Overflow scrolls horizontally with a thin scrollbar.</p>
+    
+    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
+<div class="reel">
+  <div style="background: #e0e7ff; padding: 1.5rem 2rem; border-radius: 0.25rem; text-align: center; white-space: nowrap;">Card 1</div>
+  <div style="background: #c7d2fe; padding: 1.5rem 2rem; border-radius: 0.25rem; text-align: center; white-space: nowrap;">Card 2</div>
+  <div style="background: #a5b4fc; padding: 1.5rem 2rem; border-radius: 0.25rem; text-align: center; white-space: nowrap;">Card 3</div>
+  <div style="background: #818cf8; color: #fff; padding: 1.5rem 2rem; border-radius: 0.25rem; text-align: center; white-space: nowrap;">Card 4</div>
+  <div style="background: #6366f1; color: #fff; padding: 1.5rem 2rem; border-radius: 0.25rem; text-align: center; white-space: nowrap;">Card 5</div>
+  <div style="background: #4f46e5; color: #fff; padding: 1.5rem 2rem; border-radius: 0.25rem; text-align: center; white-space: nowrap;">Card 6</div>
+  <div style="background: #3730a3; color: #fff; padding: 1.5rem 2rem; border-radius: 0.25rem; text-align: center; white-space: nowrap;">Card 7</div>
+  <div style="background: #312e81; color: #fff; padding: 1.5rem 2rem; border-radius: 0.25rem; text-align: center; white-space: nowrap;">Card 8</div>
+</div>
+    </div>
+
+    <details class="margin-y-s">
+      <summary class="padding-s">Show code</summary>
+      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div class=&quot;reel&quot;&gt;
+  &lt;div style=&quot;background: #e0e7ff; padding: 1.5rem 2rem; border-radius: 0.25rem; text-align: center; white-space: nowrap;&quot;&gt;Card 1&lt;/div&gt;
+  &lt;div style=&quot;background: #c7d2fe; padding: 1.5rem 2rem; border-radius: 0.25rem; text-align: center; white-space: nowrap;&quot;&gt;Card 2&lt;/div&gt;
+  &lt;div style=&quot;background: #a5b4fc; padding: 1.5rem 2rem; border-radius: 0.25rem; text-align: center; white-space: nowrap;&quot;&gt;Card 3&lt;/div&gt;
+  &lt;div style=&quot;background: #818cf8; color: #fff; padding: 1.5rem 2rem; border-radius: 0.25rem; text-align: center; white-space: nowrap;&quot;&gt;Card 4&lt;/div&gt;
+  &lt;div style=&quot;background: #6366f1; color: #fff; padding: 1.5rem 2rem; border-radius: 0.25rem; text-align: center; white-space: nowrap;&quot;&gt;Card 5&lt;/div&gt;
+  &lt;div style=&quot;background: #4f46e5; color: #fff; padding: 1.5rem 2rem; border-radius: 0.25rem; text-align: center; white-space: nowrap;&quot;&gt;Card 6&lt;/div&gt;
+  &lt;div style=&quot;background: #3730a3; color: #fff; padding: 1.5rem 2rem; border-radius: 0.25rem; text-align: center; white-space: nowrap;&quot;&gt;Card 7&lt;/div&gt;
+  &lt;div style=&quot;background: #312e81; color: #fff; padding: 1.5rem 2rem; border-radius: 0.25rem; text-align: center; white-space: nowrap;&quot;&gt;Card 8&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </details>
+  </section>
+
+  <section>
+    <h2 class="heading-l">Snap</h2>
+    <p>Add <code>data-scroll="snap"</code> to enable mandatory scroll-snap. Each item snaps to the start of the scroll port when the user stops dragging.</p>
+    
+    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
+<div class="reel" data-scroll="snap">
+  <div style="background: #e0e7ff; padding: 1.5rem 2rem; border-radius: 0.25rem; text-align: center; white-space: nowrap;">Slide 1</div>
+  <div style="background: #c7d2fe; padding: 1.5rem 2rem; border-radius: 0.25rem; text-align: center; white-space: nowrap;">Slide 2</div>
+  <div style="background: #a5b4fc; padding: 1.5rem 2rem; border-radius: 0.25rem; text-align: center; white-space: nowrap;">Slide 3</div>
+  <div style="background: #818cf8; color: #fff; padding: 1.5rem 2rem; border-radius: 0.25rem; text-align: center; white-space: nowrap;">Slide 4</div>
+  <div style="background: #6366f1; color: #fff; padding: 1.5rem 2rem; border-radius: 0.25rem; text-align: center; white-space: nowrap;">Slide 5</div>
+  <div style="background: #4f46e5; color: #fff; padding: 1.5rem 2rem; border-radius: 0.25rem; text-align: center; white-space: nowrap;">Slide 6</div>
+</div>
+    </div>
+
+    <details class="margin-y-s">
+      <summary class="padding-s">Show code</summary>
+      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div class=&quot;reel&quot; data-scroll=&quot;snap&quot;&gt;
+  &lt;div style=&quot;background: #e0e7ff; padding: 1.5rem 2rem; border-radius: 0.25rem; text-align: center; white-space: nowrap;&quot;&gt;Slide 1&lt;/div&gt;
+  &lt;div style=&quot;background: #c7d2fe; padding: 1.5rem 2rem; border-radius: 0.25rem; text-align: center; white-space: nowrap;&quot;&gt;Slide 2&lt;/div&gt;
+  &lt;div style=&quot;background: #a5b4fc; padding: 1.5rem 2rem; border-radius: 0.25rem; text-align: center; white-space: nowrap;&quot;&gt;Slide 3&lt;/div&gt;
+  &lt;div style=&quot;background: #818cf8; color: #fff; padding: 1.5rem 2rem; border-radius: 0.25rem; text-align: center; white-space: nowrap;&quot;&gt;Slide 4&lt;/div&gt;
+  &lt;div style=&quot;background: #6366f1; color: #fff; padding: 1.5rem 2rem; border-radius: 0.25rem; text-align: center; white-space: nowrap;&quot;&gt;Slide 5&lt;/div&gt;
+  &lt;div style=&quot;background: #4f46e5; color: #fff; padding: 1.5rem 2rem; border-radius: 0.25rem; text-align: center; white-space: nowrap;&quot;&gt;Slide 6&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </details>
+  </section>
+
+  <section>
+    <h2 class="heading-l">Image variant</h2>
+    <p><code>data-variant="img"</code> sets a fixed block size on the reel (via <code>--reel-height</code>, default <code>50vh</code>) and lets direct <code>&lt;img&gt;</code> children maintain their natural aspect ratios instead of stretching.</p>
+    
+    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
+<div class="reel" data-variant="img" style="--reel-height: 14rem;">
+  <img
+    src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=400&q=80"
+    alt="Sunlit mountain valley"
+    style="border-radius: 0.25rem;"
+  >
+  <img
+    src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=300&q=80"
+    alt="Forest path"
+    style="border-radius: 0.25rem;"
+  >
+  <img
+    src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80"
+    alt="Snow-capped mountain peaks"
+    style="border-radius: 0.25rem;"
+  >
+  <img
+    src="https://images.unsplash.com/photo-1454496522488-7a8e488e8606?w=350&q=80"
+    alt="Alpine lake reflection"
+    style="border-radius: 0.25rem;"
+  >
+</div>
+    </div>
+
+    <details class="margin-y-s">
+      <summary class="padding-s">Show code</summary>
+      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div class=&quot;reel&quot; data-variant=&quot;img&quot; style=&quot;--reel-height: 14rem;&quot;&gt;
+  &lt;img
+    src=&quot;https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=400&amp;q=80&quot;
+    alt=&quot;Sunlit mountain valley&quot;
+    style=&quot;border-radius: 0.25rem;&quot;
+  &gt;
+  &lt;img
+    src=&quot;https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=300&amp;q=80&quot;
+    alt=&quot;Forest path&quot;
+    style=&quot;border-radius: 0.25rem;&quot;
+  &gt;
+  &lt;img
+    src=&quot;https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&amp;q=80&quot;
+    alt=&quot;Snow-capped mountain peaks&quot;
+    style=&quot;border-radius: 0.25rem;&quot;
+  &gt;
+  &lt;img
+    src=&quot;https://images.unsplash.com/photo-1454496522488-7a8e488e8606?w=350&amp;q=80&quot;
+    alt=&quot;Alpine lake reflection&quot;
+    style=&quot;border-radius: 0.25rem;&quot;
+  &gt;
+&lt;/div&gt;</code></pre>
+    </details>
+
+    <div class="callout" data-variant="brand" role="note">
+      <p>Override <code>--reel-height</code> to control the fixed block size of the image reel (e.g. <code>style="--reel-height: 20rem"</code>). This variant is only effective for direct <code>&lt;img&gt;</code> children.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="heading-l">Tokens</h2>
+    <table class="">
+      <thead>
+        <tr>
+          <th>Token</th>
+          <th>Default</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>--reel-item-width</code></td>
+          <td><code>calc(33.333% - var(--reel-space))</code></td>
+          <td>Width of each item. By default shows roughly three items at once.</td>
+        </tr>
+        <tr>
+          <td><code>--reel-space</code></td>
+          <td><code>2rem</code></td>
+          <td>Gap between items in the reel.</td>
+        </tr>
+        <tr>
+          <td><code>--reel-height</code></td>
+          <td><code>50vh</code></td>
+          <td>Block size when using <code>data-variant="img"</code>.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 style="margin-block-start: var(--space-m)">Data attributes</h3>
+    <table class="">
+      <thead>
+        <tr>
+          <th>Attribute</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>data-scroll="snap"</code></td>
+          <td>Enables mandatory CSS scroll-snap; each item snaps to <code>start</code>.</td>
+        </tr>
+        <tr>
+          <td><code>data-variant="img"</code></td>
+          <td>Sets a fixed block size on the reel and allows direct <code>&lt;img&gt;</code> children to maintain their natural aspect ratios.</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+</article>
+{% endblock %}

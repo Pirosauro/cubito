@@ -1,6 +1,6 @@
 /*
 Progress Bar
-──────────────────────────────────────────────────────────────────────────────
+---
 Labelled, accessible wrapper around the native <progress> element.
 Adds a visible label, value display, and theming.
 
@@ -116,7 +116,7 @@ TOKENS
     border-radius: var(--progress-bar-radius);
   }
 
-  /* ── Dark mode ───────────────────────────────────────────────────────────── */
+  /* --- Dark mode --- */
 
   @media (prefers-color-scheme: dark) {
     .progress-bar {

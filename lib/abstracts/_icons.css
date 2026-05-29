@@ -1,7 +1,27 @@
-/**
+/*
 Icons
 ---
-Tokens for icons, such as the default chevron icon used in the Accordion component.
+SVG icon tokens. Each token holds a URL-encoded inline SVG that can be
+used as a mask-image source, keeping colours theme-aware via
+background-color: currentColor.
+
+Icons are intentionally minimal — single-path, 24×24 viewBox, stroke-based.
+Add new tokens here when a component needs a built-in icon rather than
+deferring to the consuming application's icon library.
+
+USAGE
+  .my-element::before {
+    content: "";
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    mask-image: var(--icon-chevron);
+    mask-size: contain;
+    background-color: currentColor;
+  }
+
+TOKENS
+  --icon-chevron   Down-pointing chevron. Used by details, select, and nav.
 */
 
 @layer tokens {

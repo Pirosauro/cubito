@@ -1,6 +1,6 @@
 /*
 Animation utilities
-──────────────────────────────────────────────────────────────────────────────
+---
 Utility classes for common, reusable animations. All durations reference
 motion tokens from abstracts/_motion.css, which automatically collapse to
 0ms when prefers-reduced-motion is set.
@@ -12,7 +12,7 @@ USAGE
 */
 
 @layer utilities {
-  /* ── Continuous ──────────────────────────────────────────────────────────── */
+  /* --- Continuous --- */
 
   .blink {
     animation: blink var(--motion-duration-slow, 400ms) ease-in-out infinite;
@@ -22,7 +22,7 @@ USAGE
     animation: pulse var(--motion-duration-slow, 400ms) ease-in-out infinite;
   }
 
-  /* ── Enter ───────────────────────────────────────────────────────────────── */
+  /* --- Enter --- */
 
   .fade-in {
     animation: fade-in var(--motion-duration-base, 250ms)
@@ -34,7 +34,7 @@ USAGE
       var(--motion-easing-out, ease) both;
   }
 
-  /* ── Keyframes ───────────────────────────────────────────────────────────── */
+  /* --- Keyframes --- */
 
   @keyframes blink {
     0%,

@@ -1,0 +1,308 @@
+{% layout "layouts/base.liquid" %}
+{% block title %}Typography — Cubito UI Docs{% endblock %}
+
+{% block content %}
+<article class="flow">
+
+  <header class="padding-y-m margin-y-m" style="border-block-end: 1px solid var(--color-neutral-200);">
+    <nav aria-label="Breadcrumb" class="breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/tokens/typography/">Tokens</a></li>
+        <li aria-current="page">Typography</li>
+      </ol>
+    </nav>
+    <h1>Typography</h1>
+    <p class="text-l color-neutral-600">A fluid type scale based on the Minor Third ratio (1.2), generated with Utopia. All sizes interpolate continuously between 320 px and 1240 px viewports using <code>clamp()</code>.</p>
+  </header>
+
+  <section>
+    <h2 class="heading-l">Type scale</h2>
+    <p>Eight steps from <code>--font-size-xxs</code> to <code>--font-size-huge</code>. The base alias <code>--font-size</code> points to <code>--font-size-s</code>. Use the utility classes <code>.text-xxs</code> through <code>.text-huge</code> to apply sizes in markup.</p>
+
+    
+    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
+<div style="display: flex; flex-direction: column; gap: 1rem; padding-block: 0.5rem;">
+  <div style="display: flex; align-items: baseline; gap: 1rem;">
+    <span style="font-size: var(--font-size-xxs); min-width: 10rem; color: var(--color-neutral-500, #6d6d6d); font-size: 0.75rem;">xxs</span>
+    <span style="font-size: var(--font-size-xxs);">The quick brown fox jumps over the lazy dog</span>
+  </div>
+  <div style="display: flex; align-items: baseline; gap: 1rem;">
+    <span style="min-width: 10rem; color: var(--color-neutral-500, #6d6d6d); font-size: 0.75rem;">xs</span>
+    <span style="font-size: var(--font-size-xs);">The quick brown fox jumps over the lazy dog</span>
+  </div>
+  <div style="display: flex; align-items: baseline; gap: 1rem;">
+    <span style="min-width: 10rem; color: var(--color-neutral-500, #6d6d6d); font-size: 0.75rem;">s (base)</span>
+    <span style="font-size: var(--font-size-s);">The quick brown fox jumps over the lazy dog</span>
+  </div>
+  <div style="display: flex; align-items: baseline; gap: 1rem;">
+    <span style="min-width: 10rem; color: var(--color-neutral-500, #6d6d6d); font-size: 0.75rem;">m</span>
+    <span style="font-size: var(--font-size-m);">The quick brown fox</span>
+  </div>
+  <div style="display: flex; align-items: baseline; gap: 1rem;">
+    <span style="min-width: 10rem; color: var(--color-neutral-500, #6d6d6d); font-size: 0.75rem;">l</span>
+    <span style="font-size: var(--font-size-l);">The quick brown fox</span>
+  </div>
+  <div style="display: flex; align-items: baseline; gap: 1rem;">
+    <span style="min-width: 10rem; color: var(--color-neutral-500, #6d6d6d); font-size: 0.75rem;">xl</span>
+    <span style="font-size: var(--font-size-xl);">The quick brown fox</span>
+  </div>
+  <div style="display: flex; align-items: baseline; gap: 1rem;">
+    <span style="min-width: 10rem; color: var(--color-neutral-500, #6d6d6d); font-size: 0.75rem;">xxl</span>
+    <span style="font-size: var(--font-size-xxl);">Quick brown fox</span>
+  </div>
+  <div style="display: flex; align-items: baseline; gap: 1rem;">
+    <span style="min-width: 10rem; color: var(--color-neutral-500, #6d6d6d); font-size: 0.75rem;">huge</span>
+    <span style="font-size: var(--font-size-huge);">Quick brown</span>
+  </div>
+</div>
+    </div>
+
+    <details class="margin-y-s">
+      <summary class="padding-s">Show code</summary>
+      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div style=&quot;display: flex; flex-direction: column; gap: 1rem; padding-block: 0.5rem;&quot;&gt;
+  &lt;div style=&quot;display: flex; align-items: baseline; gap: 1rem;&quot;&gt;
+    &lt;span style=&quot;font-size: var(--font-size-xxs); min-width: 10rem; color: var(--color-neutral-500, #6d6d6d); font-size: 0.75rem;&quot;&gt;xxs&lt;/span&gt;
+    &lt;span style=&quot;font-size: var(--font-size-xxs);&quot;&gt;The quick brown fox jumps over the lazy dog&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div style=&quot;display: flex; align-items: baseline; gap: 1rem;&quot;&gt;
+    &lt;span style=&quot;min-width: 10rem; color: var(--color-neutral-500, #6d6d6d); font-size: 0.75rem;&quot;&gt;xs&lt;/span&gt;
+    &lt;span style=&quot;font-size: var(--font-size-xs);&quot;&gt;The quick brown fox jumps over the lazy dog&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div style=&quot;display: flex; align-items: baseline; gap: 1rem;&quot;&gt;
+    &lt;span style=&quot;min-width: 10rem; color: var(--color-neutral-500, #6d6d6d); font-size: 0.75rem;&quot;&gt;s (base)&lt;/span&gt;
+    &lt;span style=&quot;font-size: var(--font-size-s);&quot;&gt;The quick brown fox jumps over the lazy dog&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div style=&quot;display: flex; align-items: baseline; gap: 1rem;&quot;&gt;
+    &lt;span style=&quot;min-width: 10rem; color: var(--color-neutral-500, #6d6d6d); font-size: 0.75rem;&quot;&gt;m&lt;/span&gt;
+    &lt;span style=&quot;font-size: var(--font-size-m);&quot;&gt;The quick brown fox&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div style=&quot;display: flex; align-items: baseline; gap: 1rem;&quot;&gt;
+    &lt;span style=&quot;min-width: 10rem; color: var(--color-neutral-500, #6d6d6d); font-size: 0.75rem;&quot;&gt;l&lt;/span&gt;
+    &lt;span style=&quot;font-size: var(--font-size-l);&quot;&gt;The quick brown fox&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div style=&quot;display: flex; align-items: baseline; gap: 1rem;&quot;&gt;
+    &lt;span style=&quot;min-width: 10rem; color: var(--color-neutral-500, #6d6d6d); font-size: 0.75rem;&quot;&gt;xl&lt;/span&gt;
+    &lt;span style=&quot;font-size: var(--font-size-xl);&quot;&gt;The quick brown fox&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div style=&quot;display: flex; align-items: baseline; gap: 1rem;&quot;&gt;
+    &lt;span style=&quot;min-width: 10rem; color: var(--color-neutral-500, #6d6d6d); font-size: 0.75rem;&quot;&gt;xxl&lt;/span&gt;
+    &lt;span style=&quot;font-size: var(--font-size-xxl);&quot;&gt;Quick brown fox&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div style=&quot;display: flex; align-items: baseline; gap: 1rem;&quot;&gt;
+    &lt;span style=&quot;min-width: 10rem; color: var(--color-neutral-500, #6d6d6d); font-size: 0.75rem;&quot;&gt;huge&lt;/span&gt;
+    &lt;span style=&quot;font-size: var(--font-size-huge);&quot;&gt;Quick brown&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </details>
+  </section>
+
+  <section>
+    <h2 class="heading-l">Font families</h2>
+    <p>Three font family tokens covering body, heading, and monospace uses. All default to system font stacks — replace them in your application <code>:root</code> to load a custom typeface.</p>
+
+    
+    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
+<div style="display: flex; flex-direction: column; gap: 1.5rem; padding-block: 0.5rem;">
+  <div>
+    <p style="font-family: var(--font-family); font-size: var(--font-size-m);">The quick brown fox — <code>--font-family</code></p>
+    <p style="color: var(--color-neutral-500, #6d6d6d); font-size: var(--font-size-xs);">-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif</p>
+  </div>
+  <div>
+    <p style="font-family: var(--font-family-heading); font-size: var(--font-size-m); font-weight: 700; letter-spacing: -0.02em;">The quick brown fox — <code>--font-family-heading</code></p>
+    <p style="color: var(--color-neutral-500, #6d6d6d); font-size: var(--font-size-xs);">Inherits <code>--font-family</code> by default — override to use a display typeface</p>
+  </div>
+  <div>
+    <p style="font-family: var(--font-family-mono); font-size: var(--font-size-s);">const greeting = "Hello, world"; — <code>--font-family-mono</code></p>
+    <p style="color: var(--color-neutral-500, #6d6d6d); font-size: var(--font-size-xs);">SFMono-Regular, Consolas, "Liberation Mono", Menlo, Courier, monospace</p>
+  </div>
+</div>
+    </div>
+
+    <details class="margin-y-s">
+      <summary class="padding-s">Show code</summary>
+      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div style=&quot;display: flex; flex-direction: column; gap: 1.5rem; padding-block: 0.5rem;&quot;&gt;
+  &lt;div&gt;
+    &lt;p style=&quot;font-family: var(--font-family); font-size: var(--font-size-m);&quot;&gt;The quick brown fox — &lt;code&gt;--font-family&lt;/code&gt;&lt;/p&gt;
+    &lt;p style=&quot;color: var(--color-neutral-500, #6d6d6d); font-size: var(--font-size-xs);&quot;&gt;-apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Oxygen, Ubuntu, Cantarell, &quot;Fira Sans&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, sans-serif&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;p style=&quot;font-family: var(--font-family-heading); font-size: var(--font-size-m); font-weight: 700; letter-spacing: -0.02em;&quot;&gt;The quick brown fox — &lt;code&gt;--font-family-heading&lt;/code&gt;&lt;/p&gt;
+    &lt;p style=&quot;color: var(--color-neutral-500, #6d6d6d); font-size: var(--font-size-xs);&quot;&gt;Inherits &lt;code&gt;--font-family&lt;/code&gt; by default — override to use a display typeface&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;p style=&quot;font-family: var(--font-family-mono); font-size: var(--font-size-s);&quot;&gt;const greeting = &quot;Hello, world&quot;; — &lt;code&gt;--font-family-mono&lt;/code&gt;&lt;/p&gt;
+    &lt;p style=&quot;color: var(--color-neutral-500, #6d6d6d); font-size: var(--font-size-xs);&quot;&gt;SFMono-Regular, Consolas, &quot;Liberation Mono&quot;, Menlo, Courier, monospace&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </details>
+
+    <p>To use a custom typeface, define the token in your application after importing the library:</p>
+    <pre><code>@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+
+:root {
+  --font-family:         "Inter", sans-serif;
+  --font-family-heading: "Inter", sans-serif;
+}</code></pre>
+  </section>
+
+  <section>
+    <h2 class="heading-l">Font weight</h2>
+
+    
+    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
+<div style="display: flex; flex-direction: column; gap: 1rem; padding-block: 0.5rem;">
+  <p style="font-weight: var(--font-weight-normal); font-size: var(--font-size-m);">Normal weight (400) — <code>--font-weight-normal</code></p>
+  <p style="font-weight: var(--font-weight-bold); font-size: var(--font-size-m);">Bold weight (700) — <code>--font-weight-bold</code></p>
+</div>
+    </div>
+
+    <details class="margin-y-s">
+      <summary class="padding-s">Show code</summary>
+      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div style=&quot;display: flex; flex-direction: column; gap: 1rem; padding-block: 0.5rem;&quot;&gt;
+  &lt;p style=&quot;font-weight: var(--font-weight-normal); font-size: var(--font-size-m);&quot;&gt;Normal weight (400) — &lt;code&gt;--font-weight-normal&lt;/code&gt;&lt;/p&gt;
+  &lt;p style=&quot;font-weight: var(--font-weight-bold); font-size: var(--font-size-m);&quot;&gt;Bold weight (700) — &lt;code&gt;--font-weight-bold&lt;/code&gt;&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+    </details>
+  </section>
+
+  <section>
+    <h2 class="heading-l">Line heights</h2>
+    <p>Three line height steps — compact for headings, standard for body, loose for long-form reading. The base alias <code>--line-height</code> points to <code>--line-height-m</code>.</p>
+
+    
+    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
+<div style="display: flex; flex-direction: column; gap: 2rem; padding-block: 0.5rem;">
+  <div>
+    <p style="font-size: var(--font-size-xs); color: var(--color-neutral-500, #6d6d6d); margin-block-end: 0.25rem;">--line-height-s: 1.25 — headings, compact UI</p>
+    <p style="line-height: var(--line-height-s); max-width: 32ch; background: color-mix(in srgb, var(--color-brand, #0057d9) 8%, transparent); padding: 0.5rem; border-radius: 0.25rem;">Quarterly earnings exceed analyst expectations as the company reports record revenue growth driven by international market expansion and new product launches.</p>
+  </div>
+  <div>
+    <p style="font-size: var(--font-size-xs); color: var(--color-neutral-500, #6d6d6d); margin-block-end: 0.25rem;">--line-height-m: 1.5 — body text (base)</p>
+    <p style="line-height: var(--line-height-m); max-width: 32ch; background: color-mix(in srgb, var(--color-brand, #0057d9) 8%, transparent); padding: 0.5rem; border-radius: 0.25rem;">Quarterly earnings exceed analyst expectations as the company reports record revenue growth driven by international market expansion and new product launches.</p>
+  </div>
+  <div>
+    <p style="font-size: var(--font-size-xs); color: var(--color-neutral-500, #6d6d6d); margin-block-end: 0.25rem;">--line-height-l: 1.75 — prose, long-form reading</p>
+    <p style="line-height: var(--line-height-l); max-width: 32ch; background: color-mix(in srgb, var(--color-brand, #0057d9) 8%, transparent); padding: 0.5rem; border-radius: 0.25rem;">Quarterly earnings exceed analyst expectations as the company reports record revenue growth driven by international market expansion and new product launches.</p>
+  </div>
+</div>
+    </div>
+
+    <details class="margin-y-s">
+      <summary class="padding-s">Show code</summary>
+      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div style=&quot;display: flex; flex-direction: column; gap: 2rem; padding-block: 0.5rem;&quot;&gt;
+  &lt;div&gt;
+    &lt;p style=&quot;font-size: var(--font-size-xs); color: var(--color-neutral-500, #6d6d6d); margin-block-end: 0.25rem;&quot;&gt;--line-height-s: 1.25 — headings, compact UI&lt;/p&gt;
+    &lt;p style=&quot;line-height: var(--line-height-s); max-width: 32ch; background: color-mix(in srgb, var(--color-brand, #0057d9) 8%, transparent); padding: 0.5rem; border-radius: 0.25rem;&quot;&gt;Quarterly earnings exceed analyst expectations as the company reports record revenue growth driven by international market expansion and new product launches.&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;p style=&quot;font-size: var(--font-size-xs); color: var(--color-neutral-500, #6d6d6d); margin-block-end: 0.25rem;&quot;&gt;--line-height-m: 1.5 — body text (base)&lt;/p&gt;
+    &lt;p style=&quot;line-height: var(--line-height-m); max-width: 32ch; background: color-mix(in srgb, var(--color-brand, #0057d9) 8%, transparent); padding: 0.5rem; border-radius: 0.25rem;&quot;&gt;Quarterly earnings exceed analyst expectations as the company reports record revenue growth driven by international market expansion and new product launches.&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;p style=&quot;font-size: var(--font-size-xs); color: var(--color-neutral-500, #6d6d6d); margin-block-end: 0.25rem;&quot;&gt;--line-height-l: 1.75 — prose, long-form reading&lt;/p&gt;
+    &lt;p style=&quot;line-height: var(--line-height-l); max-width: 32ch; background: color-mix(in srgb, var(--color-brand, #0057d9) 8%, transparent); padding: 0.5rem; border-radius: 0.25rem;&quot;&gt;Quarterly earnings exceed analyst expectations as the company reports record revenue growth driven by international market expansion and new product launches.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </details>
+  </section>
+
+  <section>
+    <h2 class="heading-l">Measure (line length)</h2>
+    <p>Measure tokens control the maximum line length of text containers. Optimal reading measure for body text is 45–75 characters, which is the intent of <code>--width-l</code>.</p>
+
+    
+    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
+<div style="display: flex; flex-direction: column; gap: 1.5rem; padding-block: 0.5rem;">
+  <div>
+    <p style="font-size: var(--font-size-xs); color: var(--color-neutral-500, #6d6d6d); margin-block-end: 0.25rem;">--width-s: 35ch — labels, narrow columns</p>
+    <p style="max-width: var(--width-s); background: color-mix(in srgb, var(--color-status-ok, #1a4) 10%, transparent); padding: 0.5rem; border-radius: 0.25rem;">Account holder full name as it appears on the payment card.</p>
+  </div>
+  <div>
+    <p style="font-size: var(--font-size-xs); color: var(--color-neutral-500, #6d6d6d); margin-block-end: 0.25rem;">--width-l: 65ch — optimal body text measure</p>
+    <p style="max-width: var(--width-l); background: color-mix(in srgb, var(--color-status-ok, #1a4) 10%, transparent); padding: 0.5rem; border-radius: 0.25rem;">Fluid typography eliminates the need for discrete breakpoints. Instead of jumping between fixed font sizes at specific viewport widths, each token interpolates smoothly across the defined range using the CSS <code>clamp()</code> function.</p>
+  </div>
+  <div>
+    <p style="font-size: var(--font-size-xs); color: var(--color-neutral-500, #6d6d6d); margin-block-end: 0.25rem;">--width-wide: 100% — full container width</p>
+    <p style="max-width: var(--width-wide); background: color-mix(in srgb, var(--color-status-ok, #1a4) 10%, transparent); padding: 0.5rem; border-radius: 0.25rem;">This paragraph spans the full width of its container, suitable for data tables, banners, or any content that benefits from maximum horizontal space.</p>
+  </div>
+</div>
+    </div>
+
+    <details class="margin-y-s">
+      <summary class="padding-s">Show code</summary>
+      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div style=&quot;display: flex; flex-direction: column; gap: 1.5rem; padding-block: 0.5rem;&quot;&gt;
+  &lt;div&gt;
+    &lt;p style=&quot;font-size: var(--font-size-xs); color: var(--color-neutral-500, #6d6d6d); margin-block-end: 0.25rem;&quot;&gt;--width-s: 35ch — labels, narrow columns&lt;/p&gt;
+    &lt;p style=&quot;max-width: var(--width-s); background: color-mix(in srgb, var(--color-status-ok, #1a4) 10%, transparent); padding: 0.5rem; border-radius: 0.25rem;&quot;&gt;Account holder full name as it appears on the payment card.&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;p style=&quot;font-size: var(--font-size-xs); color: var(--color-neutral-500, #6d6d6d); margin-block-end: 0.25rem;&quot;&gt;--width-l: 65ch — optimal body text measure&lt;/p&gt;
+    &lt;p style=&quot;max-width: var(--width-l); background: color-mix(in srgb, var(--color-status-ok, #1a4) 10%, transparent); padding: 0.5rem; border-radius: 0.25rem;&quot;&gt;Fluid typography eliminates the need for discrete breakpoints. Instead of jumping between fixed font sizes at specific viewport widths, each token interpolates smoothly across the defined range using the CSS &lt;code&gt;clamp()&lt;/code&gt; function.&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;p style=&quot;font-size: var(--font-size-xs); color: var(--color-neutral-500, #6d6d6d); margin-block-end: 0.25rem;&quot;&gt;--width-wide: 100% — full container width&lt;/p&gt;
+    &lt;p style=&quot;max-width: var(--width-wide); background: color-mix(in srgb, var(--color-status-ok, #1a4) 10%, transparent); padding: 0.5rem; border-radius: 0.25rem;&quot;&gt;This paragraph spans the full width of its container, suitable for data tables, banners, or any content that benefits from maximum horizontal space.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </details>
+  </section>
+
+  <section>
+    <h2 class="heading-l">Letter spacing</h2>
+
+    
+    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
+<div style="display: flex; flex-direction: column; gap: 1rem; padding-block: 0.5rem;">
+  <p style="letter-spacing: var(--letter-spacing); font-size: var(--font-size-m);">Default letter spacing (0) — <code>--letter-spacing</code></p>
+  <p style="letter-spacing: var(--letter-spacing-heading); font-size: var(--font-size-m); font-weight: 700;">Heading letter spacing (−0.02em) — <code>--letter-spacing-heading</code></p>
+</div>
+    </div>
+
+    <details class="margin-y-s">
+      <summary class="padding-s">Show code</summary>
+      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div style=&quot;display: flex; flex-direction: column; gap: 1rem; padding-block: 0.5rem;&quot;&gt;
+  &lt;p style=&quot;letter-spacing: var(--letter-spacing); font-size: var(--font-size-m);&quot;&gt;Default letter spacing (0) — &lt;code&gt;--letter-spacing&lt;/code&gt;&lt;/p&gt;
+  &lt;p style=&quot;letter-spacing: var(--letter-spacing-heading); font-size: var(--font-size-m); font-weight: 700;&quot;&gt;Heading letter spacing (−0.02em) — &lt;code&gt;--letter-spacing-heading&lt;/code&gt;&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+    </details>
+  </section>
+
+  <section>
+    <h2 class="heading-l">Token table</h2>
+
+    <table class="">
+      <thead>
+        <tr><th>Token</th><th>Default</th><th>Description</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>--font-family</code></td><td>System UI stack</td><td>Body and UI text family</td></tr>
+        <tr><td><code>--font-family-heading</code></td><td><code>var(--font-family)</code></td><td>Display / heading family — override for a distinct typeface</td></tr>
+        <tr><td><code>--font-family-mono</code></td><td>System monospace stack</td><td>Code, keyboard shortcuts, and technical labels</td></tr>
+        <tr><td><code>--font-weight-normal</code></td><td><code>400</code></td><td>Regular weight</td></tr>
+        <tr><td><code>--font-weight-bold</code></td><td><code>700</code></td><td>Bold weight</td></tr>
+        <tr><td><code>--font-weight</code></td><td><code>var(--font-weight-normal)</code></td><td>Base alias</td></tr>
+        <tr><td><code>--font-size-xxs</code></td><td><code>clamp(0.64rem, 0.6179rem + 0.1104vw, 0.7035rem)</code></td><td>~10 px — fine print, metadata</td></tr>
+        <tr><td><code>--font-size-xs</code></td><td><code>clamp(0.8rem, 0.7521rem + 0.2395vw, 0.9377rem)</code></td><td>~13 px — captions, helper text</td></tr>
+        <tr><td><code>--font-size-s</code></td><td><code>clamp(1rem, 0.913rem + 0.4348vw, 1.25rem)</code></td><td>~16 px — base body size</td></tr>
+        <tr><td><code>--font-size-m</code></td><td><code>clamp(1.25rem, 1.1052rem + 0.7239vw, 1.6663rem)</code></td><td>~20 px — sub-headings, card titles</td></tr>
+        <tr><td><code>--font-size-l</code></td><td><code>clamp(1.5625rem, 1.3334rem + 1.1454vw, 2.2211rem)</code></td><td>~25 px — section headings</td></tr>
+        <tr><td><code>--font-size-xl</code></td><td><code>clamp(1.9531rem, 1.6026rem + 1.7524vw, 2.9607rem)</code></td><td>~31 px — page headings</td></tr>
+        <tr><td><code>--font-size-xxl</code></td><td><code>clamp(2.4414rem, 1.9178rem + 2.6178vw, 3.9467rem)</code></td><td>~39 px — hero sub-headings</td></tr>
+        <tr><td><code>--font-size-huge</code></td><td><code>clamp(3.0518rem, 2.2905rem + 3.8065vw, 5.2616rem)</code></td><td>~49 px — hero headings, display text</td></tr>
+        <tr><td><code>--font-size</code></td><td><code>var(--font-size-s)</code></td><td>Base alias</td></tr>
+        <tr><td><code>--line-height-s</code></td><td><code>1.25</code></td><td>Compact — headings</td></tr>
+        <tr><td><code>--line-height-m</code></td><td><code>1.5</code></td><td>Standard — body text</td></tr>
+        <tr><td><code>--line-height-l</code></td><td><code>1.75</code></td><td>Loose — prose, long-form reading</td></tr>
+        <tr><td><code>--line-height</code></td><td><code>var(--line-height-m)</code></td><td>Base alias</td></tr>
+        <tr><td><code>--letter-spacing</code></td><td><code>0</code></td><td>Default letter spacing</td></tr>
+        <tr><td><code>--letter-spacing-heading</code></td><td><code>-0.02em</code></td><td>Tight heading tracking</td></tr>
+        <tr><td><code>--width-s</code></td><td><code>35ch</code></td><td>Short labels, narrow columns</td></tr>
+        <tr><td><code>--width-l</code></td><td><code>65ch</code></td><td>Optimal body text measure</td></tr>
+        <tr><td><code>--width-wide</code></td><td><code>100%</code></td><td>Full container width</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+</article>
+{% endblock %}

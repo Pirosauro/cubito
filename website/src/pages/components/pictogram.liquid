@@ -1,0 +1,138 @@
+{% layout "layouts/base.liquid" %}
+{% block title %}Pictogram — Cubito UI Docs{% endblock %}
+
+{% block content %}
+<article class="flow">
+
+  <header class="padding-y-m margin-y-m" style="border-block-end: 1px solid var(--color-neutral-200);">
+    <nav aria-label="Breadcrumb" class="breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/components/">Components</a></li>
+        <li aria-current="page">Pictogram</li>
+      </ol>
+    </nav>
+    <h1>Pictogram</h1>
+    <p class="text-l color-neutral-600">A centred, evenly spaced row of icon and label pairs — ideal for feature and marketing sections.</p>
+  </header>
+
+  <section>
+    <h2 class="heading-l">Default</h2>
+    <p>Place any image or SVG inside a <code>&lt;figure&gt;</code> and pair it with a <code>&lt;figcaption&gt;</code>. The component wraps to additional rows automatically when the container is too narrow.</p>
+    
+    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
+<div class="pictogram">
+  <figure>
+    <div style="width: 64px; height: 64px; background: #e0e7ff; border-radius: 0.5rem;" role="img" aria-label="Fast delivery icon"></div>
+    <figcaption>Fast delivery</figcaption>
+  </figure>
+  <figure>
+    <div style="width: 64px; height: 64px; background: #d1fae5; border-radius: 0.5rem;" role="img" aria-label="Secure payment icon"></div>
+    <figcaption>Secure payment</figcaption>
+  </figure>
+  <figure>
+    <div style="width: 64px; height: 64px; background: #fef3c7; border-radius: 0.5rem;" role="img" aria-label="Easy returns icon"></div>
+    <figcaption>Easy returns</figcaption>
+  </figure>
+  <figure>
+    <div style="width: 64px; height: 64px; background: #fce7f3; border-radius: 0.5rem;" role="img" aria-label="24/7 support icon"></div>
+    <figcaption>24/7 support</figcaption>
+  </figure>
+</div>
+    </div>
+
+    <details class="margin-y-s">
+      <summary class="padding-s">Show code</summary>
+      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div class=&quot;pictogram&quot;&gt;
+  &lt;figure&gt;
+    &lt;div style=&quot;width: 64px; height: 64px; background: #e0e7ff; border-radius: 0.5rem;&quot; role=&quot;img&quot; aria-label=&quot;Fast delivery icon&quot;&gt;&lt;/div&gt;
+    &lt;figcaption&gt;Fast delivery&lt;/figcaption&gt;
+  &lt;/figure&gt;
+  &lt;figure&gt;
+    &lt;div style=&quot;width: 64px; height: 64px; background: #d1fae5; border-radius: 0.5rem;&quot; role=&quot;img&quot; aria-label=&quot;Secure payment icon&quot;&gt;&lt;/div&gt;
+    &lt;figcaption&gt;Secure payment&lt;/figcaption&gt;
+  &lt;/figure&gt;
+  &lt;figure&gt;
+    &lt;div style=&quot;width: 64px; height: 64px; background: #fef3c7; border-radius: 0.5rem;&quot; role=&quot;img&quot; aria-label=&quot;Easy returns icon&quot;&gt;&lt;/div&gt;
+    &lt;figcaption&gt;Easy returns&lt;/figcaption&gt;
+  &lt;/figure&gt;
+  &lt;figure&gt;
+    &lt;div style=&quot;width: 64px; height: 64px; background: #fce7f3; border-radius: 0.5rem;&quot; role=&quot;img&quot; aria-label=&quot;24/7 support icon&quot;&gt;&lt;/div&gt;
+    &lt;figcaption&gt;24/7 support&lt;/figcaption&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;</code></pre>
+    </details>
+  </section>
+
+  <section>
+    <h2 class="heading-l">Custom gap</h2>
+    <p>Override <code>--pictogram-gap</code> inline to tighten or widen the spacing between items.</p>
+    
+    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
+<div class="pictogram" style="--pictogram-gap: var(--space-xl)">
+  <figure>
+    <div style="width: 64px; height: 64px; background: #ede9fe; border-radius: 50%;" role="img" aria-label="Cloud storage icon"></div>
+    <figcaption>Cloud storage</figcaption>
+  </figure>
+  <figure>
+    <div style="width: 64px; height: 64px; background: #dbeafe; border-radius: 50%;" role="img" aria-label="Collaboration icon"></div>
+    <figcaption>Real-time collaboration</figcaption>
+  </figure>
+  <figure>
+    <div style="width: 64px; height: 64px; background: #dcfce7; border-radius: 50%;" role="img" aria-label="Analytics icon"></div>
+    <figcaption>Advanced analytics</figcaption>
+  </figure>
+</div>
+    </div>
+
+    <details class="margin-y-s">
+      <summary class="padding-s">Show code</summary>
+      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div class=&quot;pictogram&quot; style=&quot;--pictogram-gap: var(--space-xl)&quot;&gt;
+  &lt;figure&gt;
+    &lt;div style=&quot;width: 64px; height: 64px; background: #ede9fe; border-radius: 50%;&quot; role=&quot;img&quot; aria-label=&quot;Cloud storage icon&quot;&gt;&lt;/div&gt;
+    &lt;figcaption&gt;Cloud storage&lt;/figcaption&gt;
+  &lt;/figure&gt;
+  &lt;figure&gt;
+    &lt;div style=&quot;width: 64px; height: 64px; background: #dbeafe; border-radius: 50%;&quot; role=&quot;img&quot; aria-label=&quot;Collaboration icon&quot;&gt;&lt;/div&gt;
+    &lt;figcaption&gt;Real-time collaboration&lt;/figcaption&gt;
+  &lt;/figure&gt;
+  &lt;figure&gt;
+    &lt;div style=&quot;width: 64px; height: 64px; background: #dcfce7; border-radius: 50%;&quot; role=&quot;img&quot; aria-label=&quot;Analytics icon&quot;&gt;&lt;/div&gt;
+    &lt;figcaption&gt;Advanced analytics&lt;/figcaption&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;</code></pre>
+    </details>
+  </section>
+
+  <section>
+    <h2 class="heading-l">Tokens</h2>
+    <table class="">
+      <thead>
+        <tr>
+          <th>Token</th>
+          <th>Default</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>--pictogram-item-size</code></td>
+          <td><code>8rem</code></td>
+          <td>Minimum width of each figure item.</td>
+        </tr>
+        <tr>
+          <td><code>--pictogram-item-max</code></td>
+          <td><code>12rem</code></td>
+          <td>Maximum width of each figure item.</td>
+        </tr>
+        <tr>
+          <td><code>--pictogram-gap</code></td>
+          <td><code>var(--gutter)</code></td>
+          <td>Gap between items. Falls back to the global gutter token.</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+</article>
+{% endblock %}

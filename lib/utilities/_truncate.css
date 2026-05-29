@@ -1,6 +1,6 @@
 /*
 Truncate lines
-──────────────────────────────────────────────────────────────────────────────
+---
 Multi-line text truncation via -webkit-line-clamp. Widely supported.
 Pairs with .text-truncate (single-line) in _typography.css.
 

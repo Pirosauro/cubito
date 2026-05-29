@@ -1,0 +1,169 @@
+{% layout "layouts/base.liquid" %}
+{% block title %}Shadow — Cubito UI Docs{% endblock %}
+
+{% block content %}
+<article class="flow">
+
+  <header class="padding-y-m margin-y-m" style="border-block-end: 1px solid var(--color-neutral-200);">
+    <nav aria-label="Breadcrumb" class="breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/utilities/">Utilities</a></li>
+        <li aria-current="page">Shadow</li>
+      </ol>
+    </nav>
+    <h1>Shadow</h1>
+    <p class="text-l color-neutral-600">A hard-offset box shadow for a bold, graphic aesthetic, and a text outline effect via <code>.text-shadow</code>. Both use <code>currentColor</code> by default.</p>
+  </header>
+
+  <section>
+    <h2 class="heading-l">Box shadow</h2>
+    <p>The <code>.shadow</code> utility applies a solid offset shadow using <code>--shadow-color</code> and <code>--shadow-offset</code>. When applied to an <code>&lt;a&gt;</code> or <code>&lt;button&gt;</code>, the shadow collapses and the element nudges into the vacated space on hover and focus — giving a physical "press" effect.</p>
+    
+    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
+<div style="display: flex; flex-wrap: wrap; gap: var(--space-l); padding: var(--space-m)">
+  <div class="shadow background-neutral-100" style="padding: var(--space-m) var(--space-l); border-radius: var(--border-radius-m)">
+    Static element
+  </div>
+  <a href="#" class="shadow background-brand color-white" style="padding: var(--space-m) var(--space-l); border-radius: var(--border-radius-m); text-decoration: none; display: inline-block">
+    Interactive link
+  </a>
+  <button class="shadow" style="padding: var(--space-m) var(--space-l); border-radius: var(--border-radius-m); background: var(--color-accent); color: white; border: none; cursor: pointer">
+    Interactive button
+  </button>
+</div>
+    </div>
+
+    <details class="margin-y-s">
+      <summary class="padding-s">Show code</summary>
+      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div style=&quot;display: flex; flex-wrap: wrap; gap: var(--space-l); padding: var(--space-m)&quot;&gt;
+  &lt;div class=&quot;shadow background-neutral-100&quot; style=&quot;padding: var(--space-m) var(--space-l); border-radius: var(--border-radius-m)&quot;&gt;
+    Static element
+  &lt;/div&gt;
+  &lt;a href=&quot;#&quot; class=&quot;shadow background-brand color-white&quot; style=&quot;padding: var(--space-m) var(--space-l); border-radius: var(--border-radius-m); text-decoration: none; display: inline-block&quot;&gt;
+    Interactive link
+  &lt;/a&gt;
+  &lt;button class=&quot;shadow&quot; style=&quot;padding: var(--space-m) var(--space-l); border-radius: var(--border-radius-m); background: var(--color-accent); color: white; border: none; cursor: pointer&quot;&gt;
+    Interactive button
+  &lt;/button&gt;
+&lt;/div&gt;</code></pre>
+    </details>
+  </section>
+
+  <section>
+    <h2 class="heading-l">Custom shadow colour</h2>
+    <p>Override <code>--shadow-color</code> inline to tint the shadow. Any CSS colour value is accepted.</p>
+    
+    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
+<div style="display: flex; flex-wrap: wrap; gap: var(--space-l); padding: var(--space-m)">
+  <div class="shadow" style="--shadow-color: var(--color-brand); padding: var(--space-m) var(--space-l); border-radius: var(--border-radius-m); background: var(--color-neutral-50)">
+    Brand shadow
+  </div>
+  <div class="shadow" style="--shadow-color: var(--color-status-ok); padding: var(--space-m) var(--space-l); border-radius: var(--border-radius-m); background: var(--color-neutral-50)">
+    Status-ok shadow
+  </div>
+  <div class="shadow" style="--shadow-color: oklch(40% 0.2 30); padding: var(--space-m) var(--space-l); border-radius: var(--border-radius-m); background: var(--color-neutral-50)">
+    Custom colour
+  </div>
+</div>
+    </div>
+
+    <details class="margin-y-s">
+      <summary class="padding-s">Show code</summary>
+      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div style=&quot;display: flex; flex-wrap: wrap; gap: var(--space-l); padding: var(--space-m)&quot;&gt;
+  &lt;div class=&quot;shadow&quot; style=&quot;--shadow-color: var(--color-brand); padding: var(--space-m) var(--space-l); border-radius: var(--border-radius-m); background: var(--color-neutral-50)&quot;&gt;
+    Brand shadow
+  &lt;/div&gt;
+  &lt;div class=&quot;shadow&quot; style=&quot;--shadow-color: var(--color-status-ok); padding: var(--space-m) var(--space-l); border-radius: var(--border-radius-m); background: var(--color-neutral-50)&quot;&gt;
+    Status-ok shadow
+  &lt;/div&gt;
+  &lt;div class=&quot;shadow&quot; style=&quot;--shadow-color: oklch(40% 0.2 30); padding: var(--space-m) var(--space-l); border-radius: var(--border-radius-m); background: var(--color-neutral-50)&quot;&gt;
+    Custom colour
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </details>
+  </section>
+
+  <section>
+    <h2 class="heading-l">Custom offset</h2>
+    <p>Adjust <code>--shadow-offset</code> to make the shadow more or less pronounced.</p>
+    
+    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-l); padding: var(--space-m)">
+  <div class="shadow" style="--shadow-offset: 0.2rem; padding: var(--space-m) var(--space-l); border-radius: var(--border-radius-m); background: var(--color-neutral-50)">
+    0.2rem offset
+  </div>
+  <div class="shadow" style="padding: var(--space-m) var(--space-l); border-radius: var(--border-radius-m); background: var(--color-neutral-50)">
+    Default (0.35rem)
+  </div>
+  <div class="shadow" style="--shadow-offset: 0.6rem; padding: var(--space-m) var(--space-l); border-radius: var(--border-radius-m); background: var(--color-neutral-50)">
+    0.6rem offset
+  </div>
+</div>
+    </div>
+
+    <details class="margin-y-s">
+      <summary class="padding-s">Show code</summary>
+      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div style=&quot;display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-l); padding: var(--space-m)&quot;&gt;
+  &lt;div class=&quot;shadow&quot; style=&quot;--shadow-offset: 0.2rem; padding: var(--space-m) var(--space-l); border-radius: var(--border-radius-m); background: var(--color-neutral-50)&quot;&gt;
+    0.2rem offset
+  &lt;/div&gt;
+  &lt;div class=&quot;shadow&quot; style=&quot;padding: var(--space-m) var(--space-l); border-radius: var(--border-radius-m); background: var(--color-neutral-50)&quot;&gt;
+    Default (0.35rem)
+  &lt;/div&gt;
+  &lt;div class=&quot;shadow&quot; style=&quot;--shadow-offset: 0.6rem; padding: var(--space-m) var(--space-l); border-radius: var(--border-radius-m); background: var(--color-neutral-50)&quot;&gt;
+    0.6rem offset
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </details>
+  </section>
+
+  <section>
+    <h2 class="heading-l">Text shadow</h2>
+    <p><code>.text-shadow</code> applies a multi-directional 1px outline using <code>text-shadow</code> — a striking effect for display headings. It uses <code>currentColor</code>, so it inherits from the parent's text colour.</p>
+    
+    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
+<div style="display: flex; flex-direction: column; gap: var(--space-s)">
+  <h2 class="heading-xl text-shadow" style="color: var(--color-brand)">Display heading</h2>
+  <h2 class="heading-l text-shadow" style="color: var(--color-neutral-900)">Neutral outline</h2>
+  <h2 class="heading-m text-shadow" style="color: var(--color-accent)">Accent colour</h2>
+</div>
+    </div>
+
+    <details class="margin-y-s">
+      <summary class="padding-s">Show code</summary>
+      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div style=&quot;display: flex; flex-direction: column; gap: var(--space-s)&quot;&gt;
+  &lt;h2 class=&quot;heading-xl text-shadow&quot; style=&quot;color: var(--color-brand)&quot;&gt;Display heading&lt;/h2&gt;
+  &lt;h2 class=&quot;heading-l text-shadow&quot; style=&quot;color: var(--color-neutral-900)&quot;&gt;Neutral outline&lt;/h2&gt;
+  &lt;h2 class=&quot;heading-m text-shadow&quot; style=&quot;color: var(--color-accent)&quot;&gt;Accent colour&lt;/h2&gt;
+&lt;/div&gt;</code></pre>
+    </details>
+  </section>
+
+  <section>
+    <h2 class="heading-l">Tokens</h2>
+    <table class="">
+      <thead>
+        <tr>
+          <th>Token</th>
+          <th>Default</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>--shadow-color</code></td>
+          <td><code>currentColor</code></td>
+          <td>Colour of the box or text shadow.</td>
+        </tr>
+        <tr>
+          <td><code>--shadow-offset</code></td>
+          <td><code>0.35rem</code></td>
+          <td>Horizontal and vertical offset of the box shadow.</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+</article>
+{% endblock %}

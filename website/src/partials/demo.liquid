@@ -1,0 +1,10 @@
+<div class="docs-example">
+  {% if title %}<p class="docs-example__label">{{ title }}</p>{% endif %}
+  <div class="docs-demo">
+    {{ html }}
+  </div>
+  <details class="docs-code">
+    <summary>Show HTML</summary>
+    <pre><code>{{ html | strip | xml_escape }}</code></pre>
+  </details>
+</div>

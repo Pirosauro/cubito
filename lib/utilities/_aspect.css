@@ -1,6 +1,6 @@
 /*
 Aspect ratio utilities
-──────────────────────────────────────────────────────────────────────────────
+---
 Named aspect-ratio helpers for non-cropped media. Unlike the .frame
 composition (which crops via overflow: hidden and object-fit), these utilities
 simply enforce a ratio on the element itself — the content inside is not

@@ -1,6 +1,6 @@
 /*
 Email reset
-──────────────────────────────────────────────────────────────────────────────
+---
 Standalone CSS reset for HTML email clients. This file is NOT inside @layer
 and must be INLINED into email templates — do not import it alongside the
 main library styles.
@@ -61,7 +61,7 @@ div[style*="margin: 16px 0;"] {
   margin: 0 !important;
 }
 
-/* ── Responsive ─────────────────────────────────────────────────────────── */
+/* --- Responsive --- */
 
 @media all and (max-width: 639px) {
   .wrapper {
@@ -92,7 +92,7 @@ div[style*="margin: 16px 0;"] {
   }
 }
 
-/* ── Dark mode ───────────────────────────────────────────────────────────── */
+/* --- Dark mode --- */
 
 :root {
   color-scheme: light dark;

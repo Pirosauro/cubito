@@ -1,6 +1,6 @@
 /*
 Accessibility
-──────────────────────────────────────────────────────────────────────────────
+---
 Skip-link and visually-hidden utilities. These must never use display:none —
 screen readers must still reach the element.
 
@@ -9,7 +9,7 @@ screen readers must still reach the element.
 */
 
 @layer utilities {
-  /* ── Skip link ──────────────────────────────────────────────────────────── */
+  /* --- Skip link --- */
 
   .skip-link {
     clip-path: inset(50%);
@@ -38,7 +38,7 @@ screen readers must still reach the element.
     width: auto;
   }
 
-  /* ── Visually hidden (screen-reader only) ───────────────────────────────── */
+  /* --- Visually hidden (screen-reader only) --- */
 
   .visually-hidden:not(:focus):not(:focus-within),
   .sr-only:not(:focus):not(:focus-within) {

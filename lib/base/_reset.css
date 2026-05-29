@@ -1,6 +1,6 @@
 /*
 Reset
-──────────────────────────────────────────────────────────────────────────────
+---
 A curated CSS reset that provides a consistent, accessible baseline across
 browsers. Builds on top of the design tokens defined in abstracts/.
 
@@ -35,7 +35,7 @@ CONFIGURATION
 }
 
 @layer reset {
-  /* ─── Universal ─────────────────────────────────────────────────────────── */
+  /* --- Universal --- */
 
   *,
   *::before,
@@ -93,7 +93,7 @@ CONFIGURATION
     }
   }
 
-  /* ─── Content sectioning ─────────────────────────────────────────────────── */
+  /* --- Content sectioning --- */
 
   h1,
   h2,
@@ -147,7 +147,7 @@ CONFIGURATION
     outline: none;
   }
 
-  /* ─── Text block content ─────────────────────────────────────────────────── */
+  /* --- Text block content --- */
 
   p {
     margin: 0;
@@ -227,7 +227,7 @@ CONFIGURATION
     border-top: solid var(--border-s) currentColor;
   }
 
-  /* ─── Inline text semantics ──────────────────────────────────────────────── */
+  /* --- Inline text semantics --- */
 
   a {
     color: var(--link-color);
@@ -292,7 +292,7 @@ CONFIGURATION
     text-decoration: underline dotted;
   }
 
-  /* ─── Embedded content ───────────────────────────────────────────────────── */
+  /* --- Embedded content --- */
 
   img,
   picture,
@@ -325,7 +325,7 @@ CONFIGURATION
     width: revert;
   }
 
-  /* ─── Forms ──────────────────────────────────────────────────────────────── */
+  /* --- Forms --- */
 
   input,
   textarea,
@@ -375,7 +375,7 @@ CONFIGURATION
     display: block;
   }
 
-  /* ─── Interactive elements ───────────────────────────────────────────────── */
+  /* --- Interactive elements --- */
 
   [inert],
   [inert] * {

@@ -19,7 +19,8 @@ LEGACY
 
 @layer tokens {
   :root {
-    /* --- Base unit (deprecated — use --space-* tokens in new work) --- */
+    /* --- Base unit (deprecated — no longer used by the library) --- */
+    /* Kept as a consumer token for backward compat. Use --space-* in new work. */
 
     /* Still appropriate when hard 8px-grid alignment is required, e.g. icon gutters, toolbar gaps...  */
     --su: 0.5rem; /* ~8px */

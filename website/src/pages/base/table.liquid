@@ -1,0 +1,429 @@
+{% layout "layouts/base.liquid" %}
+{% block title %}Table — Cubito UI Docs{% endblock %}
+
+{% block content %}
+<article class="flow">
+
+  <header class="padding-y-m margin-y-m" style="border-block-end: 1px solid var(--color-neutral-200);">
+    <nav aria-label="Breadcrumb" class="breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/base/">Base Elements</a></li>
+        <li aria-current="page">Table</li>
+      </ol>
+    </nav>
+    <h1>Table</h1>
+    <p class="text-l color-neutral-600">Data tables with token-controlled striping, borders, and a sticky-header option — wrap in <code>.table-wrapper</code> to handle horizontal overflow on narrow viewports.</p>
+  </header>
+
+  <section>
+    <h2 class="heading-l">Basic table</h2>
+    <p>Use <code>scope="col"</code> on header cells for proper screen reader semantics. A <code>&lt;caption&gt;</code> is rendered below the table and provides an accessible title.</p>
+    
+    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
+<div class="table-wrapper">
+    <div class="wrapper">
+  <table>
+    <caption>Current warehouse stock — updated daily</caption>
+    <thead>
+      <tr>
+        <th scope="col">Product</th>
+        <th scope="col">SKU</th>
+        <th scope="col">Category</th>
+        <th scope="col">Stock</th>
+        <th scope="col">Unit price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Wireless headphones</td>
+        <td><code>WH-2040-BLK</code></td>
+        <td>Audio</td>
+        <td>142</td>
+        <td>£79.99</td>
+      </tr>
+      <tr>
+        <td>USB-C hub (7-port)</td>
+        <td><code>HUB-7C-SLV</code></td>
+        <td>Accessories</td>
+        <td>58</td>
+        <td>£34.50</td>
+      </tr>
+      <tr>
+        <td>Mechanical keyboard</td>
+        <td><code>KB-MEC-WHT</code></td>
+        <td>Input</td>
+        <td>0</td>
+        <td>£129.00</td>
+      </tr>
+      <tr>
+        <td>Laptop stand (aluminium)</td>
+        <td><code>LS-ALU-M</code></td>
+        <td>Accessories</td>
+        <td>211</td>
+        <td>£45.00</td>
+      </tr>
+      <tr>
+        <td>Monitor light bar</td>
+        <td><code>MLB-USB-WHT</code></td>
+        <td>Lighting</td>
+        <td>74</td>
+        <td>£29.99</td>
+      </tr>
+    </tbody>
+  </table>
+    </div>
+</div>
+    </div>
+
+    <details class="margin-y-s">
+      <summary class="padding-s">Show code</summary>
+      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div class=&quot;table-wrapper&quot;&gt;
+  &lt;table&gt;
+    &lt;caption&gt;Current warehouse stock — updated daily&lt;/caption&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;
+        &lt;th scope=&quot;col&quot;&gt;Product&lt;/th&gt;
+        &lt;th scope=&quot;col&quot;&gt;SKU&lt;/th&gt;
+        &lt;th scope=&quot;col&quot;&gt;Category&lt;/th&gt;
+        &lt;th scope=&quot;col&quot;&gt;Stock&lt;/th&gt;
+        &lt;th scope=&quot;col&quot;&gt;Unit price&lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;td&gt;Wireless headphones&lt;/td&gt;
+        &lt;td&gt;&lt;code&gt;WH-2040-BLK&lt;/code&gt;&lt;/td&gt;
+        &lt;td&gt;Audio&lt;/td&gt;
+        &lt;td&gt;142&lt;/td&gt;
+        &lt;td&gt;£79.99&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;USB-C hub (7-port)&lt;/td&gt;
+        &lt;td&gt;&lt;code&gt;HUB-7C-SLV&lt;/code&gt;&lt;/td&gt;
+        &lt;td&gt;Accessories&lt;/td&gt;
+        &lt;td&gt;58&lt;/td&gt;
+        &lt;td&gt;£34.50&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;Mechanical keyboard&lt;/td&gt;
+        &lt;td&gt;&lt;code&gt;KB-MEC-WHT&lt;/code&gt;&lt;/td&gt;
+        &lt;td&gt;Input&lt;/td&gt;
+        &lt;td&gt;0&lt;/td&gt;
+        &lt;td&gt;£129.00&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;Laptop stand (aluminium)&lt;/td&gt;
+        &lt;td&gt;&lt;code&gt;LS-ALU-M&lt;/code&gt;&lt;/td&gt;
+        &lt;td&gt;Accessories&lt;/td&gt;
+        &lt;td&gt;211&lt;/td&gt;
+        &lt;td&gt;£45.00&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;Monitor light bar&lt;/td&gt;
+        &lt;td&gt;&lt;code&gt;MLB-USB-WHT&lt;/code&gt;&lt;/td&gt;
+        &lt;td&gt;Lighting&lt;/td&gt;
+        &lt;td&gt;74&lt;/td&gt;
+        &lt;td&gt;£29.99&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/div&gt;</code></pre>
+    </details>
+  </section>
+
+  <section>
+    <h2 class="heading-l">Striped rows</h2>
+    <p>Alternating row colours are off by default (<code>--tr-background-odd</code> and <code>--tr-background-even</code> both resolve to <code>transparent</code>). Enable striping by overriding these tokens at any scope.</p>
+    
+    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
+<div class="table-wrapper" style="--tr-background-even: var(--color-neutral-50)">
+    <div class="wrapper">
+  <table>
+    <thead>
+      <tr>
+        <th scope="col">Order ID</th>
+        <th scope="col">Customer</th>
+        <th scope="col">Date</th>
+        <th scope="col">Status</th>
+        <th scope="col">Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>#10042</code></td>
+        <td>Sophie Turner</td>
+        <td>28 May 2026</td>
+        <td>Shipped</td>
+        <td>£149.97</td>
+      </tr>
+      <tr>
+        <td><code>#10041</code></td>
+        <td>Liam Patel</td>
+        <td>27 May 2026</td>
+        <td>Processing</td>
+        <td>£34.50</td>
+      </tr>
+      <tr>
+        <td><code>#10040</code></td>
+        <td>Mia Rossi</td>
+        <td>27 May 2026</td>
+        <td>Delivered</td>
+        <td>£209.00</td>
+      </tr>
+      <tr>
+        <td><code>#10039</code></td>
+        <td>Noah Schmidt</td>
+        <td>26 May 2026</td>
+        <td>Delivered</td>
+        <td>£75.49</td>
+      </tr>
+    </tbody>
+  </table>
+    </div>
+</div>
+    </div>
+
+    <details class="margin-y-s">
+      <summary class="padding-s">Show code</summary>
+      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div class=&quot;table-wrapper&quot; style=&quot;--tr-background-even: var(--color-neutral-50)&quot;&gt;
+  &lt;table&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;
+        &lt;th scope=&quot;col&quot;&gt;Order ID&lt;/th&gt;
+        &lt;th scope=&quot;col&quot;&gt;Customer&lt;/th&gt;
+        &lt;th scope=&quot;col&quot;&gt;Date&lt;/th&gt;
+        &lt;th scope=&quot;col&quot;&gt;Status&lt;/th&gt;
+        &lt;th scope=&quot;col&quot;&gt;Total&lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;td&gt;&lt;code&gt;#10042&lt;/code&gt;&lt;/td&gt;
+        &lt;td&gt;Sophie Turner&lt;/td&gt;
+        &lt;td&gt;28 May 2026&lt;/td&gt;
+        &lt;td&gt;Shipped&lt;/td&gt;
+        &lt;td&gt;£149.97&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;&lt;code&gt;#10041&lt;/code&gt;&lt;/td&gt;
+        &lt;td&gt;Liam Patel&lt;/td&gt;
+        &lt;td&gt;27 May 2026&lt;/td&gt;
+        &lt;td&gt;Processing&lt;/td&gt;
+        &lt;td&gt;£34.50&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;&lt;code&gt;#10040&lt;/code&gt;&lt;/td&gt;
+        &lt;td&gt;Mia Rossi&lt;/td&gt;
+        &lt;td&gt;27 May 2026&lt;/td&gt;
+        &lt;td&gt;Delivered&lt;/td&gt;
+        &lt;td&gt;£209.00&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;&lt;code&gt;#10039&lt;/code&gt;&lt;/td&gt;
+        &lt;td&gt;Noah Schmidt&lt;/td&gt;
+        &lt;td&gt;26 May 2026&lt;/td&gt;
+        &lt;td&gt;Delivered&lt;/td&gt;
+        &lt;td&gt;£75.49&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/div&gt;</code></pre>
+    </details>
+  </section>
+
+  <section>
+    <h2 class="heading-l">Variants</h2>
+    <p>Three <code>data-variant</code> values change cell borders and padding.</p>
+
+    
+    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
+<div class="flow">
+  <p><strong>Borderless</strong> — no cell borders at all:</p>
+  <div class="table-wrapper">
+    <table data-variant="borderless">
+      <thead><tr><th scope="col">Region</th><th scope="col">Q1</th><th scope="col">Q2</th><th scope="col">YTD</th></tr></thead>
+      <tbody>
+        <tr><td>EMEA</td><td>£1.2m</td><td>£1.5m</td><td>£2.7m</td></tr>
+        <tr><td>APAC</td><td>£0.9m</td><td>£1.1m</td><td>£2.0m</td></tr>
+        <tr><td>Americas</td><td>£2.4m</td><td>£2.8m</td><td>£5.2m</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p><strong>Lined</strong> — horizontal rules only:</p>
+  <div class="table-wrapper">
+    <table data-variant="lined">
+      <thead><tr><th scope="col">Region</th><th scope="col">Q1</th><th scope="col">Q2</th><th scope="col">YTD</th></tr></thead>
+      <tbody>
+        <tr><td>EMEA</td><td>£1.2m</td><td>£1.5m</td><td>£2.7m</td></tr>
+        <tr><td>APAC</td><td>£0.9m</td><td>£1.1m</td><td>£2.0m</td></tr>
+        <tr><td>Americas</td><td>£2.4m</td><td>£2.8m</td><td>£5.2m</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p><strong>Compact</strong> — reduced padding and smaller font size for dense data:</p>
+  <div class="table-wrapper">
+    <table data-variant="compact">
+      <thead><tr><th scope="col">Region</th><th scope="col">Q1</th><th scope="col">Q2</th><th scope="col">YTD</th></tr></thead>
+      <tbody>
+        <tr><td>EMEA</td><td>£1.2m</td><td>£1.5m</td><td>£2.7m</td></tr>
+        <tr><td>APAC</td><td>£0.9m</td><td>£1.1m</td><td>£2.0m</td></tr>
+        <tr><td>Americas</td><td>£2.4m</td><td>£2.8m</td><td>£5.2m</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+    </div>
+
+    <details class="margin-y-s">
+      <summary class="padding-s">Show code</summary>
+      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div class=&quot;flow&quot;&gt;
+  &lt;p&gt;&lt;strong&gt;Borderless&lt;/strong&gt; — no cell borders at all:&lt;/p&gt;
+  &lt;div class=&quot;table-wrapper&quot;&gt;
+    &lt;table data-variant=&quot;borderless&quot;&gt;
+      &lt;thead&gt;&lt;tr&gt;&lt;th scope=&quot;col&quot;&gt;Region&lt;/th&gt;&lt;th scope=&quot;col&quot;&gt;Q1&lt;/th&gt;&lt;th scope=&quot;col&quot;&gt;Q2&lt;/th&gt;&lt;th scope=&quot;col&quot;&gt;YTD&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;&lt;td&gt;EMEA&lt;/td&gt;&lt;td&gt;£1.2m&lt;/td&gt;&lt;td&gt;£1.5m&lt;/td&gt;&lt;td&gt;£2.7m&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;APAC&lt;/td&gt;&lt;td&gt;£0.9m&lt;/td&gt;&lt;td&gt;£1.1m&lt;/td&gt;&lt;td&gt;£2.0m&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;Americas&lt;/td&gt;&lt;td&gt;£2.4m&lt;/td&gt;&lt;td&gt;£2.8m&lt;/td&gt;&lt;td&gt;£5.2m&lt;/td&gt;&lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/div&gt;
+
+  &lt;p&gt;&lt;strong&gt;Lined&lt;/strong&gt; — horizontal rules only:&lt;/p&gt;
+  &lt;div class=&quot;table-wrapper&quot;&gt;
+    &lt;table data-variant=&quot;lined&quot;&gt;
+      &lt;thead&gt;&lt;tr&gt;&lt;th scope=&quot;col&quot;&gt;Region&lt;/th&gt;&lt;th scope=&quot;col&quot;&gt;Q1&lt;/th&gt;&lt;th scope=&quot;col&quot;&gt;Q2&lt;/th&gt;&lt;th scope=&quot;col&quot;&gt;YTD&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;&lt;td&gt;EMEA&lt;/td&gt;&lt;td&gt;£1.2m&lt;/td&gt;&lt;td&gt;£1.5m&lt;/td&gt;&lt;td&gt;£2.7m&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;APAC&lt;/td&gt;&lt;td&gt;£0.9m&lt;/td&gt;&lt;td&gt;£1.1m&lt;/td&gt;&lt;td&gt;£2.0m&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;Americas&lt;/td&gt;&lt;td&gt;£2.4m&lt;/td&gt;&lt;td&gt;£2.8m&lt;/td&gt;&lt;td&gt;£5.2m&lt;/td&gt;&lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/div&gt;
+
+  &lt;p&gt;&lt;strong&gt;Compact&lt;/strong&gt; — reduced padding and smaller font size for dense data:&lt;/p&gt;
+  &lt;div class=&quot;table-wrapper&quot;&gt;
+    &lt;table data-variant=&quot;compact&quot;&gt;
+      &lt;thead&gt;&lt;tr&gt;&lt;th scope=&quot;col&quot;&gt;Region&lt;/th&gt;&lt;th scope=&quot;col&quot;&gt;Q1&lt;/th&gt;&lt;th scope=&quot;col&quot;&gt;Q2&lt;/th&gt;&lt;th scope=&quot;col&quot;&gt;YTD&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;&lt;td&gt;EMEA&lt;/td&gt;&lt;td&gt;£1.2m&lt;/td&gt;&lt;td&gt;£1.5m&lt;/td&gt;&lt;td&gt;£2.7m&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;APAC&lt;/td&gt;&lt;td&gt;£0.9m&lt;/td&gt;&lt;td&gt;£1.1m&lt;/td&gt;&lt;td&gt;£2.0m&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;Americas&lt;/td&gt;&lt;td&gt;£2.4m&lt;/td&gt;&lt;td&gt;£2.8m&lt;/td&gt;&lt;td&gt;£5.2m&lt;/td&gt;&lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </details>
+
+    <table class="">
+      <thead><tr><th>Value</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td><code>data-variant="borderless"</code></td><td>Removes all cell borders.</td></tr>
+        <tr><td><code>data-variant="lined"</code></td><td>Horizontal rules only — bottom border per cell.</td></tr>
+        <tr><td><code>data-variant="compact"</code></td><td>Reduced padding (<code>--td-compact-padding</code>) and smaller font (<code>--td-compact-font-size</code>).</td></tr>
+        <tr><td><code>data-sticky-header</code></td><td>Makes <code>&lt;th&gt;</code> cells sticky at the top of the scroll container. Add to the <code>&lt;table&gt;</code> element.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2 class="heading-l">Responsive table</h2>
+    <p>Wrap the <code>&lt;table&gt;</code> in a <code>&lt;div class="table-wrapper"&gt;</code> to allow horizontal scrolling on narrow viewports without breaking the page layout.</p>
+    
+    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
+<div class="table-wrapper">
+  <table style="min-width: 40rem">
+    <thead>
+      <tr>
+        <th scope="col">Server</th>
+        <th scope="col">Region</th>
+        <th scope="col">CPU</th>
+        <th scope="col">Memory</th>
+        <th scope="col">Disk</th>
+        <th scope="col">Uptime</th>
+        <th scope="col">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>web-prod-01</td><td>eu-west-1</td><td>12%</td><td>4.2 GB</td><td>120 GB</td><td>47d 3h</td><td>Healthy</td>
+      </tr>
+      <tr>
+        <td>web-prod-02</td><td>eu-west-1</td><td>9%</td><td>3.8 GB</td><td>120 GB</td><td>47d 3h</td><td>Healthy</td>
+      </tr>
+      <tr>
+        <td>db-primary</td><td>eu-west-1</td><td>34%</td><td>14.1 GB</td><td>500 GB</td><td>120d 7h</td><td>Healthy</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+    </div>
+
+    <details class="margin-y-s">
+      <summary class="padding-s">Show code</summary>
+      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div class=&quot;table-wrapper&quot;&gt;
+  &lt;table style=&quot;min-width: 40rem&quot;&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;
+        &lt;th scope=&quot;col&quot;&gt;Server&lt;/th&gt;
+        &lt;th scope=&quot;col&quot;&gt;Region&lt;/th&gt;
+        &lt;th scope=&quot;col&quot;&gt;CPU&lt;/th&gt;
+        &lt;th scope=&quot;col&quot;&gt;Memory&lt;/th&gt;
+        &lt;th scope=&quot;col&quot;&gt;Disk&lt;/th&gt;
+        &lt;th scope=&quot;col&quot;&gt;Uptime&lt;/th&gt;
+        &lt;th scope=&quot;col&quot;&gt;Status&lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;td&gt;web-prod-01&lt;/td&gt;&lt;td&gt;eu-west-1&lt;/td&gt;&lt;td&gt;12%&lt;/td&gt;&lt;td&gt;4.2 GB&lt;/td&gt;&lt;td&gt;120 GB&lt;/td&gt;&lt;td&gt;47d 3h&lt;/td&gt;&lt;td&gt;Healthy&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;web-prod-02&lt;/td&gt;&lt;td&gt;eu-west-1&lt;/td&gt;&lt;td&gt;9%&lt;/td&gt;&lt;td&gt;3.8 GB&lt;/td&gt;&lt;td&gt;120 GB&lt;/td&gt;&lt;td&gt;47d 3h&lt;/td&gt;&lt;td&gt;Healthy&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;db-primary&lt;/td&gt;&lt;td&gt;eu-west-1&lt;/td&gt;&lt;td&gt;34%&lt;/td&gt;&lt;td&gt;14.1 GB&lt;/td&gt;&lt;td&gt;500 GB&lt;/td&gt;&lt;td&gt;120d 7h&lt;/td&gt;&lt;td&gt;Healthy&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/div&gt;</code></pre>
+    </details>
+    <div class="callout" data-variant="brand" role="note"><p>The <code>.table-wrapper</code> class applies <code>overflow-x: auto</code> and <code>-webkit-overflow-scrolling: touch</code>. On mobile the table scrolls horizontally while the page itself does not.</p></div>
+  </section>
+
+  <section>
+    <h2 class="heading-l">Tokens</h2>
+
+    <table class="">
+      <thead><tr><th>Token</th><th>Default</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td colspan="3"><strong>Rows</strong></td></tr>
+        <tr><td><code>--tr-background-odd</code></td><td><code>transparent</code></td><td>Background for odd rows (1st, 3rd, …).</td></tr>
+        <tr><td><code>--tr-background-even</code></td><td><code>transparent</code></td><td>Background for even rows (2nd, 4th, …).</td></tr>
+        <tr><td><code>--tr-color-odd</code></td><td><code>inherit</code></td><td>Text colour for odd rows.</td></tr>
+        <tr><td><code>--tr-color-even</code></td><td><code>inherit</code></td><td>Text colour for even rows.</td></tr>
+        <tr><td><code>--tr-background-odd-hover</code></td><td><code>var(--tr-background-odd)</code></td><td>Hover background for odd rows.</td></tr>
+        <tr><td><code>--tr-background-even-hover</code></td><td><code>var(--tr-background-even)</code></td><td>Hover background for even rows.</td></tr>
+        <tr><td colspan="3"><strong>Cells</strong></td></tr>
+        <tr><td><code>--td-border-color</code></td><td><code>var(--color)</code></td><td>Cell border colour.</td></tr>
+        <tr><td><code>--td-border-width</code></td><td><code>var(--border-s)</code></td><td>Cell border width.</td></tr>
+        <tr><td><code>--td-border-style</code></td><td><code>solid</code></td><td>Cell border style.</td></tr>
+        <tr><td><code>--td-padding</code></td><td><code>var(--space-tiny) var(--space-xxs)</code></td><td>Cell padding.</td></tr>
+        <tr><td><code>--td-compact-padding</code></td><td><code>var(--space-xxs) var(--space-tiny)</code></td><td>Cell padding in compact variant.</td></tr>
+        <tr><td><code>--td-compact-font-size</code></td><td><code>var(--font-size-xs)</code></td><td>Font size in compact variant.</td></tr>
+        <tr><td colspan="3"><strong>Header</strong></td></tr>
+        <tr><td><code>--th-background</code></td><td><code>var(--color)</code></td><td>Header cell background.</td></tr>
+        <tr><td><code>--th-color</code></td><td><code>var(--background)</code></td><td>Header cell text colour.</td></tr>
+        <tr><td colspan="3"><strong>Caption</strong></td></tr>
+        <tr><td><code>--caption-color</code></td><td><code>var(--color-neutral-500)</code></td><td>Caption text colour.</td></tr>
+        <tr><td><code>--caption-font-size</code></td><td><code>var(--font-size-xs)</code></td><td>Caption font size.</td></tr>
+        <tr><td><code>--caption-padding</code></td><td><code>var(--space-tiny) var(--space-xxs)</code></td><td>Caption padding.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+</article>
+{% endblock %}

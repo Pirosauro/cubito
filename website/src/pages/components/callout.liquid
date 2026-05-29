@@ -1,0 +1,148 @@
+{% layout "layouts/base.liquid" %}
+{% block title %}Callout — Cubito UI Docs{% endblock %}
+
+{% block content %}
+<article class="flow">
+
+  <header class="padding-y-m margin-y-m" style="border-block-end: 1px solid var(--color-neutral-200);">
+    <nav aria-label="Breadcrumb" class="breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/components/">Components</a></li>
+        <li aria-current="page">Callout</li>
+      </ol>
+    </nav>
+    <h1>Callout</h1>
+    <p class="text-l color-neutral-600">An inline notification block that draws attention to important information within the page content, without interrupting the reading flow.</p>
+  </header>
+
+  <section>
+    <h2 class="heading-l">Default (neutral)</h2>
+    <p>The default callout inherits the current text colour and has no background. Use <code>role="note"</code> for supplemental information that is not urgent.</p>
+    
+    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
+<div class="callout" role="note">
+  <p>Your draft is saved automatically every two minutes. You can restore a previous version from the revision history.</p>
+</div>
+    </div>
+
+    <details class="margin-y-s">
+      <summary class="padding-s">Show code</summary>
+      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div class=&quot;callout&quot; role=&quot;note&quot;&gt;
+  &lt;p&gt;Your draft is saved automatically every two minutes. You can restore a previous version from the revision history.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+    </details>
+  </section>
+
+  <section>
+    <h2 class="heading-l">Brand</h2>
+    
+    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
+<div class="callout" data-variant="brand" role="note">
+  <p>Upgrade to Pro to unlock unlimited projects, custom domains, and priority support.</p>
+</div>
+    </div>
+
+    <details class="margin-y-s">
+      <summary class="padding-s">Show code</summary>
+      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div class=&quot;callout&quot; data-variant=&quot;brand&quot; role=&quot;note&quot;&gt;
+  &lt;p&gt;Upgrade to Pro to unlock unlimited projects, custom domains, and priority support.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+    </details>
+  </section>
+
+  <section>
+    <h2 class="heading-l">Info</h2>
+    <p>Use <code>role="note"</code> for informational callouts. Screen readers will announce them in document order without interrupting the user.</p>
+    
+    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
+<div class="callout" data-variant="info" role="note">
+  <p>API rate limits reset every hour. See the <a href="/docs/rate-limits/">rate limits documentation</a> for details on your plan's allowances.</p>
+</div>
+    </div>
+
+    <details class="margin-y-s">
+      <summary class="padding-s">Show code</summary>
+      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div class=&quot;callout&quot; data-variant=&quot;info&quot; role=&quot;note&quot;&gt;
+  &lt;p&gt;API rate limits reset every hour. See the &lt;a href=&quot;/docs/rate-limits/&quot;&gt;rate limits documentation&lt;/a&gt; for details on your plan&#x27;s allowances.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+    </details>
+  </section>
+
+  <section>
+    <h2 class="heading-l">Warning</h2>
+    
+    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
+<div class="callout" data-variant="warning" role="note">
+  <p>Deleting a workspace removes all projects and members. This action is permanent and cannot be undone.</p>
+</div>
+    </div>
+
+    <details class="margin-y-s">
+      <summary class="padding-s">Show code</summary>
+      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div class=&quot;callout&quot; data-variant=&quot;warning&quot; role=&quot;note&quot;&gt;
+  &lt;p&gt;Deleting a workspace removes all projects and members. This action is permanent and cannot be undone.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+    </details>
+  </section>
+
+  <section>
+    <h2 class="heading-l">Error</h2>
+    <p>For errors that appear after a user action, use <code>role="alert"</code> and <code>aria-live="assertive"</code> to announce the message immediately to screen readers.</p>
+    
+    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
+<div class="callout" data-variant="error" role="alert" aria-live="assertive">
+  <p>Payment failed. The card ending in 4242 was declined. Please check your billing details and try again.</p>
+</div>
+    </div>
+
+    <details class="margin-y-s">
+      <summary class="padding-s">Show code</summary>
+      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div class=&quot;callout&quot; data-variant=&quot;error&quot; role=&quot;alert&quot; aria-live=&quot;assertive&quot;&gt;
+  &lt;p&gt;Payment failed. The card ending in 4242 was declined. Please check your billing details and try again.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+    </details>
+  </section>
+
+  <section>
+    <h2 class="heading-l">Success</h2>
+    
+    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
+<div class="callout" data-variant="success" role="note">
+  <p>Your password has been changed successfully. All other active sessions have been signed out.</p>
+</div>
+    </div>
+
+    <details class="margin-y-s">
+      <summary class="padding-s">Show code</summary>
+      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div class=&quot;callout&quot; data-variant=&quot;success&quot; role=&quot;note&quot;&gt;
+  &lt;p&gt;Your password has been changed successfully. All other active sessions have been signed out.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+    </details>
+  </section>
+
+  <section>
+    <h2 class="heading-l">ARIA guidance</h2>
+    <div class="callout" data-variant="brand" role="note">
+      <p>Use <code>role="note"</code> for supplemental information and tips. Use <code>role="alert"</code> with <code>aria-live="assertive"</code> only for errors and critical status changes that result from a user action — overusing live regions creates a noisy experience for screen reader users.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="heading-l">Tokens</h2>
+    <table class="">
+      <thead>
+        <tr><th>Token</th><th>Default</th><th>Description</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>--callout-color</code></td><td><code>currentColor</code></td><td>Text and border accent colour.</td></tr>
+        <tr><td><code>--callout-border</code></td><td><code>solid var(--border-m) currentColor</code></td><td>Full border shorthand.</td></tr>
+        <tr><td><code>--callout-background</code></td><td><code>transparent</code></td><td>Background fill — each variant sets an 8% tint.</td></tr>
+        <tr><td><code>--callout-radius</code></td><td><code>--border-radius-l</code></td><td>Corner radius.</td></tr>
+        <tr><td><code>--callout-padding</code></td><td><code>--space-xs-s</code></td><td>Inner padding.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+</article>
+{% endblock %}

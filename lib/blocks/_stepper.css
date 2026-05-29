@@ -1,6 +1,6 @@
 /*
 Stepper
-──────────────────────────────────────────────────────────────────────────────
+---
 Quantity input: decrement / number / increment.
 E-commerce cart staple. Keyboard- and screen-reader accessible.
 
@@ -139,7 +139,7 @@ TOKENS
     outline-offset: -2px;
   }
 
-  /* ── Dark mode ───────────────────────────────────────────────────────────── */
+  /* --- Dark mode --- */
 
   @media (prefers-color-scheme: dark) {
     .stepper {

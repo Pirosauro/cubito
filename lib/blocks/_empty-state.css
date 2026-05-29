@@ -1,6 +1,6 @@
 /*
 Empty State
-──────────────────────────────────────────────────────────────────────────────
+---
 Zero-results or first-use placeholder. Guides the user toward the next action.
 
 MARKUP PATTERN
@@ -87,7 +87,7 @@ TOKENS
     text-wrap: pretty;
   }
 
-  /* ── Compact: no illustration, tighter spacing ───────────────────────────── */
+  /* --- Compact: no illustration, tighter spacing --- */
 
   .empty-state[data-layout="compact"] {
     --empty-state-padding: var(--space-l) var(--space-m);
@@ -98,7 +98,7 @@ TOKENS
     font-size: var(--font-size-m);
   }
 
-  /* ── Dark mode ───────────────────────────────────────────────────────────── */
+  /* --- Dark mode --- */
 
   @media (prefers-color-scheme: dark) {
     .empty-state__description {

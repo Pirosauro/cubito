@@ -1,0 +1,228 @@
+{% layout "layouts/base.liquid" %}
+{% block title %}Tabs — Cubito UI Docs{% endblock %}
+
+{% block content %}
+<article class="flow">
+
+  <header class="padding-y-m margin-y-m" style="border-block-end: 1px solid var(--color-neutral-200);">
+    <nav aria-label="Breadcrumb" class="breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/components/">Components</a></li>
+        <li aria-current="page">Tabs</li>
+      </ol>
+    </nav>
+    <h1>Tabs</h1>
+    <p class="text-l color-neutral-600">A WAI-ARIA compliant tabbed interface with three visual variants: default underline, pills, and lifted card-style tabs.</p>
+  </header>
+
+  <div class="callout" data-variant="brand" role="note">
+    <p>JavaScript is required to manage <code>aria-selected</code>, <code>tabindex</code>, and panel visibility. The script at the bottom of this page powers all three demos. In production, consider adding keyboard arrow-key navigation as described in the <a href="https://www.w3.org/WAI/ARIA/apg/patterns/tabs/">WAI-ARIA Tabs pattern</a>.</p>
+  </div>
+
+  <section>
+    <h2 class="heading-l">Default</h2>
+    <p>The default variant uses an underline indicator on the selected tab. The tablist has a bottom border that the indicator sits on top of.</p>
+    
+    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
+<div class="tabs">
+  <div role="tablist" aria-label="Product details">
+    <button role="tab" id="tab-desc" aria-controls="panel-desc" aria-selected="true">Description</button>
+    <button role="tab" id="tab-specs" aria-controls="panel-specs" aria-selected="false" tabindex="-1">Specifications</button>
+    <button role="tab" id="tab-reviews" aria-controls="panel-reviews" aria-selected="false" tabindex="-1">Reviews</button>
+  </div>
+
+  <div role="tabpanel" id="panel-desc" aria-labelledby="tab-desc">
+    <p>The Meridian Backpack is built for the daily commute and weekend adventures alike. Its water-resistant outer shell and padded 15&Prime; laptop sleeve keep your gear protected whatever the weather.</p>
+  </div>
+  <div role="tabpanel" id="panel-specs" aria-labelledby="tab-specs" hidden>
+    <p>Capacity: 28 L — Dimensions: 48 × 32 × 18 cm — Weight: 890 g — Material: 600D recycled polyester.</p>
+  </div>
+  <div role="tabpanel" id="panel-reviews" aria-labelledby="tab-reviews" hidden>
+    <p>Rated 4.7 out of 5 from 312 verified purchases. Customers praise the build quality and comfortable shoulder straps.</p>
+  </div>
+</div>
+    </div>
+
+    <details class="margin-y-s">
+      <summary class="padding-s">Show code</summary>
+      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div class=&quot;tabs&quot;&gt;
+  &lt;div role=&quot;tablist&quot; aria-label=&quot;Product details&quot;&gt;
+    &lt;button role=&quot;tab&quot; id=&quot;tab-desc&quot; aria-controls=&quot;panel-desc&quot; aria-selected=&quot;true&quot;&gt;Description&lt;/button&gt;
+    &lt;button role=&quot;tab&quot; id=&quot;tab-specs&quot; aria-controls=&quot;panel-specs&quot; aria-selected=&quot;false&quot; tabindex=&quot;-1&quot;&gt;Specifications&lt;/button&gt;
+    &lt;button role=&quot;tab&quot; id=&quot;tab-reviews&quot; aria-controls=&quot;panel-reviews&quot; aria-selected=&quot;false&quot; tabindex=&quot;-1&quot;&gt;Reviews&lt;/button&gt;
+  &lt;/div&gt;
+
+  &lt;div role=&quot;tabpanel&quot; id=&quot;panel-desc&quot; aria-labelledby=&quot;tab-desc&quot;&gt;
+    &lt;p&gt;The Meridian Backpack is built for the daily commute and weekend adventures alike. Its water-resistant outer shell and padded 15&amp;Prime; laptop sleeve keep your gear protected whatever the weather.&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div role=&quot;tabpanel&quot; id=&quot;panel-specs&quot; aria-labelledby=&quot;tab-specs&quot; hidden&gt;
+    &lt;p&gt;Capacity: 28 L — Dimensions: 48 × 32 × 18 cm — Weight: 890 g — Material: 600D recycled polyester.&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div role=&quot;tabpanel&quot; id=&quot;panel-reviews&quot; aria-labelledby=&quot;tab-reviews&quot; hidden&gt;
+    &lt;p&gt;Rated 4.7 out of 5 from 312 verified purchases. Customers praise the build quality and comfortable shoulder straps.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </details>
+  </section>
+
+  <section>
+    <h2 class="heading-l">Pills variant</h2>
+    <p>Add <code>data-variant="pills"</code> to the <code>.tabs</code> wrapper. The tablist gains a neutral background pill and the active tab is raised with a white background and a subtle shadow.</p>
+    
+    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
+<div class="tabs" data-variant="pills">
+  <div role="tablist" aria-label="Account settings">
+    <button role="tab" id="tab2-profile" aria-controls="panel2-profile" aria-selected="true">Profile</button>
+    <button role="tab" id="tab2-billing" aria-controls="panel2-billing" aria-selected="false" tabindex="-1">Billing</button>
+    <button role="tab" id="tab2-security" aria-controls="panel2-security" aria-selected="false" tabindex="-1">Security</button>
+  </div>
+
+  <div role="tabpanel" id="panel2-profile" aria-labelledby="tab2-profile">
+    <p>Update your display name, email address, and avatar from the profile settings panel.</p>
+  </div>
+  <div role="tabpanel" id="panel2-billing" aria-labelledby="tab2-billing" hidden>
+    <p>Manage your subscription plan, view invoices, and update your payment method.</p>
+  </div>
+  <div role="tabpanel" id="panel2-security" aria-labelledby="tab2-security" hidden>
+    <p>Change your password, enable two-factor authentication, and review active sessions.</p>
+  </div>
+</div>
+    </div>
+
+    <details class="margin-y-s">
+      <summary class="padding-s">Show code</summary>
+      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div class=&quot;tabs&quot; data-variant=&quot;pills&quot;&gt;
+  &lt;div role=&quot;tablist&quot; aria-label=&quot;Account settings&quot;&gt;
+    &lt;button role=&quot;tab&quot; id=&quot;tab2-profile&quot; aria-controls=&quot;panel2-profile&quot; aria-selected=&quot;true&quot;&gt;Profile&lt;/button&gt;
+    &lt;button role=&quot;tab&quot; id=&quot;tab2-billing&quot; aria-controls=&quot;panel2-billing&quot; aria-selected=&quot;false&quot; tabindex=&quot;-1&quot;&gt;Billing&lt;/button&gt;
+    &lt;button role=&quot;tab&quot; id=&quot;tab2-security&quot; aria-controls=&quot;panel2-security&quot; aria-selected=&quot;false&quot; tabindex=&quot;-1&quot;&gt;Security&lt;/button&gt;
+  &lt;/div&gt;
+
+  &lt;div role=&quot;tabpanel&quot; id=&quot;panel2-profile&quot; aria-labelledby=&quot;tab2-profile&quot;&gt;
+    &lt;p&gt;Update your display name, email address, and avatar from the profile settings panel.&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div role=&quot;tabpanel&quot; id=&quot;panel2-billing&quot; aria-labelledby=&quot;tab2-billing&quot; hidden&gt;
+    &lt;p&gt;Manage your subscription plan, view invoices, and update your payment method.&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div role=&quot;tabpanel&quot; id=&quot;panel2-security&quot; aria-labelledby=&quot;tab2-security&quot; hidden&gt;
+    &lt;p&gt;Change your password, enable two-factor authentication, and review active sessions.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </details>
+  </section>
+
+  <section>
+    <h2 class="heading-l">Lifted variant</h2>
+    <p>Add <code>data-variant="lifted"</code> for a card-style appearance where tabs sit on top of the panel border.</p>
+    
+    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
+<div class="tabs" data-variant="lifted">
+  <div role="tablist" aria-label="Order details">
+    <button role="tab" id="tab3-summary" aria-controls="panel3-summary" aria-selected="true">Summary</button>
+    <button role="tab" id="tab3-shipping" aria-controls="panel3-shipping" aria-selected="false" tabindex="-1">Shipping</button>
+    <button role="tab" id="tab3-returns" aria-controls="panel3-returns" aria-selected="false" tabindex="-1">Returns</button>
+  </div>
+
+  <div role="tabpanel" id="panel3-summary" aria-labelledby="tab3-summary">
+    <p>Order #ORD-20481 — placed 12 May 2026. Estimated delivery: 15 May 2026.</p>
+  </div>
+  <div role="tabpanel" id="panel3-shipping" aria-labelledby="tab3-shipping" hidden>
+    <p>Dispatched via Royal Mail Tracked 48. Your parcel is currently at the Glasgow sorting centre.</p>
+  </div>
+  <div role="tabpanel" id="panel3-returns" aria-labelledby="tab3-returns" hidden>
+    <p>Free returns within 30 days. Print your return label from the returns portal and drop off at any post office.</p>
+  </div>
+</div>
+    </div>
+
+    <details class="margin-y-s">
+      <summary class="padding-s">Show code</summary>
+      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div class=&quot;tabs&quot; data-variant=&quot;lifted&quot;&gt;
+  &lt;div role=&quot;tablist&quot; aria-label=&quot;Order details&quot;&gt;
+    &lt;button role=&quot;tab&quot; id=&quot;tab3-summary&quot; aria-controls=&quot;panel3-summary&quot; aria-selected=&quot;true&quot;&gt;Summary&lt;/button&gt;
+    &lt;button role=&quot;tab&quot; id=&quot;tab3-shipping&quot; aria-controls=&quot;panel3-shipping&quot; aria-selected=&quot;false&quot; tabindex=&quot;-1&quot;&gt;Shipping&lt;/button&gt;
+    &lt;button role=&quot;tab&quot; id=&quot;tab3-returns&quot; aria-controls=&quot;panel3-returns&quot; aria-selected=&quot;false&quot; tabindex=&quot;-1&quot;&gt;Returns&lt;/button&gt;
+  &lt;/div&gt;
+
+  &lt;div role=&quot;tabpanel&quot; id=&quot;panel3-summary&quot; aria-labelledby=&quot;tab3-summary&quot;&gt;
+    &lt;p&gt;Order #ORD-20481 — placed 12 May 2026. Estimated delivery: 15 May 2026.&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div role=&quot;tabpanel&quot; id=&quot;panel3-shipping&quot; aria-labelledby=&quot;tab3-shipping&quot; hidden&gt;
+    &lt;p&gt;Dispatched via Royal Mail Tracked 48. Your parcel is currently at the Glasgow sorting centre.&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div role=&quot;tabpanel&quot; id=&quot;panel3-returns&quot; aria-labelledby=&quot;tab3-returns&quot; hidden&gt;
+    &lt;p&gt;Free returns within 30 days. Print your return label from the returns portal and drop off at any post office.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </details>
+  </section>
+
+  <section>
+    <h2 class="heading-l">Tokens</h2>
+    <table class="">
+      <thead>
+        <tr>
+          <th>Token</th>
+          <th>Default</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>--tabs-accent</code></td>
+          <td><code>var(--color-brand)</code></td>
+          <td>Active tab text colour and underline indicator colour.</td>
+        </tr>
+        <tr>
+          <td><code>--tabs-tab-padding</code></td>
+          <td><code>var(--space-xs) var(--space-s)</code></td>
+          <td>Inner padding of each tab button.</td>
+        </tr>
+        <tr>
+          <td><code>--tabs-indicator-height</code></td>
+          <td><code>0.1875rem</code></td>
+          <td>Thickness of the active underline indicator (default variant).</td>
+        </tr>
+        <tr>
+          <td><code>--tabs-border</code></td>
+          <td><code>solid var(--border-s) var(--color-neutral-200)</code></td>
+          <td>Border beneath the tablist.</td>
+        </tr>
+        <tr>
+          <td><code>--tabs-panel-padding</code></td>
+          <td><code>var(--space-m) 0</code></td>
+          <td>Padding inside each tabpanel.</td>
+        </tr>
+        <tr>
+          <td><code>--tabs-background</code></td>
+          <td><code>transparent</code></td>
+          <td>Background of the tablist.</td>
+        </tr>
+        <tr>
+          <td><code>--tabs-radius</code></td>
+          <td><code>var(--border-radius-m)</code></td>
+          <td>Corner radius used by the pills and lifted variants.</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+</article>
+
+<script>
+document.querySelectorAll('.tabs [role="tab"]').forEach(tab => {
+  tab.addEventListener('click', () => {
+    const tabs = tab.closest('.tabs');
+    tabs.querySelectorAll('[role="tab"]').forEach(t => {
+      t.setAttribute('aria-selected', 'false');
+      t.setAttribute('tabindex', '-1');
+    });
+    tabs.querySelectorAll('[role="tabpanel"]').forEach(p => p.hidden = true);
+    tab.setAttribute('aria-selected', 'true');
+    tab.removeAttribute('tabindex');
+    tabs.querySelector('#' + tab.getAttribute('aria-controls')).hidden = false;
+  });
+});
+</script>
+{% endblock %}

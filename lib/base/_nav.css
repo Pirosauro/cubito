@@ -1,6 +1,6 @@
 /*
 Navigation
-──────────────────────────────────────────────────────────────────────────────
+---
 Component styles for navigation variants. Element-level resets live in
 _reset.css.
 
@@ -22,14 +22,14 @@ ARIA
 
 @layer tokens {
   :root {
-    /* ── Main Nav ────────────────────────────────────────────────────────── */
+    /* --- Main Nav --- */
 
     --nav-main-item-padding: var(--space-xxs) var(--space-xs);
     --nav-main-active-decoration: underline;
     --nav-main-active-offset: 0.25em;
     --nav-main-active-color: var(--color-brand, #ff00ff);
 
-    /* ── Sidebar Nav ─────────────────────────────────────────────────────── */
+    /* --- Sidebar Nav --- */
 
     --nav-sidebar-item-padding: var(--space-tiny) var(--space-s);
     --nav-sidebar-active-decoration: line-through;
@@ -47,7 +47,7 @@ ARIA
 }
 
 @layer blocks {
-  /* ── Main navigation ──────────────────────────────────────────────────────*/
+  /* --- Main navigation --- */
 
   nav[data-variant="main"] a[aria-current],
   nav[data-variant="main"] a[data-state="active"] {
@@ -66,7 +66,7 @@ ARIA
     margin-inline-end: var(--space-xxs);
   }
 
-  /* ── Sidebar navigation ───────────────────────────────────────────────────*/
+  /* --- Sidebar navigation --- */
 
   nav[data-variant="sidebar"] a[aria-current],
   nav[data-variant="sidebar"] a[data-state="active"] {

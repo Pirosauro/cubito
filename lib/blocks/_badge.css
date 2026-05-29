@@ -1,6 +1,6 @@
 /*
 Badge
-──────────────────────────────────────────────────────────────────────────────
+---
 A compact pill used for status indicators, counts, and labels.
 Inline by default; pairs naturally with avatars, nav items, and headings.
 
@@ -77,7 +77,7 @@ TOKENS
     vertical-align: middle;
   }
 
-  /* ── Dot layout: circular indicator, no text ─────────────────────────────── */
+  /* --- Dot layout: circular indicator, no text --- */
 
   .badge[data-layout="dot"] {
     --badge-padding: 0;
@@ -90,7 +90,7 @@ TOKENS
     text-indent: 100%; /* visually hide any text */
   }
 
-  /* ── Colour variants ─────────────────────────────────────────────────────── */
+  /* --- Colour variants --- */
 
   .badge[data-variant="brand"] {
     --badge-background: var(--color-brand);
@@ -133,7 +133,7 @@ TOKENS
     --badge-color: var(--color-status-info);
   }
 
-  /* ── Dark mode ───────────────────────────────────────────────────────────── */
+  /* --- Dark mode --- */
 
   @media (prefers-color-scheme: dark) {
     .badge {

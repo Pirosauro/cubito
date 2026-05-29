@@ -1,6 +1,6 @@
 /*
 Switcher
-──────────────────────────────────────────────────────────────────────────────
+---
 Switches a row of items between a horizontal layout and a stacked (vertical)
 layout at a configurable container-width threshold — no media queries needed.
 Supports up to 4 items inline; any 5th+ item always stacks.

@@ -1,201 +1,241 @@
 /*
-Spacing utilities
-──────────────────────────────────────────────────────────────────────────────
-Padding and margin helpers built on the --su spacing unit (0.5rem / ~8px).
-Directional variants use CSS logical properties for full RTL/LTR support.
+Space
+---
+Padding and margin utilities built on the fluid --space-* scale.
+All sizes are responsive (clamp-based, 320 px → 1240 px viewport range).
 
-DEPRECATED
-  --su and these utility classes are deprecated. Prefer --space-* tokens
-  (defined in abstracts/_spacing.css) in component CSS. These classes remain
-  for backward compatibility and will be removed in a future major version.
+Prefer --space-* tokens in component CSS for better locality.
+Use these utilities for quick one-off spacing in templates and markup.
 
 NAMING
-  .padding-{n}      all sides
-  .padding-{n}-y    block-start + block-end (top/bottom in horizontal)
-  .padding-{n}-x    inline-start + inline-end (left/right in horizontal)
-  .margin-{n}       all sides
-  .margin-{n}-y     block-start + block-end
-  .margin-{n}-x     inline-start + inline-end
+  .padding-{size}     all sides
+  .padding-y-{size}   block-start + block-end
+  .padding-x-{size}   inline-start + inline-end
+  .margin-{size}      all sides
+  .margin-y-{size}    block-start + block-end
+  .margin-x-{size}    inline-start + inline-end
 
-NOTE
-  ½ in class names is valid CSS but needs escaping in JS selectors:
-  document.querySelector('.padding-\\½')
-  Prefer --space-* tokens in components; use these utilities for quick
-  one-off overrides in templates.
+SCALE
+  tiny  xxs  xs  s  m  l  xl  xxl  huge
+
+MIGRATION from _spacing.css
+  .padding-½  → .padding-tiny
+  .padding-1  → .padding-xxs
+  .padding-1½ → .padding-xs
+  .padding-2  → .padding-s
+  .padding-2½ → no equivalent — use .padding-s or .padding-m
+  .padding-3  → .padding-m
+  .padding-4  → .padding-l
 */
 
 @layer utilities {
-  /* ── Padding: all sides ─────────────────────────────────────────────────── */
+  /* --- Padding: all sides --- */
 
   .padding-0 {
     padding: 0;
   }
-  .padding-½ {
-    padding: calc(0.5 * var(--su));
+  .padding-tiny {
+    padding: var(--space-tiny);
   }
-  .padding-1 {
-    padding: var(--su);
+  .padding-xxs {
+    padding: var(--space-xxs);
   }
-  .padding-1½ {
-    padding: calc(1.5 * var(--su));
+  .padding-xs {
+    padding: var(--space-xs);
   }
-  .padding-2 {
-    padding: calc(2 * var(--su));
+  .padding-s {
+    padding: var(--space-s);
   }
-  .padding-2½ {
-    padding: calc(2.5 * var(--su));
+  .padding-m {
+    padding: var(--space-m);
   }
-  .padding-3 {
-    padding: calc(3 * var(--su));
+  .padding-l {
+    padding: var(--space-l);
   }
-  .padding-4 {
-    padding: calc(4 * var(--su));
+  .padding-xl {
+    padding: var(--space-xl);
+  }
+  .padding-xxl {
+    padding: var(--space-xxl);
+  }
+  .padding-huge {
+    padding: var(--space-huge);
   }
 
-  /* ── Padding: block axis (top / bottom) ─────────────────────────────────── */
+  /* --- Padding: block axis (top / bottom) --- */
 
-  .padding-0-y {
+  .padding-y-0 {
     padding-block: 0;
   }
-  .padding-½-y {
-    padding-block: calc(0.5 * var(--su));
+  .padding-y-tiny {
+    padding-block: var(--space-tiny);
   }
-  .padding-1-y {
-    padding-block: var(--su);
+  .padding-y-xxs {
+    padding-block: var(--space-xxs);
   }
-  .padding-1½-y {
-    padding-block: calc(1.5 * var(--su));
+  .padding-y-xs {
+    padding-block: var(--space-xs);
   }
-  .padding-2-y {
-    padding-block: calc(2 * var(--su));
+  .padding-y-s {
+    padding-block: var(--space-s);
   }
-  .padding-2½-y {
-    padding-block: calc(2.5 * var(--su));
+  .padding-y-m {
+    padding-block: var(--space-m);
   }
-  .padding-3-y {
-    padding-block: calc(3 * var(--su));
+  .padding-y-l {
+    padding-block: var(--space-l);
   }
-  .padding-4-y {
-    padding-block: calc(4 * var(--su));
+  .padding-y-xl {
+    padding-block: var(--space-xl);
+  }
+  .padding-y-xxl {
+    padding-block: var(--space-xxl);
+  }
+  .padding-y-huge {
+    padding-block: var(--space-huge);
   }
 
-  /* ── Padding: inline axis (left / right) ────────────────────────────────── */
+  /* --- Padding: inline axis (left / right) --- */
 
-  .padding-0-x {
+  .padding-x-0 {
     padding-inline: 0;
   }
-  .padding-½-x {
-    padding-inline: calc(0.5 * var(--su));
+  .padding-x-tiny {
+    padding-inline: var(--space-tiny);
   }
-  .padding-1-x {
-    padding-inline: var(--su);
+  .padding-x-xxs {
+    padding-inline: var(--space-xxs);
   }
-  .padding-1½-x {
-    padding-inline: calc(1.5 * var(--su));
+  .padding-x-xs {
+    padding-inline: var(--space-xs);
   }
-  .padding-2-x {
-    padding-inline: calc(2 * var(--su));
+  .padding-x-s {
+    padding-inline: var(--space-s);
   }
-  .padding-2½-x {
-    padding-inline: calc(2.5 * var(--su));
+  .padding-x-m {
+    padding-inline: var(--space-m);
   }
-  .padding-3-x {
-    padding-inline: calc(3 * var(--su));
+  .padding-x-l {
+    padding-inline: var(--space-l);
   }
-  .padding-4-x {
-    padding-inline: calc(4 * var(--su));
+  .padding-x-xl {
+    padding-inline: var(--space-xl);
+  }
+  .padding-x-xxl {
+    padding-inline: var(--space-xxl);
+  }
+  .padding-x-huge {
+    padding-inline: var(--space-huge);
   }
 
-  /* ── Margin: all sides ──────────────────────────────────────────────────── */
+  /* --- Margin: all sides --- */
 
   .margin-0 {
     margin: 0;
   }
-  .margin-½ {
-    margin: calc(0.5 * var(--su));
+  .margin-tiny {
+    margin: var(--space-tiny);
   }
-  .margin-1 {
-    margin: var(--su);
+  .margin-xxs {
+    margin: var(--space-xxs);
   }
-  .margin-1½ {
-    margin: calc(1.5 * var(--su));
+  .margin-xs {
+    margin: var(--space-xs);
   }
-  .margin-2 {
-    margin: calc(2 * var(--su));
+  .margin-s {
+    margin: var(--space-s);
   }
-  .margin-2½ {
-    margin: calc(2.5 * var(--su));
+  .margin-m {
+    margin: var(--space-m);
   }
-  .margin-3 {
-    margin: calc(3 * var(--su));
+  .margin-l {
+    margin: var(--space-l);
   }
-  .margin-4 {
-    margin: calc(4 * var(--su));
+  .margin-xl {
+    margin: var(--space-xl);
+  }
+  .margin-xxl {
+    margin: var(--space-xxl);
+  }
+  .margin-huge {
+    margin: var(--space-huge);
   }
 
-  /* ── Margin: block axis ─────────────────────────────────────────────────── */
+  /* --- Margin: block axis --- */
 
-  .margin-0-y {
+  .margin-y-0 {
     margin-block: 0;
   }
-  .margin-½-y {
-    margin-block: calc(0.5 * var(--su));
+  .margin-y-tiny {
+    margin-block: var(--space-tiny);
   }
-  .margin-1-y {
-    margin-block: var(--su);
+  .margin-y-xxs {
+    margin-block: var(--space-xxs);
   }
-  .margin-1½-y {
-    margin-block: calc(1.5 * var(--su));
+  .margin-y-xs {
+    margin-block: var(--space-xs);
   }
-  .margin-2-y {
-    margin-block: calc(2 * var(--su));
+  .margin-y-s {
+    margin-block: var(--space-s);
   }
-  .margin-2½-y {
-    margin-block: calc(2.5 * var(--su));
+  .margin-y-m {
+    margin-block: var(--space-m);
   }
-  .margin-3-y {
-    margin-block: calc(3 * var(--su));
+  .margin-y-l {
+    margin-block: var(--space-l);
   }
-  .margin-4-y {
-    margin-block: calc(4 * var(--su));
+  .margin-y-xl {
+    margin-block: var(--space-xl);
+  }
+  .margin-y-xxl {
+    margin-block: var(--space-xxl);
+  }
+  .margin-y-huge {
+    margin-block: var(--space-huge);
   }
 
-  /* ── Margin: inline axis ────────────────────────────────────────────────── */
+  /* --- Margin: inline axis --- */
 
-  .margin-0-x {
+  .margin-x-0 {
     margin-inline: 0;
   }
-  .margin-½-x {
-    margin-inline: calc(0.5 * var(--su));
+  .margin-x-tiny {
+    margin-inline: var(--space-tiny);
   }
-  .margin-1-x {
-    margin-inline: var(--su);
+  .margin-x-xxs {
+    margin-inline: var(--space-xxs);
   }
-  .margin-1½-x {
-    margin-inline: calc(1.5 * var(--su));
+  .margin-x-xs {
+    margin-inline: var(--space-xs);
   }
-  .margin-2-x {
-    margin-inline: calc(2 * var(--su));
+  .margin-x-s {
+    margin-inline: var(--space-s);
   }
-  .margin-2½-x {
-    margin-inline: calc(2.5 * var(--su));
+  .margin-x-m {
+    margin-inline: var(--space-m);
   }
-  .margin-3-x {
-    margin-inline: calc(3 * var(--su));
+  .margin-x-l {
+    margin-inline: var(--space-l);
   }
-  .margin-4-x {
-    margin-inline: calc(4 * var(--su));
+  .margin-x-xl {
+    margin-inline: var(--space-xl);
+  }
+  .margin-x-xxl {
+    margin-inline: var(--space-xxl);
+  }
+  .margin-x-huge {
+    margin-inline: var(--space-huge);
   }
 
-  /* ── Auto margins ───────────────────────────────────────────────────────── */
+  /* --- Auto margins --- */
 
   .margin-auto {
     margin: auto;
   }
-  .margin-auto-x {
+  .margin-x-auto {
     margin-inline: auto;
   }
-  .margin-auto-y {
+  .margin-y-auto {
     margin-block: auto;
   }
 }

@@ -1,0 +1,186 @@
+{% layout "layouts/base.liquid" %}
+{% block title %}Sidebar — Cubito UI Docs{% endblock %}
+
+{% block content %}
+<article class="flow">
+
+  <header class="padding-y-m margin-y-m" style="border-block-end: 1px solid var(--color-neutral-200);">
+    <nav aria-label="Breadcrumb" class="breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/layouts/">Layouts</a></li>
+        <li aria-current="page">Sidebar</li>
+      </ol>
+    </nav>
+    <h1>Sidebar</h1>
+    <p class="text-l color-neutral-600">Places a fixed-width sidebar next to a flexible main content area, stacking them vertically when the viewport is too narrow — no media queries needed.</p>
+  </header>
+
+  <section>
+    <h2 class="heading-l">Basic</h2>
+    <p>The first direct child is the sidebar; the second is the main content area. The sidebar has a target width of <code>20rem</code> and the content area grows to fill the rest.</p>
+    
+    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
+<div class="sidebar">
+  <nav style="background: #e0e7ff; padding: 1.25rem; border-radius: 0.25rem;">
+    <p style="font-weight: 600; margin-block-end: 0.75rem; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em; color: #4f46e5;">Navigation</p>
+    <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.25rem;">
+      <li><a href="#" style="display: block; padding: 0.4rem 0.5rem; border-radius: 0.2rem; text-decoration: none; color: #312e81; font-size: 0.9rem; background: #c7d2fe;">Dashboard</a></li>
+      <li><a href="#" style="display: block; padding: 0.4rem 0.5rem; border-radius: 0.2rem; text-decoration: none; color: #312e81; font-size: 0.9rem;">Team</a></li>
+      <li><a href="#" style="display: block; padding: 0.4rem 0.5rem; border-radius: 0.2rem; text-decoration: none; color: #312e81; font-size: 0.9rem;">Projects</a></li>
+      <li><a href="#" style="display: block; padding: 0.4rem 0.5rem; border-radius: 0.2rem; text-decoration: none; color: #312e81; font-size: 0.9rem;">Reports</a></li>
+      <li><a href="#" style="display: block; padding: 0.4rem 0.5rem; border-radius: 0.2rem; text-decoration: none; color: #312e81; font-size: 0.9rem;">Settings</a></li>
+    </ul>
+  </nav>
+
+  <main style="background: #f8fafc; padding: 1.25rem; border-radius: 0.25rem; min-height: 12rem;">
+    <h2 style="margin-block-end: 0.5rem; font-size: 1.25rem;">Dashboard</h2>
+    <p style="color: #6b7280; font-size: 0.9rem;">Main content area grows to fill available space. It will never be narrower than <code>--sidebar-content-min-width</code> (default 50%).</p>
+  </main>
+</div>
+    </div>
+
+    <details class="margin-y-s">
+      <summary class="padding-s">Show code</summary>
+      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div class=&quot;sidebar&quot;&gt;
+  &lt;nav style=&quot;background: #e0e7ff; padding: 1.25rem; border-radius: 0.25rem;&quot;&gt;
+    &lt;p style=&quot;font-weight: 600; margin-block-end: 0.75rem; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em; color: #4f46e5;&quot;&gt;Navigation&lt;/p&gt;
+    &lt;ul style=&quot;list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.25rem;&quot;&gt;
+      &lt;li&gt;&lt;a href=&quot;#&quot; style=&quot;display: block; padding: 0.4rem 0.5rem; border-radius: 0.2rem; text-decoration: none; color: #312e81; font-size: 0.9rem; background: #c7d2fe;&quot;&gt;Dashboard&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#&quot; style=&quot;display: block; padding: 0.4rem 0.5rem; border-radius: 0.2rem; text-decoration: none; color: #312e81; font-size: 0.9rem;&quot;&gt;Team&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#&quot; style=&quot;display: block; padding: 0.4rem 0.5rem; border-radius: 0.2rem; text-decoration: none; color: #312e81; font-size: 0.9rem;&quot;&gt;Projects&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#&quot; style=&quot;display: block; padding: 0.4rem 0.5rem; border-radius: 0.2rem; text-decoration: none; color: #312e81; font-size: 0.9rem;&quot;&gt;Reports&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#&quot; style=&quot;display: block; padding: 0.4rem 0.5rem; border-radius: 0.2rem; text-decoration: none; color: #312e81; font-size: 0.9rem;&quot;&gt;Settings&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/nav&gt;
+
+  &lt;main style=&quot;background: #f8fafc; padding: 1.25rem; border-radius: 0.25rem; min-height: 12rem;&quot;&gt;
+    &lt;h2 style=&quot;margin-block-end: 0.5rem; font-size: 1.25rem;&quot;&gt;Dashboard&lt;/h2&gt;
+    &lt;p style=&quot;color: #6b7280; font-size: 0.9rem;&quot;&gt;Main content area grows to fill available space. It will never be narrower than &lt;code&gt;--sidebar-content-min-width&lt;/code&gt; (default 50%).&lt;/p&gt;
+  &lt;/main&gt;
+&lt;/div&gt;</code></pre>
+    </details>
+  </section>
+
+  <section>
+    <h2 class="heading-l">Reverse</h2>
+    <p>Add <code>data-direction="reverse"</code> to move the sidebar to the right. The last child becomes the sidebar and the first child becomes the content area.</p>
+    
+    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
+<div class="sidebar" data-direction="reverse">
+  <article style="background: #f8fafc; padding: 1.25rem; border-radius: 0.25rem; min-height: 12rem;">
+    <h2 style="margin-block-end: 0.5rem; font-size: 1.25rem;">Article title</h2>
+    <p style="color: #6b7280; font-size: 0.9rem;">The main content area sits on the left when the sidebar is reversed. Useful for article layouts with a contextual aside.</p>
+  </article>
+
+  <aside style="background: #e0e7ff; padding: 1.25rem; border-radius: 0.25rem;">
+    <p style="font-weight: 600; margin-block-end: 0.75rem; font-size: 0.875rem; color: #4f46e5;">In this article</p>
+    <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.25rem; font-size: 0.875rem;">
+      <li><a href="#" style="color: #312e81; text-decoration: none;">Introduction</a></li>
+      <li><a href="#" style="color: #312e81; text-decoration: none;">Getting started</a></li>
+      <li><a href="#" style="color: #312e81; text-decoration: none;">Configuration</a></li>
+      <li><a href="#" style="color: #312e81; text-decoration: none;">API reference</a></li>
+    </ul>
+  </aside>
+</div>
+    </div>
+
+    <details class="margin-y-s">
+      <summary class="padding-s">Show code</summary>
+      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div class=&quot;sidebar&quot; data-direction=&quot;reverse&quot;&gt;
+  &lt;article style=&quot;background: #f8fafc; padding: 1.25rem; border-radius: 0.25rem; min-height: 12rem;&quot;&gt;
+    &lt;h2 style=&quot;margin-block-end: 0.5rem; font-size: 1.25rem;&quot;&gt;Article title&lt;/h2&gt;
+    &lt;p style=&quot;color: #6b7280; font-size: 0.9rem;&quot;&gt;The main content area sits on the left when the sidebar is reversed. Useful for article layouts with a contextual aside.&lt;/p&gt;
+  &lt;/article&gt;
+
+  &lt;aside style=&quot;background: #e0e7ff; padding: 1.25rem; border-radius: 0.25rem;&quot;&gt;
+    &lt;p style=&quot;font-weight: 600; margin-block-end: 0.75rem; font-size: 0.875rem; color: #4f46e5;&quot;&gt;In this article&lt;/p&gt;
+    &lt;ul style=&quot;list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.25rem; font-size: 0.875rem;&quot;&gt;
+      &lt;li&gt;&lt;a href=&quot;#&quot; style=&quot;color: #312e81; text-decoration: none;&quot;&gt;Introduction&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#&quot; style=&quot;color: #312e81; text-decoration: none;&quot;&gt;Getting started&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#&quot; style=&quot;color: #312e81; text-decoration: none;&quot;&gt;Configuration&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#&quot; style=&quot;color: #312e81; text-decoration: none;&quot;&gt;API reference&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/aside&gt;
+&lt;/div&gt;</code></pre>
+    </details>
+  </section>
+
+  <section>
+    <h2 class="heading-l">Sticky sidebar</h2>
+    <p>Add <code>data-variant="sticky"</code> to make the sidebar sticky on viewports wider than 960 px. The sidebar scrolls with the page below that breakpoint.</p>
+    
+    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
+<div class="sidebar" data-variant="sticky">
+  <nav style="background: #e0e7ff; padding: 1.25rem; border-radius: 0.25rem;">
+    <p style="font-weight: 600; margin-block-end: 0.5rem; font-size: 0.875rem; color: #4f46e5;">Docs</p>
+    <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.875rem; display: flex; flex-direction: column; gap: 0.25rem;">
+      <li><a href="#" style="color: #312e81; text-decoration: none;">Overview</a></li>
+      <li><a href="#" style="color: #312e81; text-decoration: none;">Installation</a></li>
+      <li><a href="#" style="color: #312e81; text-decoration: none;">Configuration</a></li>
+    </ul>
+    <p style="margin-block-start: 0.75rem; margin-block-end: 0; font-size: 0.75rem; color: #6366f1; font-style: italic;">Sticky on ≥ 960 px</p>
+  </nav>
+
+  <main style="background: #f8fafc; padding: 1.25rem; border-radius: 0.25rem;">
+    <p style="color: #6b7280; font-size: 0.9rem;">The sidebar stays in view while the content area scrolls on wide viewports. On narrow viewports they stack normally.</p>
+  </main>
+</div>
+    </div>
+
+    <details class="margin-y-s">
+      <summary class="padding-s">Show code</summary>
+      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div class=&quot;sidebar&quot; data-variant=&quot;sticky&quot;&gt;
+  &lt;nav style=&quot;background: #e0e7ff; padding: 1.25rem; border-radius: 0.25rem;&quot;&gt;
+    &lt;p style=&quot;font-weight: 600; margin-block-end: 0.5rem; font-size: 0.875rem; color: #4f46e5;&quot;&gt;Docs&lt;/p&gt;
+    &lt;ul style=&quot;list-style: none; padding: 0; margin: 0; font-size: 0.875rem; display: flex; flex-direction: column; gap: 0.25rem;&quot;&gt;
+      &lt;li&gt;&lt;a href=&quot;#&quot; style=&quot;color: #312e81; text-decoration: none;&quot;&gt;Overview&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#&quot; style=&quot;color: #312e81; text-decoration: none;&quot;&gt;Installation&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#&quot; style=&quot;color: #312e81; text-decoration: none;&quot;&gt;Configuration&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;p style=&quot;margin-block-start: 0.75rem; margin-block-end: 0; font-size: 0.75rem; color: #6366f1; font-style: italic;&quot;&gt;Sticky on ≥ 960 px&lt;/p&gt;
+  &lt;/nav&gt;
+
+  &lt;main style=&quot;background: #f8fafc; padding: 1.25rem; border-radius: 0.25rem;&quot;&gt;
+    &lt;p style=&quot;color: #6b7280; font-size: 0.9rem;&quot;&gt;The sidebar stays in view while the content area scrolls on wide viewports. On narrow viewports they stack normally.&lt;/p&gt;
+  &lt;/main&gt;
+&lt;/div&gt;</code></pre>
+    </details>
+
+    <div class="callout" data-variant="brand" role="note">
+      <p><code>data-variant="sticky"</code> applies <code>position: sticky</code> to the first child on viewports wider than 960 px. The sticky sidebar is capped at <code>100vh</code> and scrolls internally if its content is taller than the viewport.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="heading-l">Tokens</h2>
+    <table class="">
+      <thead>
+        <tr>
+          <th>Token</th>
+          <th>Default</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>--sidebar-target-width</code></td>
+          <td><code>20rem</code></td>
+          <td>Target width of the sidebar. The sidebar grows or shrinks to fill available space around this value.</td>
+        </tr>
+        <tr>
+          <td><code>--sidebar-content-min-width</code></td>
+          <td><code>50%</code></td>
+          <td>Minimum width of the main content area. When the content would be narrower than this the two columns stack.</td>
+        </tr>
+        <tr>
+          <td><code>--sidebar-gutter</code></td>
+          <td><code>var(--space-s-l)</code></td>
+          <td>Gap between sidebar and content area.</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+</article>
+{% endblock %}

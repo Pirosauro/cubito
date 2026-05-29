@@ -1,0 +1,93 @@
+{
+  "site": {
+    "name": "Cubito UI",
+    "version": "0.4.0",
+    "repo": "https://github.com/hobiri/cubito"
+  },
+  "nav": [
+    {
+      "title": "Getting Started",
+      "items": [
+        { "label": "Overview",      "href": "/" },
+        { "label": "Installation",  "href": "/getting-started" }
+      ]
+    },
+    {
+      "title": "Design Tokens",
+      "items": [
+        { "label": "Colors",      "href": "/tokens/colors" },
+        { "label": "Spacing",     "href": "/tokens/spacing" },
+        { "label": "Typography",  "href": "/tokens/typography" },
+        { "label": "Motion",      "href": "/tokens/motion" },
+        { "label": "Z-Index",     "href": "/tokens/z-index" }
+      ]
+    },
+    {
+      "title": "Base Elements",
+      "items": [
+        { "label": "Button",  "href": "/base/button" },
+        { "label": "Form",    "href": "/base/form" },
+        { "label": "Table",   "href": "/base/table" },
+        { "label": "Nav",     "href": "/base/nav" },
+        { "label": "Code",    "href": "/base/code" },
+        { "label": "Details", "href": "/base/details" },
+        { "label": "Tooltip", "href": "/base/tooltip" }
+      ]
+    },
+    {
+      "title": "Layouts",
+      "items": [
+        { "label": "Cluster",    "href": "/layouts/cluster" },
+        { "label": "Cover",      "href": "/layouts/cover" },
+        { "label": "Frame",      "href": "/layouts/frame" },
+        { "label": "Grid",       "href": "/layouts/grid" },
+        { "label": "Reel",       "href": "/layouts/reel" },
+        { "label": "Repel",      "href": "/layouts/repel" },
+        { "label": "Sidebar",    "href": "/layouts/sidebar" },
+        { "label": "Sticky Bar", "href": "/layouts/sticky-bar" },
+        { "label": "Switcher",   "href": "/layouts/switcher" }
+      ]
+    },
+    {
+      "title": "Components",
+      "items": [
+        { "label": "Avatar",        "href": "/components/avatar" },
+        { "label": "Badge",         "href": "/components/badge" },
+        { "label": "Banner",        "href": "/components/banner" },
+        { "label": "Breadcrumb",    "href": "/components/breadcrumb" },
+        { "label": "Callout",       "href": "/components/callout" },
+        { "label": "Card",          "href": "/components/card" },
+        { "label": "Data List",     "href": "/components/data-list" },
+        { "label": "Dialog",        "href": "/components/dialog" },
+        { "label": "Empty State",   "href": "/components/empty-state" },
+        { "label": "Footnote",      "href": "/components/footnote" },
+        { "label": "Hero",          "href": "/components/hero" },
+        { "label": "Pagination",    "href": "/components/pagination" },
+        { "label": "Pictogram",     "href": "/components/pictogram" },
+        { "label": "Price",         "href": "/components/price" },
+        { "label": "Progress Bar",  "href": "/components/progress-bar" },
+        { "label": "Prose",         "href": "/components/prose" },
+        { "label": "Rating",        "href": "/components/rating" },
+        { "label": "Stepper",       "href": "/components/stepper" },
+        { "label": "Tabs",          "href": "/components/tabs" },
+        { "label": "Tag",           "href": "/components/tag" },
+        { "label": "Toast",         "href": "/components/toast" }
+      ]
+    },
+    {
+      "title": "Utilities",
+      "items": [
+        { "label": "Accessibility", "href": "/utilities/accessibility" },
+        { "label": "Animation",     "href": "/utilities/animation" },
+        { "label": "Border",        "href": "/utilities/border" },
+        { "label": "Color",         "href": "/utilities/color" },
+        { "label": "Flow & Gap",    "href": "/utilities/flow" },
+        { "label": "Shadow",        "href": "/utilities/shadow" },
+        { "label": "Skeleton",      "href": "/utilities/skeleton" },
+        { "label": "Spacing",       "href": "/utilities/spacing" },
+        { "label": "Typography",    "href": "/utilities/typography" },
+        { "label": "Wrapper",       "href": "/utilities/wrapper" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,172 @@
+{% layout "layouts/base.liquid" %}
+{% block title %}Grid — Cubito UI Docs{% endblock %}
+
+{% block content %}
+<article class="flow">
+
+  <header class="padding-y-m margin-y-m" style="border-block-end: 1px solid var(--color-neutral-200);">
+    <nav aria-label="Breadcrumb" class="breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/layouts/">Layouts</a></li>
+        <li aria-current="page">Grid</li>
+      </ol>
+    </nav>
+    <h1>Grid</h1>
+    <p class="text-l color-neutral-600">An auto-fill CSS grid whose columns collapse responsively without any media queries — each column is at least <code>--grid-min-item-size</code> wide and the grid fits as many as it can.</p>
+  </header>
+
+  <section>
+    <h2 class="heading-l">Auto-fill grid</h2>
+    <p>By default the grid fills as many <code>16rem</code>-minimum columns as the container allows. Resize the window to see columns collapse.</p>
+    
+    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
+<div class="grid">
+  <div style="background: #e0e7ff; padding: 1.25rem; border-radius: 0.25rem; text-align: center;">Item 1</div>
+  <div style="background: #c7d2fe; padding: 1.25rem; border-radius: 0.25rem; text-align: center;">Item 2</div>
+  <div style="background: #a5b4fc; padding: 1.25rem; border-radius: 0.25rem; text-align: center;">Item 3</div>
+  <div style="background: #818cf8; color: #fff; padding: 1.25rem; border-radius: 0.25rem; text-align: center;">Item 4</div>
+  <div style="background: #6366f1; color: #fff; padding: 1.25rem; border-radius: 0.25rem; text-align: center;">Item 5</div>
+  <div style="background: #4f46e5; color: #fff; padding: 1.25rem; border-radius: 0.25rem; text-align: center;">Item 6</div>
+</div>
+    </div>
+
+    <details class="margin-y-s">
+      <summary class="padding-s">Show code</summary>
+      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div class=&quot;grid&quot;&gt;
+  &lt;div style=&quot;background: #e0e7ff; padding: 1.25rem; border-radius: 0.25rem; text-align: center;&quot;&gt;Item 1&lt;/div&gt;
+  &lt;div style=&quot;background: #c7d2fe; padding: 1.25rem; border-radius: 0.25rem; text-align: center;&quot;&gt;Item 2&lt;/div&gt;
+  &lt;div style=&quot;background: #a5b4fc; padding: 1.25rem; border-radius: 0.25rem; text-align: center;&quot;&gt;Item 3&lt;/div&gt;
+  &lt;div style=&quot;background: #818cf8; color: #fff; padding: 1.25rem; border-radius: 0.25rem; text-align: center;&quot;&gt;Item 4&lt;/div&gt;
+  &lt;div style=&quot;background: #6366f1; color: #fff; padding: 1.25rem; border-radius: 0.25rem; text-align: center;&quot;&gt;Item 5&lt;/div&gt;
+  &lt;div style=&quot;background: #4f46e5; color: #fff; padding: 1.25rem; border-radius: 0.25rem; text-align: center;&quot;&gt;Item 6&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </details>
+  </section>
+
+  <section>
+    <h2 class="heading-l">Fixed columns</h2>
+    <p>Use <code>data-layout="50%"</code> for a two-column layout or <code>data-layout="33%"</code> for three columns. Both still collapse when the container is too narrow.</p>
+    
+    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
+<p style="font-size: 0.875rem; color: #6b7280; margin-block-end: 0.5rem;">data-layout="50%" — two columns</p>
+<div class="grid" data-layout="50%">
+  <div style="background: #e0e7ff; padding: 1.25rem; border-radius: 0.25rem; text-align: center;">Column A</div>
+  <div style="background: #6366f1; color: #fff; padding: 1.25rem; border-radius: 0.25rem; text-align: center;">Column B</div>
+</div>
+
+<p style="font-size: 0.875rem; color: #6b7280; margin-block-start: 1.5rem; margin-block-end: 0.5rem;">data-layout="33%" — three columns</p>
+<div class="grid" data-layout="33%">
+  <div style="background: #e0e7ff; padding: 1.25rem; border-radius: 0.25rem; text-align: center;">Col A</div>
+  <div style="background: #a5b4fc; padding: 1.25rem; border-radius: 0.25rem; text-align: center;">Col B</div>
+  <div style="background: #6366f1; color: #fff; padding: 1.25rem; border-radius: 0.25rem; text-align: center;">Col C</div>
+</div>
+    </div>
+
+    <details class="margin-y-s">
+      <summary class="padding-s">Show code</summary>
+      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;p style=&quot;font-size: 0.875rem; color: #6b7280; margin-block-end: 0.5rem;&quot;&gt;data-layout=&quot;50%&quot; — two columns&lt;/p&gt;
+&lt;div class=&quot;grid&quot; data-layout=&quot;50%&quot;&gt;
+  &lt;div style=&quot;background: #e0e7ff; padding: 1.25rem; border-radius: 0.25rem; text-align: center;&quot;&gt;Column A&lt;/div&gt;
+  &lt;div style=&quot;background: #6366f1; color: #fff; padding: 1.25rem; border-radius: 0.25rem; text-align: center;&quot;&gt;Column B&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p style=&quot;font-size: 0.875rem; color: #6b7280; margin-block-start: 1.5rem; margin-block-end: 0.5rem;&quot;&gt;data-layout=&quot;33%&quot; — three columns&lt;/p&gt;
+&lt;div class=&quot;grid&quot; data-layout=&quot;33%&quot;&gt;
+  &lt;div style=&quot;background: #e0e7ff; padding: 1.25rem; border-radius: 0.25rem; text-align: center;&quot;&gt;Col A&lt;/div&gt;
+  &lt;div style=&quot;background: #a5b4fc; padding: 1.25rem; border-radius: 0.25rem; text-align: center;&quot;&gt;Col B&lt;/div&gt;
+  &lt;div style=&quot;background: #6366f1; color: #fff; padding: 1.25rem; border-radius: 0.25rem; text-align: center;&quot;&gt;Col C&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </details>
+  </section>
+
+  <section>
+    <h2 class="heading-l">Min item size</h2>
+    <p>Override <code>--grid-min-item-size</code> to control when columns collapse. A smaller value keeps more columns at narrower widths; a larger value collapses earlier.</p>
+    
+    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
+<p style="font-size: 0.875rem; color: #6b7280; margin-block-end: 0.5rem;">--grid-min-item-size: 8rem — fits more columns</p>
+<div class="grid" style="--grid-min-item-size: 8rem;">
+  <div style="background: #e0e7ff; padding: 1rem; border-radius: 0.25rem; text-align: center; font-size: 0.875rem;">A</div>
+  <div style="background: #c7d2fe; padding: 1rem; border-radius: 0.25rem; text-align: center; font-size: 0.875rem;">B</div>
+  <div style="background: #a5b4fc; padding: 1rem; border-radius: 0.25rem; text-align: center; font-size: 0.875rem;">C</div>
+  <div style="background: #818cf8; color: #fff; padding: 1rem; border-radius: 0.25rem; text-align: center; font-size: 0.875rem;">D</div>
+  <div style="background: #6366f1; color: #fff; padding: 1rem; border-radius: 0.25rem; text-align: center; font-size: 0.875rem;">E</div>
+  <div style="background: #4f46e5; color: #fff; padding: 1rem; border-radius: 0.25rem; text-align: center; font-size: 0.875rem;">F</div>
+  <div style="background: #3730a3; color: #fff; padding: 1rem; border-radius: 0.25rem; text-align: center; font-size: 0.875rem;">G</div>
+  <div style="background: #312e81; color: #fff; padding: 1rem; border-radius: 0.25rem; text-align: center; font-size: 0.875rem;">H</div>
+</div>
+    </div>
+
+    <details class="margin-y-s">
+      <summary class="padding-s">Show code</summary>
+      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;p style=&quot;font-size: 0.875rem; color: #6b7280; margin-block-end: 0.5rem;&quot;&gt;--grid-min-item-size: 8rem — fits more columns&lt;/p&gt;
+&lt;div class=&quot;grid&quot; style=&quot;--grid-min-item-size: 8rem;&quot;&gt;
+  &lt;div style=&quot;background: #e0e7ff; padding: 1rem; border-radius: 0.25rem; text-align: center; font-size: 0.875rem;&quot;&gt;A&lt;/div&gt;
+  &lt;div style=&quot;background: #c7d2fe; padding: 1rem; border-radius: 0.25rem; text-align: center; font-size: 0.875rem;&quot;&gt;B&lt;/div&gt;
+  &lt;div style=&quot;background: #a5b4fc; padding: 1rem; border-radius: 0.25rem; text-align: center; font-size: 0.875rem;&quot;&gt;C&lt;/div&gt;
+  &lt;div style=&quot;background: #818cf8; color: #fff; padding: 1rem; border-radius: 0.25rem; text-align: center; font-size: 0.875rem;&quot;&gt;D&lt;/div&gt;
+  &lt;div style=&quot;background: #6366f1; color: #fff; padding: 1rem; border-radius: 0.25rem; text-align: center; font-size: 0.875rem;&quot;&gt;E&lt;/div&gt;
+  &lt;div style=&quot;background: #4f46e5; color: #fff; padding: 1rem; border-radius: 0.25rem; text-align: center; font-size: 0.875rem;&quot;&gt;F&lt;/div&gt;
+  &lt;div style=&quot;background: #3730a3; color: #fff; padding: 1rem; border-radius: 0.25rem; text-align: center; font-size: 0.875rem;&quot;&gt;G&lt;/div&gt;
+  &lt;div style=&quot;background: #312e81; color: #fff; padding: 1rem; border-radius: 0.25rem; text-align: center; font-size: 0.875rem;&quot;&gt;H&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </details>
+  </section>
+
+  <section>
+    <h2 class="heading-l">Tokens</h2>
+    <table class="">
+      <thead>
+        <tr>
+          <th>Token</th>
+          <th>Default</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>--grid-gutter</code></td>
+          <td><code>var(--space-s-l)</code></td>
+          <td>Gap between grid cells.</td>
+        </tr>
+        <tr>
+          <td><code>--grid-min-item-size</code></td>
+          <td><code>16rem</code></td>
+          <td>Minimum column width. The grid creates as many columns as fit above this threshold.</td>
+        </tr>
+        <tr>
+          <td><code>--grid-placement</code></td>
+          <td><code>auto-fill</code></td>
+          <td>Use <code>auto-fill</code> to keep empty tracks, or <code>auto-fit</code> to collapse them. The <code>data-layout</code> variants use <code>auto-fit</code>.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 style="margin-block-start: var(--space-m)">Data attributes</h3>
+    <table class="">
+      <thead>
+        <tr>
+          <th>Attribute</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>data-layout="50%"</code></td>
+          <td>Two equal columns that collapse when space is insufficient.</td>
+        </tr>
+        <tr>
+          <td><code>data-layout="33%"</code></td>
+          <td>Three equal columns that collapse when space is insufficient.</td>
+        </tr>
+        <tr>
+          <td><code>data-rows="masonry"</code></td>
+          <td>Enables CSS masonry row layout where supported; degrades to a normal grid.</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+</article>
+{% endblock %}

@@ -1,6 +1,6 @@
 /*
 Callout
-──────────────────────────────────────────────────────────────────────────────
+---
 An inline notification block used to draw attention to important information.
 
 MARKUP PATTERN
@@ -62,7 +62,7 @@ TOKENS
     line-height: var(--line-height);
   }
 
-  /* ── Variants ────────────────────────────────────────────────────────────── */
+  /* --- Variants --- */
 
   .callout[data-variant="brand"] {
     --callout-color: var(--color-brand);

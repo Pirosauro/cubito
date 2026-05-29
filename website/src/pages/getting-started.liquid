@@ -1,0 +1,186 @@
+{% layout "layouts/base.liquid" %}
+{% block title %}Getting Started — Cubito UI Docs{% endblock %}
+
+{% block content %}
+<article class="flow">
+
+  <header class="padding-y-m margin-y-m" style="border-block-end: 1px solid var(--color-neutral-200);">
+    <nav aria-label="Breadcrumb" class="breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li aria-current="page">Getting Started</li>
+      </ol>
+    </nav>
+    <h1>Getting Started</h1>
+    <p class="text-l color-neutral-600">Add Cubito UI to your project and have a fully-styled component library in minutes — no build step required beyond your existing CSS bundler.</p>
+  </header>
+
+  <section>
+    <h2 class="heading-l">Installation</h2>
+    <p>Install the package from the private registry using your preferred package manager.</p>
+    <pre><code>pnpm add @hobiri/ui</code></pre>
+    <p>Or with npm or yarn:</p>
+    <pre><code>npm install @hobiri/ui
+yarn add @hobiri/ui</code></pre>
+    <div class="callout" data-variant="brand" role="note">
+      <p>The package is hosted on a private registry. Make sure your <code>.npmrc</code> points to the correct registry URL before installing. Contact your team lead if you do not have access credentials.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="heading-l">Required tokens</h2>
+    <p>Before importing anything from Cubito UI, define two brand tokens in your application's <code>:root</code>. These are the only values the library cannot provide — they are specific to your product.</p>
+    <pre><code>/* app/styles/tokens.css */
+:root {
+  --color-brand:  #0057d9; /* your primary interactive colour */
+  --color-accent: #f5a623; /* your secondary / highlight colour */
+}</code></pre>
+    <p>Every other token has a sensible default. <code>--color-brand</code> is also used as the focus ring colour, so choosing an accessible, high-contrast value is important.</p>
+  </section>
+
+  <section>
+    <h2 class="heading-l">Import order</h2>
+    <p>CSS cascade layers lock the precedence between library layers, but only if <code>_layers.css</code> is declared before any other library stylesheet. Import order matters.</p>
+    <pre><code>/* app/styles/main.css */
+
+/* 1. Declare layer order — must come first */
+@import "@hobiri/ui/abstracts/_layers.css";
+
+/* 2. Design tokens */
+@import "@hobiri/ui/abstracts/_theme.css";
+@import "@hobiri/ui/abstracts/_z-index.css";
+@import "@hobiri/ui/abstracts/_motion.css";
+@import "@hobiri/ui/abstracts/_spacing.css";
+@import "@hobiri/ui/abstracts/_typography.css";
+@import "@hobiri/ui/abstracts/_icons.css";
+
+/* 3. Base element styles */
+@import "@hobiri/ui/base/_reset.css";
+@import "@hobiri/ui/base/_button.css";
+@import "@hobiri/ui/base/_code.css";
+@import "@hobiri/ui/base/_details.css";
+@import "@hobiri/ui/base/_form.css";
+@import "@hobiri/ui/base/_nav.css";
+@import "@hobiri/ui/base/_table.css";
+@import "@hobiri/ui/base/_tooltip.css";
+
+/* 4. Block components */
+@import "@hobiri/ui/blocks/_avatar.css";
+@import "@hobiri/ui/blocks/_badge.css";
+@import "@hobiri/ui/blocks/_banner.css";
+@import "@hobiri/ui/blocks/_breadcrumb.css";
+@import "@hobiri/ui/blocks/_callout.css";
+@import "@hobiri/ui/blocks/_card.css";
+@import "@hobiri/ui/blocks/_data-list.css";
+@import "@hobiri/ui/blocks/_dialog.css";
+@import "@hobiri/ui/blocks/_empty-state.css";
+@import "@hobiri/ui/blocks/_hero.css";
+@import "@hobiri/ui/blocks/_pagination.css";
+@import "@hobiri/ui/blocks/_toast.css";
+/* ...add only the blocks your project uses */
+
+/* 5. Compositions (Every Layout primitives) */
+@import "@hobiri/ui/compositions/_cluster.css";
+@import "@hobiri/ui/compositions/_grid.css";
+@import "@hobiri/ui/compositions/_sidebar.css";
+/* ...add only what you use */
+
+/* 6. Utilities — highest precedence */
+@import "@hobiri/ui/utilities/_accessibility.css";
+@import "@hobiri/ui/utilities/_typography.css";
+@import "@hobiri/ui/utilities/_spacing.css";
+@import "@hobiri/ui/utilities/_color.css";
+/* ...add only what you use */
+
+/* 7. Your application tokens (brand colours, overrides) */
+@import "./tokens.css";</code></pre>
+    <div class="callout" data-variant="brand" role="note">
+      <p><strong>Why <code>_layers.css</code> must come first:</strong> The file contains a single <code>@layer</code> declaration that establishes the precedence order: <code>tokens → reset → layout → blocks → utilities</code>. If it is omitted or imported after other stylesheets, cascade layer precedence falls back to first-encountered order, which silently breaks component overrides.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="heading-l">Dark mode</h2>
+    <p>Dark mode is handled automatically. All color tokens respond to <code>prefers-color-scheme: dark</code> at the OS level — no JavaScript or class toggling required. If your application needs a manual toggle, you can use the <code>data-theme</code> attribute pattern to force a specific scheme:</p>
+    <pre><code>&lt;html data-theme="dark"&gt;
+  &lt;!-- overrides prefers-color-scheme --&gt;
+&lt;/html&gt;</code></pre>
+    <p>Wire this up with a small JavaScript toggle and <code>localStorage</code> to persist the user's preference across sessions.</p>
+  </section>
+
+  <section>
+    <h2 class="heading-l">Minimal working page</h2>
+    <p>A complete HTML page that loads Cubito UI with the correct setup, including brand tokens and all required imports.</p>
+    <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;My App&lt;/title&gt;
+  &lt;style&gt;
+    /* Define brand tokens before any @import */
+    :root {
+      --color-brand:  #0057d9;
+      --color-accent: #f5a623;
+    }
+  &lt;/style&gt;
+  &lt;link rel="stylesheet" href="/styles/main.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;nav aria-label="Site navigation"&gt;
+    &lt;a href="/"&gt;Home&lt;/a&gt;
+    &lt;a href="/products/"&gt;Products&lt;/a&gt;
+    &lt;a href="/about/"&gt;About&lt;/a&gt;
+  &lt;/nav&gt;
+
+  &lt;main&gt;
+    &lt;div class="wrapper flow"&gt;
+
+      &lt;div class="hero"&gt;
+        &lt;h1&gt;Welcome to My App&lt;/h1&gt;
+        &lt;p&gt;Built with Cubito UI.&lt;/p&gt;
+        &lt;a href="/products/" class="button"&gt;Browse products&lt;/a&gt;
+      &lt;/div&gt;
+
+      &lt;div class="grid"&gt;
+        &lt;div class="card"&gt;
+          &lt;h2&gt;Feature one&lt;/h2&gt;
+          &lt;p&gt;Description of the feature.&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class="card"&gt;
+          &lt;h2&gt;Feature two&lt;/h2&gt;
+          &lt;p&gt;Description of the feature.&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+    &lt;/div&gt;
+  &lt;/main&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+  </section>
+
+  <section>
+    <h2 class="heading-l">Overriding tokens</h2>
+    <p>Any token can be overridden at any CSS scope — globally, per block, or inline on an element. No special API or "theme hook" layer is needed.</p>
+    <pre><code>/* Global override */
+:root {
+  --border-radius: 0; /* square corners everywhere */
+}
+
+/* Scoped override — dark card variant */
+.card[data-variant="dark"] {
+  --card-background: var(--color-neutral-800);
+  --card-color:      var(--color-neutral-100);
+}
+
+/* Inline override */
+&lt;div class="card" style="--card-border-color: var(--color-brand)"&gt;
+  Highlighted card
+&lt;/div&gt;</code></pre>
+    <p>Because all component tokens are standard CSS custom properties, they inherit through the DOM and can be set at any level of the cascade.</p>
+  </section>
+
+</article>
+{% endblock %}

@@ -1,6 +1,6 @@
 /*
 Toast / Notification
-──────────────────────────────────────────────────────────────────────────────
+---
 Timed dismissible message overlay. Fixed to a corner of the viewport,
 stacking multiple toasts with a gap. Maps to --z-notification.
 
@@ -76,7 +76,7 @@ TOKENS (on .toast)
 }
 
 @layer blocks {
-  /* ── Toast region ────────────────────────────────────────────────────────── */
+  /* --- Toast region --- */
 
   .toast-region {
     position: fixed;
@@ -124,7 +124,7 @@ TOKENS (on .toast)
     transform: translateX(-50%);
   }
 
-  /* ── Individual toast ────────────────────────────────────────────────────── */
+  /* --- Individual toast --- */
 
   .toast {
     display: flex;
@@ -211,7 +211,7 @@ TOKENS (on .toast)
     opacity: 1;
   }
 
-  /* ── Variants ────────────────────────────────────────────────────────────── */
+  /* --- Variants --- */
 
   .toast[data-variant="success"] {
     --toast-background: var(--color-status-ok);
@@ -233,7 +233,7 @@ TOKENS (on .toast)
     --toast-color: var(--color-white);
   }
 
-  /* ── Reduced motion ──────────────────────────────────────────────────────── */
+  /* --- Reduced motion --- */
 
   @media (prefers-reduced-motion: reduce) {
     .toast,

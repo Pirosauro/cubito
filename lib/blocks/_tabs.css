@@ -1,6 +1,6 @@
 /*
 Tabs
-──────────────────────────────────────────────────────────────────────────────
+---
 Tabbed interface following the WAI-ARIA Tabs pattern.
 JS is required to manage aria-selected and tabpanel visibility.
 
@@ -61,7 +61,7 @@ TOKENS
 }
 
 @layer blocks {
-  /* ── Tablist ─────────────────────────────────────────────────────────────── */
+  /* --- Tablist --- */
 
   .tabs [role="tablist"] {
     display: flex;
@@ -78,7 +78,7 @@ TOKENS
     display: none;
   }
 
-  /* ── Tab buttons ─────────────────────────────────────────────────────────── */
+  /* --- Tab buttons --- */
 
   .tabs [role="tab"] {
     position: relative;
@@ -122,7 +122,7 @@ TOKENS
     border-radius: var(--tabs-indicator-height) var(--tabs-indicator-height) 0 0;
   }
 
-  /* ── Tabpanel ────────────────────────────────────────────────────────────── */
+  /* --- Tabpanel --- */
 
   .tabs [role="tabpanel"] {
     padding: var(--tabs-panel-padding);
@@ -132,7 +132,7 @@ TOKENS
     display: none;
   }
 
-  /* ── Variant: pills ──────────────────────────────────────────────────────── */
+  /* --- Variant: pills --- */
 
   .tabs[data-variant="pills"] [role="tablist"] {
     border-bottom: none;
@@ -156,7 +156,7 @@ TOKENS
     display: none; /* no underline for pills */
   }
 
-  /* ── Variant: lifted ─────────────────────────────────────────────────────── */
+  /* --- Variant: lifted --- */
 
   .tabs[data-variant="lifted"] [role="tab"] {
     border: var(--tabs-border);
@@ -182,7 +182,7 @@ TOKENS
     padding: var(--space-m);
   }
 
-  /* ── Dark mode ───────────────────────────────────────────────────────────── */
+  /* --- Dark mode --- */
 
   @media (prefers-color-scheme: dark) {
     .tabs {

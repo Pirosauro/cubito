@@ -1,6 +1,6 @@
 /*
 Sidebar
-──────────────────────────────────────────────────────────────────────────────
+---
 Places a fixed-width sidebar next to a flexible main content area. The two
 columns stack vertically when the viewport is too narrow to fit both at their
 minimum widths — no media queries needed.

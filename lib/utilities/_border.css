@@ -1,6 +1,6 @@
 /*
 Border utilities
-──────────────────────────────────────────────────────────────────────────────
+---
 Border-width and border-radius helpers.
 Pair border-width utilities with a border-color from _color.css.
 
@@ -11,7 +11,7 @@ Border tokens are defined in abstracts/_theme.css:
 */
 
 @layer utilities {
-  /* ── Border width ────────────────────────────────────────────────────────── */
+  /* --- Border width --- */
   /*
     All width classes also set border-style: solid so that adding a colour
     utility is all that is needed for a visible border.
@@ -37,7 +37,7 @@ Border tokens are defined in abstracts/_theme.css:
     border-width: var(--border-l);
   }
 
-  /* ── Border radius ───────────────────────────────────────────────────────── */
+  /* --- Border radius --- */
 
   .radius-none {
     border-radius: 0;

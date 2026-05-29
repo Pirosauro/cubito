@@ -1,6 +1,6 @@
 /*
 With icon
-──────────────────────────────────────────────────────────────────────────────
+---
 Aligns an inline SVG icon with adjacent text. The icon scales relative to
 the current font-size using cap units (1cap = height of an uppercase letter)
 for precise optical alignment.

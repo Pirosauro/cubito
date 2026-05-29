@@ -1,0 +1,110 @@
+{% layout "layouts/base.liquid" %}
+{% block title %}Dialog — Cubito UI Docs{% endblock %}
+
+{% block content %}
+<article class="flow">
+
+  <header class="padding-y-m margin-y-m" style="border-block-end: 1px solid var(--color-neutral-200);">
+    <nav aria-label="Breadcrumb" class="breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/components/">Components</a></li>
+        <li aria-current="page">Dialog</li>
+      </ol>
+    </nav>
+    <h1>Dialog</h1>
+    <p class="text-l color-neutral-600">Styles for the native <code>&lt;dialog&gt;</code> element — a modal overlay with a backdrop, focus trap, and keyboard dismiss built into the browser.</p>
+  </header>
+
+  <section>
+    <h2 class="heading-l">Live demo</h2>
+    <p>Click the button to open the dialog. Press <kbd>Escape</kbd> or the close button to dismiss it. The <code>showModal()</code> method opens the dialog as a modal, trapping focus and rendering the backdrop.</p>
+    
+    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
+<button type="button" onclick="this.nextElementSibling.showModal()" class="button">
+  Open dialog
+</button>
+
+<dialog aria-labelledby="dialog-title">
+  <h2 id="dialog-title">Confirm deletion</h2>
+  <p>This will permanently delete the project <strong>Acme Redesign</strong> and all associated files. This action cannot be undone.</p>
+  <div class="cluster">
+    <button type="button" autofocus onclick="this.closest('dialog').close()">Delete project</button>
+    <button type="button" data-variant="outline" onclick="this.closest('dialog').close()">Cancel</button>
+  </div>
+</dialog>
+    </div>
+
+    <details class="margin-y-s">
+      <summary class="padding-s">Show code</summary>
+      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;button type=&quot;button&quot; onclick=&quot;this.nextElementSibling.showModal()&quot; class=&quot;button&quot;&gt;
+  Open dialog
+&lt;/button&gt;
+
+&lt;dialog aria-labelledby=&quot;dialog-title&quot;&gt;
+  &lt;h2 id=&quot;dialog-title&quot;&gt;Confirm deletion&lt;/h2&gt;
+  &lt;p&gt;This will permanently delete the project &lt;strong&gt;Acme Redesign&lt;/strong&gt; and all associated files. This action cannot be undone.&lt;/p&gt;
+  &lt;div class=&quot;cluster&quot;&gt;
+    &lt;button type=&quot;button&quot; autofocus onclick=&quot;this.closest(&#x27;dialog&#x27;).close()&quot;&gt;Delete project&lt;/button&gt;
+    &lt;button type=&quot;button&quot; data-variant=&quot;outline&quot; onclick=&quot;this.closest(&#x27;dialog&#x27;).close()&quot;&gt;Cancel&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/dialog&gt;</code></pre>
+    </details>
+  </section>
+
+  <section>
+    <h2 class="heading-l">Markup pattern</h2>
+    <p>Always provide <code>aria-labelledby</code> pointing to the dialog's heading so assistive technology announces the dialog title when it opens. Use <code>autofocus</code> on the primary action to set initial focus.</p>
+    
+    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
+<dialog id="example-dialog" aria-labelledby="example-title">
+  <h2 id="example-title">Dialog title</h2>
+  <p>Supporting description text goes here, providing context for the action the user is about to take.</p>
+  <div class="cluster">
+    <button type="button" autofocus>Confirm</button>
+    <button type="button" data-variant="outline" onclick="this.closest('dialog').close()">Cancel</button>
+  </div>
+</dialog>
+    </div>
+
+    <details class="margin-y-s">
+      <summary class="padding-s">Show code</summary>
+      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;dialog id=&quot;example-dialog&quot; aria-labelledby=&quot;example-title&quot;&gt;
+  &lt;h2 id=&quot;example-title&quot;&gt;Dialog title&lt;/h2&gt;
+  &lt;p&gt;Supporting description text goes here, providing context for the action the user is about to take.&lt;/p&gt;
+  &lt;div class=&quot;cluster&quot;&gt;
+    &lt;button type=&quot;button&quot; autofocus&gt;Confirm&lt;/button&gt;
+    &lt;button type=&quot;button&quot; data-variant=&quot;outline&quot; onclick=&quot;this.closest(&#x27;dialog&#x27;).close()&quot;&gt;Cancel&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/dialog&gt;</code></pre>
+    </details>
+  </section>
+
+  <section>
+    <h2 class="heading-l">Backdrop</h2>
+    <div class="callout" data-variant="brand" role="note">
+      <p>The <code>::backdrop</code> pseudo-element is styled with a dark semi-transparent overlay and a subtle <code>backdrop-filter: blur(2px)</code>. This is only applied when using <code>showModal()</code> — the <code>show()</code> method does not render a backdrop.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="heading-l">Tokens</h2>
+    <table class="">
+      <thead>
+        <tr><th>Token</th><th>Default</th><th>Description</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>--dialog-background</code></td><td><code>--color-neutral-50</code></td><td>Dialog surface fill.</td></tr>
+        <tr><td><code>--dialog-color</code></td><td><code>--color-black</code></td><td>Text colour inside the dialog.</td></tr>
+        <tr><td><code>--dialog-shadow</code></td><td>Layered box shadow</td><td>Elevation shadow applied to the dialog panel.</td></tr>
+        <tr><td><code>--dialog-border</code></td><td><code>1px solid --color-neutral-200</code></td><td>Full border shorthand.</td></tr>
+        <tr><td><code>--dialog-radius</code></td><td><code>--border-radius-l</code></td><td>Corner radius.</td></tr>
+        <tr><td><code>--dialog-padding</code></td><td><code>--space-l</code></td><td>Inner padding.</td></tr>
+        <tr><td><code>--dialog-max-width</code></td><td><code>min(90vw, 40rem)</code></td><td>Maximum width of the dialog panel.</td></tr>
+        <tr><td><code>--dialog-max-height</code></td><td><code>min(85dvh, 40rem)</code></td><td>Maximum height — the dialog scrolls internally if content overflows.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+</article>
+{% endblock %}

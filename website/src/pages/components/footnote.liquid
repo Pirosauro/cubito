@@ -1,0 +1,108 @@
+{% layout "layouts/base.liquid" %}
+{% block title %}Footnote — Cubito UI Docs{% endblock %}
+
+{% block content %}
+<article class="flow">
+
+  <header class="padding-y-m margin-y-m" style="border-block-end: 1px solid var(--color-neutral-200);">
+    <nav aria-label="Breadcrumb" class="breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/components/">Components</a></li>
+        <li aria-current="page">Footnote</li>
+      </ol>
+    </nav>
+    <h1>Footnote</h1>
+    <p class="text-l color-neutral-600">A numbered list of end-of-document references, linked from inline superscript anchors in body copy.</p>
+  </header>
+
+  <section>
+    <h2 class="heading-l">Example</h2>
+    <p>Inline references use <code>&lt;sup&gt;</code> with a link pointing to the footnote item's <code>id</code>. The <code>aria-describedby</code> attribute on the anchor connects it semantically to the footnotes section. Each footnote item has a back-link for keyboard users.</p>
+    
+    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
+<article class="prose flow">
+  <p>
+    The total global market for renewable energy is projected to reach $2.15 trillion
+    by 2030,<sup><a href="#fn-1" id="fn-ref-1" aria-describedby="footnotes-label">1</a></sup>
+    driven primarily by falling costs in solar photovoltaic technology
+    and expanding offshore wind capacity.<sup><a href="#fn-2" id="fn-ref-2" aria-describedby="footnotes-label">2</a></sup>
+    National grid operators are responding with new storage mandates and
+    interconnection agreements.<sup><a href="#fn-3" id="fn-ref-3" aria-describedby="footnotes-label">3</a></sup>
+  </p>
+</article>
+
+<section aria-labelledby="footnotes-label" style="margin-block-start: var(--space-l); padding-block-start: var(--space-s); border-top: 1px solid var(--color-neutral-200);">
+  <h2 id="footnotes-label" class="sr-only">Footnotes</h2>
+  <ul class="footnote" role="doc-endnotes">
+    <li id="fn-1" role="doc-endnote">
+      International Renewable Energy Agency (IRENA). <em>Renewable Power Generation Costs in 2024</em>. IRENA, 2024.
+      <a href="#fn-ref-1" aria-label="Back to reference 1">↩</a>
+    </li>
+    <li id="fn-2" role="doc-endnote">
+      BloombergNEF. <em>New Energy Outlook 2025</em>. Bloomberg Finance L.P., 2025.
+      <a href="#fn-ref-2" aria-label="Back to reference 2">↩</a>
+    </li>
+    <li id="fn-3" role="doc-endnote">
+      European Commission. <em>Electricity Market Reform Package</em>. Official Journal of the EU, 2024.
+      <a href="#fn-ref-3" aria-label="Back to reference 3">↩</a>
+    </li>
+  </ul>
+</section>
+    </div>
+
+    <details class="margin-y-s">
+      <summary class="padding-s">Show code</summary>
+      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;article class=&quot;prose flow&quot;&gt;
+  &lt;p&gt;
+    The total global market for renewable energy is projected to reach $2.15 trillion
+    by 2030,&lt;sup&gt;&lt;a href=&quot;#fn-1&quot; id=&quot;fn-ref-1&quot; aria-describedby=&quot;footnotes-label&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;
+    driven primarily by falling costs in solar photovoltaic technology
+    and expanding offshore wind capacity.&lt;sup&gt;&lt;a href=&quot;#fn-2&quot; id=&quot;fn-ref-2&quot; aria-describedby=&quot;footnotes-label&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;
+    National grid operators are responding with new storage mandates and
+    interconnection agreements.&lt;sup&gt;&lt;a href=&quot;#fn-3&quot; id=&quot;fn-ref-3&quot; aria-describedby=&quot;footnotes-label&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;
+  &lt;/p&gt;
+&lt;/article&gt;
+
+&lt;section aria-labelledby=&quot;footnotes-label&quot; style=&quot;margin-block-start: var(--space-l); padding-block-start: var(--space-s); border-top: 1px solid var(--color-neutral-200);&quot;&gt;
+  &lt;h2 id=&quot;footnotes-label&quot; class=&quot;sr-only&quot;&gt;Footnotes&lt;/h2&gt;
+  &lt;ul class=&quot;footnote&quot; role=&quot;doc-endnotes&quot;&gt;
+    &lt;li id=&quot;fn-1&quot; role=&quot;doc-endnote&quot;&gt;
+      International Renewable Energy Agency (IRENA). &lt;em&gt;Renewable Power Generation Costs in 2024&lt;/em&gt;. IRENA, 2024.
+      &lt;a href=&quot;#fn-ref-1&quot; aria-label=&quot;Back to reference 1&quot;&gt;↩&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn-2&quot; role=&quot;doc-endnote&quot;&gt;
+      BloombergNEF. &lt;em&gt;New Energy Outlook 2025&lt;/em&gt;. Bloomberg Finance L.P., 2025.
+      &lt;a href=&quot;#fn-ref-2&quot; aria-label=&quot;Back to reference 2&quot;&gt;↩&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn-3&quot; role=&quot;doc-endnote&quot;&gt;
+      European Commission. &lt;em&gt;Electricity Market Reform Package&lt;/em&gt;. Official Journal of the EU, 2024.
+      &lt;a href=&quot;#fn-ref-3&quot; aria-label=&quot;Back to reference 3&quot;&gt;↩&lt;/a&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/section&gt;</code></pre>
+    </details>
+  </section>
+
+  <section>
+    <h2 class="heading-l">Markup notes</h2>
+    <div class="callout" data-variant="brand" role="note">
+      <p>Wrap the <code>.footnote</code> list in a <code>&lt;section&gt;</code> with <code>aria-labelledby</code> pointing to a visually hidden heading. This creates a named landmark that screen reader users can navigate to directly. The <code>role="doc-endnotes"</code> and <code>role="doc-endnote"</code> attributes come from the DPUB-ARIA specification and provide semantic meaning for publishing tools.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="heading-l">Tokens</h2>
+    <table class="">
+      <thead>
+        <tr><th>Token</th><th>Default</th><th>Description</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>--footnote-color</code></td><td><code>--color-neutral-600</code></td><td>Text colour of footnote items.</td></tr>
+        <tr><td><code>--footnote-font-size</code></td><td><code>--font-size-xs</code></td><td>Font size of footnote items.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+</article>
+{% endblock %}

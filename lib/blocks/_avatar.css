@@ -1,6 +1,6 @@
 /*
 Avatar
-──────────────────────────────────────────────────────────────────────────────
+---
 User representation: photo with fallback initials, optional online indicator.
 
 MARKUP PATTERN
@@ -102,7 +102,7 @@ TOKENS
     border-radius: inherit;
   }
 
-  /* ── Sizes ───────────────────────────────────────────────────────────────── */
+  /* --- Sizes --- */
 
   .avatar[data-size="xs"] {
     --avatar-size: 1.5rem;
@@ -120,7 +120,7 @@ TOKENS
     --avatar-size: 5rem;
   }
 
-  /* ── Status indicator ────────────────────────────────────────────────────── */
+  /* --- Status indicator --- */
 
   .avatar[data-status]::after {
     content: "";
@@ -147,7 +147,7 @@ TOKENS
     --_avatar-status-color: var(--color-neutral-400);
   }
 
-  /* ── Avatar group ────────────────────────────────────────────────────────── */
+  /* --- Avatar group --- */
 
   .avatar-group {
     --avatar-group-overlap: 0.5rem;
@@ -165,7 +165,7 @@ TOKENS
     margin-inline-start: 0;
   }
 
-  /* ── Dark mode ───────────────────────────────────────────────────────────── */
+  /* --- Dark mode --- */
 
   @media (prefers-color-scheme: dark) {
     .avatar {

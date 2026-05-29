@@ -1,0 +1,126 @@
+{% layout "layouts/base.liquid" %}
+{% block title %}Repel — Cubito UI Docs{% endblock %}
+
+{% block content %}
+<article class="flow">
+
+  <header class="padding-y-m margin-y-m" style="border-block-end: 1px solid var(--color-neutral-200);">
+    <nav aria-label="Breadcrumb" class="breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/layouts/">Layouts</a></li>
+        <li aria-current="page">Repel</li>
+      </ol>
+    </nav>
+    <h1>Repel</h1>
+    <p class="text-l color-neutral-600">Pushes two groups of items to opposite ends of their container when space allows, and stacks them vertically on narrow viewports.</p>
+  </header>
+
+  <section>
+    <h2 class="heading-l">Basic</h2>
+    <p>Place exactly two children inside <code>.repel</code>. The first is aligned to the start, the second to the end. A common pattern: a section title on the left, an action button on the right.</p>
+    
+    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
+<div class="repel" style="background: #f8fafc; padding: 1rem; border-radius: 0.25rem;">
+  <h2 style="margin: 0; font-size: 1.125rem;">Team members</h2>
+  <button class="button">Add member</button>
+</div>
+    </div>
+
+    <details class="margin-y-s">
+      <summary class="padding-s">Show code</summary>
+      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div class=&quot;repel&quot; style=&quot;background: #f8fafc; padding: 1rem; border-radius: 0.25rem;&quot;&gt;
+  &lt;h2 style=&quot;margin: 0; font-size: 1.125rem;&quot;&gt;Team members&lt;/h2&gt;
+  &lt;button class=&quot;button&quot;&gt;Add member&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+    </details>
+  </section>
+
+  <section>
+    <h2 class="heading-l">With real content</h2>
+    <p>Repel works well for pagination toolbars where previous/next controls sit at opposite ends, with page info in either group.</p>
+    
+    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
+<nav aria-label="Pagination" class="repel" style="background: #f8fafc; padding: 1rem; border-radius: 0.25rem;">
+  <a href="#" class="button" data-variant="outline" rel="prev">← Previous</a>
+  <span style="color: #6b7280; font-size: 0.9rem;">Page 3 of 12</span>
+  <a href="#" class="button" data-variant="outline" rel="next">Next →</a>
+</nav>
+    </div>
+
+    <details class="margin-y-s">
+      <summary class="padding-s">Show code</summary>
+      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;nav aria-label=&quot;Pagination&quot; class=&quot;repel&quot; style=&quot;background: #f8fafc; padding: 1rem; border-radius: 0.25rem;&quot;&gt;
+  &lt;a href=&quot;#&quot; class=&quot;button&quot; data-variant=&quot;outline&quot; rel=&quot;prev&quot;&gt;← Previous&lt;/a&gt;
+  &lt;span style=&quot;color: #6b7280; font-size: 0.9rem;&quot;&gt;Page 3 of 12&lt;/span&gt;
+  &lt;a href=&quot;#&quot; class=&quot;button&quot; data-variant=&quot;outline&quot; rel=&quot;next&quot;&gt;Next →&lt;/a&gt;
+&lt;/nav&gt;</code></pre>
+    </details>
+
+    {% capture demo2 %}
+<div class="repel" style="background: #f8fafc; padding: 1rem; border-radius: 0.25rem;">
+  <div>
+    <p style="margin: 0; font-weight: 600;">3 items selected</p>
+    <p style="margin: 0; font-size: 0.875rem; color: #6b7280;">Select all 142 results</p>
+  </div>
+  <div class="cluster" style="--gutter: var(--space-2xs)">
+    <button class="button" data-variant="outline">Export</button>
+    <button class="button" data-variant="outline">Assign</button>
+    <button class="button" data-variant="destructive">Delete</button>
+  </div>
+</div>
+    {% endcapture %}
+    {% include "partials/demo.liquid", html: demo2, title: "Bulk-action toolbar" %}
+  </section>
+
+  <section>
+    <h2 class="heading-l">Nowrap</h2>
+    <p>Add <code>data-nowrap</code> to prevent stacking. Both groups stay on one line regardless of viewport width. Use with caution — this can cause overflow on small screens.</p>
+    
+    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
+<div class="repel" data-nowrap style="background: #f8fafc; padding: 1rem; border-radius: 0.25rem;">
+  <span style="font-weight: 600; white-space: nowrap;">Invoice #INV-2024-0091</span>
+  <span class="badge" data-variant="warning">Pending review</span>
+</div>
+    </div>
+
+    <details class="margin-y-s">
+      <summary class="padding-s">Show code</summary>
+      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div class=&quot;repel&quot; data-nowrap style=&quot;background: #f8fafc; padding: 1rem; border-radius: 0.25rem;&quot;&gt;
+  &lt;span style=&quot;font-weight: 600; white-space: nowrap;&quot;&gt;Invoice #INV-2024-0091&lt;/span&gt;
+  &lt;span class=&quot;badge&quot; data-variant=&quot;warning&quot;&gt;Pending review&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+    </details>
+
+    <div class="callout" data-variant="brand" role="note">
+      <p><code>data-nowrap</code> sets <code>flex-wrap: nowrap</code>. Content that cannot fit will overflow its container unless truncation is applied to individual children.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="heading-l">Tokens</h2>
+    <table class="">
+      <thead>
+        <tr>
+          <th>Token</th>
+          <th>Default</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>--repel-gutter</code></td>
+          <td><code>var(--space-s-l)</code></td>
+          <td>Gap between the two groups when stacked vertically on narrow viewports.</td>
+        </tr>
+        <tr>
+          <td><code>--repel-vertical-alignment</code></td>
+          <td><code>center</code></td>
+          <td>Controls <code>align-items</code>. Set to <code>flex-start</code> or <code>flex-end</code> to align groups along the cross axis.</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+</article>
+{% endblock %}

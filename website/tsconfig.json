@@ -2,8 +2,6 @@
   "compilerOptions": {
     "declaration": true,
     "esModuleInterop": true,
-    "jsx": "react-jsx",
-    "jsxImportSource": "preact",
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
