@@ -1,0 +1,58 @@
+/*
+Grid
+──────────────────────────────────────────────────────────────────────────────
+Auto-fill CSS grid. Columns collapse responsively without media queries:
+each column is at least --grid-min-item-size wide; the grid adds as many
+columns as will fit.
+
+@link https://every-layout.dev/layouts/grid/
+@link https://piccalil.li/tutorial/create-a-responsive-grid-layout-with-no-media-queries-using-css-grid/
+
+CUSTOM PROPERTIES
+  --gutter                Gap between cells. Default: var(--space-s-l).
+  --grid-min-item-size    Minimum column width. Default: 16rem.
+  --grid-placement        auto-fill (keeps empty tracks) or auto-fit (collapses
+                          them). Default: auto-fill.
+
+EXCEPTIONS
+  data-layout="50%"    Two columns when space allows (≥ ~16rem each).
+  data-layout="33%"    Three columns when space allows.
+  data-rows="masonry"  Masonry row layout (progressive enhancement).
+*/
+
+@layer tokens {
+  :root {
+    --grid-gutter: var(--space-s-l);
+    --grid-min-item-size: 16rem;
+    --grid-placement: auto-fill;
+  }
+}
+
+@layer layout {
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(
+      var(--grid-placement),
+      minmax(var(--grid-min-item-size), 1fr)
+    );
+    gap: var(--grid-gutter);
+  }
+
+  /* Masonry — works where supported, degrades to normal grid */
+  .grid[data-rows="masonry"] {
+    grid-template-rows: masonry;
+    align-items: start;
+  }
+
+  /* Two columns when space permits */
+  .grid[data-layout="50%"] {
+    --grid-placement: auto-fit;
+    --grid-min-item-size: clamp(16rem, 50vw, 26rem);
+  }
+
+  /* Three columns when space permits */
+  .grid[data-layout="33%"] {
+    --grid-placement: auto-fit;
+    --grid-min-item-size: clamp(16rem, 33vw, 18rem);
+  }
+}

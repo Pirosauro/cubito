@@ -1,0 +1,94 @@
+/*
+Dialog
+──────────────────────────────────────────────────────────────────────────────
+Styles for the native <dialog> element and ARIA role="dialog" fallback.
+Structural tokens (--dialog-background etc.) are first set in _reset.css
+and refined here with border-radius, max-size, and improved shadow.
+
+MARKUP PATTERN
+  <dialog id="confirm" aria-labelledby="confirm-title">
+    <h2 id="confirm-title">Delete item?</h2>
+    <p>This action cannot be undone.</p>
+    <div class="cluster">
+      <button type="button" autofocus>Delete</button>
+      <button type="button" data-variant="outline">Keep item</button>
+    </div>
+  </dialog>
+
+  <script>document.getElementById('confirm').showModal();</script>
+
+CONFIGURATION
+    .side-panel dialog {
+      --dialog-background: var(--color-neutral-900);
+      --dialog-color:      var(--color-neutral-50);
+      --dialog-border:     none;
+      --dialog-max-width:  28rem;
+      --dialog-max-height: 100dvh;
+    }
+
+    <dialog style="--dialog-padding: var(--space-xl)">…</dialog>
+
+TOKENS
+  --dialog-background   Surface fill.          Default: --color-neutral-50
+  --dialog-color        Text colour.           Default: --color-black
+  --dialog-shadow       Box shadow.            Default: layered shadow
+  --dialog-border       Full border shorthand. Default: 1px solid --color-neutral-200
+  --dialog-radius       Corner radius.         Default: --border-radius-l
+  --dialog-padding      Inner space.           Default: --space-l
+  --dialog-max-width    Max width.             Default: min(90vw, 40rem)
+  --dialog-max-height   Max height.            Default: min(85dvh, 40rem)
+
+@link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog
+*/
+
+@layer tokens {
+  :root {
+    --dialog-background: var(--color-neutral-50);
+    --dialog-border: solid var(--border-s) var(--color-neutral-200);
+    --dialog-color: var(--color-black);
+    --dialog-max-height: min(85dvh, 40rem);
+    --dialog-max-width: min(90vw, 40rem);
+    --dialog-padding: var(--space-l);
+    --dialog-radius: var(--border-radius-l);
+    --dialog-shadow:
+      0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 16px 24px -4px rgba(0, 0, 0, 0.12);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --dialog-background: var(--color-neutral-800);
+      --dialog-border: solid var(--border-s) var(--color-neutral-700);
+      --dialog-color: var(--color-neutral-50);
+    }
+  }
+}
+
+@layer blocks {
+  dialog,
+  [role="dialog"] {
+    border: var(--dialog-border);
+    border-radius: var(--dialog-radius);
+    max-width: var(--dialog-max-width);
+    max-height: var(--dialog-max-height);
+    overflow-y: auto;
+    width: 100%;
+    background: var(--dialog-background);
+    color: var(--dialog-color);
+    box-shadow: var(--dialog-shadow);
+    padding: var(--dialog-padding);
+  }
+
+  dialog::backdrop {
+    background-color: rgba(10, 10, 10, 0.8);
+    backdrop-filter: blur(2px);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    dialog,
+    [role="dialog"] {
+      --dialog-background: var(--color-neutral-800);
+      --dialog-color: var(--color-neutral-50);
+      --dialog-border: solid var(--border-s) var(--color-neutral-700);
+    }
+  }
+}

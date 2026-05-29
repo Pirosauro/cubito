@@ -1,0 +1,92 @@
+/*
+Breadcrumb
+──────────────────────────────────────────────────────────────────────────────
+A navigation aid that shows the user's current location in the site hierarchy.
+Uses an ordered list for correct screen-reader announcement order.
+
+MARKUP PATTERN
+  <nav aria-label="Breadcrumb" class="breadcrumb">
+    <ol>
+      <li><a href="/">Home</a></li>
+      <li><a href="/products/">Products</a></li>
+      <li><a href="/products/shoes/" aria-current="page">Shoes</a></li>
+    </ol>
+  </nav>
+
+CONFIGURATION
+    :root {
+      --breadcrumb-separator:     "›";
+      --breadcrumb-color:         var(--color-neutral-500);
+      --breadcrumb-color-current: var(--color-brand);
+    }
+
+    <nav class="breadcrumb" style="--breadcrumb-separator: '/'">…</nav>
+
+TOKENS
+  --breadcrumb-separator      Separator glyph.         Default: "/"
+  --breadcrumb-color          Link colour.             Default: --color-neutral-600
+  --breadcrumb-color-current  Active crumb colour.     Default: --color-neutral-900
+*/
+
+@layer tokens {
+  :root {
+    --breadcrumb-color: var(--color-neutral-600);
+    --breadcrumb-color-current: var(--color-neutral-900);
+    --breadcrumb-separator: "/";
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --breadcrumb-color: var(--color-neutral-400);
+      --breadcrumb-color-current: var(--color-neutral-100);
+    }
+  }
+}
+
+@layer blocks {
+  .breadcrumb {
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .breadcrumb {
+    }
+  }
+
+  .breadcrumb ol {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    gap: 0 0.125em;
+  }
+
+  .breadcrumb li {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .breadcrumb li + li::before {
+    display: inline-block;
+    margin: 0 0.25em;
+    content: var(--breadcrumb-separator);
+    color: var(--color-neutral-400);
+  }
+
+  .breadcrumb a {
+    display: inline-flex;
+    align-items: center;
+    color: var(--breadcrumb-color);
+  }
+
+  .breadcrumb a svg {
+    margin-inline-end: 0.25em;
+  }
+
+  .breadcrumb [aria-current="page"] {
+    font-weight: var(--font-weight-normal);
+    text-decoration: none;
+    color: var(--breadcrumb-color-current);
+  }
+}

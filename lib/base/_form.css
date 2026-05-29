@@ -1,0 +1,391 @@
+/*
+Form and inputs
+---
+Component-level styles for form elements. All configurable tokens are defined
+here in @layer tokens so that :root overrides work at any scope. The element-
+level wire-up (border, background, color) lives in _reset.css and consumes
+these tokens without re-declaring them.
+
+CONFIGURATION
+  Override at any scope — globally, per-context, or inline:
+
+    :root {
+      --input-border-color: var(--color-neutral-400);
+      --input-background:   var(--color-neutral-50);
+    }
+
+    .checkout-form {
+      --input-border-color: var(--color-brand);
+    }
+
+    <input type="text" style="--input-background: var(--color-neutral-100)">
+
+TOKENS
+  --input-background            Input fill.                   Default: --color-white
+  --input-color                 Input text colour.            Default: --color-black
+  --input-border-width          Border width.                 Default: --border-s
+  --input-border-style          Border style.                 Default: solid
+  --input-border-color          Border colour.                Default: --color-neutral-300
+  --input-border-color-hover    Hover border colour.          Default: --color-neutral-500
+  --input-border-color-focus    Focus border colour.          Default: --color-brand
+  --input-border-color-disabled Disabled border colour.       Default: --color-neutral-200
+  --input-radius                Corner radius.                Default: --border-radius-m
+  --input-padding               Inner spacing.                Default: --space-tiny --space-xxs
+  --input-shadow-focus          Focus glow shadow.            Default: focus-ring glow
+  --input-transition            Transition shorthand.         Default: border-color, box-shadow
+  --input-background-disabled   Disabled fill.                Default: --color-neutral-100
+  --input-color-disabled        Disabled text colour.         Default: --color-neutral-500
+
+  --checkbox-background         Checkbox/radio fill.          Default: --color-white
+  --checkbox-border-color       Checkbox/radio border.        Default: --color-neutral-300
+  --checkbox-border-color-focus Checkbox/radio focus border.  Default: --color-brand
+
+  --fieldset-border-color       Fieldset border.              Default: --color-neutral-300
+  --legend-background           Legend fill.                  Default: --color-white
+  --legend-color                Legend text colour.           Default: --color-black
+  --legend-padding              Legend inner spacing.         Default: --space-tiny --space-xxs
+
+USAGE
+  <form>
+    <fieldset>
+      <legend>Personal information</legend>
+      <label for="name">Full name
+        <input id="name" name="name" type="text" placeholder="Jane Doe">
+      </label>
+      <label for="email">Email
+        <input id="email" name="email" type="email" placeholder="you@example.com">
+      </label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Preferences</legend>
+      <label>
+        <input type="checkbox" name="newsletter"> Subscribe to newsletter
+      </label>
+      <label>
+        <input type="radio" name="contact" value="email" checked> Contact by email
+      </label>
+      <label>
+        <input type="radio" name="contact" value="phone"> Contact by phone
+      </label>
+    </fieldset>
+
+    <label for="country">Country
+      <select id="country" name="country">
+        <option value="">Choose...</option>
+        <option>Italy</option>
+      </select>
+    </label>
+
+    <label for="message">Message
+      <textarea id="message" name="message" placeholder="Write your message..."></textarea>
+    </label>
+
+    <button type="submit">Save</button>
+  </form>
+*/
+
+@layer tokens {
+  :root {
+    /* --- Input --- */
+
+    --input-background: var(--background);
+    --input-background-disabled: var(--color-neutral-100);
+    --input-background-hover: var(--input-background);
+    --input-border-color: var(--color);
+    --input-border-color-disabled: var(--color-neutral-200);
+    --input-border-color-hover: var(--link-color);
+    --input-border-style: solid;
+    --input-border-width: var(--border-m);
+    --input-color: var(--color);
+    --input-color-disabled: var(--color-neutral-500);
+    --input-min-height: var(--space-l, 2.75rem); /* WCAG minimum touch target */
+    --input-padding: var(--space-tiny) var(--space-xxs);
+    --input-radius: var(--border-radius-m);
+    --input-shadow-focus: 0 0 0 var(--focus-ring-width, 0.1875rem)
+      color-mix(
+        in srgb,
+        var(--color-brand, var(--color-black)) 25%,
+        transparent
+      );
+    --input-transition:
+      background var(--motion-duration-fast, var(--transition)),
+      border-color var(--motion-duration-fast, var(--transition)),
+      box-shadow var(--motion-duration-fast, var(--transition)),
+      color var(--motion-duration-fast, var(--transition)),
+      opacity var(--motion-duration-fast, 150ms) var(--motion-easing-out),
+      transform var(--motion-duration-fast, var(--transition));
+
+    /* --- Checkbox / radio --- */
+
+    --checkbox-background: var(--color-white);
+    --checkbox-border-color: var(--input-border-color);
+    --checkbox-border-style: solid;
+    --checkbox-border-width: var(--input-border-width);
+    --checkbox-radius: var(--input-radius);
+    --checkbox-size: 1em;
+
+    /* --- Fieldset --- */
+
+    --fieldset-background: transparent;
+    --fieldset-border-color: var(--color-neutral-300);
+    --fieldset-border-style: solid;
+    --fieldset-border-width: var(--border-m);
+    --fieldset-color: var(--color);
+    --fieldset-radius: var(--border-radius-m);
+
+    /* --- Label --- */
+
+    --label-color: var(--color);
+    --label-font-family: inherit;
+    --label-font-size: var(--font-size-xs);
+    --label-font-weight: var(--font-weight-bold);
+
+    /* --- Legend --- */
+
+    --legend-background: transparent;
+    --legend-color: currentColor;
+    --legend-font-weight: var(--font-weight-bold);
+    --legend-padding: var(--space-tiny, 0.25rem) var(--space-xxs, 0.5rem);
+
+    /* --- Select --- */
+
+    --select-chevron-size: 5px;
+    --select-padding-end: 2rem;
+
+    /* --- Textarea --- */
+
+    --textarea-min-height: 6rem;
+  }
+}
+
+@layer blocks {
+  fieldset {
+    background-color: var(--fieldset-background);
+    border-color: var(--fieldset-border-color);
+    border-radius: var(--fieldset-radius);
+    border-style: var(--fieldset-border-style);
+    border-width: var(--fieldset-border-width);
+    color: var(--fieldset-color);
+  }
+
+  fieldset:disabled {
+    opacity: 0.6;
+    pointer-events: none;
+  }
+
+  legend {
+    background: var(--legend-background);
+    color: var(--legend-color);
+    font-weight: var(--legend-font-weight);
+    padding: var(--legend-padding);
+  }
+
+  label {
+    color: var(--label-color);
+    display: block;
+    font-family: var(--label-font-family);
+    font-size: var(--label-font-size);
+    font-weight: var(--label-font-weight);
+    margin-block: var(--space-tiny, 0.25rem);
+  }
+
+  /* Labels paired with checkboxes / radios are inline and unbolded */
+  label:has(+ input[type="checkbox"]),
+  label:has(+ input[type="radio"]),
+  label:has(> input[type="checkbox"]),
+  label:has(> input[type="radio"]),
+  input[type="checkbox"] + label,
+  input[type="radio"] + label {
+    align-items: center;
+    display: inline-flex;
+    gap: var(--space-xxs);
+    vertical-align: middle;
+    /* Reset */
+    color: inherit;
+    font-family: inherit;
+    font-weight: inherit;
+    font-size: inherit;
+  }
+
+  /* --- Text-like inputs --- */
+
+  button[role="combobox"],
+  input[type="email"],
+  input[type="number"],
+  input[type="password"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="text"],
+  input[type="url"],
+  input[type="date"],
+  input[type="datetime-local"],
+  input[type="month"],
+  input[type="week"],
+  input[type="time"],
+  textarea,
+  select {
+    background-color: var(--input-background, var(--background));
+    border-color: var(--input-border-color, var(--color));
+    border-radius: var(--input-radius, var(--border-radius));
+    border-style: var(--input-border-style, solid);
+    border-width: var(--input-border-width, var(--border-m));
+    color: var(--input-color, var(--color));
+    letter-spacing: -0.5px;
+    line-height: var(--line-height);
+    padding: var(--input-padding);
+    transition: var(--input-transition);
+    width: 100%;
+  }
+
+  textarea {
+    min-height: var(--textarea-min-height, 6rem);
+  }
+
+  /* --- Hover state --- */
+
+  button[role="combobox"]:hover:not(:disabled),
+  input[type="email"]:hover:not(:disabled),
+  input[type="number"]:hover:not(:disabled),
+  input[type="password"]:hover:not(:disabled),
+  input[type="search"]:hover:not(:disabled),
+  input[type="tel"]:hover:not(:disabled),
+  input[type="text"]:hover:not(:disabled),
+  input[type="url"]:hover:not(:disabled),
+  input[type="date"]:hover:not(:disabled),
+  input[type="datetime-local"]:hover:not(:disabled),
+  input[type="month"]:hover:not(:disabled),
+  input[type="week"]:hover:not(:disabled),
+  input[type="time"]:hover:not(:disabled),
+  textarea:hover:not(:disabled),
+  select:hover:not(:disabled) {
+    background-color: var(--input-background-hover);
+    border-color: var(--input-border-color-hover);
+  }
+
+  /* --- Focus state --- */
+
+  button[role="combobox"]:focus-visible,
+  input[type="email"]:focus-visible,
+  input[type="number"]:focus-visible,
+  input[type="password"]:focus-visible,
+  input[type="search"]:focus-visible,
+  input[type="tel"]:focus-visible,
+  input[type="text"]:focus-visible,
+  input[type="url"]:focus-visible,
+  input[type="date"]:focus-visible,
+  input[type="datetime-local"]:focus-visible,
+  input[type="month"]:focus-visible,
+  input[type="week"]:focus-visible,
+  input[type="time"]:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
+    background-color: var(--input-background-hover);
+    border-color: var(--input-border-color-hover);
+    box-shadow: var(--input-shadow-focus);
+    outline: none; /* focus indicator provided by box-shadow above */
+  }
+
+  /* --- Invalid state --- */
+
+  input:not([type="checkbox"]):not([type="radio"]):not([type="submit"])
+    :not([type="reset"]):not([type="button"]):not([type="file"]):not(
+      [type="range"]
+    )
+    :not([type="color"]):invalid,
+  textarea:invalid,
+  select:invalid,
+  input[aria-invalid="true"],
+  textarea[aria-invalid="true"],
+  select[aria-invalid="true"] {
+    border-color: var(--color-status-ko);
+    outline-color: var(--color-status-ko);
+  }
+
+  /* --- Chevron for <select> --- */
+
+  select:not([multiple]) {
+    background-image: var(--icon-chevron);
+    background-position: right var(--space-xs) center;
+    background-repeat: no-repeat;
+    background-size: 1em;
+    padding-inline-end: calc(1em + var(--space-s));
+  }
+
+  /* --- Checkbox and radio --- */
+
+  input[type="checkbox"],
+  input[type="radio"] {
+    background: var(--checkbox-background);
+    border-color: var(--checkbox-border-color);
+    border-radius: var(--checkbox-radius);
+    border-style: var(--checkbox-border-style, solid);
+    border-width: var(--checkbox-border-width);
+    color: var(--input-color);
+    cursor: pointer;
+    height: var(--checkbox-size);
+    margin-block-end: 0;
+    margin-inline-end: var(--space-xxs);
+    margin-inline-start: 0;
+    width: var(--checkbox-size);
+  }
+
+  input[type="checkbox"]:checked,
+  input[type="radio"]:checked {
+    background-color: var(--checkbox-background);
+    background-image: radial-gradient(
+      circle,
+      var(--checkbox-border-color) 35%,
+      transparent 40%
+    );
+  }
+
+  input[type="radio"] {
+    border-radius: 50%;
+  }
+
+  /* --- Disabled inputs --- */
+
+  button[role="combobox"]:disabled,
+  input[type="email"]:disabled,
+  input[type="number"]:disabled,
+  input[type="password"]:disabled,
+  input[type="search"]:disabled,
+  input[type="tel"]:disabled,
+  input[type="text"]:disabled,
+  input[type="url"]:disabled,
+  input[type="date"]:disabled,
+  input[type="datetime-local"]:disabled,
+  input[type="month"]:disabled,
+  input[type="week"]:disabled,
+  input[type="time"]:disabled,
+  textarea:disabled,
+  select:disabled {
+    background-color: var(--input-background-disabled);
+    border-color: var(--input-border-color-disabled);
+    color: var(--input-color-disabled);
+    cursor: not-allowed;
+    opacity: 1; /* tokens provide the visual fade — no double-dimming */
+    pointer-events: none;
+  }
+
+  /* --- Output, progress, meter --- */
+
+  output {
+    display: block;
+    font-size: var(--font-size-s);
+    font-weight: var(--font-weight-bold);
+    padding: var(--space-tiny) 0;
+  }
+
+  progress,
+  meter {
+    accent-color: var(--color-brand, var(--color-black));
+    border: none;
+    border-radius: var(--border-radius-l);
+    height: var(--space-xs);
+    overflow: hidden;
+    vertical-align: middle;
+    width: 100%;
+  }
+}

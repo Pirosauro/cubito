@@ -1,0 +1,19 @@
+/*
+Layers
+---
+Declares the cascade layer order for the entire library.
+Import this as the very first stylesheet — before any other @hobiri/ui import
+and before your application styles.
+
+Without this declaration, layer precedence is determined by first-encountered
+order, which breaks silently if files are imported out of sequence.
+
+ORDER
+  tokens      Design tokens (@layer tokens) — lowest precedence
+  reset       Browser normalisation and base element styles
+  layout      Every Layout composition primitives
+  blocks      Reusable UI component styles
+  utilities   Single-purpose helpers — highest precedence
+*/
+
+@layer tokens, reset, layout, blocks, utilities;

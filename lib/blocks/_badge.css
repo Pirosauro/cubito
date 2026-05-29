@@ -1,0 +1,144 @@
+/*
+Badge
+──────────────────────────────────────────────────────────────────────────────
+A compact pill used for status indicators, counts, and labels.
+Inline by default; pairs naturally with avatars, nav items, and headings.
+
+MARKUP PATTERN
+  <!-- Status -->
+  <span class="badge">New</span>
+  <span class="badge" data-variant="success">Active</span>
+  <span class="badge" data-variant="error">3 errors</span>
+
+  <!-- Count attached to a nav item -->
+  <span class="with-icon">
+    Notifications
+    <span class="badge" aria-label="12 unread">12</span>
+  </span>
+
+  <!-- Dot-only indicator (no text — provide aria-label) -->
+  <span class="badge" data-variant="success" data-layout="dot" aria-label="Online"></span>
+
+VARIANTS
+  (none)                  Neutral grey.
+  data-variant="brand"    Brand colour.
+  data-variant="success"  Green.
+  data-variant="warning"  Amber.
+  data-variant="error"    Red.
+  data-variant="info"     Blue.
+
+LAYOUT
+  data-layout="dot"       Circular dot — no text content.
+
+CONFIGURATION
+    :root {
+      --badge-font-size:  var(--font-size-xxs);
+      --badge-background: var(--color-neutral-200);
+    }
+
+    <span class="badge" style="--badge-background: oklch(70% 0.15 145)">…</span>
+
+TOKENS
+  --badge-background    Fill.          Default: --color-neutral-200
+  --badge-color         Text colour.   Default: --color-neutral-800
+  --badge-border        Border.        Default: none
+  --badge-radius        Radius.        Default: 9999px (pill)
+  --badge-padding       Inner space.   Default: 0.2em 0.55em
+  --badge-font-size     Text size.     Default: --font-size-xxs
+  --badge-dot-size      Dot diameter.  Default: 0.625rem
+*/
+
+@layer tokens {
+  :root {
+    --badge-background: var(--color-neutral-200);
+    --badge-border: none;
+    --badge-color: var(--color-neutral-800);
+    --badge-dot-size: 0.625rem;
+    --badge-font-size: var(--font-size-xxs);
+    --badge-padding: 0.2em 0.55em;
+    --badge-radius: 9999px;
+  }
+}
+
+@layer blocks {
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--badge-padding);
+    border: var(--badge-border);
+    border-radius: var(--badge-radius);
+    background: var(--badge-background);
+    color: var(--badge-color);
+    font-size: var(--badge-font-size);
+    font-weight: var(--font-weight-bold);
+    line-height: 1;
+    white-space: nowrap;
+    vertical-align: middle;
+  }
+
+  /* ── Dot layout: circular indicator, no text ─────────────────────────────── */
+
+  .badge[data-layout="dot"] {
+    --badge-padding: 0;
+
+    width: var(--badge-dot-size);
+    height: var(--badge-dot-size);
+    min-width: unset;
+    min-height: unset;
+    overflow: hidden;
+    text-indent: 100%; /* visually hide any text */
+  }
+
+  /* ── Colour variants ─────────────────────────────────────────────────────── */
+
+  .badge[data-variant="brand"] {
+    --badge-background: var(--color-brand);
+    --badge-color: var(--color-white);
+  }
+
+  .badge[data-variant="success"] {
+    --badge-background: color-mix(
+      in srgb,
+      var(--color-status-ok) 15%,
+      transparent
+    );
+    --badge-color: var(--color-status-ok);
+  }
+
+  .badge[data-variant="warning"] {
+    --badge-background: color-mix(
+      in srgb,
+      var(--color-status-warning) 15%,
+      transparent
+    );
+    --badge-color: var(--color-status-warning);
+  }
+
+  .badge[data-variant="error"] {
+    --badge-background: color-mix(
+      in srgb,
+      var(--color-status-ko) 15%,
+      transparent
+    );
+    --badge-color: var(--color-status-ko);
+  }
+
+  .badge[data-variant="info"] {
+    --badge-background: color-mix(
+      in srgb,
+      var(--color-status-info) 15%,
+      transparent
+    );
+    --badge-color: var(--color-status-info);
+  }
+
+  /* ── Dark mode ───────────────────────────────────────────────────────────── */
+
+  @media (prefers-color-scheme: dark) {
+    .badge {
+      --badge-background: var(--color-neutral-700);
+      --badge-color: var(--color-neutral-100);
+    }
+  }
+}

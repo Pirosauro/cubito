@@ -1,0 +1,38 @@
+/*
+Frame
+──────────────────────────────────────────────────────────────────────────────
+Constrains media (images, video) to a specific aspect ratio by cropping.
+Useful when source media dimensions are unknown or inconsistent.
+
+@link https://every-layout.dev/layouts/frame/
+
+CUSTOM PROPERTIES
+  --n   Numerator   (width).  Default: 16.
+  --d   Denominator (height). Default: 9.
+
+EXAMPLES
+  16:9  (default)  --n:16; --d:9
+  4:3              --n:4;  --d:3
+  1:1  (square)    --n:1;  --d:1
+  2:3  (portrait)  --n:2;  --d:3
+*/
+
+@layer layout {
+  .frame {
+    --n: 16;
+    --d: 9;
+
+    aspect-ratio: var(--n) / var(--d);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .frame > img,
+  .frame > video {
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+  }
+}

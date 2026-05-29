@@ -1,0 +1,69 @@
+/*
+Footnote
+──────────────────────────────────────────────────────────────────────────────
+A numbered list of footnote items, referenced inline via superscript anchors.
+
+MARKUP PATTERN
+  In body copy:
+    <sup><a href="#fn-1" id="fn-ref-1" aria-describedby="footnotes-label">1</a></sup>
+
+  Footnotes section:
+    <section aria-labelledby="footnotes-label">
+      <h2 id="footnotes-label" class="sr-only">Footnotes</h2>
+      <ul class="footnote" role="doc-endnotes">
+        <li id="fn-1" role="doc-endnote">
+          Note text. <a href="#fn-ref-1" aria-label="Back to content">↩</a>
+        </li>
+      </ul>
+    </section>
+
+TOKENS
+  --footnote-color   Item text colour. Default: --color-neutral-600
+
+@link https://www.sitepoint.com/accessible-footnotes-css/
+*/
+
+@layer tokens {
+  :root {
+    --footnote-color: var(--color-neutral-600);
+    --footnote-font-size: var(--font-size-xs);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --footnote-color: var(--color-neutral-400);
+    }
+  }
+}
+
+@layer blocks {
+  ul.footnote {
+    counter-reset: footnote-item;
+    list-style: none;
+    padding: 0;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    ul.footnote {
+      --footnote-color: var(--color-neutral-400);
+    }
+  }
+
+  ul.footnote > li {
+    position: relative;
+    display: block;
+    padding-inline-start: var(--space-s);
+    font-size: var(--font-size-xs);
+    color: var(--footnote-color);
+  }
+
+  ul.footnote > li::before {
+    content: counter(footnote-item) ")";
+    counter-increment: footnote-item;
+    position: absolute;
+    inset-inline-start: 0;
+    inset-block-start: 0.15em;
+    font-size: var(--font-size-xxs);
+    vertical-align: super;
+  }
+}

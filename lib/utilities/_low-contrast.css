@@ -1,0 +1,8 @@
+@layer utilities {
+  @media (prefers-color-scheme: dark) {
+    img[data-low-contrast],
+    picture[data-low-contrast] {
+      filter: brightness(0.85) contrast(1.1);
+    }
+  }
+}

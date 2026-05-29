@@ -1,0 +1,131 @@
+/*
+Typography utilities
+──────────────────────────────────────────────────────────────────────────────
+Convenience classes for applying type-scale tokens directly in markup.
+
+NAMING PATTERN
+  .heading-{size}   heading style — uses font-family-heading, bold, tight leading
+  .text-{size}      body style    — uses font-family, normal weight, base leading
+  .text-{property}  other typographic adjustments
+
+These classes are intentionally coarse-grained. For component-scoped
+typography, set the tokens directly on the component.
+*/
+
+@layer utilities {
+  /* ── Heading style ───────────────────────────────────────────────────────── */
+
+  .heading-huge,
+  .heading-xxl,
+  .heading-xl,
+  .heading-l,
+  .heading-m,
+  .heading-s,
+  .heading-xs {
+    font-family: var(--font-family-heading, var(--font-family));
+    font-weight: var(--font-weight-bold);
+    letter-spacing: var(--letter-spacing-heading, -0.02em);
+    line-height: var(--line-height-s);
+    text-wrap: balance;
+  }
+
+  /* ── Body style ──────────────────────────────────────────────────────────── */
+
+  .text-huge,
+  .text-xxl,
+  .text-xl,
+  .text-l,
+  .text-m,
+  .text-s,
+  .text-xs {
+    font-family: var(--font-family);
+    font-weight: var(--font-weight);
+    line-height: var(--line-height);
+  }
+
+  /* ── Sizes ───────────────────────────────────────────────────────────────── */
+
+  .heading-huge,
+  .text-huge {
+    font-size: var(--font-size-huge);
+  }
+  .heading-xxl,
+  .text-xxl {
+    font-size: var(--font-size-xxl);
+  }
+  .heading-xl,
+  .text-xl {
+    font-size: var(--font-size-xl);
+  }
+  .heading-l,
+  .text-l {
+    font-size: var(--font-size-l);
+  }
+  .heading-m,
+  .text-m {
+    font-size: var(--font-size-m);
+  }
+  .heading-s,
+  .text-s {
+    font-size: var(--font-size-s);
+  }
+  .heading-xs,
+  .text-xs {
+    font-size: var(--font-size-xs);
+  }
+
+  /* ── Weight ──────────────────────────────────────────────────────────────── */
+
+  .text-normal {
+    font-weight: var(--font-weight-normal);
+  }
+  .text-bold {
+    font-weight: var(--font-weight-bold);
+  }
+
+  /* ── Alignment ───────────────────────────────────────────────────────────── */
+
+  .text-center {
+    text-align: center;
+  }
+  .text-start {
+    text-align: start;
+  }
+  .text-end {
+    text-align: end;
+  }
+
+  /* ── Wrapping and overflow ───────────────────────────────────────────────── */
+
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-pretty {
+    text-wrap: pretty;
+  }
+
+  .text-truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .text-no-wrap {
+    white-space: nowrap;
+  }
+
+  /* ── Decoration ──────────────────────────────────────────────────────────── */
+
+  .text-underline {
+    text-decoration: underline;
+  }
+  .text-no-underline {
+    text-decoration: none;
+  }
+
+  /* ── Mono ────────────────────────────────────────────────────────────────── */
+
+  .text-mono {
+    font-family: var(--font-family-mono);
+  }
+}

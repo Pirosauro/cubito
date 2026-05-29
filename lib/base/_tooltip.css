@@ -1,0 +1,160 @@
+/*
+Tooltip
+──────────────────────────────────────────────────────────────────────────────
+Non-interactive informational overlay. Follows WAI-ARIA Tooltip pattern.
+
+MARKUP PATTERN
+  <span data-tooltip="true">
+    <button type="button" aria-describedby="tip-1">Hover me</button>
+    <span role="tooltip" id="tip-1">Helpful hint</span>
+  </span>
+
+PLACEMENT
+  Default: above (top-center). Override with data-tooltip on the wrapper:
+    data-tooltip="bottom" | "left" | "right"
+
+CONFIGURATION
+    :root {
+      --tooltip-background: var(--color-neutral-950);
+      --tooltip-color:      var(--color-white);
+      --tooltip-radius:     var(--border-radius-l);
+    }
+
+    <span data-tooltip="true" style="--tooltip-max-width: 24rem">
+
+TOKENS
+  --tooltip-background   Fill.          Default: --color-neutral-800
+  --tooltip-color        Text colour.   Default: --color-neutral-50
+  --tooltip-radius       Corner radius. Default: --border-radius-m
+  --tooltip-padding      Inner space.   Default: --space-tiny --space-xxs
+  --tooltip-max-width    Max width.     Default: 18rem
+
+ACCESSIBILITY
+  - [role="tooltip"] must be referenced via aria-describedby on the trigger.
+  - Never put interactive content inside a tooltip; use a popover instead.
+*/
+
+@layer tokens {
+  :root {
+    --tooltip-background: var(--color-neutral-800);
+    --tooltip-color: var(--color-neutral-50);
+    --tooltip-max-width: 18rem;
+    --tooltip-padding: var(--space-tiny) var(--space-xxs);
+    --tooltip-radius: var(--border-radius-m);
+    --tooltip-transition:
+      opacity var(--motion-duration-fast, 150ms) var(--motion-easing-out),
+      visibility var(--motion-duration-fast, 150ms) var(--motion-easing-out);
+  }
+}
+
+@layer blocks {
+  [data-tooltip] {
+    display: inline-block;
+    position: relative;
+  }
+
+  [role="tooltip"] {
+    position: absolute;
+    bottom: calc(100% + var(--space-xxs, 0.5rem));
+    left: 50%;
+    transform: translateX(-50%);
+    width: max-content;
+    z-index: var(--z-tooltip, 70);
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    max-width: var(--tooltip-max-width);
+    padding: var(--tooltip-padding);
+    transition: var(--tooltip-transition);
+    background: var(--tooltip-background);
+    border-radius: var(--tooltip-radius);
+    color: var(--tooltip-color);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-normal);
+    letter-spacing: 0;
+    line-height: var(--line-height-m);
+    text-align: start;
+    text-transform: none;
+  }
+
+  /* Arrow — points toward the trigger */
+  [role="tooltip"]::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    pointer-events: none;
+    top: 100%;
+    border-top-color: var(--tooltip-background);
+  }
+
+  /* ── Show on hover / focus ──────────────────────────────────────────────── */
+
+  [data-tooltip]:hover [role="tooltip"],
+  [data-tooltip] :is(button, a, [tabindex]):focus-visible + [role="tooltip"],
+  [data-tooltip] :is(button, a, [tabindex]):hover + [role="tooltip"] {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  /* ── Placement: bottom ──────────────────────────────────────────────────── */
+
+  [data-tooltip="bottom"] [role="tooltip"] {
+    bottom: auto;
+    top: calc(100% + var(--space-xxs, 0.5rem));
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  [data-tooltip="bottom"] [role="tooltip"]::after {
+    top: auto;
+    bottom: 100%;
+    border-top-color: transparent;
+    border-bottom-color: var(--tooltip-background);
+  }
+
+  /* ── Placement: left ────────────────────────────────────────────────────── */
+
+  [data-tooltip="left"] [role="tooltip"] {
+    bottom: auto;
+    top: 50%;
+    left: auto;
+    right: calc(100% + var(--space-xxs, 0.5rem));
+    transform: translateY(-50%);
+  }
+
+  [data-tooltip="left"] [role="tooltip"]::after {
+    top: 50%;
+    left: 100%;
+    transform: translateY(-50%);
+    border-top-color: transparent;
+    border-left-color: var(--tooltip-background);
+  }
+
+  /* ── Placement: right ───────────────────────────────────────────────────── */
+
+  [data-tooltip="right"] [role="tooltip"] {
+    bottom: auto;
+    top: 50%;
+    left: calc(100% + var(--space-xxs, 0.5rem));
+    transform: translateY(-50%);
+  }
+
+  [data-tooltip="right"] [role="tooltip"]::after {
+    top: 50%;
+    left: auto;
+    right: 100%;
+    transform: translateY(-50%);
+    border-top-color: transparent;
+    border-right-color: var(--tooltip-background);
+  }
+
+  /* ── Reduced motion ─────────────────────────────────────────────────────── */
+
+  @media (prefers-reduced-motion: reduce) {
+    [role="tooltip"] {
+      transition: none;
+    }
+  }
+}

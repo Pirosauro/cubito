@@ -1,0 +1,141 @@
+/*
+Details and summary
+---
+Accordion-style disclosure widget. The native <details>/<summary> elements
+handle open/close state and keyboard interaction natively.
+
+MARKUP PATTERN
+  <!-- Default -->
+  <details>
+    <summary>Is shipping free?</summary>
+    <p>Yes, on orders over £50.</p>
+  </details>
+
+  <!-- Custom chevron, reduced-motion aware -->
+  <details data-variant="fancy">
+    <summary>Advanced options</summary>
+    <p>Content here.</p>
+  </details>
+
+  <!-- No background, no padding — layout only -->
+  <details data-variant="bare">
+    <summary>Show more</summary>
+    <p>Content here.</p>
+  </details>
+
+VARIANTS
+  (none)                 Default: themed background, standard marker.
+  data-variant="fancy"   Custom chevron via mask-image; inherits currentColor.
+  data-variant="bare"    No background or padding.
+
+CONFIGURATION
+  --details-background is set in _reset.css. Override at any scope:
+    .sidebar details { --details-background: transparent; }
+    <details style="--details-background: var(--color-neutral-100)">
+
+  --details-chevron-size controls the icon size in the fancy variant:
+    details[data-variant="fancy"] { --details-chevron-size: 2rem; }
+*/
+
+@layer tokens {
+  :root {
+    --details-background: var(--color-neutral-50);
+    --details-chevron-size: 1.5rem;
+    --details-color: var(--color);
+    --details-radius: var(--border-radius);
+
+    --summary-color: var(--details-color);
+    --summary-font-weight: var(--font-weight-bold);
+    --summary-padding: var(--space-xxs) var(--space-s);
+  }
+}
+
+@layer blocks {
+  summary {
+    /* Interaction */
+    cursor: pointer;
+    /* Typography */
+    font-weight: var(--summary-font-weight);
+    /* Box Model */
+    padding: var(--summary-padding);
+  }
+
+  details {
+    /* Typography */
+    color: var(--details-color);
+    /* Visual */
+    background: var(--details-background);
+    border-radius: var(--details-radius);
+  }
+
+  details[open] {
+    padding: var(--space-xxs, 0.5rem) var(--space-s, 1rem)
+      var(--space-xs, 0.75rem) var(--space-s, 1rem);
+  }
+
+  details[open] summary {
+    margin-bottom: var(--space-xxs, 0.5rem);
+    padding: 0;
+  }
+
+  details[open] > *:last-child {
+    margin-bottom: 0;
+  }
+
+  /* --- Bare variant: no chrome ---*/
+
+  details[data-variant="bare"] {
+    background: transparent;
+    border-radius: 0;
+  }
+
+  details[data-variant="bare"] summary {
+    padding: 0;
+  }
+
+  /* --- Fancy variant: custom chevron --- */
+
+  details[data-variant="fancy"] {
+    position: relative;
+  }
+
+  details[data-variant="fancy"] summary::-webkit-details-marker,
+  details[data-variant="fancy"] summary::marker {
+    content: "";
+    display: none;
+  }
+
+  /*
+    Chevron via mask-image — inherits currentColor in light, dark, and
+    forced-colors mode without hardcoded fill values.
+  */
+  details[data-variant="fancy"] summary::after {
+    content: "";
+    pointer-events: none;
+    bottom: auto;
+    display: block;
+    position: absolute;
+    right: var(--space-s, 1rem);
+    top: var(--space-xxs, 0.5rem);
+    height: var(--details-chevron-size);
+    width: var(--details-chevron-size);
+    background-color: currentColor;
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    mask-position: center;
+    mask-repeat: no-repeat;
+    mask-size: contain;
+    transform: rotate(180deg);
+    transition: transform var(--motion-duration-fast, 150ms)
+      var(--motion-easing-in-out, ease);
+  }
+
+  details[open][data-variant="fancy"] summary::after {
+    transform: rotate(0deg);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    details[data-variant="fancy"] summary::after {
+      transition: none;
+    }
+  }
+}

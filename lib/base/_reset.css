@@ -1,0 +1,384 @@
+/*
+Reset
+──────────────────────────────────────────────────────────────────────────────
+A curated CSS reset that provides a consistent, accessible baseline across
+browsers. Builds on top of the design tokens defined in abstracts/.
+
+CONFIGURATION
+  All surface tokens (--body-background, --input-background, etc.) are plain
+  custom properties. Override them at any scope — no separate hook layer needed:
+
+    Globally   :root { --input-background: var(--color-neutral-50); }
+    Per-block  .dark-panel { --body-background: var(--color-neutral-900); }
+    Inline     <input style="--input-border-color: var(--color-brand)">
+*/
+
+@layer tokens {
+  :root {
+    --body-background: var(--color-white);
+    --body-color: var(--color-black);
+
+    --link-background: transparent;
+    --link-color: blue;
+    --link-decoration: underline;
+    --link-offset: max(2px, 0.125rem);
+    --link-thickness: max(1px, 0.0625rem);
+    --link-transition:
+      text-decoration-thickness var(--motion-duration-fast),
+      text-underline-offset var(--motion-duration-fast);
+
+    --link-background-hover: var(--link-background);
+    --link-color-hover: var(--link-color);
+    --link-offset-hover: max(2px, 0.125rem);
+    --link-thickness-hover: max(3px, 0.1875rem, 0.12em);
+  }
+}
+
+@layer reset {
+  /* ─── Universal ─────────────────────────────────────────────────────────── */
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    height: 100%;
+    font-size: 100%;
+    text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html:focus-within {
+      scroll-behavior: smooth;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    min-height: 100dvh;
+
+    cursor: var(--cursor, auto);
+
+    background: var(--body-background);
+    color: var(--body-color);
+
+    font-family: var(--font-family, sans-serif);
+    font-size: var(--font-size, 1rem);
+    letter-spacing: var(--letter-spacing, 0);
+    line-height: var(--line-height, 1.5);
+
+    -webkit-font-smoothing: antialiased;
+  }
+
+  @media (forced-colors: active) {
+    body {
+      background: Canvas;
+      color: CanvasText;
+    }
+  }
+
+  /* ─── Content sectioning ─────────────────────────────────────────────────── */
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 0;
+  }
+
+  :is(h1, h2, h3, h4, h5, h6) {
+    font-family: var(--font-family-heading, inherit);
+    font-weight: var(--font-weight-heading, var(--font-weight-bold));
+    letter-spacing: var(--letter-spacing-heading, -0.02em);
+    line-height: var(--line-height-heading, 1.2);
+    text-wrap: balance;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1 {
+    font-size: var(--font-size-xxl);
+  }
+  h2 {
+    font-size: var(--font-size-xl);
+  }
+  h3 {
+    font-size: var(--font-size-l);
+  }
+  h4 {
+    font-size: var(--font-size-m);
+  }
+  h5 {
+    font-size: var(--font-size-s);
+  }
+  h6 {
+    font-size: var(--font-size-xs);
+  }
+
+  :focus-visible {
+    outline: var(--focus-ring, 0.1875rem solid);
+    outline-offset: var(--focus-ring-offset, 0.125rem);
+  }
+
+  :focus:not(:focus-visible) {
+    outline: 0;
+  }
+  :target {
+    scroll-margin-top: 2ex;
+  }
+  main:focus {
+    outline: none;
+  }
+
+  /* ─── Text block content ─────────────────────────────────────────────────── */
+
+  p {
+    margin: 0;
+    font-size: inherit;
+    line-height: inherit;
+  }
+
+  p:not([class]) {
+    max-width: var(--width-l);
+  }
+  li:not([class]) {
+    max-width: var(--width-l);
+  }
+
+  ul[role="list"],
+  ol[role="list"] {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  :is(ul, ol):not([class]) {
+    padding-inline-start: 1.7ch;
+  }
+
+  pre {
+    font-family: var(--font-family-mono);
+    margin: 0;
+    overflow-wrap: normal;
+    overflow-x: scroll;
+  }
+  /* Code inside pre: reset inline styles — let pre handle everything */
+  pre code:not([class]) {
+    background: transparent;
+    border-radius: 0;
+    color: inherit;
+    padding: 0;
+    font-size: inherit;
+    white-space: inherit;
+  }
+
+  blockquote {
+    margin: 0;
+  }
+
+  blockquote:not([class]) {
+    border-color: var(--quote-border-color, currentColor);
+    border-width: var(--quote-border-width, 0 0 0 var(--border-l));
+    border-style: var(--quote-border-style, solid);
+    font-size: var(--quote-font-size, var(--font-size-m));
+    line-height: var(--quote-line-height, var(--line-height-l));
+    padding-inline-start: var(--space-s);
+    max-width: var(--width-l);
+  }
+
+  blockquote:not([class]) p:last-of-type,
+  blockquote:not([class]) cite,
+  blockquote:not([class]) footer {
+    font-size: var(--quote-font-size, var(--font-size-m));
+    font-weight: 400;
+    margin-block-start: var(--space-xxs);
+  }
+
+  figure {
+    margin: 0;
+  }
+  figcaption {
+    font-size: var(--font-size-xs);
+    margin-block-start: var(--space-xxs, 0.5rem);
+    text-align: center;
+  }
+
+  hr {
+    position: relative;
+    margin: var(--space-l) 0;
+    border: none;
+    border-top: solid var(--border-s) currentColor;
+  }
+
+  /* ─── Inline text semantics ──────────────────────────────────────────────── */
+
+  a {
+    color: var(--link-color);
+    cursor: var(--cursor-pointer, pointer);
+    font-size: inherit;
+  }
+
+  a:not([class]) {
+    --underline-offset: var(--link-offset);
+    --decoration-thickness: var(--link-thickness);
+
+    background: var(--link-background);
+    text-decoration: var(--link-decoration);
+    text-decoration-thickness: var(--decoration-thickness);
+    text-underline-offset: var(--underline-offset);
+    transition: var(--link-transition);
+  }
+
+  a:not([class]):hover,
+  a:not([class]):focus {
+    --underline-offset: var(--link-offset-hover);
+    --decoration-thickness: var(--link-thickness-hover);
+
+    background: var(--link-background-hover);
+    color: var(--link-color-hover);
+  }
+
+  a[data-variant="naked"]:not([class]) {
+    text-decoration: none;
+  }
+
+  mark,
+  ::selection {
+    background-color: var(--highlight-background, var(--color));
+    color: var(--highlight-color, var(--background));
+  }
+
+  small,
+  sub,
+  sup {
+    font-size: var(--font-size-xs);
+  }
+
+  code {
+    font-family: var(--font-family-mono);
+    vertical-align: bottom;
+  }
+
+  kbd {
+    background: var(--kbd-background, var(--color-neutral-100));
+    border-width: var(--kbd-border-width, var(--border-s));
+    border-style: var(--kbd-border-style, solid);
+    border-color: var(--kbd-border-color, var(--color-neutral-400));
+    border-radius: var(--kbd-border-radius, var(--border-radius-s));
+    font-family: var(--font-family-mono);
+    font-size: 0.875em;
+    padding: var(--kbd-padding, 0.1em 0.35em);
+  }
+
+  abbr[title] {
+    cursor: help;
+    text-decoration: underline dotted;
+  }
+
+  /* ─── Embedded content ───────────────────────────────────────────────────── */
+
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    display: block;
+    max-width: 100%;
+  }
+
+  img {
+    border: none;
+  }
+  svg {
+    flex-shrink: 0;
+  }
+  iframe {
+    border: none;
+  }
+
+  svg:not([class]) {
+    height: 2ex;
+    width: auto;
+  }
+  svg:not([class]) path {
+    fill: currentColor;
+  }
+  svg[role="img"][width][height] {
+    height: revert;
+    width: revert;
+  }
+
+  /* ─── Forms ──────────────────────────────────────────────────────────────── */
+
+  input,
+  textarea,
+  select,
+  button {
+    margin: 0;
+    font-family: inherit;
+    font-size: 100%;
+    color: inherit;
+    letter-spacing: inherit;
+    line-height: inherit;
+  }
+
+  input,
+  select,
+  textarea {
+    vertical-align: middle;
+  }
+
+  button[role="combobox"],
+  input[type="submit"],
+  input[type="checkbox"],
+  input[type="radio"],
+  select {
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    position: relative;
+  }
+
+  input[type="checkbox"],
+  input[type="radio"] {
+    display: inline-block;
+    flex-shrink: 0; /* Prevent squishing in flex layouts */
+    user-select: none;
+  }
+
+  input[type="search"]::-webkit-search-decoration,
+  input[type="search"]::-webkit-search-cancel-button,
+  input[type="search"]::-webkit-search-results-button,
+  input[type="search"]::-webkit-search-results-decoration {
+    display: none;
+  }
+
+  textarea {
+    resize: vertical;
+    display: block;
+  }
+
+  /* ─── Interactive elements ───────────────────────────────────────────────── */
+
+  [inert],
+  [inert] * {
+    cursor: not-allowed;
+  }
+}

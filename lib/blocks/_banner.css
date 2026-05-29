@@ -1,0 +1,132 @@
+/*
+Banner
+──────────────────────────────────────────────────────────────────────────────
+Full-width sitewide announcement. Typically rendered at the very top of the
+page — above the navigation — for cookie notices, promotional messages,
+maintenance warnings, and outage alerts.
+
+MARKUP PATTERN
+  <!-- Informational (e.g. promo) -->
+  <div class="banner" role="region" aria-label="Promotional offer">
+    <p>Get 20% off all orders this weekend. <a href="/sale/">Shop the sale →</a></p>
+    <button type="button" class="banner__dismiss" aria-label="Dismiss announcement">
+      <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16">
+        <path d="M3 3l10 10M13 3L3 13" stroke="currentColor" stroke-width="1.5"
+              stroke-linecap="round"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Cookie consent -->
+  <div class="banner" data-variant="neutral" role="dialog"
+       aria-labelledby="cookie-title" aria-describedby="cookie-desc">
+    <p id="cookie-title"><strong>Cookie preferences</strong></p>
+    <p id="cookie-desc">We use cookies to improve your experience.</p>
+    <div class="cluster">
+      <button type="button" class="button">Accept all</button>
+      <button type="button" class="button" data-variant="outline">Preferences</button>
+    </div>
+  </div>
+
+  <!-- Outage warning -->
+  <div class="banner" data-variant="warning" role="alert">
+    <p>Scheduled maintenance on Saturday 4–6 AM UTC. Services may be intermittent.</p>
+  </div>
+
+VARIANTS
+  (none)                  Brand/info — positive or neutral announcements.
+  data-variant="warning"  Amber — degraded service, caution.
+  data-variant="error"    Red — outage, critical alert.
+  data-variant="neutral"  Dark neutral — cookie consent, GDPR notices.
+
+CONFIGURATION
+    :root {
+      --banner-padding: var(--space-xs) var(--space-s);
+    }
+
+    <div class="banner" style="--banner-background: var(--color-brand); --banner-color: white">
+
+TOKENS
+  --banner-background   Fill.           Default: --color-brand (tinted)
+  --banner-color        Text colour.    Default: currentColor
+  --banner-border       Bottom border.  Default: none
+  --banner-padding      Inner space.    Default: --space-xs var(--gutter)
+*/
+
+@layer tokens {
+  :root {
+    --banner-background: color-mix(
+      in srgb,
+      var(--color-brand, var(--color-status-info)) 12%,
+      transparent
+    );
+    --banner-border: none;
+    --banner-color: currentColor;
+    --banner-padding: var(--space-xs) var(--gutter);
+  }
+}
+
+@layer blocks {
+  .banner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-xs) var(--space-m);
+    padding: var(--banner-padding);
+    background: var(--banner-background);
+    color: var(--banner-color);
+    border-bottom: var(--banner-border);
+    text-align: center;
+    font-size: var(--font-size-s);
+  }
+
+  .banner p {
+    margin: 0;
+  }
+
+  .banner__dismiss {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-tiny);
+    border: none;
+    background: transparent;
+    color: inherit;
+    opacity: 0.7;
+    cursor: pointer;
+    border-radius: var(--border-radius-s);
+    margin-inline-start: auto;
+    transition: opacity var(--motion-duration-fast);
+    /* override global button */
+    text-transform: none;
+    letter-spacing: 0;
+    font-weight: inherit;
+  }
+
+  .banner__dismiss:hover,
+  .banner__dismiss:focus-visible {
+    opacity: 1;
+  }
+
+  /* ── Variants ────────────────────────────────────────────────────────────── */
+
+  .banner[data-variant="warning"] {
+    --banner-background: color-mix(
+      in srgb,
+      var(--color-status-warning) 15%,
+      transparent
+    );
+    --banner-color: var(--color-status-warning);
+  }
+
+  .banner[data-variant="error"] {
+    --banner-background: var(--color-status-ko);
+    --banner-color: var(--color-white);
+  }
+
+  .banner[data-variant="neutral"] {
+    --banner-background: var(--color-neutral-900);
+    --banner-color: var(--color-neutral-50);
+  }
+}

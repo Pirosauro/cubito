@@ -1,0 +1,109 @@
+/*
+Print
+──────────────────────────────────────────────────────────────────────────────
+Utility classes and base overrides for print media.
+Import this file last (or after all other utilities) to ensure print styles
+take precedence.
+
+USAGE
+  <nav class="no-print">…</nav>
+  <aside class="print-only">Printed appendix</aside>
+
+@link https://www.smashingmagazine.com/2018/05/print-stylesheets-in-2018/
+*/
+
+@layer utilities {
+  /* ── Screen: hide print-only elements ───────────────────────────────────── */
+
+  @media screen {
+    .print-only {
+      display: none !important;
+    }
+  }
+
+  /* ── Print ───────────────────────────────────────────────────────────────── */
+
+  @media print {
+    /* Page setup */
+    @page {
+      margin: 2cm;
+    }
+
+    /* Base: strip colour and effects for ink-friendly output */
+    *,
+    *::before,
+    *::after {
+      background: transparent !important;
+      box-shadow: none !important;
+      color: #000 !important;
+      text-shadow: none !important;
+    }
+
+    body {
+      font-size: 12pt;
+      line-height: 1.5;
+      min-height: unset;
+    }
+
+    /* Links */
+    a,
+    a:visited {
+      text-decoration: underline;
+    }
+
+    /* Show href for external links */
+    a[href]:not([href^="#"]):not([href^="javascript"]):not([href^="/"]):not(
+        [href^="."]
+      )::after {
+      content: " (" attr(href) ")";
+      font-size: 0.75em;
+      word-break: break-all;
+    }
+
+    abbr[title]::after {
+      content: " (" attr(title) ")";
+    }
+
+    /* Page breaks */
+    h1,
+    h2,
+    h3 {
+      page-break-after: avoid;
+      orphans: 3;
+      widows: 3;
+    }
+
+    p,
+    blockquote {
+      orphans: 3;
+      widows: 3;
+    }
+
+    blockquote,
+    pre {
+      page-break-inside: avoid;
+    }
+
+    thead {
+      display: table-header-group;
+    }
+
+    tr,
+    img {
+      page-break-inside: avoid;
+    }
+
+    img {
+      max-width: 100% !important;
+    }
+
+    /* Visibility utilities */
+    .no-print {
+      display: none !important;
+    }
+
+    .print-only {
+      display: revert !important;
+    }
+  }
+}

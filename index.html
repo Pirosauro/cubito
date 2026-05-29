@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Library</title>
+    <style>
+      @layer reset, tokens, layout, blocks, utilities, theme;
+
+      @import "./lib/abstracts/_icons.css";
+      @import "./lib/abstracts/_motion.css";
+      @import "./lib/abstracts/_spacing.css";
+      @import "./lib/abstracts/_theme.css";
+      @import "./lib/abstracts/_typography.css";
+      @import "./lib/abstracts/_z-index.css";
+
+      @import "./lib/base/_button.css";
+      @import "./lib/base/_code.css";
+      @import "./lib/base/_details.css";
+      @import "./lib/base/_dialog.css";
+      @import "./lib/base/_form.css";
+      @import "./lib/base/_nav.css";
+      @import "./lib/base/_reset.css";
+      @import "./lib/base/_table.css";
+      @import "./lib/base/_tooltip.css";
+    </style>
+  </head>
+  <body>
+    <div
+      class="wrapper"
+      style="background: var(--color-neutral-100); padding: 1rem"
+    >
+      <button>A button</button>
+      <button disabled>A disabled button</button>
+      <button data-busy="true">A busy button</button>
+      <button aria-pressed="true">A pressed button</button>
+      <button data-variant="naked">A naked button</button>
+      <button data-variant="ghost">A ghost button</button>
+      <button data-variant="outline">An outline button</button>
+      <button data-preset="elevate">An elevate button</button>
+    </div>
+
+    <div class="wrapper" style="background: #666; padding: 1rem">
+      <button>A button</button> <button disabled>A disabled button</button>
+      <button aria-busy="true">A busy button</button>
+      <button aria-pressed="true">A pressed button</button>
+      <button data-variant="naked">A naked button</button>
+      <button data-variant="ghost">A ghost button</button>
+      <button data-variant="outline">An outline button</button>
+      <button data-preset="elevate">An elevate button</button>
+    </div>
+
+    <p><a href="#">A link</a></p>
+
+    <div>
+      <table>
+        <tr>
+          <th colspan="2">Header</th>
+        </tr>
+        <tr>
+          <td>Cell 1</td>
+          <td>Cell 2</td>
+        </tr>
+        <tr>
+          <td>Cell 3</td>
+          <td>Cell 4</td>
+        </tr>
+        <tr>
+          <td>Cell 5</td>
+          <td>Cell 6</td>
+        </tr>
+      </table>
+    </div>
+
+    <form>
+      <fieldset>
+        <legend>Personal information</legend>
+        <label for="name"
+          >Full name
+          <input id="name" name="name" type="text" placeholder="Jane Doe" />
+        </label>
+        <label for="email"
+          >Email
+          <input
+            id="email"
+            name="email"
+            type="email"
+            placeholder="you@example.com"
+          />
+        </label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Preferences</legend>
+        <label>
+          <input type="checkbox" name="newsletter" /> Subscribe to newsletter
+        </label>
+        <label>
+          <input type="radio" name="contact" value="email" checked /> Contact by
+          email
+        </label>
+        <label>
+          <input type="radio" name="contact" value="phone" /> Contact by phone
+        </label>
+      </fieldset>
+
+      <label for="country"
+        >Country
+        <select id="country" name="country">
+          <option value="">Choose...</option>
+          <option>Italy</option>
+        </select>
+      </label>
+
+      <label for="message"
+        >Message
+        <textarea
+          id="message"
+          name="message"
+          placeholder="Write your message..."
+        ></textarea>
+      </label>
+
+      <button type="submit">Save</button>
+    </form>
+
+    <div data-tooltip="true">
+      <button type="button" aria-describedby="tip-1">Hover me</button>
+      <span role="tooltip" id="tip-1">Helpful hint</span>
+    </div>
+
+    <div>
+      <nav data-variant="main" aria-label="Main">
+        <ul class="cluster" style="--gutter: 1.5rem" role="list">
+          <li>
+            <a data-variant="naked" href="/"> Home </a>
+          </li>
+
+          <li>
+            <a data-variant="naked" href="/getting-started/"> Docs </a>
+          </li>
+
+          <li>
+            <a
+              data-variant="naked"
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://github.com/harrycresswell/cu"
+            >
+              <span class="icon" aria-hidden="true">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 21 20"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10.178 0C4.55 0 0 4.583 0 10.254c0 4.532 2.915 8.369 6.96 9.727.505.102.69-.221.69-.493 0-.237-.016-1.052-.016-1.9-2.832.61-3.421-1.223-3.421-1.223-.455-1.188-1.13-1.494-1.13-1.494-.926-.628.068-.628.068-.628 1.028.068 1.567 1.052 1.567 1.052.91 1.562 2.376 1.12 2.966.85.084-.663.354-1.121.64-1.376-2.258-.238-4.634-1.12-4.634-5.059 0-1.12.405-2.037 1.045-2.75-.101-.254-.455-1.307.101-2.716 0 0 .86-.272 2.797 1.052a9.786 9.786 0 0 1 2.545-.34c.86 0 1.735.12 2.544.34 1.938-1.324 2.798-1.052 2.798-1.052.556 1.409.202 2.462.1 2.716.658.713 1.045 1.63 1.045 2.75 0 3.939-2.375 4.804-4.65 5.06.37.322.69.933.69 1.9 0 1.375-.016 2.479-.016 2.818 0 .272.185.595.69.493a10.246 10.246 0 0 0 6.96-9.728C20.356 4.584 15.789 0 10.178 0Z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+              </span>
+
+              Github
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </body>
+</html>

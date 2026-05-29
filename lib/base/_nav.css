@@ -1,0 +1,132 @@
+/*
+Navigation
+──────────────────────────────────────────────────────────────────────────────
+Component styles for navigation variants. Element-level resets live in
+_reset.css.
+
+EXCEPTIONS
+  nav[data-variant="main"]     top-level navigation bar.
+  nav[data-variant="sidebar"]  collapsible tree navigation.
+
+STATES
+  a[data-state="active"]                        currently active link.
+  li[data-children="true"]                      item with a nested sub-list.
+  li[data-children="true"][data-state="active"] expanded item.
+  ul[data-state="visible"]                      sub-list that is visible.
+
+ARIA
+  Prefer aria-current="page" on the active <a> for semantic state.
+  data-state="active" is kept for JS-driven trees where aria-expanded
+  is already used on the parent <li> or <button>.
+*/
+
+@layer tokens {
+  :root {
+    /* ── Main Nav ────────────────────────────────────────────────────────── */
+
+    --nav-main-item-padding: var(--space-xxs) var(--space-xs);
+    --nav-main-active-decoration: underline;
+    --nav-main-active-offset: 0.25em;
+    --nav-main-active-color: var(--color-brand, #ff00ff);
+
+    /* ── Sidebar Nav ─────────────────────────────────────────────────────── */
+
+    --nav-sidebar-item-padding: var(--space-tiny) var(--space-s);
+    --nav-sidebar-active-decoration: line-through;
+    --nav-sidebar-active-color: var(--color-brand, #ff00ff);
+    --nav-sidebar-active-bg: transparent;
+
+    /* Chevron */
+    --nav-sidebar-chevron-size: 1.25rem;
+    --nav-sidebar-chevron-color: currentColor;
+    --nav-sidebar-chevron: var(--icon-chevron);
+
+    /* Nested (Submenus) */
+    --nav-sidebar-nested-padding: var(--space-s);
+  }
+}
+
+@layer blocks {
+  /* ── Main navigation ──────────────────────────────────────────────────────*/
+
+  nav[data-variant="main"] a[aria-current],
+  nav[data-variant="main"] a[data-state="active"] {
+    text-decoration: underline;
+    text-underline-offset: 0.25em;
+  }
+
+  nav[data-variant="main"] li a {
+    display: flex;
+    align-items: center;
+  }
+
+  nav[data-variant="main"] li a span {
+    display: flex;
+    align-items: center;
+    margin-inline-end: var(--space-xxs);
+  }
+
+  /* ── Sidebar navigation ───────────────────────────────────────────────────*/
+
+  nav[data-variant="sidebar"] a[aria-current],
+  nav[data-variant="sidebar"] a[data-state="active"] {
+    text-decoration: line-through;
+  }
+
+  nav[data-variant="sidebar"] li {
+    max-width: unset;
+  }
+
+  nav[data-variant="sidebar"] li:has(ul) {
+    position: relative;
+  }
+
+  /* Chevron rendered via mask-image so it inherits currentColor in both
+     light and dark mode — no hardcoded fill values. */
+  nav[data-variant="sidebar"] li[data-children="true"]::before {
+    --chevron-size: 1.25rem;
+
+    content: "";
+    display: block;
+    width: var(--chevron-size);
+    height: var(--chevron-size);
+    pointer-events: none;
+    position: absolute;
+    inset-inline-end: var(--space-s);
+    inset-block-start: var(--space-xxs);
+    transform: rotate(180deg);
+    transition: transform var(--motion-duration-fast, 150ms)
+      var(--motion-easing-in-out, ease);
+
+    background-color: currentColor;
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-size: contain;
+  }
+
+  nav[data-variant="sidebar"]
+    li[data-children="true"][data-state="active"]::before {
+    inset-block-start: var(--space-tiny);
+    transform: rotate(0deg);
+  }
+
+  nav[data-variant="sidebar"] li[data-state="active"] + ul,
+  nav[data-variant="sidebar"] ul[data-state="visible"] {
+    display: block;
+    padding-inline: var(--space-s);
+    width: 100%;
+    height: auto;
+    clip: auto;
+  }
+
+  nav[data-variant="sidebar"] ul > li ul {
+    display: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    nav[data-variant="sidebar"] li[data-children="true"]::before {
+      transition: none;
+    }
+  }
+}

@@ -1,0 +1,68 @@
+---
+title: A lightweight CSS boilerplate
+description: Built with [CUBE CSS](https://cube.fyi/) and [Utopia](https://utopia.fyi/) fluid responsive design.
+---
+
+A production-ready CSS foundation for web projects. Built on
+[CUBE CSS](https://cube.fyi/) methodology and [Utopia](https://utopia.fyi/)
+fluid-responsive design tokens.
+
+## Quick start
+
+```css
+/* 1. Declare layer order (controls cascade precedence) */
+@layer reset, tokens, composition, blocks, utility;
+
+/* 2. Import in any order — the layer declaration above governs precedence */
+@import "@hobiri/ui/lib/abstracts/_motion.css";
+@import "@hobiri/ui/lib/abstracts/_spacing.css";
+@import "@hobiri/ui/lib/abstracts/_theme.css";
+@import "@hobiri/ui/lib/abstracts/_typography.css";
+@import "@hobiri/ui/lib/abstracts/_z-index.css";
+
+@import "@hobiri/ui/lib/base/_reset.css";
+@import "@hobiri/ui/lib/base/_button.css";
+@import "@hobiri/ui/lib/base/_form.css";
+/* … more base, blocks, compositions, utilities … */
+```
+
+## CSS Cascade Layers
+
+Every file in the library is scoped to a named `@layer`. The recommended
+import-order declaration is:
+
+```css
+@layer reset, tokens, composition, blocks, utility;
+```
+
+| Layer         | Files                                                   | Priority (higher = wins) |
+| ------------- | ------------------------------------------------------- | ------------------------ |
+| `reset`       | `base/_reset.css`                                       | lowest                   |
+| `tokens`      | `abstracts/*.css`, `base/_button.css`, `base/_form.css` | ↑                        |
+| `composition` | `compositions/*.css`                                    | ↑                        |
+| `blocks`      | `base/*.css`, `blocks/*.css`                            | ↑                        |
+| `utility`     | `utilities/*.css`                                       | highest                  |
+
+Utility classes intentionally have the highest precedence so a single-property
+helper (e.g. `.text-center`) can always override a component default.
+
+## Token overrides
+
+All design tokens are defined in `@layer tokens` on `:root`. Override at any
+scope — the value will propagate to every component that references the token:
+
+```css
+/* Global */
+:root {
+  --color-brand:  #2563eb;
+  --color-accent: #f59e0b;
+}
+
+/* Per-context */
+.checkout-form {
+  --input-border-color: var(--color-brand);
+}
+
+/* Inline */
+<button style="--button-radius: 9999px">Pill button</button>
+```

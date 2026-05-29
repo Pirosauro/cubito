@@ -1,0 +1,16 @@
+/*
+Wide utility
+──────────────────────────────────────────────────────────────────────────────
+Forces an element to take the full width of its container, overriding any
+inherited max-width (e.g. from a .wrapper ancestor).
+
+Useful for full-bleed images, hero sections, and horizontal rules inside
+a constrained wrapper.
+*/
+
+@layer utilities {
+  .wide {
+    width: 100%;
+    max-width: 100%;
+  }
+}

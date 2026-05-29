@@ -1,0 +1,135 @@
+/*
+Pagination
+──────────────────────────────────────────────────────────────────────────────
+Numbered page navigation with prev/next controls.
+
+MARKUP PATTERN
+  <nav aria-label="Pagination">
+    <ul class="pagination" role="list">
+      <li>
+        <a href="/page/1/" class="pagination__prev" aria-label="Previous page">
+          ← Prev
+        </a>
+      </li>
+      <li><a href="/page/1/" aria-label="Page 1">1</a></li>
+      <li><a href="/page/2/" aria-label="Page 2" aria-current="page">2</a></li>
+      <li><a href="/page/3/" aria-label="Page 3">3</a></li>
+      <li><span class="pagination__ellipsis" aria-hidden="true">…</span></li>
+      <li><a href="/page/12/" aria-label="Page 12">12</a></li>
+      <li>
+        <a href="/page/3/" class="pagination__next" aria-label="Next page">
+          Next →
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+CONFIGURATION
+    :root {
+      --pagination-item-size: 2.75rem;
+      --pagination-gap:       var(--space-xxs);
+    }
+
+TOKENS
+  --pagination-item-size        Size of each page button.       Default: 2.5rem
+  --pagination-gap              Gap between items.              Default: --space-tiny
+  --pagination-background       Idle item fill.                 Default: transparent
+  --pagination-color            Idle item text colour.          Default: currentColor
+  --pagination-border           Idle item border.               Default: none
+  --pagination-radius           Item corner radius.             Default: --border-radius-m
+  --pagination-background-hover Hover fill.                     Default: --color-neutral-100
+  --pagination-background-active Active (current) fill.         Default: --color-brand
+  --pagination-color-active     Active text colour.             Default: --color-white
+*/
+
+@layer tokens {
+  :root {
+    --pagination-background: transparent;
+    --pagination-background-active: var(--color-brand);
+    --pagination-background-hover: var(--color-neutral-100);
+    --pagination-border: none;
+    --pagination-color: currentColor;
+    --pagination-color-active: var(--color-white);
+    --pagination-gap: var(--space-tiny);
+    --pagination-item-size: 2.5rem;
+    --pagination-radius: var(--border-radius-m);
+  }
+}
+
+@layer blocks {
+  .pagination {
+    --pagination-border: none;
+    --pagination-radius: var(--border-radius-m);
+    --pagination-background-hover: var(--color-neutral-100);
+    --pagination-background-active: var(--color-brand);
+    --pagination-color-active: var(--color-white);
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--pagination-gap);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* All items share the same base */
+  .pagination li {
+    display: contents; /* let the inner element participate in flex */
+  }
+
+  .pagination a,
+  .pagination__ellipsis {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: var(--pagination-item-size);
+    height: var(--pagination-item-size);
+    padding-inline: var(--space-xxs);
+    border: var(--pagination-border);
+    border-radius: var(--pagination-radius);
+    background: var(--pagination-background);
+    color: var(--pagination-color);
+    font-size: var(--font-size-s);
+    font-weight: var(--font-weight-normal);
+    text-decoration: none;
+    transition:
+      background var(--motion-duration-fast),
+      color var(--motion-duration-fast);
+  }
+
+  .pagination a:hover,
+  .pagination a:focus-visible {
+    background: var(--pagination-background-hover);
+  }
+
+  /* Current page */
+  .pagination a[aria-current="page"] {
+    background: var(--pagination-background-active);
+    color: var(--pagination-color-active);
+    font-weight: var(--font-weight-bold);
+    cursor: default;
+    pointer-events: none;
+  }
+
+  /* Ellipsis — not a link */
+  .pagination__ellipsis {
+    color: var(--color-neutral-400);
+    cursor: default;
+  }
+
+  /* Prev / next get a slightly wider tap target */
+  .pagination__prev,
+  .pagination__next {
+    padding-inline: var(--space-xs);
+    gap: 0.3em;
+  }
+
+  /* ── Dark mode ───────────────────────────────────────────────────────────── */
+
+  @media (prefers-color-scheme: dark) {
+    .pagination {
+      --pagination-background-hover: var(--color-neutral-800);
+    }
+  }
+}

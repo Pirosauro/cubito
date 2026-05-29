@@ -1,0 +1,176 @@
+/*
+Avatar
+──────────────────────────────────────────────────────────────────────────────
+User representation: photo with fallback initials, optional online indicator.
+
+MARKUP PATTERN
+  <!-- Image -->
+  <span class="avatar">
+    <img src="user.jpg" alt="Jane Smith">
+  </span>
+
+  <!-- Initials fallback (no image) -->
+  <span class="avatar" aria-label="Jane Smith">JS</span>
+
+  <!-- Online indicator -->
+  <span class="avatar" data-status="online">
+    <img src="user.jpg" alt="Jane Smith">
+  </span>
+
+  <!-- Sizes -->
+  <span class="avatar" data-size="xs">JS</span>
+  <span class="avatar" data-size="s">JS</span>
+  <span class="avatar" data-size="m">JS</span>   <!-- default -->
+  <span class="avatar" data-size="l">JS</span>
+  <span class="avatar" data-size="xl">JS</span>
+
+  <!-- Avatar group (overlapping stack) -->
+  <div class="avatar-group">
+    <span class="avatar"><img src="a.jpg" alt="Alice"></span>
+    <span class="avatar"><img src="b.jpg" alt="Bob"></span>
+    <span class="avatar" aria-label="+4 more">+4</span>
+  </div>
+
+STATUS
+  data-status="online"    Green dot.
+  data-status="away"      Amber dot.
+  data-status="busy"      Red dot.
+  data-status="offline"   Grey dot.
+
+CONFIGURATION
+    :root {
+      --avatar-size:       3rem;
+      --avatar-background: var(--color-brand);
+      --avatar-color:      var(--color-white);
+    }
+
+    <span class="avatar" style="--avatar-size: 4rem; --avatar-radius: 0.5rem">…</span>
+
+TOKENS
+  --avatar-size         Diameter.              Default: 2.5rem
+  --avatar-radius       Border radius.         Default: 9999px (circle)
+  --avatar-background   Initials fill.         Default: --color-neutral-300
+  --avatar-color        Initials text colour.  Default: --color-neutral-800
+  --avatar-font-size    Initials text size.    Default: 0.4em relative to size
+  --avatar-border       Ring border.           Default: none
+  --avatar-status-size  Status dot diameter.   Default: 0.75em
+*/
+
+@layer tokens {
+  :root {
+    --avatar-background: var(--color-neutral-300);
+    --avatar-border: none;
+    --avatar-color: var(--color-neutral-800);
+    --avatar-font-size: 0.4em;
+    --avatar-radius: 9999px;
+    --avatar-size: 2.5rem;
+    --avatar-status-size: 0.75em;
+  }
+}
+
+@layer blocks {
+  .avatar {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--avatar-size);
+    height: var(--avatar-size);
+    border-radius: var(--avatar-radius);
+    border: var(--avatar-border);
+    background: var(--avatar-background);
+    color: var(--avatar-color);
+    font-size: var(--avatar-size); /* base for em-derived child sizes */
+    font-weight: var(--font-weight-bold);
+    line-height: 1;
+    letter-spacing: 0.02em;
+    overflow: hidden;
+    flex-shrink: 0;
+    user-select: none;
+  }
+
+  /* Initials text */
+  .avatar:not(:has(img)) {
+    font-size: calc(var(--avatar-size) * 0.38);
+  }
+
+  /* Image fills the circle */
+  .avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: inherit;
+  }
+
+  /* ── Sizes ───────────────────────────────────────────────────────────────── */
+
+  .avatar[data-size="xs"] {
+    --avatar-size: 1.5rem;
+  }
+  .avatar[data-size="s"] {
+    --avatar-size: 2rem;
+  }
+  .avatar[data-size="m"] {
+    --avatar-size: 2.5rem;
+  } /* default */
+  .avatar[data-size="l"] {
+    --avatar-size: 3.5rem;
+  }
+  .avatar[data-size="xl"] {
+    --avatar-size: 5rem;
+  }
+
+  /* ── Status indicator ────────────────────────────────────────────────────── */
+
+  .avatar[data-status]::after {
+    content: "";
+    position: absolute;
+    inset-block-end: 4%;
+    inset-inline-end: 4%;
+    width: var(--avatar-status-size);
+    height: var(--avatar-status-size);
+    border-radius: 50%;
+    border: 0.15em solid var(--body-background, var(--color-white));
+    background: var(--_avatar-status-color, var(--color-neutral-400));
+  }
+
+  .avatar[data-status="online"] {
+    --_avatar-status-color: var(--color-status-ok);
+  }
+  .avatar[data-status="away"] {
+    --_avatar-status-color: var(--color-status-warning);
+  }
+  .avatar[data-status="busy"] {
+    --_avatar-status-color: var(--color-status-ko);
+  }
+  .avatar[data-status="offline"] {
+    --_avatar-status-color: var(--color-neutral-400);
+  }
+
+  /* ── Avatar group ────────────────────────────────────────────────────────── */
+
+  .avatar-group {
+    --avatar-group-overlap: 0.5rem;
+
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .avatar-group .avatar {
+    --avatar-border: solid 0.15em var(--body-background, var(--color-white));
+    margin-inline-start: calc(-1 * var(--avatar-group-overlap));
+  }
+
+  .avatar-group .avatar:first-child {
+    margin-inline-start: 0;
+  }
+
+  /* ── Dark mode ───────────────────────────────────────────────────────────── */
+
+  @media (prefers-color-scheme: dark) {
+    .avatar {
+      --avatar-background: var(--color-neutral-700);
+      --avatar-color: var(--color-neutral-100);
+    }
+  }
+}

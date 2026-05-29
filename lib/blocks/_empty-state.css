@@ -1,0 +1,108 @@
+/*
+Empty State
+──────────────────────────────────────────────────────────────────────────────
+Zero-results or first-use placeholder. Guides the user toward the next action.
+
+MARKUP PATTERN
+  <div class="empty-state">
+    <!-- Optional illustration / icon -->
+    <img
+      src="/illustrations/empty-cart.svg"
+      alt=""
+      aria-hidden="true"
+      class="empty-state__illustration"
+      width="200"
+      height="160"
+    >
+
+    <h2 class="empty-state__title">Your cart is empty</h2>
+    <p class="empty-state__description">
+      Looks like you haven't added anything yet.
+    </p>
+
+    <!-- Call to action -->
+    <a href="/shop/" class="button">Start shopping</a>
+  </div>
+
+  <!-- Compact (no illustration) -->
+  <div class="empty-state" data-layout="compact">
+    <p class="empty-state__title">No results found</p>
+    <p class="empty-state__description">Try adjusting your filters.</p>
+  </div>
+
+CONFIGURATION
+    :root {
+      --empty-state-max-width: 28rem;
+    }
+
+TOKENS
+  --empty-state-max-width        Content width constraint.  Default: 24rem
+  --empty-state-padding          Outer padding.             Default: --space-xxl --space-m
+  --empty-state-illustration-size Max illustration width.   Default: 12rem
+  --empty-state-gap              Stack gap.                 Default: --space-s
+*/
+
+@layer tokens {
+  :root {
+    --empty-state-default-width: 24rem;
+    --empty-state-gap: var(--space-s);
+    --empty-state-illustration-size: 12rem;
+    --empty-state-padding: var(--space-xxl) var(--space-m);
+  }
+}
+
+@layer blocks {
+  .empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: var(--empty-state-padding);
+    gap: var(--empty-state-gap);
+    max-width: var(--empty-state-max-width);
+    margin-inline: auto;
+  }
+
+  .empty-state__illustration {
+    max-width: var(--empty-state-illustration-size);
+    height: auto;
+    flex-shrink: 0;
+    opacity: 0.85;
+  }
+
+  .empty-state__title {
+    font-size: var(--font-size-l);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-s);
+    margin: 0;
+    text-wrap: balance;
+  }
+
+  .empty-state__description {
+    font-size: var(--font-size-s);
+    color: var(--color-neutral-500);
+    margin: 0;
+    max-width: var(--width-s);
+    text-wrap: pretty;
+  }
+
+  /* ── Compact: no illustration, tighter spacing ───────────────────────────── */
+
+  .empty-state[data-layout="compact"] {
+    --empty-state-padding: var(--space-l) var(--space-m);
+    --empty-state-gap: var(--space-xxs);
+  }
+
+  .empty-state[data-layout="compact"] .empty-state__title {
+    font-size: var(--font-size-m);
+  }
+
+  /* ── Dark mode ───────────────────────────────────────────────────────────── */
+
+  @media (prefers-color-scheme: dark) {
+    .empty-state__description {
+      color: var(--color-neutral-400);
+    }
+  }
+}

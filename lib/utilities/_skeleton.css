@@ -1,0 +1,87 @@
+/*
+Skeleton
+──────────────────────────────────────────────────────────────────────────────
+Loading placeholder that animates while content is being fetched.
+Remove the class (or the element) once real content loads.
+
+MARKUP PATTERN
+  <p class="skeleton"></p>
+  <h2 class="skeleton"></h2>
+  <div class="skeleton" data-variant="circle"></div>
+
+  <!-- Table row (td::before preserves row structure) -->
+  <tr class="skeleton"><td></td><td></td></tr>
+
+  <!-- Custom dimensions -->
+  <div class="skeleton" style="--skeleton-height: 2rem; --skeleton-width: 40%"></div>
+
+VARIANTS
+  (none)                  Rectangular bar.
+  data-variant="circle"   Circular avatar placeholder.
+
+TOKENS
+  --skeleton-background   Pulse colour.    Default: --color-neutral-200
+  --skeleton-height       Bar height.      Default: 1.25rem
+  --skeleton-width        Bar width.       Default: 80%
+  --skeleton-radius       Corner radius.   Default: --border-radius
+  --skeleton-animation    Custom animation. Default: skeleton-pulse 1.5s …
+*/
+
+@layer utilities {
+  .skeleton:not(tr),
+  tr.skeleton td::before {
+    --skeleton-background: var(--color-neutral-200);
+    --skeleton-height: 1.25rem;
+    --skeleton-width: 80%;
+    --skeleton-radius: var(--border-radius);
+    --skeleton-animation: skeleton-pulse 1.5s infinite ease-in-out;
+
+    content: "";
+    display: block;
+    height: var(--skeleton-height);
+    width: var(--skeleton-width);
+    background: var(--skeleton-background);
+    border-radius: var(--skeleton-radius);
+    animation: var(--skeleton-animation);
+  }
+
+  /* Wider placeholder for headings */
+  h1.skeleton,
+  h2.skeleton,
+  h3.skeleton {
+    --skeleton-height: 1.75rem;
+    --skeleton-width: 60%;
+  }
+
+  /* Circular avatar placeholder */
+  .skeleton[data-variant="circle"] {
+    --skeleton-width: 3rem;
+    --skeleton-height: 3rem;
+    border-radius: 50%;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .skeleton:not(tr),
+    tr.skeleton td::before {
+      --skeleton-background: var(--color-neutral-700);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .skeleton:not(tr),
+    tr.skeleton td::before {
+      animation: none;
+      opacity: 0.5;
+    }
+  }
+
+  @keyframes skeleton-pulse {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.4;
+    }
+  }
+}

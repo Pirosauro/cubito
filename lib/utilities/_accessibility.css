@@ -1,0 +1,55 @@
+/*
+Accessibility
+──────────────────────────────────────────────────────────────────────────────
+Skip-link and visually-hidden utilities. These must never use display:none —
+screen readers must still reach the element.
+
+@link https://www.a11yproject.com/posts/how-to-hide-content/
+@link https://css-tricks.com/inclusively-hidden/
+*/
+
+@layer utilities {
+  /* ── Skip link ──────────────────────────────────────────────────────────── */
+
+  .skip-link {
+    clip-path: inset(50%);
+    display: block;
+    height: 1px;
+    inset-inline-start: var(--space-s);
+    inset-block-start: var(--space-s);
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+    z-index: var(--z-notification, 80);
+  }
+
+  .skip-link:focus {
+    background-color: var(--background);
+    border: solid var(--border-m) currentColor;
+    border-radius: var(--border-radius);
+    clip-path: none;
+    color: var(--color);
+    height: auto;
+    line-height: 1;
+    overflow: visible;
+    padding: var(--space-xs) var(--space-s);
+    text-decoration: none;
+    width: auto;
+  }
+
+  /* ── Visually hidden (screen-reader only) ───────────────────────────────── */
+
+  .visually-hidden:not(:focus):not(:focus-within),
+  .sr-only:not(:focus):not(:focus-within) {
+    border: 0;
+    clip-path: inset(50%);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+}

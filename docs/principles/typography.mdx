@@ -1,0 +1,136 @@
+# Typography
+
+Typography in `@hobiri/ui` is built on a fluid modular type scale generated
+with [Utopia](https://utopia.fyi/type/calculator). Sizes scale continuously
+between the minimum viewport (320 px) and maximum viewport (1240 px) using
+`clamp()`, eliminating discrete breakpoints for font sizes.
+
+## Type Scale
+
+The scale uses a **Minor Third (1.2)** ratio. Each step is approximately 20%
+larger than the previous.
+
+| Token              | Min      | Max      | Typical use                    |
+| ------------------ | -------- | -------- | ------------------------------ |
+| `--font-size-xxs`  | 0.64 rem | 0.70 rem | Labels, captions, legal text   |
+| `--font-size-xs`   | 0.80 rem | 0.94 rem | Helper text, timestamps        |
+| `--font-size-s`    | 1.00 rem | 1.25 rem | Body text (base)               |
+| `--font-size-m`    | 1.25 rem | 1.67 rem | Lead paragraphs, card headings |
+| `--font-size-l`    | 1.56 rem | 2.22 rem | Section headings (h3)          |
+| `--font-size-xl`   | 1.95 rem | 2.96 rem | Page headings (h2)             |
+| `--font-size-xxl`  | 2.44 rem | 3.95 rem | Hero headings (h1)             |
+| `--font-size-huge` | 3.05 rem | 5.26 rem | Display / editorial headings   |
+
+`--font-size` is an alias for `--font-size-s` and represents the base body
+size (1 rem at 320 px, 1.25 rem at 1240 px).
+
+## Font Families
+
+| Token                   | Default                  | How to override                                    |
+| ----------------------- | ------------------------ | -------------------------------------------------- |
+| `--font-family`         | System UI stack          | `--font-family: "Libre Franklin", sans-serif`      |
+| `--font-family-heading` | Inherits `--font-family` | `--font-family-heading: "Playfair Display", serif` |
+| `--font-family-mono`    | System monospace stack   | `--font-family-mono: "JetBrains Mono", monospace`  |
+
+Set these in your application's `:root` block **before** importing the library.
+
+```css
+:root {
+  --color-brand: #2563eb;
+  --color-accent: #f59e0b;
+  --font-family-heading: "Playfair Display", Georgia, serif;
+}
+
+@import "@hobiri/ui/lib/abstracts/_theme.css";
+/* … */
+```
+
+## Font Weights
+
+| Token                  | Value | Alias for                        |
+| ---------------------- | ----- | -------------------------------- |
+| `--font-weight-normal` | 400   | —                                |
+| `--font-weight-bold`   | 700   | —                                |
+| `--font-weight`        | —     | Alias for `--font-weight-normal` |
+
+## Line Heights
+
+| Token             | Value | Use                         |
+| ----------------- | ----- | --------------------------- |
+| `--line-height-s` | 1.25  | Headings, compact UI        |
+| `--line-height-m` | 1.5   | Body text (base)            |
+| `--line-height-l` | 1.75  | Prose, long-form reading    |
+| `--line-height`   | —     | Alias for `--line-height-m` |
+
+## Measure (Line Length)
+
+Optimal reading measure is 45–75 characters. Use the width tokens to constrain
+content containers:
+
+| Token          | Value | Use                          |
+| -------------- | ----- | ---------------------------- |
+| `--width-s`    | 35 ch | Short labels, narrow columns |
+| `--width-l`    | 65 ch | Body text optimal measure    |
+| `--width-wide` | 100 % | Full-width elements          |
+
+The reset applies `max-width: var(--width-l)` to `p:not([class])` and
+`li:not([class])` automatically.
+
+## Utility Classes
+
+Type utilities live in `utilities/_typography.css`.
+
+```html
+<!-- Size: heading style (display font, bold, tight leading) -->
+<h2 class="heading-xl">Page heading</h2>
+<p class="heading-m">Card heading</p>
+
+<!-- Size: body style (body font, normal weight, base leading) -->
+<p class="text-l">Lead paragraph</p>
+<span class="text-xs">Timestamp</span>
+
+<!-- Weight -->
+<span class="text-bold">Important</span>
+<span class="text-normal">Regular weight override</span>
+
+<!-- Alignment (prefer logical properties) -->
+<p class="text-start">Logical start</p>
+<p class="text-center">Centred</p>
+<p class="text-end">Logical end</p>
+
+<!-- Wrapping -->
+<h1 class="text-balance">Balanced headline for even line lengths</h1>
+<p class="text-pretty">Orphan-aware wrapping for prose</p>
+
+<!-- Overflow -->
+<p class="text-truncate">Text truncates with ellipsis when too long…</p>
+<span class="text-no-wrap">Never wraps</span>
+
+<!-- Decoration -->
+<a class="text-underline">Force underline</a>
+<a class="text-no-underline">No underline</a>
+
+<!-- Family -->
+<code class="text-mono">monospace snippet</code>
+```
+
+## Semantic Headings
+
+The reset (`base/_reset.css`) maps heading levels to type scale tokens:
+
+| Element | Token             |
+| ------- | ----------------- |
+| `h1`    | `--font-size-xxl` |
+| `h2`    | `--font-size-xl`  |
+| `h3`    | `--font-size-l`   |
+| `h4`    | `--font-size-m`   |
+| `h5`    | `--font-size-s`   |
+| `h6`    | `--font-size-xs`  |
+
+This provides a sensible default without forcing a specific design. Override
+freely with utility classes or component-scoped custom properties:
+
+```html
+<!-- Semantic h3 but visually styled as h2 -->
+<h3 class="heading-xl">Section heading</h3>
+```

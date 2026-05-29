@@ -1,0 +1,168 @@
+/*
+Email reset
+──────────────────────────────────────────────────────────────────────────────
+Standalone CSS reset for HTML email clients. This file is NOT inside @layer
+and must be INLINED into email templates — do not import it alongside the
+main library styles.
+
+Covers: client normalisation, iOS blue-link suppression, Android margin fix,
+responsive overrides for mobile, and dark-mode support for Apple Mail, Gmail,
+and Outlook.
+*/
+
+/* Client-specific normalisations */
+body,
+table,
+td,
+a {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+table,
+td {
+  mso-table-lspace: 0pt;
+  mso-table-rspace: 0pt;
+}
+
+img {
+  -ms-interpolation-mode: bicubic;
+}
+
+/* Reset */
+img {
+  border: 0;
+  outline: none;
+  text-decoration: none;
+}
+
+table {
+  border-collapse: collapse !important;
+}
+
+body {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+}
+
+/* iOS blue links */
+a[x-apple-data-detectors] {
+  color: inherit !important;
+  text-decoration: none !important;
+  font-size: inherit !important;
+  font-family: inherit !important;
+  font-weight: inherit !important;
+  line-height: inherit !important;
+}
+
+/* Android center fix */
+div[style*="margin: 16px 0;"] {
+  margin: 0 !important;
+}
+
+/* ── Responsive ─────────────────────────────────────────────────────────── */
+
+@media all and (max-width: 639px) {
+  .wrapper {
+    width: 320px !important;
+    padding: 0 !important;
+  }
+  .container {
+    width: 300px !important;
+    padding: 0 !important;
+  }
+  .mobile {
+    width: 300px !important;
+    display: block !important;
+    padding: 0 !important;
+  }
+  .img {
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  *[class="mobileOff"] {
+    width: 0px !important;
+    display: none !important;
+  }
+  *[class*="mobileOn"] {
+    display: block !important;
+    max-height: none !important;
+  }
+}
+
+/* ── Dark mode ───────────────────────────────────────────────────────────── */
+
+:root {
+  color-scheme: light dark;
+  supported-color-schemes: light dark;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media (prefers-color-scheme: dark) {
+  body,
+  [data-ogsb] body {
+    background-color: #262626 !important;
+  }
+
+  table,
+  [data-ogsb] table {
+    background-color: #212121 !important;
+  }
+
+  /* Logo swap */
+  .logo-light,
+  [data-ogsc] .logo-light {
+    display: none !important;
+  }
+  .logo-dark,
+  [data-ogsc] .logo-dark {
+    display: block !important;
+  }
+
+  /* Headings */
+  h1,
+  [data-ogsc] h1,
+  h2,
+  [data-ogsc] h2,
+  h3,
+  [data-ogsc] h3,
+  h4,
+  [data-ogsc] h4,
+  h5,
+  [data-ogsc] h5,
+  h6,
+  [data-ogsc] h6 {
+    color: #ffffff !important;
+  }
+
+  .hr,
+  [data-ogsc] .hr {
+    background: #ffffff !important;
+  }
+
+  p,
+  [data-ogsc] p,
+  li,
+  [data-ogsc] li {
+    color: #ffffff !important;
+  }
+
+  li > span,
+  [data-ogsc] li > span {
+    color: #ffffff !important;
+  }
+
+  .link,
+  [data-ogsc] .link {
+    color: #ffffff !important;
+  }
+
+  .button,
+  [data-ogsb] .button {
+    background-color: #ffffff !important;
+    color: #0a0a0a !important;
+  }
+}

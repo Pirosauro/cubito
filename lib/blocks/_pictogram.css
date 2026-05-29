@@ -1,0 +1,61 @@
+/*
+Pictogram
+──────────────────────────────────────────────────────────────────────────────
+A centred, evenly-spaced row of icon + label pairs.
+Typically used in feature or marketing sections.
+
+MARKUP PATTERN
+  <div class="pictogram">
+    <figure>
+      <img src="icon.svg" alt="" aria-hidden="true" width="64" height="64">
+      <figcaption>Fast delivery</figcaption>
+    </figure>
+    <figure>…</figure>
+  </div>
+
+CONFIGURATION
+    :root {
+      --pictogram-item-size: 10rem;
+      --pictogram-item-max:  14rem;
+    }
+
+    <div class="pictogram" style="--pictogram-gap: var(--space-xl)">…</div>
+
+TOKENS
+  --pictogram-item-size   Min width of each item.  Default: 8rem
+  --pictogram-item-max    Max width of each item.  Default: 12rem
+  --pictogram-gap         Gap between items.       Default: --gutter
+*/
+
+@layer tokens {
+  :root {
+    --pictogram-gap: var(--gutter);
+    --pictogram-item-max: 12rem;
+    --pictogram-item-size: 8rem;
+  }
+}
+
+@layer blocks {
+  .pictogram {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: var(--pictogram-gap);
+  }
+
+  .pictogram > figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex: 1 1 var(--pictogram-item-size);
+    max-width: var(--pictogram-item-max);
+  }
+
+  .pictogram figcaption {
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-bold);
+    margin-block-start: var(--space-xxs);
+  }
+}

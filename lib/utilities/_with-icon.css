@@ -1,0 +1,55 @@
+/*
+With icon
+──────────────────────────────────────────────────────────────────────────────
+Aligns an inline SVG icon with adjacent text. The icon scales relative to
+the current font-size using cap units (1cap = height of an uppercase letter)
+for precise optical alignment.
+
+USAGE
+  <!-- Icon before text (default) -->
+  <span class="with-icon">
+    <svg aria-hidden="true" focusable="false">…</svg>
+    Label text
+  </span>
+
+  <!-- Icon after text -->
+  <span class="with-icon" data-icon-position="right">
+    Continue
+    <svg aria-hidden="true" focusable="false">…</svg>
+  </span>
+
+CUSTOM PROPERTIES
+  --icon-scale  Scale multiplier applied to the icon. Default: 1.5.
+                Increase for icons that look too small at cap height.
+*/
+
+@layer utilities {
+  .with-icon {
+    display: inline-flex;
+    align-items: baseline;
+  }
+
+  .with-icon > svg {
+    /* Use cap units where supported; fall back to em */
+    height: 1cap;
+    width: 1cap;
+    height: 0.75em; /* fallback */
+    width: 0.75em; /* fallback */
+    flex-shrink: 0;
+    margin-inline-end: 0.5em;
+    transform: scale(var(--icon-scale, 1.5));
+  }
+
+  /* Cap-unit overrides (applied after the em fallback above) */
+  @supports (height: 1cap) {
+    .with-icon > svg {
+      height: 1cap;
+      width: 1cap;
+    }
+  }
+
+  .with-icon[data-icon-position="right"] > svg {
+    margin-inline-end: 0;
+    margin-inline-start: 0.5em;
+  }
+}

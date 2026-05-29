@@ -1,0 +1,107 @@
+/*
+Price
+──────────────────────────────────────────────────────────────────────────────
+Displays a monetary amount with optional original/sale formatting and
+currency symbol. Purely presentational — no JavaScript formatting.
+
+MARKUP PATTERN
+  <!-- Regular price -->
+  <p class="price">
+    <span class="price__amount">£29.99</span>
+  </p>
+
+  <!-- Sale price (original struck through) -->
+  <p class="price">
+    <span class="price__original">£49.99</span>
+    <span class="price__amount">£29.99</span>
+    <span class="price__badge">40% off</span>
+  </p>
+
+  <!-- Free -->
+  <p class="price">
+    <span class="price__amount">Free</span>
+  </p>
+
+  <!-- Subscription / per-unit context -->
+  <p class="price">
+    <span class="price__amount">£9.99</span>
+    <span class="price__unit">/ month</span>
+  </p>
+
+CONFIGURATION
+    .hero-product {
+      --price-size:        var(--font-size-xxl);
+      --price-sale-color:  var(--color-status-ko);
+    }
+
+TOKENS
+  --price-size          Current price font size.    Default: --font-size-xl
+  --price-color         Current price colour.       Default: currentColor
+  --price-sale-color    Sale price colour.          Default: --color-status-ko
+  --price-original-size Original price font size.   Default: --font-size-s
+  --price-badge-color   Badge text colour.          Default: --color-status-ko
+*/
+
+@layer tokens {
+  :root {
+    --price-badge-color: var(--color-status-ko);
+    --price-color: currentColor;
+    --price-original-size: var(--font-size-s);
+    --price-sale-color: var(--color-status-ko);
+    --price-size: var(--font-size-xl);
+  }
+}
+
+@layer blocks {
+  .price {
+    --price-badge-color: var(--color-status-ko);
+
+    display: inline-flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.3em 0.5em;
+  }
+
+  /* Current / sale amount */
+  .price__amount {
+    font-size: var(--price-size);
+    font-weight: var(--font-weight-bold);
+    color: var(--price-color);
+    line-height: var(--line-height-s);
+  }
+
+  /* When an original price is present, colour the amount as a sale price */
+  .price:has(.price__original) .price__amount {
+    color: var(--price-sale-color);
+  }
+
+  /* Struck-through original price */
+  .price__original {
+    font-size: var(--price-original-size);
+    font-weight: var(--font-weight-normal);
+    color: var(--color-neutral-500);
+    text-decoration: line-through;
+    align-self: center;
+  }
+
+  /* Discount badge: "40% off", "Sale", etc. */
+  .price__badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.15em 0.5em;
+    border-radius: var(--border-radius-m);
+    background: color-mix(in srgb, var(--price-badge-color) 12%, transparent);
+    color: var(--price-badge-color);
+    font-size: var(--font-size-xxs);
+    font-weight: var(--font-weight-bold);
+    line-height: 1;
+    align-self: center;
+  }
+
+  /* Per-unit / billing cycle note */
+  .price__unit {
+    font-size: var(--font-size-xs);
+    color: var(--color-neutral-500);
+    align-self: center;
+  }
+}

@@ -1,0 +1,130 @@
+/*
+Progress Bar
+──────────────────────────────────────────────────────────────────────────────
+Labelled, accessible wrapper around the native <progress> element.
+Adds a visible label, value display, and theming.
+
+MARKUP PATTERN
+  <!-- Determinate -->
+  <div class="progress-bar">
+    <div class="progress-bar__header">
+      <span id="pb-label-1">Uploading…</span>
+      <span aria-hidden="true">72%</span>
+    </div>
+    <progress
+      value="72"
+      max="100"
+      aria-labelledby="pb-label-1"
+      aria-valuenow="72"
+      aria-valuemin="0"
+      aria-valuemax="100"
+    ></progress>
+  </div>
+
+  <!-- Indeterminate (omit value attribute) -->
+  <div class="progress-bar">
+    <p id="pb-label-2">Processing…</p>
+    <progress aria-labelledby="pb-label-2"></progress>
+  </div>
+
+  <!-- Compact: no header, label provided via aria-label -->
+  <progress
+    class="progress-bar"
+    value="40"
+    max="100"
+    aria-label="Profile completion: 40%"
+  ></progress>
+
+CONFIGURATION
+    .checkout-steps {
+      --progress-bar-color:     var(--color-status-ok);
+      --progress-bar-height:    0.75rem;
+      --progress-bar-radius:    0;
+    }
+
+    <div class="progress-bar" style="--progress-bar-color: var(--color-brand)">…</div>
+
+TOKENS
+  --progress-bar-color      Fill colour.         Default: --color-brand
+  --progress-bar-track      Track (empty) colour. Default: --color-neutral-200
+  --progress-bar-height     Track height.        Default: --space-xs
+  --progress-bar-radius     Track radius.        Default: 9999px
+*/
+
+@layer tokens {
+  :root {
+    --progress-bar-color: var(--color-brand, var(--color-black));
+    --progress-bar-height: var(--space-xs);
+    --progress-bar-radius: 9999px;
+    --progress-bar-track: var(--color-neutral-200);
+  }
+}
+
+@layer blocks {
+  .progress-bar {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-tiny);
+    width: 100%;
+  }
+
+  /* Header row: label + percentage */
+  .progress-bar__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: var(--font-size-xs);
+    color: var(--color-neutral-600);
+  }
+
+  /* Native progress element — themed via accent-color + appearance reset */
+  .progress-bar > progress,
+  progress.progress-bar {
+    appearance: none;
+    -webkit-appearance: none;
+    display: block;
+    width: 100%;
+    height: var(--progress-bar-height);
+    border: none;
+    border-radius: var(--progress-bar-radius);
+    overflow: hidden;
+    accent-color: var(--progress-bar-color);
+
+    /* WebKit / Blink */
+    background: var(--progress-bar-track);
+  }
+
+  /* Track (WebKit) */
+  .progress-bar > progress::-webkit-progress-bar,
+  progress.progress-bar::-webkit-progress-bar {
+    background: var(--progress-bar-track);
+    border-radius: var(--progress-bar-radius);
+  }
+
+  /* Fill (WebKit) */
+  .progress-bar > progress::-webkit-progress-value,
+  progress.progress-bar::-webkit-progress-value {
+    background: var(--progress-bar-color);
+    border-radius: var(--progress-bar-radius);
+    transition: width var(--motion-duration-base) var(--motion-easing-out);
+  }
+
+  /* Fill (Firefox) */
+  .progress-bar > progress::-moz-progress-bar,
+  progress.progress-bar::-moz-progress-bar {
+    background: var(--progress-bar-color);
+    border-radius: var(--progress-bar-radius);
+  }
+
+  /* ── Dark mode ───────────────────────────────────────────────────────────── */
+
+  @media (prefers-color-scheme: dark) {
+    .progress-bar {
+      --progress-bar-track: var(--color-neutral-700);
+    }
+
+    .progress-bar__header {
+      color: var(--color-neutral-400);
+    }
+  }
+}

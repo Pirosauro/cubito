@@ -1,0 +1,103 @@
+/*
+Theme
+---
+Core design tokens: colours, borders, focus, and transitions.
+
+COLOUR SYSTEM
+  Palette:   Raw named values — never reference directly in components.
+  Semantic:  Role-based aliases — always use these in components.
+  Status:    Feedback colours — ok / warning / ko / info.
+
+REQUIRED APPLICATION TOKENS
+  Consuming applications MUST define --color-brand and --color-accent in their
+  own :root block before importing this library. Everything else has sensible
+  defaults.
+
+CONFIGURATION
+  All component tokens (--button-background, --card-border, etc.) are plain
+  CSS custom properties. Override at any scope:
+
+    Globally   :root   { --input-border-color: var(--color-brand); }
+    Per-block  .dark   { --body-background: var(--color-neutral-900); }
+    Inline     <input style="--input-background: var(--color-neutral-50)">
+
+  No separate "theme hook" layer is needed or used.
+
+@see https://cube.fyi/
+*/
+
+@layer tokens {
+  :root {
+    /* --- Palette --- */
+
+    --color-current: currentColor;
+    --color-white: #fff;
+    --color-black: #0a0a0a;
+
+    /* --- Neutral --- */
+
+    --color-neutral-50: #fcfcfc;
+    --color-neutral-100: #f5f5f5;
+    --color-neutral-200: #e2e2e2;
+    --color-neutral-300: #c9c9c9;
+    --color-neutral-400: #999999;
+    --color-neutral-500: #6d6d6d;
+    --color-neutral-600: #4b4b4b;
+    --color-neutral-700: #333333;
+    --color-neutral-800: #1e1e1e;
+    --color-neutral-900: #121212;
+    --color-neutral-950: #0a0a0a;
+
+    /* --- Semantic (define in your application before importing) --- */
+
+    /* --color-brand:  #your-brand-color; */
+    /* --color-accent: #your-accent-color; */
+
+    /* --- Status --- */
+
+    --color-status-ok: #1a4;
+    --color-status-warning: #e90;
+    --color-status-ko: #d22;
+    --color-status-info: #26e;
+
+    /* --- Surface aliases --- */
+
+    --color: var(--color-black);
+    --background: var(--color-white);
+    --link-color: inherit;
+    --link-color-hover: var(--link-color);
+    --highlight-background: color-mix(in srgb, currentColor 15%, transparent);
+    --highlight-color: var(--color);
+
+    /* --- Borders --- */
+
+    --border-radius-s: 0.125rem;
+    --border-radius-m: 0.25rem;
+    --border-radius-l: 0.5rem;
+    --border-radius: var(--border-radius-m); /* base alias */
+
+    --border-s: 0.0625rem; /*  ~1px */
+    --border-m: 0.125rem; /*  ~2px */
+    --border-l: 0.25rem; /*  ~4px */
+
+    /* --- Focus ring --- */
+
+    --focus-ring-width: 0.1875rem;
+    --focus-ring-offset: 0.125rem;
+    --focus-ring-color: var(--color-brand, #26e);
+    --focus-ring: var(--focus-ring-width) solid var(--focus-ring-color);
+
+    /* Shadows */
+
+    --shadow-l: 0 0.5rem 0;
+    --shadow-m: 0 0.25rem 0;
+    --shadow-s: 0 0.125rem 0;
+  }
+
+  /* Registered custom property — enables smooth text-underline-offset transition */
+  @property --underline-offset {
+    syntax: "<length>";
+    inherits: false;
+    initial-value: 2px;
+  }
+}

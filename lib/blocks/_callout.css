@@ -1,0 +1,116 @@
+/*
+Callout
+──────────────────────────────────────────────────────────────────────────────
+An inline notification block used to draw attention to important information.
+
+MARKUP PATTERN
+  <div class="callout" role="note">
+    <p>Your session will expire in 5 minutes.</p>
+  </div>
+
+  <!-- Error: announced immediately by screen readers -->
+  <div class="callout" data-variant="error" role="alert" aria-live="assertive">
+    <p>Failed to save. Please try again.</p>
+  </div>
+
+VARIANTS
+  (none)                   Neutral — inherits current colour.
+  data-variant="brand"     Brand-coloured.
+  data-variant="info"      Informational (blue).
+  data-variant="warning"   Caution (amber).
+  data-variant="error"     Failure (red).
+  data-variant="success"   Confirmation (green).
+
+CONFIGURATION
+    .dark-panel .callout {
+      --callout-color: var(--color-neutral-100);
+      --callout-border: solid 1px var(--color-neutral-600);
+      --callout-background: var(--color-neutral-800);
+    }
+
+    <div class="callout" style="--callout-radius: var(--border-radius-s)">…</div>
+
+TOKENS
+  --callout-color        Text / border colour. Default: currentColor
+  --callout-border       Full border shorthand. Default: 2px solid currentColor
+  --callout-background   Fill.                  Default: transparent
+  --callout-radius       Corner radius.         Default: --border-radius-l
+  --callout-padding      Inner space.           Default: --space-xs-s
+*/
+
+@layer tokens {
+  :root {
+    --callout-background: transparent;
+    --callout-border: solid var(--border-m) currentColor;
+    --callout-color: currentColor;
+    --callout-padding: var(--space-xs-s);
+    --callout-radius: var(--border-radius-l);
+  }
+}
+
+@layer blocks {
+  .callout {
+    padding: var(--callout-padding);
+    border: var(--callout-border);
+    border-radius: var(--callout-radius);
+    max-width: var(--width-l);
+    color: var(--callout-color);
+    background-color: var(--callout-background);
+  }
+
+  .callout > * {
+    line-height: var(--line-height);
+  }
+
+  /* ── Variants ────────────────────────────────────────────────────────────── */
+
+  .callout[data-variant="brand"] {
+    --callout-color: var(--color-brand);
+    --callout-border: solid var(--border-m) var(--color-brand);
+    --callout-background: color-mix(
+      in srgb,
+      var(--color-brand) 8%,
+      transparent
+    );
+  }
+
+  .callout[data-variant="info"] {
+    --callout-color: var(--color-status-info);
+    --callout-border: solid var(--border-m) var(--color-status-info);
+    --callout-background: color-mix(
+      in srgb,
+      var(--color-status-info) 8%,
+      transparent
+    );
+  }
+
+  .callout[data-variant="warning"] {
+    --callout-color: var(--color-status-warning);
+    --callout-border: solid var(--border-m) var(--color-status-warning);
+    --callout-background: color-mix(
+      in srgb,
+      var(--color-status-warning) 8%,
+      transparent
+    );
+  }
+
+  .callout[data-variant="error"] {
+    --callout-color: var(--color-status-ko);
+    --callout-border: solid var(--border-m) var(--color-status-ko);
+    --callout-background: color-mix(
+      in srgb,
+      var(--color-status-ko) 8%,
+      transparent
+    );
+  }
+
+  .callout[data-variant="success"] {
+    --callout-color: var(--color-status-ok);
+    --callout-border: solid var(--border-m) var(--color-status-ok);
+    --callout-background: color-mix(
+      in srgb,
+      var(--color-status-ok) 8%,
+      transparent
+    );
+  }
+}

@@ -1,0 +1,457 @@
+/*
+Button
+---
+Styles and tokens for interactive button controls: <button>, submit/reset inputs, and the utility `.button`. 
+Tokens control appearance, motion and states (hover, active, disabled, busy, toggled). 
+Variants (outline, ghost, naked) and presets (elevate) are supported and composable.
+
+USAGE
+  @layer theme {
+    :root {
+      --button-background:           var(--color-brand);
+      --button-color:                var(--color-white);
+      --button-border-color:         var(--color-brand);
+      --button-opacity-disabled:     0.4;
+      --button-outline-border-color: var(--color-brand);
+    }
+  }
+
+  .checkout-form button[type="submit"] {
+    --button-background:       var(--color-status-ok);
+    --button-border-color:     var(--color-status-ok);
+    --button-background-hover: oklch(from var(--color-status-ok) calc(l - 0.08) c h);
+  }
+
+  <button>Save</button>
+  <button style="--button-radius: 9999px">Rounded</button>
+  <button data-variant="outline">Cancel</button>
+  <button data-variant="ghost">Dismiss</button>
+  <button data-variant="naked">Learn more</button>
+  <button data-preset="elevate">Submit</button>
+  <button data-variant="outline" data-preset="elevate">Action</button>
+  <button data-busy="true">Loading...</button>
+  <button aria-pressed="true">Toggled</button>
+
+TOKENS (defined in this file, @layer tokens)
+  Base:     --button-background     --button-border-color     --button-border-style
+            --button-border-width   --button-color
+            --button-font-family    --button-font-size        --button-font-weight
+            --button-gap            --button-icon-size        --button-padding
+            --button-opacity        --button-padding          --button-radius
+            --button-raise          --button-shadow           --button-text-transform
+            --button-tracking       --button-transform        --button-transition
+
+  State:    --button-background-active    --button-border-color-active  --button-color-active
+            --button-shadow-active        --button-transform-active
+            --button-background-disabled  --button-border-color-disabled
+            --button-color-disabled       --button-opacity-busy         --button-opacity-disabled
+            --button-background-hover     --button-border-color-hover   --button-color-hover
+            --button-shadow-hover         --button-transform-hover
+            --button-background-toggled   --button-border-color-toggled --button-color-toggled
+
+  Variant:  --button-ghost-background-hover
+            --button-naked-color-hover
+            --button-outline-background-hover  --button-outline-border-color
+
+  Preset:   --button-elevate-offset          --button-elevate-shadow
+            --button-elevate-shadow-active   --button-elevate-shadow-hover
+            --button-elevate-transform-active  --button-elevate-transform-hover
+
+STATES
+  :hover / :focus-visible     Lift via translateY (--button-raise) only — no shadow
+  :active                     Snaps back; overrides hover transform/shadow
+  :disabled / [aria-disabled] Muted, pointer-events: none
+  [data-busy="true"]          Inline spinner after label
+  [aria-pressed="true"]       Toggled on: brand fill, white text
+  [aria-expanded="true"]      Same as aria-pressed
+
+VARIANTS
+  [data-variant="outline"]    Transparent fill, coloured border
+  [data-variant="ghost"]      No border, subtle hover fill
+  [data-variant="naked"]      Zero chrome — icon buttons, inline actions
+
+PRESETS
+  Presets control motion and elevation only — orthogonal to variants.
+  Compose: <button data-variant="outline" data-preset="elevate">
+
+  [data-preset="elevate"]     Hard offset shadow (x/y), presses flush on :active
+
+NOTE ON HOVER COLOUR DERIVATION
+  --button-background-hover uses color-mix() relative to --button-background.
+  Because CSS custom properties resolve at used-value time on an element,
+  if you change --button-background locally (e.g. on .my-form button) you must
+  also set --button-background-hover explicitly, or use a relative colour:
+    .my-form button {
+      --button-background:       var(--color-brand);
+      --button-border-color:     var(--color-brand);
+      --button-background-hover: oklch(from var(--color-brand) calc(l - 0.08) c h);
+    }
+*/
+
+@layer tokens {
+  :root {
+    /* --- Base --- */
+
+    --button-background: var(--color-neutral-400);
+    --button-border-color: var(--color-neutral-600);
+    --button-border-style: solid;
+    --button-border-width: var(--border-m);
+    --button-color: var(--color-white);
+    --button-font-family: var(--font-family);
+    --button-font-size: 0.875em;
+    --button-font-weight: var(--font-weight-bold);
+    --button-gap: var(--space-xs);
+    --button-icon-size: 1.2cap;
+    --button-opacity: 1;
+    --button-padding: var(--space-xs) var(--space-s);
+    --button-radius: var(--border-radius-m);
+    --button-raise: var(--space-tiny, 0.25rem);
+    --button-shadow: none;
+    --button-text-transform: uppercase;
+    --button-tracking: 0.05em;
+    --button-transform: translateY(0);
+    --button-transition:
+      background-color var(--motion-duration-fast, 150ms)
+        var(--motion-easing-out),
+      border-color var(--motion-duration-fast, 150ms) var(--motion-easing-out),
+      box-shadow var(--motion-duration-fast, 150ms) var(--motion-easing-out),
+      color var(--motion-duration-fast, 150ms) var(--motion-easing-out),
+      opacity var(--motion-duration-fast, 150ms) var(--motion-easing-out),
+      transform var(--motion-duration-fast, 150ms) var(--motion-easing-out);
+
+    /* --- State: hover --- */
+    --button-background-hover: var(--button-background);
+    --button-border-color-hover: var(--button-border-color);
+    --button-color-hover: var(--button-color);
+    --button-shadow-hover: none;
+    --button-transform-hover: translateY(calc(-1 * var(--button-raise)));
+
+    /* --- State: active --- */
+
+    --button-background-active: var(--button-background);
+    --button-border-color-active: var(--button-border-color);
+    --button-color-active: var(--button-color);
+    --button-shadow-active: none;
+    --button-transform-active: translateY(0);
+
+    /* --- State: busy --- */
+
+    --button-opacity-busy: 0.85;
+
+    /* --- State: toggled (aria-pressed / aria-expanded) --- */
+
+    --button-background-toggled: var(--color-neutral-500);
+    --button-border-color-toggled: var(--button-border-color);
+    --button-color-toggled: var(--button-color);
+
+    /* --- State: disabled --- */
+
+    --button-background-disabled: var(--color-neutral-200);
+    --button-border-color-disabled: var(--color-neutral-400);
+    --button-color-disabled: var(--color-neutral-500);
+    --button-opacity-disabled: 0.6;
+
+    /* --- Variant: outline --- */
+
+    --button-outline-background-hover: color-mix(
+      in srgb,
+      currentColor 10%,
+      transparent
+    );
+
+    /* --- Variant: ghost --- */
+
+    --button-ghost-background-hover: color-mix(
+      in srgb,
+      currentColor 10%,
+      transparent
+    );
+
+    /* --- Preset: elevate --- */
+
+    --button-elevate-offset: 0.25rem;
+    --button-elevate-shadow: 0 0 0 var(--button-border-color);
+    --button-elevate-shadow-active: none;
+    --button-elevate-shadow-hover: 0 var(--button-elevate-offset) 0
+      var(--button-border-color);
+    --button-elevate-transform-active: translate(0, 0);
+    --button-elevate-transform-hover: translateY(
+      calc(-1 * var(--button-elevate-offset))
+    );
+  }
+}
+
+@layer blocks {
+  /* --- Base --- */
+
+  button,
+  input[type="submit"],
+  input[type="reset"],
+  input[type="button"],
+  .button {
+    /* Layout */
+    align-items: center;
+    display: inline-flex;
+    gap: var(--button-gap);
+    justify-content: center;
+    /* Box model */
+    border-color: var(--button-border-color);
+    border-radius: var(--button-radius);
+    border-style: var(--button-border-style);
+    border-width: var(--button-border-width);
+    padding: var(--button-padding);
+    /* Typography */
+    font-family: var(--button-font-family);
+    font-size: var(--button-font-size);
+    font-weight: var(--button-font-weight);
+    letter-spacing: var(--button-tracking);
+    line-height: var(--line-height-s);
+    text-align: center;
+    text-decoration: none;
+    text-transform: var(--button-text-transform);
+    white-space: nowrap;
+    /* Trim cap-height space where supported (Safari TP, Chrome 120+) */
+    text-box-edge: cap alphabetic;
+    text-box-trim: trim-both;
+    /* Visual */
+    background-color: var(--button-background);
+    box-shadow: var(--button-shadow);
+    color: var(--button-color);
+    opacity: var(--button-opacity);
+    /* Interaction */
+    cursor: var(--cursor-pointer, pointer);
+    touch-action: manipulation; /* suppress double-tap zoom on iOS */
+    transform: var(--button-transform);
+    transition: var(--button-transition);
+  }
+
+  /* SVG icon — sized relative to cap height, does not grow/shrink */
+  button svg,
+  input[type="submit"] svg,
+  input[type="reset"] svg,
+  input[type="button"] svg,
+  .button svg {
+    block-size: var(--button-icon-size);
+    flex-shrink: 0;
+    inline-size: auto;
+  }
+
+  /* --- Hover / focus-visible --- */
+
+  :is(
+      button,
+      input[type="submit"],
+      input[type="reset"],
+      input[type="button"],
+      .button
+    ):where(:hover, :focus-visible):not(
+      [role="combobox"],
+      :disabled,
+      [aria-disabled="true"],
+      [data-busy="true"],
+      [aria-pressed="true"],
+      [aria-expanded="true"]
+    ) {
+    --button-background: var(--button-background-hover);
+    --button-border-color: var(--button-border-color-hover);
+    --button-color: var(--button-color-hover);
+    --button-shadow: var(--button-shadow-hover);
+    --button-transform: var(--button-transform-hover);
+    /* Link inheritance */
+    --decoration-thickness: var(--link-thickness-hover);
+    --underline-offset: var(--link-offset-hover);
+  }
+
+  /* --- Active — overrides hover, snaps back --- */
+
+  :is(
+      button,
+      input[type="submit"],
+      input[type="reset"],
+      input[type="button"]
+    ):active:not(:disabled):not([aria-pressed="true"]):not(
+      [aria-expanded="true"]
+    ),
+  .button:active:not([aria-disabled="true"]):not([aria-pressed="true"]):not(
+      [aria-expanded="true"]
+    ) {
+    --button-background: var(--button-background-active);
+    --button-border-color: var(--button-border-color-active);
+    --button-color: var(--button-color-active);
+    --button-shadow: var(--button-shadow-active);
+    --button-transform: var(--button-transform-active);
+  }
+
+  /* --- Toggled (aria-pressed / aria-expanded) --- */
+
+  button[aria-pressed="true"],
+  button[aria-expanded="true"],
+  .button[aria-pressed="true"],
+  .button[aria-expanded="true"] {
+    --button-background: var(--button-background-toggled);
+    --button-border-color: var(--button-border-color-toggled);
+    --button-color: var(--button-color-toggled);
+    --button-raise: 0px;
+  }
+
+  /* --- Disabled --- */
+
+  button:disabled,
+  input[type="submit"]:disabled,
+  input[type="reset"]:disabled,
+  input[type="button"]:disabled,
+  .button[aria-disabled="true"] {
+    --button-background: var(--button-background-disabled);
+    --button-border-color: var(--button-border-color-disabled);
+    --button-color: var(--button-color-disabled);
+    --button-raise: 0px;
+
+    cursor: var(--cursor-not-allowed, not-allowed);
+    opacity: var(--button-opacity-disabled);
+    pointer-events: none;
+  }
+
+  /* --- Loading (data-busy) --- */
+
+  button[data-busy="true"],
+  .button[data-busy="true"] {
+    --button-background: var(--button-background-toggled);
+    --button-border-color: var(--button-border-color-toggled);
+    --button-color: var(--button-color-toggled);
+    --button-raise: 0px;
+    --button-transform: translate(0, 0);
+
+    cursor: wait;
+    opacity: var(--button-opacity-busy);
+    pointer-events: none;
+  }
+
+  button[data-busy="true"]::after,
+  .button[data-busy="true"]::after {
+    animation: button-spin var(--motion-duration-slow, 400ms) linear infinite;
+    border: 0.125em solid currentColor;
+    border-radius: 50%;
+    border-top-color: transparent;
+    content: "";
+    display: inline-block;
+    flex-shrink: 0;
+    height: 0.75em;
+    margin-inline-start: var(--button-gap);
+    width: 0.75em;
+  }
+
+  @keyframes button-spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  /* --- Outline --- */
+
+  button[data-variant="outline"],
+  input[type="submit"][data-variant="outline"],
+  input[type="reset"][data-variant="outline"],
+  input[type="button"][data-variant="outline"],
+  .button[data-variant="outline"] {
+    /* Always transparent fill + bordered — constants, not tokens */
+    --button-background: transparent;
+    --button-border-color: currentColor;
+    --button-color: currentColor;
+    --button-raise: 0px;
+    --button-transform-active: translate(0, 0);
+    --button-transform-hover: translate(0, 0);
+    /* State overrides */
+    --button-background-active: var(--button-outline-background-hover);
+    --button-background-hover: var(--button-outline-background-hover);
+    --button-border-color-active: currentColor;
+    --button-border-color-hover: currentColor;
+    --button-color-active: currentColor;
+    --button-color-hover: currentColor;
+  }
+
+  /* --- Ghost --- */
+
+  button[data-variant="ghost"],
+  input[type="submit"][data-variant="ghost"],
+  input[type="reset"][data-variant="ghost"],
+  input[type="button"][data-variant="ghost"],
+  .button[data-variant="ghost"] {
+    /* Always chromeless — constants, not tokens */
+    --button-background: transparent;
+    --button-border-color: transparent;
+    --button-color: currentColor;
+    --button-raise: 0px; /* no lift; translate derives to translateY(0) */
+    --button-transform-active: translate(0, 0);
+    --button-transform-hover: translate(0, 0);
+    /* State overrides */
+    --button-background-active: var(--button-ghost-background-hover);
+    --button-background-hover: var(--button-ghost-background-hover);
+    --button-border-color-active: transparent;
+    --button-border-color-hover: transparent;
+    --button-color-active: currentColor;
+    --button-color-hover: currentColor;
+  }
+
+  /* --- Naked --- */
+
+  button[data-variant="naked"],
+  input[type="submit"][data-variant="naked"],
+  input[type="reset"][data-variant="naked"],
+  input[type="button"][data-variant="naked"],
+  .button[data-variant="naked"] {
+    /* Always zero-chrome — constants, not tokens */
+    --button-background: transparent;
+    --button-border-color: transparent;
+    --button-color: var(--link-color);
+    --button-raise: 0px; /* no lift; translate derives to translateY(0) */
+    --button-transform-active: translateY(0);
+    --button-transform-hover: translateY(0);
+    /* State overrides */
+    --button-background-active: transparent;
+    --button-background-hover: transparent;
+    --button-border-color-active: transparent;
+    --button-border-color-hover: transparent;
+    --button-color-hover: var(--link-color-hover);
+    /* Link inheritance */
+    --decoration-thickness: var(--link-thickness);
+    --underline-offset: var(--link-offset);
+
+    cursor: var(--cursor-pointer, pointer);
+    text-decoration: var(--link-decoration);
+    text-decoration-thickness: var(--link-thickness);
+    text-underline-offset: var(--underline-offset);
+    transition: var(--link-transition);
+    /* Inherits surrounding context typography */
+    letter-spacing: inherit;
+    text-transform: inherit;
+    font-weight: inherit;
+    font-size: inherit;
+  }
+
+  /* --- Elevate --- */
+
+  button[data-preset="elevate"],
+  .button[data-preset="elevate"] {
+    --button-shadow: var(--button-elevate-shadow);
+    --button-shadow-hover: var(--button-elevate-shadow-hover);
+    --button-shadow-active: var(--button-elevate-shadow-active);
+    --button-transform-hover: var(--button-elevate-transform-hover);
+    --button-transform-active: var(--button-elevate-transform-active);
+  }
+
+  /* --- Reduced motion --- */
+
+  @media (prefers-reduced-motion: reduce) {
+    button,
+    input[type="submit"],
+    input[type="reset"],
+    input[type="button"],
+    .button {
+      --button-transform: translateY(0);
+      --button-transform-hover: translateY(0);
+      --button-transform-active: translateY(0);
+      --button-elevate-transform-hover: translate(0, 0);
+      --button-elevate-transform-active: translate(0, 0);
+    }
+  }
+}

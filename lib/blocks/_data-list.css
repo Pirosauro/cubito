@@ -1,0 +1,147 @@
+/*
+Data List
+──────────────────────────────────────────────────────────────────────────────
+Styled <dl> for key/value pairs: product specs, order summaries, user profiles.
+
+MARKUP PATTERN
+  <dl class="data-list">
+    <div>
+      <dt>SKU</dt>
+      <dd>HB-2024-BLK</dd>
+    </div>
+    <div>
+      <dt>Material</dt>
+      <dd>100% organic cotton</dd>
+    </div>
+    <div>
+      <dt>Weight</dt>
+      <dd>280 gsm</dd>
+    </div>
+  </dl>
+
+  <!-- Horizontal layout (label + value on same line) -->
+  <dl class="data-list" data-layout="horizontal">
+    <div>
+      <dt>Subtotal</dt>
+      <dd>£45.00</dd>
+    </div>
+    <div>
+      <dt>Shipping</dt>
+      <dd>Free</dd>
+    </div>
+    <div class="data-list__total">
+      <dt>Total</dt>
+      <dd>£45.00</dd>
+    </div>
+  </dl>
+
+VARIANTS
+  (none)                 Stacked: term above value.
+  data-layout="horizontal"  Term left, value right — ideal for order summaries.
+
+CONFIGURATION
+    .product-specs {
+      --data-list-term-color:  var(--color-neutral-500);
+      --data-list-gap:         var(--space-m);
+    }
+
+TOKENS
+  --data-list-gap          Gap between rows.           Default: --space-xs
+  --data-list-border       Row divider.                Default: 1px solid --color-neutral-100
+  --data-list-term-color   Term (dt) text colour.      Default: --color-neutral-500
+  --data-list-term-size    Term font size.             Default: --font-size-xs
+  --data-list-value-size   Value font size.            Default: --font-size-s
+  --data-list-value-weight Value font weight.          Default: --font-weight-normal
+*/
+
+@layer tokens {
+  :root {
+    --data-list-border: solid var(--border-s) var(--color-neutral-100);
+    --data-list-gap: var(--space-xs);
+    --data-list-term-color: var(--color-neutral-500);
+    --data-list-term-size: var(--font-size-xs);
+    --data-list-value-size: var(--font-size-s);
+    --data-list-value-weight: var(--font-weight-normal);
+  }
+}
+
+@layer blocks {
+  .data-list {
+    --data-list-term-color: var(--color-neutral-500);
+    --data-list-term-size: var(--font-size-xs);
+    --data-list-value-size: var(--font-size-s);
+    --data-list-value-weight: var(--font-weight-normal);
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--data-list-gap);
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Each term/value pair is wrapped in a <div> for styling control */
+  .data-list > div {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-tiny);
+    padding-block: var(--data-list-gap);
+    border-top: var(--data-list-border);
+  }
+
+  .data-list > div:first-child {
+    border-top: none;
+    padding-block-start: 0;
+  }
+
+  .data-list dt {
+    font-size: var(--data-list-term-size);
+    font-weight: var(--font-weight-normal);
+    color: var(--data-list-term-color);
+    margin: 0;
+  }
+
+  .data-list dd {
+    font-size: var(--data-list-value-size);
+    font-weight: var(--data-list-value-weight);
+    margin: 0;
+  }
+
+  /* ── Horizontal layout: dt left, dd right ────────────────────────────────── */
+
+  .data-list[data-layout="horizontal"] > div {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: var(--space-s);
+  }
+
+  .data-list[data-layout="horizontal"] dt {
+    flex-shrink: 0;
+  }
+
+  .data-list[data-layout="horizontal"] dd {
+    text-align: end;
+  }
+
+  /* Total row: bolder, slightly larger */
+  .data-list__total dt,
+  .data-list__total dd {
+    font-size: var(--font-size-m);
+    font-weight: var(--font-weight-bold);
+    color: currentColor;
+  }
+
+  .data-list__total {
+    border-top: solid var(--border-m) currentColor !important;
+    padding-block-start: var(--data-list-gap) !important;
+  }
+
+  /* ── Dark mode ───────────────────────────────────────────────────────────── */
+
+  @media (prefers-color-scheme: dark) {
+    .data-list {
+      --data-list-border: solid var(--border-s) var(--color-neutral-800);
+      --data-list-term-color: var(--color-neutral-400);
+    }
+  }
+}

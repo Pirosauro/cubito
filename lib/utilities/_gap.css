@@ -1,0 +1,16 @@
+/*
+Gap utility
+──────────────────────────────────────────────────────────────────────────────
+Sets the gap between flex or grid children. Defaults to --space-xs.
+For fine-grained control, set --row-gap and/or --column-gap independently.
+
+USAGE
+  <ul class="cluster gap">…</ul>
+  <div class="grid gap" style="--row-gap: var(--space-l)">…</div>
+*/
+
+@layer utilities {
+  .gap {
+    gap: var(--row-gap, var(--space-xs)) var(--column-gap, var(--space-xs));
+  }
+}

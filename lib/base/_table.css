@@ -1,0 +1,149 @@
+/*
+Table
+──────────────────────────────────────────────────────────────────────────────
+Base styles for data tables. Wrap in .table-wrapper to handle horizontal
+overflow on narrow viewports.
+
+MARKUP PATTERN
+  <div class="table-wrapper">
+    <table>
+      <caption>Q3 revenue by region</caption>
+      <thead>
+        <tr><th scope="col">Region</th><th scope="col">Revenue</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>EMEA</td><td>£1.2m</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+VARIANTS
+  table[data-variant="borderless"]  No cell borders.
+  table[data-variant="compact"]     Reduced cell padding and font size.
+
+CONFIGURATION
+  Row and header background tokens are set in _reset.css:
+    --tr-background-odd   / --tr-background-even  — alternating row fills
+    --th-background                               — header cell fill
+
+  Override at any scope:
+    :root { --tr-background-odd: var(--color-neutral-50); }
+
+    .pricing-table {
+      --th-background:        var(--color-brand);
+      --tr-background-odd:    white;
+      --tr-background-even:   var(--color-neutral-50);
+    }
+*/
+
+@layer tokens {
+  :root {
+    /* Row */
+    --tr-background-odd: transparent;
+    --tr-background-even: transparent;
+    --tr-color-odd: inherit;
+    --tr-color-even: inherit;
+
+    /* Cell */
+    --td-border-color: var(--color);
+    --td-border-width: var(--border-s);
+    --td-border-style: solid;
+    --td-padding: var(--space-tiny) var(--space-xxs);
+
+    /* Header */
+    --th-background: var(--color);
+    --th-color: var(--background);
+
+    /* Caption */
+    --caption-color: var(--color-neutral-500);
+    --caption-font-size: var(--font-size-xs);
+    --caption-padding: var(--space-tiny) var(--space-xxs);
+
+    /* State: hover */
+    --tr-background-odd-hover: var(--tr-background-odd);
+    --tr-background-even-hover: var(--tr-background-even);
+    --tr-color-odd-hover: var(--tr-color-odd);
+    --tr-color-even-hover: var(--tr-color-even);
+
+    /* Variant: compact */
+    --td-compact-padding: var(--space-xxs) var(--space-tiny);
+    --td-compact-font-size: var(--font-size-xs);
+  }
+}
+
+@layer blocks {
+  .table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  table {
+    border-collapse: collapse; /* @todo: replace with border-spacing: 0 */
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    margin-block: var(--space-m);
+  }
+
+  tr {
+    background: var(--tr-background-odd);
+    color: var(--tr-color-odd);
+  }
+
+  tr:nth-child(even) {
+    background: var(--tr-background-even);
+    color: var(--tr-color-even);
+  }
+
+  td,
+  th {
+    border-color: var(--td-border-color);
+    border-width: var(--td-border-width);
+    border-style: var(--td-border-style);
+    text-align: start;
+    padding: var(--td-padding);
+  }
+
+  th {
+    background: var(--th-background);
+    color: var(--th-color);
+  }
+
+  table caption {
+    padding: var(--caption-padding);
+    caption-side: bottom;
+    font-size: var(--caption-font-size);
+    color: var(--caption-color);
+    text-align: start;
+  }
+
+  /* ── Variant: borderless ────────────────────────────────────────────────── */
+
+  table[data-variant="borderless"] td,
+  table[data-variant="borderless"] th {
+    border: none;
+  }
+
+  /* ── Variant: lined ─────────────────────────────────────────────────────── */
+
+  table[data-variant="lined"] td,
+  table[data-variant="lined"] th {
+    border-width: 0 0 var(--td-border-width) 0;
+  }
+
+  /* ── Variant: compact ────────────────────────────────────────────────────── */
+
+  table[data-variant="compact"] td,
+  table[data-variant="compact"] th {
+    padding: var(--td-compact-padding);
+    font-size: var(--td-compact-font-size);
+  }
+
+  /* ── Variant: sticky header ──────────────────────────────────────────────── */
+
+  table[data-sticky-header] th {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }
+}

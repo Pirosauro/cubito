@@ -1,0 +1,43 @@
+/*
+Switcher
+──────────────────────────────────────────────────────────────────────────────
+Switches a row of items between a horizontal layout and a stacked (vertical)
+layout at a configurable container-width threshold — no media queries needed.
+Supports up to 4 items inline; any 5th+ item always stacks.
+
+@link https://every-layout.dev/layouts/switcher/
+
+CUSTOM PROPERTIES
+  --switcher-gutter                  Gap between items. Default: 1rem.
+  --switcher-target-container-width  Threshold at which items go inline.
+                                     Default: 40rem.
+  --switcher-vertical-alignment      align-items value. Default: flex-start.
+*/
+
+@layer tokens {
+  :root {
+    --switcher-gutter: 1rem;
+    --switcher-target-container-width: 40rem;
+    --switcher-vertical-alignment: flex-start;
+  }
+}
+
+@layer layout {
+  .switcher {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--switcher-gutter);
+    align-items: var(--switcher-vertical-alignment);
+  }
+
+  .switcher > * {
+    flex-grow: 1;
+    flex-basis: calc((var(--switcher-target-container-width) - 100%) * 999);
+  }
+
+  /* Any 5th child (and beyond) always stacks full-width */
+  .switcher > :nth-last-child(n + 5),
+  .switcher > :nth-last-child(n + 5) ~ * {
+    flex-basis: 100%;
+  }
+}

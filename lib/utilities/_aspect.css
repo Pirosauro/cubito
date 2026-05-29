@@ -1,0 +1,63 @@
+/*
+Aspect ratio utilities
+──────────────────────────────────────────────────────────────────────────────
+Named aspect-ratio helpers for non-cropped media. Unlike the .frame
+composition (which crops via overflow: hidden and object-fit), these utilities
+simply enforce a ratio on the element itself — the content inside is not
+clipped unless you also add overflow:hidden.
+
+Use .frame when you need to crop media to fill a space.
+Use .aspect-* when you want to reserve intrinsic space for an element
+(iframes, embeds, custom components) without clipping.
+
+USAGE
+  <!-- Square avatar container -->
+  <div class="aspect-square">…</div>
+
+  <!-- 16:9 video embed -->
+  <div class="aspect-video">
+    <iframe src="…" title="Product demo"></iframe>
+  </div>
+
+  <!-- Custom ratio inline -->
+  <div class="aspect" style="--aspect-ratio: 4/3">…</div>
+
+  <!-- Responsive image that retains its ratio without object-fit crop -->
+  <img class="aspect-video" src="banner.jpg" alt="…" style="width:100%">
+
+UTILITIES
+  .aspect            Custom ratio via --aspect-ratio token.
+  .aspect-square     1:1
+  .aspect-video      16:9
+  .aspect-photo      4:3
+  .aspect-portrait   3:4
+  .aspect-wide       21:9
+  .aspect-auto       Removes any set ratio (revert to natural dimensions)
+
+TOKENS
+  --aspect-ratio   Ratio for .aspect class.  Default: 1 / 1
+*/
+
+@layer utilities {
+  [data-aspect] {
+    aspect-ratio: var(--aspect-ratio, 1 / 1);
+  }
+  [data-aspect="square"] {
+    --aspect-ratio: 1 / 1;
+  }
+  [data-aspect="video"] {
+    --aspect-ratio: 16 / 9;
+  }
+  [data-aspect="photo"] {
+    --aspect-ratio: 4 / 3;
+  }
+  [data-aspect="portrait"] {
+    --aspect-ratio: 3 / 4;
+  }
+  [data-aspect="wide"] {
+    --aspect-ratio: 21 / 9;
+  }
+  [data-aspect="auto"] {
+    --aspect-ratio: auto;
+  }
+}

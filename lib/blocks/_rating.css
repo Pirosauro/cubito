@@ -1,0 +1,111 @@
+/*
+Rating
+──────────────────────────────────────────────────────────────────────────────
+Presentational star rating display. Uses the standard 5-star convention.
+Built with CSS only — no JavaScript needed for display.
+
+MARKUP PATTERN
+  <!--
+    Set --rating-value to the score (0–5, decimals supported).
+    Always provide a text alternative for screen readers.
+  -->
+  <div class="rating" style="--rating-value: 4.2" aria-label="4.2 out of 5 stars">
+    <span aria-hidden="true"></span>
+  </div>
+
+  <!-- With review count -->
+  <div class="rating" style="--rating-value: 3.7" aria-label="3.7 out of 5 stars">
+    <span aria-hidden="true"></span>
+    <span class="rating__count">(128 reviews)</span>
+  </div>
+
+HOW IT WORKS
+  A single <span> renders five stars using a layered gradient:
+    - background-image: a row of filled star SVGs (gold)
+    - background-clip + background-size: fill exactly (value/5 * 100)%
+    - The remaining area shows the empty-star layer beneath.
+  No JavaScript, no individual star elements.
+
+CONFIGURATION
+    :root {
+      --rating-star-color:       var(--color-accent);
+      --rating-empty-color:      var(--color-neutral-300);
+      --rating-size:             1.1rem;
+    }
+
+TOKENS
+  --rating-value       Score 0–5.              No default — must be set.
+  --rating-star-color  Filled star colour.     Default: #f59e0b (amber)
+  --rating-empty-color Empty star colour.      Default: --color-neutral-300
+  --rating-size        Star size.              Default: 1rem
+  --rating-gap         Gap between stars.      Default: 0.1em
+*/
+
+@layer tokens {
+  :root {
+    --rating-empty-color: var(--color-neutral-300);
+    --rating-gap: 0.1em;
+    --rating-size: 1rem;
+    --rating-star-color: #f59e0b;
+  }
+}
+
+@layer blocks {
+  .rating {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xxs);
+  }
+
+  /* The star track */
+  .rating > span:first-child {
+    --_star-svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z'/%3E%3C/svg%3E");
+
+    display: inline-block;
+    width: calc(var(--rating-size) * 5 + var(--rating-gap) * 4);
+    height: var(--rating-size);
+
+    /* Empty stars layer (background) */
+    background-color: var(--rating-empty-color);
+
+    /* Filled stars layer clipped to the score percentage */
+    background-image: var(--_star-svg), var(--_star-svg);
+    background-repeat: repeat-x, repeat-x;
+    background-size:
+      calc(var(--rating-size) + var(--rating-gap)) var(--rating-size),
+      calc(var(--rating-size) + var(--rating-gap)) var(--rating-size);
+
+    /* Mask: first image is the filled colour, clipped to score width */
+    -webkit-mask-image: var(--_star-svg);
+    mask-image: var(--_star-svg);
+    -webkit-mask-size: calc(var(--rating-size) + var(--rating-gap))
+      var(--rating-size);
+    mask-size: calc(var(--rating-size) + var(--rating-gap)) var(--rating-size);
+    -webkit-mask-repeat: repeat-x;
+    mask-repeat: repeat-x;
+
+    /* Overlay: filled portion coloured amber */
+    background-image: linear-gradient(
+      to right,
+      var(--rating-star-color) 0%,
+      var(--rating-star-color) calc(var(--rating-value, 0) / 5 * 100%),
+      var(--rating-empty-color) calc(var(--rating-value, 0) / 5 * 100%)
+    );
+    background-clip: content-box;
+  }
+
+  /* Review count */
+  .rating__count {
+    font-size: var(--font-size-xs);
+    color: var(--color-neutral-500);
+    white-space: nowrap;
+  }
+
+  /* ── Dark mode ───────────────────────────────────────────────────────────── */
+
+  @media (prefers-color-scheme: dark) {
+    .rating {
+      --rating-empty-color: var(--color-neutral-700);
+    }
+  }
+}

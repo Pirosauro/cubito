@@ -1,0 +1,150 @@
+/*
+Stepper
+──────────────────────────────────────────────────────────────────────────────
+Quantity input: decrement / number / increment.
+E-commerce cart staple. Keyboard- and screen-reader accessible.
+
+MARKUP PATTERN
+  <div class="stepper" role="group" aria-label="Quantity">
+    <button
+      type="button"
+      class="stepper__decrement"
+      aria-label="Decrease quantity"
+      aria-controls="qty-1"
+    >−</button>
+
+    <input
+      type="number"
+      id="qty-1"
+      class="stepper__input"
+      value="1"
+      min="0"
+      max="99"
+      aria-label="Quantity"
+    >
+
+    <button
+      type="button"
+      class="stepper__increment"
+      aria-label="Increase quantity"
+      aria-controls="qty-1"
+    >+</button>
+  </div>
+
+CONFIGURATION
+    :root {
+      --stepper-size:       3rem;
+      --stepper-radius:     var(--border-radius-l);
+    }
+
+    <div class="stepper" style="--stepper-size: 2.5rem">…</div>
+
+TOKENS
+  --stepper-size         Height (and button width).  Default: 2.75rem
+  --stepper-input-width  Width of the number input.  Default: 3rem
+  --stepper-background   Control fill.               Default: --color-white
+  --stepper-border       Outer border shorthand.     Default: 1px solid --color-neutral-300
+  --stepper-radius       Corner radius.              Default: --border-radius-m
+  --stepper-color        Text colour.                Default: currentColor
+*/
+
+@layer tokens {
+  :root {
+    --stepper-background: var(--color-white);
+    --stepper-border: solid var(--border-s) var(--color-neutral-300);
+    --stepper-color: currentColor;
+    --stepper-input-width: 3rem;
+    --stepper-radius: var(--border-radius-m);
+    --stepper-size: 2.75rem;
+  }
+}
+
+@layer blocks {
+  .stepper {
+    display: inline-flex;
+    align-items: stretch;
+    height: var(--stepper-size);
+    border: var(--stepper-border);
+    border-radius: var(--stepper-radius);
+    overflow: hidden;
+    background: var(--stepper-background);
+    color: var(--stepper-color);
+  }
+
+  /* Shared button styles */
+  .stepper__decrement,
+  .stepper__increment {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--stepper-size);
+    border: none;
+    background: transparent;
+    color: inherit;
+    font-size: var(--font-size-m);
+    font-weight: var(--font-weight-bold);
+    cursor: pointer;
+    line-height: 1;
+    transition: background var(--motion-duration-fast);
+    border-radius: 0; /* override global button radius */
+    text-transform: none;
+    letter-spacing: 0;
+    padding: 0;
+  }
+
+  .stepper__decrement:hover,
+  .stepper__increment:hover,
+  .stepper__decrement:focus-visible,
+  .stepper__increment:focus-visible {
+    background: color-mix(in srgb, currentColor 8%, transparent);
+  }
+
+  .stepper__decrement:active,
+  .stepper__increment:active {
+    background: color-mix(in srgb, currentColor 15%, transparent);
+  }
+
+  .stepper__decrement:disabled,
+  .stepper__increment:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  /* Number input — reset browser defaults */
+  .stepper__input {
+    width: var(--stepper-input-width);
+    height: 100%;
+    border: none;
+    border-inline: var(--stepper-border);
+    border-radius: 0;
+    background: transparent;
+    text-align: center;
+    font-size: var(--font-size-s);
+    font-weight: var(--font-weight-bold);
+    color: inherit;
+    padding: 0;
+    appearance: textfield; /* hide native spin buttons */
+    -moz-appearance: textfield;
+  }
+
+  .stepper__input::-webkit-inner-spin-button,
+  .stepper__input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  .stepper__input:focus-visible {
+    outline: var(--focus-ring);
+    outline-offset: -2px;
+  }
+
+  /* ── Dark mode ───────────────────────────────────────────────────────────── */
+
+  @media (prefers-color-scheme: dark) {
+    .stepper {
+      --stepper-background: var(--color-neutral-800);
+      --stepper-border: solid var(--border-s) var(--color-neutral-600);
+    }
+  }
+}

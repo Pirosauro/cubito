@@ -1,0 +1,31 @@
+/*
+Dialog composition
+──────────────────────────────────────────────────────────────────────────────
+Fixed overlay wrapper that centres a dialog or panel on screen.
+Use when you need a custom overlay rather than the native <dialog> backdrop.
+
+MARKUP PATTERN
+  <div class="dialog" role="presentation" hidden>
+    <dialog open aria-labelledby="…">…</dialog>
+  </div>
+
+NOTE: Prefer the native <dialog> element with showModal() where possible.
+      The native backdrop is more accessible and composable than this wrapper.
+      Use .dialog as a layout primitive only when native is not viable.
+*/
+
+@layer layout {
+  .dialog {
+    align-items: center;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    left: 0;
+    overflow-y: auto;
+    padding: var(--space-s);
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: var(--z-modal, 51);
+  }
+}

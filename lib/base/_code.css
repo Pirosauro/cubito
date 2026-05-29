@@ -1,0 +1,49 @@
+/*
+Preformatted text
+---
+Styles for code blocks and inline code. Base token assignments (--pre-background,
+--code-background, --code-color) are set in _reset.css; this file adds layout
+and contextual sizing.
+
+CONFIGURATION (override in _reset.css token scope or globally)
+    :root {
+      --pre-background:  #1e1e2e;
+      --code-background: #2d2d2d;
+      --code-color:      #f8f8f2;
+    }
+*/
+
+@layer tokens {
+  :root {
+    --code-background: var(--color-neutral-100);
+    --code-color: var(--color-neutral-900);
+    --code-font-size: 0.85em;
+    --code-padding: var(--space-xxs, 0.5rem) var(--space-s, 1rem);
+    --code-radius: var(--border-radius);
+  }
+}
+
+@layer blocks {
+  pre {
+    border-radius: var(--code-radius);
+    padding: var(--code-padding);
+    font-size: var(--code-font-size);
+    background: var(--code-background);
+    color: var(--code-color);
+  }
+
+  code {
+    background: var(--code-background);
+    color: var(--code-color);
+    font-size: var(--code-font-size);
+  }
+
+  /* Inline code inside prose */
+  p code,
+  li code,
+  td code,
+  th code {
+    border-radius: var(--border-radius-s);
+    padding: var(--space-tiny, 0.125rem) var(--space-xxs, 0.375rem);
+  }
+}

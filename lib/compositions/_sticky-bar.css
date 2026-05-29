@@ -1,0 +1,84 @@
+/*
+Sticky Bar
+──────────────────────────────────────────────────────────────────────────────
+A full-width bar that stays fixed at the top or bottom of the viewport.
+Common uses: mobile cart summary, cookie consent, persistent CTA,
+sitewide notifications, and bottom navigation.
+
+MARKUP PATTERN
+  <!-- Bottom cart bar (mobile) -->
+  <div class="sticky-bar" data-position="bottom">
+    <div class="wrapper repel">
+      <p>2 items — <strong>£58.00</strong></p>
+      <a href="/cart/" class="button">View cart</a>
+    </div>
+  </div>
+
+  <!-- Top announcement / cookie bar -->
+  <div class="sticky-bar" data-position="top">
+    <div class="wrapper">
+      <p>We use cookies. <a href="/privacy/">Learn more</a></p>
+      <button type="button">Accept</button>
+    </div>
+  </div>
+
+PLACEMENT
+  data-position="bottom"   (default) Fixed to viewport bottom.
+  data-position="top"      Fixed to viewport top.
+
+CONFIGURATION
+    :root {
+      --sticky-bar-background: var(--color-brand);
+      --sticky-bar-color:      var(--color-white);
+    }
+
+    <div class="sticky-bar" style="--sticky-bar-z: var(--z-modal)">…</div>
+
+TOKENS
+  --sticky-bar-background    Fill.         Default: --color-white
+  --sticky-bar-color         Text colour.  Default: currentColor
+  --sticky-bar-border        Top/bottom border. Default: 1px solid --color-neutral-200
+  --sticky-bar-padding       Inner space.  Default: --space-xs 0
+  --sticky-bar-shadow        Box shadow.   Default: layered shadow
+  --sticky-bar-z             z-index.      Default: --z-fixed
+*/
+
+@layer tokens {
+  :root {
+    --sticky-bar-background: var(--color-white);
+    --sticky-bar-color: currentColor;
+    --sticky-bar-border: solid var(--border-s) var(--color-neutral-200);
+    --sticky-bar-padding: var(--space-xs) 0;
+    --sticky-bar-shadow: 0 -2px 8px rgba(0, 0, 0, 0.08);
+    --sticky-bar-z: var(--z-fixed, 30);
+  }
+}
+
+@layer layout {
+  .sticky-bar {
+    position: fixed;
+    inset-inline: 0;
+    z-index: var(--sticky-bar-z);
+    background: var(--sticky-bar-background);
+    color: var(--sticky-bar-color);
+    padding: var(--sticky-bar-padding);
+  }
+
+  /* Bottom (default) */
+  .sticky-bar,
+  .sticky-bar[data-position="bottom"] {
+    inset-block-end: 0;
+    inset-block-start: auto;
+    border-top: var(--sticky-bar-border);
+    box-shadow: var(--sticky-bar-shadow);
+  }
+
+  /* Top */
+  .sticky-bar[data-position="top"] {
+    inset-block-start: 0;
+    inset-block-end: auto;
+    border-top: none;
+    border-bottom: var(--sticky-bar-border);
+    box-shadow: var(--sticky-bar-shadow);
+  }
+}

@@ -1,0 +1,90 @@
+/*
+Hero
+──────────────────────────────────────────────────────────────────────────────
+A full-width introductory section, typically at the top of a page.
+Pair with .region for vertical rhythm and .flow for inter-element spacing.
+
+MARKUP PATTERN
+  <section class="hero region flow">
+    <h1>Page title</h1>
+    <p class="text-l">A compelling subtitle.</p>
+    <a href="#" class="button">Call to action</a>
+  </section>
+
+  <!-- Split: text left, image right -->
+  <section class="hero region" data-layout="split">
+    <div class="flow">
+      <h1>Heading</h1>
+      <p>Description</p>
+    </div>
+    <img src="hero.jpg" alt="…">
+  </section>
+
+VARIANTS
+  .hero[data-layout="split"]  Two-column: text left, image right.
+
+CONFIGURATION
+    :root {
+      --hero-space: var(--space-huge);
+      --hero-align: start;
+    }
+
+    <section class="hero region" style="--hero-split-gap: var(--space-xxl)">
+
+TOKENS
+  --hero-space       Vertical region padding.        Default: --space-xxl
+  --hero-align       Text alignment.                 Default: center
+  --hero-flow-space  Gap between child elements.     Default: --space-s
+  --hero-split-gap   Column gap in split layout.     Default: --space-l
+  --hero-image-radius Image corner radius (split).   Default: --border-radius-l
+*/
+
+@layer tokens {
+  :root {
+    --hero-align: center;
+    --hero-flow-space: var(--space-s);
+    --hero-image-radius: var(--border-radius-l);
+    --hero-space: var(--space-xxl);
+    --hero-split-gap: var(--space-l);
+  }
+}
+
+@layer blocks {
+  .hero {
+    --region-space: var(--hero-space);
+
+    padding-inline: var(--space-s-m);
+    text-align: var(--hero-align);
+  }
+
+  .hero > * {
+    --flow-space: var(--hero-flow-space);
+
+    margin-inline: auto;
+  }
+
+  /* ── Split layout ────────────────────────────────────────────────────────── */
+
+  .hero[data-layout="split"] {
+    --hero-split-gap: var(--space-l);
+    --hero-image-radius: var(--border-radius-l);
+
+    text-align: start;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--hero-split-gap);
+  }
+
+  .hero[data-layout="split"] > * {
+    margin-inline: 0;
+    flex: 1 1 min(24rem, 100%);
+  }
+
+  .hero[data-layout="split"] > img,
+  .hero[data-layout="split"] > picture {
+    flex: 1 1 min(20rem, 100%);
+    object-fit: cover;
+    border-radius: var(--hero-image-radius);
+  }
+}

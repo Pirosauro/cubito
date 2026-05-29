@@ -1,0 +1,30 @@
+/*
+Cluster
+──────────────────────────────────────────────────────────────────────────────
+Distributes items with consistent spacing, wrapping naturally when they run
+out of space. No media queries needed.
+
+@link https://every-layout.dev/layouts/cluster/
+
+CUSTOM PROPERTIES
+  --gutter                            Gap between items. Default: var(--space-s-l).
+  --cluster-horizontal-alignment      justify-content value. Default: flex-start.
+  --cluster-vertical-alignment        align-items value. Default: center.
+*/
+
+@layer tokens {
+  :root {
+    --cluster-horizontal-alignment: flex-start;
+    --cluster-vertical-alignment: center;
+  }
+}
+
+@layer layout {
+  .cluster {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--gutter, var(--space-s-l));
+    justify-content: var(--cluster-horizontal-alignment);
+    align-items: var(--cluster-vertical-alignment);
+  }
+}

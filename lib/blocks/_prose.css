@@ -1,0 +1,65 @@
+/*
+Prose
+──────────────────────────────────────────────────────────────────────────────
+Long-form reading context. Adds generous line-height and constrains measure
+for optimal readability. Pair with .flow for vertical rhythm.
+
+MARKUP PATTERN
+  <article class="prose flow">
+    <h2>Section heading</h2>
+    <p>Body copy…</p>
+    <pre><code>npm install @hobiri/ui</code></pre>
+  </article>
+
+CONFIGURATION
+    :root {
+      --prose-measure:      72ch;
+      --prose-line-height:  var(--line-height-l);
+      --prose-flow-space:   var(--space-m);
+    }
+
+TOKENS
+  --prose-measure       Max line length.         Default: --width-l (65ch)
+  --prose-line-height   Line height for body.    Default: --line-height-l
+  --prose-flow-space    Default gap between items. Default: --space-s-m
+*/
+
+@layer tokens {
+  :root {
+    --prose-blockquote-border: solid var(--border-l) currentColor;
+    --prose-blockquote-opacity: 0.8;
+    --prose-blockquote-padding: 0 0 0 var(--space-s);
+    --prose-line-max-width: var(--width-l);
+    --prose-list-marker-width: 1.7ch;
+  }
+}
+
+@layer blocks {
+  .prose {
+    --prose-measure: var(--width-l);
+    --prose-line-height: var(--line-height-l);
+    --prose-flow-space: var(--space-s-m);
+
+    --flow-space: var(--prose-flow-space);
+
+    line-height: var(--prose-line-height);
+  }
+
+  .prose :is(p, ul:not([class]), ol:not([class])) {
+    max-width: var(--prose-measure);
+  }
+
+  .prose blockquote {
+    max-width: 52ch;
+  }
+
+  /* Extra breathing room before major structural elements */
+  .prose :is(pre, pre + *, figure, figure + *, h2, h3, h4):not(.flow *) {
+    --flow-space: var(--space-l-xl);
+  }
+
+  /* Tighten gap for elements directly following a heading */
+  .prose :is(h2, h3, h4) + * {
+    --flow-space: var(--space-xs);
+  }
+}

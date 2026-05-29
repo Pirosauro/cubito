@@ -1,0 +1,33 @@
+/*
+Truncate lines
+──────────────────────────────────────────────────────────────────────────────
+Multi-line text truncation via -webkit-line-clamp. Widely supported.
+Pairs with .text-truncate (single-line) in _typography.css.
+
+USAGE
+  <!-- Clamp to 2 lines (default) -->
+  <p class="truncate-lines">Long product title that may run over…</p>
+
+  <!-- Override line count inline -->
+  <h3 class="truncate-lines" style="--lines: 3">…</h3>
+
+  <!-- Named line-count utilities -->
+  <p class="truncate-2">Clamp to 2 lines</p>
+  <p class="truncate-3">Clamp to 3 lines</p>
+  <p class="truncate-4">Clamp to 4 lines</p>
+
+TOKENS
+  --lines   Number of visible lines.  Default: 2
+*/
+
+@layer utilities {
+  .truncate {
+    --lines: 2;
+
+    display: -webkit-box;
+    -webkit-line-clamp: var(--lines);
+    line-clamp: var(--lines);
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}

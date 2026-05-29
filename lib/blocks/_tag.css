@@ -1,0 +1,163 @@
+/*
+Tag / Chip
+──────────────────────────────────────────────────────────────────────────────
+Compact label for taxonomy, filters, and attribute display.
+A static tag is purely presentational. A chip is interactive — it can be
+selected (toggle) or dismissed (remove).
+
+MARKUP PATTERN
+  <!-- Static tag -->
+  <span class="tag">JavaScript</span>
+
+  <!-- Selectable chip (filter toggle) -->
+  <button class="tag" aria-pressed="false">Free shipping</button>
+  <button class="tag" aria-pressed="true">In stock</button>
+
+  <!-- Dismissible chip -->
+  <span class="tag">
+    Red
+    <button type="button" aria-label="Remove Red filter">
+      <svg aria-hidden="true" width="12" height="12" viewBox="0 0 12 12">
+        <path d="M2 2l8 8M10 2l-8 8" stroke="currentColor" stroke-width="1.5"
+              stroke-linecap="round"/>
+      </svg>
+    </button>
+  </span>
+
+  <!-- Tag group -->
+  <ul class="tag-group" role="list">
+    <li><span class="tag">Cotton</span></li>
+    <li><span class="tag">Sustainable</span></li>
+  </ul>
+
+CONFIGURATION
+    :root {
+      --tag-background: var(--color-neutral-100);
+      --tag-color:      var(--color-neutral-700);
+    }
+
+    .tag[data-variant="filter"] {
+      --tag-background-selected: color-mix(
+        in srgb,
+        var(--color-brand) 15%,
+        transparent
+      );
+      --tag-color-selected: var(--color-brand);
+      --tag-border-selected: solid var(--border-m) var(--color-brand);
+    }
+
+TOKENS
+  --tag-background           Fill.                Default: --color-neutral-100
+  --tag-color                Text colour.         Default: --color-neutral-700
+  --tag-border               Border shorthand.    Default: 1px solid --color-neutral-300
+  --tag-radius               Corner radius.       Default: 9999px
+  --tag-padding              Inner space.         Default: 0.25em 0.7em
+  --tag-font-size            Text size.           Default: --font-size-xs
+  --tag-background-selected  Selected fill.       Default: --color-brand
+  --tag-color-selected       Selected text.       Default: --color-white
+  --tag-border-selected      Selected border.     Default: solid 1px --color-brand
+*/
+
+@layer tokens {
+  :root {
+    --tag-background: var(--color-neutral-100);
+    --tag-background-selected: var(--color-brand);
+    --tag-border: solid var(--border-s) var(--color-neutral-300);
+    --tag-border-selected: solid var(--border-s) var(--color-brand);
+    --tag-color: var(--color-neutral-700);
+    --tag-color-selected: var(--color-white);
+    --tag-font-size: var(--font-size-xs);
+    --tag-padding: 0.25em 0.7em;
+    --tag-radius: 9999px;
+  }
+}
+
+@layer blocks {
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35em;
+    padding: var(--tag-padding);
+    border: var(--tag-border);
+    border-radius: var(--tag-radius);
+    background: var(--tag-background);
+    color: var(--tag-color);
+    font-size: var(--tag-font-size);
+    font-weight: var(--font-weight-normal);
+    line-height: 1.25;
+    white-space: nowrap;
+    text-decoration: none;
+    cursor: default;
+    transition:
+      background var(--motion-duration-fast),
+      color var(--motion-duration-fast),
+      border-color var(--motion-duration-fast);
+  }
+
+  /* Interactive chip (button element or aria-pressed) */
+  button.tag,
+  .tag[aria-pressed] {
+    cursor: pointer;
+  }
+
+  button.tag:hover,
+  button.tag:focus-visible {
+    --tag-background: var(--color-neutral-200);
+  }
+
+  /* Selected state */
+  .tag[aria-pressed="true"],
+  button.tag[aria-pressed="true"] {
+    --tag-background: var(--tag-background-selected);
+    --tag-color: var(--tag-color-selected);
+    --tag-border: var(--tag-border-selected);
+  }
+
+  /* Dismiss button inside a chip */
+  .tag > button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+    border-radius: 50%;
+    line-height: 1;
+    opacity: 0.7;
+    transition: opacity var(--motion-duration-fast);
+  }
+
+  .tag > button:hover,
+  .tag > button:focus-visible {
+    opacity: 1;
+  }
+
+  /* ── Tag group — wrapping cluster of tags ────────────────────────────────── */
+
+  .tag-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xxs);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* ── Dark mode ───────────────────────────────────────────────────────────── */
+
+  @media (prefers-color-scheme: dark) {
+    .tag {
+      --tag-background: var(--color-neutral-800);
+      --tag-color: var(--color-neutral-300);
+      --tag-border: solid var(--border-s) var(--color-neutral-700);
+    }
+
+    button.tag:hover,
+    button.tag:focus-visible {
+      --tag-background: var(--color-neutral-700);
+    }
+  }
+}

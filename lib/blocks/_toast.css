@@ -1,0 +1,244 @@
+/*
+Toast / Notification
+──────────────────────────────────────────────────────────────────────────────
+Timed dismissible message overlay. Fixed to a corner of the viewport,
+stacking multiple toasts with a gap. Maps to --z-notification.
+
+MARKUP PATTERN
+  <!-- Toast region: render this once per page, near </body> -->
+  <div class="toast-region" aria-live="polite" aria-atomic="false" aria-label="Notifications">
+
+    <!-- Individual toast (JS inserts/removes these) -->
+    <div class="toast" role="status">
+      <p>Changes saved successfully.</p>
+    </div>
+
+    <!-- Toast with icon and dismiss button -->
+    <div class="toast" data-variant="error" role="alert">
+      <svg aria-hidden="true" class="toast__icon">…</svg>
+      <p>Failed to save. Try again.</p>
+      <button type="button" class="toast__dismiss" aria-label="Dismiss notification">
+        <svg aria-hidden="true">…</svg>
+      </button>
+    </div>
+
+  </div>
+
+PLACEMENT
+  data-position="top-right"      (default)
+  data-position="top-left"
+  data-position="top-center"
+  data-position="bottom-right"
+  data-position="bottom-left"
+  data-position="bottom-center"
+
+VARIANTS
+  (none)              Neutral.
+  data-variant="success"
+  data-variant="warning"
+  data-variant="error"
+  data-variant="info"
+
+CONFIGURATION
+    :root {
+      --toast-width:   28rem;
+      --toast-gap:     var(--space-xs);
+      --toast-inset:   var(--space-m);
+    }
+
+TOKENS (on .toast-region)
+  --toast-inset     Distance from viewport edge.    Default: --space-s
+  --toast-width     Max toast width.                Default: 22rem
+  --toast-gap       Stack gap between toasts.       Default: --space-xs
+
+TOKENS (on .toast)
+  --toast-background  Fill.            Default: --color-neutral-900
+  --toast-color       Text colour.     Default: --color-neutral-50
+  --toast-border      Border.          Default: none
+  --toast-radius      Corner radius.   Default: --border-radius-l
+  --toast-padding     Inner space.     Default: --space-xs --space-s
+  --toast-shadow      Box shadow.      Default: layered shadow
+*/
+
+@layer tokens {
+  :root {
+    --toast-background: var(--color-neutral-900);
+    --toast-border: none;
+    --toast-color: var(--color-neutral-50);
+    --toast-gap: var(--space-xs);
+    --toast-inset: var(--space-s);
+    --toast-padding: var(--space-xs) var(--space-s);
+    --toast-radius: var(--border-radius-l);
+    --toast-shadow:
+      0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 10px 15px -3px rgba(0, 0, 0, 0.15);
+    --toast-width: 22rem;
+  }
+}
+
+@layer blocks {
+  /* ── Toast region ────────────────────────────────────────────────────────── */
+
+  .toast-region {
+    position: fixed;
+    z-index: var(--z-notification, 80);
+    display: flex;
+    flex-direction: column;
+    gap: var(--toast-gap);
+    max-width: var(--toast-width);
+    width: calc(100% - var(--toast-inset) * 2);
+
+    /* Default: top-right */
+    inset-block-start: var(--toast-inset);
+    inset-inline-end: var(--toast-inset);
+  }
+
+  /* Placement variants */
+  .toast-region[data-position="top-left"] {
+    inset-inline-end: unset;
+    inset-inline-start: var(--toast-inset);
+  }
+
+  .toast-region[data-position="top-center"] {
+    inset-inline-end: unset;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .toast-region[data-position="bottom-right"] {
+    inset-block-start: unset;
+    inset-block-end: var(--toast-inset);
+  }
+
+  .toast-region[data-position="bottom-left"] {
+    inset-block-start: unset;
+    inset-block-end: var(--toast-inset);
+    inset-inline-end: unset;
+    inset-inline-start: var(--toast-inset);
+  }
+
+  .toast-region[data-position="bottom-center"] {
+    inset-block-start: unset;
+    inset-block-end: var(--toast-inset);
+    inset-inline-end: unset;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  /* ── Individual toast ────────────────────────────────────────────────────── */
+
+  .toast {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-xs);
+    padding: var(--toast-padding);
+    border: var(--toast-border);
+    border-radius: var(--toast-radius);
+    background: var(--toast-background);
+    color: var(--toast-color);
+    box-shadow: var(--toast-shadow);
+    font-size: var(--font-size-s);
+    line-height: var(--line-height-m);
+
+    animation: toast-in var(--motion-duration-base) var(--motion-easing-out)
+      both;
+  }
+
+  @keyframes toast-in {
+    from {
+      opacity: 0;
+      transform: translateY(-0.5rem) scale(0.96);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  .toast.is-dismissing {
+    animation: toast-out var(--motion-duration-base) var(--motion-easing-in)
+      forwards;
+  }
+
+  @keyframes toast-out {
+    from {
+      opacity: 1;
+      transform: scale(1);
+      max-height: 10rem;
+    }
+    to {
+      opacity: 0;
+      transform: scale(0.96);
+      max-height: 0;
+      padding-block: 0;
+      margin: 0;
+    }
+  }
+
+  .toast p {
+    margin: 0;
+    flex: 1;
+  }
+
+  .toast__icon {
+    flex-shrink: 0;
+    width: 1.25em;
+    height: 1.25em;
+    margin-block-start: 0.1em;
+  }
+
+  .toast__dismiss {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: none;
+    background: transparent;
+    color: inherit;
+    opacity: 0.6;
+    cursor: pointer;
+    border-radius: var(--border-radius-s);
+    transition: opacity var(--motion-duration-fast);
+    /* override global button styles */
+    text-transform: none;
+    letter-spacing: 0;
+    font-weight: inherit;
+    font-size: inherit;
+  }
+
+  .toast__dismiss:hover,
+  .toast__dismiss:focus-visible {
+    opacity: 1;
+  }
+
+  /* ── Variants ────────────────────────────────────────────────────────────── */
+
+  .toast[data-variant="success"] {
+    --toast-background: var(--color-status-ok);
+    --toast-color: var(--color-white);
+  }
+
+  .toast[data-variant="warning"] {
+    --toast-background: var(--color-status-warning);
+    --toast-color: var(--color-white);
+  }
+
+  .toast[data-variant="error"] {
+    --toast-background: var(--color-status-ko);
+    --toast-color: var(--color-white);
+  }
+
+  .toast[data-variant="info"] {
+    --toast-background: var(--color-status-info);
+    --toast-color: var(--color-white);
+  }
+
+  /* ── Reduced motion ──────────────────────────────────────────────────────── */
+
+  @media (prefers-reduced-motion: reduce) {
+    .toast,
+    .toast.is-dismissing {
+      animation: none;
+    }
+  }
+}

@@ -1,0 +1,57 @@
+/*
+Border utilities
+──────────────────────────────────────────────────────────────────────────────
+Border-width and border-radius helpers.
+Pair border-width utilities with a border-color from _color.css.
+
+Border tokens are defined in abstracts/_theme.css:
+  --border-s  0.0625rem (~1px)
+  --border-m  0.125rem  (~2px)
+  --border-l  0.25rem   (~4px)
+*/
+
+@layer utilities {
+  /* ── Border width ────────────────────────────────────────────────────────── */
+  /*
+    All width classes also set border-style: solid so that adding a colour
+    utility is all that is needed for a visible border.
+  */
+
+  .border-none {
+    border-style: solid;
+    border-width: 0;
+  }
+
+  .border-s {
+    border-style: solid;
+    border-width: var(--border-s);
+  }
+
+  .border {
+    border-style: solid;
+    border-width: var(--border-m);
+  }
+
+  .border-l {
+    border-style: solid;
+    border-width: var(--border-l);
+  }
+
+  /* ── Border radius ───────────────────────────────────────────────────────── */
+
+  .radius-none {
+    border-radius: 0;
+  }
+  .radius-s {
+    border-radius: var(--border-radius-s);
+  }
+  .radius {
+    border-radius: var(--border-radius-m);
+  }
+  .radius-l {
+    border-radius: var(--border-radius-l);
+  }
+  .radius-full {
+    border-radius: 9999px;
+  }
+}

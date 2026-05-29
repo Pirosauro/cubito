@@ -1,0 +1,78 @@
+/*
+Animation utilities
+──────────────────────────────────────────────────────────────────────────────
+Utility classes for common, reusable animations. All durations reference
+motion tokens from abstracts/_motion.css, which automatically collapse to
+0ms when prefers-reduced-motion is set.
+
+USAGE
+  <span class="blink">●</span>
+  <div class="pulse">Loading…</div>
+  <p class="fade-in">Content revealed on mount</p>
+*/
+
+@layer utilities {
+  /* ── Continuous ──────────────────────────────────────────────────────────── */
+
+  .blink {
+    animation: blink var(--motion-duration-slow, 400ms) ease-in-out infinite;
+  }
+
+  .pulse {
+    animation: pulse var(--motion-duration-slow, 400ms) ease-in-out infinite;
+  }
+
+  /* ── Enter ───────────────────────────────────────────────────────────────── */
+
+  .fade-in {
+    animation: fade-in var(--motion-duration-base, 250ms)
+      var(--motion-easing-out, ease) both;
+  }
+
+  .slide-up {
+    animation: slide-up var(--motion-duration-base, 250ms)
+      var(--motion-easing-out, ease) both;
+  }
+
+  /* ── Keyframes ───────────────────────────────────────────────────────────── */
+
+  @keyframes blink {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.4;
+    }
+  }
+
+  @keyframes pulse {
+    0%,
+    100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.06);
+    }
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slide-up {
+    from {
+      opacity: 0;
+      transform: translateY(0.5rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}

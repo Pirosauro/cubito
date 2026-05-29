@@ -1,0 +1,208 @@
+/*
+Tabs
+──────────────────────────────────────────────────────────────────────────────
+Tabbed interface following the WAI-ARIA Tabs pattern.
+JS is required to manage aria-selected and tabpanel visibility.
+
+MARKUP PATTERN
+  <div class="tabs">
+    <div role="tablist" aria-label="Product details">
+      <button role="tab" id="tab-desc"    aria-controls="panel-desc"    aria-selected="true">Description</button>
+      <button role="tab" id="tab-specs"   aria-controls="panel-specs"   aria-selected="false" tabindex="-1">Specifications</button>
+      <button role="tab" id="tab-reviews" aria-controls="panel-reviews" aria-selected="false" tabindex="-1">Reviews</button>
+    </div>
+
+    <div role="tabpanel" id="panel-desc"    aria-labelledby="tab-desc">
+      <p>Product description…</p>
+    </div>
+    <div role="tabpanel" id="panel-specs"   aria-labelledby="tab-specs"   hidden>…</div>
+    <div role="tabpanel" id="panel-reviews" aria-labelledby="tab-reviews" hidden>…</div>
+  </div>
+
+KEYBOARD
+  Arrow Left / Right  Move between tabs (JS should update aria-selected + tabindex).
+  Home / End          Jump to first / last tab.
+  Enter / Space       Activate focused tab.
+
+VARIANTS
+  data-variant="pills"   Pill-shaped tabs on a transparent background.
+  data-variant="lifted"  Card-style tabs attached to a panel border.
+
+CONFIGURATION
+    :root {
+      --tabs-accent: var(--color-brand);
+    }
+
+    .product-page .tabs {
+      --tabs-indicator-height: 3px;
+      --tabs-tab-padding:      var(--space-s) var(--space-m);
+    }
+
+TOKENS
+  --tabs-accent               Active indicator / text colour.  Default: --color-brand
+  --tabs-tab-padding          Tab button inner space.          Default: --space-xs --space-s
+  --tabs-indicator-height     Active underline thickness.      Default: 0.1875rem (3px)
+  --tabs-border               Tablist bottom border.           Default: 1px solid --color-neutral-200
+  --tabs-panel-padding        Panel inner padding.             Default: --space-m 0
+  --tabs-background           Tablist background.              Default: transparent
+  --tabs-radius               Radius for pill/lifted variants. Default: --border-radius-m
+*/
+
+@layer tokens {
+  :root {
+    --tabs-accent: var(--color-brand, var(--color-black));
+    --tabs-background: transparent;
+    --tabs-border: solid var(--border-s) var(--color-neutral-200);
+    --tabs-indicator-height: 0.1875rem;
+    --tabs-panel-padding: var(--space-m) 0;
+    --tabs-radius: var(--border-radius-m);
+    --tabs-tab-padding: var(--space-xs) var(--space-s);
+  }
+}
+
+@layer blocks {
+  /* ── Tablist ─────────────────────────────────────────────────────────────── */
+
+  .tabs [role="tablist"] {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+    gap: var(--space-xxs);
+    border-bottom: var(--tabs-border);
+    background: var(--tabs-background);
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .tabs [role="tablist"]::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* ── Tab buttons ─────────────────────────────────────────────────────────── */
+
+  .tabs [role="tab"] {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xxs);
+    padding: var(--tabs-tab-padding);
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    color: var(--color-neutral-500);
+    font-size: var(--font-size-s);
+    font-weight: var(--font-weight-normal);
+    cursor: pointer;
+    white-space: nowrap;
+    letter-spacing: 0;
+    text-transform: none;
+    transition: color var(--motion-duration-fast);
+    flex-shrink: 0;
+  }
+
+  .tabs [role="tab"]:hover {
+    color: var(--color-neutral-800);
+  }
+
+  /* Active indicator underline */
+  .tabs [role="tab"][aria-selected="true"] {
+    color: var(--tabs-accent);
+    font-weight: var(--font-weight-bold);
+  }
+
+  .tabs [role="tab"][aria-selected="true"]::after {
+    content: "";
+    position: absolute;
+    inset-inline: 0;
+    inset-block-end: calc(
+      -1 * var(--border-s, 0.0625rem)
+    ); /* sit on the tablist border */
+    height: var(--tabs-indicator-height);
+    background: var(--tabs-accent);
+    border-radius: var(--tabs-indicator-height) var(--tabs-indicator-height) 0 0;
+  }
+
+  /* ── Tabpanel ────────────────────────────────────────────────────────────── */
+
+  .tabs [role="tabpanel"] {
+    padding: var(--tabs-panel-padding);
+  }
+
+  .tabs [role="tabpanel"][hidden] {
+    display: none;
+  }
+
+  /* ── Variant: pills ──────────────────────────────────────────────────────── */
+
+  .tabs[data-variant="pills"] [role="tablist"] {
+    border-bottom: none;
+    gap: var(--space-tiny);
+    padding: var(--space-tiny);
+    background: var(--color-neutral-100);
+    border-radius: var(--tabs-radius);
+  }
+
+  .tabs[data-variant="pills"] [role="tab"] {
+    border-radius: var(--tabs-radius);
+    padding: var(--space-tiny) var(--space-s);
+  }
+
+  .tabs[data-variant="pills"] [role="tab"][aria-selected="true"] {
+    background: var(--color-white);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+
+  .tabs[data-variant="pills"] [role="tab"][aria-selected="true"]::after {
+    display: none; /* no underline for pills */
+  }
+
+  /* ── Variant: lifted ─────────────────────────────────────────────────────── */
+
+  .tabs[data-variant="lifted"] [role="tab"] {
+    border: var(--tabs-border);
+    border-block-end: none;
+    border-radius: var(--tabs-radius) var(--tabs-radius) 0 0;
+    margin-block-end: calc(-1 * var(--border-s, 0.0625rem));
+  }
+
+  .tabs[data-variant="lifted"] [role="tab"][aria-selected="true"] {
+    background: var(--color-white);
+    border-color: var(--color-neutral-200);
+    z-index: 1;
+  }
+
+  .tabs[data-variant="lifted"] [role="tab"][aria-selected="true"]::after {
+    display: none;
+  }
+
+  .tabs[data-variant="lifted"] [role="tabpanel"] {
+    border: var(--tabs-border);
+    border-top: none;
+    border-radius: 0 0 var(--tabs-radius) var(--tabs-radius);
+    padding: var(--space-m);
+  }
+
+  /* ── Dark mode ───────────────────────────────────────────────────────────── */
+
+  @media (prefers-color-scheme: dark) {
+    .tabs {
+      --tabs-border: solid var(--border-s) var(--color-neutral-700);
+    }
+
+    .tabs [role="tab"]:hover {
+      color: var(--color-neutral-200);
+    }
+
+    .tabs[data-variant="pills"] [role="tablist"] {
+      background: var(--color-neutral-800);
+    }
+
+    .tabs[data-variant="pills"] [role="tab"][aria-selected="true"] {
+      background: var(--color-neutral-700);
+    }
+
+    .tabs[data-variant="lifted"] [role="tab"][aria-selected="true"] {
+      background: var(--color-neutral-900);
+    }
+  }
+}

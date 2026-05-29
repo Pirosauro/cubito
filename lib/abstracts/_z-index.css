@@ -1,0 +1,35 @@
+/*
+Z-Index Scale
+---
+A named z-index system prevents stacking-context magic numbers.
+Always use these tokens — never hardcode z-index values in components.
+
+LAYER ORDER (lowest → highest)
+  base             default document flow
+  dropdown         inline menus and comboboxes
+  sticky           sticky headers and sidebars
+  fixed            fixed navigation bars
+  modal-backdrop   overlay behind modals
+  modal            modal dialogs
+  popover          floating panels (date pickers, anchored panels)
+  tooltip          always-on-top instructional overlays
+  notification     toast / snackbar messages
+
+@see https://www.smashingmagazine.com/2021/04/css-z-index-stacking-context/
+*/
+
+@layer tokens {
+  :root {
+    /* --- Z-Index Scale --- */
+
+    --z-base: 0;
+    --z-dropdown: 10;
+    --z-sticky: 20;
+    --z-fixed: 30;
+    --z-modal-backdrop: 50;
+    --z-modal: 51;
+    --z-popover: 60;
+    --z-tooltip: 70;
+    --z-notification: 80;
+  }
+}

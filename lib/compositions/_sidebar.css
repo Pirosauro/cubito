@@ -1,0 +1,72 @@
+/*
+Sidebar
+──────────────────────────────────────────────────────────────────────────────
+Places a fixed-width sidebar next to a flexible main content area. The two
+columns stack vertically when the viewport is too narrow to fit both at their
+minimum widths — no media queries needed.
+
+@link https://every-layout.dev/layouts/sidebar/
+
+CUSTOM PROPERTIES
+  --sidebar-gutter              Space between sidebar and content. Default: var(--space-s-l).
+  --sidebar-target-width        Target width of the sidebar. Default: 20rem.
+  --sidebar-content-min-width   Minimum width of the main content. Default: 50%.
+
+EXCEPTIONS
+  data-direction="reverse"  Sidebar on the right instead of the left.
+  data-variant="sticky"     Sticky sidebar on viewports ≥ 960px.
+
+NOTE
+  Never use data-direction="rtl" for this layout — "rtl" is an HTML writing
+  direction, not a layout concept. Use data-direction="reverse".
+*/
+
+@layer tokens {
+  :root {
+    --sidebar-gutter: var(--space-s-l);
+    --sidebar-target-width: 20rem;
+    --sidebar-content-min-width: 50%;
+  }
+}
+
+@layer layout {
+  .sidebar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sidebar-gutter);
+  }
+
+  /* Sidebar left (default): first child is the sidebar */
+  .sidebar:not([data-direction]) > :first-child {
+    flex-basis: var(--sidebar-target-width);
+    flex-grow: 1;
+  }
+
+  .sidebar:not([data-direction]) > :last-child {
+    flex-basis: 0;
+    flex-grow: 999;
+    min-width: var(--sidebar-content-min-width);
+  }
+
+  /* Sidebar right: last child is the sidebar */
+  .sidebar[data-direction="reverse"] > :last-child {
+    flex-basis: var(--sidebar-target-width);
+    flex-grow: 1;
+  }
+
+  .sidebar[data-direction="reverse"] > :first-child {
+    flex-basis: 0;
+    flex-grow: 999;
+    min-width: var(--sidebar-content-min-width);
+  }
+
+  /* Sticky sidebar on desktop */
+  @media screen and (min-width: 960px) {
+    .sidebar[data-variant="sticky"] > :first-child {
+      position: sticky;
+      top: var(--space-m);
+      max-height: 100vh;
+      overflow-y: auto;
+    }
+  }
+}

@@ -1,0 +1,31 @@
+/*
+Wrapper
+──────────────────────────────────────────────────────────────────────────────
+Sets a maximum content width, adds a consistent fluid inline gutter, and
+horizontally centres the element.
+
+MARKUP PATTERN
+  <div class="wrapper">…</div>
+
+  <!-- Custom max-width -->
+  <div class="wrapper" style="--wrapper-max-width: 60rem">…</div>
+
+  <!-- Narrow editorial measure -->
+  <div class="wrapper" style="--wrapper-max-width: var(--width-l)">…</div>
+
+TOKENS
+  --wrapper-max-width   Maximum content width. Default: 90rem (1440px)
+
+@link https://piccalil.li/quick-tip/use-css-clamp-to-create-a-more-flexible-wrapper-utility/
+*/
+
+@layer utilities {
+  .wrapper {
+    --wrapper-max-width: 90rem;
+
+    max-width: var(--wrapper-max-width);
+    margin-inline: auto;
+    padding-inline: var(--gutter);
+    position: relative;
+  }
+}

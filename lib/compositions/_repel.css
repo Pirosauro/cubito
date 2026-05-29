@@ -1,0 +1,37 @@
+/*
+Repel
+──────────────────────────────────────────────────────────────────────────────
+Pushes two groups of items to opposite ends of their container when space
+allows; stacks them vertically on narrow viewports.
+
+Typical uses: pagination + count, breadcrumb + actions, logo + nav.
+
+CUSTOM PROPERTIES
+  --gutter                      Gap when stacked. Default: var(--space-s-l).
+  --repel-vertical-alignment    align-items value. Default: center.
+
+EXCEPTIONS
+  data-nowrap   Prevents wrapping — items always stay on one line.
+                Use with caution; can cause overflow on narrow viewports.
+*/
+
+@layer tokens {
+  :root {
+    --repel-gutter: var(--space-s-l);
+    --repel-vertical-alignment: center;
+  }
+}
+
+@layer layout {
+  .repel {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: var(--repel-vertical-alignment);
+    gap: var(--repel-gutter);
+  }
+
+  .repel[data-nowrap] {
+    flex-wrap: nowrap;
+  }
+}

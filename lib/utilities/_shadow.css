@@ -1,0 +1,66 @@
+/*
+Shadow utilities
+──────────────────────────────────────────────────────────────────────────────
+Box-shadow and text-shadow helpers.
+
+USAGE
+  <div class="shadow">Raised card</div>
+  <a href="#" class="shadow">Interactive — shadow collapses on hover/focus</a>
+  <h2 class="text-shadow">Outlined heading</h2>
+
+CONFIGURATION
+    :root {
+      --shadow-color:  var(--color-brand);
+      --shadow-offset: 0.5rem;
+    }
+
+    <div class="shadow" style="--shadow-color: oklch(30% 0.1 250)">…</div>
+
+TOKENS
+  --shadow-color   Shadow colour.  Default: currentColor
+  --shadow-offset  Shadow offset.  Default: 0.35rem
+*/
+
+@layer tokens {
+  :root {
+    --shadow-color: currentColor;
+    --shadow-offset: 0.35rem;
+    --shadow-transition: var(--transition);
+  }
+}
+
+@layer utilities {
+  /* ── Box shadow ──────────────────────────────────────────────────────────── */
+
+  .shadow {
+    box-shadow: var(--shadow-offset) var(--shadow-offset) 0 var(--shadow-color);
+    transition:
+      box-shadow var(--shadow-transition),
+      transform var(--shadow-transition);
+  }
+
+  /* On hover/focus: collapse shadow and nudge to fill the gap */
+  a.shadow:hover,
+  a.shadow:focus-visible,
+  button.shadow:hover,
+  button.shadow:focus-visible {
+    box-shadow: 0 0 0 0 var(--shadow-color);
+    transform: translate(
+      calc(var(--shadow-offset) / 2),
+      calc(var(--shadow-offset) / 2)
+    );
+  }
+
+  /* ── Text shadow (outline effect) ───────────────────────────────────────── */
+
+  .text-shadow {
+    --shadow-color: currentColor;
+
+    text-shadow:
+      0 -1px 0 var(--shadow-color),
+      -1px 0 0 var(--shadow-color),
+      0 1px 0 var(--shadow-color),
+      1px 0 0 var(--shadow-color),
+      0.03em 0.06em 0 var(--shadow-color);
+  }
+}

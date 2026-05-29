@@ -1,0 +1,56 @@
+/*
+Motion
+---
+Motion tokens for consistent, accessible animation durations and easings.
+
+WCAG 2.1 § 2.3.3 (AAA) recommends offering a way to stop all motion.
+The global @media block below automatically overrides every duration token
+to 0ms when the user has requested reduced motion at the OS level.
+
+USAGE
+  transition: opacity var(--motion-duration-base) var(--motion-easing-out);
+  animation:  fade-in var(--motion-duration-fast) var(--motion-easing-out) both;
+
+EASING REFERENCE
+  ease-in      starts slow — for elements leaving the screen
+  ease-out     ends slow   — for elements entering the screen
+  ease-in-out  both        — for in-place state changes
+  spring       overshoots  — for playful, physical feedback
+
+@link https://www.smashingmagazine.com/2021/09/reducing-motion-design-systems/
+*/
+
+@layer tokens {
+  :root {
+    /* --- Durations --- */
+
+    --motion-duration-instant: 50ms;
+    --motion-duration-fast: 150ms;
+    --motion-duration-base: 250ms;
+    --motion-duration-slow: 400ms;
+    --motion-duration-deliberate: 600ms;
+
+    /* --- Easings --- */
+
+    --motion-easing-linear: linear;
+    --motion-easing-in: cubic-bezier(0.4, 0, 1, 1);
+    --motion-easing-out: cubic-bezier(0, 0, 0.2, 1);
+    --motion-easing-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+    --motion-easing-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  /*
+    Automatically collapse all motion when the user has expressed a preference.
+    Components that reference these tokens are automatically compliant without
+    per-component overrides.
+  */
+  @media (prefers-reduced-motion: reduce) {
+    :root {
+      --motion-duration-instant: 0ms;
+      --motion-duration-fast: 0ms;
+      --motion-duration-base: 0ms;
+      --motion-duration-slow: 0ms;
+      --motion-duration-deliberate: 0ms;
+    }
+  }
+}

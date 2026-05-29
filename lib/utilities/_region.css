@@ -1,0 +1,16 @@
+/*
+Region
+──────────────────────────────────────────────────────────────────────────────
+Adds consistent vertical padding to create distinct regions of content.
+Override --region-space to adjust the size for a specific region.
+
+USAGE
+  <section class="region">…</section>
+  <section class="region" style="--region-space: var(--space-xxl)">…</section>
+*/
+
+@layer utilities {
+  .region {
+    padding-block: var(--region-space, var(--space-l-xl));
+  }
+}

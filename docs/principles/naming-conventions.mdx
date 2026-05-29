@@ -1,0 +1,218 @@
+# Naming Conventions
+
+This document defines all naming patterns used throughout `@hobiri/ui`.
+Consistency here is critical for predictability — understanding one component
+teaches you all others.
+
+---
+
+## CSS Custom Property (Token) Naming
+
+Tokens follow a **category → scale → modifier** pattern:
+
+```
+--{category}-{scale}
+--{category}-{scale}-{modifier}
+```
+
+| Token                    | Category        | Scale   | Modifier        |
+| ------------------------ | --------------- | ------- | --------------- |
+| `--color-neutral-500`    | color           | neutral | 500             |
+| `--font-size-l`          | font-size       | l       | —               |
+| `--space-s-m`            | space           | s       | m (one-up pair) |
+| `--border-radius-m`      | border-radius   | m       | —               |
+| `--motion-duration-fast` | motion-duration | fast    | —               |
+| `--z-modal`              | z               | modal   | —               |
+
+### Three-tier token system
+
+1. **Palette tokens** — raw named values. Never reference directly in components.
+   `--color-neutral-800`, `--color-neutral-50`
+
+2. **Semantic tokens** — role-based aliases. Always use these in components.
+   `--color-brand`, `--color-accent`, `--color-status-ko`
+
+3. **Component tokens** — scoped to a component. Consume semantic tokens.
+   `--button-background-color: var(--color-accent)`
+
+```css
+.my-component {
+  --my-component-background: var(--color-neutral-100); /* internal default */
+  background: var(--my-component-background); /* internal → token */
+}
+```
+
+---
+
+## CSS Cascade Layers (`@layer`)
+
+Every file in the library is scoped to a named `@layer`. The recommended
+import order declares layers once, in ascending priority order:
+
+```css
+@layer reset, tokens, composition, blocks, utility;
+```
+
+| Layer         | Source folder          | Purpose                                    |
+| ------------- | ---------------------- | ------------------------------------------ |
+| `reset`       | `base/_reset.css`      | Browser normalisation                      |
+| `tokens`      | `abstracts/`, `base/_button.css`, `base/_form.css` | Design tokens (`:root` custom properties) |
+| `composition` | `compositions/`        | Layout skeletons (cluster, grid, sidebar…) |
+| `blocks`      | `base/`, `blocks/`     | Component and element styles               |
+| `utility`     | `utilities/`           | Single-responsibility overrides            |
+
+**Why this order matters:**
+
+- Utility classes win over block styles → `.text-center` overrides a component's
+  text alignment without `!important`.
+- Block styles win over compositions → a component can override a layout default
+  cleanly.
+- Token overrides at `:root` propagate everywhere because `@layer tokens` sits
+  above `@layer reset` — the reset layer only uses tokens, never re-declares them.
+
+### Overriding tokens
+
+Because tokens are `:root` declarations in `@layer tokens`, you can override
+any input, button, or component token from a `<style>` block or a later layer:
+
+```css
+/* Globally */
+:root {
+  --button-background: var(--color-brand);
+  --input-border-color: var(--color-brand);
+}
+
+/* Per-context */
+.dark-panel {
+  --input-background: var(--color-neutral-800);
+  --input-color: var(--color-neutral-100);
+}
+
+/* Inline */
+<button style="--button-radius: 9999px">Pill</button>
+```
+
+---
+
+## Class Naming
+
+### Compositions (Every Layout primitives)
+
+Lowercase, single word: `.cluster`, `.grid`, `.sidebar`, `.switcher`,
+`.reel`, `.frame`, `.repel`, `.dialog`
+
+### Blocks (UI components)
+
+Lowercase, single word or hyphenated:
+`.card`, `.callout`, `.breadcrumb`, `.hero`, `.prose`, `.footnote`,
+`.pictogram`, `.skip-link`, `.field-hint`
+
+### Utilities
+
+Lowercase, property-first naming:
+
+| Pattern                     | Example                                 |
+| --------------------------- | --------------------------------------- |
+| `{property}-{value}`        | `.padding-2`, `.margin-auto`            |
+| `{property}-{value}-{axis}` | `.padding-1-block`, `.margin-0-inline`  |
+| `{property}-{scale}`        | `.text-l`, `.heading-m`                 |
+| `.{name}`                   | `.flow`, `.wrapper`, `.region`, `.wide` |
+| `.{verb}`                   | `.flex`, `.hidden`, `.flex-col`         |
+| `.{property}-{adjective}`   | `.flex-grow`, `.flex-shrink-0`          |
+| `.{axis}-{adjective}`       | `.items-center`, `.justify-between`     |
+
+---
+
+## HTML Data Attributes (CUBE Exceptions)
+
+Data attributes represent exceptions — deviations from the default rendering of
+a block. Follow this taxonomy strictly:
+
+| Attribute            | When to use                                      | Example                                            |
+| -------------------- | ------------------------------------------------ | -------------------------------------------------- |
+| `data-variant="*"`   | A **visual** presentation variant                | `data-variant="outline"`, `data-variant="ghost"`   |
+| `data-layout="*"`    | A **structural / compositional** change          | `data-layout="reversed"`, `data-layout="50%"`      |
+| `data-direction="*"` | A **directional** layout change (≠ writing mode) | `data-direction="reverse"`                         |
+| `data-state="*"`     | A **behavioural** state driven by JavaScript     | `data-state="active"`, `data-state="visible"`      |
+| `data-placement="*"` | A **positional** hint for floating elements      | `data-placement="bottom"`, `data-placement="left"` |
+| `data-scroll="*"`    | Scroll behaviour options                         | `data-scroll="snap"`                               |
+| `data-rows="*"`      | Grid row variant                                 | `data-rows="masonry"`                              |
+
+**Rules:**
+
+- **Never** use `data-state` for layout changes → use `data-layout`.
+- **Never** use `data-direction="rtl"` for layout flipping. `rtl` is an HTML
+  writing-direction concept. Use `data-direction="reverse"`.
+- Prefer **ARIA attributes** over `data-state` whenever a semantic ARIA
+  equivalent exists (see below).
+- Use at most one data attribute per concern. Never combine two attributes
+  when one well-named attribute could express the same intent.
+
+---
+
+## ARIA Attributes for State
+
+Prefer standard ARIA attributes over custom `data-state` where a semantic
+ARIA equivalent exists. This surfaces meaning to assistive technology.
+
+| Situation             | Attribute               | Notes                              |
+| --------------------- | ----------------------- | ---------------------------------- |
+| Loading / in-progress | `aria-busy="true"`      | Announced by screen readers        |
+| Invalid field         | `aria-invalid="true"`   | Triggers CSS invalid analogue      |
+| Disabled (non-form)   | `aria-disabled="true"`  | Use on `<a role="button">`         |
+| Current nav link      | `aria-current="page"`   | or `"step"`, `"location"` etc.     |
+| Expanded disclosure   | `aria-expanded="true"`  | `<details>` manages this natively  |
+| Toggled button        | `aria-pressed="true"`   | Bold, mute, like, star buttons     |
+| Selected option       | `aria-selected="true"`  | In listbox, tabs, combobox         |
+| Described by tooltip  | `aria-describedby="id"` | Wire trigger to `[role="tooltip"]` |
+
+---
+
+## Spacing Scale Reference
+
+Fluid tokens using `clamp()` between 320 px and 1240 px.
+
+| Token          | Min      | Max      |
+| -------------- | -------- | -------- |
+| `--space-tiny` | 0.25 rem | 0.31 rem |
+| `--space-xxs`  | 0.50 rem | 0.63 rem |
+| `--space-xs`   | 0.75 rem | 0.94 rem |
+| `--space-s`    | 1.00 rem | 1.25 rem |
+| `--space-m`    | 1.50 rem | 1.88 rem |
+| `--space-l`    | 2.00 rem | 2.50 rem |
+| `--space-xl`   | 3.00 rem | 3.75 rem |
+| `--space-xxl`  | 4.00 rem | 5.00 rem |
+| `--space-huge` | 6.00 rem | 7.50 rem |
+
+One-up pairs (e.g. `--space-s-m`) span two adjacent steps and are ideal for
+gutters and section padding where larger jumps help visual hierarchy.
+
+---
+
+## Z-Index Scale Reference
+
+| Token                | Value | Use case                      |
+| -------------------- | ----- | ----------------------------- |
+| `--z-base`           | 0     | Default document flow         |
+| `--z-dropdown`       | 10    | Inline menus, comboboxes      |
+| `--z-sticky`         | 20    | Sticky headers, sidebars      |
+| `--z-fixed`          | 30    | Fixed navigation bars         |
+| `--z-modal-backdrop` | 50    | Overlay behind modals         |
+| `--z-modal`          | 51    | Modal dialogs                 |
+| `--z-popover`        | 60    | Floating panels, date pickers |
+| `--z-tooltip`        | 70    | Instructional overlays        |
+| `--z-notification`   | 80    | Toast / snackbar messages     |
+
+---
+
+## Status Colour Semantics
+
+| Token                    | Meaning                        | Never use for    |
+| ------------------------ | ------------------------------ | ---------------- |
+| `--color-status-ok`      | Success, positive confirmation | Generic green    |
+| `--color-status-warning` | Caution, recoverable issue     | Decorative amber |
+| `--color-status-ko`      | Error, failure, destructive    | Decorative red   |
+| `--color-status-info`    | Neutral informational          | Decorative blue  |
+
+Always pair status colours with an icon or text label — never rely on colour
+alone (WCAG 1.4.1 Use of Color).

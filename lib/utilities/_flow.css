@@ -1,0 +1,23 @@
+/*
+Flow
+──────────────────────────────────────────────────────────────────────────────
+Applies a consistent top margin to every sibling element using the lobotomised
+owl selector. Pairs with the .prose block and any stacked content.
+
+Override --flow-space on a specific child to adjust its individual gap:
+
+  <div class="flow">
+    <h2>Heading</h2>
+    <p style="--flow-space: var(--space-xl)">Extra space above this paragraph.</p>
+    <p>Normal space above this one.</p>
+  </div>
+
+@link https://every-layout.dev/layouts/stack/
+@link https://piccalil.li/tutorial/improve-the-readability-of-the-content-on-your-website/#heading-the-flow-utility
+*/
+
+@layer utilities {
+  .flow > * + * {
+    margin-top: var(--flow-space, 1em);
+  }
+}

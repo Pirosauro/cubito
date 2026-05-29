@@ -1,0 +1,37 @@
+{
+  "name": "@hobiri/ui",
+  "version": "0.3.0",
+  "type": "module",
+  "engines": {
+    "pnpm": ">=10.0.0 <11.0.0"
+  },
+  "files": [
+    "./dist",
+    "./lib"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://n.ho.net.co"
+  },
+  "exports": {
+    "./*.css": "./lib/*.css",
+    "./*.js": "./dist/*.js"
+  },
+  "dependencies": {
+    "dayjs": "^1.11.20",
+    "hono": "^4.12.9",
+    "lucide-preact": "^0.511.0",
+    "preact": "^10.29.0",
+    "prosekit": "^0.13.6"
+  },
+  "devDependencies": {
+    "@types/node": "^22.19.15",
+    "schema-dts": "^1.1.5",
+    "typescript": "^5.9.3",
+    "vitest": "^3.2.4"
+  },
+  "scripts": {
+    "build": "tsc",
+    "prepare": "pnpm run build"
+  }
+}

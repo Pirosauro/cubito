@@ -1,0 +1,86 @@
+/*
+Cover
+──────────────────────────────────────────────────────────────────────────────
+Vertically centres a principal element within a minimum-height area.
+Optional header and footer elements are pinned to the top and bottom edges.
+No media queries needed.
+
+@link https://every-layout.dev/layouts/cover/
+
+MARKUP PATTERN
+  <!-- Minimal: just centred content -->
+  <div class="cover">
+    <div>
+      <h1>Page not found</h1>
+      <p>The page you're looking for doesn't exist.</p>
+      <a href="/" class="button">Go home</a>
+    </div>
+  </div>
+
+  <!-- With pinned header and footer -->
+  <div class="cover">
+    <header>Site header</header>         <!-- pinned to top -->
+    <main>
+      <h1>Hero heading</h1>
+      <p>Centred vertically in the remaining space.</p>
+    </main>
+    <footer>Footer content</footer>      <!-- pinned to bottom -->
+  </div>
+
+HOW IT WORKS
+  All direct children are placed in a single-column flex container.
+  The first and last children that are NOT the principal element use
+  `margin-block: auto` on the centred element to push everything into place.
+  If only one child is present it is centred; header/footer pin to the edges.
+
+CONFIGURATION
+    :root {
+      --cover-min-height: 80dvh;
+      --cover-padding:    var(--space-m);
+    }
+
+    <div class="cover" style="--cover-min-height: 600px; --cover-gap: var(--space-xl)">
+
+TOKENS
+  --cover-min-height   Minimum height of the cover.     Default: 100dvh
+  --cover-padding      Inline + block padding.          Default: var(--space-s)
+  --cover-gap          Gap between stacked children.    Default: var(--space-s)
+*/
+
+@layer tokens {
+  :root {
+    --cover-min-height: 100dvh;
+    --cover-padding: var(--space-s);
+    --cover-gap: var(--space-s);
+  }
+}
+
+@layer layout {
+  .cover {
+    display: flex;
+    flex-direction: column;
+    min-height: var(--cover-min-height);
+    padding: var(--cover-padding);
+    gap: var(--cover-gap);
+  }
+
+  /*
+    Centre the principal element.
+    Target: the first child that is not a <header> or <footer>, OR any child
+    explicitly marked with data-cover="principal".
+    Using :not(header):not(footer) keeps this zero-JS for the common case.
+  */
+  .cover > :not(header):not(footer):not([data-cover="edge"]) {
+    margin-block: auto;
+  }
+
+  /* Explicit principal override */
+  .cover > [data-cover="principal"] {
+    margin-block: auto;
+  }
+
+  /* Explicit edge pin */
+  .cover > [data-cover="edge"] {
+    margin-block: 0;
+  }
+}

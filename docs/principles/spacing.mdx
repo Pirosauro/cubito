@@ -1,0 +1,133 @@
+# Spacing
+
+Spacing in `@hobiri/ui` is built on two complementary systems that work
+together: a **legacy spacing unit** (`--su`) used in utility classes, and a
+**fluid spacing scale** (`--space-*`) used in components.
+
+---
+
+## Fluid Spacing Scale
+
+The primary system. Tokens use `clamp()` to scale continuously between the
+minimum viewport (320 px) and maximum viewport (1240 px). No media queries
+needed — spacing grows proportionally with the viewport.
+
+```css
+:root {
+  --space-s: clamp(1rem, calc(0.91rem + 0.43vw), 1.25rem);
+  /* → 1rem at 320px, ~1.1rem at 768px, 1.25rem at 1240px */
+}
+```
+
+### Steps
+
+| Token          | Min      | Max      | Approx. ratio |
+| -------------- | -------- | -------- | ------------- |
+| `--space-tiny` | 0.25 rem | 0.31 rem | ¼ × base      |
+| `--space-xxs`  | 0.50 rem | 0.63 rem | ½ × base      |
+| `--space-xs`   | 0.75 rem | 0.94 rem | ¾ × base      |
+| `--space-s`    | 1.00 rem | 1.25 rem | base          |
+| `--space-m`    | 1.50 rem | 1.88 rem | 1.5× base     |
+| `--space-l`    | 2.00 rem | 2.50 rem | 2× base       |
+| `--space-xl`   | 3.00 rem | 3.75 rem | 3× base       |
+| `--space-xxl`  | 4.00 rem | 5.00 rem | 4× base       |
+| `--space-huge` | 6.00 rem | 7.50 rem | 6× base       |
+
+### One-up pairs
+
+Pairs span two adjacent steps and produce a larger range of fluid motion.
+Ideal for gutters and section padding.
+
+| Token              | From           | To             |
+| ------------------ | -------------- | -------------- |
+| `--space-tiny-xxs` | `--space-tiny` | `--space-xxs`  |
+| `--space-xxs-xs`   | `--space-xxs`  | `--space-xs`   |
+| `--space-xs-s`     | `--space-xs`   | `--space-s`    |
+| `--space-s-m`      | `--space-s`    | `--space-m`    |
+| `--space-m-l`      | `--space-m`    | `--space-l`    |
+| `--space-l-xl`     | `--space-l`    | `--space-xl`   |
+| `--space-xl-xxl`   | `--space-xl`   | `--space-xxl`  |
+| `--space-xxl-huge` | `--space-xxl`  | `--space-huge` |
+| `--space-s-l`      | `--space-s`    | `--space-l`    |
+
+`--gutter` is a fluid one-up pair (`--space-s-m`) used as the default gap
+across all layout compositions.
+
+---
+
+## Legacy Spacing Unit (`--su`)
+
+A fixed 0.5 rem (~8 px) unit. Used exclusively by the `.padding-*` and
+`.margin-*` utility classes for quick template overrides. In new components,
+use `--space-*` tokens instead.
+
+```css
+:root {
+  --su: 0.5rem; /* ~8px */
+}
+
+/* Utility class usage */
+.padding-2 {
+  padding: calc(2 * var(--su));
+} /* 1rem */
+.padding-2-block {
+  padding-block: calc(2 * var(--su));
+}
+```
+
+Multipliers available: `0`, `½`, `1`, `1½`, `2`, `2½`, `3`, `4`.
+Axes available: (all sides), `-block`, `-inline`.
+
+---
+
+## Usage Guidelines
+
+### In components: use `--space-*`
+
+```css
+.card > div {
+  padding: var(--space-s);
+  gap: var(--space-xs);
+}
+```
+
+### In templates: use utility classes
+
+```html
+<!-- Quick one-off overrides in markup -->
+<section class="padding-4-block">…</section>
+<div class="margin-2-inline">…</div>
+```
+
+### In layouts: use `--gutter`
+
+Composition primitives default their gap to `var(--gutter)`. Override per
+component:
+
+```html
+<div class="grid" style="--gutter: var(--space-xl)">…</div>
+```
+
+### Avoid fixed pixel values
+
+Never hardcode `px` spacing values. Always use tokens or `rem`-based
+`calc()`. This ensures design scales correctly with user font-size preferences.
+
+---
+
+## Design Principles
+
+**Consistency** — Use predefined tokens. Arbitrary values disrupt visual
+rhythm. If the scale doesn't have what you need, add a new step rather than
+using an ad-hoc value.
+
+**Hierarchy** — Larger spacing separates sections; smaller spacing groups
+related content. The ratio between adjacent space tokens (~1.5×) encodes
+this hierarchy.
+
+**Accessibility** — `rem`-based spacing respects user font-size preferences.
+A user who has set their browser to 20 px base will experience proportionally
+larger spacing everywhere — this is intentional and correct.
+
+**Responsiveness** — Fluid tokens (`clamp()`) eliminate the need for
+spacing breakpoints. The design self-adjusts across the full viewport range.
