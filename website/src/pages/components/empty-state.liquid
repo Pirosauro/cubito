@@ -4,7 +4,7 @@
 {% block content %}
 <article class="flow">
 
-  <header class="padding-y-m margin-y-m" style="border-block-end: 1px solid var(--color-neutral-200);">
+  <header class="flow" style="padding-block-end: var(--space-l); border-block-end: var(--border-s) solid var(--color-neutral-200);">
     <nav aria-label="Breadcrumb" class="breadcrumb">
       <ol>
         <li><a href="/">Home</a></li>
@@ -13,78 +13,87 @@
       </ol>
     </nav>
     <h1>Empty State</h1>
-    <p class="text-l color-neutral-600">A zero-results or first-use placeholder that guides the user toward the next meaningful action.</p>
+    <p class="text-m color-neutral-600">A zero-results or first-use placeholder that guides the user toward the next meaningful action.</p>
   </header>
 
   <section>
-    <h2 class="heading-l">Default</h2>
-    <p>The default layout centres all content and includes an optional illustration area, a title (<code>.empty-state__title</code>), description (<code>.empty-state__description</code>), and a call-to-action button.</p>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Default</h2>
+      <p>The default layout centres all content and includes an optional illustration area, a title (<code>.empty-state__title</code>), description (<code>.empty-state__description</code>), and a call-to-action button.</p>
     
-    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
-<div class="empty-state">
-  <div class="empty-state__illustration" aria-hidden="true"
-       style="width: 10rem; height: 8rem; background: #e0e7ff; border-radius: 0.75rem; display: flex; align-items: center; justify-content: center;">
-    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" aria-hidden="true">
-      <rect x="8" y="12" width="32" height="24" rx="3" stroke="#6366f1" stroke-width="2"/>
-      <path d="M16 22h16M16 28h10" stroke="#6366f1" stroke-width="2" stroke-linecap="round"/>
-    </svg>
+      <div class="">
+  <div class="empty-state">
+    <div class="empty-state__illustration" aria-hidden="true"
+         style="width: 10rem; height: 8rem; background: #e0e7ff; border-radius: 0.75rem; display: flex; align-items: center; justify-content: center;">
+      <svg width="48" height="48" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        <rect x="8" y="12" width="32" height="24" rx="3" stroke="#6366f1" stroke-width="2"/>
+        <path d="M16 22h16M16 28h10" stroke="#6366f1" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <h2 class="empty-state__title">No orders yet</h2>
+    <p class="empty-state__description">When you place your first order it will appear here. Browse the catalogue to get started.</p>
+    <a href="/shop/" class="button">Start shopping</a>
   </div>
-  <h2 class="empty-state__title">No orders yet</h2>
-  <p class="empty-state__description">When you place your first order it will appear here. Browse the catalogue to get started.</p>
-  <a href="/shop/" class="button">Start shopping</a>
-</div>
-    </div>
+      </div>
 
-    <details class="margin-y-s">
-      <summary class="padding-s">Show code</summary>
-      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div class=&quot;empty-state&quot;&gt;
-  &lt;div class=&quot;empty-state__illustration&quot; aria-hidden=&quot;true&quot;
-       style=&quot;width: 10rem; height: 8rem; background: #e0e7ff; border-radius: 0.75rem; display: flex; align-items: center; justify-content: center;&quot;&gt;
-    &lt;svg width=&quot;48&quot; height=&quot;48&quot; viewBox=&quot;0 0 48 48&quot; fill=&quot;none&quot; aria-hidden=&quot;true&quot;&gt;
-      &lt;rect x=&quot;8&quot; y=&quot;12&quot; width=&quot;32&quot; height=&quot;24&quot; rx=&quot;3&quot; stroke=&quot;#6366f1&quot; stroke-width=&quot;2&quot;/&gt;
-      &lt;path d=&quot;M16 22h16M16 28h10&quot; stroke=&quot;#6366f1&quot; stroke-width=&quot;2&quot; stroke-linecap=&quot;round&quot;/&gt;
-    &lt;/svg&gt;
-  &lt;/div&gt;
-  &lt;h2 class=&quot;empty-state__title&quot;&gt;No orders yet&lt;/h2&gt;
-  &lt;p class=&quot;empty-state__description&quot;&gt;When you place your first order it will appear here. Browse the catalogue to get started.&lt;/p&gt;
-  &lt;a href=&quot;/shop/&quot; class=&quot;button&quot;&gt;Start shopping&lt;/a&gt;
-&lt;/div&gt;</code></pre>
-    </details>
+      <details class="margin-y-s">
+        <summary>Show code</summary>
+        <pre class="padding-m"><code>&lt;div class=&quot;empty-state&quot;&gt;
+    &lt;div class=&quot;empty-state__illustration&quot; aria-hidden=&quot;true&quot;
+         style=&quot;width: 10rem; height: 8rem; background: #e0e7ff; border-radius: 0.75rem; display: flex; align-items: center; justify-content: center;&quot;&gt;
+      &lt;svg width=&quot;48&quot; height=&quot;48&quot; viewBox=&quot;0 0 48 48&quot; fill=&quot;none&quot; aria-hidden=&quot;true&quot;&gt;
+        &lt;rect x=&quot;8&quot; y=&quot;12&quot; width=&quot;32&quot; height=&quot;24&quot; rx=&quot;3&quot; stroke=&quot;#6366f1&quot; stroke-width=&quot;2&quot;/&gt;
+        &lt;path d=&quot;M16 22h16M16 28h10&quot; stroke=&quot;#6366f1&quot; stroke-width=&quot;2&quot; stroke-linecap=&quot;round&quot;/&gt;
+      &lt;/svg&gt;
+    &lt;/div&gt;
+    &lt;h2 class=&quot;empty-state__title&quot;&gt;No orders yet&lt;/h2&gt;
+    &lt;p class=&quot;empty-state__description&quot;&gt;When you place your first order it will appear here. Browse the catalogue to get started.&lt;/p&gt;
+    &lt;a href=&quot;/shop/&quot; class=&quot;button&quot;&gt;Start shopping&lt;/a&gt;
+  &lt;/div&gt;</code></pre>
+      </details>
+  
+    </div>
   </section>
 
   <section>
-    <h2 class="heading-l">Compact</h2>
-    <p>Use <code>data-layout="compact"</code> for inline or table-cell empty states where the full padding and illustration would be too large.</p>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Compact</h2>
+      <p>Use <code>data-layout="compact"</code> for inline or table-cell empty states where the full padding and illustration would be too large.</p>
     
-    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
-<div class="empty-state" data-layout="compact">
-  <p class="empty-state__title">No results found</p>
-  <p class="empty-state__description">Try adjusting your search term or removing some filters.</p>
-</div>
-    </div>
+      <div class="">
+  <div class="empty-state" data-layout="compact">
+    <p class="empty-state__title">No results found</p>
+    <p class="empty-state__description">Try adjusting your search term or removing some filters.</p>
+  </div>
+      </div>
 
-    <details class="margin-y-s">
-      <summary class="padding-s">Show code</summary>
-      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div class=&quot;empty-state&quot; data-layout=&quot;compact&quot;&gt;
-  &lt;p class=&quot;empty-state__title&quot;&gt;No results found&lt;/p&gt;
-  &lt;p class=&quot;empty-state__description&quot;&gt;Try adjusting your search term or removing some filters.&lt;/p&gt;
-&lt;/div&gt;</code></pre>
-    </details>
+      <details class="margin-y-s">
+        <summary>Show code</summary>
+        <pre class="padding-m"><code>&lt;div class=&quot;empty-state&quot; data-layout=&quot;compact&quot;&gt;
+    &lt;p class=&quot;empty-state__title&quot;&gt;No results found&lt;/p&gt;
+    &lt;p class=&quot;empty-state__description&quot;&gt;Try adjusting your search term or removing some filters.&lt;/p&gt;
+  &lt;/div&gt;</code></pre>
+      </details>
+  
+    </div>
   </section>
 
   <section>
-    <h2 class="heading-l">Tokens</h2>
-    <table class="">
-      <thead>
-        <tr><th>Token</th><th>Default</th><th>Description</th></tr>
-      </thead>
-      <tbody>
-        <tr><td><code>--empty-state-max-width</code></td><td><code>24rem</code></td><td>Maximum width of the content column.</td></tr>
-        <tr><td><code>--empty-state-padding</code></td><td><code>--space-xxl --space-m</code></td><td>Outer vertical and horizontal padding.</td></tr>
-        <tr><td><code>--empty-state-illustration-size</code></td><td><code>12rem</code></td><td>Max width applied to the <code>.empty-state__illustration</code> element.</td></tr>
-        <tr><td><code>--empty-state-gap</code></td><td><code>--space-s</code></td><td>Vertical gap between each child element.</td></tr>
-      </tbody>
-    </table>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Tokens</h2>
+      <table class="">
+        <thead>
+          <tr><th>Token</th><th>Default</th><th>Description</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>--empty-state-max-width</code></td><td><code>24rem</code></td><td>Maximum width of the content column.</td></tr>
+          <tr><td><code>--empty-state-padding</code></td><td><code>--space-xxl --space-m</code></td><td>Outer vertical and horizontal padding.</td></tr>
+          <tr><td><code>--empty-state-illustration-size</code></td><td><code>12rem</code></td><td>Max width applied to the <code>.empty-state__illustration</code> element.</td></tr>
+          <tr><td><code>--empty-state-gap</code></td><td><code>--space-s</code></td><td>Vertical gap between each child element.</td></tr>
+        </tbody>
+      </table>
+  
+    </div>
   </section>
 
 </article>

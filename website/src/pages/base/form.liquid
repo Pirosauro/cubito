@@ -4,7 +4,7 @@
 {% block content %}
 <article class="flow">
 
-  <header class="padding-y-m margin-y-m" style="border-block-end: 1px solid var(--color-neutral-200);">
+  <header class="flow" style="padding-block-end: var(--space-l); border-block-end: var(--border-s) solid var(--color-neutral-200);">
     <nav aria-label="Breadcrumb" class="breadcrumb">
       <ol>
         <li><a href="/">Home</a></li>
@@ -13,381 +13,402 @@
       </ol>
     </nav>
     <h1>Form</h1>
-    <p class="text-l color-neutral-600">Styled form controls — text inputs, selects, textareas, checkboxes, and radio buttons — all token-driven and composable without extra class names.</p>
+    <p class="text-m color-neutral-600">Styled form controls — text inputs, selects, textareas, checkboxes, and radio buttons — all token-driven and composable without extra class names.</p>
   </header>
 
   <section>
-    <h2 class="heading-l">Text input</h2>
-    <p>Pair any text-like <code>&lt;input&gt;</code> with a <code>&lt;label&gt;</code>. Nesting the input inside the label keeps them linked without needing <code>for</code>/<code>id</code>, but explicit <code>for</code>/<code>id</code> attributes are preferred for clarity.</p>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Text input</h2>
+      <p>Pair any text-like <code>&lt;input&gt;</code> with a <code>&lt;label&gt;</code>. Nesting the input inside the label keeps them linked without needing <code>for</code>/<code>id</code>, but explicit <code>for</code>/<code>id</code> attributes are preferred for clarity.</p>
     
-    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
-<div style="max-width: 24rem" class="flow">
-  <label for="full-name">Full name
-    <input type="text" id="full-name" name="full-name" placeholder="Jane Smith">
-  </label>
-  <label for="email-address">Email address
-    <input type="email" id="email-address" name="email-address" placeholder="jane@example.com">
-  </label>
-  <label for="phone">Phone number
-    <input type="tel" id="phone" name="phone" placeholder="+44 7700 900000">
-  </label>
-</div>
-    </div>
+      <div class="">
+  <div style="max-width: 24rem" class="flow">
+    <label for="full-name">Full name
+      <input type="text" id="full-name" name="full-name" placeholder="Jane Smith">
+    </label>
+    <label for="email-address">Email address
+      <input type="email" id="email-address" name="email-address" placeholder="jane@example.com">
+    </label>
+    <label for="phone">Phone number
+      <input type="tel" id="phone" name="phone" placeholder="+44 7700 900000">
+    </label>
+  </div>
+      </div>
 
-    <details class="margin-y-s">
-      <summary class="padding-s">Show code</summary>
-      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div style=&quot;max-width: 24rem&quot; class=&quot;flow&quot;&gt;
-  &lt;label for=&quot;full-name&quot;&gt;Full name
-    &lt;input type=&quot;text&quot; id=&quot;full-name&quot; name=&quot;full-name&quot; placeholder=&quot;Jane Smith&quot;&gt;
-  &lt;/label&gt;
-  &lt;label for=&quot;email-address&quot;&gt;Email address
-    &lt;input type=&quot;email&quot; id=&quot;email-address&quot; name=&quot;email-address&quot; placeholder=&quot;jane@example.com&quot;&gt;
-  &lt;/label&gt;
-  &lt;label for=&quot;phone&quot;&gt;Phone number
-    &lt;input type=&quot;tel&quot; id=&quot;phone&quot; name=&quot;phone&quot; placeholder=&quot;+44 7700 900000&quot;&gt;
-  &lt;/label&gt;
-&lt;/div&gt;</code></pre>
-    </details>
+      <details class="margin-y-s">
+        <summary>Show code</summary>
+        <pre class="padding-m"><code>&lt;div style=&quot;max-width: 24rem&quot; class=&quot;flow&quot;&gt;
+    &lt;label for=&quot;full-name&quot;&gt;Full name
+      &lt;input type=&quot;text&quot; id=&quot;full-name&quot; name=&quot;full-name&quot; placeholder=&quot;Jane Smith&quot;&gt;
+    &lt;/label&gt;
+    &lt;label for=&quot;email-address&quot;&gt;Email address
+      &lt;input type=&quot;email&quot; id=&quot;email-address&quot; name=&quot;email-address&quot; placeholder=&quot;jane@example.com&quot;&gt;
+    &lt;/label&gt;
+    &lt;label for=&quot;phone&quot;&gt;Phone number
+      &lt;input type=&quot;tel&quot; id=&quot;phone&quot; name=&quot;phone&quot; placeholder=&quot;+44 7700 900000&quot;&gt;
+    &lt;/label&gt;
+  &lt;/div&gt;</code></pre>
+      </details>
+  
+    </div>
   </section>
 
   <section>
-    <h2 class="heading-l">Input states</h2>
-    <p>Disabled and readonly inputs use token-driven muting. Invalid inputs receive a red border via <code>aria-invalid="true"</code> (preferred for explicit control) or the native <code>:invalid</code> pseudo-class.</p>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Input states</h2>
+      <p>Disabled and readonly inputs use token-driven muting. Invalid inputs receive a red border via <code>aria-invalid="true"</code> (preferred for explicit control) or the native <code>:invalid</code> pseudo-class.</p>
     
-    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
-<div style="max-width: 24rem" class="flow">
-  <label for="input-disabled">Disabled
-    <input type="text" id="input-disabled" name="input-disabled" value="Cannot edit this" disabled>
-  </label>
-  <label for="input-readonly">Readonly
-    <input type="text" id="input-readonly" name="input-readonly" value="Read only value" readonly>
-  </label>
-  <label for="input-invalid">Coupon code
-    <input type="text" id="input-invalid" name="coupon" value="EXPIREDX" aria-invalid="true" aria-describedby="coupon-error">
-    <span id="coupon-error" style="color: var(--color-status-ko); font-size: var(--font-size-xs)">This coupon has expired.</span>
-  </label>
-</div>
-    </div>
+      <div class="">
+  <div style="max-width: 24rem" class="flow">
+    <label for="input-disabled">Disabled
+      <input type="text" id="input-disabled" name="input-disabled" value="Cannot edit this" disabled>
+    </label>
+    <label for="input-readonly">Readonly
+      <input type="text" id="input-readonly" name="input-readonly" value="Read only value" readonly>
+    </label>
+    <label for="input-invalid">Coupon code
+      <input type="text" id="input-invalid" name="coupon" value="EXPIREDX" aria-invalid="true" aria-describedby="coupon-error">
+      <span id="coupon-error" style="color: var(--color-status-ko); font-size: var(--font-size-xs)">This coupon has expired.</span>
+    </label>
+  </div>
+      </div>
 
-    <details class="margin-y-s">
-      <summary class="padding-s">Show code</summary>
-      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div style=&quot;max-width: 24rem&quot; class=&quot;flow&quot;&gt;
-  &lt;label for=&quot;input-disabled&quot;&gt;Disabled
-    &lt;input type=&quot;text&quot; id=&quot;input-disabled&quot; name=&quot;input-disabled&quot; value=&quot;Cannot edit this&quot; disabled&gt;
-  &lt;/label&gt;
-  &lt;label for=&quot;input-readonly&quot;&gt;Readonly
-    &lt;input type=&quot;text&quot; id=&quot;input-readonly&quot; name=&quot;input-readonly&quot; value=&quot;Read only value&quot; readonly&gt;
-  &lt;/label&gt;
-  &lt;label for=&quot;input-invalid&quot;&gt;Coupon code
-    &lt;input type=&quot;text&quot; id=&quot;input-invalid&quot; name=&quot;coupon&quot; value=&quot;EXPIREDX&quot; aria-invalid=&quot;true&quot; aria-describedby=&quot;coupon-error&quot;&gt;
-    &lt;span id=&quot;coupon-error&quot; style=&quot;color: var(--color-status-ko); font-size: var(--font-size-xs)&quot;&gt;This coupon has expired.&lt;/span&gt;
-  &lt;/label&gt;
-&lt;/div&gt;</code></pre>
-    </details>
-    <div class="callout" data-variant="brand" role="note"><p>Use <code>aria-invalid="true"</code> together with <code>aria-describedby</code> pointing to an error message so assistive technology announces the reason for the error.</p></div>
+      <details class="margin-y-s">
+        <summary>Show code</summary>
+        <pre class="padding-m"><code>&lt;div style=&quot;max-width: 24rem&quot; class=&quot;flow&quot;&gt;
+    &lt;label for=&quot;input-disabled&quot;&gt;Disabled
+      &lt;input type=&quot;text&quot; id=&quot;input-disabled&quot; name=&quot;input-disabled&quot; value=&quot;Cannot edit this&quot; disabled&gt;
+    &lt;/label&gt;
+    &lt;label for=&quot;input-readonly&quot;&gt;Readonly
+      &lt;input type=&quot;text&quot; id=&quot;input-readonly&quot; name=&quot;input-readonly&quot; value=&quot;Read only value&quot; readonly&gt;
+    &lt;/label&gt;
+    &lt;label for=&quot;input-invalid&quot;&gt;Coupon code
+      &lt;input type=&quot;text&quot; id=&quot;input-invalid&quot; name=&quot;coupon&quot; value=&quot;EXPIREDX&quot; aria-invalid=&quot;true&quot; aria-describedby=&quot;coupon-error&quot;&gt;
+      &lt;span id=&quot;coupon-error&quot; style=&quot;color: var(--color-status-ko); font-size: var(--font-size-xs)&quot;&gt;This coupon has expired.&lt;/span&gt;
+    &lt;/label&gt;
+  &lt;/div&gt;</code></pre>
+      </details>
+      <div class="callout wide" data-variant="brand" role="note"><p>Use <code>aria-invalid="true"</code> together with <code>aria-describedby</code> pointing to an error message so assistive technology announces the reason for the error.</p></div>
+  
+    </div>
   </section>
 
   <section>
-    <h2 class="heading-l">Select</h2>
-    <p>A custom chevron icon is injected via <code>background-image</code> on single selects. Multi-selects (<code>multiple</code> attribute) receive no chevron.</p>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Select</h2>
+      <p>A custom chevron icon is injected via <code>background-image</code> on single selects. Multi-selects (<code>multiple</code> attribute) receive no chevron.</p>
     
-    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
-<div style="max-width: 24rem" class="flow">
-  <label for="country">Country
-    <select id="country" name="country">
-      <option value="">Choose a country…</option>
-      <option value="gb">United Kingdom</option>
-      <option value="de">Germany</option>
-      <option value="fr">France</option>
-      <option value="it">Italy</option>
-      <option value="es">Spain</option>
-    </select>
-  </label>
-  <label for="languages">Languages spoken (multi-select)
-    <select id="languages" name="languages" multiple size="4">
-      <option value="en">English</option>
-      <option value="de">German</option>
-      <option value="fr">French</option>
-      <option value="it">Italian</option>
-    </select>
-  </label>
-</div>
-    </div>
+      <div class="">
+  <div style="max-width: 24rem" class="flow">
+    <label for="country">Country
+      <select id="country" name="country">
+        <option value="">Choose a country…</option>
+        <option value="gb">United Kingdom</option>
+        <option value="de">Germany</option>
+        <option value="fr">France</option>
+        <option value="it">Italy</option>
+        <option value="es">Spain</option>
+      </select>
+    </label>
+    <label for="languages">Languages spoken (multi-select)
+      <select id="languages" name="languages" multiple size="4">
+        <option value="en">English</option>
+        <option value="de">German</option>
+        <option value="fr">French</option>
+        <option value="it">Italian</option>
+      </select>
+    </label>
+  </div>
+      </div>
 
-    <details class="margin-y-s">
-      <summary class="padding-s">Show code</summary>
-      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div style=&quot;max-width: 24rem&quot; class=&quot;flow&quot;&gt;
-  &lt;label for=&quot;country&quot;&gt;Country
-    &lt;select id=&quot;country&quot; name=&quot;country&quot;&gt;
-      &lt;option value=&quot;&quot;&gt;Choose a country…&lt;/option&gt;
-      &lt;option value=&quot;gb&quot;&gt;United Kingdom&lt;/option&gt;
-      &lt;option value=&quot;de&quot;&gt;Germany&lt;/option&gt;
-      &lt;option value=&quot;fr&quot;&gt;France&lt;/option&gt;
-      &lt;option value=&quot;it&quot;&gt;Italy&lt;/option&gt;
-      &lt;option value=&quot;es&quot;&gt;Spain&lt;/option&gt;
-    &lt;/select&gt;
-  &lt;/label&gt;
-  &lt;label for=&quot;languages&quot;&gt;Languages spoken (multi-select)
-    &lt;select id=&quot;languages&quot; name=&quot;languages&quot; multiple size=&quot;4&quot;&gt;
-      &lt;option value=&quot;en&quot;&gt;English&lt;/option&gt;
-      &lt;option value=&quot;de&quot;&gt;German&lt;/option&gt;
-      &lt;option value=&quot;fr&quot;&gt;French&lt;/option&gt;
-      &lt;option value=&quot;it&quot;&gt;Italian&lt;/option&gt;
-    &lt;/select&gt;
-  &lt;/label&gt;
-&lt;/div&gt;</code></pre>
-    </details>
+      <details class="margin-y-s">
+        <summary>Show code</summary>
+        <pre class="padding-m"><code>&lt;div style=&quot;max-width: 24rem&quot; class=&quot;flow&quot;&gt;
+    &lt;label for=&quot;country&quot;&gt;Country
+      &lt;select id=&quot;country&quot; name=&quot;country&quot;&gt;
+        &lt;option value=&quot;&quot;&gt;Choose a country…&lt;/option&gt;
+        &lt;option value=&quot;gb&quot;&gt;United Kingdom&lt;/option&gt;
+        &lt;option value=&quot;de&quot;&gt;Germany&lt;/option&gt;
+        &lt;option value=&quot;fr&quot;&gt;France&lt;/option&gt;
+        &lt;option value=&quot;it&quot;&gt;Italy&lt;/option&gt;
+        &lt;option value=&quot;es&quot;&gt;Spain&lt;/option&gt;
+      &lt;/select&gt;
+    &lt;/label&gt;
+    &lt;label for=&quot;languages&quot;&gt;Languages spoken (multi-select)
+      &lt;select id=&quot;languages&quot; name=&quot;languages&quot; multiple size=&quot;4&quot;&gt;
+        &lt;option value=&quot;en&quot;&gt;English&lt;/option&gt;
+        &lt;option value=&quot;de&quot;&gt;German&lt;/option&gt;
+        &lt;option value=&quot;fr&quot;&gt;French&lt;/option&gt;
+        &lt;option value=&quot;it&quot;&gt;Italian&lt;/option&gt;
+      &lt;/select&gt;
+    &lt;/label&gt;
+  &lt;/div&gt;</code></pre>
+      </details>
+  
+    </div>
   </section>
 
   <section>
-    <h2 class="heading-l">Textarea</h2>
-    <p>Textareas have a minimum height of <code>--textarea-min-height</code> (default <code>6rem</code>) and resize vertically.</p>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Textarea</h2>
+      <p>Textareas have a minimum height of <code>--textarea-min-height</code> (default <code>6rem</code>) and resize vertically.</p>
     
-    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
-<div style="max-width: 24rem">
-  <label for="support-message">Support message
-    <textarea id="support-message" name="support-message" placeholder="Describe your issue in as much detail as possible…"></textarea>
-  </label>
-</div>
-    </div>
+      <div class="">
+  <div style="max-width: 24rem">
+    <label for="support-message">Support message
+      <textarea id="support-message" name="support-message" placeholder="Describe your issue in as much detail as possible…"></textarea>
+    </label>
+  </div>
+      </div>
 
-    <details class="margin-y-s">
-      <summary class="padding-s">Show code</summary>
-      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div style=&quot;max-width: 24rem&quot;&gt;
-  &lt;label for=&quot;support-message&quot;&gt;Support message
-    &lt;textarea id=&quot;support-message&quot; name=&quot;support-message&quot; placeholder=&quot;Describe your issue in as much detail as possible…&quot;&gt;&lt;/textarea&gt;
-  &lt;/label&gt;
-&lt;/div&gt;</code></pre>
-    </details>
+      <details class="margin-y-s">
+        <summary>Show code</summary>
+        <pre class="padding-m"><code>&lt;div style=&quot;max-width: 24rem&quot;&gt;
+    &lt;label for=&quot;support-message&quot;&gt;Support message
+      &lt;textarea id=&quot;support-message&quot; name=&quot;support-message&quot; placeholder=&quot;Describe your issue in as much detail as possible…&quot;&gt;&lt;/textarea&gt;
+    &lt;/label&gt;
+  &lt;/div&gt;</code></pre>
+      </details>
+  
+    </div>
   </section>
 
   <section>
-    <h2 class="heading-l">Checkbox and radio</h2>
-    <p>Group related checkboxes and radio buttons in a <code>&lt;fieldset&gt;</code> with a <code>&lt;legend&gt;</code>. Wrap each control and its label together inside a single <code>&lt;label&gt;</code> element.</p>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Checkbox and radio</h2>
+      <p>Group related checkboxes and radio buttons in a <code>&lt;fieldset&gt;</code> with a <code>&lt;legend&gt;</code>. Wrap each control and its label together inside a single <code>&lt;label&gt;</code> element.</p>
     
-    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
-<div class="cluster" style="align-items: flex-start; gap: var(--space-l)">
-  <fieldset>
-    <legend>Notification preferences</legend>
-    <div class="flow">
-      <label>
-        <input type="checkbox" name="notify" value="email" checked> Email updates
-      </label>
-      <label>
-        <input type="checkbox" name="notify" value="sms"> SMS alerts
-      </label>
-      <label>
-        <input type="checkbox" name="notify" value="push"> Push notifications
-      </label>
-      <label>
-        <input type="checkbox" name="notify" value="post" disabled> Post (unavailable)
-      </label>
-    </div>
-  </fieldset>
+      <div class="">
+  <div class="cluster" style="align-items: flex-start; gap: var(--space-l)">
+    <fieldset>
+      <legend>Notification preferences</legend>
+      <div class="flow">
+        <label>
+          <input type="checkbox" name="notify" value="email" checked> Email updates
+        </label>
+        <label>
+          <input type="checkbox" name="notify" value="sms"> SMS alerts
+        </label>
+        <label>
+          <input type="checkbox" name="notify" value="push"> Push notifications
+        </label>
+        <label>
+          <input type="checkbox" name="notify" value="post" disabled> Post (unavailable)
+        </label>
+      </div>
+    </fieldset>
 
-  <fieldset>
-    <legend>Preferred contact time</legend>
-    <div class="flow">
-      <label>
-        <input type="radio" name="contact-time" value="morning"> Morning (8am – 12pm)
-      </label>
-      <label>
-        <input type="radio" name="contact-time" value="afternoon" checked> Afternoon (12pm – 5pm)
-      </label>
-      <label>
-        <input type="radio" name="contact-time" value="evening"> Evening (5pm – 8pm)
-      </label>
-    </div>
-  </fieldset>
-</div>
-    </div>
+    <fieldset>
+      <legend>Preferred contact time</legend>
+      <div class="flow">
+        <label>
+          <input type="radio" name="contact-time" value="morning"> Morning (8am – 12pm)
+        </label>
+        <label>
+          <input type="radio" name="contact-time" value="afternoon" checked> Afternoon (12pm – 5pm)
+        </label>
+        <label>
+          <input type="radio" name="contact-time" value="evening"> Evening (5pm – 8pm)
+        </label>
+      </div>
+    </fieldset>
+  </div>
+      </div>
 
-    <details class="margin-y-s">
-      <summary class="padding-s">Show code</summary>
-      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div class=&quot;cluster&quot; style=&quot;align-items: flex-start; gap: var(--space-l)&quot;&gt;
-  &lt;fieldset&gt;
-    &lt;legend&gt;Notification preferences&lt;/legend&gt;
-    &lt;div class=&quot;flow&quot;&gt;
-      &lt;label&gt;
-        &lt;input type=&quot;checkbox&quot; name=&quot;notify&quot; value=&quot;email&quot; checked&gt; Email updates
-      &lt;/label&gt;
-      &lt;label&gt;
-        &lt;input type=&quot;checkbox&quot; name=&quot;notify&quot; value=&quot;sms&quot;&gt; SMS alerts
-      &lt;/label&gt;
-      &lt;label&gt;
-        &lt;input type=&quot;checkbox&quot; name=&quot;notify&quot; value=&quot;push&quot;&gt; Push notifications
-      &lt;/label&gt;
-      &lt;label&gt;
-        &lt;input type=&quot;checkbox&quot; name=&quot;notify&quot; value=&quot;post&quot; disabled&gt; Post (unavailable)
-      &lt;/label&gt;
-    &lt;/div&gt;
-  &lt;/fieldset&gt;
+      <details class="margin-y-s">
+        <summary>Show code</summary>
+        <pre class="padding-m"><code>&lt;div class=&quot;cluster&quot; style=&quot;align-items: flex-start; gap: var(--space-l)&quot;&gt;
+    &lt;fieldset&gt;
+      &lt;legend&gt;Notification preferences&lt;/legend&gt;
+      &lt;div class=&quot;flow&quot;&gt;
+        &lt;label&gt;
+          &lt;input type=&quot;checkbox&quot; name=&quot;notify&quot; value=&quot;email&quot; checked&gt; Email updates
+        &lt;/label&gt;
+        &lt;label&gt;
+          &lt;input type=&quot;checkbox&quot; name=&quot;notify&quot; value=&quot;sms&quot;&gt; SMS alerts
+        &lt;/label&gt;
+        &lt;label&gt;
+          &lt;input type=&quot;checkbox&quot; name=&quot;notify&quot; value=&quot;push&quot;&gt; Push notifications
+        &lt;/label&gt;
+        &lt;label&gt;
+          &lt;input type=&quot;checkbox&quot; name=&quot;notify&quot; value=&quot;post&quot; disabled&gt; Post (unavailable)
+        &lt;/label&gt;
+      &lt;/div&gt;
+    &lt;/fieldset&gt;
 
-  &lt;fieldset&gt;
-    &lt;legend&gt;Preferred contact time&lt;/legend&gt;
-    &lt;div class=&quot;flow&quot;&gt;
-      &lt;label&gt;
-        &lt;input type=&quot;radio&quot; name=&quot;contact-time&quot; value=&quot;morning&quot;&gt; Morning (8am – 12pm)
-      &lt;/label&gt;
-      &lt;label&gt;
-        &lt;input type=&quot;radio&quot; name=&quot;contact-time&quot; value=&quot;afternoon&quot; checked&gt; Afternoon (12pm – 5pm)
-      &lt;/label&gt;
-      &lt;label&gt;
-        &lt;input type=&quot;radio&quot; name=&quot;contact-time&quot; value=&quot;evening&quot;&gt; Evening (5pm – 8pm)
-      &lt;/label&gt;
-    &lt;/div&gt;
-  &lt;/fieldset&gt;
-&lt;/div&gt;</code></pre>
-    </details>
+    &lt;fieldset&gt;
+      &lt;legend&gt;Preferred contact time&lt;/legend&gt;
+      &lt;div class=&quot;flow&quot;&gt;
+        &lt;label&gt;
+          &lt;input type=&quot;radio&quot; name=&quot;contact-time&quot; value=&quot;morning&quot;&gt; Morning (8am – 12pm)
+        &lt;/label&gt;
+        &lt;label&gt;
+          &lt;input type=&quot;radio&quot; name=&quot;contact-time&quot; value=&quot;afternoon&quot; checked&gt; Afternoon (12pm – 5pm)
+        &lt;/label&gt;
+        &lt;label&gt;
+          &lt;input type=&quot;radio&quot; name=&quot;contact-time&quot; value=&quot;evening&quot;&gt; Evening (5pm – 8pm)
+        &lt;/label&gt;
+      &lt;/div&gt;
+    &lt;/fieldset&gt;
+  &lt;/div&gt;</code></pre>
+      </details>
+  
+    </div>
   </section>
 
   <section>
-    <h2 class="heading-l">Full form example</h2>
-    <p>A realistic contact form combining all field types, with a submit button at the end.</p>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Full form example</h2>
+      <p>A realistic contact form combining all field types, with a submit button at the end.</p>
     
-    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
-<form style="max-width: 32rem" class="flow">
-  <fieldset>
-    <legend>Your details</legend>
-    <div class="flow">
-      <label for="contact-name">Full name
-        <input type="text" id="contact-name" name="name" placeholder="Jane Smith" required>
-      </label>
-      <label for="contact-email">Email address
-        <input type="email" id="contact-email" name="email" placeholder="jane@example.com" required>
-      </label>
-      <label for="contact-company">Company (optional)
-        <input type="text" id="contact-company" name="company" placeholder="Acme Ltd">
-      </label>
+      <div class="">
+  <form style="max-width: 32rem" class="flow">
+    <fieldset>
+      <legend>Your details</legend>
+      <div class="flow">
+        <label for="contact-name">Full name
+          <input type="text" id="contact-name" name="name" placeholder="Jane Smith" required>
+        </label>
+        <label for="contact-email">Email address
+          <input type="email" id="contact-email" name="email" placeholder="jane@example.com" required>
+        </label>
+        <label for="contact-company">Company (optional)
+          <input type="text" id="contact-company" name="company" placeholder="Acme Ltd">
+        </label>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Your enquiry</legend>
+      <div class="flow">
+        <label for="contact-subject">Subject
+          <select id="contact-subject" name="subject">
+            <option value="">Select a topic…</option>
+            <option value="sales">Sales</option>
+            <option value="support">Technical support</option>
+            <option value="billing">Billing</option>
+            <option value="other">Other</option>
+          </select>
+        </label>
+        <label for="contact-body">Message
+          <textarea id="contact-body" name="message" placeholder="Write your message here…"></textarea>
+        </label>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Follow-up</legend>
+      <div class="flow">
+        <label>
+          <input type="checkbox" name="follow-up" value="yes"> I'd like a follow-up call
+        </label>
+        <label>
+          <input type="checkbox" name="newsletter" value="yes"> Subscribe me to the newsletter
+        </label>
+      </div>
+    </fieldset>
+
+    <button type="submit">Send message</button>
+  </form>
+      </div>
+
+      <details class="margin-y-s">
+        <summary>Show code</summary>
+        <pre class="padding-m"><code>&lt;form style=&quot;max-width: 32rem&quot; class=&quot;flow&quot;&gt;
+    &lt;fieldset&gt;
+      &lt;legend&gt;Your details&lt;/legend&gt;
+      &lt;div class=&quot;flow&quot;&gt;
+        &lt;label for=&quot;contact-name&quot;&gt;Full name
+          &lt;input type=&quot;text&quot; id=&quot;contact-name&quot; name=&quot;name&quot; placeholder=&quot;Jane Smith&quot; required&gt;
+        &lt;/label&gt;
+        &lt;label for=&quot;contact-email&quot;&gt;Email address
+          &lt;input type=&quot;email&quot; id=&quot;contact-email&quot; name=&quot;email&quot; placeholder=&quot;jane@example.com&quot; required&gt;
+        &lt;/label&gt;
+        &lt;label for=&quot;contact-company&quot;&gt;Company (optional)
+          &lt;input type=&quot;text&quot; id=&quot;contact-company&quot; name=&quot;company&quot; placeholder=&quot;Acme Ltd&quot;&gt;
+        &lt;/label&gt;
+      &lt;/div&gt;
+    &lt;/fieldset&gt;
+
+    &lt;fieldset&gt;
+      &lt;legend&gt;Your enquiry&lt;/legend&gt;
+      &lt;div class=&quot;flow&quot;&gt;
+        &lt;label for=&quot;contact-subject&quot;&gt;Subject
+          &lt;select id=&quot;contact-subject&quot; name=&quot;subject&quot;&gt;
+            &lt;option value=&quot;&quot;&gt;Select a topic…&lt;/option&gt;
+            &lt;option value=&quot;sales&quot;&gt;Sales&lt;/option&gt;
+            &lt;option value=&quot;support&quot;&gt;Technical support&lt;/option&gt;
+            &lt;option value=&quot;billing&quot;&gt;Billing&lt;/option&gt;
+            &lt;option value=&quot;other&quot;&gt;Other&lt;/option&gt;
+          &lt;/select&gt;
+        &lt;/label&gt;
+        &lt;label for=&quot;contact-body&quot;&gt;Message
+          &lt;textarea id=&quot;contact-body&quot; name=&quot;message&quot; placeholder=&quot;Write your message here…&quot;&gt;&lt;/textarea&gt;
+        &lt;/label&gt;
+      &lt;/div&gt;
+    &lt;/fieldset&gt;
+
+    &lt;fieldset&gt;
+      &lt;legend&gt;Follow-up&lt;/legend&gt;
+      &lt;div class=&quot;flow&quot;&gt;
+        &lt;label&gt;
+          &lt;input type=&quot;checkbox&quot; name=&quot;follow-up&quot; value=&quot;yes&quot;&gt; I&#x27;d like a follow-up call
+        &lt;/label&gt;
+        &lt;label&gt;
+          &lt;input type=&quot;checkbox&quot; name=&quot;newsletter&quot; value=&quot;yes&quot;&gt; Subscribe me to the newsletter
+        &lt;/label&gt;
+      &lt;/div&gt;
+    &lt;/fieldset&gt;
+
+    &lt;button type=&quot;submit&quot;&gt;Send message&lt;/button&gt;
+  &lt;/form&gt;</code></pre>
+      </details>
+  
     </div>
-  </fieldset>
-
-  <fieldset>
-    <legend>Your enquiry</legend>
-    <div class="flow">
-      <label for="contact-subject">Subject
-        <select id="contact-subject" name="subject">
-          <option value="">Select a topic…</option>
-          <option value="sales">Sales</option>
-          <option value="support">Technical support</option>
-          <option value="billing">Billing</option>
-          <option value="other">Other</option>
-        </select>
-      </label>
-      <label for="contact-body">Message
-        <textarea id="contact-body" name="message" placeholder="Write your message here…"></textarea>
-      </label>
-    </div>
-  </fieldset>
-
-  <fieldset>
-    <legend>Follow-up</legend>
-    <div class="flow">
-      <label>
-        <input type="checkbox" name="follow-up" value="yes"> I'd like a follow-up call
-      </label>
-      <label>
-        <input type="checkbox" name="newsletter" value="yes"> Subscribe me to the newsletter
-      </label>
-    </div>
-  </fieldset>
-
-  <button type="submit">Send message</button>
-</form>
-    </div>
-
-    <details class="margin-y-s">
-      <summary class="padding-s">Show code</summary>
-      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;form style=&quot;max-width: 32rem&quot; class=&quot;flow&quot;&gt;
-  &lt;fieldset&gt;
-    &lt;legend&gt;Your details&lt;/legend&gt;
-    &lt;div class=&quot;flow&quot;&gt;
-      &lt;label for=&quot;contact-name&quot;&gt;Full name
-        &lt;input type=&quot;text&quot; id=&quot;contact-name&quot; name=&quot;name&quot; placeholder=&quot;Jane Smith&quot; required&gt;
-      &lt;/label&gt;
-      &lt;label for=&quot;contact-email&quot;&gt;Email address
-        &lt;input type=&quot;email&quot; id=&quot;contact-email&quot; name=&quot;email&quot; placeholder=&quot;jane@example.com&quot; required&gt;
-      &lt;/label&gt;
-      &lt;label for=&quot;contact-company&quot;&gt;Company (optional)
-        &lt;input type=&quot;text&quot; id=&quot;contact-company&quot; name=&quot;company&quot; placeholder=&quot;Acme Ltd&quot;&gt;
-      &lt;/label&gt;
-    &lt;/div&gt;
-  &lt;/fieldset&gt;
-
-  &lt;fieldset&gt;
-    &lt;legend&gt;Your enquiry&lt;/legend&gt;
-    &lt;div class=&quot;flow&quot;&gt;
-      &lt;label for=&quot;contact-subject&quot;&gt;Subject
-        &lt;select id=&quot;contact-subject&quot; name=&quot;subject&quot;&gt;
-          &lt;option value=&quot;&quot;&gt;Select a topic…&lt;/option&gt;
-          &lt;option value=&quot;sales&quot;&gt;Sales&lt;/option&gt;
-          &lt;option value=&quot;support&quot;&gt;Technical support&lt;/option&gt;
-          &lt;option value=&quot;billing&quot;&gt;Billing&lt;/option&gt;
-          &lt;option value=&quot;other&quot;&gt;Other&lt;/option&gt;
-        &lt;/select&gt;
-      &lt;/label&gt;
-      &lt;label for=&quot;contact-body&quot;&gt;Message
-        &lt;textarea id=&quot;contact-body&quot; name=&quot;message&quot; placeholder=&quot;Write your message here…&quot;&gt;&lt;/textarea&gt;
-      &lt;/label&gt;
-    &lt;/div&gt;
-  &lt;/fieldset&gt;
-
-  &lt;fieldset&gt;
-    &lt;legend&gt;Follow-up&lt;/legend&gt;
-    &lt;div class=&quot;flow&quot;&gt;
-      &lt;label&gt;
-        &lt;input type=&quot;checkbox&quot; name=&quot;follow-up&quot; value=&quot;yes&quot;&gt; I&#x27;d like a follow-up call
-      &lt;/label&gt;
-      &lt;label&gt;
-        &lt;input type=&quot;checkbox&quot; name=&quot;newsletter&quot; value=&quot;yes&quot;&gt; Subscribe me to the newsletter
-      &lt;/label&gt;
-    &lt;/div&gt;
-  &lt;/fieldset&gt;
-
-  &lt;button type=&quot;submit&quot;&gt;Send message&lt;/button&gt;
-&lt;/form&gt;</code></pre>
-    </details>
   </section>
 
   <section>
-    <h2 class="heading-l">Tokens</h2>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Tokens</h2>
 
-    <table class="">
-      <thead><tr><th>Token</th><th>Default</th><th>Description</th></tr></thead>
-      <tbody>
-        <tr><td colspan="3"><strong>Input</strong></td></tr>
-        <tr><td><code>--input-background</code></td><td><code>var(--background)</code></td><td>Input fill.</td></tr>
-        <tr><td><code>--input-color</code></td><td><code>var(--color)</code></td><td>Input text colour.</td></tr>
-        <tr><td><code>--input-border-width</code></td><td><code>var(--border-m)</code></td><td>Border thickness.</td></tr>
-        <tr><td><code>--input-border-style</code></td><td><code>solid</code></td><td>Border style.</td></tr>
-        <tr><td><code>--input-border-color</code></td><td><code>var(--color)</code></td><td>Border colour at rest.</td></tr>
-        <tr><td><code>--input-border-color-hover</code></td><td><code>var(--link-color)</code></td><td>Border colour on hover/focus.</td></tr>
-        <tr><td><code>--input-border-color-disabled</code></td><td><code>var(--color-neutral-200)</code></td><td>Border colour when disabled.</td></tr>
-        <tr><td><code>--input-radius</code></td><td><code>var(--border-radius-m)</code></td><td>Corner radius.</td></tr>
-        <tr><td><code>--input-padding</code></td><td><code>var(--space-tiny) var(--space-xxs)</code></td><td>Inner spacing.</td></tr>
-        <tr><td><code>--input-min-height</code></td><td><code>var(--space-l)</code></td><td>WCAG minimum touch target height.</td></tr>
-        <tr><td><code>--input-shadow-focus</code></td><td>glow ring</td><td>Focus glow box-shadow.</td></tr>
-        <tr><td><code>--input-background-disabled</code></td><td><code>var(--color-neutral-100)</code></td><td>Fill when disabled.</td></tr>
-        <tr><td><code>--input-color-disabled</code></td><td><code>var(--color-neutral-500)</code></td><td>Text colour when disabled.</td></tr>
-        <tr><td><code>--textarea-min-height</code></td><td><code>6rem</code></td><td>Minimum height for textareas.</td></tr>
-        <tr><td colspan="3"><strong>Checkbox &amp; Radio</strong></td></tr>
-        <tr><td><code>--checkbox-background</code></td><td><code>var(--color-white)</code></td><td>Checkbox/radio fill.</td></tr>
-        <tr><td><code>--checkbox-border-color</code></td><td><code>var(--input-border-color)</code></td><td>Checkbox/radio border colour.</td></tr>
-        <tr><td><code>--checkbox-size</code></td><td><code>1em</code></td><td>Width and height of the control.</td></tr>
-        <tr><td><code>--checkbox-radius</code></td><td><code>var(--input-radius)</code></td><td>Corner radius (overridden to 50% for radios).</td></tr>
-        <tr><td colspan="3"><strong>Fieldset &amp; Legend</strong></td></tr>
-        <tr><td><code>--fieldset-border-color</code></td><td><code>var(--color-neutral-300)</code></td><td>Fieldset border colour.</td></tr>
-        <tr><td><code>--fieldset-border-width</code></td><td><code>var(--border-m)</code></td><td>Fieldset border width.</td></tr>
-        <tr><td><code>--fieldset-radius</code></td><td><code>var(--border-radius-m)</code></td><td>Fieldset corner radius.</td></tr>
-        <tr><td><code>--legend-color</code></td><td><code>currentColor</code></td><td>Legend text colour.</td></tr>
-        <tr><td><code>--legend-font-weight</code></td><td><code>var(--font-weight-bold)</code></td><td>Legend font weight.</td></tr>
-        <tr><td><code>--legend-padding</code></td><td><code>var(--space-tiny) var(--space-xxs)</code></td><td>Legend inner spacing.</td></tr>
-        <tr><td colspan="3"><strong>Label</strong></td></tr>
-        <tr><td><code>--label-color</code></td><td><code>var(--color)</code></td><td>Label text colour.</td></tr>
-        <tr><td><code>--label-font-size</code></td><td><code>var(--font-size-xs)</code></td><td>Label font size.</td></tr>
-        <tr><td><code>--label-font-weight</code></td><td><code>var(--font-weight-bold)</code></td><td>Label font weight.</td></tr>
-      </tbody>
-    </table>
+      <table class="">
+        <thead><tr><th>Token</th><th>Default</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td colspan="3"><strong>Input</strong></td></tr>
+          <tr><td><code>--input-background</code></td><td><code>var(--background)</code></td><td>Input fill.</td></tr>
+          <tr><td><code>--input-color</code></td><td><code>var(--color)</code></td><td>Input text colour.</td></tr>
+          <tr><td><code>--input-border-width</code></td><td><code>var(--border-m)</code></td><td>Border thickness.</td></tr>
+          <tr><td><code>--input-border-style</code></td><td><code>solid</code></td><td>Border style.</td></tr>
+          <tr><td><code>--input-border-color</code></td><td><code>var(--color)</code></td><td>Border colour at rest.</td></tr>
+          <tr><td><code>--input-border-color-hover</code></td><td><code>var(--link-color)</code></td><td>Border colour on hover/focus.</td></tr>
+          <tr><td><code>--input-border-color-disabled</code></td><td><code>var(--color-neutral-200)</code></td><td>Border colour when disabled.</td></tr>
+          <tr><td><code>--input-radius</code></td><td><code>var(--border-radius-m)</code></td><td>Corner radius.</td></tr>
+          <tr><td><code>--input-padding</code></td><td><code>var(--space-tiny) var(--space-xxs)</code></td><td>Inner spacing.</td></tr>
+          <tr><td><code>--input-min-height</code></td><td><code>var(--space-l)</code></td><td>WCAG minimum touch target height.</td></tr>
+          <tr><td><code>--input-shadow-focus</code></td><td>glow ring</td><td>Focus glow box-shadow.</td></tr>
+          <tr><td><code>--input-background-disabled</code></td><td><code>var(--color-neutral-100)</code></td><td>Fill when disabled.</td></tr>
+          <tr><td><code>--input-color-disabled</code></td><td><code>var(--color-neutral-500)</code></td><td>Text colour when disabled.</td></tr>
+          <tr><td><code>--textarea-min-height</code></td><td><code>6rem</code></td><td>Minimum height for textareas.</td></tr>
+          <tr><td colspan="3"><strong>Checkbox &amp; Radio</strong></td></tr>
+          <tr><td><code>--checkbox-background</code></td><td><code>var(--color-white)</code></td><td>Checkbox/radio fill.</td></tr>
+          <tr><td><code>--checkbox-border-color</code></td><td><code>var(--input-border-color)</code></td><td>Checkbox/radio border colour.</td></tr>
+          <tr><td><code>--checkbox-size</code></td><td><code>1em</code></td><td>Width and height of the control.</td></tr>
+          <tr><td><code>--checkbox-radius</code></td><td><code>var(--input-radius)</code></td><td>Corner radius (overridden to 50% for radios).</td></tr>
+          <tr><td colspan="3"><strong>Fieldset &amp; Legend</strong></td></tr>
+          <tr><td><code>--fieldset-border-color</code></td><td><code>var(--color-neutral-300)</code></td><td>Fieldset border colour.</td></tr>
+          <tr><td><code>--fieldset-border-width</code></td><td><code>var(--border-m)</code></td><td>Fieldset border width.</td></tr>
+          <tr><td><code>--fieldset-radius</code></td><td><code>var(--border-radius-m)</code></td><td>Fieldset corner radius.</td></tr>
+          <tr><td><code>--legend-color</code></td><td><code>currentColor</code></td><td>Legend text colour.</td></tr>
+          <tr><td><code>--legend-font-weight</code></td><td><code>var(--font-weight-bold)</code></td><td>Legend font weight.</td></tr>
+          <tr><td><code>--legend-padding</code></td><td><code>var(--space-tiny) var(--space-xxs)</code></td><td>Legend inner spacing.</td></tr>
+          <tr><td colspan="3"><strong>Label</strong></td></tr>
+          <tr><td><code>--label-color</code></td><td><code>var(--color)</code></td><td>Label text colour.</td></tr>
+          <tr><td><code>--label-font-size</code></td><td><code>var(--font-size-xs)</code></td><td>Label font size.</td></tr>
+          <tr><td><code>--label-font-weight</code></td><td><code>var(--font-weight-bold)</code></td><td>Label font weight.</td></tr>
+        </tbody>
+      </table>
+  
+    </div>
   </section>
 
 </article>

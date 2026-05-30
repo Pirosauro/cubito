@@ -54,9 +54,19 @@ TOKENS
 @layer tokens {
   :root {
     --progress-bar-color: var(--color-brand, var(--color-black));
+    --progress-bar-header-color: var(--color-neutral-600);
     --progress-bar-height: var(--space-xs);
     --progress-bar-radius: 9999px;
     --progress-bar-track: var(--color-neutral-200);
+  }
+}
+
+@layer dark {
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --progress-bar-header-color: var(--color-neutral-400);
+      --progress-bar-track: var(--color-neutral-700);
+    }
   }
 }
 
@@ -74,7 +84,7 @@ TOKENS
     justify-content: space-between;
     align-items: baseline;
     font-size: var(--font-size-xs);
-    color: var(--color-neutral-600);
+    color: var(--progress-bar-header-color);
   }
 
   /* Native progress element — themed via accent-color + appearance reset */
@@ -114,17 +124,5 @@ TOKENS
   progress.progress-bar::-moz-progress-bar {
     background: var(--progress-bar-color);
     border-radius: var(--progress-bar-radius);
-  }
-
-  /* --- Dark mode --- */
-
-  @media (prefers-color-scheme: dark) {
-    .progress-bar {
-      --progress-bar-track: var(--color-neutral-700);
-    }
-
-    .progress-bar__header {
-      color: var(--color-neutral-400);
-    }
   }
 }

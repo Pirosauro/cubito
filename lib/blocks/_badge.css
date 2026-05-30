@@ -53,10 +53,22 @@ TOKENS
     --badge-background: var(--color-neutral-200);
     --badge-border: none;
     --badge-color: var(--color-neutral-800);
-    --badge-dot-size: 0.625rem;
     --badge-font-size: var(--font-size-xxs);
-    --badge-padding: 0.2em 0.55em;
+    --badge-padding: 0.35em 0.55em;
     --badge-radius: 9999px;
+
+    --badge-dot-size: 0.625rem;
+
+    --badge-round-padding: 0.25em;
+  }
+}
+
+@layer dark {
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --badge-background: var(--color-neutral-700);
+      --badge-color: var(--color-neutral-100);
+    }
   }
 }
 
@@ -66,6 +78,7 @@ TOKENS
     align-items: center;
     justify-content: center;
     padding: var(--badge-padding);
+    margin-inline: 0.5em;
     border: var(--badge-border);
     border-radius: var(--badge-radius);
     background: var(--badge-background);
@@ -77,7 +90,7 @@ TOKENS
     vertical-align: middle;
   }
 
-  /* --- Dot layout: circular indicator, no text --- */
+  /* --- Variant: dot layout (circular indicator, no text) --- */
 
   .badge[data-layout="dot"] {
     --badge-padding: 0;
@@ -90,55 +103,14 @@ TOKENS
     text-indent: 100%; /* visually hide any text */
   }
 
-  /* --- Colour variants --- */
+  /* --- Variant: dot layout (circular indicator, no text) --- */
 
-  .badge[data-variant="brand"] {
-    --badge-background: var(--color-brand);
-    --badge-color: var(--color-white);
+  .badge[data-layout="round"] {
+    --badge-padding: var(--badge-round-padding);
+
+    aspect-ratio: 1 / 1;
+    width: 2em;
+    max-width: 2em;
   }
 
-  .badge[data-variant="success"] {
-    --badge-background: color-mix(
-      in srgb,
-      var(--color-status-ok) 15%,
-      transparent
-    );
-    --badge-color: var(--color-status-ok);
-  }
-
-  .badge[data-variant="warning"] {
-    --badge-background: color-mix(
-      in srgb,
-      var(--color-status-warning) 15%,
-      transparent
-    );
-    --badge-color: var(--color-status-warning);
-  }
-
-  .badge[data-variant="error"] {
-    --badge-background: color-mix(
-      in srgb,
-      var(--color-status-ko) 15%,
-      transparent
-    );
-    --badge-color: var(--color-status-ko);
-  }
-
-  .badge[data-variant="info"] {
-    --badge-background: color-mix(
-      in srgb,
-      var(--color-status-info) 15%,
-      transparent
-    );
-    --badge-color: var(--color-status-info);
-  }
-
-  /* --- Dark mode --- */
-
-  @media (prefers-color-scheme: dark) {
-    .badge {
-      --badge-background: var(--color-neutral-700);
-      --badge-color: var(--color-neutral-100);
-    }
-  }
 }

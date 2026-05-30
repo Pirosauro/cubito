@@ -4,7 +4,7 @@
 {% block content %}
 <article class="flow">
 
-  <header class="padding-y-m margin-y-m" style="border-block-end: 1px solid var(--color-neutral-200);">
+  <header class="flow" style="padding-block-end: var(--space-l); border-block-end: var(--border-s) solid var(--color-neutral-200);">
     <nav aria-label="Breadcrumb" class="breadcrumb">
       <ol>
         <li><a href="/">Home</a></li>
@@ -13,133 +13,145 @@
       </ol>
     </nav>
     <h1>Rating</h1>
-    <p class="text-l color-neutral-600">CSS-only star rating display. Set <code>--rating-value</code> to any number from 0 to 5 — decimal values render partial stars automatically.</p>
+    <p class="text-m color-neutral-600">CSS-only star rating display. Set <code>--rating-value</code> to any number from 0 to 5 — decimal values render partial stars automatically.</p>
   </header>
 
   <section>
-    <h2 class="heading-l">Basic ratings</h2>
-    <p>Set <code>--rating-value</code> as an inline style and always provide a descriptive <code>aria-label</code>. The inner <code>&lt;span&gt;</code> is marked <code>aria-hidden="true"</code> because the label on the wrapper conveys the information to screen readers.</p>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Basic ratings</h2>
+      <p>Set <code>--rating-value</code> as an inline style and always provide a descriptive <code>aria-label</code>. The inner <code>&lt;span&gt;</code> is marked <code>aria-hidden="true"</code> because the label on the wrapper conveys the information to screen readers.</p>
     
-    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
-<div class="flow" style="--flow-space: var(--space-s)">
-  <div class="rating" style="--rating-value: 5" aria-label="5 out of 5 stars">
-    <span aria-hidden="true"></span>
-  </div>
-
-  <div class="rating" style="--rating-value: 4" aria-label="4 out of 5 stars">
-    <span aria-hidden="true"></span>
-  </div>
-
-  <div class="rating" style="--rating-value: 3.5" aria-label="3.5 out of 5 stars">
-    <span aria-hidden="true"></span>
-  </div>
-
-  <div class="rating" style="--rating-value: 2" aria-label="2 out of 5 stars">
-    <span aria-hidden="true"></span>
-  </div>
-</div>
+      <div class="">
+  <div class="flow" style="--flow-space: var(--space-s)">
+    <div class="rating" style="--rating-value: 5" aria-label="5 out of 5 stars">
+      <span aria-hidden="true"></span>
     </div>
 
-    <details class="margin-y-s">
-      <summary class="padding-s">Show code</summary>
-      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div class=&quot;flow&quot; style=&quot;--flow-space: var(--space-s)&quot;&gt;
-  &lt;div class=&quot;rating&quot; style=&quot;--rating-value: 5&quot; aria-label=&quot;5 out of 5 stars&quot;&gt;
-    &lt;span aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
-  &lt;/div&gt;
+    <div class="rating" style="--rating-value: 4" aria-label="4 out of 5 stars">
+      <span aria-hidden="true"></span>
+    </div>
 
-  &lt;div class=&quot;rating&quot; style=&quot;--rating-value: 4&quot; aria-label=&quot;4 out of 5 stars&quot;&gt;
-    &lt;span aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
-  &lt;/div&gt;
+    <div class="rating" style="--rating-value: 3.5" aria-label="3.5 out of 5 stars">
+      <span aria-hidden="true"></span>
+    </div>
 
-  &lt;div class=&quot;rating&quot; style=&quot;--rating-value: 3.5&quot; aria-label=&quot;3.5 out of 5 stars&quot;&gt;
-    &lt;span aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
-  &lt;/div&gt;
+    <div class="rating" style="--rating-value: 2" aria-label="2 out of 5 stars">
+      <span aria-hidden="true"></span>
+    </div>
+  </div>
+      </div>
 
-  &lt;div class=&quot;rating&quot; style=&quot;--rating-value: 2&quot; aria-label=&quot;2 out of 5 stars&quot;&gt;
-    &lt;span aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</code></pre>
-    </details>
+      <details class="margin-y-s">
+        <summary>Show code</summary>
+        <pre class="padding-m"><code>&lt;div class=&quot;flow&quot; style=&quot;--flow-space: var(--space-s)&quot;&gt;
+    &lt;div class=&quot;rating&quot; style=&quot;--rating-value: 5&quot; aria-label=&quot;5 out of 5 stars&quot;&gt;
+      &lt;span aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;rating&quot; style=&quot;--rating-value: 4&quot; aria-label=&quot;4 out of 5 stars&quot;&gt;
+      &lt;span aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;rating&quot; style=&quot;--rating-value: 3.5&quot; aria-label=&quot;3.5 out of 5 stars&quot;&gt;
+      &lt;span aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;rating&quot; style=&quot;--rating-value: 2&quot; aria-label=&quot;2 out of 5 stars&quot;&gt;
+      &lt;span aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;</code></pre>
+      </details>
+  
+    </div>
   </section>
 
   <section>
-    <h2 class="heading-l">With review count</h2>
-    <p>Add <code>.rating__count</code> after the star span to display a review total. It renders in a muted, smaller type size.</p>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">With review count</h2>
+      <p>Add <code>.rating__count</code> after the star span to display a review total. It renders in a muted, smaller type size.</p>
     
-    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
-<div class="rating" style="--rating-value: 4.2" aria-label="4.2 out of 5 stars">
-  <span aria-hidden="true"></span>
-  <span class="rating__count">(128 reviews)</span>
-</div>
-    </div>
+      <div class="">
+  <div class="rating" style="--rating-value: 4.2" aria-label="4.2 out of 5 stars">
+    <span aria-hidden="true"></span>
+    <span class="rating__count">(128 reviews)</span>
+  </div>
+      </div>
 
-    <details class="margin-y-s">
-      <summary class="padding-s">Show code</summary>
-      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div class=&quot;rating&quot; style=&quot;--rating-value: 4.2&quot; aria-label=&quot;4.2 out of 5 stars&quot;&gt;
-  &lt;span aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
-  &lt;span class=&quot;rating__count&quot;&gt;(128 reviews)&lt;/span&gt;
-&lt;/div&gt;</code></pre>
-    </details>
+      <details class="margin-y-s">
+        <summary>Show code</summary>
+        <pre class="padding-m"><code>&lt;div class=&quot;rating&quot; style=&quot;--rating-value: 4.2&quot; aria-label=&quot;4.2 out of 5 stars&quot;&gt;
+    &lt;span aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+    &lt;span class=&quot;rating__count&quot;&gt;(128 reviews)&lt;/span&gt;
+  &lt;/div&gt;</code></pre>
+      </details>
+  
+    </div>
   </section>
 
   <section>
-    <h2 class="heading-l">Larger stars</h2>
-    <p>Override <code>--rating-size</code> to scale the stars for hero or summary contexts.</p>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Larger stars</h2>
+      <p>Override <code>--rating-size</code> to scale the stars for hero or summary contexts.</p>
     
-    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
-<div class="rating" style="--rating-value: 4.5; --rating-size: 1.5rem" aria-label="4.5 out of 5 stars">
-  <span aria-hidden="true"></span>
-  <span class="rating__count">(64 reviews)</span>
-</div>
-    </div>
+      <div class="">
+  <div class="rating" style="--rating-value: 4.5; --rating-size: 1.5rem" aria-label="4.5 out of 5 stars">
+    <span aria-hidden="true"></span>
+    <span class="rating__count">(64 reviews)</span>
+  </div>
+      </div>
 
-    <details class="margin-y-s">
-      <summary class="padding-s">Show code</summary>
-      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div class=&quot;rating&quot; style=&quot;--rating-value: 4.5; --rating-size: 1.5rem&quot; aria-label=&quot;4.5 out of 5 stars&quot;&gt;
-  &lt;span aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
-  &lt;span class=&quot;rating__count&quot;&gt;(64 reviews)&lt;/span&gt;
-&lt;/div&gt;</code></pre>
-    </details>
+      <details class="margin-y-s">
+        <summary>Show code</summary>
+        <pre class="padding-m"><code>&lt;div class=&quot;rating&quot; style=&quot;--rating-value: 4.5; --rating-size: 1.5rem&quot; aria-label=&quot;4.5 out of 5 stars&quot;&gt;
+    &lt;span aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+    &lt;span class=&quot;rating__count&quot;&gt;(64 reviews)&lt;/span&gt;
+  &lt;/div&gt;</code></pre>
+      </details>
+  
+    </div>
   </section>
 
   <section>
-    <h2 class="heading-l">Tokens</h2>
-    <table class="">
-      <thead>
-        <tr>
-          <th>Token</th>
-          <th>Default</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><code>--rating-value</code></td>
-          <td>— (required)</td>
-          <td>Score from 0 to 5. Decimals render partial stars. Must be set inline.</td>
-        </tr>
-        <tr>
-          <td><code>--rating-star-color</code></td>
-          <td><code>#f59e0b</code></td>
-          <td>Colour of the filled portion of the stars.</td>
-        </tr>
-        <tr>
-          <td><code>--rating-empty-color</code></td>
-          <td><code>var(--color-neutral-300)</code></td>
-          <td>Colour of the unfilled portion of the stars.</td>
-        </tr>
-        <tr>
-          <td><code>--rating-size</code></td>
-          <td><code>1rem</code></td>
-          <td>Height and width of each individual star.</td>
-        </tr>
-        <tr>
-          <td><code>--rating-gap</code></td>
-          <td><code>0.1em</code></td>
-          <td>Gap between individual stars.</td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Tokens</h2>
+      <table class="">
+        <thead>
+          <tr>
+            <th>Token</th>
+            <th>Default</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>--rating-value</code></td>
+            <td>— (required)</td>
+            <td>Score from 0 to 5. Decimals render partial stars. Must be set inline.</td>
+          </tr>
+          <tr>
+            <td><code>--rating-star-color</code></td>
+            <td><code>#f59e0b</code></td>
+            <td>Colour of the filled portion of the stars.</td>
+          </tr>
+          <tr>
+            <td><code>--rating-empty-color</code></td>
+            <td><code>var(--color-neutral-300)</code></td>
+            <td>Colour of the unfilled portion of the stars.</td>
+          </tr>
+          <tr>
+            <td><code>--rating-size</code></td>
+            <td><code>1rem</code></td>
+            <td>Height and width of each individual star.</td>
+          </tr>
+          <tr>
+            <td><code>--rating-gap</code></td>
+            <td><code>0.1em</code></td>
+            <td>Gap between individual stars.</td>
+          </tr>
+        </tbody>
+      </table>
+  
+    </div>
   </section>
 
 </article>

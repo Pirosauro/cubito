@@ -4,7 +4,7 @@
 {% block content %}
 <article class="flow">
 
-  <header class="padding-y-m margin-y-m" style="border-block-end: 1px solid var(--color-neutral-200);">
+  <header class="flow" style="padding-block-end: var(--space-l); border-block-end: var(--border-s) solid var(--color-neutral-200);">
     <nav aria-label="Breadcrumb" class="breadcrumb">
       <ol>
         <li><a href="/">Home</a></li>
@@ -13,150 +13,162 @@
       </ol>
     </nav>
     <h1>Frame</h1>
-    <p class="text-l color-neutral-600">Constrains media to a specific aspect ratio by cropping, so layout stays stable regardless of the source image or video dimensions.</p>
+    <p class="text-m color-neutral-600">Constrains media to a specific aspect ratio by cropping, so layout stays stable regardless of the source image or video dimensions.</p>
   </header>
 
   <section>
-    <h2 class="heading-l">16:9</h2>
-    <p>The default ratio is 16:9. Any content placed inside is cropped to fill the frame.</p>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">16:9</h2>
+      <p>The default ratio is 16:9. Any content placed inside is cropped to fill the frame.</p>
     
-    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
-<div class="frame" style="max-width: 40rem;">
-  <div style="background: #6366f1; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.125rem; font-weight: 600;">
-    16 : 9
-  </div>
-</div>
+      <div class="">
+  <div class="frame" style="max-width: 40rem;">
+    <div style="background: #6366f1; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.125rem; font-weight: 600;">
+      16 : 9
     </div>
-
-    <details class="margin-y-s">
-      <summary class="padding-s">Show code</summary>
-      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div class=&quot;frame&quot; style=&quot;max-width: 40rem;&quot;&gt;
-  &lt;div style=&quot;background: #6366f1; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.125rem; font-weight: 600;&quot;&gt;
-    16 : 9
-  &lt;/div&gt;
-&lt;/div&gt;</code></pre>
-    </details>
-  </section>
-
-  <section>
-    <h2 class="heading-l">4:3 and 1:1</h2>
-    <p>Override <code>--n</code> (width numerator) and <code>--d</code> (height denominator) inline to change the ratio.</p>
-    
-    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
-<div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-  <div style="flex: 1; min-width: 10rem;">
-    <p style="font-size: 0.875rem; color: #6b7280; margin-block-end: 0.4rem;">4:3</p>
-    <div class="frame" style="--n: 4; --d: 3;">
-      <div style="background: #818cf8; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 600;">
-        4 : 3
+  </div>
       </div>
-    </div>
-  </div>
 
-  <div style="flex: 1; min-width: 10rem;">
-    <p style="font-size: 0.875rem; color: #6b7280; margin-block-end: 0.4rem;">1:1 (square)</p>
-    <div class="frame" style="--n: 1; --d: 1;">
-      <div style="background: #a5b4fc; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 600;">
-        1 : 1
-      </div>
-    </div>
-  </div>
-
-  <div style="flex: 1; min-width: 10rem;">
-    <p style="font-size: 0.875rem; color: #6b7280; margin-block-end: 0.4rem;">2:3 (portrait)</p>
-    <div class="frame" style="--n: 2; --d: 3;">
-      <div style="background: #c7d2fe; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-weight: 600;">
-        2 : 3
-      </div>
-    </div>
-  </div>
-</div>
-    </div>
-
-    <details class="margin-y-s">
-      <summary class="padding-s">Show code</summary>
-      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div style=&quot;display: flex; gap: 1rem; flex-wrap: wrap;&quot;&gt;
-  &lt;div style=&quot;flex: 1; min-width: 10rem;&quot;&gt;
-    &lt;p style=&quot;font-size: 0.875rem; color: #6b7280; margin-block-end: 0.4rem;&quot;&gt;4:3&lt;/p&gt;
-    &lt;div class=&quot;frame&quot; style=&quot;--n: 4; --d: 3;&quot;&gt;
-      &lt;div style=&quot;background: #818cf8; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 600;&quot;&gt;
-        4 : 3
-      &lt;/div&gt;
+      <details class="margin-y-s">
+        <summary>Show code</summary>
+        <pre class="padding-m"><code>&lt;div class=&quot;frame&quot; style=&quot;max-width: 40rem;&quot;&gt;
+    &lt;div style=&quot;background: #6366f1; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.125rem; font-weight: 600;&quot;&gt;
+      16 : 9
     &lt;/div&gt;
-  &lt;/div&gt;
-
-  &lt;div style=&quot;flex: 1; min-width: 10rem;&quot;&gt;
-    &lt;p style=&quot;font-size: 0.875rem; color: #6b7280; margin-block-end: 0.4rem;&quot;&gt;1:1 (square)&lt;/p&gt;
-    &lt;div class=&quot;frame&quot; style=&quot;--n: 1; --d: 1;&quot;&gt;
-      &lt;div style=&quot;background: #a5b4fc; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 600;&quot;&gt;
-        1 : 1
-      &lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-
-  &lt;div style=&quot;flex: 1; min-width: 10rem;&quot;&gt;
-    &lt;p style=&quot;font-size: 0.875rem; color: #6b7280; margin-block-end: 0.4rem;&quot;&gt;2:3 (portrait)&lt;/p&gt;
-    &lt;div class=&quot;frame&quot; style=&quot;--n: 2; --d: 3;&quot;&gt;
-      &lt;div style=&quot;background: #c7d2fe; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-weight: 600;&quot;&gt;
-        2 : 3
-      &lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</code></pre>
-    </details>
-  </section>
-
-  <section>
-    <h2 class="heading-l">With img</h2>
-    <p>The frame crops <code>&lt;img&gt;</code> and <code>&lt;video&gt;</code> children to fill using <code>object-fit: cover</code>. The image's natural dimensions do not matter.</p>
-    
-    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
-<div class="frame" style="max-width: 32rem;">
-  <img
-    src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80"
-    alt="Mountain landscape with snow-capped peaks and a clear blue lake"
-  >
-</div>
-    </div>
-
-    <details class="margin-y-s">
-      <summary class="padding-s">Show code</summary>
-      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div class=&quot;frame&quot; style=&quot;max-width: 32rem;&quot;&gt;
-  &lt;img
-    src=&quot;https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&amp;q=80&quot;
-    alt=&quot;Mountain landscape with snow-capped peaks and a clear blue lake&quot;
-  &gt;
-&lt;/div&gt;</code></pre>
-    </details>
-
-    <div class="callout" data-variant="brand" role="note">
-      <p>The frame uses <code>overflow: hidden</code> and <code>object-fit: cover</code> on child images and videos. Any content that overflows the aspect-ratio box is clipped.</p>
+  &lt;/div&gt;</code></pre>
+      </details>
+  
     </div>
   </section>
 
   <section>
-    <h2 class="heading-l">Tokens</h2>
-    <table class="">
-      <thead>
-        <tr>
-          <th>Token</th>
-          <th>Default</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><code>--n</code></td>
-          <td><code>16</code></td>
-          <td>Width numerator of the aspect ratio. Set inline to change ratio.</td>
-        </tr>
-        <tr>
-          <td><code>--d</code></td>
-          <td><code>9</code></td>
-          <td>Height denominator of the aspect ratio. Set inline to change ratio.</td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">4:3 and 1:1</h2>
+      <p>Override <code>--n</code> (width numerator) and <code>--d</code> (height denominator) inline to change the ratio.</p>
+    
+      <div class="">
+  <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+    <div style="flex: 1; min-width: 10rem;">
+      <p style="font-size: 0.875rem; color: #6b7280; margin-block-end: 0.4rem;">4:3</p>
+      <div class="frame" style="--n: 4; --d: 3;">
+        <div style="background: #818cf8; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 600;">
+          4 : 3
+        </div>
+      </div>
+    </div>
+
+    <div style="flex: 1; min-width: 10rem;">
+      <p style="font-size: 0.875rem; color: #6b7280; margin-block-end: 0.4rem;">1:1 (square)</p>
+      <div class="frame" style="--n: 1; --d: 1;">
+        <div style="background: #a5b4fc; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 600;">
+          1 : 1
+        </div>
+      </div>
+    </div>
+
+    <div style="flex: 1; min-width: 10rem;">
+      <p style="font-size: 0.875rem; color: #6b7280; margin-block-end: 0.4rem;">2:3 (portrait)</p>
+      <div class="frame" style="--n: 2; --d: 3;">
+        <div style="background: #c7d2fe; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-weight: 600;">
+          2 : 3
+        </div>
+      </div>
+    </div>
+  </div>
+      </div>
+
+      <details class="margin-y-s">
+        <summary>Show code</summary>
+        <pre class="padding-m"><code>&lt;div style=&quot;display: flex; gap: 1rem; flex-wrap: wrap;&quot;&gt;
+    &lt;div style=&quot;flex: 1; min-width: 10rem;&quot;&gt;
+      &lt;p style=&quot;font-size: 0.875rem; color: #6b7280; margin-block-end: 0.4rem;&quot;&gt;4:3&lt;/p&gt;
+      &lt;div class=&quot;frame&quot; style=&quot;--n: 4; --d: 3;&quot;&gt;
+        &lt;div style=&quot;background: #818cf8; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 600;&quot;&gt;
+          4 : 3
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div style=&quot;flex: 1; min-width: 10rem;&quot;&gt;
+      &lt;p style=&quot;font-size: 0.875rem; color: #6b7280; margin-block-end: 0.4rem;&quot;&gt;1:1 (square)&lt;/p&gt;
+      &lt;div class=&quot;frame&quot; style=&quot;--n: 1; --d: 1;&quot;&gt;
+        &lt;div style=&quot;background: #a5b4fc; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 600;&quot;&gt;
+          1 : 1
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div style=&quot;flex: 1; min-width: 10rem;&quot;&gt;
+      &lt;p style=&quot;font-size: 0.875rem; color: #6b7280; margin-block-end: 0.4rem;&quot;&gt;2:3 (portrait)&lt;/p&gt;
+      &lt;div class=&quot;frame&quot; style=&quot;--n: 2; --d: 3;&quot;&gt;
+        &lt;div style=&quot;background: #c7d2fe; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-weight: 600;&quot;&gt;
+          2 : 3
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;</code></pre>
+      </details>
+  
+    </div>
+  </section>
+
+  <section>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">With img</h2>
+      <p>The frame crops <code>&lt;img&gt;</code> and <code>&lt;video&gt;</code> children to fill using <code>object-fit: cover</code>. The image's natural dimensions do not matter.</p>
+    
+      <div class="">
+  <div class="frame" style="max-width: 32rem;">
+    <img
+      src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80"
+      alt="Mountain landscape with snow-capped peaks and a clear blue lake"
+    >
+  </div>
+      </div>
+
+      <details class="margin-y-s">
+        <summary>Show code</summary>
+        <pre class="padding-m"><code>&lt;div class=&quot;frame&quot; style=&quot;max-width: 32rem;&quot;&gt;
+    &lt;img
+      src=&quot;https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&amp;q=80&quot;
+      alt=&quot;Mountain landscape with snow-capped peaks and a clear blue lake&quot;
+    &gt;
+  &lt;/div&gt;</code></pre>
+      </details>
+
+      <div class="callout wide" data-variant="brand" role="note">
+        <p>The frame uses <code>overflow: hidden</code> and <code>object-fit: cover</code> on child images and videos. Any content that overflows the aspect-ratio box is clipped.</p>
+      </div>
+  
+    </div>
+  </section>
+
+  <section>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Tokens</h2>
+      <table class="">
+        <thead>
+          <tr>
+            <th>Token</th>
+            <th>Default</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>--n</code></td>
+            <td><code>16</code></td>
+            <td>Width numerator of the aspect ratio. Set inline to change ratio.</td>
+          </tr>
+          <tr>
+            <td><code>--d</code></td>
+            <td><code>9</code></td>
+            <td>Height denominator of the aspect ratio. Set inline to change ratio.</td>
+          </tr>
+        </tbody>
+      </table>
+  
+    </div>
   </section>
 
 </article>

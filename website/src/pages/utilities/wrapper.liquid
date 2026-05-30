@@ -4,7 +4,7 @@
 {% block content %}
 <article class="flow">
 
-  <header class="padding-y-m margin-y-m" style="border-block-end: 1px solid var(--color-neutral-200);">
+  <header class="flow" style="padding-block-end: var(--space-l); border-block-end: var(--border-s) solid var(--color-neutral-200);">
     <nav aria-label="Breadcrumb" class="breadcrumb">
       <ol>
         <li><a href="/">Home</a></li>
@@ -13,153 +13,168 @@
       </ol>
     </nav>
     <h1>Wrapper, Region &amp; Wide</h1>
-    <p class="text-l color-neutral-600">Three layout primitives that work together to build page-level structure: a max-width container, a vertical rhythm region, and a full-width breakout element.</p>
+    <p class="text-m color-neutral-600">Three layout primitives that work together to build page-level structure: a max-width container, a vertical rhythm region, and a full-width breakout element.</p>
   </header>
 
   <section>
-    <h2 class="heading-l">Wrapper</h2>
-    <p><code>.wrapper</code> constrains content to a maximum width, centres it with <code>margin-inline: auto</code>, and applies a fluid inline gutter (<code>--gutter</code>) so content never touches viewport edges on small screens.</p>
-    <p>The default maximum width is <code>90rem</code> (1440px). Override <code>--wrapper-max-width</code> to use a narrower column for editorial content.</p>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Wrapper</h2>
+      <p><code>.wrapper</code> constrains content to a maximum width, centres it with <code>margin-inline: auto</code>, and applies a fluid inline gutter (<code>--gutter</code>) so content never touches viewport edges on small screens.</p>
+      <p>The default maximum width is <code>90rem</code> (1440px). Override <code>--wrapper-max-width</code> to use a narrower column for editorial content.</p>
     
-    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
-<div style="background: var(--color-neutral-100); padding-block: var(--space-s)">
-  <div class="wrapper" style="background: var(--color-neutral-200); padding-block: var(--space-s); border-radius: var(--border-radius-m)">
-    Default wrapper (max 90rem)
-  </div>
-</div>
+      <div class="">
+  <div style="background: var(--color-neutral-100); padding-block: var(--space-s)">
+    <div class="wrapper" style="background: var(--color-neutral-200); padding-block: var(--space-s); border-radius: var(--border-radius-m)">
+      Default wrapper (max 90rem)
     </div>
-
-    <details class="margin-y-s">
-      <summary class="padding-s">Show code</summary>
-      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div style=&quot;background: var(--color-neutral-100); padding-block: var(--space-s)&quot;&gt;
-  &lt;div class=&quot;wrapper&quot; style=&quot;background: var(--color-neutral-200); padding-block: var(--space-s); border-radius: var(--border-radius-m)&quot;&gt;
-    Default wrapper (max 90rem)
-  &lt;/div&gt;
-&lt;/div&gt;</code></pre>
-    </details>
-
-    {% capture demo2 %}
-<div style="background: var(--color-neutral-100); padding-block: var(--space-s)">
-  <div class="wrapper" style="--wrapper-max-width: 48rem; background: var(--color-neutral-200); padding-block: var(--space-s); border-radius: var(--border-radius-m)">
-    Narrow wrapper (max 48rem) — suitable for articles and editorial columns
   </div>
-</div>
-    {% endcapture %}
-    {% include "partials/demo.liquid", html: demo2, title: "Custom --wrapper-max-width: 48rem" %}
-  </section>
+      </div>
 
-  <section>
-    <h2 class="heading-l">Region</h2>
-    <p><code>.region</code> adds block padding (top and bottom) to create clearly separated content sections. The default space is <code>--space-l-xl</code> (a fluid value). Override <code>--region-space</code> for sections that need more or less breathing room.</p>
-    
-    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
-<div style="background: var(--color-neutral-50); outline: 2px dashed var(--color-neutral-300)">
-  <div class="region" style="background: var(--color-neutral-100)">
-    <p>Default region padding — <code>var(--space-l-xl)</code> above and below.</p>
-  </div>
-</div>
-    </div>
-
-    <details class="margin-y-s">
-      <summary class="padding-s">Show code</summary>
-      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div style=&quot;background: var(--color-neutral-50); outline: 2px dashed var(--color-neutral-300)&quot;&gt;
-  &lt;div class=&quot;region&quot; style=&quot;background: var(--color-neutral-100)&quot;&gt;
-    &lt;p&gt;Default region padding — &lt;code&gt;var(--space-l-xl)&lt;/code&gt; above and below.&lt;/p&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</code></pre>
-    </details>
-
-    {% capture demo2 %}
-<div style="background: var(--color-neutral-50); outline: 2px dashed var(--color-neutral-300)">
-  <div class="region" style="--region-space: var(--space-xxl); background: var(--color-neutral-100)">
-    <p>Large region — <code>--region-space: var(--space-xxl)</code>. Use for hero sections or major content breaks.</p>
-  </div>
-</div>
-    {% endcapture %}
-    {% include "partials/demo.liquid", html: demo2, title: "Custom --region-space: --space-xxl" %}
-  </section>
-
-  <section>
-    <h2 class="heading-l">Wide</h2>
-    <p><code>.wide</code> sets <code>width: 100%</code> and <code>max-width: 100%</code>, causing an element to escape the constraints of any ancestor <code>.wrapper</code>. Use it for full-bleed images, banners, and decorative horizontal rules that should span the full viewport width inside an otherwise constrained layout.</p>
-    
-    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
-<div class="wrapper" style="--wrapper-max-width: 36rem; background: var(--color-neutral-50); padding-block: var(--space-m)">
-  <p>This paragraph is constrained by the wrapper.</p>
-  <div class="wide" style="background: var(--color-brand); color: white; padding: var(--space-s) var(--space-m); text-align: center; margin-block: var(--space-s)">
-    .wide — full-bleed element inside a wrapper
-  </div>
-  <p>This paragraph is constrained again.</p>
-</div>
-    </div>
-
-    <details class="margin-y-s">
-      <summary class="padding-s">Show code</summary>
-      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div class=&quot;wrapper&quot; style=&quot;--wrapper-max-width: 36rem; background: var(--color-neutral-50); padding-block: var(--space-m)&quot;&gt;
-  &lt;p&gt;This paragraph is constrained by the wrapper.&lt;/p&gt;
-  &lt;div class=&quot;wide&quot; style=&quot;background: var(--color-brand); color: white; padding: var(--space-s) var(--space-m); text-align: center; margin-block: var(--space-s)&quot;&gt;
-    .wide — full-bleed element inside a wrapper
-  &lt;/div&gt;
-  &lt;p&gt;This paragraph is constrained again.&lt;/p&gt;
-&lt;/div&gt;</code></pre>
-    </details>
-  </section>
-
-  <section>
-    <h2 class="heading-l">Combining all three</h2>
-    <p>A typical page section uses all three: <code>.region</code> for vertical rhythm, <code>.wrapper</code> for max-width, and <code>.wide</code> for any full-bleed child elements.</p>
-    
-    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
-<div class="region" style="background: var(--color-neutral-50)">
-  <div class="wrapper" style="--wrapper-max-width: 40rem">
-    <h2 class="heading-l">Featured article</h2>
-    <p style="margin-block-start: var(--space-s)">The wrapper keeps this column narrow and centred for comfortable reading. The image below breaks out full-width.</p>
-    <div class="wide" style="background: var(--color-neutral-200); height: 8rem; margin-block: var(--space-m); border-radius: var(--border-radius-m); display: flex; align-items: center; justify-content: center; color: var(--color-neutral-500)">
-      Full-bleed image
-    </div>
-    <p>Text resumes inside the wrapper constraint after the full-bleed element.</p>
-  </div>
-</div>
-    </div>
-
-    <details class="margin-y-s">
-      <summary class="padding-s">Show code</summary>
-      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div class=&quot;region&quot; style=&quot;background: var(--color-neutral-50)&quot;&gt;
-  &lt;div class=&quot;wrapper&quot; style=&quot;--wrapper-max-width: 40rem&quot;&gt;
-    &lt;h2 class=&quot;heading-l&quot;&gt;Featured article&lt;/h2&gt;
-    &lt;p style=&quot;margin-block-start: var(--space-s)&quot;&gt;The wrapper keeps this column narrow and centred for comfortable reading. The image below breaks out full-width.&lt;/p&gt;
-    &lt;div class=&quot;wide&quot; style=&quot;background: var(--color-neutral-200); height: 8rem; margin-block: var(--space-m); border-radius: var(--border-radius-m); display: flex; align-items: center; justify-content: center; color: var(--color-neutral-500)&quot;&gt;
-      Full-bleed image
+      <details class="margin-y-s">
+        <summary>Show code</summary>
+        <pre class="padding-m"><code>&lt;div style=&quot;background: var(--color-neutral-100); padding-block: var(--space-s)&quot;&gt;
+    &lt;div class=&quot;wrapper&quot; style=&quot;background: var(--color-neutral-200); padding-block: var(--space-s); border-radius: var(--border-radius-m)&quot;&gt;
+      Default wrapper (max 90rem)
     &lt;/div&gt;
-    &lt;p&gt;Text resumes inside the wrapper constraint after the full-bleed element.&lt;/p&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</code></pre>
-    </details>
+  &lt;/div&gt;</code></pre>
+      </details>
+
+      {% capture demo2 %}
+  <div style="background: var(--color-neutral-100); padding-block: var(--space-s)">
+    <div class="wrapper" style="--wrapper-max-width: 48rem; background: var(--color-neutral-200); padding-block: var(--space-s); border-radius: var(--border-radius-m)">
+      Narrow wrapper (max 48rem) — suitable for articles and editorial columns
+    </div>
+  </div>
+      {% endcapture %}
+      {% include "partials/demo.liquid", html: demo2, title: "Custom --wrapper-max-width: 48rem" %}
+  
+    </div>
   </section>
 
   <section>
-    <h2 class="heading-l">Tokens</h2>
-    <table class="">
-      <thead>
-        <tr>
-          <th>Token</th>
-          <th>Default</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><code>--wrapper-max-width</code></td>
-          <td><code>90rem</code></td>
-          <td>Maximum content width of <code>.wrapper</code>.</td>
-        </tr>
-        <tr>
-          <td><code>--region-space</code></td>
-          <td><code>var(--space-l-xl)</code></td>
-          <td>Block padding applied by <code>.region</code>.</td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Region</h2>
+      <p><code>.region</code> adds block padding (top and bottom) to create clearly separated content sections. The default space is <code>--space-l-xl</code> (a fluid value). Override <code>--region-space</code> for sections that need more or less breathing room.</p>
+    
+      <div class="">
+  <div style="background: var(--color-neutral-50); outline: 2px dashed var(--color-neutral-300)">
+    <div class="region" style="background: var(--color-neutral-100)">
+      <p>Default region padding — <code>var(--space-l-xl)</code> above and below.</p>
+    </div>
+  </div>
+      </div>
+
+      <details class="margin-y-s">
+        <summary>Show code</summary>
+        <pre class="padding-m"><code>&lt;div style=&quot;background: var(--color-neutral-50); outline: 2px dashed var(--color-neutral-300)&quot;&gt;
+    &lt;div class=&quot;region&quot; style=&quot;background: var(--color-neutral-100)&quot;&gt;
+      &lt;p&gt;Default region padding — &lt;code&gt;var(--space-l-xl)&lt;/code&gt; above and below.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;</code></pre>
+      </details>
+
+      {% capture demo2 %}
+  <div style="background: var(--color-neutral-50); outline: 2px dashed var(--color-neutral-300)">
+    <div class="region" style="--region-space: var(--space-xxl); background: var(--color-neutral-100)">
+      <p>Large region — <code>--region-space: var(--space-xxl)</code>. Use for hero sections or major content breaks.</p>
+    </div>
+  </div>
+      {% endcapture %}
+      {% include "partials/demo.liquid", html: demo2, title: "Custom --region-space: --space-xxl" %}
+  
+    </div>
+  </section>
+
+  <section>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Wide</h2>
+      <p><code>.wide</code> sets <code>width: 100%</code> and <code>max-width: 100%</code>, causing an element to escape the constraints of any ancestor <code>.wrapper</code>. Use it for full-bleed images, banners, and decorative horizontal rules that should span the full viewport width inside an otherwise constrained layout.</p>
+    
+      <div class="">
+  <div class="wrapper" style="--wrapper-max-width: 36rem; background: var(--color-neutral-50); padding-block: var(--space-m)">
+    <p>This paragraph is constrained by the wrapper.</p>
+    <div class="wide" style="background: var(--color-brand); color: white; padding: var(--space-s) var(--space-m); text-align: center; margin-block: var(--space-s)">
+      .wide — full-bleed element inside a wrapper
+    </div>
+    <p>This paragraph is constrained again.</p>
+  </div>
+      </div>
+
+      <details class="margin-y-s">
+        <summary>Show code</summary>
+        <pre class="padding-m"><code>&lt;div class=&quot;wrapper&quot; style=&quot;--wrapper-max-width: 36rem; background: var(--color-neutral-50); padding-block: var(--space-m)&quot;&gt;
+    &lt;p&gt;This paragraph is constrained by the wrapper.&lt;/p&gt;
+    &lt;div class=&quot;wide&quot; style=&quot;background: var(--color-brand); color: white; padding: var(--space-s) var(--space-m); text-align: center; margin-block: var(--space-s)&quot;&gt;
+      .wide — full-bleed element inside a wrapper
+    &lt;/div&gt;
+    &lt;p&gt;This paragraph is constrained again.&lt;/p&gt;
+  &lt;/div&gt;</code></pre>
+      </details>
+  
+    </div>
+  </section>
+
+  <section>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Combining all three</h2>
+      <p>A typical page section uses all three: <code>.region</code> for vertical rhythm, <code>.wrapper</code> for max-width, and <code>.wide</code> for any full-bleed child elements.</p>
+    
+      <div class="">
+  <div class="region" style="background: var(--color-neutral-50)">
+    <div class="wrapper" style="--wrapper-max-width: 40rem">
+      <h2 class="heading-l">Featured article</h2>
+      <p style="margin-block-start: var(--space-s)">The wrapper keeps this column narrow and centred for comfortable reading. The image below breaks out full-width.</p>
+      <div class="wide" style="background: var(--color-neutral-200); height: 8rem; margin-block: var(--space-m); border-radius: var(--border-radius-m); display: flex; align-items: center; justify-content: center; color: var(--color-neutral-500)">
+        Full-bleed image
+      </div>
+      <p>Text resumes inside the wrapper constraint after the full-bleed element.</p>
+    </div>
+  </div>
+      </div>
+
+      <details class="margin-y-s">
+        <summary>Show code</summary>
+        <pre class="padding-m"><code>&lt;div class=&quot;region&quot; style=&quot;background: var(--color-neutral-50)&quot;&gt;
+    &lt;div class=&quot;wrapper&quot; style=&quot;--wrapper-max-width: 40rem&quot;&gt;
+      &lt;h2 class=&quot;heading-l&quot;&gt;Featured article&lt;/h2&gt;
+      &lt;p style=&quot;margin-block-start: var(--space-s)&quot;&gt;The wrapper keeps this column narrow and centred for comfortable reading. The image below breaks out full-width.&lt;/p&gt;
+      &lt;div class=&quot;wide&quot; style=&quot;background: var(--color-neutral-200); height: 8rem; margin-block: var(--space-m); border-radius: var(--border-radius-m); display: flex; align-items: center; justify-content: center; color: var(--color-neutral-500)&quot;&gt;
+        Full-bleed image
+      &lt;/div&gt;
+      &lt;p&gt;Text resumes inside the wrapper constraint after the full-bleed element.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;</code></pre>
+      </details>
+  
+    </div>
+  </section>
+
+  <section>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Tokens</h2>
+      <table class="">
+        <thead>
+          <tr>
+            <th>Token</th>
+            <th>Default</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>--wrapper-max-width</code></td>
+            <td><code>90rem</code></td>
+            <td>Maximum content width of <code>.wrapper</code>.</td>
+          </tr>
+          <tr>
+            <td><code>--region-space</code></td>
+            <td><code>var(--space-l-xl)</code></td>
+            <td>Block padding applied by <code>.region</code>.</td>
+          </tr>
+        </tbody>
+      </table>
+  
+    </div>
   </section>
 
 </article>

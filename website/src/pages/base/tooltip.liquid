@@ -4,7 +4,7 @@
 {% block content %}
 <article class="flow">
 
-  <header class="padding-y-m margin-y-m" style="border-block-end: 1px solid var(--color-neutral-200);">
+  <header class="flow" style="padding-block-end: var(--space-l); border-block-end: var(--border-s) solid var(--color-neutral-200);">
     <nav aria-label="Breadcrumb" class="breadcrumb">
       <ol>
         <li><a href="/">Home</a></li>
@@ -13,172 +13,187 @@
       </ol>
     </nav>
     <h1>Tooltip</h1>
-    <p class="text-l color-neutral-600">Non-interactive informational overlays that appear on hover and focus, built entirely with CSS using the WAI-ARIA tooltip pattern — no JavaScript required.</p>
+    <p class="text-m color-neutral-600">Non-interactive informational overlays that appear on hover and focus, built entirely with CSS using the WAI-ARIA tooltip pattern — no JavaScript required.</p>
   </header>
 
   <section>
-    <h2 class="heading-l">Basic tooltip</h2>
-    <p>Wrap a trigger element and a <code>[role="tooltip"]</code> element together in a <code>[data-tooltip]</code> container. Link them with <code>aria-describedby</code> on the trigger pointing to the tooltip's <code>id</code>.</p>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Basic tooltip</h2>
+      <p>Wrap a trigger element and a <code>[role="tooltip"]</code> element together in a <code>[data-tooltip]</code> container. Link them with <code>aria-describedby</code> on the trigger pointing to the tooltip's <code>id</code>.</p>
     
-    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
-<div class="cluster" style="padding-block: var(--space-xl)">
-  <span data-tooltip="true">
-    <button type="button" aria-describedby="tip-save">Save draft</button>
-    <span role="tooltip" id="tip-save">Saves without publishing. You can continue editing.</span>
-  </span>
+      <div class="">
+  <div class="cluster" style="padding-block: var(--space-xl)">
+    <span data-tooltip="true">
+      <button type="button" aria-describedby="tip-save">Save draft</button>
+      <span role="tooltip" id="tip-save">Saves without publishing. You can continue editing.</span>
+    </span>
 
-  <span data-tooltip="true">
-    <button type="button" data-variant="outline" aria-describedby="tip-publish">Publish</button>
-    <span role="tooltip" id="tip-publish">Makes the page publicly visible immediately.</span>
-  </span>
+    <span data-tooltip="true">
+      <button type="button" data-variant="outline" aria-describedby="tip-publish">Publish</button>
+      <span role="tooltip" id="tip-publish">Makes the page publicly visible immediately.</span>
+    </span>
 
-  <span data-tooltip="true">
-    <button type="button" data-variant="ghost" aria-describedby="tip-delete" aria-label="Delete">
-      <svg aria-hidden="true" width="1em" height="1em" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 4 4 4 14 4"/><path d="M5 4V3a1 1 0 011-1h4a1 1 0 011 1v1"/><path d="M6 8v4M10 8v4"/><rect x="3" y="4" width="10" height="10" rx="1"/></svg>
-    </button>
-    <span role="tooltip" id="tip-delete">Delete this page permanently.</span>
-  </span>
-</div>
+    <span data-tooltip="true">
+      <button type="button" data-variant="ghost" aria-describedby="tip-delete" aria-label="Delete">
+        <svg aria-hidden="true" width="1em" height="1em" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 4 4 4 14 4"/><path d="M5 4V3a1 1 0 011-1h4a1 1 0 011 1v1"/><path d="M6 8v4M10 8v4"/><rect x="3" y="4" width="10" height="10" rx="1"/></svg>
+      </button>
+      <span role="tooltip" id="tip-delete">Delete this page permanently.</span>
+    </span>
+  </div>
+      </div>
+
+      <details class="margin-y-s">
+        <summary>Show code</summary>
+        <pre class="padding-m"><code>&lt;div class=&quot;cluster&quot; style=&quot;padding-block: var(--space-xl)&quot;&gt;
+    &lt;span data-tooltip=&quot;true&quot;&gt;
+      &lt;button type=&quot;button&quot; aria-describedby=&quot;tip-save&quot;&gt;Save draft&lt;/button&gt;
+      &lt;span role=&quot;tooltip&quot; id=&quot;tip-save&quot;&gt;Saves without publishing. You can continue editing.&lt;/span&gt;
+    &lt;/span&gt;
+
+    &lt;span data-tooltip=&quot;true&quot;&gt;
+      &lt;button type=&quot;button&quot; data-variant=&quot;outline&quot; aria-describedby=&quot;tip-publish&quot;&gt;Publish&lt;/button&gt;
+      &lt;span role=&quot;tooltip&quot; id=&quot;tip-publish&quot;&gt;Makes the page publicly visible immediately.&lt;/span&gt;
+    &lt;/span&gt;
+
+    &lt;span data-tooltip=&quot;true&quot;&gt;
+      &lt;button type=&quot;button&quot; data-variant=&quot;ghost&quot; aria-describedby=&quot;tip-delete&quot; aria-label=&quot;Delete&quot;&gt;
+        &lt;svg aria-hidden=&quot;true&quot; width=&quot;1em&quot; height=&quot;1em&quot; viewBox=&quot;0 0 16 16&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;&gt;&lt;polyline points=&quot;2 4 4 4 14 4&quot;/&gt;&lt;path d=&quot;M5 4V3a1 1 0 011-1h4a1 1 0 011 1v1&quot;/&gt;&lt;path d=&quot;M6 8v4M10 8v4&quot;/&gt;&lt;rect x=&quot;3&quot; y=&quot;4&quot; width=&quot;10&quot; height=&quot;10&quot; rx=&quot;1&quot;/&gt;&lt;/svg&gt;
+      &lt;/button&gt;
+      &lt;span role=&quot;tooltip&quot; id=&quot;tip-delete&quot;&gt;Delete this page permanently.&lt;/span&gt;
+    &lt;/span&gt;
+  &lt;/div&gt;</code></pre>
+      </details>
+  
     </div>
-
-    <details class="margin-y-s">
-      <summary class="padding-s">Show code</summary>
-      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div class=&quot;cluster&quot; style=&quot;padding-block: var(--space-xl)&quot;&gt;
-  &lt;span data-tooltip=&quot;true&quot;&gt;
-    &lt;button type=&quot;button&quot; aria-describedby=&quot;tip-save&quot;&gt;Save draft&lt;/button&gt;
-    &lt;span role=&quot;tooltip&quot; id=&quot;tip-save&quot;&gt;Saves without publishing. You can continue editing.&lt;/span&gt;
-  &lt;/span&gt;
-
-  &lt;span data-tooltip=&quot;true&quot;&gt;
-    &lt;button type=&quot;button&quot; data-variant=&quot;outline&quot; aria-describedby=&quot;tip-publish&quot;&gt;Publish&lt;/button&gt;
-    &lt;span role=&quot;tooltip&quot; id=&quot;tip-publish&quot;&gt;Makes the page publicly visible immediately.&lt;/span&gt;
-  &lt;/span&gt;
-
-  &lt;span data-tooltip=&quot;true&quot;&gt;
-    &lt;button type=&quot;button&quot; data-variant=&quot;ghost&quot; aria-describedby=&quot;tip-delete&quot; aria-label=&quot;Delete&quot;&gt;
-      &lt;svg aria-hidden=&quot;true&quot; width=&quot;1em&quot; height=&quot;1em&quot; viewBox=&quot;0 0 16 16&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;&gt;&lt;polyline points=&quot;2 4 4 4 14 4&quot;/&gt;&lt;path d=&quot;M5 4V3a1 1 0 011-1h4a1 1 0 011 1v1&quot;/&gt;&lt;path d=&quot;M6 8v4M10 8v4&quot;/&gt;&lt;rect x=&quot;3&quot; y=&quot;4&quot; width=&quot;10&quot; height=&quot;10&quot; rx=&quot;1&quot;/&gt;&lt;/svg&gt;
-    &lt;/button&gt;
-    &lt;span role=&quot;tooltip&quot; id=&quot;tip-delete&quot;&gt;Delete this page permanently.&lt;/span&gt;
-  &lt;/span&gt;
-&lt;/div&gt;</code></pre>
-    </details>
   </section>
 
   <section>
-    <h2 class="heading-l">Placement</h2>
-    <p>The default placement is above the trigger. Pass a direction as the value of <code>data-tooltip</code> to reposition the tooltip. Four placements are supported.</p>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Placement</h2>
+      <p>The default placement is above the trigger. Pass a direction as the value of <code>data-tooltip</code> to reposition the tooltip. Four placements are supported.</p>
     
-    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
-<div class="cluster" style="justify-content: center; padding-block: var(--space-xl); padding-inline: var(--space-xl)">
-  <span data-tooltip="true">
-    <button type="button" aria-describedby="tip-top">Top (default)</button>
-    <span role="tooltip" id="tip-top">Positioned above the trigger.</span>
-  </span>
+      <div class="">
+  <div class="cluster" style="justify-content: center; padding-block: var(--space-xl); padding-inline: var(--space-xl)">
+    <span data-tooltip="true">
+      <button type="button" aria-describedby="tip-top">Top (default)</button>
+      <span role="tooltip" id="tip-top">Positioned above the trigger.</span>
+    </span>
 
-  <span data-tooltip="bottom">
-    <button type="button" aria-describedby="tip-bottom">Bottom</button>
-    <span role="tooltip" id="tip-bottom">Positioned below the trigger.</span>
-  </span>
+    <span data-tooltip="bottom">
+      <button type="button" aria-describedby="tip-bottom">Bottom</button>
+      <span role="tooltip" id="tip-bottom">Positioned below the trigger.</span>
+    </span>
 
-  <span data-tooltip="left">
-    <button type="button" aria-describedby="tip-left">Left</button>
-    <span role="tooltip" id="tip-left">Positioned to the left of the trigger.</span>
-  </span>
+    <span data-tooltip="left">
+      <button type="button" aria-describedby="tip-left">Left</button>
+      <span role="tooltip" id="tip-left">Positioned to the left of the trigger.</span>
+    </span>
 
-  <span data-tooltip="right">
-    <button type="button" aria-describedby="tip-right">Right</button>
-    <span role="tooltip" id="tip-right">Positioned to the right of the trigger.</span>
-  </span>
-</div>
+    <span data-tooltip="right">
+      <button type="button" aria-describedby="tip-right">Right</button>
+      <span role="tooltip" id="tip-right">Positioned to the right of the trigger.</span>
+    </span>
+  </div>
+      </div>
+
+      <details class="margin-y-s">
+        <summary>Show code</summary>
+        <pre class="padding-m"><code>&lt;div class=&quot;cluster&quot; style=&quot;justify-content: center; padding-block: var(--space-xl); padding-inline: var(--space-xl)&quot;&gt;
+    &lt;span data-tooltip=&quot;true&quot;&gt;
+      &lt;button type=&quot;button&quot; aria-describedby=&quot;tip-top&quot;&gt;Top (default)&lt;/button&gt;
+      &lt;span role=&quot;tooltip&quot; id=&quot;tip-top&quot;&gt;Positioned above the trigger.&lt;/span&gt;
+    &lt;/span&gt;
+
+    &lt;span data-tooltip=&quot;bottom&quot;&gt;
+      &lt;button type=&quot;button&quot; aria-describedby=&quot;tip-bottom&quot;&gt;Bottom&lt;/button&gt;
+      &lt;span role=&quot;tooltip&quot; id=&quot;tip-bottom&quot;&gt;Positioned below the trigger.&lt;/span&gt;
+    &lt;/span&gt;
+
+    &lt;span data-tooltip=&quot;left&quot;&gt;
+      &lt;button type=&quot;button&quot; aria-describedby=&quot;tip-left&quot;&gt;Left&lt;/button&gt;
+      &lt;span role=&quot;tooltip&quot; id=&quot;tip-left&quot;&gt;Positioned to the left of the trigger.&lt;/span&gt;
+    &lt;/span&gt;
+
+    &lt;span data-tooltip=&quot;right&quot;&gt;
+      &lt;button type=&quot;button&quot; aria-describedby=&quot;tip-right&quot;&gt;Right&lt;/button&gt;
+      &lt;span role=&quot;tooltip&quot; id=&quot;tip-right&quot;&gt;Positioned to the right of the trigger.&lt;/span&gt;
+    &lt;/span&gt;
+  &lt;/div&gt;</code></pre>
+      </details>
+
+      <table class="">
+        <thead><tr><th>Value</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td><code>data-tooltip="true"</code></td><td>Default placement: above the trigger, horizontally centred.</td></tr>
+          <tr><td><code>data-tooltip="bottom"</code></td><td>Below the trigger, horizontally centred.</td></tr>
+          <tr><td><code>data-tooltip="left"</code></td><td>To the left of the trigger, vertically centred.</td></tr>
+          <tr><td><code>data-tooltip="right"</code></td><td>To the right of the trigger, vertically centred.</td></tr>
+        </tbody>
+      </table>
+  
     </div>
-
-    <details class="margin-y-s">
-      <summary class="padding-s">Show code</summary>
-      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div class=&quot;cluster&quot; style=&quot;justify-content: center; padding-block: var(--space-xl); padding-inline: var(--space-xl)&quot;&gt;
-  &lt;span data-tooltip=&quot;true&quot;&gt;
-    &lt;button type=&quot;button&quot; aria-describedby=&quot;tip-top&quot;&gt;Top (default)&lt;/button&gt;
-    &lt;span role=&quot;tooltip&quot; id=&quot;tip-top&quot;&gt;Positioned above the trigger.&lt;/span&gt;
-  &lt;/span&gt;
-
-  &lt;span data-tooltip=&quot;bottom&quot;&gt;
-    &lt;button type=&quot;button&quot; aria-describedby=&quot;tip-bottom&quot;&gt;Bottom&lt;/button&gt;
-    &lt;span role=&quot;tooltip&quot; id=&quot;tip-bottom&quot;&gt;Positioned below the trigger.&lt;/span&gt;
-  &lt;/span&gt;
-
-  &lt;span data-tooltip=&quot;left&quot;&gt;
-    &lt;button type=&quot;button&quot; aria-describedby=&quot;tip-left&quot;&gt;Left&lt;/button&gt;
-    &lt;span role=&quot;tooltip&quot; id=&quot;tip-left&quot;&gt;Positioned to the left of the trigger.&lt;/span&gt;
-  &lt;/span&gt;
-
-  &lt;span data-tooltip=&quot;right&quot;&gt;
-    &lt;button type=&quot;button&quot; aria-describedby=&quot;tip-right&quot;&gt;Right&lt;/button&gt;
-    &lt;span role=&quot;tooltip&quot; id=&quot;tip-right&quot;&gt;Positioned to the right of the trigger.&lt;/span&gt;
-  &lt;/span&gt;
-&lt;/div&gt;</code></pre>
-    </details>
-
-    <table class="">
-      <thead><tr><th>Value</th><th>Description</th></tr></thead>
-      <tbody>
-        <tr><td><code>data-tooltip="true"</code></td><td>Default placement: above the trigger, horizontally centred.</td></tr>
-        <tr><td><code>data-tooltip="bottom"</code></td><td>Below the trigger, horizontally centred.</td></tr>
-        <tr><td><code>data-tooltip="left"</code></td><td>To the left of the trigger, vertically centred.</td></tr>
-        <tr><td><code>data-tooltip="right"</code></td><td>To the right of the trigger, vertically centred.</td></tr>
-      </tbody>
-    </table>
   </section>
 
   <section>
-    <h2 class="heading-l">Custom width</h2>
-    <p>The default maximum width is <code>18rem</code>. Override <code>--tooltip-max-width</code> inline when a tooltip contains more text and needs more space.</p>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Custom width</h2>
+      <p>The default maximum width is <code>18rem</code>. Override <code>--tooltip-max-width</code> inline when a tooltip contains more text and needs more space.</p>
     
-    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
-<div style="padding-block: var(--space-xl); padding-inline-start: var(--space-s)">
-  <span data-tooltip="true" style="--tooltip-max-width: 28rem">
-    <button type="button" aria-describedby="tip-wide">What counts as a conversion?</button>
-    <span role="tooltip" id="tip-wide">A conversion is counted when a visitor completes a tracked goal: a purchase, a form submission, or spending more than 3 minutes on a product page. Each session can count at most one conversion per goal.</span>
-  </span>
-</div>
-    </div>
+      <div class="">
+  <div style="padding-block: var(--space-xl); padding-inline-start: var(--space-s)">
+    <span data-tooltip="true" style="--tooltip-max-width: 28rem">
+      <button type="button" aria-describedby="tip-wide">What counts as a conversion?</button>
+      <span role="tooltip" id="tip-wide">A conversion is counted when a visitor completes a tracked goal: a purchase, a form submission, or spending more than 3 minutes on a product page. Each session can count at most one conversion per goal.</span>
+    </span>
+  </div>
+      </div>
 
-    <details class="margin-y-s">
-      <summary class="padding-s">Show code</summary>
-      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div style=&quot;padding-block: var(--space-xl); padding-inline-start: var(--space-s)&quot;&gt;
-  &lt;span data-tooltip=&quot;true&quot; style=&quot;--tooltip-max-width: 28rem&quot;&gt;
-    &lt;button type=&quot;button&quot; aria-describedby=&quot;tip-wide&quot;&gt;What counts as a conversion?&lt;/button&gt;
-    &lt;span role=&quot;tooltip&quot; id=&quot;tip-wide&quot;&gt;A conversion is counted when a visitor completes a tracked goal: a purchase, a form submission, or spending more than 3 minutes on a product page. Each session can count at most one conversion per goal.&lt;/span&gt;
-  &lt;/span&gt;
-&lt;/div&gt;</code></pre>
-    </details>
-  </section>
-
-  <section>
-    <h2 class="heading-l">Accessibility notes</h2>
-    <div class="callout" data-variant="brand" role="note">
-      <p>Always connect the tooltip to its trigger via <code>aria-describedby</code>. Screen readers will announce the tooltip text as additional description when the trigger receives focus.</p>
-    </div>
-    <div class="callout" data-variant="brand" role="note">
-      <p>Never place interactive content (links, buttons, inputs) inside a tooltip — it is not reachable by keyboard. Use a popover or dialog for interactive overlays.</p>
-    </div>
-    <div class="callout" data-variant="brand" role="note">
-      <p>The CSS-only tooltip is visible on hover and on <code>:focus-visible</code>. For touch devices where hover is unavailable, consider whether the information is essential; if so, place it inline in the UI instead.</p>
+      <details class="margin-y-s">
+        <summary>Show code</summary>
+        <pre class="padding-m"><code>&lt;div style=&quot;padding-block: var(--space-xl); padding-inline-start: var(--space-s)&quot;&gt;
+    &lt;span data-tooltip=&quot;true&quot; style=&quot;--tooltip-max-width: 28rem&quot;&gt;
+      &lt;button type=&quot;button&quot; aria-describedby=&quot;tip-wide&quot;&gt;What counts as a conversion?&lt;/button&gt;
+      &lt;span role=&quot;tooltip&quot; id=&quot;tip-wide&quot;&gt;A conversion is counted when a visitor completes a tracked goal: a purchase, a form submission, or spending more than 3 minutes on a product page. Each session can count at most one conversion per goal.&lt;/span&gt;
+    &lt;/span&gt;
+  &lt;/div&gt;</code></pre>
+      </details>
+  
     </div>
   </section>
 
   <section>
-    <h2 class="heading-l">Tokens</h2>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Accessibility notes</h2>
+      <div class="callout wide" data-variant="brand" role="note">
+        <p>Always connect the tooltip to its trigger via <code>aria-describedby</code>. Screen readers will announce the tooltip text as additional description when the trigger receives focus.</p>
+      </div>
+      <div class="callout wide" data-variant="brand" role="note">
+        <p>Never place interactive content (links, buttons, inputs) inside a tooltip — it is not reachable by keyboard. Use a popover or dialog for interactive overlays.</p>
+      </div>
+      <div class="callout wide" data-variant="brand" role="note">
+        <p>The CSS-only tooltip is visible on hover and on <code>:focus-visible</code>. For touch devices where hover is unavailable, consider whether the information is essential; if so, place it inline in the UI instead.</p>
+      </div>
+  
+    </div>
+  </section>
 
-    <table class="">
-      <thead><tr><th>Token</th><th>Default</th><th>Description</th></tr></thead>
-      <tbody>
-        <tr><td><code>--tooltip-background</code></td><td><code>var(--color-neutral-800)</code></td><td>Tooltip fill colour.</td></tr>
-        <tr><td><code>--tooltip-color</code></td><td><code>var(--color-neutral-50)</code></td><td>Tooltip text colour.</td></tr>
-        <tr><td><code>--tooltip-radius</code></td><td><code>var(--border-radius-m)</code></td><td>Corner radius.</td></tr>
-        <tr><td><code>--tooltip-padding</code></td><td><code>var(--space-tiny) var(--space-xxs)</code></td><td>Inner spacing.</td></tr>
-        <tr><td><code>--tooltip-max-width</code></td><td><code>18rem</code></td><td>Maximum tooltip width before text wraps.</td></tr>
-        <tr><td><code>--tooltip-transition</code></td><td>opacity + visibility</td><td>Show/hide transition shorthand.</td></tr>
-      </tbody>
-    </table>
+  <section>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Tokens</h2>
+
+      <table class="">
+        <thead><tr><th>Token</th><th>Default</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td><code>--tooltip-background</code></td><td><code>var(--color-neutral-800)</code></td><td>Tooltip fill colour.</td></tr>
+          <tr><td><code>--tooltip-color</code></td><td><code>var(--color-neutral-50)</code></td><td>Tooltip text colour.</td></tr>
+          <tr><td><code>--tooltip-radius</code></td><td><code>var(--border-radius-m)</code></td><td>Corner radius.</td></tr>
+          <tr><td><code>--tooltip-padding</code></td><td><code>var(--space-tiny) var(--space-xxs)</code></td><td>Inner spacing.</td></tr>
+          <tr><td><code>--tooltip-max-width</code></td><td><code>18rem</code></td><td>Maximum tooltip width before text wraps.</td></tr>
+          <tr><td><code>--tooltip-transition</code></td><td>opacity + visibility</td><td>Show/hide transition shorthand.</td></tr>
+        </tbody>
+      </table>
+  
+    </div>
   </section>
 
 </article>

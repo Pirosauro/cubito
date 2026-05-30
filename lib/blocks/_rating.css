@@ -50,6 +50,14 @@ TOKENS
   }
 }
 
+@layer dark {
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --rating-empty-color: var(--color-neutral-700);
+    }
+  }
+}
+
 @layer blocks {
   .rating {
     display: inline-flex;
@@ -99,13 +107,5 @@ TOKENS
     font-size: var(--font-size-xs);
     color: var(--color-neutral-500);
     white-space: nowrap;
-  }
-
-  /* --- Dark mode --- */
-
-  @media (prefers-color-scheme: dark) {
-    .rating {
-      --rating-empty-color: var(--color-neutral-700);
-    }
   }
 }

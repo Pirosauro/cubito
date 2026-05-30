@@ -4,7 +4,7 @@
 {% block content %}
 <article class="flow">
 
-  <header class="padding-y-m margin-y-m" style="border-block-end: 1px solid var(--color-neutral-200);">
+  <header class="flow" style="padding-block-end: var(--space-l); border-block-end: var(--border-s) solid var(--color-neutral-200);">
     <nav aria-label="Breadcrumb" class="breadcrumb">
       <ol>
         <li><a href="/">Home</a></li>
@@ -13,163 +13,178 @@
       </ol>
     </nav>
     <h1>Skeleton</h1>
-    <p class="text-l color-neutral-600">Animated loading placeholders that mimic the shape of the content being fetched. Remove the class once real content loads.</p>
+    <p class="text-m color-neutral-600">Animated loading placeholders that mimic the shape of the content being fetched. Remove the class once real content loads.</p>
   </header>
 
   <section>
-    <h2 class="heading-l">Basic placeholders</h2>
-    <p>Apply <code>.skeleton</code> to any block element to turn it into a pulsing grey bar. Headings automatically get a taller bar; paragraphs default to <code>1.25rem</code> height and <code>80%</code> width.</p>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Basic placeholders</h2>
+      <p>Apply <code>.skeleton</code> to any block element to turn it into a pulsing grey bar. Headings automatically get a taller bar; paragraphs default to <code>1.25rem</code> height and <code>80%</code> width.</p>
     
-    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
-<div class="flow" style="--flow-space: var(--space-s); max-width: 28rem">
-  <h2 class="skeleton"></h2>
-  <p class="skeleton"></p>
-  <p class="skeleton" style="--skeleton-width: 60%"></p>
-</div>
-    </div>
+      <div class="">
+  <div class="flow" style="--flow-space: var(--space-s); max-width: 28rem">
+    <h2 class="skeleton"></h2>
+    <p class="skeleton"></p>
+    <p class="skeleton" style="--skeleton-width: 60%"></p>
+  </div>
+      </div>
 
-    <details class="margin-y-s">
-      <summary class="padding-s">Show code</summary>
-      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div class=&quot;flow&quot; style=&quot;--flow-space: var(--space-s); max-width: 28rem&quot;&gt;
-  &lt;h2 class=&quot;skeleton&quot;&gt;&lt;/h2&gt;
-  &lt;p class=&quot;skeleton&quot;&gt;&lt;/p&gt;
-  &lt;p class=&quot;skeleton&quot; style=&quot;--skeleton-width: 60%&quot;&gt;&lt;/p&gt;
-&lt;/div&gt;</code></pre>
-    </details>
+      <details class="margin-y-s">
+        <summary>Show code</summary>
+        <pre class="padding-m"><code>&lt;div class=&quot;flow&quot; style=&quot;--flow-space: var(--space-s); max-width: 28rem&quot;&gt;
+    &lt;h2 class=&quot;skeleton&quot;&gt;&lt;/h2&gt;
+    &lt;p class=&quot;skeleton&quot;&gt;&lt;/p&gt;
+    &lt;p class=&quot;skeleton&quot; style=&quot;--skeleton-width: 60%&quot;&gt;&lt;/p&gt;
+  &lt;/div&gt;</code></pre>
+      </details>
+  
+    </div>
   </section>
 
   <section>
-    <h2 class="heading-l">Circle variant</h2>
-    <p>Add <code>data-variant="circle"</code> for a circular avatar placeholder. The default diameter is <code>3rem</code>; override <code>--skeleton-width</code> and <code>--skeleton-height</code> together to change the size.</p>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Circle variant</h2>
+      <p>Add <code>data-variant="circle"</code> for a circular avatar placeholder. The default diameter is <code>3rem</code>; override <code>--skeleton-width</code> and <code>--skeleton-height</code> together to change the size.</p>
     
-    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
-<div style="display: flex; gap: var(--space-m); align-items: center">
-  <div class="skeleton" data-variant="circle"></div>
-  <div class="skeleton" data-variant="circle" style="--skeleton-width: 4rem; --skeleton-height: 4rem"></div>
-  <div class="skeleton" data-variant="circle" style="--skeleton-width: 2rem; --skeleton-height: 2rem"></div>
-</div>
-    </div>
+      <div class="">
+  <div style="display: flex; gap: var(--space-m); align-items: center">
+    <div class="skeleton" data-variant="circle"></div>
+    <div class="skeleton" data-variant="circle" style="--skeleton-width: 4rem; --skeleton-height: 4rem"></div>
+    <div class="skeleton" data-variant="circle" style="--skeleton-width: 2rem; --skeleton-height: 2rem"></div>
+  </div>
+      </div>
 
-    <details class="margin-y-s">
-      <summary class="padding-s">Show code</summary>
-      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div style=&quot;display: flex; gap: var(--space-m); align-items: center&quot;&gt;
-  &lt;div class=&quot;skeleton&quot; data-variant=&quot;circle&quot;&gt;&lt;/div&gt;
-  &lt;div class=&quot;skeleton&quot; data-variant=&quot;circle&quot; style=&quot;--skeleton-width: 4rem; --skeleton-height: 4rem&quot;&gt;&lt;/div&gt;
-  &lt;div class=&quot;skeleton&quot; data-variant=&quot;circle&quot; style=&quot;--skeleton-width: 2rem; --skeleton-height: 2rem&quot;&gt;&lt;/div&gt;
-&lt;/div&gt;</code></pre>
-    </details>
+      <details class="margin-y-s">
+        <summary>Show code</summary>
+        <pre class="padding-m"><code>&lt;div style=&quot;display: flex; gap: var(--space-m); align-items: center&quot;&gt;
+    &lt;div class=&quot;skeleton&quot; data-variant=&quot;circle&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;skeleton&quot; data-variant=&quot;circle&quot; style=&quot;--skeleton-width: 4rem; --skeleton-height: 4rem&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;skeleton&quot; data-variant=&quot;circle&quot; style=&quot;--skeleton-width: 2rem; --skeleton-height: 2rem&quot;&gt;&lt;/div&gt;
+  &lt;/div&gt;</code></pre>
+      </details>
+  
+    </div>
   </section>
 
   <section>
-    <h2 class="heading-l">Realistic card loading state</h2>
-    <p>Compose circle and rectangular skeletons to match the layout of the real component. This example mimics a user profile card with an avatar, a name, and two lines of bio text.</p>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Realistic card loading state</h2>
+      <p>Compose circle and rectangular skeletons to match the layout of the real component. This example mimics a user profile card with an avatar, a name, and two lines of bio text.</p>
     
-    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
-<div style="display: flex; gap: var(--space-m); padding: var(--space-m); background: var(--color-neutral-50); border-radius: var(--border-radius-l); max-width: 28rem">
-  <div class="skeleton" data-variant="circle" style="flex-shrink: 0"></div>
-  <div style="flex: 1; display: flex; flex-direction: column; gap: var(--space-xs); justify-content: center">
-    <div class="skeleton" style="--skeleton-height: 1rem; --skeleton-width: 55%"></div>
-    <div class="skeleton" style="--skeleton-height: 0.8rem; --skeleton-width: 90%"></div>
-    <div class="skeleton" style="--skeleton-height: 0.8rem; --skeleton-width: 70%"></div>
-  </div>
-</div>
-    </div>
-
-    <details class="margin-y-s">
-      <summary class="padding-s">Show code</summary>
-      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div style=&quot;display: flex; gap: var(--space-m); padding: var(--space-m); background: var(--color-neutral-50); border-radius: var(--border-radius-l); max-width: 28rem&quot;&gt;
-  &lt;div class=&quot;skeleton&quot; data-variant=&quot;circle&quot; style=&quot;flex-shrink: 0&quot;&gt;&lt;/div&gt;
-  &lt;div style=&quot;flex: 1; display: flex; flex-direction: column; gap: var(--space-xs); justify-content: center&quot;&gt;
-    &lt;div class=&quot;skeleton&quot; style=&quot;--skeleton-height: 1rem; --skeleton-width: 55%&quot;&gt;&lt;/div&gt;
-    &lt;div class=&quot;skeleton&quot; style=&quot;--skeleton-height: 0.8rem; --skeleton-width: 90%&quot;&gt;&lt;/div&gt;
-    &lt;div class=&quot;skeleton&quot; style=&quot;--skeleton-height: 0.8rem; --skeleton-width: 70%&quot;&gt;&lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</code></pre>
-    </details>
-  </section>
-
-  <section>
-    <h2 class="heading-l">Article list loading state</h2>
-    <p>Stack multiple card-shaped skeletons to simulate a feed or article list being fetched.</p>
-    
-    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
-<div class="flow" style="--flow-space: var(--space-m); max-width: 36rem">
-  <div style="padding: var(--space-m); background: var(--color-neutral-50); border-radius: var(--border-radius-l)">
-    <div class="flow" style="--flow-space: var(--space-xs)">
-      <div class="skeleton" style="--skeleton-height: 1.25rem; --skeleton-width: 70%"></div>
-      <div class="skeleton" style="--skeleton-height: 0.875rem; --skeleton-width: 95%"></div>
-      <div class="skeleton" style="--skeleton-height: 0.875rem; --skeleton-width: 80%"></div>
+      <div class="">
+  <div style="display: flex; gap: var(--space-m); padding: var(--space-m); background: var(--color-neutral-50); border-radius: var(--border-radius-l); max-width: 28rem">
+    <div class="skeleton" data-variant="circle" style="flex-shrink: 0"></div>
+    <div style="flex: 1; display: flex; flex-direction: column; gap: var(--space-xs); justify-content: center">
+      <div class="skeleton" style="--skeleton-height: 1rem; --skeleton-width: 55%"></div>
+      <div class="skeleton" style="--skeleton-height: 0.8rem; --skeleton-width: 90%"></div>
+      <div class="skeleton" style="--skeleton-height: 0.8rem; --skeleton-width: 70%"></div>
     </div>
   </div>
-  <div style="padding: var(--space-m); background: var(--color-neutral-50); border-radius: var(--border-radius-l)">
-    <div class="flow" style="--flow-space: var(--space-xs)">
-      <div class="skeleton" style="--skeleton-height: 1.25rem; --skeleton-width: 60%"></div>
-      <div class="skeleton" style="--skeleton-height: 0.875rem; --skeleton-width: 90%"></div>
-      <div class="skeleton" style="--skeleton-height: 0.875rem; --skeleton-width: 75%"></div>
-    </div>
-  </div>
-</div>
-    </div>
+      </div>
 
-    <details class="margin-y-s">
-      <summary class="padding-s">Show code</summary>
-      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div class=&quot;flow&quot; style=&quot;--flow-space: var(--space-m); max-width: 36rem&quot;&gt;
-  &lt;div style=&quot;padding: var(--space-m); background: var(--color-neutral-50); border-radius: var(--border-radius-l)&quot;&gt;
-    &lt;div class=&quot;flow&quot; style=&quot;--flow-space: var(--space-xs)&quot;&gt;
-      &lt;div class=&quot;skeleton&quot; style=&quot;--skeleton-height: 1.25rem; --skeleton-width: 70%&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;skeleton&quot; style=&quot;--skeleton-height: 0.875rem; --skeleton-width: 95%&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;skeleton&quot; style=&quot;--skeleton-height: 0.875rem; --skeleton-width: 80%&quot;&gt;&lt;/div&gt;
+      <details class="margin-y-s">
+        <summary>Show code</summary>
+        <pre class="padding-m"><code>&lt;div style=&quot;display: flex; gap: var(--space-m); padding: var(--space-m); background: var(--color-neutral-50); border-radius: var(--border-radius-l); max-width: 28rem&quot;&gt;
+    &lt;div class=&quot;skeleton&quot; data-variant=&quot;circle&quot; style=&quot;flex-shrink: 0&quot;&gt;&lt;/div&gt;
+    &lt;div style=&quot;flex: 1; display: flex; flex-direction: column; gap: var(--space-xs); justify-content: center&quot;&gt;
+      &lt;div class=&quot;skeleton&quot; style=&quot;--skeleton-height: 1rem; --skeleton-width: 55%&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;skeleton&quot; style=&quot;--skeleton-height: 0.8rem; --skeleton-width: 90%&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;skeleton&quot; style=&quot;--skeleton-height: 0.8rem; --skeleton-width: 70%&quot;&gt;&lt;/div&gt;
     &lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div style=&quot;padding: var(--space-m); background: var(--color-neutral-50); border-radius: var(--border-radius-l)&quot;&gt;
-    &lt;div class=&quot;flow&quot; style=&quot;--flow-space: var(--space-xs)&quot;&gt;
-      &lt;div class=&quot;skeleton&quot; style=&quot;--skeleton-height: 1.25rem; --skeleton-width: 60%&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;skeleton&quot; style=&quot;--skeleton-height: 0.875rem; --skeleton-width: 90%&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;skeleton&quot; style=&quot;--skeleton-height: 0.875rem; --skeleton-width: 75%&quot;&gt;&lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</code></pre>
-    </details>
+  &lt;/div&gt;</code></pre>
+      </details>
+  
+    </div>
   </section>
 
   <section>
-    <h2 class="heading-l">Tokens</h2>
-    <table class="">
-      <thead>
-        <tr>
-          <th>Token</th>
-          <th>Default</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><code>--skeleton-background</code></td>
-          <td><code>var(--color-neutral-200)</code></td>
-          <td>Colour of the pulsing bar.</td>
-        </tr>
-        <tr>
-          <td><code>--skeleton-height</code></td>
-          <td><code>1.25rem</code></td>
-          <td>Height of the bar.</td>
-        </tr>
-        <tr>
-          <td><code>--skeleton-width</code></td>
-          <td><code>80%</code></td>
-          <td>Width of the bar.</td>
-        </tr>
-        <tr>
-          <td><code>--skeleton-radius</code></td>
-          <td><code>var(--border-radius)</code></td>
-          <td>Corner radius of rectangular bars.</td>
-        </tr>
-        <tr>
-          <td><code>--skeleton-animation</code></td>
-          <td><code>skeleton-pulse 1.5s infinite ease-in-out</code></td>
-          <td>Override to use a custom animation.</td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Article list loading state</h2>
+      <p>Stack multiple card-shaped skeletons to simulate a feed or article list being fetched.</p>
+    
+      <div class="">
+  <div class="flow" style="--flow-space: var(--space-m); max-width: 36rem">
+    <div style="padding: var(--space-m); background: var(--color-neutral-50); border-radius: var(--border-radius-l)">
+      <div class="flow" style="--flow-space: var(--space-xs)">
+        <div class="skeleton" style="--skeleton-height: 1.25rem; --skeleton-width: 70%"></div>
+        <div class="skeleton" style="--skeleton-height: 0.875rem; --skeleton-width: 95%"></div>
+        <div class="skeleton" style="--skeleton-height: 0.875rem; --skeleton-width: 80%"></div>
+      </div>
+    </div>
+    <div style="padding: var(--space-m); background: var(--color-neutral-50); border-radius: var(--border-radius-l)">
+      <div class="flow" style="--flow-space: var(--space-xs)">
+        <div class="skeleton" style="--skeleton-height: 1.25rem; --skeleton-width: 60%"></div>
+        <div class="skeleton" style="--skeleton-height: 0.875rem; --skeleton-width: 90%"></div>
+        <div class="skeleton" style="--skeleton-height: 0.875rem; --skeleton-width: 75%"></div>
+      </div>
+    </div>
+  </div>
+      </div>
+
+      <details class="margin-y-s">
+        <summary>Show code</summary>
+        <pre class="padding-m"><code>&lt;div class=&quot;flow&quot; style=&quot;--flow-space: var(--space-m); max-width: 36rem&quot;&gt;
+    &lt;div style=&quot;padding: var(--space-m); background: var(--color-neutral-50); border-radius: var(--border-radius-l)&quot;&gt;
+      &lt;div class=&quot;flow&quot; style=&quot;--flow-space: var(--space-xs)&quot;&gt;
+        &lt;div class=&quot;skeleton&quot; style=&quot;--skeleton-height: 1.25rem; --skeleton-width: 70%&quot;&gt;&lt;/div&gt;
+        &lt;div class=&quot;skeleton&quot; style=&quot;--skeleton-height: 0.875rem; --skeleton-width: 95%&quot;&gt;&lt;/div&gt;
+        &lt;div class=&quot;skeleton&quot; style=&quot;--skeleton-height: 0.875rem; --skeleton-width: 80%&quot;&gt;&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div style=&quot;padding: var(--space-m); background: var(--color-neutral-50); border-radius: var(--border-radius-l)&quot;&gt;
+      &lt;div class=&quot;flow&quot; style=&quot;--flow-space: var(--space-xs)&quot;&gt;
+        &lt;div class=&quot;skeleton&quot; style=&quot;--skeleton-height: 1.25rem; --skeleton-width: 60%&quot;&gt;&lt;/div&gt;
+        &lt;div class=&quot;skeleton&quot; style=&quot;--skeleton-height: 0.875rem; --skeleton-width: 90%&quot;&gt;&lt;/div&gt;
+        &lt;div class=&quot;skeleton&quot; style=&quot;--skeleton-height: 0.875rem; --skeleton-width: 75%&quot;&gt;&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;</code></pre>
+      </details>
+  
+    </div>
+  </section>
+
+  <section>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Tokens</h2>
+      <table class="">
+        <thead>
+          <tr>
+            <th>Token</th>
+            <th>Default</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>--skeleton-background</code></td>
+            <td><code>var(--color-neutral-200)</code></td>
+            <td>Colour of the pulsing bar.</td>
+          </tr>
+          <tr>
+            <td><code>--skeleton-height</code></td>
+            <td><code>1.25rem</code></td>
+            <td>Height of the bar.</td>
+          </tr>
+          <tr>
+            <td><code>--skeleton-width</code></td>
+            <td><code>80%</code></td>
+            <td>Width of the bar.</td>
+          </tr>
+          <tr>
+            <td><code>--skeleton-radius</code></td>
+            <td><code>var(--border-radius)</code></td>
+            <td>Corner radius of rectangular bars.</td>
+          </tr>
+          <tr>
+            <td><code>--skeleton-animation</code></td>
+            <td><code>skeleton-pulse 1.5s infinite ease-in-out</code></td>
+            <td>Override to use a custom animation.</td>
+          </tr>
+        </tbody>
+      </table>
+  
+    </div>
   </section>
 
 </article>

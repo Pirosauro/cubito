@@ -11,23 +11,23 @@
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <div class="sidebar" style="--sidebar-target-width: 17rem; --sidebar-content-min-width: 55%;">
-    <aside class="padding-m background-neutral-900 color-neutral-50 flow" aria-label="Site navigation" style="--flow-space: var(--space-m);">
-      <div class="padding-b-s" style="border-block-end: 1px solid var(--color-neutral-700);">
+  <div class="sidebar" style="--sidebar-content-min-width: 55%;">
+    <aside class="padding-m background-neutral-900 color-neutral-50 flow" aria-label="Site navigation">
+      <div style="display: inline-flex; align-items: center;">
         <a href="/" class="text-no-underline color-neutral-50" aria-label="{{ site.name }} home">
           <strong class="heading-m">{{ site.name }}</strong>
         </a>
-        <span class="badge" style="margin-inline-start: var(--space-xs);">v{{ site.version }}</span>
+        <span class="badge margin-x-xs">v{{ site.version }}</span>
       </div>
 
-      <nav aria-label="Documentation" class="docs-nav flow" style="--flow-space: var(--space-m);">
+      <nav aria-label="Documentation" class="navigation padding-y-s flow" style="--flow-space: var(--space-s);">
         {% for section in nav %}
         <div>
-          <h2 class="heading-xs text-mono" style="color: var(--color-neutral-500); margin-block-end: var(--space-xs);">{{ section.title }}</h2>
-          <ul class="flow" role="list" style="--flow-space: 0.25rem; list-style: none; padding: 0; margin: 0;">
+          <h2 class="heading-s text-mono">{{ section.title }}</h2>
+          <ul class="margin-y-xs" role="list">
             {% for item in section.items %}
             <li>
-              <a href="{{ item.href }}" class="text-s text-no-underline color-neutral-300" style="display: block; padding: 0.2rem var(--space-xs); border-radius: var(--border-radius-s);">{{ item.label }}</a>
+              <a href="{{ item.href }}">{{ item.label }}</a>
             </li>
             {% endfor %}
           </ul>

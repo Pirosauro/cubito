@@ -28,7 +28,9 @@ TOKENS
     --footnote-color: var(--color-neutral-600);
     --footnote-font-size: var(--font-size-xs);
   }
+}
 
+@layer dark {
   @media (prefers-color-scheme: dark) {
     :root {
       --footnote-color: var(--color-neutral-400);
@@ -41,12 +43,6 @@ TOKENS
     counter-reset: footnote-item;
     list-style: none;
     padding: 0;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    ul.footnote {
-      --footnote-color: var(--color-neutral-400);
-    }
   }
 
   ul.footnote > li {

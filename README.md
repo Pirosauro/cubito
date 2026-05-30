@@ -603,15 +603,15 @@ Fixed overlay that centres a dialog. Prefer `<dialog showModal()>` where possibl
 ### `.callout`
 
 ```html
-<div class="callout" role="note">
+<div class="callout wide" role="note">
   <p>Your session will expire in 5 minutes.</p>
 </div>
 
-<div class="callout" data-variant="success" role="status">
+<div class="callout wide" data-variant="success" role="status">
   <p>Changes saved.</p>
 </div>
 
-<div class="callout" data-variant="error" role="alert" aria-live="assertive">
+<div class="callout wide" data-variant="error" role="alert" aria-live="assertive">
   <p>Failed to save.</p>
 </div>
 

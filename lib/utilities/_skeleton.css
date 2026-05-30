@@ -27,15 +27,27 @@ TOKENS
   --skeleton-animation    Custom animation. Default: skeleton-pulse 1.5s …
 */
 
+@layer tokens {
+  :root {
+    --skeleton-animation: skeleton-pulse 1.5s infinite ease-in-out;
+    --skeleton-background: var(--color-neutral-200);
+    --skeleton-height: 1.25rem;
+    --skeleton-radius: var(--border-radius);
+    --skeleton-width: 80%;
+  }
+}
+
+@layer dark {
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --skeleton-background: var(--color-neutral-700);
+    }
+  }
+}
+
 @layer utilities {
   .skeleton:not(tr),
   tr.skeleton td::before {
-    --skeleton-background: var(--color-neutral-200);
-    --skeleton-height: 1.25rem;
-    --skeleton-width: 80%;
-    --skeleton-radius: var(--border-radius);
-    --skeleton-animation: skeleton-pulse 1.5s infinite ease-in-out;
-
     content: "";
     display: block;
     height: var(--skeleton-height);
@@ -58,13 +70,6 @@ TOKENS
     --skeleton-width: 3rem;
     --skeleton-height: 3rem;
     border-radius: 50%;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    .skeleton:not(tr),
-    tr.skeleton td::before {
-      --skeleton-background: var(--color-neutral-700);
-    }
   }
 
   @media (prefers-reduced-motion: reduce) {

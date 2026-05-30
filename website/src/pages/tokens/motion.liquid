@@ -4,7 +4,7 @@
 {% block content %}
 <article class="flow">
 
-  <header class="padding-y-m margin-y-m" style="border-block-end: 1px solid var(--color-neutral-200);">
+  <header class="flow" style="padding-block-end: var(--space-l); border-block-end: var(--border-s) solid var(--color-neutral-200);">
     <nav aria-label="Breadcrumb" class="breadcrumb">
       <ol>
         <li><a href="/">Home</a></li>
@@ -13,203 +13,218 @@
       </ol>
     </nav>
     <h1>Motion</h1>
-    <p class="text-l color-neutral-600">Duration and easing tokens for consistent, accessible animation. All durations automatically collapse to 0 ms when the user has enabled "reduce motion" at the OS level.</p>
+    <p class="text-m color-neutral-600">Duration and easing tokens for consistent, accessible animation. All durations automatically collapse to 0 ms when the user has enabled "reduce motion" at the OS level.</p>
   </header>
 
   <section>
-    <h2 class="heading-l">Duration tokens</h2>
-    <p>Five named durations from near-instant micro-feedback to slow deliberate reveals. Use faster durations for small, frequent interactions (hover states, focus rings) and slower ones for content transitions or page-level changes.</p>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Duration tokens</h2>
+      <p>Five named durations from near-instant micro-feedback to slow deliberate reveals. Use faster durations for small, frequent interactions (hover states, focus rings) and slower ones for content transitions or page-level changes.</p>
 
-    <table class="">
-      <thead>
-        <tr><th>Token</th><th>Value</th><th>Intended use</th></tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><code>--motion-duration-instant</code></td>
-          <td><code>50ms</code></td>
-          <td>Micro-feedback — active press states, checkbox ticks</td>
-        </tr>
-        <tr>
-          <td><code>--motion-duration-fast</code></td>
-          <td><code>150ms</code></td>
-          <td>Quick feedback — hover highlights, tooltip appearance</td>
-        </tr>
-        <tr>
-          <td><code>--motion-duration-base</code></td>
-          <td><code>250ms</code></td>
-          <td>Standard transitions — dropdowns, modals, tab switches</td>
-        </tr>
-        <tr>
-          <td><code>--motion-duration-slow</code></td>
-          <td><code>400ms</code></td>
-          <td>Content reveals — page transitions, accordion panels</td>
-        </tr>
-        <tr>
-          <td><code>--motion-duration-deliberate</code></td>
-          <td><code>600ms</code></td>
-          <td>Dramatic reveals — hero entrance, onboarding steps</td>
-        </tr>
-      </tbody>
-    </table>
+      <table class="">
+        <thead>
+          <tr><th>Token</th><th>Value</th><th>Intended use</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>--motion-duration-instant</code></td>
+            <td><code>50ms</code></td>
+            <td>Micro-feedback — active press states, checkbox ticks</td>
+          </tr>
+          <tr>
+            <td><code>--motion-duration-fast</code></td>
+            <td><code>150ms</code></td>
+            <td>Quick feedback — hover highlights, tooltip appearance</td>
+          </tr>
+          <tr>
+            <td><code>--motion-duration-base</code></td>
+            <td><code>250ms</code></td>
+            <td>Standard transitions — dropdowns, modals, tab switches</td>
+          </tr>
+          <tr>
+            <td><code>--motion-duration-slow</code></td>
+            <td><code>400ms</code></td>
+            <td>Content reveals — page transitions, accordion panels</td>
+          </tr>
+          <tr>
+            <td><code>--motion-duration-deliberate</code></td>
+            <td><code>600ms</code></td>
+            <td>Dramatic reveals — hero entrance, onboarding steps</td>
+          </tr>
+        </tbody>
+      </table>
+  
+    </div>
   </section>
 
   <section>
-    <h2 class="heading-l">Easing tokens</h2>
-    <p>Five named easings covering every motion scenario. Choosing the right easing for the direction of movement makes animations feel physical and intentional.</p>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Easing tokens</h2>
+      <p>Five named easings covering every motion scenario. Choosing the right easing for the direction of movement makes animations feel physical and intentional.</p>
 
-    <table class="">
-      <thead>
-        <tr><th>Token</th><th>Value</th><th>When to use</th></tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><code>--motion-easing-linear</code></td>
-          <td><code>linear</code></td>
-          <td>Continuous loops, spinners, progress bars</td>
-        </tr>
-        <tr>
-          <td><code>--motion-easing-in</code></td>
-          <td><code>cubic-bezier(0.4, 0, 1, 1)</code></td>
-          <td>Elements <strong>leaving</strong> the screen (starts slow, ends fast)</td>
-        </tr>
-        <tr>
-          <td><code>--motion-easing-out</code></td>
-          <td><code>cubic-bezier(0, 0, 0.2, 1)</code></td>
-          <td>Elements <strong>entering</strong> the screen (starts fast, decelerates)</td>
-        </tr>
-        <tr>
-          <td><code>--motion-easing-in-out</code></td>
-          <td><code>cubic-bezier(0.4, 0, 0.2, 1)</code></td>
-          <td>In-place state changes — expanding panels, toggled states</td>
-        </tr>
-        <tr>
-          <td><code>--motion-easing-spring</code></td>
-          <td><code>cubic-bezier(0.34, 1.56, 0.64, 1)</code></td>
-          <td>Playful, physical feedback — notification pop-ins, successful actions</td>
-        </tr>
-      </tbody>
-    </table>
+      <table class="">
+        <thead>
+          <tr><th>Token</th><th>Value</th><th>When to use</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>--motion-easing-linear</code></td>
+            <td><code>linear</code></td>
+            <td>Continuous loops, spinners, progress bars</td>
+          </tr>
+          <tr>
+            <td><code>--motion-easing-in</code></td>
+            <td><code>cubic-bezier(0.4, 0, 1, 1)</code></td>
+            <td>Elements <strong>leaving</strong> the screen (starts slow, ends fast)</td>
+          </tr>
+          <tr>
+            <td><code>--motion-easing-out</code></td>
+            <td><code>cubic-bezier(0, 0, 0.2, 1)</code></td>
+            <td>Elements <strong>entering</strong> the screen (starts fast, decelerates)</td>
+          </tr>
+          <tr>
+            <td><code>--motion-easing-in-out</code></td>
+            <td><code>cubic-bezier(0.4, 0, 0.2, 1)</code></td>
+            <td>In-place state changes — expanding panels, toggled states</td>
+          </tr>
+          <tr>
+            <td><code>--motion-easing-spring</code></td>
+            <td><code>cubic-bezier(0.34, 1.56, 0.64, 1)</code></td>
+            <td>Playful, physical feedback — notification pop-ins, successful actions</td>
+          </tr>
+        </tbody>
+      </table>
+  
+    </div>
   </section>
 
   <section>
-    <h2 class="heading-l">Live demo</h2>
-    <p>Hover the box to see a transition using <code>--motion-duration-base</code> and <code>--motion-easing-out</code>.</p>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Live demo</h2>
+      <p>Hover the box to see a transition using <code>--motion-duration-base</code> and <code>--motion-easing-out</code>.</p>
 
     
-    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
-<style>
-  .motion-demo-box {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 10rem;
-    height: 6rem;
-    border-radius: var(--border-radius-l, 0.5rem);
-    background: var(--color-neutral-100, #f5f5f5);
-    border: 1px solid var(--color-neutral-200, #e2e2e2);
-    font-weight: 700;
-    cursor: pointer;
-    transition:
-      background var(--motion-duration-base, 250ms) var(--motion-easing-out, cubic-bezier(0, 0, 0.2, 1)),
-      color var(--motion-duration-base, 250ms) var(--motion-easing-out, cubic-bezier(0, 0, 0.2, 1)),
-      transform var(--motion-duration-base, 250ms) var(--motion-easing-out, cubic-bezier(0, 0, 0.2, 1));
-    user-select: none;
-  }
-  .motion-demo-box:hover {
-    background: var(--color-brand, #0057d9);
-    color: var(--color-white, #fff);
-    transform: translateY(-2px);
-  }
-</style>
-<div style="padding: 2rem; display: flex; gap: 1.5rem; flex-wrap: wrap; align-items: center;">
-  <div class="motion-demo-box">Hover me</div>
-  <div style="font-size: var(--font-size-xs, 0.8rem); color: var(--color-neutral-500, #6d6d6d); max-width: 22rem;">
-    <p><code>transition: background var(--motion-duration-base) var(--motion-easing-out)</code></p>
-    <p style="margin-block-start: 0.5rem;">250 ms, decelerating ease. Background shifts to <code>--color-brand</code>, text to white, with a subtle upward nudge.</p>
-  </div>
-</div>
+      <div class="">
+  <style>
+    .motion-demo-box {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 10rem;
+      height: 6rem;
+      border-radius: var(--border-radius-l, 0.5rem);
+      background: var(--color-neutral-100, #f5f5f5);
+      border: 1px solid var(--color-neutral-200, #e2e2e2);
+      font-weight: 700;
+      cursor: pointer;
+      transition:
+        background var(--motion-duration-base, 250ms) var(--motion-easing-out, cubic-bezier(0, 0, 0.2, 1)),
+        color var(--motion-duration-base, 250ms) var(--motion-easing-out, cubic-bezier(0, 0, 0.2, 1)),
+        transform var(--motion-duration-base, 250ms) var(--motion-easing-out, cubic-bezier(0, 0, 0.2, 1));
+      user-select: none;
+    }
+    .motion-demo-box:hover {
+      background: var(--color-brand, #0057d9);
+      color: var(--color-white, #fff);
+      transform: translateY(-2px);
+    }
+  </style>
+  <div style="padding: 2rem; display: flex; gap: 1.5rem; flex-wrap: wrap; align-items: center;">
+    <div class="motion-demo-box">Hover me</div>
+    <div style="font-size: var(--font-size-xs, 0.8rem); color: var(--color-neutral-500, #6d6d6d); max-width: 22rem;">
+      <p><code>transition: background var(--motion-duration-base) var(--motion-easing-out)</code></p>
+      <p style="margin-block-start: 0.5rem;">250 ms, decelerating ease. Background shifts to <code>--color-brand</code>, text to white, with a subtle upward nudge.</p>
     </div>
+  </div>
+      </div>
 
-    <details class="margin-y-s">
-      <summary class="padding-s">Show code</summary>
-      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;style&gt;
-  .motion-demo-box {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 10rem;
-    height: 6rem;
-    border-radius: var(--border-radius-l, 0.5rem);
-    background: var(--color-neutral-100, #f5f5f5);
-    border: 1px solid var(--color-neutral-200, #e2e2e2);
-    font-weight: 700;
-    cursor: pointer;
-    transition:
-      background var(--motion-duration-base, 250ms) var(--motion-easing-out, cubic-bezier(0, 0, 0.2, 1)),
-      color var(--motion-duration-base, 250ms) var(--motion-easing-out, cubic-bezier(0, 0, 0.2, 1)),
-      transform var(--motion-duration-base, 250ms) var(--motion-easing-out, cubic-bezier(0, 0, 0.2, 1));
-    user-select: none;
-  }
-  .motion-demo-box:hover {
-    background: var(--color-brand, #0057d9);
-    color: var(--color-white, #fff);
-    transform: translateY(-2px);
-  }
-&lt;/style&gt;
-&lt;div style=&quot;padding: 2rem; display: flex; gap: 1.5rem; flex-wrap: wrap; align-items: center;&quot;&gt;
-  &lt;div class=&quot;motion-demo-box&quot;&gt;Hover me&lt;/div&gt;
-  &lt;div style=&quot;font-size: var(--font-size-xs, 0.8rem); color: var(--color-neutral-500, #6d6d6d); max-width: 22rem;&quot;&gt;
-    &lt;p&gt;&lt;code&gt;transition: background var(--motion-duration-base) var(--motion-easing-out)&lt;/code&gt;&lt;/p&gt;
-    &lt;p style=&quot;margin-block-start: 0.5rem;&quot;&gt;250 ms, decelerating ease. Background shifts to &lt;code&gt;--color-brand&lt;/code&gt;, text to white, with a subtle upward nudge.&lt;/p&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</code></pre>
-    </details>
+      <details class="margin-y-s">
+        <summary>Show code</summary>
+        <pre class="padding-m"><code>&lt;style&gt;
+    .motion-demo-box {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 10rem;
+      height: 6rem;
+      border-radius: var(--border-radius-l, 0.5rem);
+      background: var(--color-neutral-100, #f5f5f5);
+      border: 1px solid var(--color-neutral-200, #e2e2e2);
+      font-weight: 700;
+      cursor: pointer;
+      transition:
+        background var(--motion-duration-base, 250ms) var(--motion-easing-out, cubic-bezier(0, 0, 0.2, 1)),
+        color var(--motion-duration-base, 250ms) var(--motion-easing-out, cubic-bezier(0, 0, 0.2, 1)),
+        transform var(--motion-duration-base, 250ms) var(--motion-easing-out, cubic-bezier(0, 0, 0.2, 1));
+      user-select: none;
+    }
+    .motion-demo-box:hover {
+      background: var(--color-brand, #0057d9);
+      color: var(--color-white, #fff);
+      transform: translateY(-2px);
+    }
+  &lt;/style&gt;
+  &lt;div style=&quot;padding: 2rem; display: flex; gap: 1.5rem; flex-wrap: wrap; align-items: center;&quot;&gt;
+    &lt;div class=&quot;motion-demo-box&quot;&gt;Hover me&lt;/div&gt;
+    &lt;div style=&quot;font-size: var(--font-size-xs, 0.8rem); color: var(--color-neutral-500, #6d6d6d); max-width: 22rem;&quot;&gt;
+      &lt;p&gt;&lt;code&gt;transition: background var(--motion-duration-base) var(--motion-easing-out)&lt;/code&gt;&lt;/p&gt;
+      &lt;p style=&quot;margin-block-start: 0.5rem;&quot;&gt;250 ms, decelerating ease. Background shifts to &lt;code&gt;--color-brand&lt;/code&gt;, text to white, with a subtle upward nudge.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;</code></pre>
+      </details>
+  
+    </div>
   </section>
 
   <section>
-    <h2 class="heading-l">Usage examples</h2>
-    <p>Apply tokens directly in component transitions and animations:</p>
-    <pre><code>/* Button hover — fast, decelerating */
-.button {
-  transition: background var(--motion-duration-fast) var(--motion-easing-out);
-}
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Usage examples</h2>
+      <p>Apply tokens directly in component transitions and animations:</p>
+      <pre><code>/* Button hover — fast, decelerating */
+  .button {
+    transition: background var(--motion-duration-fast) var(--motion-easing-out);
+  }
 
-/* Dropdown open — standard, decelerating */
-.dropdown[open] {
-  animation: slide-down var(--motion-duration-base) var(--motion-easing-out) both;
-}
+  /* Dropdown open — standard, decelerating */
+  .dropdown[open] {
+    animation: slide-down var(--motion-duration-base) var(--motion-easing-out) both;
+  }
 
-/* Modal entrance — slower, decelerating */
-.dialog[open] {
-  animation: fade-up var(--motion-duration-slow) var(--motion-easing-out) both;
-}
+  /* Modal entrance — slower, decelerating */
+  .dialog[open] {
+    animation: fade-up var(--motion-duration-slow) var(--motion-easing-out) both;
+  }
 
-/* Modal exit — ease-in so it accelerates away */
-.dialog:not([open]) {
-  animation: fade-down var(--motion-duration-base) var(--motion-easing-in) both;
-}
+  /* Modal exit — ease-in so it accelerates away */
+  .dialog:not([open]) {
+    animation: fade-down var(--motion-duration-base) var(--motion-easing-in) both;
+  }
 
-/* Success badge — spring for playful feedback */
-.badge[data-status="ok"] {
-  animation: pop-in var(--motion-duration-fast) var(--motion-easing-spring) both;
-}</code></pre>
+  /* Success badge — spring for playful feedback */
+  .badge[data-status="ok"] {
+    animation: pop-in var(--motion-duration-fast) var(--motion-easing-spring) both;
+  }</code></pre>
+  
+    </div>
   </section>
 
   <section>
-    <h2 class="heading-l">Reduced motion</h2>
-    <p>All five duration tokens are automatically set to <code>0ms</code> when the user has set their operating system to reduce motion (<code>prefers-reduced-motion: reduce</code>). Because every animation and transition in the library references these tokens, <strong>all motion is disabled globally without any per-component overrides</strong>.</p>
-    <pre><code>/* Built into _motion.css — you do not need to write this yourself */
-@media (prefers-reduced-motion: reduce) {
-  :root {
-    --motion-duration-instant:    0ms;
-    --motion-duration-fast:       0ms;
-    --motion-duration-base:       0ms;
-    --motion-duration-slow:       0ms;
-    --motion-duration-deliberate: 0ms;
-  }
-}</code></pre>
-    <div class="callout" data-variant="brand" role="note"><p>This approach satisfies WCAG 2.1 Success Criterion 2.3.3 (AAA). Any custom animations you add should also reference these tokens rather than hardcoding millisecond values so they benefit from the same override automatically.</p></div>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Reduced motion</h2>
+      <p>All five duration tokens are automatically set to <code>0ms</code> when the user has set their operating system to reduce motion (<code>prefers-reduced-motion: reduce</code>). Because every animation and transition in the library references these tokens, <strong>all motion is disabled globally without any per-component overrides</strong>.</p>
+      <pre><code>/* Built into _motion.css — you do not need to write this yourself */
+  @media (prefers-reduced-motion: reduce) {
+    :root {
+      --motion-duration-instant:    0ms;
+      --motion-duration-fast:       0ms;
+      --motion-duration-base:       0ms;
+      --motion-duration-slow:       0ms;
+      --motion-duration-deliberate: 0ms;
+    }
+  }</code></pre>
+      <div class="callout wide" data-variant="brand" role="note"><p>This approach satisfies WCAG 2.1 Success Criterion 2.3.3 (AAA). Any custom animations you add should also reference these tokens rather than hardcoding millisecond values so they benefit from the same override automatically.</p></div>
+  
+    </div>
   </section>
 
 </article>

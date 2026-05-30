@@ -4,7 +4,7 @@
 {% block content %}
 <article class="flow">
 
-  <header class="padding-y-m margin-y-m" style="border-block-end: 1px solid var(--color-neutral-200);">
+  <header class="flow" style="padding-block-end: var(--space-l); border-block-end: var(--border-s) solid var(--color-neutral-200);">
     <nav aria-label="Breadcrumb" class="breadcrumb">
       <ol>
         <li><a href="/">Home</a></li>
@@ -13,90 +13,99 @@
       </ol>
     </nav>
     <h1>Accessibility</h1>
-    <p class="text-l color-neutral-600">Skip-link and visually-hidden utilities that keep content reachable by screen readers without affecting visual layout.</p>
+    <p class="text-m color-neutral-600">Skip-link and visually-hidden utilities that keep content reachable by screen readers without affecting visual layout.</p>
   </header>
 
   <section>
-    <h2 class="heading-l">Skip link</h2>
-    <p>The <code>.skip-link</code> is the first focusable element on the page. It is clipped off-screen until it receives keyboard focus, at which point it snaps into view so keyboard users can jump straight to the main content and bypass the navigation.</p>
-    <p>Place it as the very first child of <code>&lt;body&gt;</code>, before any navigation or header elements.</p>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Skip link</h2>
+      <p>The <code>.skip-link</code> is the first focusable element on the page. It is clipped off-screen until it receives keyboard focus, at which point it snaps into view so keyboard users can jump straight to the main content and bypass the navigation.</p>
+      <p>Place it as the very first child of <code>&lt;body&gt;</code>, before any navigation or header elements.</p>
     
-    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
-<div style="position: relative; height: 4rem; overflow: hidden; background: var(--color-neutral-50); border-radius: var(--border-radius-m);">
-  <a href="#main-content" class="skip-link">Skip to main content</a>
-  <p style="padding: 1rem; font-size: var(--font-size-s); color: var(--color-neutral-500)">Tab into this area to see the skip link appear.</p>
-</div>
-    </div>
+      <div class="">
+  <div style="position: relative; height: 4rem; overflow: hidden; background: var(--color-neutral-50); border-radius: var(--border-radius-m);">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <p style="padding: 1rem; font-size: var(--font-size-s); color: var(--color-neutral-500)">Tab into this area to see the skip link appear.</p>
+  </div>
+      </div>
 
-    <details class="margin-y-s">
-      <summary class="padding-s">Show code</summary>
-      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div style=&quot;position: relative; height: 4rem; overflow: hidden; background: var(--color-neutral-50); border-radius: var(--border-radius-m);&quot;&gt;
-  &lt;a href=&quot;#main-content&quot; class=&quot;skip-link&quot;&gt;Skip to main content&lt;/a&gt;
-  &lt;p style=&quot;padding: 1rem; font-size: var(--font-size-s); color: var(--color-neutral-500)&quot;&gt;Tab into this area to see the skip link appear.&lt;/p&gt;
-&lt;/div&gt;</code></pre>
-    </details>
+      <details class="margin-y-s">
+        <summary>Show code</summary>
+        <pre class="padding-m"><code>&lt;div style=&quot;position: relative; height: 4rem; overflow: hidden; background: var(--color-neutral-50); border-radius: var(--border-radius-m);&quot;&gt;
+    &lt;a href=&quot;#main-content&quot; class=&quot;skip-link&quot;&gt;Skip to main content&lt;/a&gt;
+    &lt;p style=&quot;padding: 1rem; font-size: var(--font-size-s); color: var(--color-neutral-500)&quot;&gt;Tab into this area to see the skip link appear.&lt;/p&gt;
+  &lt;/div&gt;</code></pre>
+      </details>
+  
+    </div>
   </section>
 
   <section>
-    <h2 class="heading-l">Visually hidden</h2>
-    <p>Both <code>.sr-only</code> and <code>.visually-hidden</code> hide content visually while keeping it accessible to screen readers and keyboard users. They use <code>clip-path: inset(50%)</code> rather than <code>display: none</code> or <code>visibility: hidden</code>, which would remove the element from the accessibility tree entirely.</p>
-    <p>Use this to label icon-only buttons, supplement decorative text, or provide extra context to assistive technology users.</p>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Visually hidden</h2>
+      <p>Both <code>.sr-only</code> and <code>.visually-hidden</code> hide content visually while keeping it accessible to screen readers and keyboard users. They use <code>clip-path: inset(50%)</code> rather than <code>display: none</code> or <code>visibility: hidden</code>, which would remove the element from the accessibility tree entirely.</p>
+      <p>Use this to label icon-only buttons, supplement decorative text, or provide extra context to assistive technology users.</p>
     
-    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
-<button type="button" aria-label="Open notifications">
-  <svg aria-hidden="true" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5">
-    <path d="M10 2a6 6 0 0 0-6 6v3l-1.5 2.5h15L16 11V8a6 6 0 0 0-6-6z"/>
-    <path d="M8 16a2 2 0 0 0 4 0"/>
-  </svg>
-  <span class="sr-only">Notifications</span>
-</button>
-    </div>
+      <div class="">
+  <button type="button" aria-label="Open notifications">
+    <svg aria-hidden="true" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M10 2a6 6 0 0 0-6 6v3l-1.5 2.5h15L16 11V8a6 6 0 0 0-6-6z"/>
+      <path d="M8 16a2 2 0 0 0 4 0"/>
+    </svg>
+    <span class="sr-only">Notifications</span>
+  </button>
+      </div>
 
-    <details class="margin-y-s">
-      <summary class="padding-s">Show code</summary>
-      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;button type=&quot;button&quot; aria-label=&quot;Open notifications&quot;&gt;
-  &lt;svg aria-hidden=&quot;true&quot; width=&quot;20&quot; height=&quot;20&quot; viewBox=&quot;0 0 20 20&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot;&gt;
-    &lt;path d=&quot;M10 2a6 6 0 0 0-6 6v3l-1.5 2.5h15L16 11V8a6 6 0 0 0-6-6z&quot;/&gt;
-    &lt;path d=&quot;M8 16a2 2 0 0 0 4 0&quot;/&gt;
-  &lt;/svg&gt;
-  &lt;span class=&quot;sr-only&quot;&gt;Notifications&lt;/span&gt;
-&lt;/button&gt;</code></pre>
-    </details>
+      <details class="margin-y-s">
+        <summary>Show code</summary>
+        <pre class="padding-m"><code>&lt;button type=&quot;button&quot; aria-label=&quot;Open notifications&quot;&gt;
+    &lt;svg aria-hidden=&quot;true&quot; width=&quot;20&quot; height=&quot;20&quot; viewBox=&quot;0 0 20 20&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot;&gt;
+      &lt;path d=&quot;M10 2a6 6 0 0 0-6 6v3l-1.5 2.5h15L16 11V8a6 6 0 0 0-6-6z&quot;/&gt;
+      &lt;path d=&quot;M8 16a2 2 0 0 0 4 0&quot;/&gt;
+    &lt;/svg&gt;
+    &lt;span class=&quot;sr-only&quot;&gt;Notifications&lt;/span&gt;
+  &lt;/button&gt;</code></pre>
+      </details>
+  
+    </div>
   </section>
 
   <section>
-    <h2 class="heading-l">Supplementary context</h2>
-    <p>Screen reader text can augment visible content without visually cluttering the interface. In the example below, the visible text "Edit" gains a visually hidden suffix clarifying which item it refers to.</p>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Supplementary context</h2>
+      <p>Screen reader text can augment visible content without visually cluttering the interface. In the example below, the visible text "Edit" gains a visually hidden suffix clarifying which item it refers to.</p>
     
-    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
-<div class="flow" style="--flow-space: var(--space-xs)">
-  <div style="display: flex; align-items: center; justify-content: space-between; padding: var(--space-xs) var(--space-s); background: var(--color-neutral-50); border-radius: var(--border-radius-m)">
-    <span>Annual report 2025.pdf</span>
-    <a href="#">Edit<span class="sr-only"> Annual report 2025.pdf</span></a>
-  </div>
-  <div style="display: flex; align-items: center; justify-content: space-between; padding: var(--space-xs) var(--space-s); background: var(--color-neutral-50); border-radius: var(--border-radius-m)">
-    <span>Brand guidelines.pdf</span>
-    <a href="#">Edit<span class="sr-only"> Brand guidelines.pdf</span></a>
-  </div>
-</div>
+      <div class="">
+  <div class="flow" style="--flow-space: var(--space-xs)">
+    <div style="display: flex; align-items: center; justify-content: space-between; padding: var(--space-xs) var(--space-s); background: var(--color-neutral-50); border-radius: var(--border-radius-m)">
+      <span>Annual report 2025.pdf</span>
+      <a href="#">Edit<span class="sr-only"> Annual report 2025.pdf</span></a>
     </div>
+    <div style="display: flex; align-items: center; justify-content: space-between; padding: var(--space-xs) var(--space-s); background: var(--color-neutral-50); border-radius: var(--border-radius-m)">
+      <span>Brand guidelines.pdf</span>
+      <a href="#">Edit<span class="sr-only"> Brand guidelines.pdf</span></a>
+    </div>
+  </div>
+      </div>
 
-    <details class="margin-y-s">
-      <summary class="padding-s">Show code</summary>
-      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div class=&quot;flow&quot; style=&quot;--flow-space: var(--space-xs)&quot;&gt;
-  &lt;div style=&quot;display: flex; align-items: center; justify-content: space-between; padding: var(--space-xs) var(--space-s); background: var(--color-neutral-50); border-radius: var(--border-radius-m)&quot;&gt;
-    &lt;span&gt;Annual report 2025.pdf&lt;/span&gt;
-    &lt;a href=&quot;#&quot;&gt;Edit&lt;span class=&quot;sr-only&quot;&gt; Annual report 2025.pdf&lt;/span&gt;&lt;/a&gt;
-  &lt;/div&gt;
-  &lt;div style=&quot;display: flex; align-items: center; justify-content: space-between; padding: var(--space-xs) var(--space-s); background: var(--color-neutral-50); border-radius: var(--border-radius-m)&quot;&gt;
-    &lt;span&gt;Brand guidelines.pdf&lt;/span&gt;
-    &lt;a href=&quot;#&quot;&gt;Edit&lt;span class=&quot;sr-only&quot;&gt; Brand guidelines.pdf&lt;/span&gt;&lt;/a&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</code></pre>
-    </details>
+      <details class="margin-y-s">
+        <summary>Show code</summary>
+        <pre class="padding-m"><code>&lt;div class=&quot;flow&quot; style=&quot;--flow-space: var(--space-xs)&quot;&gt;
+    &lt;div style=&quot;display: flex; align-items: center; justify-content: space-between; padding: var(--space-xs) var(--space-s); background: var(--color-neutral-50); border-radius: var(--border-radius-m)&quot;&gt;
+      &lt;span&gt;Annual report 2025.pdf&lt;/span&gt;
+      &lt;a href=&quot;#&quot;&gt;Edit&lt;span class=&quot;sr-only&quot;&gt; Annual report 2025.pdf&lt;/span&gt;&lt;/a&gt;
+    &lt;/div&gt;
+    &lt;div style=&quot;display: flex; align-items: center; justify-content: space-between; padding: var(--space-xs) var(--space-s); background: var(--color-neutral-50); border-radius: var(--border-radius-m)&quot;&gt;
+      &lt;span&gt;Brand guidelines.pdf&lt;/span&gt;
+      &lt;a href=&quot;#&quot;&gt;Edit&lt;span class=&quot;sr-only&quot;&gt; Brand guidelines.pdf&lt;/span&gt;&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;</code></pre>
+      </details>
+  
+    </div>
   </section>
 
-  <div class="callout" data-variant="brand" role="note">
+  <div class="callout wide" data-variant="brand" role="note">
     <p>Reduced motion is handled at the token level. The <code>--motion-duration-*</code> tokens collapse to <code>0ms</code> when <code>prefers-reduced-motion: reduce</code> is active, so all transitions and animations in the system automatically become instant without any extra CSS.</p>
   </div>
 

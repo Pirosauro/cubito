@@ -4,7 +4,7 @@
 {% block content %}
 <article class="flow">
 
-  <header class="padding-y-m margin-y-m" style="border-block-end: 1px solid var(--color-neutral-200);">
+  <header class="flow" style="padding-block-end: var(--space-l); border-block-end: var(--border-s) solid var(--color-neutral-200);">
     <nav aria-label="Breadcrumb" class="breadcrumb">
       <ol>
         <li><a href="/">Home</a></li>
@@ -13,192 +13,207 @@
       </ol>
     </nav>
     <h1>Details</h1>
-    <p class="text-l color-neutral-600">Accordion-style disclosure panels using the native <code>&lt;details&gt;</code> and <code>&lt;summary&gt;</code> elements, with three visual variants and full keyboard and screen-reader support at zero JavaScript cost.</p>
+    <p class="text-m color-neutral-600">Accordion-style disclosure panels using the native <code>&lt;details&gt;</code> and <code>&lt;summary&gt;</code> elements, with three visual variants and full keyboard and screen-reader support at zero JavaScript cost.</p>
   </header>
 
   <section>
-    <h2 class="heading-l">Basic accordion</h2>
-    <p>No class or attribute is needed. Each <code>&lt;details&gt;</code> receives a themed background and rounded corners via the default styles.</p>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Basic accordion</h2>
+      <p>No class or attribute is needed. Each <code>&lt;details&gt;</code> receives a themed background and rounded corners via the default styles.</p>
     
-    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
-<div class="flow">
-  <details>
-    <summary>What is your returns policy?</summary>
-    <p>You can return any item within 30 days of purchase for a full refund, provided it is unused and in its original packaging. Digital downloads are non-refundable.</p>
-  </details>
-
-  <details>
-    <summary>How long does delivery take?</summary>
-    <p>Standard delivery takes 3–5 working days. Express delivery (next working day) is available for orders placed before 2 pm. Free standard delivery applies to all orders over £50.</p>
-  </details>
-
-  <details>
-    <summary>Do you ship internationally?</summary>
-    <p>Yes, we ship to over 40 countries. International delivery times vary between 5 and 14 working days depending on your location. Import duties and taxes are the responsibility of the recipient.</p>
-  </details>
-</div>
-    </div>
-
-    <details class="margin-y-s">
-      <summary class="padding-s">Show code</summary>
-      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div class=&quot;flow&quot;&gt;
-  &lt;details&gt;
-    &lt;summary&gt;What is your returns policy?&lt;/summary&gt;
-    &lt;p&gt;You can return any item within 30 days of purchase for a full refund, provided it is unused and in its original packaging. Digital downloads are non-refundable.&lt;/p&gt;
-  &lt;/details&gt;
-
-  &lt;details&gt;
-    &lt;summary&gt;How long does delivery take?&lt;/summary&gt;
-    &lt;p&gt;Standard delivery takes 3–5 working days. Express delivery (next working day) is available for orders placed before 2 pm. Free standard delivery applies to all orders over £50.&lt;/p&gt;
-  &lt;/details&gt;
-
-  &lt;details&gt;
-    &lt;summary&gt;Do you ship internationally?&lt;/summary&gt;
-    &lt;p&gt;Yes, we ship to over 40 countries. International delivery times vary between 5 and 14 working days depending on your location. Import duties and taxes are the responsibility of the recipient.&lt;/p&gt;
-  &lt;/details&gt;
-&lt;/div&gt;</code></pre>
+      <div class="">
+  <div class="flow">
+    <details>
+      <summary>What is your returns policy?</summary>
+      <p>You can return any item within 30 days of purchase for a full refund, provided it is unused and in its original packaging. Digital downloads are non-refundable.</p>
     </details>
+
+    <details>
+      <summary>How long does delivery take?</summary>
+      <p>Standard delivery takes 3–5 working days. Express delivery (next working day) is available for orders placed before 2 pm. Free standard delivery applies to all orders over £50.</p>
+    </details>
+
+    <details>
+      <summary>Do you ship internationally?</summary>
+      <p>Yes, we ship to over 40 countries. International delivery times vary between 5 and 14 working days depending on your location. Import duties and taxes are the responsibility of the recipient.</p>
+    </details>
+  </div>
+      </div>
+
+      <details class="margin-y-s">
+        <summary>Show code</summary>
+        <pre class="padding-m"><code>&lt;div class=&quot;flow&quot;&gt;
+    &lt;details&gt;
+      &lt;summary&gt;What is your returns policy?&lt;/summary&gt;
+      &lt;p&gt;You can return any item within 30 days of purchase for a full refund, provided it is unused and in its original packaging. Digital downloads are non-refundable.&lt;/p&gt;
+    &lt;/details&gt;
+
+    &lt;details&gt;
+      &lt;summary&gt;How long does delivery take?&lt;/summary&gt;
+      &lt;p&gt;Standard delivery takes 3–5 working days. Express delivery (next working day) is available for orders placed before 2 pm. Free standard delivery applies to all orders over £50.&lt;/p&gt;
+    &lt;/details&gt;
+
+    &lt;details&gt;
+      &lt;summary&gt;Do you ship internationally?&lt;/summary&gt;
+      &lt;p&gt;Yes, we ship to over 40 countries. International delivery times vary between 5 and 14 working days depending on your location. Import duties and taxes are the responsibility of the recipient.&lt;/p&gt;
+    &lt;/details&gt;
+  &lt;/div&gt;</code></pre>
+      </details>
+  
+    </div>
   </section>
 
   <section>
-    <h2 class="heading-l">Open by default</h2>
-    <p>Add the boolean <code>open</code> attribute to a <code>&lt;details&gt;</code> to expand it on page load. This is useful when a question is directly relevant to the current page context.</p>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Open by default</h2>
+      <p>Add the boolean <code>open</code> attribute to a <code>&lt;details&gt;</code> to expand it on page load. This is useful when a question is directly relevant to the current page context.</p>
     
-    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
-<div class="flow">
-  <details open>
-    <summary>Can I change my subscription plan?</summary>
-    <p>Yes. You can upgrade or downgrade your plan at any time from the Billing section of your account settings. Changes take effect at the start of the next billing cycle, and any pro-rated difference is automatically credited or charged.</p>
-  </details>
-
-  <details>
-    <summary>How do I cancel my account?</summary>
-    <p>Go to Account Settings &rarr; Billing &rarr; Cancel subscription. Your access continues until the end of the current billing period. We do not offer refunds for partial months.</p>
-  </details>
-</div>
-    </div>
-
-    <details class="margin-y-s">
-      <summary class="padding-s">Show code</summary>
-      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div class=&quot;flow&quot;&gt;
-  &lt;details open&gt;
-    &lt;summary&gt;Can I change my subscription plan?&lt;/summary&gt;
-    &lt;p&gt;Yes. You can upgrade or downgrade your plan at any time from the Billing section of your account settings. Changes take effect at the start of the next billing cycle, and any pro-rated difference is automatically credited or charged.&lt;/p&gt;
-  &lt;/details&gt;
-
-  &lt;details&gt;
-    &lt;summary&gt;How do I cancel my account?&lt;/summary&gt;
-    &lt;p&gt;Go to Account Settings &amp;rarr; Billing &amp;rarr; Cancel subscription. Your access continues until the end of the current billing period. We do not offer refunds for partial months.&lt;/p&gt;
-  &lt;/details&gt;
-&lt;/div&gt;</code></pre>
+      <div class="">
+  <div class="flow">
+    <details open>
+      <summary>Can I change my subscription plan?</summary>
+      <p>Yes. You can upgrade or downgrade your plan at any time from the Billing section of your account settings. Changes take effect at the start of the next billing cycle, and any pro-rated difference is automatically credited or charged.</p>
     </details>
+
+    <details>
+      <summary>How do I cancel my account?</summary>
+      <p>Go to Account Settings &rarr; Billing &rarr; Cancel subscription. Your access continues until the end of the current billing period. We do not offer refunds for partial months.</p>
+    </details>
+  </div>
+      </div>
+
+      <details class="margin-y-s">
+        <summary>Show code</summary>
+        <pre class="padding-m"><code>&lt;div class=&quot;flow&quot;&gt;
+    &lt;details open&gt;
+      &lt;summary&gt;Can I change my subscription plan?&lt;/summary&gt;
+      &lt;p&gt;Yes. You can upgrade or downgrade your plan at any time from the Billing section of your account settings. Changes take effect at the start of the next billing cycle, and any pro-rated difference is automatically credited or charged.&lt;/p&gt;
+    &lt;/details&gt;
+
+    &lt;details&gt;
+      &lt;summary&gt;How do I cancel my account?&lt;/summary&gt;
+      &lt;p&gt;Go to Account Settings &amp;rarr; Billing &amp;rarr; Cancel subscription. Your access continues until the end of the current billing period. We do not offer refunds for partial months.&lt;/p&gt;
+    &lt;/details&gt;
+  &lt;/div&gt;</code></pre>
+      </details>
+  
+    </div>
   </section>
 
   <section>
-    <h2 class="heading-l">Fancy variant</h2>
-    <p>The <code>data-variant="fancy"</code> attribute replaces the browser's default triangle marker with a custom animated chevron rendered via <code>mask-image</code>. It inherits <code>currentColor</code> so it works correctly in both light and dark modes.</p>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Fancy variant</h2>
+      <p>The <code>data-variant="fancy"</code> attribute replaces the browser's default triangle marker with a custom animated chevron rendered via <code>mask-image</code>. It inherits <code>currentColor</code> so it works correctly in both light and dark modes.</p>
     
-    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
-<div class="flow">
-  <details data-variant="fancy">
-    <summary>Advanced caching options</summary>
-    <p>You can fine-tune cache behaviour per route using the <code>Cache-Control</code> header. Set <code>s-maxage</code> for shared caches (CDN edges) and <code>max-age</code> for browser caches independently.</p>
-  </details>
-
-  <details data-variant="fancy">
-    <summary>Custom domain configuration</summary>
-    <p>Add a CNAME record pointing to <code>proxy.example.net</code> at your DNS provider. Propagation typically takes between 5 minutes and 48 hours depending on your TTL settings.</p>
-  </details>
-
-  <details data-variant="fancy" open>
-    <summary>Environment variables</summary>
-    <p>Set secrets via the dashboard under Settings &rarr; Environment. Variables are encrypted at rest and injected at build time. They are never exposed in client-side bundles.</p>
-  </details>
-</div>
-    </div>
-
-    <details class="margin-y-s">
-      <summary class="padding-s">Show code</summary>
-      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div class=&quot;flow&quot;&gt;
-  &lt;details data-variant=&quot;fancy&quot;&gt;
-    &lt;summary&gt;Advanced caching options&lt;/summary&gt;
-    &lt;p&gt;You can fine-tune cache behaviour per route using the &lt;code&gt;Cache-Control&lt;/code&gt; header. Set &lt;code&gt;s-maxage&lt;/code&gt; for shared caches (CDN edges) and &lt;code&gt;max-age&lt;/code&gt; for browser caches independently.&lt;/p&gt;
-  &lt;/details&gt;
-
-  &lt;details data-variant=&quot;fancy&quot;&gt;
-    &lt;summary&gt;Custom domain configuration&lt;/summary&gt;
-    &lt;p&gt;Add a CNAME record pointing to &lt;code&gt;proxy.example.net&lt;/code&gt; at your DNS provider. Propagation typically takes between 5 minutes and 48 hours depending on your TTL settings.&lt;/p&gt;
-  &lt;/details&gt;
-
-  &lt;details data-variant=&quot;fancy&quot; open&gt;
-    &lt;summary&gt;Environment variables&lt;/summary&gt;
-    &lt;p&gt;Set secrets via the dashboard under Settings &amp;rarr; Environment. Variables are encrypted at rest and injected at build time. They are never exposed in client-side bundles.&lt;/p&gt;
-  &lt;/details&gt;
-&lt;/div&gt;</code></pre>
+      <div class="">
+  <div class="flow">
+    <details data-variant="fancy">
+      <summary>Advanced caching options</summary>
+      <p>You can fine-tune cache behaviour per route using the <code>Cache-Control</code> header. Set <code>s-maxage</code> for shared caches (CDN edges) and <code>max-age</code> for browser caches independently.</p>
     </details>
+
+    <details data-variant="fancy">
+      <summary>Custom domain configuration</summary>
+      <p>Add a CNAME record pointing to <code>proxy.example.net</code> at your DNS provider. Propagation typically takes between 5 minutes and 48 hours depending on your TTL settings.</p>
+    </details>
+
+    <details data-variant="fancy" open>
+      <summary>Environment variables</summary>
+      <p>Set secrets via the dashboard under Settings &rarr; Environment. Variables are encrypted at rest and injected at build time. They are never exposed in client-side bundles.</p>
+    </details>
+  </div>
+      </div>
+
+      <details class="margin-y-s">
+        <summary>Show code</summary>
+        <pre class="padding-m"><code>&lt;div class=&quot;flow&quot;&gt;
+    &lt;details data-variant=&quot;fancy&quot;&gt;
+      &lt;summary&gt;Advanced caching options&lt;/summary&gt;
+      &lt;p&gt;You can fine-tune cache behaviour per route using the &lt;code&gt;Cache-Control&lt;/code&gt; header. Set &lt;code&gt;s-maxage&lt;/code&gt; for shared caches (CDN edges) and &lt;code&gt;max-age&lt;/code&gt; for browser caches independently.&lt;/p&gt;
+    &lt;/details&gt;
+
+    &lt;details data-variant=&quot;fancy&quot;&gt;
+      &lt;summary&gt;Custom domain configuration&lt;/summary&gt;
+      &lt;p&gt;Add a CNAME record pointing to &lt;code&gt;proxy.example.net&lt;/code&gt; at your DNS provider. Propagation typically takes between 5 minutes and 48 hours depending on your TTL settings.&lt;/p&gt;
+    &lt;/details&gt;
+
+    &lt;details data-variant=&quot;fancy&quot; open&gt;
+      &lt;summary&gt;Environment variables&lt;/summary&gt;
+      &lt;p&gt;Set secrets via the dashboard under Settings &amp;rarr; Environment. Variables are encrypted at rest and injected at build time. They are never exposed in client-side bundles.&lt;/p&gt;
+    &lt;/details&gt;
+  &lt;/div&gt;</code></pre>
+      </details>
+  
+    </div>
   </section>
 
   <section>
-    <h2 class="heading-l">Bare variant</h2>
-    <p>Use <code>data-variant="bare"</code> for a zero-chrome disclosure — no background, no padding, no border-radius. Useful for toggling visibility of extra content inline within a larger layout.</p>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Bare variant</h2>
+      <p>Use <code>data-variant="bare"</code> for a zero-chrome disclosure — no background, no padding, no border-radius. Useful for toggling visibility of extra content inline within a larger layout.</p>
     
-    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
-<div class="flow">
-  <details data-variant="bare">
-    <summary>Show technical details</summary>
-    <p>Request ID: <code>req_7gHkQ2NpXw9mLvRt</code><br>
-    Timestamp: 2026-05-29T11:42:08Z<br>
-    Region: <code>eu-west-1</code><br>
-    Latency: 142 ms</p>
-  </details>
-
-  <details data-variant="bare">
-    <summary>Read the full transcript</summary>
-    <p>Agent: "Thank you for contacting support. How can I help you today?"<br>
-    Customer: "I placed an order two weeks ago and it still hasn't arrived."<br>
-    Agent: "I'm sorry to hear that. Could I have your order number please?"</p>
-  </details>
-</div>
-    </div>
-
-    <details class="margin-y-s">
-      <summary class="padding-s">Show code</summary>
-      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div class=&quot;flow&quot;&gt;
-  &lt;details data-variant=&quot;bare&quot;&gt;
-    &lt;summary&gt;Show technical details&lt;/summary&gt;
-    &lt;p&gt;Request ID: &lt;code&gt;req_7gHkQ2NpXw9mLvRt&lt;/code&gt;&lt;br&gt;
-    Timestamp: 2026-05-29T11:42:08Z&lt;br&gt;
-    Region: &lt;code&gt;eu-west-1&lt;/code&gt;&lt;br&gt;
-    Latency: 142 ms&lt;/p&gt;
-  &lt;/details&gt;
-
-  &lt;details data-variant=&quot;bare&quot;&gt;
-    &lt;summary&gt;Read the full transcript&lt;/summary&gt;
-    &lt;p&gt;Agent: &quot;Thank you for contacting support. How can I help you today?&quot;&lt;br&gt;
-    Customer: &quot;I placed an order two weeks ago and it still hasn&#x27;t arrived.&quot;&lt;br&gt;
-    Agent: &quot;I&#x27;m sorry to hear that. Could I have your order number please?&quot;&lt;/p&gt;
-  &lt;/details&gt;
-&lt;/div&gt;</code></pre>
+      <div class="">
+  <div class="flow">
+    <details data-variant="bare">
+      <summary>Show technical details</summary>
+      <p>Request ID: <code>req_7gHkQ2NpXw9mLvRt</code><br>
+      Timestamp: 2026-05-29T11:42:08Z<br>
+      Region: <code>eu-west-1</code><br>
+      Latency: 142 ms</p>
     </details>
+
+    <details data-variant="bare">
+      <summary>Read the full transcript</summary>
+      <p>Agent: "Thank you for contacting support. How can I help you today?"<br>
+      Customer: "I placed an order two weeks ago and it still hasn't arrived."<br>
+      Agent: "I'm sorry to hear that. Could I have your order number please?"</p>
+    </details>
+  </div>
+      </div>
+
+      <details class="margin-y-s">
+        <summary>Show code</summary>
+        <pre class="padding-m"><code>&lt;div class=&quot;flow&quot;&gt;
+    &lt;details data-variant=&quot;bare&quot;&gt;
+      &lt;summary&gt;Show technical details&lt;/summary&gt;
+      &lt;p&gt;Request ID: &lt;code&gt;req_7gHkQ2NpXw9mLvRt&lt;/code&gt;&lt;br&gt;
+      Timestamp: 2026-05-29T11:42:08Z&lt;br&gt;
+      Region: &lt;code&gt;eu-west-1&lt;/code&gt;&lt;br&gt;
+      Latency: 142 ms&lt;/p&gt;
+    &lt;/details&gt;
+
+    &lt;details data-variant=&quot;bare&quot;&gt;
+      &lt;summary&gt;Read the full transcript&lt;/summary&gt;
+      &lt;p&gt;Agent: &quot;Thank you for contacting support. How can I help you today?&quot;&lt;br&gt;
+      Customer: &quot;I placed an order two weeks ago and it still hasn&#x27;t arrived.&quot;&lt;br&gt;
+      Agent: &quot;I&#x27;m sorry to hear that. Could I have your order number please?&quot;&lt;/p&gt;
+    &lt;/details&gt;
+  &lt;/div&gt;</code></pre>
+      </details>
+  
+    </div>
   </section>
 
   <section>
-    <h2 class="heading-l">Tokens</h2>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Tokens</h2>
 
-    <table class="">
-      <thead><tr><th>Token</th><th>Default</th><th>Description</th></tr></thead>
-      <tbody>
-        <tr><td colspan="3"><strong>Details</strong></td></tr>
-        <tr><td><code>--details-background</code></td><td><code>var(--color-neutral-50)</code></td><td>Panel background (default variant).</td></tr>
-        <tr><td><code>--details-color</code></td><td><code>var(--color)</code></td><td>Panel text colour.</td></tr>
-        <tr><td><code>--details-radius</code></td><td><code>var(--border-radius)</code></td><td>Panel corner radius.</td></tr>
-        <tr><td><code>--details-chevron-size</code></td><td><code>1.5rem</code></td><td>Size of the chevron icon in the fancy variant.</td></tr>
-        <tr><td colspan="3"><strong>Summary</strong></td></tr>
-        <tr><td><code>--summary-color</code></td><td><code>var(--details-color)</code></td><td>Summary text colour.</td></tr>
-        <tr><td><code>--summary-font-weight</code></td><td><code>var(--font-weight-bold)</code></td><td>Summary font weight.</td></tr>
-        <tr><td><code>--summary-padding</code></td><td><code>var(--space-xxs) var(--space-s)</code></td><td>Summary inner spacing.</td></tr>
-      </tbody>
-    </table>
+      <table class="">
+        <thead><tr><th>Token</th><th>Default</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td colspan="3"><strong>Details</strong></td></tr>
+          <tr><td><code>--details-background</code></td><td><code>var(--color-neutral-50)</code></td><td>Panel background (default variant).</td></tr>
+          <tr><td><code>--details-color</code></td><td><code>var(--color)</code></td><td>Panel text colour.</td></tr>
+          <tr><td><code>--details-radius</code></td><td><code>var(--border-radius)</code></td><td>Panel corner radius.</td></tr>
+          <tr><td><code>--details-chevron-size</code></td><td><code>1.5rem</code></td><td>Size of the chevron icon in the fancy variant.</td></tr>
+          <tr><td colspan="3"><strong>Summary</strong></td></tr>
+          <tr><td><code>--summary-color</code></td><td><code>var(--details-color)</code></td><td>Summary text colour.</td></tr>
+          <tr><td><code>--summary-font-weight</code></td><td><code>var(--font-weight-bold)</code></td><td>Summary font weight.</td></tr>
+          <tr><td><code>--summary-padding</code></td><td><code>var(--space-xxs) var(--space-s)</code></td><td>Summary inner spacing.</td></tr>
+        </tbody>
+      </table>
+  
+    </div>
   </section>
 
 </article>

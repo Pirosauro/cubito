@@ -135,11 +135,11 @@ TOKENS
     border-top: solid var(--border-m) currentColor !important;
     padding-block-start: var(--data-list-gap) !important;
   }
+}
 
-  /* --- Dark mode --- */
-
+@layer dark {
   @media (prefers-color-scheme: dark) {
-    .data-list {
+    :root {
       --data-list-border: solid var(--border-s) var(--color-neutral-800);
       --data-list-term-color: var(--color-neutral-400);
     }

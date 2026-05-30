@@ -4,7 +4,7 @@
 {% block content %}
 <article class="flow">
 
-  <header class="padding-y-m margin-y-m" style="border-block-end: 1px solid var(--color-neutral-200);">
+  <header class="flow" style="padding-block-end: var(--space-l); border-block-end: var(--border-s) solid var(--color-neutral-200);">
     <nav aria-label="Breadcrumb" class="breadcrumb">
       <ol>
         <li><a href="/">Home</a></li>
@@ -13,75 +13,84 @@
       </ol>
     </nav>
     <h1>Breadcrumb</h1>
-    <p class="text-l color-neutral-600">A navigation aid that shows a user's current location within the site hierarchy, using an ordered list for correct screen-reader announcement.</p>
+    <p class="text-m color-neutral-600">A navigation aid that shows a user's current location within the site hierarchy, using an ordered list for correct screen-reader announcement.</p>
   </header>
 
   <section>
-    <h2 class="heading-l">Standard breadcrumb</h2>
-    <p>Wrap the <code>&lt;ol&gt;</code> in a <code>&lt;nav&gt;</code> with <code>aria-label="Breadcrumb"</code>. Mark the current page item with <code>aria-current="page"</code> — it should not be a link.</p>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Standard breadcrumb</h2>
+      <p>Wrap the <code>&lt;ol&gt;</code> in a <code>&lt;nav&gt;</code> with <code>aria-label="Breadcrumb"</code>. Mark the current page item with <code>aria-current="page"</code> — it should not be a link.</p>
     
-    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
-<nav aria-label="Breadcrumb" class="breadcrumb">
-  <ol>
-    <li><a href="/">Home</a></li>
-    <li><a href="/products/">Products</a></li>
-    <li><a href="/products/clothing/">Clothing</a></li>
-    <li aria-current="page">Merino Wool Sweater</li>
-  </ol>
-</nav>
-    </div>
+      <div class="">
+  <nav aria-label="Breadcrumb" class="breadcrumb">
+    <ol>
+      <li><a href="/">Home</a></li>
+      <li><a href="/products/">Products</a></li>
+      <li><a href="/products/clothing/">Clothing</a></li>
+      <li aria-current="page">Merino Wool Sweater</li>
+    </ol>
+  </nav>
+      </div>
 
-    <details class="margin-y-s">
-      <summary class="padding-s">Show code</summary>
-      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;nav aria-label=&quot;Breadcrumb&quot; class=&quot;breadcrumb&quot;&gt;
-  &lt;ol&gt;
-    &lt;li&gt;&lt;a href=&quot;/&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;/products/&quot;&gt;Products&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;/products/clothing/&quot;&gt;Clothing&lt;/a&gt;&lt;/li&gt;
-    &lt;li aria-current=&quot;page&quot;&gt;Merino Wool Sweater&lt;/li&gt;
-  &lt;/ol&gt;
-&lt;/nav&gt;</code></pre>
-    </details>
+      <details class="margin-y-s">
+        <summary>Show code</summary>
+        <pre class="padding-m"><code>&lt;nav aria-label=&quot;Breadcrumb&quot; class=&quot;breadcrumb&quot;&gt;
+    &lt;ol&gt;
+      &lt;li&gt;&lt;a href=&quot;/&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/products/&quot;&gt;Products&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/products/clothing/&quot;&gt;Clothing&lt;/a&gt;&lt;/li&gt;
+      &lt;li aria-current=&quot;page&quot;&gt;Merino Wool Sweater&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/nav&gt;</code></pre>
+      </details>
+  
+    </div>
   </section>
 
   <section>
-    <h2 class="heading-l">Custom separator</h2>
-    <p>The separator is controlled by the <code>--breadcrumb-separator</code> token. Override it inline or in a stylesheet to use any character.</p>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Custom separator</h2>
+      <p>The separator is controlled by the <code>--breadcrumb-separator</code> token. Override it inline or in a stylesheet to use any character.</p>
     
-    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
-<nav aria-label="Breadcrumb" class="breadcrumb" style="--breadcrumb-separator: '›'">
-  <ol>
-    <li><a href="/">Home</a></li>
-    <li><a href="/docs/">Documentation</a></li>
-    <li aria-current="page">Getting Started</li>
-  </ol>
-</nav>
-    </div>
+      <div class="">
+  <nav aria-label="Breadcrumb" class="breadcrumb" style="--breadcrumb-separator: '›'">
+    <ol>
+      <li><a href="/">Home</a></li>
+      <li><a href="/docs/">Documentation</a></li>
+      <li aria-current="page">Getting Started</li>
+    </ol>
+  </nav>
+      </div>
 
-    <details class="margin-y-s">
-      <summary class="padding-s">Show code</summary>
-      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;nav aria-label=&quot;Breadcrumb&quot; class=&quot;breadcrumb&quot; style=&quot;--breadcrumb-separator: &#x27;›&#x27;&quot;&gt;
-  &lt;ol&gt;
-    &lt;li&gt;&lt;a href=&quot;/&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;/docs/&quot;&gt;Documentation&lt;/a&gt;&lt;/li&gt;
-    &lt;li aria-current=&quot;page&quot;&gt;Getting Started&lt;/li&gt;
-  &lt;/ol&gt;
-&lt;/nav&gt;</code></pre>
-    </details>
+      <details class="margin-y-s">
+        <summary>Show code</summary>
+        <pre class="padding-m"><code>&lt;nav aria-label=&quot;Breadcrumb&quot; class=&quot;breadcrumb&quot; style=&quot;--breadcrumb-separator: &#x27;›&#x27;&quot;&gt;
+    &lt;ol&gt;
+      &lt;li&gt;&lt;a href=&quot;/&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/docs/&quot;&gt;Documentation&lt;/a&gt;&lt;/li&gt;
+      &lt;li aria-current=&quot;page&quot;&gt;Getting Started&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/nav&gt;</code></pre>
+      </details>
+  
+    </div>
   </section>
 
   <section>
-    <h2 class="heading-l">Tokens</h2>
-    <table class="">
-      <thead>
-        <tr><th>Token</th><th>Default</th><th>Description</th></tr>
-      </thead>
-      <tbody>
-        <tr><td><code>--breadcrumb-separator</code></td><td><code>"/"</code></td><td>The glyph rendered between each crumb via CSS <code>content</code>.</td></tr>
-        <tr><td><code>--breadcrumb-color</code></td><td><code>--color-neutral-600</code></td><td>Link text colour.</td></tr>
-        <tr><td><code>--breadcrumb-color-current</code></td><td><code>--color-neutral-900</code></td><td>Colour of the active (current page) crumb.</td></tr>
-      </tbody>
-    </table>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Tokens</h2>
+      <table class="">
+        <thead>
+          <tr><th>Token</th><th>Default</th><th>Description</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>--breadcrumb-separator</code></td><td><code>"/"</code></td><td>The glyph rendered between each crumb via CSS <code>content</code>.</td></tr>
+          <tr><td><code>--breadcrumb-color</code></td><td><code>--color-neutral-600</code></td><td>Link text colour.</td></tr>
+          <tr><td><code>--breadcrumb-color-current</code></td><td><code>--color-neutral-900</code></td><td>Colour of the active (current page) crumb.</td></tr>
+        </tbody>
+      </table>
+  
+    </div>
   </section>
 
 </article>

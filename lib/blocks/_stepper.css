@@ -59,6 +59,15 @@ TOKENS
   }
 }
 
+@layer dark {
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --stepper-background: var(--color-neutral-800);
+      --stepper-border: solid var(--border-s) var(--color-neutral-600);
+    }
+  }
+}
+
 @layer blocks {
   .stepper {
     display: inline-flex;
@@ -137,14 +146,5 @@ TOKENS
   .stepper__input:focus-visible {
     outline: var(--focus-ring);
     outline-offset: -2px;
-  }
-
-  /* --- Dark mode --- */
-
-  @media (prefers-color-scheme: dark) {
-    .stepper {
-      --stepper-background: var(--color-neutral-800);
-      --stepper-border: solid var(--border-s) var(--color-neutral-600);
-    }
   }
 }

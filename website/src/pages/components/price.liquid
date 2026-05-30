@@ -4,7 +4,7 @@
 {% block content %}
 <article class="flow">
 
-  <header class="padding-y-m margin-y-m" style="border-block-end: 1px solid var(--color-neutral-200);">
+  <header class="flow" style="padding-block-end: var(--space-l); border-block-end: var(--border-s) solid var(--color-neutral-200);">
     <nav aria-label="Breadcrumb" class="breadcrumb">
       <ol>
         <li><a href="/">Home</a></li>
@@ -13,147 +13,165 @@
       </ol>
     </nav>
     <h1>Price</h1>
-    <p class="text-l color-neutral-600">Displays a monetary amount with optional sale formatting, a discount badge, and a per-unit suffix.</p>
+    <p class="text-m color-neutral-600">Displays a monetary amount with optional sale formatting, a discount badge, and a per-unit suffix.</p>
   </header>
 
   <section>
-    <h2 class="heading-l">Regular price</h2>
-    <p>The simplest form: a <code>.price</code> wrapper containing a <code>.price__amount</code>.</p>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Regular price</h2>
+      <p>The simplest form: a <code>.price</code> wrapper containing a <code>.price__amount</code>.</p>
     
-    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
-<p class="price">
-  <span class="price__amount">£29.99</span>
-</p>
-    </div>
+      <div class="">
+  <p class="price">
+    <span class="price__amount">£29.99</span>
+  </p>
+      </div>
 
-    <details class="margin-y-s">
-      <summary class="padding-s">Show code</summary>
-      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;p class=&quot;price&quot;&gt;
-  &lt;span class=&quot;price__amount&quot;&gt;£29.99&lt;/span&gt;
-&lt;/p&gt;</code></pre>
-    </details>
+      <details class="margin-y-s">
+        <summary>Show code</summary>
+        <pre class="padding-m"><code>&lt;p class=&quot;price&quot;&gt;
+    &lt;span class=&quot;price__amount&quot;&gt;£29.99&lt;/span&gt;
+  &lt;/p&gt;</code></pre>
+      </details>
+  
+    </div>
   </section>
 
   <section>
-    <h2 class="heading-l">Sale price</h2>
-    <p>Add <code>.price__original</code> before the amount to show the struck-through original. When an original is present the amount is automatically coloured with <code>--price-sale-color</code>. Include <code>.price__badge</code> to call out the discount.</p>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Sale price</h2>
+      <p>Add <code>.price__original</code> before the amount to show the struck-through original. When an original is present the amount is automatically coloured with <code>--price-sale-color</code>. Include <code>.price__badge</code> to call out the discount.</p>
     
-    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
-<p class="price">
-  <span class="price__original">£49.99</span>
-  <span class="price__amount">£29.99</span>
-  <span class="price__badge">40% off</span>
-</p>
-    </div>
+      <div class="">
+  <p class="price">
+    <span class="price__original">£49.99</span>
+    <span class="price__amount">£29.99</span>
+    <span class="price__badge">40% off</span>
+  </p>
+      </div>
 
-    <details class="margin-y-s">
-      <summary class="padding-s">Show code</summary>
-      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;p class=&quot;price&quot;&gt;
-  &lt;span class=&quot;price__original&quot;&gt;£49.99&lt;/span&gt;
-  &lt;span class=&quot;price__amount&quot;&gt;£29.99&lt;/span&gt;
-  &lt;span class=&quot;price__badge&quot;&gt;40% off&lt;/span&gt;
-&lt;/p&gt;</code></pre>
-    </details>
+      <details class="margin-y-s">
+        <summary>Show code</summary>
+        <pre class="padding-m"><code>&lt;p class=&quot;price&quot;&gt;
+    &lt;span class=&quot;price__original&quot;&gt;£49.99&lt;/span&gt;
+    &lt;span class=&quot;price__amount&quot;&gt;£29.99&lt;/span&gt;
+    &lt;span class=&quot;price__badge&quot;&gt;40% off&lt;/span&gt;
+  &lt;/p&gt;</code></pre>
+      </details>
+  
+    </div>
   </section>
 
   <section>
-    <h2 class="heading-l">With unit</h2>
-    <p>Use <code>.price__unit</code> to append a billing cycle or unit of measure after the amount.</p>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">With unit</h2>
+      <p>Use <code>.price__unit</code> to append a billing cycle or unit of measure after the amount.</p>
     
-    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
-<p class="price">
-  <span class="price__amount">£9.99</span>
-  <span class="price__unit">/ month</span>
-</p>
-    </div>
+      <div class="">
+  <p class="price">
+    <span class="price__amount">£9.99</span>
+    <span class="price__unit">/ month</span>
+  </p>
+      </div>
 
-    <details class="margin-y-s">
-      <summary class="padding-s">Show code</summary>
-      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;p class=&quot;price&quot;&gt;
-  &lt;span class=&quot;price__amount&quot;&gt;£9.99&lt;/span&gt;
-  &lt;span class=&quot;price__unit&quot;&gt;/ month&lt;/span&gt;
-&lt;/p&gt;</code></pre>
-    </details>
+      <details class="margin-y-s">
+        <summary>Show code</summary>
+        <pre class="padding-m"><code>&lt;p class=&quot;price&quot;&gt;
+    &lt;span class=&quot;price__amount&quot;&gt;£9.99&lt;/span&gt;
+    &lt;span class=&quot;price__unit&quot;&gt;/ month&lt;/span&gt;
+  &lt;/p&gt;</code></pre>
+      </details>
+  
+    </div>
   </section>
 
   <section>
-    <h2 class="heading-l">Free</h2>
-    <p>The amount can be any string — use "Free" for zero-cost items.</p>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Free</h2>
+      <p>The amount can be any string — use "Free" for zero-cost items.</p>
     
-    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
-<p class="price">
-  <span class="price__amount">Free</span>
-</p>
-    </div>
+      <div class="">
+  <p class="price">
+    <span class="price__amount">Free</span>
+  </p>
+      </div>
 
-    <details class="margin-y-s">
-      <summary class="padding-s">Show code</summary>
-      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;p class=&quot;price&quot;&gt;
-  &lt;span class=&quot;price__amount&quot;&gt;Free&lt;/span&gt;
-&lt;/p&gt;</code></pre>
-    </details>
+      <details class="margin-y-s">
+        <summary>Show code</summary>
+        <pre class="padding-m"><code>&lt;p class=&quot;price&quot;&gt;
+    &lt;span class=&quot;price__amount&quot;&gt;Free&lt;/span&gt;
+  &lt;/p&gt;</code></pre>
+      </details>
+  
+    </div>
   </section>
 
   <section>
-    <h2 class="heading-l">Large display</h2>
-    <p>Override <code>--price-size</code> on the wrapper to enlarge the amount for hero product sections.</p>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Large display</h2>
+      <p>Override <code>--price-size</code> on the wrapper to enlarge the amount for hero product sections.</p>
     
-    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
-<p class="price" style="--price-size: var(--font-size-xxl)">
-  <span class="price__original">£199.00</span>
-  <span class="price__amount">£139.00</span>
-  <span class="price__badge">30% off</span>
-</p>
-    </div>
+      <div class="">
+  <p class="price" style="--price-size: var(--font-size-xxl)">
+    <span class="price__original">£199.00</span>
+    <span class="price__amount">£139.00</span>
+    <span class="price__badge">30% off</span>
+  </p>
+      </div>
 
-    <details class="margin-y-s">
-      <summary class="padding-s">Show code</summary>
-      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;p class=&quot;price&quot; style=&quot;--price-size: var(--font-size-xxl)&quot;&gt;
-  &lt;span class=&quot;price__original&quot;&gt;£199.00&lt;/span&gt;
-  &lt;span class=&quot;price__amount&quot;&gt;£139.00&lt;/span&gt;
-  &lt;span class=&quot;price__badge&quot;&gt;30% off&lt;/span&gt;
-&lt;/p&gt;</code></pre>
-    </details>
+      <details class="margin-y-s">
+        <summary>Show code</summary>
+        <pre class="padding-m"><code>&lt;p class=&quot;price&quot; style=&quot;--price-size: var(--font-size-xxl)&quot;&gt;
+    &lt;span class=&quot;price__original&quot;&gt;£199.00&lt;/span&gt;
+    &lt;span class=&quot;price__amount&quot;&gt;£139.00&lt;/span&gt;
+    &lt;span class=&quot;price__badge&quot;&gt;30% off&lt;/span&gt;
+  &lt;/p&gt;</code></pre>
+      </details>
+  
+    </div>
   </section>
 
   <section>
-    <h2 class="heading-l">Tokens</h2>
-    <table class="">
-      <thead>
-        <tr>
-          <th>Token</th>
-          <th>Default</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><code>--price-size</code></td>
-          <td><code>var(--font-size-xl)</code></td>
-          <td>Font size of the current price amount.</td>
-        </tr>
-        <tr>
-          <td><code>--price-color</code></td>
-          <td><code>currentColor</code></td>
-          <td>Colour of the current price amount.</td>
-        </tr>
-        <tr>
-          <td><code>--price-sale-color</code></td>
-          <td><code>var(--color-status-ko)</code></td>
-          <td>Colour applied to the amount when an original price is present.</td>
-        </tr>
-        <tr>
-          <td><code>--price-original-size</code></td>
-          <td><code>var(--font-size-s)</code></td>
-          <td>Font size of the struck-through original price.</td>
-        </tr>
-        <tr>
-          <td><code>--price-badge-color</code></td>
-          <td><code>var(--color-status-ko)</code></td>
-          <td>Text and tinted background colour of the discount badge.</td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Tokens</h2>
+      <table class="">
+        <thead>
+          <tr>
+            <th>Token</th>
+            <th>Default</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>--price-size</code></td>
+            <td><code>var(--font-size-xl)</code></td>
+            <td>Font size of the current price amount.</td>
+          </tr>
+          <tr>
+            <td><code>--price-color</code></td>
+            <td><code>currentColor</code></td>
+            <td>Colour of the current price amount.</td>
+          </tr>
+          <tr>
+            <td><code>--price-sale-color</code></td>
+            <td><code>var(--color-status-ko)</code></td>
+            <td>Colour applied to the amount when an original price is present.</td>
+          </tr>
+          <tr>
+            <td><code>--price-original-size</code></td>
+            <td><code>var(--font-size-s)</code></td>
+            <td>Font size of the struck-through original price.</td>
+          </tr>
+          <tr>
+            <td><code>--price-badge-color</code></td>
+            <td><code>var(--color-status-ko)</code></td>
+            <td>Text and tinted background colour of the discount badge.</td>
+          </tr>
+        </tbody>
+      </table>
+  
+    </div>
   </section>
 
 </article>

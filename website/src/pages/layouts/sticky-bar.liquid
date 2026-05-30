@@ -4,7 +4,7 @@
 {% block content %}
 <article class="flow">
 
-  <header class="padding-y-m margin-y-m" style="border-block-end: 1px solid var(--color-neutral-200);">
+  <header class="flow" style="padding-block-end: var(--space-l); border-block-end: var(--border-s) solid var(--color-neutral-200);">
     <nav aria-label="Breadcrumb" class="breadcrumb">
       <ol>
         <li><a href="/">Home</a></li>
@@ -13,127 +13,117 @@
       </ol>
     </nav>
     <h1>Sticky Bar</h1>
-    <p class="text-l color-neutral-600">A full-width bar that stays fixed at the top or bottom of the viewport, used for persistent CTAs, cookie notices, mobile cart summaries, and sitewide notifications.</p>
+    <p class="text-m color-neutral-600">A full-width bar that stays fixed at the top or bottom of the viewport, used for persistent CTAs, cookie notices, mobile cart summaries, and sitewide notifications.</p>
   </header>
 
   <section>
-    <h2 class="heading-l">Bottom bar</h2>
-    <p>The default position is <code>bottom</code>. In production the bar is fixed to the viewport; the demo below shows the static markup so it renders in context without overlapping the page.</p>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Bottom bar</h2>
+      <p>The default position is <code>bottom</code>. In production the bar is fixed to the viewport; the demo below shows the static markup so it renders in context without overlapping the page.</p>
     
-    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
-<div style="position: relative; border: 1px solid #e2e8f0; border-radius: 0.5rem; overflow: hidden; min-height: 8rem; background: #f8fafc; padding: 1.5rem 1.5rem 5rem;">
-  <p style="color: #6b7280; font-size: 0.875rem; margin: 0;">Page content sits above the bar.</p>
+      <div class="">
+        <div class="docs-demo-frame docs-demo-frame--bar-bottom">
+          <p class="text-s color-neutral-600 margin-0">Page content sits above the bar.</p>
+          <div class="sticky-bar" data-position="bottom" style="position: absolute;">
+            <div class="wrapper repel">
+              <p class="margin-0">2 items — <strong>€58.00</strong></p>
+              <a href="#" class="button">View cart</a>
+            </div>
+          </div>
+        </div>
+      </div>
 
-  <!-- Static for demo — remove `style="position: absolute"` in real use -->
-  <div class="sticky-bar" data-position="bottom" style="position: absolute;">
-    <div class="wrapper repel">
-      <p style="margin: 0;">2 items — <strong>€58.00</strong></p>
-      <a href="#" class="button">View cart</a>
-    </div>
-  </div>
-</div>
-    </div>
+      <details class="margin-y-s">
+        <summary>Show code</summary>
+        <pre class="padding-m"><code>&lt;div class=&quot;sticky-bar&quot; data-position=&quot;bottom&quot;&gt;
+    &lt;div class=&quot;wrapper repel&quot;&gt;…&lt;/div&gt;
+  &lt;/div&gt;</code></pre>
+      </details>
 
-    <details class="margin-y-s">
-      <summary class="padding-s">Show code</summary>
-      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div style=&quot;position: relative; border: 1px solid #e2e8f0; border-radius: 0.5rem; overflow: hidden; min-height: 8rem; background: #f8fafc; padding: 1.5rem 1.5rem 5rem;&quot;&gt;
-  &lt;p style=&quot;color: #6b7280; font-size: 0.875rem; margin: 0;&quot;&gt;Page content sits above the bar.&lt;/p&gt;
-
-  &lt;!-- Static for demo — remove `style=&quot;position: absolute&quot;` in real use --&gt;
-  &lt;div class=&quot;sticky-bar&quot; data-position=&quot;bottom&quot; style=&quot;position: absolute;&quot;&gt;
-    &lt;div class=&quot;wrapper repel&quot;&gt;
-      &lt;p style=&quot;margin: 0;&quot;&gt;2 items — &lt;strong&gt;€58.00&lt;/strong&gt;&lt;/p&gt;
-      &lt;a href=&quot;#&quot; class=&quot;button&quot;&gt;View cart&lt;/a&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</code></pre>
-    </details>
-
-    <div class="callout" data-variant="brand" role="note">
-      <p>In production, place <code>.sticky-bar</code> as a direct child of <code>&lt;body&gt;</code> so it is fixed relative to the viewport. Add bottom padding to <code>&lt;main&gt;</code> or the page body to prevent the bar from obscuring content.</p>
+      <div class="callout wide" data-variant="brand" role="note">
+        <p>In production, place <code>.sticky-bar</code> as a direct child of <code>&lt;body&gt;</code> so it is fixed relative to the viewport. Add bottom padding to <code>&lt;main&gt;</code> or the page body to prevent the bar from obscuring content.</p>
+      </div>
+  
     </div>
   </section>
 
   <section>
-    <h2 class="heading-l">Top bar</h2>
-    <p>Use <code>data-position="top"</code> to anchor the bar to the top of the viewport. Typical uses: cookie consent, feature announcements, or an environment banner.</p>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Top bar</h2>
+      <p>Use <code>data-position="top"</code> to anchor the bar to the top of the viewport. Typical uses: cookie consent, feature announcements, or an environment banner.</p>
     
-    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
-<div style="position: relative; border: 1px solid #e2e8f0; border-radius: 0.5rem; overflow: hidden; min-height: 8rem; background: #f8fafc; padding: 5rem 1.5rem 1.5rem;">
-  <p style="color: #6b7280; font-size: 0.875rem; margin: 0;">Page content sits below the bar.</p>
+      <div class="">
+        <div class="docs-demo-frame docs-demo-frame--bar-top">
+          <p class="text-s color-neutral-600 margin-0">Page content sits below the bar.</p>
+          <div class="sticky-bar" data-position="top" style="position: absolute; --sticky-bar-background: var(--color-brand); --sticky-bar-color: var(--color-white); --sticky-bar-border: none;">
+            <div class="wrapper repel">
+              <p class="text-s margin-0">We use cookies to improve your experience. <a href="#" class="color-white text-no-underline">Learn more</a></p>
+              <button class="button" style="--button-background: var(--color-white); --button-color: var(--color-brand);">Accept all</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
-  <!-- Static for demo — remove `style="position: absolute"` in real use -->
-  <div class="sticky-bar" data-position="top" style="position: absolute; --sticky-bar-background: #4f46e5; --sticky-bar-color: #fff; --sticky-bar-border: none;">
-    <div class="wrapper repel">
-      <p style="margin: 0; font-size: 0.875rem;">We use cookies to improve your experience. <a href="#" style="color: #c7d2fe;">Learn more</a></p>
-      <button class="button" style="--button-background: #fff; --button-color: #4f46e5; font-size: 0.8125rem;">Accept all</button>
+      <details class="margin-y-s">
+        <summary>Show code</summary>
+        <pre class="padding-m"><code>&lt;div class=&quot;sticky-bar&quot; data-position=&quot;top&quot;
+    style=&quot;--sticky-bar-background: var(--color-brand); --sticky-bar-color: var(--color-white);&quot;&gt;
+    …
+  &lt;/div&gt;</code></pre>
+      </details>
+  
     </div>
-  </div>
-</div>
-    </div>
-
-    <details class="margin-y-s">
-      <summary class="padding-s">Show code</summary>
-      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div style=&quot;position: relative; border: 1px solid #e2e8f0; border-radius: 0.5rem; overflow: hidden; min-height: 8rem; background: #f8fafc; padding: 5rem 1.5rem 1.5rem;&quot;&gt;
-  &lt;p style=&quot;color: #6b7280; font-size: 0.875rem; margin: 0;&quot;&gt;Page content sits below the bar.&lt;/p&gt;
-
-  &lt;!-- Static for demo — remove `style=&quot;position: absolute&quot;` in real use --&gt;
-  &lt;div class=&quot;sticky-bar&quot; data-position=&quot;top&quot; style=&quot;position: absolute; --sticky-bar-background: #4f46e5; --sticky-bar-color: #fff; --sticky-bar-border: none;&quot;&gt;
-    &lt;div class=&quot;wrapper repel&quot;&gt;
-      &lt;p style=&quot;margin: 0; font-size: 0.875rem;&quot;&gt;We use cookies to improve your experience. &lt;a href=&quot;#&quot; style=&quot;color: #c7d2fe;&quot;&gt;Learn more&lt;/a&gt;&lt;/p&gt;
-      &lt;button class=&quot;button&quot; style=&quot;--button-background: #fff; --button-color: #4f46e5; font-size: 0.8125rem;&quot;&gt;Accept all&lt;/button&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</code></pre>
-    </details>
   </section>
 
   <section>
-    <h2 class="heading-l">Tokens</h2>
-    <table class="">
-      <thead>
-        <tr>
-          <th>Token</th>
-          <th>Default</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><code>--sticky-bar-background</code></td>
-          <td><code>var(--color-white)</code></td>
-          <td>Background fill of the bar.</td>
-        </tr>
-        <tr>
-          <td><code>--sticky-bar-color</code></td>
-          <td><code>currentColor</code></td>
-          <td>Text colour of the bar content.</td>
-        </tr>
-        <tr>
-          <td><code>--sticky-bar-border</code></td>
-          <td><code>solid var(--border-s) var(--color-neutral-200)</code></td>
-          <td>Top border (bottom bar) or bottom border (top bar).</td>
-        </tr>
-        <tr>
-          <td><code>--sticky-bar-padding</code></td>
-          <td><code>var(--space-xs) 0</code></td>
-          <td>Internal block and inline padding.</td>
-        </tr>
-        <tr>
-          <td><code>--sticky-bar-shadow</code></td>
-          <td><code>0 -2px 8px rgba(0,0,0,0.08)</code></td>
-          <td>Box shadow on the bar.</td>
-        </tr>
-        <tr>
-          <td><code>--sticky-bar-z</code></td>
-          <td><code>var(--z-fixed, 30)</code></td>
-          <td>z-index of the bar. Defaults to the <code>--z-fixed</code> design token (value <code>30</code>). Override to <code>var(--z-modal)</code> if the bar must appear above modals.</td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Tokens</h2>
+      <table class="">
+        <thead>
+          <tr>
+            <th>Token</th>
+            <th>Default</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>--sticky-bar-background</code></td>
+            <td><code>var(--color-white)</code></td>
+            <td>Background fill of the bar.</td>
+          </tr>
+          <tr>
+            <td><code>--sticky-bar-color</code></td>
+            <td><code>currentColor</code></td>
+            <td>Text colour of the bar content.</td>
+          </tr>
+          <tr>
+            <td><code>--sticky-bar-border</code></td>
+            <td><code>solid var(--border-s) var(--color-neutral-200)</code></td>
+            <td>Top border (bottom bar) or bottom border (top bar).</td>
+          </tr>
+          <tr>
+            <td><code>--sticky-bar-padding</code></td>
+            <td><code>var(--space-xs) 0</code></td>
+            <td>Internal block and inline padding.</td>
+          </tr>
+          <tr>
+            <td><code>--sticky-bar-shadow</code></td>
+            <td><code>0 -2px 8px rgba(0,0,0,0.08)</code></td>
+            <td>Box shadow on the bar.</td>
+          </tr>
+          <tr>
+            <td><code>--sticky-bar-z</code></td>
+            <td><code>var(--z-fixed, 30)</code></td>
+            <td>z-index of the bar. Defaults to the <code>--z-fixed</code> design token (value <code>30</code>). Override to <code>var(--z-modal)</code> if the bar must appear above modals.</td>
+          </tr>
+        </tbody>
+      </table>
 
-    <div class="callout" data-variant="brand" role="note">
-      <p>The z-index uses the <code>--z-fixed</code> token from the z-index scale. If the bar needs to sit above a modal overlay, set <code>--sticky-bar-z: var(--z-modal)</code> inline.</p>
+      <div class="callout wide" data-variant="brand" role="note">
+        <p>The z-index uses the <code>--z-fixed</code> token from the z-index scale. If the bar needs to sit above a modal overlay, set <code>--sticky-bar-z: var(--z-modal)</code> inline.</p>
+      </div>
+  
     </div>
   </section>
 

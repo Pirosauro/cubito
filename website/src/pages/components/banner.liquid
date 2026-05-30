@@ -4,7 +4,7 @@
 {% block content %}
 <article class="flow">
 
-  <header class="padding-y-m margin-y-m" style="border-block-end: 1px solid var(--color-neutral-200);">
+  <header class="flow" style="padding-block-end: var(--space-l); border-block-end: var(--border-s) solid var(--color-neutral-200);">
     <nav aria-label="Breadcrumb" class="breadcrumb">
       <ol>
         <li><a href="/">Home</a></li>
@@ -13,123 +13,141 @@
       </ol>
     </nav>
     <h1>Banner</h1>
-    <p class="text-l color-neutral-600">A full-width sitewide strip for announcements, promotions, and system alerts — rendered above the primary navigation.</p>
+    <p class="text-m color-neutral-600">A full-width sitewide strip for announcements, promotions, and system alerts — rendered above the primary navigation.</p>
   </header>
 
   <section>
-    <h2 class="heading-l">Default (promotional)</h2>
-    <p>The default banner uses a light brand tint. Use <code>role="region"</code> with a descriptive <code>aria-label</code> for non-critical announcements. Include a <code>.banner__dismiss</code> button so users can close it.</p>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Default (promotional)</h2>
+      <p>The default banner uses a light brand tint. Use <code>role="region"</code> with a descriptive <code>aria-label</code> for non-critical announcements. Include a <code>.banner__dismiss</code> button so users can close it.</p>
     
-    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
-<div class="banner" role="region" aria-label="Promotional offer">
-  <p>Get 20% off all orders this weekend with code <strong>WEEKEND20</strong>. <a href="/sale/">Shop the sale →</a></p>
-  <button type="button" class="banner__dismiss" aria-label="Dismiss announcement">
-    <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none">
-      <path d="M3 3l10 10M13 3L3 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-    </svg>
-  </button>
-</div>
-    </div>
-
-    <details class="margin-y-s">
-      <summary class="padding-s">Show code</summary>
-      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div class=&quot;banner&quot; role=&quot;region&quot; aria-label=&quot;Promotional offer&quot;&gt;
-  &lt;p&gt;Get 20% off all orders this weekend with code &lt;strong&gt;WEEKEND20&lt;/strong&gt;. &lt;a href=&quot;/sale/&quot;&gt;Shop the sale →&lt;/a&gt;&lt;/p&gt;
-  &lt;button type=&quot;button&quot; class=&quot;banner__dismiss&quot; aria-label=&quot;Dismiss announcement&quot;&gt;
-    &lt;svg aria-hidden=&quot;true&quot; width=&quot;16&quot; height=&quot;16&quot; viewBox=&quot;0 0 16 16&quot; fill=&quot;none&quot;&gt;
-      &lt;path d=&quot;M3 3l10 10M13 3L3 13&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; stroke-linecap=&quot;round&quot;/&gt;
-    &lt;/svg&gt;
-  &lt;/button&gt;
-&lt;/div&gt;</code></pre>
-    </details>
-  </section>
-
-  <section>
-    <h2 class="heading-l">Warning</h2>
-    <p>Use <code>data-variant="warning"</code> for degraded service notices. Adding <code>role="alert"</code> causes screen readers to announce the message when it appears.</p>
-    
-    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
-<div class="banner" data-variant="warning" role="alert">
-  <p>Scheduled maintenance on Saturday 4–6 AM UTC. Some services may be temporarily unavailable.</p>
-</div>
-    </div>
-
-    <details class="margin-y-s">
-      <summary class="padding-s">Show code</summary>
-      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div class=&quot;banner&quot; data-variant=&quot;warning&quot; role=&quot;alert&quot;&gt;
-  &lt;p&gt;Scheduled maintenance on Saturday 4–6 AM UTC. Some services may be temporarily unavailable.&lt;/p&gt;
-&lt;/div&gt;</code></pre>
-    </details>
-  </section>
-
-  <section>
-    <h2 class="heading-l">Error</h2>
-    <p>Use <code>data-variant="error"</code> for active outages. Pair with <code>role="alert"</code> and <code>aria-live="assertive"</code> to ensure it is announced immediately.</p>
-    
-    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
-<div class="banner" data-variant="error" role="alert" aria-live="assertive">
-  <p>We are experiencing an outage affecting the checkout service. Our team is investigating.</p>
-</div>
-    </div>
-
-    <details class="margin-y-s">
-      <summary class="padding-s">Show code</summary>
-      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div class=&quot;banner&quot; data-variant=&quot;error&quot; role=&quot;alert&quot; aria-live=&quot;assertive&quot;&gt;
-  &lt;p&gt;We are experiencing an outage affecting the checkout service. Our team is investigating.&lt;/p&gt;
-&lt;/div&gt;</code></pre>
-    </details>
-  </section>
-
-  <section>
-    <h2 class="heading-l">Neutral (cookie consent)</h2>
-    <p>Use <code>data-variant="neutral"</code> for GDPR or cookie notices. Mark it up as a <code>role="dialog"</code> with <code>aria-labelledby</code> and <code>aria-describedby</code> so assistive technology treats it as a blocking decision.</p>
-    
-    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
-<div class="banner" data-variant="neutral" role="dialog"
-     aria-labelledby="cookie-title" aria-describedby="cookie-desc">
-  <p id="cookie-title"><strong>Cookie preferences</strong></p>
-  <p id="cookie-desc">We use cookies to improve your experience and analyse site usage.</p>
-  <div class="cluster">
-    <button type="button" class="button">Accept all</button>
-    <button type="button" class="button" data-variant="outline">Preferences</button>
+      <div class="">
+  <div class="banner" role="region" aria-label="Promotional offer">
+    <p>Get 20% off all orders this weekend with code <strong>WEEKEND20</strong>. <a href="/sale/">Shop the sale →</a></p>
+    <button type="button" class="banner__dismiss" aria-label="Dismiss announcement">
+      <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <path d="M3 3l10 10M13 3L3 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+    </button>
   </div>
-</div>
-    </div>
+      </div>
 
-    <details class="margin-y-s">
-      <summary class="padding-s">Show code</summary>
-      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div class=&quot;banner&quot; data-variant=&quot;neutral&quot; role=&quot;dialog&quot;
-     aria-labelledby=&quot;cookie-title&quot; aria-describedby=&quot;cookie-desc&quot;&gt;
-  &lt;p id=&quot;cookie-title&quot;&gt;&lt;strong&gt;Cookie preferences&lt;/strong&gt;&lt;/p&gt;
-  &lt;p id=&quot;cookie-desc&quot;&gt;We use cookies to improve your experience and analyse site usage.&lt;/p&gt;
-  &lt;div class=&quot;cluster&quot;&gt;
-    &lt;button type=&quot;button&quot; class=&quot;button&quot;&gt;Accept all&lt;/button&gt;
-    &lt;button type=&quot;button&quot; class=&quot;button&quot; data-variant=&quot;outline&quot;&gt;Preferences&lt;/button&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</code></pre>
-    </details>
-  </section>
-
-  <section>
-    <h2 class="heading-l">ARIA guidance</h2>
-    <div class="callout" data-variant="brand" role="note">
-      <p>Choose the <code>role</code> based on urgency: use <code>role="region"</code> for passive announcements, <code>role="alert"</code> (with <code>aria-live="assertive"</code>) for critical messages that must interrupt the user, and <code>role="dialog"</code> for consent flows that require a response before continuing.</p>
+      <details class="margin-y-s">
+        <summary>Show code</summary>
+        <pre class="padding-m"><code>&lt;div class=&quot;banner&quot; role=&quot;region&quot; aria-label=&quot;Promotional offer&quot;&gt;
+    &lt;p&gt;Get 20% off all orders this weekend with code &lt;strong&gt;WEEKEND20&lt;/strong&gt;. &lt;a href=&quot;/sale/&quot;&gt;Shop the sale →&lt;/a&gt;&lt;/p&gt;
+    &lt;button type=&quot;button&quot; class=&quot;banner__dismiss&quot; aria-label=&quot;Dismiss announcement&quot;&gt;
+      &lt;svg aria-hidden=&quot;true&quot; width=&quot;16&quot; height=&quot;16&quot; viewBox=&quot;0 0 16 16&quot; fill=&quot;none&quot;&gt;
+        &lt;path d=&quot;M3 3l10 10M13 3L3 13&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; stroke-linecap=&quot;round&quot;/&gt;
+      &lt;/svg&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;</code></pre>
+      </details>
+  
     </div>
   </section>
 
   <section>
-    <h2 class="heading-l">Tokens</h2>
-    <table class="">
-      <thead>
-        <tr><th>Token</th><th>Default</th><th>Description</th></tr>
-      </thead>
-      <tbody>
-        <tr><td><code>--banner-background</code></td><td><code>--color-brand</code> at 12% opacity</td><td>Strip background fill.</td></tr>
-        <tr><td><code>--banner-color</code></td><td><code>currentColor</code></td><td>Text and icon colour.</td></tr>
-        <tr><td><code>--banner-border</code></td><td><code>none</code></td><td>Bottom border — set to add a divider line.</td></tr>
-        <tr><td><code>--banner-padding</code></td><td><code>--space-xs var(--gutter)</code></td><td>Vertical and horizontal inner space.</td></tr>
-      </tbody>
-    </table>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Warning</h2>
+      <p>Use <code>data-variant="warning"</code> for degraded service notices. Adding <code>role="alert"</code> causes screen readers to announce the message when it appears.</p>
+    
+      <div class="">
+  <div class="banner" data-variant="warning" role="alert">
+    <p>Scheduled maintenance on Saturday 4–6 AM UTC. Some services may be temporarily unavailable.</p>
+  </div>
+      </div>
+
+      <details class="margin-y-s">
+        <summary>Show code</summary>
+        <pre class="padding-m"><code>&lt;div class=&quot;banner&quot; data-variant=&quot;warning&quot; role=&quot;alert&quot;&gt;
+    &lt;p&gt;Scheduled maintenance on Saturday 4–6 AM UTC. Some services may be temporarily unavailable.&lt;/p&gt;
+  &lt;/div&gt;</code></pre>
+      </details>
+  
+    </div>
+  </section>
+
+  <section>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Error</h2>
+      <p>Use <code>data-variant="error"</code> for active outages. Pair with <code>role="alert"</code> and <code>aria-live="assertive"</code> to ensure it is announced immediately.</p>
+    
+      <div class="">
+  <div class="banner" data-variant="error" role="alert" aria-live="assertive">
+    <p>We are experiencing an outage affecting the checkout service. Our team is investigating.</p>
+  </div>
+      </div>
+
+      <details class="margin-y-s">
+        <summary>Show code</summary>
+        <pre class="padding-m"><code>&lt;div class=&quot;banner&quot; data-variant=&quot;error&quot; role=&quot;alert&quot; aria-live=&quot;assertive&quot;&gt;
+    &lt;p&gt;We are experiencing an outage affecting the checkout service. Our team is investigating.&lt;/p&gt;
+  &lt;/div&gt;</code></pre>
+      </details>
+  
+    </div>
+  </section>
+
+  <section>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Neutral (cookie consent)</h2>
+      <p>Use <code>data-variant="neutral"</code> for GDPR or cookie notices. Mark it up as a <code>role="dialog"</code> with <code>aria-labelledby</code> and <code>aria-describedby</code> so assistive technology treats it as a blocking decision.</p>
+    
+      <div class="">
+  <div class="banner" data-variant="neutral" role="dialog"
+       aria-labelledby="cookie-title" aria-describedby="cookie-desc">
+    <p id="cookie-title"><strong>Cookie preferences</strong></p>
+    <p id="cookie-desc">We use cookies to improve your experience and analyse site usage.</p>
+    <div class="cluster">
+      <button type="button" class="button">Accept all</button>
+      <button type="button" class="button" data-variant="outline">Preferences</button>
+    </div>
+  </div>
+      </div>
+
+      <details class="margin-y-s">
+        <summary>Show code</summary>
+        <pre class="padding-m"><code>&lt;div class=&quot;banner&quot; data-variant=&quot;neutral&quot; role=&quot;dialog&quot;
+       aria-labelledby=&quot;cookie-title&quot; aria-describedby=&quot;cookie-desc&quot;&gt;
+    &lt;p id=&quot;cookie-title&quot;&gt;&lt;strong&gt;Cookie preferences&lt;/strong&gt;&lt;/p&gt;
+    &lt;p id=&quot;cookie-desc&quot;&gt;We use cookies to improve your experience and analyse site usage.&lt;/p&gt;
+    &lt;div class=&quot;cluster&quot;&gt;
+      &lt;button type=&quot;button&quot; class=&quot;button&quot;&gt;Accept all&lt;/button&gt;
+      &lt;button type=&quot;button&quot; class=&quot;button&quot; data-variant=&quot;outline&quot;&gt;Preferences&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;</code></pre>
+      </details>
+  
+    </div>
+  </section>
+
+  <section>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">ARIA guidance</h2>
+      <div class="callout wide" data-variant="brand" role="note">
+        <p>Choose the <code>role</code> based on urgency: use <code>role="region"</code> for passive announcements, <code>role="alert"</code> (with <code>aria-live="assertive"</code>) for critical messages that must interrupt the user, and <code>role="dialog"</code> for consent flows that require a response before continuing.</p>
+      </div>
+  
+    </div>
+  </section>
+
+  <section>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Tokens</h2>
+      <table class="">
+        <thead>
+          <tr><th>Token</th><th>Default</th><th>Description</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>--banner-background</code></td><td><code>--color-brand</code> at 12% opacity</td><td>Strip background fill.</td></tr>
+          <tr><td><code>--banner-color</code></td><td><code>currentColor</code></td><td>Text and icon colour.</td></tr>
+          <tr><td><code>--banner-border</code></td><td><code>none</code></td><td>Bottom border — set to add a divider line.</td></tr>
+          <tr><td><code>--banner-padding</code></td><td><code>--space-xs var(--gutter)</code></td><td>Vertical and horizontal inner space.</td></tr>
+        </tbody>
+      </table>
+  
+    </div>
   </section>
 
 </article>

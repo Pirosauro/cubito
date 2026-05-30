@@ -4,7 +4,7 @@
 {% block content %}
 <article class="flow">
 
-  <header class="padding-y-m margin-y-m" style="border-block-end: 1px solid var(--color-neutral-200);">
+  <header class="flow" style="padding-block-end: var(--space-l); border-block-end: var(--border-s) solid var(--color-neutral-200);">
     <nav aria-label="Breadcrumb" class="breadcrumb">
       <ol>
         <li><a href="/">Home</a></li>
@@ -13,81 +13,90 @@
       </ol>
     </nav>
     <h1>Border</h1>
-    <p class="text-l color-neutral-600">Border-width and border-radius helpers. Pair width utilities with a <code>.border-{color}</code> class from the color utilities to produce a visible border.</p>
+    <p class="text-m color-neutral-600">Border-width and border-radius helpers. Pair width utilities with a <code>.border-{color}</code> class from the color utilities to produce a visible border.</p>
   </header>
 
   <section>
-    <h2 class="heading-l">Border widths</h2>
-    <p>All width classes also set <code>border-style: solid</code>, so adding a colour utility is the only additional step needed. The sizes map to the global border tokens: <code>--border-s</code> (~1px), <code>--border-m</code> (~2px), and <code>--border-l</code> (~4px).</p>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Border widths</h2>
+      <p>All width classes also set <code>border-style: solid</code>, so adding a colour utility is the only additional step needed. The sizes map to the global border tokens: <code>--border-s</code> (~1px), <code>--border-m</code> (~2px), and <code>--border-l</code> (~4px).</p>
     
-    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
-<div class="flow" style="--flow-space: var(--space-s)">
-  <div class="border-s border-neutral-300" style="padding: var(--space-s); border-radius: var(--border-radius-m)">.border-s — ~1px</div>
-  <div class="border border-neutral-400" style="padding: var(--space-s); border-radius: var(--border-radius-m)">.border — ~2px</div>
-  <div class="border-l border-neutral-500" style="padding: var(--space-s); border-radius: var(--border-radius-m)">.border-l — ~4px</div>
-</div>
-    </div>
+      <div class="">
+  <div class="flow" style="--flow-space: var(--space-s)">
+    <div class="border-s border-neutral-300" style="padding: var(--space-s); border-radius: var(--border-radius-m)">.border-s — ~1px</div>
+    <div class="border border-neutral-400" style="padding: var(--space-s); border-radius: var(--border-radius-m)">.border — ~2px</div>
+    <div class="border-l border-neutral-500" style="padding: var(--space-s); border-radius: var(--border-radius-m)">.border-l — ~4px</div>
+  </div>
+      </div>
 
-    <details class="margin-y-s">
-      <summary class="padding-s">Show code</summary>
-      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div class=&quot;flow&quot; style=&quot;--flow-space: var(--space-s)&quot;&gt;
-  &lt;div class=&quot;border-s border-neutral-300&quot; style=&quot;padding: var(--space-s); border-radius: var(--border-radius-m)&quot;&gt;.border-s — ~1px&lt;/div&gt;
-  &lt;div class=&quot;border border-neutral-400&quot; style=&quot;padding: var(--space-s); border-radius: var(--border-radius-m)&quot;&gt;.border — ~2px&lt;/div&gt;
-  &lt;div class=&quot;border-l border-neutral-500&quot; style=&quot;padding: var(--space-s); border-radius: var(--border-radius-m)&quot;&gt;.border-l — ~4px&lt;/div&gt;
-&lt;/div&gt;</code></pre>
-    </details>
+      <details class="margin-y-s">
+        <summary>Show code</summary>
+        <pre class="padding-m"><code>&lt;div class=&quot;flow&quot; style=&quot;--flow-space: var(--space-s)&quot;&gt;
+    &lt;div class=&quot;border-s border-neutral-300&quot; style=&quot;padding: var(--space-s); border-radius: var(--border-radius-m)&quot;&gt;.border-s — ~1px&lt;/div&gt;
+    &lt;div class=&quot;border border-neutral-400&quot; style=&quot;padding: var(--space-s); border-radius: var(--border-radius-m)&quot;&gt;.border — ~2px&lt;/div&gt;
+    &lt;div class=&quot;border-l border-neutral-500&quot; style=&quot;padding: var(--space-s); border-radius: var(--border-radius-m)&quot;&gt;.border-l — ~4px&lt;/div&gt;
+  &lt;/div&gt;</code></pre>
+      </details>
+  
+    </div>
   </section>
 
   <section>
-    <h2 class="heading-l">Brand and status borders</h2>
-    <p>Combine <code>.border</code> with any <code>.border-{color}</code> class for semantic callouts or highlighted sections.</p>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Brand and status borders</h2>
+      <p>Combine <code>.border</code> with any <code>.border-{color}</code> class for semantic callouts or highlighted sections.</p>
     
-    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
-<div class="flow" style="--flow-space: var(--space-s)">
-  <div class="border border-brand" style="padding: var(--space-s); border-radius: var(--border-radius-m)">.border .border-brand</div>
-  <div class="border border-status-ok" style="padding: var(--space-s); border-radius: var(--border-radius-m)">.border .border-status-ok</div>
-  <div class="border border-status-warning" style="padding: var(--space-s); border-radius: var(--border-radius-m)">.border .border-status-warning</div>
-  <div class="border border-status-ko" style="padding: var(--space-s); border-radius: var(--border-radius-m)">.border .border-status-ko</div>
-  <div class="border border-status-info" style="padding: var(--space-s); border-radius: var(--border-radius-m)">.border .border-status-info</div>
-</div>
-    </div>
+      <div class="">
+  <div class="flow" style="--flow-space: var(--space-s)">
+    <div class="border border-brand" style="padding: var(--space-s); border-radius: var(--border-radius-m)">.border .border-brand</div>
+    <div class="border border-status-ok" style="padding: var(--space-s); border-radius: var(--border-radius-m)">.border .border-status-ok</div>
+    <div class="border border-status-warning" style="padding: var(--space-s); border-radius: var(--border-radius-m)">.border .border-status-warning</div>
+    <div class="border border-status-ko" style="padding: var(--space-s); border-radius: var(--border-radius-m)">.border .border-status-ko</div>
+    <div class="border border-status-info" style="padding: var(--space-s); border-radius: var(--border-radius-m)">.border .border-status-info</div>
+  </div>
+      </div>
 
-    <details class="margin-y-s">
-      <summary class="padding-s">Show code</summary>
-      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div class=&quot;flow&quot; style=&quot;--flow-space: var(--space-s)&quot;&gt;
-  &lt;div class=&quot;border border-brand&quot; style=&quot;padding: var(--space-s); border-radius: var(--border-radius-m)&quot;&gt;.border .border-brand&lt;/div&gt;
-  &lt;div class=&quot;border border-status-ok&quot; style=&quot;padding: var(--space-s); border-radius: var(--border-radius-m)&quot;&gt;.border .border-status-ok&lt;/div&gt;
-  &lt;div class=&quot;border border-status-warning&quot; style=&quot;padding: var(--space-s); border-radius: var(--border-radius-m)&quot;&gt;.border .border-status-warning&lt;/div&gt;
-  &lt;div class=&quot;border border-status-ko&quot; style=&quot;padding: var(--space-s); border-radius: var(--border-radius-m)&quot;&gt;.border .border-status-ko&lt;/div&gt;
-  &lt;div class=&quot;border border-status-info&quot; style=&quot;padding: var(--space-s); border-radius: var(--border-radius-m)&quot;&gt;.border .border-status-info&lt;/div&gt;
-&lt;/div&gt;</code></pre>
-    </details>
+      <details class="margin-y-s">
+        <summary>Show code</summary>
+        <pre class="padding-m"><code>&lt;div class=&quot;flow&quot; style=&quot;--flow-space: var(--space-s)&quot;&gt;
+    &lt;div class=&quot;border border-brand&quot; style=&quot;padding: var(--space-s); border-radius: var(--border-radius-m)&quot;&gt;.border .border-brand&lt;/div&gt;
+    &lt;div class=&quot;border border-status-ok&quot; style=&quot;padding: var(--space-s); border-radius: var(--border-radius-m)&quot;&gt;.border .border-status-ok&lt;/div&gt;
+    &lt;div class=&quot;border border-status-warning&quot; style=&quot;padding: var(--space-s); border-radius: var(--border-radius-m)&quot;&gt;.border .border-status-warning&lt;/div&gt;
+    &lt;div class=&quot;border border-status-ko&quot; style=&quot;padding: var(--space-s); border-radius: var(--border-radius-m)&quot;&gt;.border .border-status-ko&lt;/div&gt;
+    &lt;div class=&quot;border border-status-info&quot; style=&quot;padding: var(--space-s); border-radius: var(--border-radius-m)&quot;&gt;.border .border-status-info&lt;/div&gt;
+  &lt;/div&gt;</code></pre>
+      </details>
+  
+    </div>
   </section>
 
   <section>
-    <h2 class="heading-l">Border radius</h2>
-    <p>Radius utilities apply the global corner radius scale. <code>.radius-full</code> resolves to <code>9999px</code> for pill shapes.</p>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Border radius</h2>
+      <p>Radius utilities apply the global corner radius scale. <code>.radius-full</code> resolves to <code>9999px</code> for pill shapes.</p>
     
-    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
-<div style="display: flex; flex-wrap: wrap; gap: var(--space-m); align-items: center">
-  <div class="border border-neutral-300 radius-none" style="padding: var(--space-s) var(--space-m); background: var(--color-neutral-50)">.radius-none</div>
-  <div class="border border-neutral-300 radius-s" style="padding: var(--space-s) var(--space-m); background: var(--color-neutral-50)">.radius-s</div>
-  <div class="border border-neutral-300 radius" style="padding: var(--space-s) var(--space-m); background: var(--color-neutral-50)">.radius</div>
-  <div class="border border-neutral-300 radius-l" style="padding: var(--space-s) var(--space-m); background: var(--color-neutral-50)">.radius-l</div>
-  <div class="border border-neutral-300 radius-full" style="padding: var(--space-s) var(--space-m); background: var(--color-neutral-50)">.radius-full</div>
-</div>
-    </div>
+      <div class="">
+  <div style="display: flex; flex-wrap: wrap; gap: var(--space-m); align-items: center">
+    <div class="border border-neutral-300 radius-none" style="padding: var(--space-s) var(--space-m); background: var(--color-neutral-50)">.radius-none</div>
+    <div class="border border-neutral-300 radius-s" style="padding: var(--space-s) var(--space-m); background: var(--color-neutral-50)">.radius-s</div>
+    <div class="border border-neutral-300 radius" style="padding: var(--space-s) var(--space-m); background: var(--color-neutral-50)">.radius</div>
+    <div class="border border-neutral-300 radius-l" style="padding: var(--space-s) var(--space-m); background: var(--color-neutral-50)">.radius-l</div>
+    <div class="border border-neutral-300 radius-full" style="padding: var(--space-s) var(--space-m); background: var(--color-neutral-50)">.radius-full</div>
+  </div>
+      </div>
 
-    <details class="margin-y-s">
-      <summary class="padding-s">Show code</summary>
-      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div style=&quot;display: flex; flex-wrap: wrap; gap: var(--space-m); align-items: center&quot;&gt;
-  &lt;div class=&quot;border border-neutral-300 radius-none&quot; style=&quot;padding: var(--space-s) var(--space-m); background: var(--color-neutral-50)&quot;&gt;.radius-none&lt;/div&gt;
-  &lt;div class=&quot;border border-neutral-300 radius-s&quot; style=&quot;padding: var(--space-s) var(--space-m); background: var(--color-neutral-50)&quot;&gt;.radius-s&lt;/div&gt;
-  &lt;div class=&quot;border border-neutral-300 radius&quot; style=&quot;padding: var(--space-s) var(--space-m); background: var(--color-neutral-50)&quot;&gt;.radius&lt;/div&gt;
-  &lt;div class=&quot;border border-neutral-300 radius-l&quot; style=&quot;padding: var(--space-s) var(--space-m); background: var(--color-neutral-50)&quot;&gt;.radius-l&lt;/div&gt;
-  &lt;div class=&quot;border border-neutral-300 radius-full&quot; style=&quot;padding: var(--space-s) var(--space-m); background: var(--color-neutral-50)&quot;&gt;.radius-full&lt;/div&gt;
-&lt;/div&gt;</code></pre>
-    </details>
+      <details class="margin-y-s">
+        <summary>Show code</summary>
+        <pre class="padding-m"><code>&lt;div style=&quot;display: flex; flex-wrap: wrap; gap: var(--space-m); align-items: center&quot;&gt;
+    &lt;div class=&quot;border border-neutral-300 radius-none&quot; style=&quot;padding: var(--space-s) var(--space-m); background: var(--color-neutral-50)&quot;&gt;.radius-none&lt;/div&gt;
+    &lt;div class=&quot;border border-neutral-300 radius-s&quot; style=&quot;padding: var(--space-s) var(--space-m); background: var(--color-neutral-50)&quot;&gt;.radius-s&lt;/div&gt;
+    &lt;div class=&quot;border border-neutral-300 radius&quot; style=&quot;padding: var(--space-s) var(--space-m); background: var(--color-neutral-50)&quot;&gt;.radius&lt;/div&gt;
+    &lt;div class=&quot;border border-neutral-300 radius-l&quot; style=&quot;padding: var(--space-s) var(--space-m); background: var(--color-neutral-50)&quot;&gt;.radius-l&lt;/div&gt;
+    &lt;div class=&quot;border border-neutral-300 radius-full&quot; style=&quot;padding: var(--space-s) var(--space-m); background: var(--color-neutral-50)&quot;&gt;.radius-full&lt;/div&gt;
+  &lt;/div&gt;</code></pre>
+      </details>
+  
+    </div>
   </section>
 
 </article>

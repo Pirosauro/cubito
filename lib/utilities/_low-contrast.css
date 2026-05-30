@@ -16,11 +16,23 @@ USAGE
   </picture>
 */
 
-@layer utilities {
+@layer tokens {
+  :root {
+    --low-contrast-filter: none;
+  }
+}
+
+@layer dark {
   @media (prefers-color-scheme: dark) {
-    img[data-low-contrast],
-    picture[data-low-contrast] {
-      filter: brightness(0.85) contrast(1.1);
+    :root {
+      --low-contrast-filter: brightness(0.85) contrast(1.1);
     }
+  }
+}
+
+@layer utilities {
+  img[data-low-contrast],
+  picture[data-low-contrast] {
+    filter: var(--low-contrast-filter);
   }
 }

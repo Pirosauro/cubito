@@ -67,30 +67,56 @@
 @import "cubito/utilities/_with-icon.css";
 @import "cubito/utilities/_wrapper.css";
 
-/* --- Token overrides for docs site --- */
+/* --- Token overrides --- */
 :root {
   --color-brand: #2563eb;
   --color-accent: #7c3aed;
 
-  /* Code blocks always dark in docs */
+  --body-color: var(--color-neutral-900);
+  --link-color: var(--color-brand);
+
   --pre-background: var(--color-neutral-900);
   --code-background: var(--color-neutral-100);
+  --code-color: var(--color-neutral-900);
 
-  /* Generous section spacing for documentation */
-  --flow-space: var(--space-m);
+  /* Buttons */
+  --button-background: var(--color-brand);
+  --button-border-color: var(--color-brand);
+  --button-color: var(--color-neutral-50);
+
+  --button-outline-background-hover: transparent;
+  --button-outline-border-color-active: var(--color-brand);
+  --button-outline-border-color-hover: var(--color-brand);
+  --button-outline-color-active: var(--color-brand);
+  --button-outline-color-hover: var(--color-brand);
+
+  /* Vertical rhythm */
+  --flow-space: var(--space-l);
 }
 
-/* --- Minimal necessary CSS (no cubito utility covers these) --- */
+/* --- Custom styles --- */
 
-/* Active nav link on the dark sidebar */
-.docs-nav a[aria-current="page"] {
+/* Navigation */
+.navigation a {
+  display: block;
+  padding: var(--space-xxs) var(--space-xs);
+  color: var(--color-neutral-300);
+  text-decoration: none;
+}
+
+.navigation a[aria-current="page"] {
   color: var(--color-neutral-50);
   font-weight: var(--font-weight-bold);
   background: var(--color-neutral-700);
 }
 
-/* Sidebar nav link hover */
-.docs-nav a:hover {
+.navigation a:not([aria-current="page"]):hover,
+.navigation a:not([aria-current="page"]):active {
+  --underline-offset: var(--link-offset);
+  --decoration-thickness: var(--link-thickness);
+
   color: var(--color-neutral-100);
   background: var(--color-neutral-800);
+  text-decoration: underline;
 }
+

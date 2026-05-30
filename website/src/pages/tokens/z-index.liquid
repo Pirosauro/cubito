@@ -4,7 +4,7 @@
 {% block content %}
 <article class="flow">
 
-  <header class="padding-y-m margin-y-m" style="border-block-end: 1px solid var(--color-neutral-200);">
+  <header class="flow" style="padding-block-end: var(--space-l); border-block-end: var(--border-s) solid var(--color-neutral-200);">
     <nav aria-label="Breadcrumb" class="breadcrumb">
       <ol>
         <li><a href="/">Home</a></li>
@@ -13,243 +13,255 @@
       </ol>
     </nav>
     <h1>Z-Index</h1>
-    <p class="text-l color-neutral-600">A named z-index scale that replaces magic numbers with semantic layer names — ensuring every stacking context in the UI has a predictable, auditable position.</p>
+    <p class="text-m color-neutral-600">A named z-index scale that replaces magic numbers with semantic layer names — ensuring every stacking context in the UI has a predictable, auditable position.</p>
   </header>
 
   <section>
-    <h2 class="heading-l">Stacking context table</h2>
-    <p>Nine layers from document flow (<code>--z-base: 0</code>) to toast notifications (<code>--z-notification: 80</code>). Always use these tokens in components — never hardcode z-index integers.</p>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Stacking context table</h2>
+      <p>Nine layers from document flow (<code>--z-base: 0</code>) to toast notifications (<code>--z-notification: 80</code>). Always use these tokens in components — never hardcode z-index integers.</p>
 
-    <table class="">
-      <thead>
-        <tr><th>Layer name</th><th>Token</th><th>Value</th><th>Description</th></tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>base</td>
-          <td><code>--z-base</code></td>
-          <td><code>0</code></td>
-          <td>Default document flow — no explicit stacking</td>
-        </tr>
-        <tr>
-          <td>dropdown</td>
-          <td><code>--z-dropdown</code></td>
-          <td><code>10</code></td>
-          <td>Inline select menus, comboboxes, autocomplete lists</td>
-        </tr>
-        <tr>
-          <td>sticky</td>
-          <td><code>--z-sticky</code></td>
-          <td><code>20</code></td>
-          <td>Sticky headers, sticky sidebars, in-page anchored elements</td>
-        </tr>
-        <tr>
-          <td>fixed</td>
-          <td><code>--z-fixed</code></td>
-          <td><code>30</code></td>
-          <td>Fixed navigation bars, persistent toolbars</td>
-        </tr>
-        <tr>
-          <td>modal-backdrop</td>
-          <td><code>--z-modal-backdrop</code></td>
-          <td><code>50</code></td>
-          <td>Semi-transparent overlay behind modal dialogs</td>
-        </tr>
-        <tr>
-          <td>modal</td>
-          <td><code>--z-modal</code></td>
-          <td><code>51</code></td>
-          <td>Modal dialogs and drawer panels</td>
-        </tr>
-        <tr>
-          <td>popover</td>
-          <td><code>--z-popover</code></td>
-          <td><code>60</code></td>
-          <td>Anchored floating panels — date pickers, color pickers, rich tooltips</td>
-        </tr>
-        <tr>
-          <td>tooltip</td>
-          <td><code>--z-tooltip</code></td>
-          <td><code>70</code></td>
-          <td>Simple instructional tooltips — always visible above all other UI</td>
-        </tr>
-        <tr>
-          <td>notification</td>
-          <td><code>--z-notification</code></td>
-          <td><code>80</code></td>
-          <td>Toast and snackbar messages — highest priority overlay</td>
-        </tr>
-      </tbody>
-    </table>
+      <table class="">
+        <thead>
+          <tr><th>Layer name</th><th>Token</th><th>Value</th><th>Description</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>base</td>
+            <td><code>--z-base</code></td>
+            <td><code>0</code></td>
+            <td>Default document flow — no explicit stacking</td>
+          </tr>
+          <tr>
+            <td>dropdown</td>
+            <td><code>--z-dropdown</code></td>
+            <td><code>10</code></td>
+            <td>Inline select menus, comboboxes, autocomplete lists</td>
+          </tr>
+          <tr>
+            <td>sticky</td>
+            <td><code>--z-sticky</code></td>
+            <td><code>20</code></td>
+            <td>Sticky headers, sticky sidebars, in-page anchored elements</td>
+          </tr>
+          <tr>
+            <td>fixed</td>
+            <td><code>--z-fixed</code></td>
+            <td><code>30</code></td>
+            <td>Fixed navigation bars, persistent toolbars</td>
+          </tr>
+          <tr>
+            <td>modal-backdrop</td>
+            <td><code>--z-modal-backdrop</code></td>
+            <td><code>50</code></td>
+            <td>Semi-transparent overlay behind modal dialogs</td>
+          </tr>
+          <tr>
+            <td>modal</td>
+            <td><code>--z-modal</code></td>
+            <td><code>51</code></td>
+            <td>Modal dialogs and drawer panels</td>
+          </tr>
+          <tr>
+            <td>popover</td>
+            <td><code>--z-popover</code></td>
+            <td><code>60</code></td>
+            <td>Anchored floating panels — date pickers, color pickers, rich tooltips</td>
+          </tr>
+          <tr>
+            <td>tooltip</td>
+            <td><code>--z-tooltip</code></td>
+            <td><code>70</code></td>
+            <td>Simple instructional tooltips — always visible above all other UI</td>
+          </tr>
+          <tr>
+            <td>notification</td>
+            <td><code>--z-notification</code></td>
+            <td><code>80</code></td>
+            <td>Toast and snackbar messages — highest priority overlay</td>
+          </tr>
+        </tbody>
+      </table>
+  
+    </div>
   </section>
 
   <section>
-    <h2 class="heading-l">Layer hierarchy diagram</h2>
-    <p>The diagram below shows the layers ordered from lowest to highest, rendered as a stacked layout. Higher entries visually sit above lower ones.</p>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Layer hierarchy diagram</h2>
+      <p>The diagram below shows the layers ordered from lowest to highest, rendered as a stacked layout. Higher entries visually sit above lower ones.</p>
 
     
-    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
-<div style="display: flex; flex-direction: column-reverse; gap: 0.25rem; padding: 1rem; max-width: 36rem;">
-  <div style="display: flex; align-items: center; gap: 1rem; padding: 0.625rem 1rem; background: var(--color-neutral-100, #f5f5f5); border: 1px solid var(--color-neutral-200, #e2e2e2); border-radius: 0.25rem; border-inline-start: 4px solid var(--color-neutral-300, #c9c9c9);">
-    <span style="font-variant-numeric: tabular-nums; font-weight: 700; min-width: 2ch; color: var(--color-neutral-500, #6d6d6d); font-size: 0.85rem;">0</span>
-    <span style="font-weight: 700;">base</span>
-    <code style="margin-inline-start: auto; font-size: 0.8rem; color: var(--color-neutral-500, #6d6d6d);">--z-base</code>
-  </div>
-  <div style="display: flex; align-items: center; gap: 1rem; padding: 0.625rem 1rem; background: var(--color-neutral-100, #f5f5f5); border: 1px solid var(--color-neutral-200, #e2e2e2); border-radius: 0.25rem; border-inline-start: 4px solid var(--color-status-info, #26e);">
-    <span style="font-variant-numeric: tabular-nums; font-weight: 700; min-width: 2ch; color: var(--color-neutral-500, #6d6d6d); font-size: 0.85rem;">10</span>
-    <span style="font-weight: 700;">dropdown</span>
-    <code style="margin-inline-start: auto; font-size: 0.8rem; color: var(--color-neutral-500, #6d6d6d);">--z-dropdown</code>
-  </div>
-  <div style="display: flex; align-items: center; gap: 1rem; padding: 0.625rem 1rem; background: var(--color-neutral-100, #f5f5f5); border: 1px solid var(--color-neutral-200, #e2e2e2); border-radius: 0.25rem; border-inline-start: 4px solid var(--color-status-info, #26e);">
-    <span style="font-variant-numeric: tabular-nums; font-weight: 700; min-width: 2ch; color: var(--color-neutral-500, #6d6d6d); font-size: 0.85rem;">20</span>
-    <span style="font-weight: 700;">sticky</span>
-    <code style="margin-inline-start: auto; font-size: 0.8rem; color: var(--color-neutral-500, #6d6d6d);">--z-sticky</code>
-  </div>
-  <div style="display: flex; align-items: center; gap: 1rem; padding: 0.625rem 1rem; background: var(--color-neutral-100, #f5f5f5); border: 1px solid var(--color-neutral-200, #e2e2e2); border-radius: 0.25rem; border-inline-start: 4px solid var(--color-status-info, #26e);">
-    <span style="font-variant-numeric: tabular-nums; font-weight: 700; min-width: 2ch; color: var(--color-neutral-500, #6d6d6d); font-size: 0.85rem;">30</span>
-    <span style="font-weight: 700;">fixed</span>
-    <code style="margin-inline-start: auto; font-size: 0.8rem; color: var(--color-neutral-500, #6d6d6d);">--z-fixed</code>
-  </div>
-  <div style="display: flex; align-items: center; gap: 1rem; padding: 0.625rem 1rem; background: var(--color-neutral-100, #f5f5f5); border: 1px solid var(--color-neutral-200, #e2e2e2); border-radius: 0.25rem; border-inline-start: 4px solid var(--color-status-warning, #e90);">
-    <span style="font-variant-numeric: tabular-nums; font-weight: 700; min-width: 2ch; color: var(--color-neutral-500, #6d6d6d); font-size: 0.85rem;">50</span>
-    <span style="font-weight: 700;">modal-backdrop</span>
-    <code style="margin-inline-start: auto; font-size: 0.8rem; color: var(--color-neutral-500, #6d6d6d);">--z-modal-backdrop</code>
-  </div>
-  <div style="display: flex; align-items: center; gap: 1rem; padding: 0.625rem 1rem; background: var(--color-neutral-100, #f5f5f5); border: 1px solid var(--color-neutral-200, #e2e2e2); border-radius: 0.25rem; border-inline-start: 4px solid var(--color-status-warning, #e90);">
-    <span style="font-variant-numeric: tabular-nums; font-weight: 700; min-width: 2ch; color: var(--color-neutral-500, #6d6d6d); font-size: 0.85rem;">51</span>
-    <span style="font-weight: 700;">modal</span>
-    <code style="margin-inline-start: auto; font-size: 0.8rem; color: var(--color-neutral-500, #6d6d6d);">--z-modal</code>
-  </div>
-  <div style="display: flex; align-items: center; gap: 1rem; padding: 0.625rem 1rem; background: var(--color-neutral-100, #f5f5f5); border: 1px solid var(--color-neutral-200, #e2e2e2); border-radius: 0.25rem; border-inline-start: 4px solid var(--color-brand, #0057d9);">
-    <span style="font-variant-numeric: tabular-nums; font-weight: 700; min-width: 2ch; color: var(--color-neutral-500, #6d6d6d); font-size: 0.85rem;">60</span>
-    <span style="font-weight: 700;">popover</span>
-    <code style="margin-inline-start: auto; font-size: 0.8rem; color: var(--color-neutral-500, #6d6d6d);">--z-popover</code>
-  </div>
-  <div style="display: flex; align-items: center; gap: 1rem; padding: 0.625rem 1rem; background: var(--color-neutral-100, #f5f5f5); border: 1px solid var(--color-neutral-200, #e2e2e2); border-radius: 0.25rem; border-inline-start: 4px solid var(--color-brand, #0057d9);">
-    <span style="font-variant-numeric: tabular-nums; font-weight: 700; min-width: 2ch; color: var(--color-neutral-500, #6d6d6d); font-size: 0.85rem;">70</span>
-    <span style="font-weight: 700;">tooltip</span>
-    <code style="margin-inline-start: auto; font-size: 0.8rem; color: var(--color-neutral-500, #6d6d6d);">--z-tooltip</code>
-  </div>
-  <div style="display: flex; align-items: center; gap: 1rem; padding: 0.625rem 1rem; background: var(--color-neutral-800, #1e1e1e); color: var(--color-neutral-100, #f5f5f5); border: 1px solid var(--color-neutral-700, #333); border-radius: 0.25rem; border-inline-start: 4px solid var(--color-status-ok, #1a4);">
-    <span style="font-variant-numeric: tabular-nums; font-weight: 700; min-width: 2ch; color: var(--color-neutral-400, #999); font-size: 0.85rem;">80</span>
-    <span style="font-weight: 700;">notification</span>
-    <code style="margin-inline-start: auto; font-size: 0.8rem; color: var(--color-neutral-400, #999);">--z-notification</code>
-  </div>
-</div>
+      <div class="">
+  <div style="display: flex; flex-direction: column-reverse; gap: 0.25rem; padding: 1rem; max-width: 36rem;">
+    <div style="display: flex; align-items: center; gap: 1rem; padding: 0.625rem 1rem; background: var(--color-neutral-100, #f5f5f5); border: 1px solid var(--color-neutral-200, #e2e2e2); border-radius: 0.25rem; border-inline-start: 4px solid var(--color-neutral-300, #c9c9c9);">
+      <span style="font-variant-numeric: tabular-nums; font-weight: 700; min-width: 2ch; color: var(--color-neutral-500, #6d6d6d); font-size: 0.85rem;">0</span>
+      <span style="font-weight: 700;">base</span>
+      <code style="margin-inline-start: auto; font-size: 0.8rem; color: var(--color-neutral-500, #6d6d6d);">--z-base</code>
     </div>
+    <div style="display: flex; align-items: center; gap: 1rem; padding: 0.625rem 1rem; background: var(--color-neutral-100, #f5f5f5); border: 1px solid var(--color-neutral-200, #e2e2e2); border-radius: 0.25rem; border-inline-start: 4px solid var(--color-status-info, #26e);">
+      <span style="font-variant-numeric: tabular-nums; font-weight: 700; min-width: 2ch; color: var(--color-neutral-500, #6d6d6d); font-size: 0.85rem;">10</span>
+      <span style="font-weight: 700;">dropdown</span>
+      <code style="margin-inline-start: auto; font-size: 0.8rem; color: var(--color-neutral-500, #6d6d6d);">--z-dropdown</code>
+    </div>
+    <div style="display: flex; align-items: center; gap: 1rem; padding: 0.625rem 1rem; background: var(--color-neutral-100, #f5f5f5); border: 1px solid var(--color-neutral-200, #e2e2e2); border-radius: 0.25rem; border-inline-start: 4px solid var(--color-status-info, #26e);">
+      <span style="font-variant-numeric: tabular-nums; font-weight: 700; min-width: 2ch; color: var(--color-neutral-500, #6d6d6d); font-size: 0.85rem;">20</span>
+      <span style="font-weight: 700;">sticky</span>
+      <code style="margin-inline-start: auto; font-size: 0.8rem; color: var(--color-neutral-500, #6d6d6d);">--z-sticky</code>
+    </div>
+    <div style="display: flex; align-items: center; gap: 1rem; padding: 0.625rem 1rem; background: var(--color-neutral-100, #f5f5f5); border: 1px solid var(--color-neutral-200, #e2e2e2); border-radius: 0.25rem; border-inline-start: 4px solid var(--color-status-info, #26e);">
+      <span style="font-variant-numeric: tabular-nums; font-weight: 700; min-width: 2ch; color: var(--color-neutral-500, #6d6d6d); font-size: 0.85rem;">30</span>
+      <span style="font-weight: 700;">fixed</span>
+      <code style="margin-inline-start: auto; font-size: 0.8rem; color: var(--color-neutral-500, #6d6d6d);">--z-fixed</code>
+    </div>
+    <div style="display: flex; align-items: center; gap: 1rem; padding: 0.625rem 1rem; background: var(--color-neutral-100, #f5f5f5); border: 1px solid var(--color-neutral-200, #e2e2e2); border-radius: 0.25rem; border-inline-start: 4px solid var(--color-status-warning, #e90);">
+      <span style="font-variant-numeric: tabular-nums; font-weight: 700; min-width: 2ch; color: var(--color-neutral-500, #6d6d6d); font-size: 0.85rem;">50</span>
+      <span style="font-weight: 700;">modal-backdrop</span>
+      <code style="margin-inline-start: auto; font-size: 0.8rem; color: var(--color-neutral-500, #6d6d6d);">--z-modal-backdrop</code>
+    </div>
+    <div style="display: flex; align-items: center; gap: 1rem; padding: 0.625rem 1rem; background: var(--color-neutral-100, #f5f5f5); border: 1px solid var(--color-neutral-200, #e2e2e2); border-radius: 0.25rem; border-inline-start: 4px solid var(--color-status-warning, #e90);">
+      <span style="font-variant-numeric: tabular-nums; font-weight: 700; min-width: 2ch; color: var(--color-neutral-500, #6d6d6d); font-size: 0.85rem;">51</span>
+      <span style="font-weight: 700;">modal</span>
+      <code style="margin-inline-start: auto; font-size: 0.8rem; color: var(--color-neutral-500, #6d6d6d);">--z-modal</code>
+    </div>
+    <div style="display: flex; align-items: center; gap: 1rem; padding: 0.625rem 1rem; background: var(--color-neutral-100, #f5f5f5); border: 1px solid var(--color-neutral-200, #e2e2e2); border-radius: 0.25rem; border-inline-start: 4px solid var(--color-brand, #0057d9);">
+      <span style="font-variant-numeric: tabular-nums; font-weight: 700; min-width: 2ch; color: var(--color-neutral-500, #6d6d6d); font-size: 0.85rem;">60</span>
+      <span style="font-weight: 700;">popover</span>
+      <code style="margin-inline-start: auto; font-size: 0.8rem; color: var(--color-neutral-500, #6d6d6d);">--z-popover</code>
+    </div>
+    <div style="display: flex; align-items: center; gap: 1rem; padding: 0.625rem 1rem; background: var(--color-neutral-100, #f5f5f5); border: 1px solid var(--color-neutral-200, #e2e2e2); border-radius: 0.25rem; border-inline-start: 4px solid var(--color-brand, #0057d9);">
+      <span style="font-variant-numeric: tabular-nums; font-weight: 700; min-width: 2ch; color: var(--color-neutral-500, #6d6d6d); font-size: 0.85rem;">70</span>
+      <span style="font-weight: 700;">tooltip</span>
+      <code style="margin-inline-start: auto; font-size: 0.8rem; color: var(--color-neutral-500, #6d6d6d);">--z-tooltip</code>
+    </div>
+    <div style="display: flex; align-items: center; gap: 1rem; padding: 0.625rem 1rem; background: var(--color-neutral-800, #1e1e1e); color: var(--color-neutral-100, #f5f5f5); border: 1px solid var(--color-neutral-700, #333); border-radius: 0.25rem; border-inline-start: 4px solid var(--color-status-ok, #1a4);">
+      <span style="font-variant-numeric: tabular-nums; font-weight: 700; min-width: 2ch; color: var(--color-neutral-400, #999); font-size: 0.85rem;">80</span>
+      <span style="font-weight: 700;">notification</span>
+      <code style="margin-inline-start: auto; font-size: 0.8rem; color: var(--color-neutral-400, #999);">--z-notification</code>
+    </div>
+  </div>
+      </div>
 
-    <details class="margin-y-s">
-      <summary class="padding-s">Show code</summary>
-      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div style=&quot;display: flex; flex-direction: column-reverse; gap: 0.25rem; padding: 1rem; max-width: 36rem;&quot;&gt;
-  &lt;div style=&quot;display: flex; align-items: center; gap: 1rem; padding: 0.625rem 1rem; background: var(--color-neutral-100, #f5f5f5); border: 1px solid var(--color-neutral-200, #e2e2e2); border-radius: 0.25rem; border-inline-start: 4px solid var(--color-neutral-300, #c9c9c9);&quot;&gt;
-    &lt;span style=&quot;font-variant-numeric: tabular-nums; font-weight: 700; min-width: 2ch; color: var(--color-neutral-500, #6d6d6d); font-size: 0.85rem;&quot;&gt;0&lt;/span&gt;
-    &lt;span style=&quot;font-weight: 700;&quot;&gt;base&lt;/span&gt;
-    &lt;code style=&quot;margin-inline-start: auto; font-size: 0.8rem; color: var(--color-neutral-500, #6d6d6d);&quot;&gt;--z-base&lt;/code&gt;
-  &lt;/div&gt;
-  &lt;div style=&quot;display: flex; align-items: center; gap: 1rem; padding: 0.625rem 1rem; background: var(--color-neutral-100, #f5f5f5); border: 1px solid var(--color-neutral-200, #e2e2e2); border-radius: 0.25rem; border-inline-start: 4px solid var(--color-status-info, #26e);&quot;&gt;
-    &lt;span style=&quot;font-variant-numeric: tabular-nums; font-weight: 700; min-width: 2ch; color: var(--color-neutral-500, #6d6d6d); font-size: 0.85rem;&quot;&gt;10&lt;/span&gt;
-    &lt;span style=&quot;font-weight: 700;&quot;&gt;dropdown&lt;/span&gt;
-    &lt;code style=&quot;margin-inline-start: auto; font-size: 0.8rem; color: var(--color-neutral-500, #6d6d6d);&quot;&gt;--z-dropdown&lt;/code&gt;
-  &lt;/div&gt;
-  &lt;div style=&quot;display: flex; align-items: center; gap: 1rem; padding: 0.625rem 1rem; background: var(--color-neutral-100, #f5f5f5); border: 1px solid var(--color-neutral-200, #e2e2e2); border-radius: 0.25rem; border-inline-start: 4px solid var(--color-status-info, #26e);&quot;&gt;
-    &lt;span style=&quot;font-variant-numeric: tabular-nums; font-weight: 700; min-width: 2ch; color: var(--color-neutral-500, #6d6d6d); font-size: 0.85rem;&quot;&gt;20&lt;/span&gt;
-    &lt;span style=&quot;font-weight: 700;&quot;&gt;sticky&lt;/span&gt;
-    &lt;code style=&quot;margin-inline-start: auto; font-size: 0.8rem; color: var(--color-neutral-500, #6d6d6d);&quot;&gt;--z-sticky&lt;/code&gt;
-  &lt;/div&gt;
-  &lt;div style=&quot;display: flex; align-items: center; gap: 1rem; padding: 0.625rem 1rem; background: var(--color-neutral-100, #f5f5f5); border: 1px solid var(--color-neutral-200, #e2e2e2); border-radius: 0.25rem; border-inline-start: 4px solid var(--color-status-info, #26e);&quot;&gt;
-    &lt;span style=&quot;font-variant-numeric: tabular-nums; font-weight: 700; min-width: 2ch; color: var(--color-neutral-500, #6d6d6d); font-size: 0.85rem;&quot;&gt;30&lt;/span&gt;
-    &lt;span style=&quot;font-weight: 700;&quot;&gt;fixed&lt;/span&gt;
-    &lt;code style=&quot;margin-inline-start: auto; font-size: 0.8rem; color: var(--color-neutral-500, #6d6d6d);&quot;&gt;--z-fixed&lt;/code&gt;
-  &lt;/div&gt;
-  &lt;div style=&quot;display: flex; align-items: center; gap: 1rem; padding: 0.625rem 1rem; background: var(--color-neutral-100, #f5f5f5); border: 1px solid var(--color-neutral-200, #e2e2e2); border-radius: 0.25rem; border-inline-start: 4px solid var(--color-status-warning, #e90);&quot;&gt;
-    &lt;span style=&quot;font-variant-numeric: tabular-nums; font-weight: 700; min-width: 2ch; color: var(--color-neutral-500, #6d6d6d); font-size: 0.85rem;&quot;&gt;50&lt;/span&gt;
-    &lt;span style=&quot;font-weight: 700;&quot;&gt;modal-backdrop&lt;/span&gt;
-    &lt;code style=&quot;margin-inline-start: auto; font-size: 0.8rem; color: var(--color-neutral-500, #6d6d6d);&quot;&gt;--z-modal-backdrop&lt;/code&gt;
-  &lt;/div&gt;
-  &lt;div style=&quot;display: flex; align-items: center; gap: 1rem; padding: 0.625rem 1rem; background: var(--color-neutral-100, #f5f5f5); border: 1px solid var(--color-neutral-200, #e2e2e2); border-radius: 0.25rem; border-inline-start: 4px solid var(--color-status-warning, #e90);&quot;&gt;
-    &lt;span style=&quot;font-variant-numeric: tabular-nums; font-weight: 700; min-width: 2ch; color: var(--color-neutral-500, #6d6d6d); font-size: 0.85rem;&quot;&gt;51&lt;/span&gt;
-    &lt;span style=&quot;font-weight: 700;&quot;&gt;modal&lt;/span&gt;
-    &lt;code style=&quot;margin-inline-start: auto; font-size: 0.8rem; color: var(--color-neutral-500, #6d6d6d);&quot;&gt;--z-modal&lt;/code&gt;
-  &lt;/div&gt;
-  &lt;div style=&quot;display: flex; align-items: center; gap: 1rem; padding: 0.625rem 1rem; background: var(--color-neutral-100, #f5f5f5); border: 1px solid var(--color-neutral-200, #e2e2e2); border-radius: 0.25rem; border-inline-start: 4px solid var(--color-brand, #0057d9);&quot;&gt;
-    &lt;span style=&quot;font-variant-numeric: tabular-nums; font-weight: 700; min-width: 2ch; color: var(--color-neutral-500, #6d6d6d); font-size: 0.85rem;&quot;&gt;60&lt;/span&gt;
-    &lt;span style=&quot;font-weight: 700;&quot;&gt;popover&lt;/span&gt;
-    &lt;code style=&quot;margin-inline-start: auto; font-size: 0.8rem; color: var(--color-neutral-500, #6d6d6d);&quot;&gt;--z-popover&lt;/code&gt;
-  &lt;/div&gt;
-  &lt;div style=&quot;display: flex; align-items: center; gap: 1rem; padding: 0.625rem 1rem; background: var(--color-neutral-100, #f5f5f5); border: 1px solid var(--color-neutral-200, #e2e2e2); border-radius: 0.25rem; border-inline-start: 4px solid var(--color-brand, #0057d9);&quot;&gt;
-    &lt;span style=&quot;font-variant-numeric: tabular-nums; font-weight: 700; min-width: 2ch; color: var(--color-neutral-500, #6d6d6d); font-size: 0.85rem;&quot;&gt;70&lt;/span&gt;
-    &lt;span style=&quot;font-weight: 700;&quot;&gt;tooltip&lt;/span&gt;
-    &lt;code style=&quot;margin-inline-start: auto; font-size: 0.8rem; color: var(--color-neutral-500, #6d6d6d);&quot;&gt;--z-tooltip&lt;/code&gt;
-  &lt;/div&gt;
-  &lt;div style=&quot;display: flex; align-items: center; gap: 1rem; padding: 0.625rem 1rem; background: var(--color-neutral-800, #1e1e1e); color: var(--color-neutral-100, #f5f5f5); border: 1px solid var(--color-neutral-700, #333); border-radius: 0.25rem; border-inline-start: 4px solid var(--color-status-ok, #1a4);&quot;&gt;
-    &lt;span style=&quot;font-variant-numeric: tabular-nums; font-weight: 700; min-width: 2ch; color: var(--color-neutral-400, #999); font-size: 0.85rem;&quot;&gt;80&lt;/span&gt;
-    &lt;span style=&quot;font-weight: 700;&quot;&gt;notification&lt;/span&gt;
-    &lt;code style=&quot;margin-inline-start: auto; font-size: 0.8rem; color: var(--color-neutral-400, #999);&quot;&gt;--z-notification&lt;/code&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</code></pre>
-    </details>
+      <details class="margin-y-s">
+        <summary>Show code</summary>
+        <pre class="padding-m"><code>&lt;div style=&quot;display: flex; flex-direction: column-reverse; gap: 0.25rem; padding: 1rem; max-width: 36rem;&quot;&gt;
+    &lt;div style=&quot;display: flex; align-items: center; gap: 1rem; padding: 0.625rem 1rem; background: var(--color-neutral-100, #f5f5f5); border: 1px solid var(--color-neutral-200, #e2e2e2); border-radius: 0.25rem; border-inline-start: 4px solid var(--color-neutral-300, #c9c9c9);&quot;&gt;
+      &lt;span style=&quot;font-variant-numeric: tabular-nums; font-weight: 700; min-width: 2ch; color: var(--color-neutral-500, #6d6d6d); font-size: 0.85rem;&quot;&gt;0&lt;/span&gt;
+      &lt;span style=&quot;font-weight: 700;&quot;&gt;base&lt;/span&gt;
+      &lt;code style=&quot;margin-inline-start: auto; font-size: 0.8rem; color: var(--color-neutral-500, #6d6d6d);&quot;&gt;--z-base&lt;/code&gt;
+    &lt;/div&gt;
+    &lt;div style=&quot;display: flex; align-items: center; gap: 1rem; padding: 0.625rem 1rem; background: var(--color-neutral-100, #f5f5f5); border: 1px solid var(--color-neutral-200, #e2e2e2); border-radius: 0.25rem; border-inline-start: 4px solid var(--color-status-info, #26e);&quot;&gt;
+      &lt;span style=&quot;font-variant-numeric: tabular-nums; font-weight: 700; min-width: 2ch; color: var(--color-neutral-500, #6d6d6d); font-size: 0.85rem;&quot;&gt;10&lt;/span&gt;
+      &lt;span style=&quot;font-weight: 700;&quot;&gt;dropdown&lt;/span&gt;
+      &lt;code style=&quot;margin-inline-start: auto; font-size: 0.8rem; color: var(--color-neutral-500, #6d6d6d);&quot;&gt;--z-dropdown&lt;/code&gt;
+    &lt;/div&gt;
+    &lt;div style=&quot;display: flex; align-items: center; gap: 1rem; padding: 0.625rem 1rem; background: var(--color-neutral-100, #f5f5f5); border: 1px solid var(--color-neutral-200, #e2e2e2); border-radius: 0.25rem; border-inline-start: 4px solid var(--color-status-info, #26e);&quot;&gt;
+      &lt;span style=&quot;font-variant-numeric: tabular-nums; font-weight: 700; min-width: 2ch; color: var(--color-neutral-500, #6d6d6d); font-size: 0.85rem;&quot;&gt;20&lt;/span&gt;
+      &lt;span style=&quot;font-weight: 700;&quot;&gt;sticky&lt;/span&gt;
+      &lt;code style=&quot;margin-inline-start: auto; font-size: 0.8rem; color: var(--color-neutral-500, #6d6d6d);&quot;&gt;--z-sticky&lt;/code&gt;
+    &lt;/div&gt;
+    &lt;div style=&quot;display: flex; align-items: center; gap: 1rem; padding: 0.625rem 1rem; background: var(--color-neutral-100, #f5f5f5); border: 1px solid var(--color-neutral-200, #e2e2e2); border-radius: 0.25rem; border-inline-start: 4px solid var(--color-status-info, #26e);&quot;&gt;
+      &lt;span style=&quot;font-variant-numeric: tabular-nums; font-weight: 700; min-width: 2ch; color: var(--color-neutral-500, #6d6d6d); font-size: 0.85rem;&quot;&gt;30&lt;/span&gt;
+      &lt;span style=&quot;font-weight: 700;&quot;&gt;fixed&lt;/span&gt;
+      &lt;code style=&quot;margin-inline-start: auto; font-size: 0.8rem; color: var(--color-neutral-500, #6d6d6d);&quot;&gt;--z-fixed&lt;/code&gt;
+    &lt;/div&gt;
+    &lt;div style=&quot;display: flex; align-items: center; gap: 1rem; padding: 0.625rem 1rem; background: var(--color-neutral-100, #f5f5f5); border: 1px solid var(--color-neutral-200, #e2e2e2); border-radius: 0.25rem; border-inline-start: 4px solid var(--color-status-warning, #e90);&quot;&gt;
+      &lt;span style=&quot;font-variant-numeric: tabular-nums; font-weight: 700; min-width: 2ch; color: var(--color-neutral-500, #6d6d6d); font-size: 0.85rem;&quot;&gt;50&lt;/span&gt;
+      &lt;span style=&quot;font-weight: 700;&quot;&gt;modal-backdrop&lt;/span&gt;
+      &lt;code style=&quot;margin-inline-start: auto; font-size: 0.8rem; color: var(--color-neutral-500, #6d6d6d);&quot;&gt;--z-modal-backdrop&lt;/code&gt;
+    &lt;/div&gt;
+    &lt;div style=&quot;display: flex; align-items: center; gap: 1rem; padding: 0.625rem 1rem; background: var(--color-neutral-100, #f5f5f5); border: 1px solid var(--color-neutral-200, #e2e2e2); border-radius: 0.25rem; border-inline-start: 4px solid var(--color-status-warning, #e90);&quot;&gt;
+      &lt;span style=&quot;font-variant-numeric: tabular-nums; font-weight: 700; min-width: 2ch; color: var(--color-neutral-500, #6d6d6d); font-size: 0.85rem;&quot;&gt;51&lt;/span&gt;
+      &lt;span style=&quot;font-weight: 700;&quot;&gt;modal&lt;/span&gt;
+      &lt;code style=&quot;margin-inline-start: auto; font-size: 0.8rem; color: var(--color-neutral-500, #6d6d6d);&quot;&gt;--z-modal&lt;/code&gt;
+    &lt;/div&gt;
+    &lt;div style=&quot;display: flex; align-items: center; gap: 1rem; padding: 0.625rem 1rem; background: var(--color-neutral-100, #f5f5f5); border: 1px solid var(--color-neutral-200, #e2e2e2); border-radius: 0.25rem; border-inline-start: 4px solid var(--color-brand, #0057d9);&quot;&gt;
+      &lt;span style=&quot;font-variant-numeric: tabular-nums; font-weight: 700; min-width: 2ch; color: var(--color-neutral-500, #6d6d6d); font-size: 0.85rem;&quot;&gt;60&lt;/span&gt;
+      &lt;span style=&quot;font-weight: 700;&quot;&gt;popover&lt;/span&gt;
+      &lt;code style=&quot;margin-inline-start: auto; font-size: 0.8rem; color: var(--color-neutral-500, #6d6d6d);&quot;&gt;--z-popover&lt;/code&gt;
+    &lt;/div&gt;
+    &lt;div style=&quot;display: flex; align-items: center; gap: 1rem; padding: 0.625rem 1rem; background: var(--color-neutral-100, #f5f5f5); border: 1px solid var(--color-neutral-200, #e2e2e2); border-radius: 0.25rem; border-inline-start: 4px solid var(--color-brand, #0057d9);&quot;&gt;
+      &lt;span style=&quot;font-variant-numeric: tabular-nums; font-weight: 700; min-width: 2ch; color: var(--color-neutral-500, #6d6d6d); font-size: 0.85rem;&quot;&gt;70&lt;/span&gt;
+      &lt;span style=&quot;font-weight: 700;&quot;&gt;tooltip&lt;/span&gt;
+      &lt;code style=&quot;margin-inline-start: auto; font-size: 0.8rem; color: var(--color-neutral-500, #6d6d6d);&quot;&gt;--z-tooltip&lt;/code&gt;
+    &lt;/div&gt;
+    &lt;div style=&quot;display: flex; align-items: center; gap: 1rem; padding: 0.625rem 1rem; background: var(--color-neutral-800, #1e1e1e); color: var(--color-neutral-100, #f5f5f5); border: 1px solid var(--color-neutral-700, #333); border-radius: 0.25rem; border-inline-start: 4px solid var(--color-status-ok, #1a4);&quot;&gt;
+      &lt;span style=&quot;font-variant-numeric: tabular-nums; font-weight: 700; min-width: 2ch; color: var(--color-neutral-400, #999); font-size: 0.85rem;&quot;&gt;80&lt;/span&gt;
+      &lt;span style=&quot;font-weight: 700;&quot;&gt;notification&lt;/span&gt;
+      &lt;code style=&quot;margin-inline-start: auto; font-size: 0.8rem; color: var(--color-neutral-400, #999);&quot;&gt;--z-notification&lt;/code&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;</code></pre>
+      </details>
+  
+    </div>
   </section>
 
   <section>
-    <h2 class="heading-l">Usage</h2>
-    <p>Reference the tokens directly on any element that creates a stacking context:</p>
-    <pre><code>/* Navigation bar — stays above page content when scrolling */
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: var(--z-sticky);
-}
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Usage</h2>
+      <p>Reference the tokens directly on any element that creates a stacking context:</p>
+      <pre><code>/* Navigation bar — stays above page content when scrolling */
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: var(--z-sticky);
+  }
 
-/* Modal backdrop */
-.modal-backdrop {
-  position: fixed;
-  inset: 0;
-  z-index: var(--z-modal-backdrop);
-  background: rgb(0 0 0 / 0.5);
-}
+  /* Modal backdrop */
+  .modal-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: var(--z-modal-backdrop);
+    background: rgb(0 0 0 / 0.5);
+  }
 
-/* Modal dialog */
-.dialog {
-  position: fixed;
-  inset-inline: auto;
-  z-index: var(--z-modal);
-}
+  /* Modal dialog */
+  .dialog {
+    position: fixed;
+    inset-inline: auto;
+    z-index: var(--z-modal);
+  }
 
-/* Tooltip */
-[data-tooltip]::after {
-  position: absolute;
-  z-index: var(--z-tooltip);
-}
+  /* Tooltip */
+  [data-tooltip]::after {
+    position: absolute;
+    z-index: var(--z-tooltip);
+  }
 
-/* Toast notifications */
-.toast-region {
-  position: fixed;
-  bottom: var(--space-m);
-  inset-inline-end: var(--space-m);
-  z-index: var(--z-notification);
-}</code></pre>
-    <div class="callout" data-variant="brand" role="note"><p>Note that <code>--z-modal-backdrop</code> (50) and <code>--z-modal</code> (51) are intentionally consecutive so the dialog always sits directly above its own backdrop without affecting other layers. Do not place other components in this range.</p></div>
+  /* Toast notifications */
+  .toast-region {
+    position: fixed;
+    bottom: var(--space-m);
+    inset-inline-end: var(--space-m);
+    z-index: var(--z-notification);
+  }</code></pre>
+      <div class="callout wide" data-variant="brand" role="note"><p>Note that <code>--z-modal-backdrop</code> (50) and <code>--z-modal</code> (51) are intentionally consecutive so the dialog always sits directly above its own backdrop without affecting other layers. Do not place other components in this range.</p></div>
+  
+    </div>
   </section>
 
   <section>
-    <h2 class="heading-l">Token table</h2>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Token table</h2>
 
-    <table class="">
-      <thead>
-        <tr><th>Token</th><th>Value</th><th>Description</th></tr>
-      </thead>
-      <tbody>
-        <tr><td><code>--z-base</code></td><td><code>0</code></td><td>Default document flow</td></tr>
-        <tr><td><code>--z-dropdown</code></td><td><code>10</code></td><td>Inline menus and comboboxes</td></tr>
-        <tr><td><code>--z-sticky</code></td><td><code>20</code></td><td>Sticky headers and sidebars</td></tr>
-        <tr><td><code>--z-fixed</code></td><td><code>30</code></td><td>Fixed navigation bars</td></tr>
-        <tr><td><code>--z-modal-backdrop</code></td><td><code>50</code></td><td>Overlay behind modals</td></tr>
-        <tr><td><code>--z-modal</code></td><td><code>51</code></td><td>Modal dialogs</td></tr>
-        <tr><td><code>--z-popover</code></td><td><code>60</code></td><td>Floating panels (date pickers, anchored panels)</td></tr>
-        <tr><td><code>--z-tooltip</code></td><td><code>70</code></td><td>Always-on-top instructional overlays</td></tr>
-        <tr><td><code>--z-notification</code></td><td><code>80</code></td><td>Toast / snackbar messages</td></tr>
-      </tbody>
-    </table>
+      <table class="">
+        <thead>
+          <tr><th>Token</th><th>Value</th><th>Description</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>--z-base</code></td><td><code>0</code></td><td>Default document flow</td></tr>
+          <tr><td><code>--z-dropdown</code></td><td><code>10</code></td><td>Inline menus and comboboxes</td></tr>
+          <tr><td><code>--z-sticky</code></td><td><code>20</code></td><td>Sticky headers and sidebars</td></tr>
+          <tr><td><code>--z-fixed</code></td><td><code>30</code></td><td>Fixed navigation bars</td></tr>
+          <tr><td><code>--z-modal-backdrop</code></td><td><code>50</code></td><td>Overlay behind modals</td></tr>
+          <tr><td><code>--z-modal</code></td><td><code>51</code></td><td>Modal dialogs</td></tr>
+          <tr><td><code>--z-popover</code></td><td><code>60</code></td><td>Floating panels (date pickers, anchored panels)</td></tr>
+          <tr><td><code>--z-tooltip</code></td><td><code>70</code></td><td>Always-on-top instructional overlays</td></tr>
+          <tr><td><code>--z-notification</code></td><td><code>80</code></td><td>Toast / snackbar messages</td></tr>
+        </tbody>
+      </table>
+  
+    </div>
   </section>
 
 </article>

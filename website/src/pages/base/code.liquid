@@ -4,7 +4,7 @@
 {% block content %}
 <article class="flow">
 
-  <header class="padding-y-m margin-y-m" style="border-block-end: 1px solid var(--color-neutral-200);">
+  <header class="flow" style="padding-block-end: var(--space-l); border-block-end: var(--border-s) solid var(--color-neutral-200);">
     <nav aria-label="Breadcrumb" class="breadcrumb">
       <ol>
         <li><a href="/">Home</a></li>
@@ -13,110 +13,122 @@
       </ol>
     </nav>
     <h1>Code</h1>
-    <p class="text-l color-neutral-600">Styles for inline code snippets, preformatted code blocks, and keyboard shortcut badges — all using monospace fonts and token-driven colours.</p>
+    <p class="text-m color-neutral-600">Styles for inline code snippets, preformatted code blocks, and keyboard shortcut badges — all using monospace fonts and token-driven colours.</p>
   </header>
 
   <section>
-    <h2 class="heading-l">Inline code</h2>
-    <p>Use <code>&lt;code&gt;</code> for short fragments of code within prose. When nested inside a <code>&lt;p&gt;</code>, <code>&lt;li&gt;</code>, <code>&lt;td&gt;</code>, or <code>&lt;th&gt;</code> it receives padding and a rounded background automatically.</p>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Inline code</h2>
+      <p>Use <code>&lt;code&gt;</code> for short fragments of code within prose. When nested inside a <code>&lt;p&gt;</code>, <code>&lt;li&gt;</code>, <code>&lt;td&gt;</code>, or <code>&lt;th&gt;</code> it receives padding and a rounded background automatically.</p>
     
-    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
-<p>Call <code>Array.prototype.flat()</code> to flatten a nested array by one level, or pass <code>Infinity</code> to flatten all levels regardless of depth.</p>
-<p>Set the <code>--color-brand</code> token in <code>@layer theme</code> to propagate your brand colour through every component that references it.</p>
-    </div>
+      <div class="">
+  <p>Call <code>Array.prototype.flat()</code> to flatten a nested array by one level, or pass <code>Infinity</code> to flatten all levels regardless of depth.</p>
+  <p>Set the <code>--color-brand</code> token in <code>@layer theme</code> to propagate your brand colour through every component that references it.</p>
+      </div>
 
-    <details class="margin-y-s">
-      <summary class="padding-s">Show code</summary>
-      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;p&gt;Call &lt;code&gt;Array.prototype.flat()&lt;/code&gt; to flatten a nested array by one level, or pass &lt;code&gt;Infinity&lt;/code&gt; to flatten all levels regardless of depth.&lt;/p&gt;
-&lt;p&gt;Set the &lt;code&gt;--color-brand&lt;/code&gt; token in &lt;code&gt;@layer theme&lt;/code&gt; to propagate your brand colour through every component that references it.&lt;/p&gt;</code></pre>
-    </details>
-    <div class="callout" data-variant="brand" role="note"><p>The inline padding and background only apply when <code>&lt;code&gt;</code> is a direct child of <code>p</code>, <code>li</code>, <code>td</code>, or <code>th</code>. Code inside <code>&lt;pre&gt;</code> inherits the block styles instead.</p></div>
+      <details class="margin-y-s">
+        <summary>Show code</summary>
+        <pre class="padding-m"><code>&lt;p&gt;Call &lt;code&gt;Array.prototype.flat()&lt;/code&gt; to flatten a nested array by one level, or pass &lt;code&gt;Infinity&lt;/code&gt; to flatten all levels regardless of depth.&lt;/p&gt;
+  &lt;p&gt;Set the &lt;code&gt;--color-brand&lt;/code&gt; token in &lt;code&gt;@layer theme&lt;/code&gt; to propagate your brand colour through every component that references it.&lt;/p&gt;</code></pre>
+      </details>
+      <div class="callout wide" data-variant="brand" role="note"><p>The inline padding and background only apply when <code>&lt;code&gt;</code> is a direct child of <code>p</code>, <code>li</code>, <code>td</code>, or <code>th</code>. Code inside <code>&lt;pre&gt;</code> inherits the block styles instead.</p></div>
+  
+    </div>
   </section>
 
   <section>
-    <h2 class="heading-l">Code block</h2>
-    <p>Wrap <code>&lt;code&gt;</code> in a <code>&lt;pre&gt;</code> for multi-line code. The outer <code>&lt;pre&gt;</code> provides the background, padding, and border-radius; the inner <code>&lt;code&gt;</code> resets to transparent so there is no double-background.</p>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Code block</h2>
+      <p>Wrap <code>&lt;code&gt;</code> in a <code>&lt;pre&gt;</code> for multi-line code. The outer <code>&lt;pre&gt;</code> provides the background, padding, and border-radius; the inner <code>&lt;code&gt;</code> resets to transparent so there is no double-background.</p>
     
-    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
-<pre><code>/* Override brand colour globally */
-@layer theme {
-  :root {
-    --color-brand:          oklch(55% 0.2 260);
-    --button-background:    var(--color-brand);
-    --button-border-color:  var(--color-brand);
+      <div class="">
+  <pre><code>/* Override brand colour globally */
+  @layer theme {
+    :root {
+      --color-brand:          oklch(55% 0.2 260);
+      --button-background:    var(--color-brand);
+      --button-border-color:  var(--color-brand);
+    }
   }
-}
 
-/* Override for a specific component */
-.checkout-form button[type="submit"] {
-  --button-background:       var(--color-status-ok);
-  --button-border-color:     var(--color-status-ok);
-  --button-background-hover: oklch(from var(--color-status-ok) calc(l - 0.08) c h);
-}</code></pre>
-    </div>
+  /* Override for a specific component */
+  .checkout-form button[type="submit"] {
+    --button-background:       var(--color-status-ok);
+    --button-border-color:     var(--color-status-ok);
+    --button-background-hover: oklch(from var(--color-status-ok) calc(l - 0.08) c h);
+  }</code></pre>
+      </div>
 
-    <details class="margin-y-s">
-      <summary class="padding-s">Show code</summary>
-      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;pre&gt;&lt;code&gt;/* Override brand colour globally */
-@layer theme {
-  :root {
-    --color-brand:          oklch(55% 0.2 260);
-    --button-background:    var(--color-brand);
-    --button-border-color:  var(--color-brand);
+      <details class="margin-y-s">
+        <summary>Show code</summary>
+        <pre class="padding-m"><code>&lt;pre&gt;&lt;code&gt;/* Override brand colour globally */
+  @layer theme {
+    :root {
+      --color-brand:          oklch(55% 0.2 260);
+      --button-background:    var(--color-brand);
+      --button-border-color:  var(--color-brand);
+    }
   }
-}
 
-/* Override for a specific component */
-.checkout-form button[type=&quot;submit&quot;] {
-  --button-background:       var(--color-status-ok);
-  --button-border-color:     var(--color-status-ok);
-  --button-background-hover: oklch(from var(--color-status-ok) calc(l - 0.08) c h);
-}&lt;/code&gt;&lt;/pre&gt;</code></pre>
-    </details>
-  </section>
-
-  <section>
-    <h2 class="heading-l">Keyboard shortcuts</h2>
-    <p>Use <code>&lt;kbd&gt;</code> to represent physical keyboard keys or combinations. Styles are defined in the reset: a light background, bordered box, and monospace font.</p>
-    
-    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
-<p>Copy: <kbd>Ctrl</kbd> + <kbd>C</kbd></p>
-<p>Paste: <kbd>Ctrl</kbd> + <kbd>V</kbd></p>
-<p>Open command palette: <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd></p>
-<p>Save file: <kbd>⌘</kbd> + <kbd>S</kbd></p>
-<p>Search in project: <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>F</kbd></p>
+  /* Override for a specific component */
+  .checkout-form button[type=&quot;submit&quot;] {
+    --button-background:       var(--color-status-ok);
+    --button-border-color:     var(--color-status-ok);
+    --button-background-hover: oklch(from var(--color-status-ok) calc(l - 0.08) c h);
+  }&lt;/code&gt;&lt;/pre&gt;</code></pre>
+      </details>
+  
     </div>
-
-    <details class="margin-y-s">
-      <summary class="padding-s">Show code</summary>
-      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;p&gt;Copy: &lt;kbd&gt;Ctrl&lt;/kbd&gt; + &lt;kbd&gt;C&lt;/kbd&gt;&lt;/p&gt;
-&lt;p&gt;Paste: &lt;kbd&gt;Ctrl&lt;/kbd&gt; + &lt;kbd&gt;V&lt;/kbd&gt;&lt;/p&gt;
-&lt;p&gt;Open command palette: &lt;kbd&gt;Ctrl&lt;/kbd&gt; + &lt;kbd&gt;Shift&lt;/kbd&gt; + &lt;kbd&gt;P&lt;/kbd&gt;&lt;/p&gt;
-&lt;p&gt;Save file: &lt;kbd&gt;⌘&lt;/kbd&gt; + &lt;kbd&gt;S&lt;/kbd&gt;&lt;/p&gt;
-&lt;p&gt;Search in project: &lt;kbd&gt;⌘&lt;/kbd&gt; + &lt;kbd&gt;Shift&lt;/kbd&gt; + &lt;kbd&gt;F&lt;/kbd&gt;&lt;/p&gt;</code></pre>
-    </details>
   </section>
 
   <section>
-    <h2 class="heading-l">Tokens</h2>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Keyboard shortcuts</h2>
+      <p>Use <code>&lt;kbd&gt;</code> to represent physical keyboard keys or combinations. Styles are defined in the reset: a light background, bordered box, and monospace font.</p>
+    
+      <div class="">
+  <p>Copy: <kbd>Ctrl</kbd> + <kbd>C</kbd></p>
+  <p>Paste: <kbd>Ctrl</kbd> + <kbd>V</kbd></p>
+  <p>Open command palette: <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd></p>
+  <p>Save file: <kbd>⌘</kbd> + <kbd>S</kbd></p>
+  <p>Search in project: <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>F</kbd></p>
+      </div>
 
-    <table class="">
-      <thead><tr><th>Token</th><th>Default</th><th>Description</th></tr></thead>
-      <tbody>
-        <tr><td colspan="3"><strong>Code &amp; Pre</strong></td></tr>
-        <tr><td><code>--code-background</code></td><td><code>var(--color-neutral-100)</code></td><td>Background for both <code>&lt;code&gt;</code> and <code>&lt;pre&gt;</code>.</td></tr>
-        <tr><td><code>--code-color</code></td><td><code>var(--color-neutral-900)</code></td><td>Text colour for code elements.</td></tr>
-        <tr><td><code>--code-font-size</code></td><td><code>0.85em</code></td><td>Font size relative to parent.</td></tr>
-        <tr><td><code>--code-padding</code></td><td><code>var(--space-xxs) var(--space-s)</code></td><td>Padding for <code>&lt;pre&gt;</code> blocks.</td></tr>
-        <tr><td><code>--code-radius</code></td><td><code>var(--border-radius)</code></td><td>Corner radius for <code>&lt;pre&gt;</code> blocks.</td></tr>
-        <tr><td colspan="3"><strong>Keyboard (defined in reset)</strong></td></tr>
-        <tr><td><code>--kbd-background</code></td><td><code>var(--color-neutral-100)</code></td><td>Key badge background.</td></tr>
-        <tr><td><code>--kbd-border-color</code></td><td><code>var(--color-neutral-400)</code></td><td>Key badge border colour.</td></tr>
-        <tr><td><code>--kbd-border-width</code></td><td><code>var(--border-s)</code></td><td>Key badge border width.</td></tr>
-        <tr><td><code>--kbd-border-radius</code></td><td><code>var(--border-radius-s)</code></td><td>Key badge corner radius.</td></tr>
-        <tr><td><code>--kbd-padding</code></td><td><code>0.1em 0.35em</code></td><td>Key badge inner spacing.</td></tr>
-      </tbody>
-    </table>
+      <details class="margin-y-s">
+        <summary>Show code</summary>
+        <pre class="padding-m"><code>&lt;p&gt;Copy: &lt;kbd&gt;Ctrl&lt;/kbd&gt; + &lt;kbd&gt;C&lt;/kbd&gt;&lt;/p&gt;
+  &lt;p&gt;Paste: &lt;kbd&gt;Ctrl&lt;/kbd&gt; + &lt;kbd&gt;V&lt;/kbd&gt;&lt;/p&gt;
+  &lt;p&gt;Open command palette: &lt;kbd&gt;Ctrl&lt;/kbd&gt; + &lt;kbd&gt;Shift&lt;/kbd&gt; + &lt;kbd&gt;P&lt;/kbd&gt;&lt;/p&gt;
+  &lt;p&gt;Save file: &lt;kbd&gt;⌘&lt;/kbd&gt; + &lt;kbd&gt;S&lt;/kbd&gt;&lt;/p&gt;
+  &lt;p&gt;Search in project: &lt;kbd&gt;⌘&lt;/kbd&gt; + &lt;kbd&gt;Shift&lt;/kbd&gt; + &lt;kbd&gt;F&lt;/kbd&gt;&lt;/p&gt;</code></pre>
+      </details>
+  
+    </div>
+  </section>
+
+  <section>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Tokens</h2>
+
+      <table class="">
+        <thead><tr><th>Token</th><th>Default</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td colspan="3"><strong>Code &amp; Pre</strong></td></tr>
+          <tr><td><code>--code-background</code></td><td><code>var(--color-neutral-100)</code></td><td>Background for both <code>&lt;code&gt;</code> and <code>&lt;pre&gt;</code>.</td></tr>
+          <tr><td><code>--code-color</code></td><td><code>var(--color-neutral-900)</code></td><td>Text colour for code elements.</td></tr>
+          <tr><td><code>--code-font-size</code></td><td><code>0.85em</code></td><td>Font size relative to parent.</td></tr>
+          <tr><td><code>--code-padding</code></td><td><code>var(--space-xxs) var(--space-s)</code></td><td>Padding for <code>&lt;pre&gt;</code> blocks.</td></tr>
+          <tr><td><code>--code-radius</code></td><td><code>var(--border-radius)</code></td><td>Corner radius for <code>&lt;pre&gt;</code> blocks.</td></tr>
+          <tr><td colspan="3"><strong>Keyboard (defined in reset)</strong></td></tr>
+          <tr><td><code>--kbd-background</code></td><td><code>var(--color-neutral-100)</code></td><td>Key badge background.</td></tr>
+          <tr><td><code>--kbd-border-color</code></td><td><code>var(--color-neutral-400)</code></td><td>Key badge border colour.</td></tr>
+          <tr><td><code>--kbd-border-width</code></td><td><code>var(--border-s)</code></td><td>Key badge border width.</td></tr>
+          <tr><td><code>--kbd-border-radius</code></td><td><code>var(--border-radius-s)</code></td><td>Key badge corner radius.</td></tr>
+          <tr><td><code>--kbd-padding</code></td><td><code>0.1em 0.35em</code></td><td>Key badge inner spacing.</td></tr>
+        </tbody>
+      </table>
+  
+    </div>
   </section>
 
 </article>

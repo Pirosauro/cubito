@@ -4,7 +4,7 @@
 {% block content %}
 <article class="flow">
 
-  <header class="padding-y-m margin-y-m" style="border-block-end: 1px solid var(--color-neutral-200);">
+  <header class="flow" style="padding-block-end: var(--space-l); border-block-end: var(--border-s) solid var(--color-neutral-200);">
     <nav aria-label="Breadcrumb" class="breadcrumb">
       <ol>
         <li><a href="/">Home</a></li>
@@ -13,89 +13,98 @@
       </ol>
     </nav>
     <h1>Hero</h1>
-    <p class="text-l color-neutral-600">A full-width introductory section, typically the first content block on a page. Pairs with <code>.region</code> for vertical rhythm and <code>.flow</code> for inter-element spacing.</p>
+    <p class="text-m color-neutral-600">A full-width introductory section, typically the first content block on a page. Pairs with <code>.region</code> for vertical rhythm and <code>.flow</code> for inter-element spacing.</p>
   </header>
 
   <section>
-    <h2 class="heading-l">Default hero</h2>
-    <p>Content is centred by default. Combine with <code>.region</code> for consistent vertical padding and <code>.flow</code> to space child elements.</p>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Default hero</h2>
+      <p>Content is centred by default. Combine with <code>.region</code> for consistent vertical padding and <code>.flow</code> to space child elements.</p>
     
-    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
-<section class="hero region flow">
-  <h1>Build faster, ship confidently</h1>
-  <p class="text-l">A production-ready CSS design system with zero runtime overhead. Drop in the stylesheet, use the classes, own the tokens.</p>
-  <div class="cluster" style="justify-content: center;">
-    <a href="/getting-started/" class="button">Get started</a>
-    <a href="/components/" class="button" data-variant="outline">Browse components</a>
-  </div>
-</section>
+      <div class="">
+  <section class="hero region flow">
+    <h1>Build faster, ship confidently</h1>
+    <p class="text-l">A production-ready CSS design system with zero runtime overhead. Drop in the stylesheet, use the classes, own the tokens.</p>
+    <div class="cluster" style="justify-content: center;">
+      <a href="/getting-started/" class="button">Get started</a>
+      <a href="/components/" class="button" data-variant="outline">Browse components</a>
     </div>
-
-    <details class="margin-y-s">
-      <summary class="padding-s">Show code</summary>
-      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;section class=&quot;hero region flow&quot;&gt;
-  &lt;h1&gt;Build faster, ship confidently&lt;/h1&gt;
-  &lt;p class=&quot;text-l&quot;&gt;A production-ready CSS design system with zero runtime overhead. Drop in the stylesheet, use the classes, own the tokens.&lt;/p&gt;
-  &lt;div class=&quot;cluster&quot; style=&quot;justify-content: center;&quot;&gt;
-    &lt;a href=&quot;/getting-started/&quot; class=&quot;button&quot;&gt;Get started&lt;/a&gt;
-    &lt;a href=&quot;/components/&quot; class=&quot;button&quot; data-variant=&quot;outline&quot;&gt;Browse components&lt;/a&gt;
-  &lt;/div&gt;
-&lt;/section&gt;</code></pre>
-    </details>
   </section>
+      </div>
 
-  <section>
-    <h2 class="heading-l">Split layout</h2>
-    <p>Add <code>data-layout="split"</code> to create a two-column layout with text on the left and an image on the right. The columns wrap on narrow viewports. Nest a <code>.flow</code> div around the text content to preserve spacing.</p>
-    
-    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
-<section class="hero region" data-layout="split">
-  <div class="flow">
-    <h1>Design systems that scale</h1>
-    <p>From a single landing page to a full product suite — Cubito's token-driven architecture grows with your team without adding complexity.</p>
-    <div class="cluster">
-      <a href="/getting-started/" class="button">Read the docs</a>
-      <a href="https://github.com/cubito-ui/cubito" class="button" data-variant="outline">View on GitHub</a>
-    </div>
-  </div>
-  <div style="background: #e0e7ff; min-height: 18rem; border-radius: var(--border-radius-l); display: flex; align-items: center; justify-content: center; color: #6366f1; font-size: var(--font-size-s);">
-    Illustration placeholder
-  </div>
-</section>
-    </div>
-
-    <details class="margin-y-s">
-      <summary class="padding-s">Show code</summary>
-      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;section class=&quot;hero region&quot; data-layout=&quot;split&quot;&gt;
-  &lt;div class=&quot;flow&quot;&gt;
-    &lt;h1&gt;Design systems that scale&lt;/h1&gt;
-    &lt;p&gt;From a single landing page to a full product suite — Cubito&#x27;s token-driven architecture grows with your team without adding complexity.&lt;/p&gt;
-    &lt;div class=&quot;cluster&quot;&gt;
-      &lt;a href=&quot;/getting-started/&quot; class=&quot;button&quot;&gt;Read the docs&lt;/a&gt;
-      &lt;a href=&quot;https://github.com/cubito-ui/cubito&quot; class=&quot;button&quot; data-variant=&quot;outline&quot;&gt;View on GitHub&lt;/a&gt;
+      <details class="margin-y-s">
+        <summary>Show code</summary>
+        <pre class="padding-m"><code>&lt;section class=&quot;hero region flow&quot;&gt;
+    &lt;h1&gt;Build faster, ship confidently&lt;/h1&gt;
+    &lt;p class=&quot;text-l&quot;&gt;A production-ready CSS design system with zero runtime overhead. Drop in the stylesheet, use the classes, own the tokens.&lt;/p&gt;
+    &lt;div class=&quot;cluster&quot; style=&quot;justify-content: center;&quot;&gt;
+      &lt;a href=&quot;/getting-started/&quot; class=&quot;button&quot;&gt;Get started&lt;/a&gt;
+      &lt;a href=&quot;/components/&quot; class=&quot;button&quot; data-variant=&quot;outline&quot;&gt;Browse components&lt;/a&gt;
     &lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div style=&quot;background: #e0e7ff; min-height: 18rem; border-radius: var(--border-radius-l); display: flex; align-items: center; justify-content: center; color: #6366f1; font-size: var(--font-size-s);&quot;&gt;
-    Illustration placeholder
-  &lt;/div&gt;
-&lt;/section&gt;</code></pre>
-    </details>
+  &lt;/section&gt;</code></pre>
+      </details>
+  
+    </div>
   </section>
 
   <section>
-    <h2 class="heading-l">Tokens</h2>
-    <table class="">
-      <thead>
-        <tr><th>Token</th><th>Default</th><th>Description</th></tr>
-      </thead>
-      <tbody>
-        <tr><td><code>--hero-space</code></td><td><code>--space-xxl</code></td><td>Vertical region padding (passed to <code>--region-space</code>).</td></tr>
-        <tr><td><code>--hero-align</code></td><td><code>center</code></td><td>Text alignment for the default layout.</td></tr>
-        <tr><td><code>--hero-flow-space</code></td><td><code>--space-s</code></td><td>Gap between child elements (passed to <code>--flow-space</code>).</td></tr>
-        <tr><td><code>--hero-split-gap</code></td><td><code>--space-l</code></td><td>Column gap in the split layout.</td></tr>
-        <tr><td><code>--hero-image-radius</code></td><td><code>--border-radius-l</code></td><td>Corner radius applied to the image in the split layout.</td></tr>
-      </tbody>
-    </table>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Split layout</h2>
+      <p>Add <code>data-layout="split"</code> to create a two-column layout with text on the left and an image on the right. The columns wrap on narrow viewports. Nest a <code>.flow</code> div around the text content to preserve spacing.</p>
+    
+      <div class="">
+  <section class="hero region" data-layout="split">
+    <div class="flow">
+      <h1>Design systems that scale</h1>
+      <p>From a single landing page to a full product suite — Cubito's token-driven architecture grows with your team without adding complexity.</p>
+      <div class="cluster">
+        <a href="/getting-started/" class="button">Read the docs</a>
+        <a href="https://github.com/cubito-ui/cubito" class="button" data-variant="outline">View on GitHub</a>
+      </div>
+    </div>
+    <div style="background: #e0e7ff; min-height: 18rem; border-radius: var(--border-radius-l); display: flex; align-items: center; justify-content: center; color: #6366f1; font-size: var(--font-size-s);">
+      Illustration placeholder
+    </div>
+  </section>
+      </div>
+
+      <details class="margin-y-s">
+        <summary>Show code</summary>
+        <pre class="padding-m"><code>&lt;section class=&quot;hero region&quot; data-layout=&quot;split&quot;&gt;
+    &lt;div class=&quot;flow&quot;&gt;
+      &lt;h1&gt;Design systems that scale&lt;/h1&gt;
+      &lt;p&gt;From a single landing page to a full product suite — Cubito&#x27;s token-driven architecture grows with your team without adding complexity.&lt;/p&gt;
+      &lt;div class=&quot;cluster&quot;&gt;
+        &lt;a href=&quot;/getting-started/&quot; class=&quot;button&quot;&gt;Read the docs&lt;/a&gt;
+        &lt;a href=&quot;https://github.com/cubito-ui/cubito&quot; class=&quot;button&quot; data-variant=&quot;outline&quot;&gt;View on GitHub&lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div style=&quot;background: #e0e7ff; min-height: 18rem; border-radius: var(--border-radius-l); display: flex; align-items: center; justify-content: center; color: #6366f1; font-size: var(--font-size-s);&quot;&gt;
+      Illustration placeholder
+    &lt;/div&gt;
+  &lt;/section&gt;</code></pre>
+      </details>
+  
+    </div>
+  </section>
+
+  <section>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Tokens</h2>
+      <table class="">
+        <thead>
+          <tr><th>Token</th><th>Default</th><th>Description</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>--hero-space</code></td><td><code>--space-xxl</code></td><td>Vertical region padding (passed to <code>--region-space</code>).</td></tr>
+          <tr><td><code>--hero-align</code></td><td><code>center</code></td><td>Text alignment for the default layout.</td></tr>
+          <tr><td><code>--hero-flow-space</code></td><td><code>--space-s</code></td><td>Gap between child elements (passed to <code>--flow-space</code>).</td></tr>
+          <tr><td><code>--hero-split-gap</code></td><td><code>--space-l</code></td><td>Column gap in the split layout.</td></tr>
+          <tr><td><code>--hero-image-radius</code></td><td><code>--border-radius-l</code></td><td>Corner radius applied to the image in the split layout.</td></tr>
+        </tbody>
+      </table>
+  
+    </div>
   </section>
 
 </article>

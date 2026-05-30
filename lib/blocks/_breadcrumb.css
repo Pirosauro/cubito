@@ -34,7 +34,9 @@ TOKENS
     --breadcrumb-color-current: var(--color-neutral-900);
     --breadcrumb-separator: "/";
   }
+}
 
+@layer dark {
   @media (prefers-color-scheme: dark) {
     :root {
       --breadcrumb-color: var(--color-neutral-400);
@@ -45,11 +47,6 @@ TOKENS
 
 @layer blocks {
   .breadcrumb {
-  }
-
-  @media (prefers-color-scheme: dark) {
-    .breadcrumb {
-    }
   }
 
   .breadcrumb ol {

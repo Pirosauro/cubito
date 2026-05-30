@@ -363,10 +363,10 @@ NOTE ON HOVER COLOUR DERIVATION
     /* State overrides */
     --button-background-active: var(--button-outline-background-hover);
     --button-background-hover: var(--button-outline-background-hover);
-    --button-border-color-active: currentColor;
-    --button-border-color-hover: currentColor;
-    --button-color-active: currentColor;
-    --button-color-hover: currentColor;
+    --button-border-color-active: var(--button-outline-border-color-active, currentColor);
+    --button-border-color-hover: var(--button-outline-border-color-hover, currentColor);
+    --button-color-active: var(--button-outline-color-active, currentColor);
+    --button-color-hover: var(--button-outline-color-hover, currentColor);
   }
 
   /* --- Ghost --- */

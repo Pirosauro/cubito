@@ -4,7 +4,7 @@
 {% block content %}
 <article class="flow">
 
-  <header class="padding-y-m margin-y-m" style="border-block-end: 1px solid var(--color-neutral-200);">
+  <header class="flow" style="padding-block-end: var(--space-l); border-block-end: var(--border-s) solid var(--color-neutral-200);">
     <nav aria-label="Breadcrumb" class="breadcrumb">
       <ol>
         <li><a href="/">Home</a></li>
@@ -13,147 +13,165 @@
       </ol>
     </nav>
     <h1>Avatar</h1>
-    <p class="text-l color-neutral-600">User representation combining a photo with an initials fallback, optional status indicator, and a group stack.</p>
+    <p class="text-m color-neutral-600">User representation combining a photo with an initials fallback, optional status indicator, and a group stack.</p>
   </header>
 
   <section>
-    <h2 class="heading-l">Basic avatar</h2>
-    <p>Use a <code>&lt;span&gt;</code> with the <code>avatar</code> class and add initials as text content. Supply an <code>aria-label</code> so screen readers announce the full name.</p>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Basic avatar</h2>
+      <p>Use a <code>&lt;span&gt;</code> with the <code>avatar</code> class and add initials as text content. Supply an <code>aria-label</code> so screen readers announce the full name.</p>
     
-    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
-<span class="avatar" aria-label="Jane Doe">JD</span>
-    </div>
+      <div class="">
+  <span class="avatar" aria-label="Jane Doe">JD</span>
+      </div>
 
-    <details class="margin-y-s">
-      <summary class="padding-s">Show code</summary>
-      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;span class=&quot;avatar&quot; aria-label=&quot;Jane Doe&quot;&gt;JD&lt;/span&gt;</code></pre>
-    </details>
+      <details class="margin-y-s">
+        <summary>Show code</summary>
+        <pre class="padding-m"><code>&lt;span class=&quot;avatar&quot; aria-label=&quot;Jane Doe&quot;&gt;JD&lt;/span&gt;</code></pre>
+      </details>
+  
+    </div>
   </section>
 
   <section>
-    <h2 class="heading-l">Sizes</h2>
-    <p>Five sizes are available via <code>data-size</code>: <code>xs</code>, <code>s</code>, <code>m</code> (default), <code>l</code>, and <code>xl</code>.</p>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Sizes</h2>
+      <p>Five sizes are available via <code>data-size</code>: <code>xs</code>, <code>s</code>, <code>m</code> (default), <code>l</code>, and <code>xl</code>.</p>
     
-    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
-<div class="cluster" style="align-items: center;">
-  <span class="avatar" data-size="xs" aria-label="Alex Brown">AB</span>
-  <span class="avatar" data-size="s" aria-label="Alex Brown">AB</span>
-  <span class="avatar" data-size="m" aria-label="Alex Brown">AB</span>
-  <span class="avatar" data-size="l" aria-label="Alex Brown">AB</span>
-  <span class="avatar" data-size="xl" aria-label="Alex Brown">AB</span>
-</div>
-    </div>
+      <div class="">
+  <div class="cluster" style="align-items: center;">
+    <span class="avatar" data-size="xs" aria-label="Alex Brown">AB</span>
+    <span class="avatar" data-size="s" aria-label="Alex Brown">AB</span>
+    <span class="avatar" data-size="m" aria-label="Alex Brown">AB</span>
+    <span class="avatar" data-size="l" aria-label="Alex Brown">AB</span>
+    <span class="avatar" data-size="xl" aria-label="Alex Brown">AB</span>
+  </div>
+      </div>
 
-    <details class="margin-y-s">
-      <summary class="padding-s">Show code</summary>
-      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div class=&quot;cluster&quot; style=&quot;align-items: center;&quot;&gt;
-  &lt;span class=&quot;avatar&quot; data-size=&quot;xs&quot; aria-label=&quot;Alex Brown&quot;&gt;AB&lt;/span&gt;
-  &lt;span class=&quot;avatar&quot; data-size=&quot;s&quot; aria-label=&quot;Alex Brown&quot;&gt;AB&lt;/span&gt;
-  &lt;span class=&quot;avatar&quot; data-size=&quot;m&quot; aria-label=&quot;Alex Brown&quot;&gt;AB&lt;/span&gt;
-  &lt;span class=&quot;avatar&quot; data-size=&quot;l&quot; aria-label=&quot;Alex Brown&quot;&gt;AB&lt;/span&gt;
-  &lt;span class=&quot;avatar&quot; data-size=&quot;xl&quot; aria-label=&quot;Alex Brown&quot;&gt;AB&lt;/span&gt;
-&lt;/div&gt;</code></pre>
-    </details>
+      <details class="margin-y-s">
+        <summary>Show code</summary>
+        <pre class="padding-m"><code>&lt;div class=&quot;cluster&quot; style=&quot;align-items: center;&quot;&gt;
+    &lt;span class=&quot;avatar&quot; data-size=&quot;xs&quot; aria-label=&quot;Alex Brown&quot;&gt;AB&lt;/span&gt;
+    &lt;span class=&quot;avatar&quot; data-size=&quot;s&quot; aria-label=&quot;Alex Brown&quot;&gt;AB&lt;/span&gt;
+    &lt;span class=&quot;avatar&quot; data-size=&quot;m&quot; aria-label=&quot;Alex Brown&quot;&gt;AB&lt;/span&gt;
+    &lt;span class=&quot;avatar&quot; data-size=&quot;l&quot; aria-label=&quot;Alex Brown&quot;&gt;AB&lt;/span&gt;
+    &lt;span class=&quot;avatar&quot; data-size=&quot;xl&quot; aria-label=&quot;Alex Brown&quot;&gt;AB&lt;/span&gt;
+  &lt;/div&gt;</code></pre>
+      </details>
+  
+    </div>
   </section>
 
   <section>
-    <h2 class="heading-l">With image</h2>
-    <p>Place an <code>&lt;img&gt;</code> inside the avatar. The image fills the circle; the <code>alt</code> attribute serves as the accessible name.</p>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">With image</h2>
+      <p>Place an <code>&lt;img&gt;</code> inside the avatar. The image fills the circle; the <code>alt</code> attribute serves as the accessible name.</p>
     
-    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
-<span class="avatar">
-  <img src="https://i.pravatar.cc/64?img=47" alt="Jane Doe">
-</span>
-    </div>
-
-    <details class="margin-y-s">
-      <summary class="padding-s">Show code</summary>
-      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;span class=&quot;avatar&quot;&gt;
-  &lt;img src=&quot;https://i.pravatar.cc/64?img=47&quot; alt=&quot;Jane Doe&quot;&gt;
-&lt;/span&gt;</code></pre>
-    </details>
-  </section>
-
-  <section>
-    <h2 class="heading-l">Status indicator</h2>
-    <p>Add <code>data-status</code> to show a coloured dot. Values: <code>online</code> (green), <code>away</code> (amber), <code>busy</code> (red), <code>offline</code> (grey).</p>
-    
-    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
-<div class="cluster" style="align-items: center;">
-  <span class="avatar" data-size="l" data-status="online" aria-label="Maya — online">
-    <img src="https://i.pravatar.cc/64?img=5" alt="Maya">
+      <div class="">
+  <span class="avatar">
+    <img src="https://i.pravatar.cc/64?img=47" alt="Jane Doe">
   </span>
-  <span class="avatar" data-size="l" data-status="away" aria-label="Sam — away">
-    <img src="https://i.pravatar.cc/64?img=12" alt="Sam">
-  </span>
-  <span class="avatar" data-size="l" data-status="busy" aria-label="Rin — busy">
-    <img src="https://i.pravatar.cc/64?img=20" alt="Rin">
-  </span>
-  <span class="avatar" data-size="l" data-status="offline" aria-label="Chris — offline">
-    <img src="https://i.pravatar.cc/64?img=33" alt="Chris">
-  </span>
-</div>
-    </div>
+      </div>
 
-    <details class="margin-y-s">
-      <summary class="padding-s">Show code</summary>
-      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div class=&quot;cluster&quot; style=&quot;align-items: center;&quot;&gt;
-  &lt;span class=&quot;avatar&quot; data-size=&quot;l&quot; data-status=&quot;online&quot; aria-label=&quot;Maya — online&quot;&gt;
-    &lt;img src=&quot;https://i.pravatar.cc/64?img=5&quot; alt=&quot;Maya&quot;&gt;
-  &lt;/span&gt;
-  &lt;span class=&quot;avatar&quot; data-size=&quot;l&quot; data-status=&quot;away&quot; aria-label=&quot;Sam — away&quot;&gt;
-    &lt;img src=&quot;https://i.pravatar.cc/64?img=12&quot; alt=&quot;Sam&quot;&gt;
-  &lt;/span&gt;
-  &lt;span class=&quot;avatar&quot; data-size=&quot;l&quot; data-status=&quot;busy&quot; aria-label=&quot;Rin — busy&quot;&gt;
-    &lt;img src=&quot;https://i.pravatar.cc/64?img=20&quot; alt=&quot;Rin&quot;&gt;
-  &lt;/span&gt;
-  &lt;span class=&quot;avatar&quot; data-size=&quot;l&quot; data-status=&quot;offline&quot; aria-label=&quot;Chris — offline&quot;&gt;
-    &lt;img src=&quot;https://i.pravatar.cc/64?img=33&quot; alt=&quot;Chris&quot;&gt;
-  &lt;/span&gt;
-&lt;/div&gt;</code></pre>
-    </details>
+      <details class="margin-y-s">
+        <summary>Show code</summary>
+        <pre class="padding-m"><code>&lt;span class=&quot;avatar&quot;&gt;
+    &lt;img src=&quot;https://i.pravatar.cc/64?img=47&quot; alt=&quot;Jane Doe&quot;&gt;
+  &lt;/span&gt;</code></pre>
+      </details>
+  
+    </div>
   </section>
 
   <section>
-    <h2 class="heading-l">Avatar group</h2>
-    <p>Wrap avatars in <code>.avatar-group</code> to create an overlapping stack. End with a count avatar to indicate additional members.</p>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Status indicator</h2>
+      <p>Add <code>data-status</code> to show a coloured dot. Values: <code>online</code> (green), <code>away</code> (amber), <code>busy</code> (red), <code>offline</code> (grey).</p>
     
-    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
-<div class="avatar-group">
-  <span class="avatar"><img src="https://i.pravatar.cc/64?img=1" alt="Alice"></span>
-  <span class="avatar"><img src="https://i.pravatar.cc/64?img=2" alt="Bob"></span>
-  <span class="avatar"><img src="https://i.pravatar.cc/64?img=3" alt="Carol"></span>
-  <span class="avatar" aria-label="+4 more">+4</span>
-</div>
-    </div>
+      <div class="">
+  <div class="cluster" style="align-items: center;">
+    <span class="avatar" data-size="l" data-status="online" aria-label="Maya — online">
+      <img src="https://i.pravatar.cc/64?img=5" alt="Maya">
+    </span>
+    <span class="avatar" data-size="l" data-status="away" aria-label="Sam — away">
+      <img src="https://i.pravatar.cc/64?img=12" alt="Sam">
+    </span>
+    <span class="avatar" data-size="l" data-status="busy" aria-label="Rin — busy">
+      <img src="https://i.pravatar.cc/64?img=20" alt="Rin">
+    </span>
+    <span class="avatar" data-size="l" data-status="offline" aria-label="Chris — offline">
+      <img src="https://i.pravatar.cc/64?img=33" alt="Chris">
+    </span>
+  </div>
+      </div>
 
-    <details class="margin-y-s">
-      <summary class="padding-s">Show code</summary>
-      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div class=&quot;avatar-group&quot;&gt;
-  &lt;span class=&quot;avatar&quot;&gt;&lt;img src=&quot;https://i.pravatar.cc/64?img=1&quot; alt=&quot;Alice&quot;&gt;&lt;/span&gt;
-  &lt;span class=&quot;avatar&quot;&gt;&lt;img src=&quot;https://i.pravatar.cc/64?img=2&quot; alt=&quot;Bob&quot;&gt;&lt;/span&gt;
-  &lt;span class=&quot;avatar&quot;&gt;&lt;img src=&quot;https://i.pravatar.cc/64?img=3&quot; alt=&quot;Carol&quot;&gt;&lt;/span&gt;
-  &lt;span class=&quot;avatar&quot; aria-label=&quot;+4 more&quot;&gt;+4&lt;/span&gt;
-&lt;/div&gt;</code></pre>
-    </details>
+      <details class="margin-y-s">
+        <summary>Show code</summary>
+        <pre class="padding-m"><code>&lt;div class=&quot;cluster&quot; style=&quot;align-items: center;&quot;&gt;
+    &lt;span class=&quot;avatar&quot; data-size=&quot;l&quot; data-status=&quot;online&quot; aria-label=&quot;Maya — online&quot;&gt;
+      &lt;img src=&quot;https://i.pravatar.cc/64?img=5&quot; alt=&quot;Maya&quot;&gt;
+    &lt;/span&gt;
+    &lt;span class=&quot;avatar&quot; data-size=&quot;l&quot; data-status=&quot;away&quot; aria-label=&quot;Sam — away&quot;&gt;
+      &lt;img src=&quot;https://i.pravatar.cc/64?img=12&quot; alt=&quot;Sam&quot;&gt;
+    &lt;/span&gt;
+    &lt;span class=&quot;avatar&quot; data-size=&quot;l&quot; data-status=&quot;busy&quot; aria-label=&quot;Rin — busy&quot;&gt;
+      &lt;img src=&quot;https://i.pravatar.cc/64?img=20&quot; alt=&quot;Rin&quot;&gt;
+    &lt;/span&gt;
+    &lt;span class=&quot;avatar&quot; data-size=&quot;l&quot; data-status=&quot;offline&quot; aria-label=&quot;Chris — offline&quot;&gt;
+      &lt;img src=&quot;https://i.pravatar.cc/64?img=33&quot; alt=&quot;Chris&quot;&gt;
+    &lt;/span&gt;
+  &lt;/div&gt;</code></pre>
+      </details>
+  
+    </div>
   </section>
 
   <section>
-    <h2 class="heading-l">Tokens</h2>
-    <table class="">
-      <thead>
-        <tr><th>Token</th><th>Default</th><th>Description</th></tr>
-      </thead>
-      <tbody>
-        <tr><td><code>--avatar-size</code></td><td><code>2.5rem</code></td><td>Diameter of the avatar circle.</td></tr>
-        <tr><td><code>--avatar-radius</code></td><td><code>9999px</code></td><td>Border radius — set to a smaller value for a rounded square.</td></tr>
-        <tr><td><code>--avatar-background</code></td><td><code>--color-neutral-300</code></td><td>Background fill used for the initials variant.</td></tr>
-        <tr><td><code>--avatar-color</code></td><td><code>--color-neutral-800</code></td><td>Initials text colour.</td></tr>
-        <tr><td><code>--avatar-font-size</code></td><td><code>0.4em</code></td><td>Initials text size (em relative to <code>--avatar-size</code>).</td></tr>
-        <tr><td><code>--avatar-border</code></td><td><code>none</code></td><td>Ring border — useful for highlighting a selected avatar.</td></tr>
-        <tr><td><code>--avatar-status-size</code></td><td><code>0.75em</code></td><td>Diameter of the status dot.</td></tr>
-      </tbody>
-    </table>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Avatar group</h2>
+      <p>Wrap avatars in <code>.avatar-group</code> to create an overlapping stack. End with a count avatar to indicate additional members.</p>
+    
+      <div class="">
+  <div class="avatar-group">
+    <span class="avatar"><img src="https://i.pravatar.cc/64?img=1" alt="Alice"></span>
+    <span class="avatar"><img src="https://i.pravatar.cc/64?img=2" alt="Bob"></span>
+    <span class="avatar"><img src="https://i.pravatar.cc/64?img=3" alt="Carol"></span>
+    <span class="avatar" aria-label="+4 more">+4</span>
+  </div>
+      </div>
+
+      <details class="margin-y-s">
+        <summary>Show code</summary>
+        <pre class="padding-m"><code>&lt;div class=&quot;avatar-group&quot;&gt;
+    &lt;span class=&quot;avatar&quot;&gt;&lt;img src=&quot;https://i.pravatar.cc/64?img=1&quot; alt=&quot;Alice&quot;&gt;&lt;/span&gt;
+    &lt;span class=&quot;avatar&quot;&gt;&lt;img src=&quot;https://i.pravatar.cc/64?img=2&quot; alt=&quot;Bob&quot;&gt;&lt;/span&gt;
+    &lt;span class=&quot;avatar&quot;&gt;&lt;img src=&quot;https://i.pravatar.cc/64?img=3&quot; alt=&quot;Carol&quot;&gt;&lt;/span&gt;
+    &lt;span class=&quot;avatar&quot; aria-label=&quot;+4 more&quot;&gt;+4&lt;/span&gt;
+  &lt;/div&gt;</code></pre>
+      </details>
+  
+    </div>
+  </section>
+
+  <section>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Tokens</h2>
+      <table class="">
+        <thead>
+          <tr><th>Token</th><th>Default</th><th>Description</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>--avatar-size</code></td><td><code>2.5rem</code></td><td>Diameter of the avatar circle.</td></tr>
+          <tr><td><code>--avatar-radius</code></td><td><code>9999px</code></td><td>Border radius — set to a smaller value for a rounded square.</td></tr>
+          <tr><td><code>--avatar-background</code></td><td><code>--color-neutral-300</code></td><td>Background fill used for the initials variant.</td></tr>
+          <tr><td><code>--avatar-color</code></td><td><code>--color-neutral-800</code></td><td>Initials text colour.</td></tr>
+          <tr><td><code>--avatar-font-size</code></td><td><code>0.4em</code></td><td>Initials text size (em relative to <code>--avatar-size</code>).</td></tr>
+          <tr><td><code>--avatar-border</code></td><td><code>none</code></td><td>Ring border — useful for highlighting a selected avatar.</td></tr>
+          <tr><td><code>--avatar-status-size</code></td><td><code>0.75em</code></td><td>Diameter of the status dot.</td></tr>
+        </tbody>
+      </table>
+  
+    </div>
   </section>
 
 </article>

@@ -51,12 +51,22 @@ TOKENS
     --card-image-ratio: 3 / 2;
     --card-padding: var(--space-s);
     --card-radius: var(--border-radius-l);
-  }
 
+    /** --- State: hover (only for interactive cards) --- */
+    --card-background-hover: var(--color-white);
+    --card-border-hover: solid var(--border-m) var(--color-neutral-700);
+  }
+}
+
+@layer dark {
   @media (prefers-color-scheme: dark) {
     :root {
       --card-background: var(--color-neutral-800);
       --card-border: solid var(--border-m) var(--color-neutral-700);
+
+      /** --- State: hover (only for interactive cards) --- */
+      --card-background-hover: var(--color-neutral-800);
+      --card-border-hover: solid var(--border-m) var(--color-neutral-500);
     }
   }
 }
@@ -73,11 +83,10 @@ TOKENS
     text-decoration: none;
   }
 
-  @media (prefers-color-scheme: dark) {
-    .card {
-      --card-background: var(--color-neutral-800);
-      --card-border: solid var(--border-m) var(--color-neutral-700);
-    }
+  .card:is(a):hover,
+  .card:is(a):focus-within {
+    background: var(--card-background-hover);
+    border: var(--card-border-hover);
   }
 
   /* Consistent heading size regardless of heading level used */
@@ -126,7 +135,8 @@ TOKENS
 
   /* --- Content area --- */
 
-  .card > div {
+  .card > div,
+  .card > article {
     --flow-space: var(--space-xs);
 
     display: flex;
@@ -137,10 +147,12 @@ TOKENS
   }
 
   /* Push last element (e.g. a CTA or timestamp) to the bottom */
-  .card > div > :last-child {
+  .card:not([data-layout]) > div > :last-child,
+  .card:not([data-layout]) > article > :last-child {
     margin-top: auto;
   }
-  .card > div > :nth-last-child(2) {
+  .card:not([data-layout]) > div > :nth-last-child(2),
+  .card:not([data-layout]) > article > :nth-last-child(2) {
     margin-bottom: var(--space-xs-s);
   }
 

@@ -4,12 +4,12 @@ Callout
 An inline notification block used to draw attention to important information.
 
 MARKUP PATTERN
-  <div class="callout" role="note">
+  <div class="callout wide" role="note">
     <p>Your session will expire in 5 minutes.</p>
   </div>
 
   <!-- Error: announced immediately by screen readers -->
-  <div class="callout" data-variant="error" role="alert" aria-live="assertive">
+  <div class="callout wide" data-variant="error" role="alert" aria-live="assertive">
     <p>Failed to save. Please try again.</p>
   </div>
 
@@ -28,7 +28,7 @@ CONFIGURATION
       --callout-background: var(--color-neutral-800);
     }
 
-    <div class="callout" style="--callout-radius: var(--border-radius-s)">…</div>
+    <div class="callout wide" style="--callout-radius: var(--border-radius-s)">…</div>
 
 TOKENS
   --callout-color        Text / border colour. Default: currentColor

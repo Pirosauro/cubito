@@ -4,7 +4,7 @@
 {% block content %}
 <article class="flow">
 
-  <header class="padding-y-m margin-y-m" style="border-block-end: 1px solid var(--color-neutral-200);">
+  <header class="flow" style="padding-block-end: var(--space-l); border-block-end: var(--border-s) solid var(--color-neutral-200);">
     <nav aria-label="Breadcrumb" class="breadcrumb">
       <ol>
         <li><a href="/">Home</a></li>
@@ -13,313 +13,334 @@
       </ol>
     </nav>
     <h1>Colors</h1>
-    <p class="text-l color-neutral-600">A neutral palette from near-white to near-black, semantic status colors, and two required brand tokens that consuming applications must supply.</p>
+    <p class="text-m color-neutral-600">A neutral palette from near-white to near-black, semantic status colors, and two required brand tokens that consuming applications must supply.</p>
   </header>
 
   <section>
-    <h2 class="heading-l">Neutral palette</h2>
-    <p>Eleven steps from <code>--color-neutral-50</code> (near-white) to <code>--color-neutral-950</code> (near-black), plus explicit white and black constants. These are raw palette values — reference semantic aliases in components, not these directly.</p>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Neutral palette</h2>
+      <p>Eleven steps from <code>--color-neutral-50</code> (near-white) to <code>--color-neutral-950</code> (near-black), plus explicit white and black constants. These are raw palette values — reference semantic aliases in components, not these directly.</p>
 
     
-    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
-<div class="cluster gap" style="flex-wrap: wrap;">
-  <div class="cluster gap">
-    <div style="width: 3rem; height: 3rem; border-radius: 0.25rem; background: var(--color-white); border: 1px solid var(--color-neutral-200);"></div>
-    <div><code>--color-white</code><br><span>#ffffff</span></div>
-  </div>
-  <div class="cluster gap">
-    <div style="width: 3rem; height: 3rem; border-radius: 0.25rem; background: var(--color-neutral-50); border: 1px solid var(--color-neutral-200);"></div>
-    <div><code>--color-neutral-50</code><br><span>#fcfcfc</span></div>
-  </div>
-  <div class="cluster gap">
-    <div style="width: 3rem; height: 3rem; border-radius: 0.25rem; background: var(--color-neutral-100); border: 1px solid var(--color-neutral-200);"></div>
-    <div><code>--color-neutral-100</code><br><span>#f5f5f5</span></div>
-  </div>
-  <div class="cluster gap">
-    <div style="width: 3rem; height: 3rem; border-radius: 0.25rem; background: var(--color-neutral-200);"></div>
-    <div><code>--color-neutral-200</code><br><span>#e2e2e2</span></div>
-  </div>
-  <div class="cluster gap">
-    <div style="width: 3rem; height: 3rem; border-radius: 0.25rem; background: var(--color-neutral-300);"></div>
-    <div><code>--color-neutral-300</code><br><span>#c9c9c9</span></div>
-  </div>
-  <div class="cluster gap">
-    <div style="width: 3rem; height: 3rem; border-radius: 0.25rem; background: var(--color-neutral-400);"></div>
-    <div><code>--color-neutral-400</code><br><span>#999999</span></div>
-  </div>
-  <div class="cluster gap">
-    <div style="width: 3rem; height: 3rem; border-radius: 0.25rem; background: var(--color-neutral-500);"></div>
-    <div><code>--color-neutral-500</code><br><span>#6d6d6d</span></div>
-  </div>
-  <div class="cluster gap">
-    <div style="width: 3rem; height: 3rem; border-radius: 0.25rem; background: var(--color-neutral-600);"></div>
-    <div><code>--color-neutral-600</code><br><span>#4b4b4b</span></div>
-  </div>
-  <div class="cluster gap">
-    <div style="width: 3rem; height: 3rem; border-radius: 0.25rem; background: var(--color-neutral-700);"></div>
-    <div><code>--color-neutral-700</code><br><span>#333333</span></div>
-  </div>
-  <div class="cluster gap">
-    <div style="width: 3rem; height: 3rem; border-radius: 0.25rem; background: var(--color-neutral-800);"></div>
-    <div><code>--color-neutral-800</code><br><span>#1e1e1e</span></div>
-  </div>
-  <div class="cluster gap">
-    <div style="width: 3rem; height: 3rem; border-radius: 0.25rem; background: var(--color-neutral-900);"></div>
-    <div><code>--color-neutral-900</code><br><span>#121212</span></div>
-  </div>
-  <div class="cluster gap">
-    <div style="width: 3rem; height: 3rem; border-radius: 0.25rem; background: var(--color-neutral-950);"></div>
-    <div><code>--color-neutral-950</code><br><span>#0a0a0a</span></div>
-  </div>
-  <div class="cluster gap">
-    <div style="width: 3rem; height: 3rem; border-radius: 0.25rem; background: var(--color-black);"></div>
-    <div><code>--color-black</code><br><span>#0a0a0a</span></div>
-  </div>
-</div>
+      <div class="">
+  <div class="cluster gap" style="flex-wrap: wrap;">
+    <div class="cluster gap">
+      <div style="width: 3rem; height: 3rem; border-radius: 0.25rem; background: var(--color-white); border: 1px solid var(--color-neutral-200);"></div>
+      <div><code>--color-white</code><br><span>#ffffff</span></div>
     </div>
+    <div class="cluster gap">
+      <div style="width: 3rem; height: 3rem; border-radius: 0.25rem; background: var(--color-neutral-50); border: 1px solid var(--color-neutral-200);"></div>
+      <div><code>--color-neutral-50</code><br><span>#fcfcfc</span></div>
+    </div>
+    <div class="cluster gap">
+      <div style="width: 3rem; height: 3rem; border-radius: 0.25rem; background: var(--color-neutral-100); border: 1px solid var(--color-neutral-200);"></div>
+      <div><code>--color-neutral-100</code><br><span>#f5f5f5</span></div>
+    </div>
+    <div class="cluster gap">
+      <div style="width: 3rem; height: 3rem; border-radius: 0.25rem; background: var(--color-neutral-200);"></div>
+      <div><code>--color-neutral-200</code><br><span>#e2e2e2</span></div>
+    </div>
+    <div class="cluster gap">
+      <div style="width: 3rem; height: 3rem; border-radius: 0.25rem; background: var(--color-neutral-300);"></div>
+      <div><code>--color-neutral-300</code><br><span>#c9c9c9</span></div>
+    </div>
+    <div class="cluster gap">
+      <div style="width: 3rem; height: 3rem; border-radius: 0.25rem; background: var(--color-neutral-400);"></div>
+      <div><code>--color-neutral-400</code><br><span>#999999</span></div>
+    </div>
+    <div class="cluster gap">
+      <div style="width: 3rem; height: 3rem; border-radius: 0.25rem; background: var(--color-neutral-500);"></div>
+      <div><code>--color-neutral-500</code><br><span>#6d6d6d</span></div>
+    </div>
+    <div class="cluster gap">
+      <div style="width: 3rem; height: 3rem; border-radius: 0.25rem; background: var(--color-neutral-600);"></div>
+      <div><code>--color-neutral-600</code><br><span>#4b4b4b</span></div>
+    </div>
+    <div class="cluster gap">
+      <div style="width: 3rem; height: 3rem; border-radius: 0.25rem; background: var(--color-neutral-700);"></div>
+      <div><code>--color-neutral-700</code><br><span>#333333</span></div>
+    </div>
+    <div class="cluster gap">
+      <div style="width: 3rem; height: 3rem; border-radius: 0.25rem; background: var(--color-neutral-800);"></div>
+      <div><code>--color-neutral-800</code><br><span>#1e1e1e</span></div>
+    </div>
+    <div class="cluster gap">
+      <div style="width: 3rem; height: 3rem; border-radius: 0.25rem; background: var(--color-neutral-900);"></div>
+      <div><code>--color-neutral-900</code><br><span>#121212</span></div>
+    </div>
+    <div class="cluster gap">
+      <div style="width: 3rem; height: 3rem; border-radius: 0.25rem; background: var(--color-neutral-950);"></div>
+      <div><code>--color-neutral-950</code><br><span>#0a0a0a</span></div>
+    </div>
+    <div class="cluster gap">
+      <div style="width: 3rem; height: 3rem; border-radius: 0.25rem; background: var(--color-black);"></div>
+      <div><code>--color-black</code><br><span>#0a0a0a</span></div>
+    </div>
+  </div>
+      </div>
 
-    <details class="margin-y-s">
-      <summary class="padding-s">Show code</summary>
-      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div class=&quot;cluster gap-s&quot; style=&quot;flex-wrap: wrap;&quot;&gt;
-  &lt;div class=&quot;cluster gap-s&quot;&gt;
-    &lt;div style=&quot;width: 3rem; height: 3rem; border-radius: 0.25rem; background: var(--color-white); border: 1px solid var(--color-neutral-200);&quot;&gt;&lt;/div&gt;
-    &lt;div&gt;&lt;code&gt;--color-white&lt;/code&gt;&lt;br&gt;&lt;span&gt;#ffffff&lt;/span&gt;&lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;cluster gap-s&quot;&gt;
-    &lt;div style=&quot;width: 3rem; height: 3rem; border-radius: 0.25rem; background: var(--color-neutral-50); border: 1px solid var(--color-neutral-200);&quot;&gt;&lt;/div&gt;
-    &lt;div&gt;&lt;code&gt;--color-neutral-50&lt;/code&gt;&lt;br&gt;&lt;span&gt;#fcfcfc&lt;/span&gt;&lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;cluster gap-s&quot;&gt;
-    &lt;div style=&quot;width: 3rem; height: 3rem; border-radius: 0.25rem; background: var(--color-neutral-100); border: 1px solid var(--color-neutral-200);&quot;&gt;&lt;/div&gt;
-    &lt;div&gt;&lt;code&gt;--color-neutral-100&lt;/code&gt;&lt;br&gt;&lt;span&gt;#f5f5f5&lt;/span&gt;&lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;cluster gap-s&quot;&gt;
-    &lt;div style=&quot;width: 3rem; height: 3rem; border-radius: 0.25rem; background: var(--color-neutral-200);&quot;&gt;&lt;/div&gt;
-    &lt;div&gt;&lt;code&gt;--color-neutral-200&lt;/code&gt;&lt;br&gt;&lt;span&gt;#e2e2e2&lt;/span&gt;&lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;cluster gap-s&quot;&gt;
-    &lt;div style=&quot;width: 3rem; height: 3rem; border-radius: 0.25rem; background: var(--color-neutral-300);&quot;&gt;&lt;/div&gt;
-    &lt;div&gt;&lt;code&gt;--color-neutral-300&lt;/code&gt;&lt;br&gt;&lt;span&gt;#c9c9c9&lt;/span&gt;&lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;cluster gap-s&quot;&gt;
-    &lt;div style=&quot;width: 3rem; height: 3rem; border-radius: 0.25rem; background: var(--color-neutral-400);&quot;&gt;&lt;/div&gt;
-    &lt;div&gt;&lt;code&gt;--color-neutral-400&lt;/code&gt;&lt;br&gt;&lt;span&gt;#999999&lt;/span&gt;&lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;cluster gap-s&quot;&gt;
-    &lt;div style=&quot;width: 3rem; height: 3rem; border-radius: 0.25rem; background: var(--color-neutral-500);&quot;&gt;&lt;/div&gt;
-    &lt;div&gt;&lt;code&gt;--color-neutral-500&lt;/code&gt;&lt;br&gt;&lt;span&gt;#6d6d6d&lt;/span&gt;&lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;cluster gap-s&quot;&gt;
-    &lt;div style=&quot;width: 3rem; height: 3rem; border-radius: 0.25rem; background: var(--color-neutral-600);&quot;&gt;&lt;/div&gt;
-    &lt;div&gt;&lt;code&gt;--color-neutral-600&lt;/code&gt;&lt;br&gt;&lt;span&gt;#4b4b4b&lt;/span&gt;&lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;cluster gap-s&quot;&gt;
-    &lt;div style=&quot;width: 3rem; height: 3rem; border-radius: 0.25rem; background: var(--color-neutral-700);&quot;&gt;&lt;/div&gt;
-    &lt;div&gt;&lt;code&gt;--color-neutral-700&lt;/code&gt;&lt;br&gt;&lt;span&gt;#333333&lt;/span&gt;&lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;cluster gap-s&quot;&gt;
-    &lt;div style=&quot;width: 3rem; height: 3rem; border-radius: 0.25rem; background: var(--color-neutral-800);&quot;&gt;&lt;/div&gt;
-    &lt;div&gt;&lt;code&gt;--color-neutral-800&lt;/code&gt;&lt;br&gt;&lt;span&gt;#1e1e1e&lt;/span&gt;&lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;cluster gap-s&quot;&gt;
-    &lt;div style=&quot;width: 3rem; height: 3rem; border-radius: 0.25rem; background: var(--color-neutral-900);&quot;&gt;&lt;/div&gt;
-    &lt;div&gt;&lt;code&gt;--color-neutral-900&lt;/code&gt;&lt;br&gt;&lt;span&gt;#121212&lt;/span&gt;&lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;cluster gap-s&quot;&gt;
-    &lt;div style=&quot;width: 3rem; height: 3rem; border-radius: 0.25rem; background: var(--color-neutral-950);&quot;&gt;&lt;/div&gt;
-    &lt;div&gt;&lt;code&gt;--color-neutral-950&lt;/code&gt;&lt;br&gt;&lt;span&gt;#0a0a0a&lt;/span&gt;&lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;cluster gap-s&quot;&gt;
-    &lt;div style=&quot;width: 3rem; height: 3rem; border-radius: 0.25rem; background: var(--color-black);&quot;&gt;&lt;/div&gt;
-    &lt;div&gt;&lt;code&gt;--color-black&lt;/code&gt;&lt;br&gt;&lt;span&gt;#0a0a0a&lt;/span&gt;&lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</code></pre>
-    </details>
+      <details class="margin-y-s">
+        <summary>Show code</summary>
+        <pre class="padding-m"><code>&lt;div class=&quot;cluster gap-s&quot; style=&quot;flex-wrap: wrap;&quot;&gt;
+    &lt;div class=&quot;cluster gap-s&quot;&gt;
+      &lt;div style=&quot;width: 3rem; height: 3rem; border-radius: 0.25rem; background: var(--color-white); border: 1px solid var(--color-neutral-200);&quot;&gt;&lt;/div&gt;
+      &lt;div&gt;&lt;code&gt;--color-white&lt;/code&gt;&lt;br&gt;&lt;span&gt;#ffffff&lt;/span&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;cluster gap-s&quot;&gt;
+      &lt;div style=&quot;width: 3rem; height: 3rem; border-radius: 0.25rem; background: var(--color-neutral-50); border: 1px solid var(--color-neutral-200);&quot;&gt;&lt;/div&gt;
+      &lt;div&gt;&lt;code&gt;--color-neutral-50&lt;/code&gt;&lt;br&gt;&lt;span&gt;#fcfcfc&lt;/span&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;cluster gap-s&quot;&gt;
+      &lt;div style=&quot;width: 3rem; height: 3rem; border-radius: 0.25rem; background: var(--color-neutral-100); border: 1px solid var(--color-neutral-200);&quot;&gt;&lt;/div&gt;
+      &lt;div&gt;&lt;code&gt;--color-neutral-100&lt;/code&gt;&lt;br&gt;&lt;span&gt;#f5f5f5&lt;/span&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;cluster gap-s&quot;&gt;
+      &lt;div style=&quot;width: 3rem; height: 3rem; border-radius: 0.25rem; background: var(--color-neutral-200);&quot;&gt;&lt;/div&gt;
+      &lt;div&gt;&lt;code&gt;--color-neutral-200&lt;/code&gt;&lt;br&gt;&lt;span&gt;#e2e2e2&lt;/span&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;cluster gap-s&quot;&gt;
+      &lt;div style=&quot;width: 3rem; height: 3rem; border-radius: 0.25rem; background: var(--color-neutral-300);&quot;&gt;&lt;/div&gt;
+      &lt;div&gt;&lt;code&gt;--color-neutral-300&lt;/code&gt;&lt;br&gt;&lt;span&gt;#c9c9c9&lt;/span&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;cluster gap-s&quot;&gt;
+      &lt;div style=&quot;width: 3rem; height: 3rem; border-radius: 0.25rem; background: var(--color-neutral-400);&quot;&gt;&lt;/div&gt;
+      &lt;div&gt;&lt;code&gt;--color-neutral-400&lt;/code&gt;&lt;br&gt;&lt;span&gt;#999999&lt;/span&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;cluster gap-s&quot;&gt;
+      &lt;div style=&quot;width: 3rem; height: 3rem; border-radius: 0.25rem; background: var(--color-neutral-500);&quot;&gt;&lt;/div&gt;
+      &lt;div&gt;&lt;code&gt;--color-neutral-500&lt;/code&gt;&lt;br&gt;&lt;span&gt;#6d6d6d&lt;/span&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;cluster gap-s&quot;&gt;
+      &lt;div style=&quot;width: 3rem; height: 3rem; border-radius: 0.25rem; background: var(--color-neutral-600);&quot;&gt;&lt;/div&gt;
+      &lt;div&gt;&lt;code&gt;--color-neutral-600&lt;/code&gt;&lt;br&gt;&lt;span&gt;#4b4b4b&lt;/span&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;cluster gap-s&quot;&gt;
+      &lt;div style=&quot;width: 3rem; height: 3rem; border-radius: 0.25rem; background: var(--color-neutral-700);&quot;&gt;&lt;/div&gt;
+      &lt;div&gt;&lt;code&gt;--color-neutral-700&lt;/code&gt;&lt;br&gt;&lt;span&gt;#333333&lt;/span&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;cluster gap-s&quot;&gt;
+      &lt;div style=&quot;width: 3rem; height: 3rem; border-radius: 0.25rem; background: var(--color-neutral-800);&quot;&gt;&lt;/div&gt;
+      &lt;div&gt;&lt;code&gt;--color-neutral-800&lt;/code&gt;&lt;br&gt;&lt;span&gt;#1e1e1e&lt;/span&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;cluster gap-s&quot;&gt;
+      &lt;div style=&quot;width: 3rem; height: 3rem; border-radius: 0.25rem; background: var(--color-neutral-900);&quot;&gt;&lt;/div&gt;
+      &lt;div&gt;&lt;code&gt;--color-neutral-900&lt;/code&gt;&lt;br&gt;&lt;span&gt;#121212&lt;/span&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;cluster gap-s&quot;&gt;
+      &lt;div style=&quot;width: 3rem; height: 3rem; border-radius: 0.25rem; background: var(--color-neutral-950);&quot;&gt;&lt;/div&gt;
+      &lt;div&gt;&lt;code&gt;--color-neutral-950&lt;/code&gt;&lt;br&gt;&lt;span&gt;#0a0a0a&lt;/span&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;cluster gap-s&quot;&gt;
+      &lt;div style=&quot;width: 3rem; height: 3rem; border-radius: 0.25rem; background: var(--color-black);&quot;&gt;&lt;/div&gt;
+      &lt;div&gt;&lt;code&gt;--color-black&lt;/code&gt;&lt;br&gt;&lt;span&gt;#0a0a0a&lt;/span&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;</code></pre>
+      </details>
+  
+    </div>
   </section>
 
   <section>
-    <h2 class="heading-l">Status colors</h2>
-    <p>Four semantic feedback colors for communicating system state. Use these in callouts, badges, alert icons, and validation messages.</p>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Status colors</h2>
+      <p>Four semantic feedback colors for communicating system state. Use these in callouts, badges, alert icons, and validation messages.</p>
 
     
-    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
-<div class="cluster gap" style="flex-wrap: wrap;">
-  <div class="cluster gap">
-    <div style="width: 3rem; height: 3rem; border-radius: 0.25rem; background: var(--color-status-ok);"></div>
-    <div><code>--color-status-ok</code><br><span>#1a4</span></div>
-  </div>
-  <div class="cluster gap">
-    <div style="width: 3rem; height: 3rem; border-radius: 0.25rem; background: var(--color-status-warning);"></div>
-    <div><code>--color-status-warning</code><br><span>#e90</span></div>
-  </div>
-  <div class="cluster gap">
-    <div style="width: 3rem; height: 3rem; border-radius: 0.25rem; background: var(--color-status-ko);"></div>
-    <div><code>--color-status-ko</code><br><span>#d22</span></div>
-  </div>
-  <div class="cluster gap">
-    <div style="width: 3rem; height: 3rem; border-radius: 0.25rem; background: var(--color-status-info);"></div>
-    <div><code>--color-status-info</code><br><span>#26e</span></div>
-  </div>
-</div>
+      <div class="">
+  <div class="cluster gap" style="flex-wrap: wrap;">
+    <div class="cluster gap">
+      <div style="width: 3rem; height: 3rem; border-radius: 0.25rem; background: var(--color-status-ok);"></div>
+      <div><code>--color-status-ok</code><br><span>#1a4</span></div>
     </div>
+    <div class="cluster gap">
+      <div style="width: 3rem; height: 3rem; border-radius: 0.25rem; background: var(--color-status-warning);"></div>
+      <div><code>--color-status-warning</code><br><span>#e90</span></div>
+    </div>
+    <div class="cluster gap">
+      <div style="width: 3rem; height: 3rem; border-radius: 0.25rem; background: var(--color-status-ko);"></div>
+      <div><code>--color-status-ko</code><br><span>#d22</span></div>
+    </div>
+    <div class="cluster gap">
+      <div style="width: 3rem; height: 3rem; border-radius: 0.25rem; background: var(--color-status-info);"></div>
+      <div><code>--color-status-info</code><br><span>#26e</span></div>
+    </div>
+  </div>
+      </div>
 
-    <details class="margin-y-s">
-      <summary class="padding-s">Show code</summary>
-      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div class=&quot;cluster gap-s&quot; style=&quot;flex-wrap: wrap;&quot;&gt;
-  &lt;div class=&quot;cluster gap-s&quot;&gt;
-    &lt;div style=&quot;width: 3rem; height: 3rem; border-radius: 0.25rem; background: var(--color-status-ok);&quot;&gt;&lt;/div&gt;
-    &lt;div&gt;&lt;code&gt;--color-status-ok&lt;/code&gt;&lt;br&gt;&lt;span&gt;#1a4&lt;/span&gt;&lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;cluster gap-s&quot;&gt;
-    &lt;div style=&quot;width: 3rem; height: 3rem; border-radius: 0.25rem; background: var(--color-status-warning);&quot;&gt;&lt;/div&gt;
-    &lt;div&gt;&lt;code&gt;--color-status-warning&lt;/code&gt;&lt;br&gt;&lt;span&gt;#e90&lt;/span&gt;&lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;cluster gap-s&quot;&gt;
-    &lt;div style=&quot;width: 3rem; height: 3rem; border-radius: 0.25rem; background: var(--color-status-ko);&quot;&gt;&lt;/div&gt;
-    &lt;div&gt;&lt;code&gt;--color-status-ko&lt;/code&gt;&lt;br&gt;&lt;span&gt;#d22&lt;/span&gt;&lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;cluster gap-s&quot;&gt;
-    &lt;div style=&quot;width: 3rem; height: 3rem; border-radius: 0.25rem; background: var(--color-status-info);&quot;&gt;&lt;/div&gt;
-    &lt;div&gt;&lt;code&gt;--color-status-info&lt;/code&gt;&lt;br&gt;&lt;span&gt;#26e&lt;/span&gt;&lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</code></pre>
-    </details>
+      <details class="margin-y-s">
+        <summary>Show code</summary>
+        <pre class="padding-m"><code>&lt;div class=&quot;cluster gap-s&quot; style=&quot;flex-wrap: wrap;&quot;&gt;
+    &lt;div class=&quot;cluster gap-s&quot;&gt;
+      &lt;div style=&quot;width: 3rem; height: 3rem; border-radius: 0.25rem; background: var(--color-status-ok);&quot;&gt;&lt;/div&gt;
+      &lt;div&gt;&lt;code&gt;--color-status-ok&lt;/code&gt;&lt;br&gt;&lt;span&gt;#1a4&lt;/span&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;cluster gap-s&quot;&gt;
+      &lt;div style=&quot;width: 3rem; height: 3rem; border-radius: 0.25rem; background: var(--color-status-warning);&quot;&gt;&lt;/div&gt;
+      &lt;div&gt;&lt;code&gt;--color-status-warning&lt;/code&gt;&lt;br&gt;&lt;span&gt;#e90&lt;/span&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;cluster gap-s&quot;&gt;
+      &lt;div style=&quot;width: 3rem; height: 3rem; border-radius: 0.25rem; background: var(--color-status-ko);&quot;&gt;&lt;/div&gt;
+      &lt;div&gt;&lt;code&gt;--color-status-ko&lt;/code&gt;&lt;br&gt;&lt;span&gt;#d22&lt;/span&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;cluster gap-s&quot;&gt;
+      &lt;div style=&quot;width: 3rem; height: 3rem; border-radius: 0.25rem; background: var(--color-status-info);&quot;&gt;&lt;/div&gt;
+      &lt;div&gt;&lt;code&gt;--color-status-info&lt;/code&gt;&lt;br&gt;&lt;span&gt;#26e&lt;/span&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;</code></pre>
+      </details>
+  
+    </div>
   </section>
 
   <section>
-    <h2 class="heading-l">Brand tokens</h2>
-    <p>These two tokens are <strong>required</strong> and must be set by the consuming application before importing the library. The library does not provide defaults for them — components that depend on these tokens will fall back gracefully (e.g. focus rings use <code>#26e</code> as a fallback), but for correct brand-aligned rendering you must supply both.</p>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Brand tokens</h2>
+      <p>These two tokens are <strong>required</strong> and must be set by the consuming application before importing the library. The library does not provide defaults for them — components that depend on these tokens will fall back gracefully (e.g. focus rings use <code>#26e</code> as a fallback), but for correct brand-aligned rendering you must supply both.</p>
 
-    <table class="">
-      <thead>
-        <tr>
-          <th>Token</th>
-          <th>Required</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><code>--color-brand</code></td>
-          <td>Yes</td>
-          <td>Primary interactive color. Used for buttons, focus rings, links, and primary actions. Should have at least 4.5:1 contrast against white.</td>
-        </tr>
-        <tr>
-          <td><code>--color-accent</code></td>
-          <td>Yes</td>
-          <td>Secondary or highlight color. Used for decorative accents, hover states, and secondary actions.</td>
-        </tr>
-      </tbody>
-    </table>
+      <table class="">
+        <thead>
+          <tr>
+            <th>Token</th>
+            <th>Required</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>--color-brand</code></td>
+            <td>Yes</td>
+            <td>Primary interactive color. Used for buttons, focus rings, links, and primary actions. Should have at least 4.5:1 contrast against white.</td>
+          </tr>
+          <tr>
+            <td><code>--color-accent</code></td>
+            <td>Yes</td>
+            <td>Secondary or highlight color. Used for decorative accents, hover states, and secondary actions.</td>
+          </tr>
+        </tbody>
+      </table>
 
-    <p>Define them in your application before any Cubito UI import:</p>
-    <pre><code>:root {
-  --color-brand:  #0057d9;
-  --color-accent: #f5a623;
-}</code></pre>
+      <p>Define them in your application before any Cubito UI import:</p>
+      <pre><code>:root {
+    --color-brand:  #0057d9;
+    --color-accent: #f5a623;
+  }</code></pre>
+  
+    </div>
   </section>
 
   <section>
-    <h2 class="heading-l">Surface aliases</h2>
-    <p>These tokens map to semantic roles and automatically adapt in dark mode. Always use these in component styles — never reference neutral palette tokens directly.</p>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Surface aliases</h2>
+      <p>These tokens map to semantic roles and automatically adapt in dark mode. Always use these in component styles — never reference neutral palette tokens directly.</p>
 
-    <table class="">
-      <thead>
-        <tr><th>Token</th><th>Default (light)</th><th>Description</th></tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><code>--color</code></td>
-          <td><code>var(--color-black)</code></td>
-          <td>Default foreground / text color</td>
-        </tr>
-        <tr>
-          <td><code>--background</code></td>
-          <td><code>var(--color-white)</code></td>
-          <td>Default page background</td>
-        </tr>
-        <tr>
-          <td><code>--link-color</code></td>
-          <td><code>inherit</code></td>
-          <td>Default link color</td>
-        </tr>
-        <tr>
-          <td><code>--link-color-hover</code></td>
-          <td><code>var(--link-color)</code></td>
-          <td>Link color on hover</td>
-        </tr>
-        <tr>
-          <td><code>--highlight-background</code></td>
-          <td><code>color-mix(in srgb, currentColor 15%, transparent)</code></td>
-          <td>Mark / highlight background tint</td>
-        </tr>
-        <tr>
-          <td><code>--highlight-color</code></td>
-          <td><code>var(--color)</code></td>
-          <td>Mark / highlight foreground color</td>
-        </tr>
-      </tbody>
-    </table>
+      <table class="">
+        <thead>
+          <tr><th>Token</th><th>Default (light)</th><th>Description</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>--color</code></td>
+            <td><code>var(--color-black)</code></td>
+            <td>Default foreground / text color</td>
+          </tr>
+          <tr>
+            <td><code>--background</code></td>
+            <td><code>var(--color-white)</code></td>
+            <td>Default page background</td>
+          </tr>
+          <tr>
+            <td><code>--link-color</code></td>
+            <td><code>inherit</code></td>
+            <td>Default link color</td>
+          </tr>
+          <tr>
+            <td><code>--link-color-hover</code></td>
+            <td><code>var(--link-color)</code></td>
+            <td>Link color on hover</td>
+          </tr>
+          <tr>
+            <td><code>--highlight-background</code></td>
+            <td><code>color-mix(in srgb, currentColor 15%, transparent)</code></td>
+            <td>Mark / highlight background tint</td>
+          </tr>
+          <tr>
+            <td><code>--highlight-color</code></td>
+            <td><code>var(--color)</code></td>
+            <td>Mark / highlight foreground color</td>
+          </tr>
+        </tbody>
+      </table>
+  
+    </div>
   </section>
 
   <section>
-    <h2 class="heading-l">Dark mode</h2>
-    <p>All surface alias tokens automatically adapt when the operating system is set to dark mode via <code>prefers-color-scheme: dark</code>. No JavaScript or extra class names are needed. Neutral palette tokens (the raw <code>--color-neutral-*</code> values) do not change — they are fixed reference points. The semantic aliases are what switch.</p>
-    <div class="callout" data-variant="brand" role="note"><p>To test dark mode locally, toggle the OS appearance setting or use DevTools to emulate <code>prefers-color-scheme: dark</code>.</p></div>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Dark mode</h2>
+      <p>All surface alias tokens automatically adapt when the operating system is set to dark mode via <code>prefers-color-scheme: dark</code>. No JavaScript or extra class names are needed. Neutral palette tokens (the raw <code>--color-neutral-*</code> values) do not change — they are fixed reference points. The semantic aliases are what switch.</p>
+      <div class="callout wide" data-variant="brand" role="note"><p>To test dark mode locally, toggle the OS appearance setting or use DevTools to emulate <code>prefers-color-scheme: dark</code>.</p></div>
+  
+    </div>
   </section>
 
   <section>
-    <h2 class="heading-l">Border and focus tokens</h2>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Border and focus tokens</h2>
 
-    <table class="">
-      <thead>
-        <tr><th>Token</th><th>Default</th><th>Description</th></tr>
-      </thead>
-      <tbody>
-        <tr><td><code>--border-radius-s</code></td><td><code>0.125rem</code></td><td>Extra-small corner radius</td></tr>
-        <tr><td><code>--border-radius-m</code></td><td><code>0.25rem</code></td><td>Standard corner radius</td></tr>
-        <tr><td><code>--border-radius-l</code></td><td><code>0.5rem</code></td><td>Large corner radius (cards, modals)</td></tr>
-        <tr><td><code>--border-radius</code></td><td><code>var(--border-radius-m)</code></td><td>Base alias — override to change all corners globally</td></tr>
-        <tr><td><code>--border-s</code></td><td><code>0.0625rem</code> (~1px)</td><td>Hairline border width</td></tr>
-        <tr><td><code>--border-m</code></td><td><code>0.125rem</code> (~2px)</td><td>Standard border width</td></tr>
-        <tr><td><code>--border-l</code></td><td><code>0.25rem</code> (~4px)</td><td>Thick border width</td></tr>
-        <tr><td><code>--focus-ring-width</code></td><td><code>0.1875rem</code></td><td>Focus outline thickness</td></tr>
-        <tr><td><code>--focus-ring-offset</code></td><td><code>0.125rem</code></td><td>Gap between element and focus ring</td></tr>
-        <tr><td><code>--focus-ring-color</code></td><td><code>var(--color-brand, #26e)</code></td><td>Focus ring color (falls back to <code>#26e</code>)</td></tr>
-      </tbody>
-    </table>
+      <table class="">
+        <thead>
+          <tr><th>Token</th><th>Default</th><th>Description</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>--border-radius-s</code></td><td><code>0.125rem</code></td><td>Extra-small corner radius</td></tr>
+          <tr><td><code>--border-radius-m</code></td><td><code>0.25rem</code></td><td>Standard corner radius</td></tr>
+          <tr><td><code>--border-radius-l</code></td><td><code>0.5rem</code></td><td>Large corner radius (cards, modals)</td></tr>
+          <tr><td><code>--border-radius</code></td><td><code>var(--border-radius-m)</code></td><td>Base alias — override to change all corners globally</td></tr>
+          <tr><td><code>--border-s</code></td><td><code>0.0625rem</code> (~1px)</td><td>Hairline border width</td></tr>
+          <tr><td><code>--border-m</code></td><td><code>0.125rem</code> (~2px)</td><td>Standard border width</td></tr>
+          <tr><td><code>--border-l</code></td><td><code>0.25rem</code> (~4px)</td><td>Thick border width</td></tr>
+          <tr><td><code>--focus-ring-width</code></td><td><code>0.1875rem</code></td><td>Focus outline thickness</td></tr>
+          <tr><td><code>--focus-ring-offset</code></td><td><code>0.125rem</code></td><td>Gap between element and focus ring</td></tr>
+          <tr><td><code>--focus-ring-color</code></td><td><code>var(--color-brand, #26e)</code></td><td>Focus ring color (falls back to <code>#26e</code>)</td></tr>
+        </tbody>
+      </table>
+  
+    </div>
   </section>
 
   <section>
-    <h2 class="heading-l">All color tokens</h2>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">All color tokens</h2>
 
-    <table class="">
-      <thead>
-        <tr><th>Token</th><th>Default</th><th>Description</th></tr>
-      </thead>
-      <tbody>
-        <tr><td><code>--color-current</code></td><td><code>currentColor</code></td><td>Alias for <code>currentColor</code></td></tr>
-        <tr><td><code>--color-white</code></td><td><code>#ffffff</code></td><td>Pure white constant</td></tr>
-        <tr><td><code>--color-black</code></td><td><code>#0a0a0a</code></td><td>Near-black constant</td></tr>
-        <tr><td><code>--color-neutral-50</code></td><td><code>#fcfcfc</code></td><td>Lightest neutral</td></tr>
-        <tr><td><code>--color-neutral-100</code></td><td><code>#f5f5f5</code></td><td></td></tr>
-        <tr><td><code>--color-neutral-200</code></td><td><code>#e2e2e2</code></td><td>Subtle dividers, borders</td></tr>
-        <tr><td><code>--color-neutral-300</code></td><td><code>#c9c9c9</code></td><td>Disabled borders</td></tr>
-        <tr><td><code>--color-neutral-400</code></td><td><code>#999999</code></td><td>Placeholder text</td></tr>
-        <tr><td><code>--color-neutral-500</code></td><td><code>#6d6d6d</code></td><td>Secondary text</td></tr>
-        <tr><td><code>--color-neutral-600</code></td><td><code>#4b4b4b</code></td><td></td></tr>
-        <tr><td><code>--color-neutral-700</code></td><td><code>#333333</code></td><td>Body text on light</td></tr>
-        <tr><td><code>--color-neutral-800</code></td><td><code>#1e1e1e</code></td><td>Dark surface</td></tr>
-        <tr><td><code>--color-neutral-900</code></td><td><code>#121212</code></td><td>Darkest surface</td></tr>
-        <tr><td><code>--color-neutral-950</code></td><td><code>#0a0a0a</code></td><td>Near-black surface</td></tr>
-        <tr><td><code>--color-status-ok</code></td><td><code>#1a4</code></td><td>Success / positive state</td></tr>
-        <tr><td><code>--color-status-warning</code></td><td><code>#e90</code></td><td>Warning / caution state</td></tr>
-        <tr><td><code>--color-status-ko</code></td><td><code>#d22</code></td><td>Error / destructive state</td></tr>
-        <tr><td><code>--color-status-info</code></td><td><code>#26e</code></td><td>Informational state</td></tr>
-        <tr><td><code>--color-brand</code></td><td><em>Required — set by app</em></td><td>Primary brand color</td></tr>
-        <tr><td><code>--color-accent</code></td><td><em>Required — set by app</em></td><td>Secondary accent color</td></tr>
-      </tbody>
-    </table>
+      <table class="">
+        <thead>
+          <tr><th>Token</th><th>Default</th><th>Description</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>--color-current</code></td><td><code>currentColor</code></td><td>Alias for <code>currentColor</code></td></tr>
+          <tr><td><code>--color-white</code></td><td><code>#ffffff</code></td><td>Pure white constant</td></tr>
+          <tr><td><code>--color-black</code></td><td><code>#0a0a0a</code></td><td>Near-black constant</td></tr>
+          <tr><td><code>--color-neutral-50</code></td><td><code>#fcfcfc</code></td><td>Lightest neutral</td></tr>
+          <tr><td><code>--color-neutral-100</code></td><td><code>#f5f5f5</code></td><td></td></tr>
+          <tr><td><code>--color-neutral-200</code></td><td><code>#e2e2e2</code></td><td>Subtle dividers, borders</td></tr>
+          <tr><td><code>--color-neutral-300</code></td><td><code>#c9c9c9</code></td><td>Disabled borders</td></tr>
+          <tr><td><code>--color-neutral-400</code></td><td><code>#999999</code></td><td>Placeholder text</td></tr>
+          <tr><td><code>--color-neutral-500</code></td><td><code>#6d6d6d</code></td><td>Secondary text</td></tr>
+          <tr><td><code>--color-neutral-600</code></td><td><code>#4b4b4b</code></td><td></td></tr>
+          <tr><td><code>--color-neutral-700</code></td><td><code>#333333</code></td><td>Body text on light</td></tr>
+          <tr><td><code>--color-neutral-800</code></td><td><code>#1e1e1e</code></td><td>Dark surface</td></tr>
+          <tr><td><code>--color-neutral-900</code></td><td><code>#121212</code></td><td>Darkest surface</td></tr>
+          <tr><td><code>--color-neutral-950</code></td><td><code>#0a0a0a</code></td><td>Near-black surface</td></tr>
+          <tr><td><code>--color-status-ok</code></td><td><code>#1a4</code></td><td>Success / positive state</td></tr>
+          <tr><td><code>--color-status-warning</code></td><td><code>#e90</code></td><td>Warning / caution state</td></tr>
+          <tr><td><code>--color-status-ko</code></td><td><code>#d22</code></td><td>Error / destructive state</td></tr>
+          <tr><td><code>--color-status-info</code></td><td><code>#26e</code></td><td>Informational state</td></tr>
+          <tr><td><code>--color-brand</code></td><td><em>Required — set by app</em></td><td>Primary brand color</td></tr>
+          <tr><td><code>--color-accent</code></td><td><em>Required — set by app</em></td><td>Secondary accent color</td></tr>
+        </tbody>
+      </table>
+  
+    </div>
   </section>
 
 </article>

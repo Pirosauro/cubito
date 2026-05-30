@@ -4,7 +4,7 @@
 {% block content %}
 <article class="flow">
 
-  <header class="padding-y-m margin-y-m" style="border-block-end: 1px solid var(--color-neutral-200);">
+  <header class="flow" style="padding-block-end: var(--space-l); border-block-end: var(--border-s) solid var(--color-neutral-200);">
     <nav aria-label="Breadcrumb" class="breadcrumb">
       <ol>
         <li><a href="/">Home</a></li>
@@ -13,144 +13,146 @@
       </ol>
     </nav>
     <h1>Cluster</h1>
-    <p class="text-l color-neutral-600">Distributes items with consistent spacing, wrapping naturally when they run out of space — no media queries needed.</p>
+    <p class="text-m color-neutral-600">Distributes items with consistent spacing, wrapping naturally when they run out of space — no media queries needed.</p>
   </header>
 
   <section>
-    <h2 class="heading-l">Basic</h2>
-    <p>Items in a <code>.cluster</code> wrap to new lines automatically when the container is too narrow to fit them all on one row.</p>
-    
-    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
-<div class="cluster">
-  <div style="background: #e0e7ff; padding: 1rem; border-radius: 0.25rem; text-align: center;">Item one</div>
-  <div style="background: #c7d2fe; padding: 1rem; border-radius: 0.25rem; text-align: center;">Item two</div>
-  <div style="background: #a5b4fc; padding: 1rem; border-radius: 0.25rem; text-align: center;">Item three</div>
-  <div style="background: #818cf8; color: #fff; padding: 1rem; border-radius: 0.25rem; text-align: center;">Item four</div>
-  <div style="background: #6366f1; color: #fff; padding: 1rem; border-radius: 0.25rem; text-align: center;">Item five</div>
-  <div style="background: #4f46e5; color: #fff; padding: 1rem; border-radius: 0.25rem; text-align: center;">Item six</div>
-</div>
-    </div>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Basic</h2>
+      <p>Items in a <code>.cluster</code> wrap to new lines automatically when the container is too narrow to fit them all on one row.</p>
 
-    <details class="margin-y-s">
-      <summary class="padding-s">Show code</summary>
-      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div class=&quot;cluster&quot;&gt;
-  &lt;div style=&quot;background: #e0e7ff; padding: 1rem; border-radius: 0.25rem; text-align: center;&quot;&gt;Item one&lt;/div&gt;
-  &lt;div style=&quot;background: #c7d2fe; padding: 1rem; border-radius: 0.25rem; text-align: center;&quot;&gt;Item two&lt;/div&gt;
-  &lt;div style=&quot;background: #a5b4fc; padding: 1rem; border-radius: 0.25rem; text-align: center;&quot;&gt;Item three&lt;/div&gt;
-  &lt;div style=&quot;background: #818cf8; color: #fff; padding: 1rem; border-radius: 0.25rem; text-align: center;&quot;&gt;Item four&lt;/div&gt;
-  &lt;div style=&quot;background: #6366f1; color: #fff; padding: 1rem; border-radius: 0.25rem; text-align: center;&quot;&gt;Item five&lt;/div&gt;
-  &lt;div style=&quot;background: #4f46e5; color: #fff; padding: 1rem; border-radius: 0.25rem; text-align: center;&quot;&gt;Item six&lt;/div&gt;
-&lt;/div&gt;</code></pre>
-    </details>
+      <div class="">
+        <div class="cluster">
+          <div style="width: 25%">Item one</div>
+          <div style="width: 25%">Item two</div>
+          <div style="width: 25%">Item three</div>
+          <div style="width: 25%">Item four</div>
+          <div style="width: 25%">Item five</div>
+          <div style="width: 25%">Item six</div>
+        </div>
+      </div>
+
+      <details class="margin-y-s">
+        <summary>Show code</summary>
+        <pre class="padding-m"><code>&lt;div class=&quot;cluster&quot;&gt;
+    &lt;div class=&quot;docs-demo-chip docs-demo-chip--1&quot;&gt;Item one&lt;/div&gt;
+    &lt;div class=&quot;docs-demo-chip docs-demo-chip--2&quot;&gt;Item two&lt;/div&gt;
+    &lt;div class=&quot;docs-demo-chip docs-demo-chip--3&quot;&gt;Item three&lt;/div&gt;
+    &lt;div class=&quot;docs-demo-chip docs-demo-chip--4&quot;&gt;Item four&lt;/div&gt;
+    &lt;div class=&quot;docs-demo-chip docs-demo-chip--5&quot;&gt;Item five&lt;/div&gt;
+    &lt;div class=&quot;docs-demo-chip docs-demo-chip--6&quot;&gt;Item six&lt;/div&gt;
+  &lt;/div&gt;</code></pre>
+      </details>
+  
+    </div>
   </section>
 
   <section>
-    <h2 class="heading-l">With real content</h2>
-    <p>A cluster is ideal for tag clouds, badge groups, and filter bars where items have variable widths.</p>
-    
-    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
-<div class="cluster" style="--gutter: var(--space-2xs)">
-  <span class="badge">All</span>
-  <span class="badge" data-variant="info">Design</span>
-  <span class="badge" data-variant="success">Engineering</span>
-  <span class="badge" data-variant="warning">Product</span>
-  <span class="badge" data-variant="error">Leadership</span>
-  <span class="badge">Strategy</span>
-  <span class="badge" data-variant="info">Research</span>
-</div>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">With real content</h2>
+      <p>A cluster is ideal for tag clouds, badge groups, and filter bars where items have variable widths.</p>
+
+      <div class="">
+        <div class="cluster" style="--gutter: var(--space-xxs);">
+          <span class="badge">All</span>
+          <span class="badge" data-variant="info">Design</span>
+          <span class="badge" data-variant="success">Engineering</span>
+          <span class="badge" data-variant="warning">Product</span>
+          <span class="badge" data-variant="error">Leadership</span>
+          <span class="badge">Strategy</span>
+          <span class="badge" data-variant="info">Research</span>
+        </div>
+      </div>
+
+      <details class="margin-y-s">
+        <summary>Show code</summary>
+        <pre class="padding-m"><code>&lt;div class=&quot;cluster&quot; style=&quot;--gutter: var(--space-xxs);&quot;&gt;
+    &lt;span class=&quot;badge&quot;&gt;All&lt;/span&gt;
+    …
+  &lt;/div&gt;</code></pre>
+      </details>
+
+      {% capture demo2 %}
+  <div class="cluster">
+    <button class="button" data-variant="outline">Reset filters</button>
+    <button class="button" data-variant="outline">Price: low to high</button>
+    <button class="button" data-variant="outline">In stock only</button>
+    <button class="button" data-variant="outline">Free shipping</button>
+    <button class="button">Apply</button>
+  </div>
+      {% endcapture %}
+      {% include "partials/demo.liquid", html: demo2, title: "Filter bar using buttons" %}
+  
     </div>
-
-    <details class="margin-y-s">
-      <summary class="padding-s">Show code</summary>
-      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div class=&quot;cluster&quot; style=&quot;--gutter: var(--space-2xs)&quot;&gt;
-  &lt;span class=&quot;badge&quot;&gt;All&lt;/span&gt;
-  &lt;span class=&quot;badge&quot; data-variant=&quot;info&quot;&gt;Design&lt;/span&gt;
-  &lt;span class=&quot;badge&quot; data-variant=&quot;success&quot;&gt;Engineering&lt;/span&gt;
-  &lt;span class=&quot;badge&quot; data-variant=&quot;warning&quot;&gt;Product&lt;/span&gt;
-  &lt;span class=&quot;badge&quot; data-variant=&quot;error&quot;&gt;Leadership&lt;/span&gt;
-  &lt;span class=&quot;badge&quot;&gt;Strategy&lt;/span&gt;
-  &lt;span class=&quot;badge&quot; data-variant=&quot;info&quot;&gt;Research&lt;/span&gt;
-&lt;/div&gt;</code></pre>
-    </details>
-
-    {% capture demo2 %}
-<div class="cluster">
-  <button class="button" data-variant="outline">Reset filters</button>
-  <button class="button" data-variant="outline">Price: low to high</button>
-  <button class="button" data-variant="outline">In stock only</button>
-  <button class="button" data-variant="outline">Free shipping</button>
-  <button class="button">Apply</button>
-</div>
-    {% endcapture %}
-    {% include "partials/demo.liquid", html: demo2, title: "Filter bar using buttons" %}
   </section>
 
   <section>
-    <h2 class="heading-l">Alignment</h2>
-    <p>Override <code>--cluster-horizontal-alignment</code> to control how items are distributed along the main axis.</p>
-    
-    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
-<p style="margin-block-end: 0.5rem; font-size: 0.875rem; color: #6b7280;">center</p>
-<div class="cluster" style="--cluster-horizontal-alignment: center; background: #f8fafc; padding: 1rem; border-radius: 0.25rem;">
-  <div style="background: #e0e7ff; padding: 0.75rem 1.25rem; border-radius: 0.25rem;">Alpha</div>
-  <div style="background: #c7d2fe; padding: 0.75rem 1.25rem; border-radius: 0.25rem;">Beta</div>
-  <div style="background: #a5b4fc; padding: 0.75rem 1.25rem; border-radius: 0.25rem;">Gamma</div>
-</div>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Alignment</h2>
+      <p>Override <code>--cluster-horizontal-alignment</code> to control how items are distributed along the main axis.</p>
 
-<p style="margin-block-start: 1rem; margin-block-end: 0.5rem; font-size: 0.875rem; color: #6b7280;">flex-end</p>
-<div class="cluster" style="--cluster-horizontal-alignment: flex-end; background: #f8fafc; padding: 1rem; border-radius: 0.25rem;">
-  <div style="background: #818cf8; color: #fff; padding: 0.75rem 1.25rem; border-radius: 0.25rem;">Alpha</div>
-  <div style="background: #6366f1; color: #fff; padding: 0.75rem 1.25rem; border-radius: 0.25rem;">Beta</div>
-  <div style="background: #4f46e5; color: #fff; padding: 0.75rem 1.25rem; border-radius: 0.25rem;">Gamma</div>
-</div>
+      <div class=" flow" style="--flow-space: var(--space-m);">
+        <div>
+          <p class="text-s color-neutral-600 docs-caption">center</p>
+          <div class="cluster docs-demo-panel" style="--cluster-horizontal-alignment: center;">
+            <div class="docs-demo-chip docs-demo-chip--1 padding-x-m">Alpha</div>
+            <div class="docs-demo-chip docs-demo-chip--2 padding-x-m">Beta</div>
+            <div class="docs-demo-chip docs-demo-chip--3 padding-x-m">Gamma</div>
+          </div>
+        </div>
+
+        <div>
+          <p class="text-s color-neutral-600 docs-caption">flex-end</p>
+          <div class="cluster docs-demo-panel" style="--cluster-horizontal-alignment: flex-end;">
+            <div class="docs-demo-chip docs-demo-chip--4 padding-x-m">Alpha</div>
+            <div class="docs-demo-chip docs-demo-chip--5 padding-x-m">Beta</div>
+            <div class="docs-demo-chip docs-demo-chip--6 padding-x-m">Gamma</div>
+          </div>
+        </div>
+      </div>
+
+      <details class="margin-y-s">
+        <summary>Show code</summary>
+        <pre class="padding-m"><code>&lt;div class=&quot;cluster docs-demo-panel&quot; style=&quot;--cluster-horizontal-alignment: center;&quot;&gt;
+    &lt;div class=&quot;docs-demo-chip docs-demo-chip--1&quot;&gt;Alpha&lt;/div&gt;
+    …
+  &lt;/div&gt;</code></pre>
+      </details>
+  
     </div>
-
-    <details class="margin-y-s">
-      <summary class="padding-s">Show code</summary>
-      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;p style=&quot;margin-block-end: 0.5rem; font-size: 0.875rem; color: #6b7280;&quot;&gt;center&lt;/p&gt;
-&lt;div class=&quot;cluster&quot; style=&quot;--cluster-horizontal-alignment: center; background: #f8fafc; padding: 1rem; border-radius: 0.25rem;&quot;&gt;
-  &lt;div style=&quot;background: #e0e7ff; padding: 0.75rem 1.25rem; border-radius: 0.25rem;&quot;&gt;Alpha&lt;/div&gt;
-  &lt;div style=&quot;background: #c7d2fe; padding: 0.75rem 1.25rem; border-radius: 0.25rem;&quot;&gt;Beta&lt;/div&gt;
-  &lt;div style=&quot;background: #a5b4fc; padding: 0.75rem 1.25rem; border-radius: 0.25rem;&quot;&gt;Gamma&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;p style=&quot;margin-block-start: 1rem; margin-block-end: 0.5rem; font-size: 0.875rem; color: #6b7280;&quot;&gt;flex-end&lt;/p&gt;
-&lt;div class=&quot;cluster&quot; style=&quot;--cluster-horizontal-alignment: flex-end; background: #f8fafc; padding: 1rem; border-radius: 0.25rem;&quot;&gt;
-  &lt;div style=&quot;background: #818cf8; color: #fff; padding: 0.75rem 1.25rem; border-radius: 0.25rem;&quot;&gt;Alpha&lt;/div&gt;
-  &lt;div style=&quot;background: #6366f1; color: #fff; padding: 0.75rem 1.25rem; border-radius: 0.25rem;&quot;&gt;Beta&lt;/div&gt;
-  &lt;div style=&quot;background: #4f46e5; color: #fff; padding: 0.75rem 1.25rem; border-radius: 0.25rem;&quot;&gt;Gamma&lt;/div&gt;
-&lt;/div&gt;</code></pre>
-    </details>
   </section>
 
   <section>
-    <h2 class="heading-l">Tokens</h2>
-    <table class="">
-      <thead>
-        <tr>
-          <th>Token</th>
-          <th>Default</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><code>--gutter</code></td>
-          <td><code>var(--space-s-l)</code></td>
-          <td>Gap between items. Falls back to the global <code>--space-s-l</code> fluid spacing token.</td>
-        </tr>
-        <tr>
-          <td><code>--cluster-horizontal-alignment</code></td>
-          <td><code>flex-start</code></td>
-          <td>Controls <code>justify-content</code>. Accepts any flex alignment value.</td>
-        </tr>
-        <tr>
-          <td><code>--cluster-vertical-alignment</code></td>
-          <td><code>center</code></td>
-          <td>Controls <code>align-items</code>. Accepts any flex alignment value.</td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Tokens</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Token</th>
+            <th>Default</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>--gutter</code></td>
+            <td><code>var(--space-s-l)</code></td>
+            <td>Gap between items. Falls back to the global <code>--space-s-l</code> fluid spacing token.</td>
+          </tr>
+          <tr>
+            <td><code>--cluster-horizontal-alignment</code></td>
+            <td><code>flex-start</code></td>
+            <td>Controls <code>justify-content</code>. Accepts any flex alignment value.</td>
+          </tr>
+          <tr>
+            <td><code>--cluster-vertical-alignment</code></td>
+            <td><code>center</code></td>
+            <td>Controls <code>align-items</code>. Accepts any flex alignment value.</td>
+          </tr>
+        </tbody>
+      </table>
+  
+    </div>
   </section>
 
 </article>

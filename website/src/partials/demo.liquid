@@ -1,9 +1,9 @@
-<div class="docs-example">
-  {% if title %}<p class="docs-example__label">{{ title }}</p>{% endif %}
-  <div class="docs-demo">
+<div class="example">
+  {% if title %}<p class="example__label">{{ title }}</p>{% endif %}
+  <div class="example__demo">
     {{ html }}
   </div>
-  <details class="docs-code">
+  <details>
     <summary>Show HTML</summary>
     <pre><code>{{ html | strip | xml_escape }}</code></pre>
   </details>

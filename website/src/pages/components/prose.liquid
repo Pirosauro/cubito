@@ -4,7 +4,7 @@
 {% block content %}
 <article class="flow">
 
-  <header class="padding-y-m margin-y-m" style="border-block-end: 1px solid var(--color-neutral-200);">
+  <header class="flow" style="padding-block-end: var(--space-l); border-block-end: var(--border-s) solid var(--color-neutral-200);">
     <nav aria-label="Breadcrumb" class="breadcrumb">
       <ol>
         <li><a href="/">Home</a></li>
@@ -13,103 +13,112 @@
       </ol>
     </nav>
     <h1>Prose</h1>
-    <p class="text-l color-neutral-600">Applies generous line-height and constrains measure for long-form reading comfort. Pair with <code>.flow</code> for vertical rhythm.</p>
+    <p class="text-m color-neutral-600">Applies generous line-height and constrains measure for long-form reading comfort. Pair with <code>.flow</code> for vertical rhythm.</p>
   </header>
 
   <section>
-    <h2 class="heading-l">Article excerpt</h2>
-    <p>Add <code>class="prose flow"</code> to any container holding editorial content. The component handles spacing between paragraphs, headings, blockquotes, lists, and code blocks automatically.</p>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Article excerpt</h2>
+      <p>Add <code>class="prose flow"</code> to any container holding editorial content. The component handles spacing between paragraphs, headings, blockquotes, lists, and code blocks automatically.</p>
     
-    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
-<article class="prose flow">
-  <h2 class="heading-l">Getting started with CSS custom properties</h2>
-  <p>Custom properties — also known as CSS variables — allow you to store values in reusable named slots that cascade down the DOM. Unlike preprocessor variables, they are live and can be updated at runtime with JavaScript or overridden in any descendant scope.</p>
-  <p>They are particularly powerful in design systems because a single token change propagates consistently across every component that references it. You define a value once at the <code>:root</code> and all consuming components stay in sync.</p>
-  <blockquote>
-    <p>Tokens are the atoms of a design system — every visual decision expressed as a constraint.</p>
-  </blockquote>
-  <h3>A basic example</h3>
-  <p>Declare a custom property in a high-level selector, then consume it anywhere below:</p>
-  <ul>
-    <li>Define tokens on <code>:root</code> so they are globally available.</li>
-    <li>Override tokens at the component level using a scoped selector.</li>
-    <li>Override tokens inline with the <code>style</code> attribute for one-off adjustments.</li>
-  </ul>
-  <p>Read the <a href="#">full specification on MDN</a> for advanced usage including <code>@property</code> registrations, which enable smooth animation between token values.</p>
-</article>
-    </div>
+      <div class="">
+  <article class="prose flow">
+    <h2 class="heading-l">Getting started with CSS custom properties</h2>
+    <p>Custom properties — also known as CSS variables — allow you to store values in reusable named slots that cascade down the DOM. Unlike preprocessor variables, they are live and can be updated at runtime with JavaScript or overridden in any descendant scope.</p>
+    <p>They are particularly powerful in design systems because a single token change propagates consistently across every component that references it. You define a value once at the <code>:root</code> and all consuming components stay in sync.</p>
+    <blockquote>
+      <p>Tokens are the atoms of a design system — every visual decision expressed as a constraint.</p>
+    </blockquote>
+    <h3>A basic example</h3>
+    <p>Declare a custom property in a high-level selector, then consume it anywhere below:</p>
+    <ul>
+      <li>Define tokens on <code>:root</code> so they are globally available.</li>
+      <li>Override tokens at the component level using a scoped selector.</li>
+      <li>Override tokens inline with the <code>style</code> attribute for one-off adjustments.</li>
+    </ul>
+    <p>Read the <a href="#">full specification on MDN</a> for advanced usage including <code>@property</code> registrations, which enable smooth animation between token values.</p>
+  </article>
+      </div>
 
-    <details class="margin-y-s">
-      <summary class="padding-s">Show code</summary>
-      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;article class=&quot;prose flow&quot;&gt;
-  &lt;h2 class=&quot;heading-l&quot;&gt;Getting started with CSS custom properties&lt;/h2&gt;
-  &lt;p&gt;Custom properties — also known as CSS variables — allow you to store values in reusable named slots that cascade down the DOM. Unlike preprocessor variables, they are live and can be updated at runtime with JavaScript or overridden in any descendant scope.&lt;/p&gt;
-  &lt;p&gt;They are particularly powerful in design systems because a single token change propagates consistently across every component that references it. You define a value once at the &lt;code&gt;:root&lt;/code&gt; and all consuming components stay in sync.&lt;/p&gt;
-  &lt;blockquote&gt;
-    &lt;p&gt;Tokens are the atoms of a design system — every visual decision expressed as a constraint.&lt;/p&gt;
-  &lt;/blockquote&gt;
-  &lt;h3&gt;A basic example&lt;/h3&gt;
-  &lt;p&gt;Declare a custom property in a high-level selector, then consume it anywhere below:&lt;/p&gt;
-  &lt;ul&gt;
-    &lt;li&gt;Define tokens on &lt;code&gt;:root&lt;/code&gt; so they are globally available.&lt;/li&gt;
-    &lt;li&gt;Override tokens at the component level using a scoped selector.&lt;/li&gt;
-    &lt;li&gt;Override tokens inline with the &lt;code&gt;style&lt;/code&gt; attribute for one-off adjustments.&lt;/li&gt;
-  &lt;/ul&gt;
-  &lt;p&gt;Read the &lt;a href=&quot;#&quot;&gt;full specification on MDN&lt;/a&gt; for advanced usage including &lt;code&gt;@property&lt;/code&gt; registrations, which enable smooth animation between token values.&lt;/p&gt;
-&lt;/article&gt;</code></pre>
-    </details>
+      <details class="margin-y-s">
+        <summary>Show code</summary>
+        <pre class="padding-m"><code>&lt;article class=&quot;prose flow&quot;&gt;
+    &lt;h2 class=&quot;heading-l&quot;&gt;Getting started with CSS custom properties&lt;/h2&gt;
+    &lt;p&gt;Custom properties — also known as CSS variables — allow you to store values in reusable named slots that cascade down the DOM. Unlike preprocessor variables, they are live and can be updated at runtime with JavaScript or overridden in any descendant scope.&lt;/p&gt;
+    &lt;p&gt;They are particularly powerful in design systems because a single token change propagates consistently across every component that references it. You define a value once at the &lt;code&gt;:root&lt;/code&gt; and all consuming components stay in sync.&lt;/p&gt;
+    &lt;blockquote&gt;
+      &lt;p&gt;Tokens are the atoms of a design system — every visual decision expressed as a constraint.&lt;/p&gt;
+    &lt;/blockquote&gt;
+    &lt;h3&gt;A basic example&lt;/h3&gt;
+    &lt;p&gt;Declare a custom property in a high-level selector, then consume it anywhere below:&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Define tokens on &lt;code&gt;:root&lt;/code&gt; so they are globally available.&lt;/li&gt;
+      &lt;li&gt;Override tokens at the component level using a scoped selector.&lt;/li&gt;
+      &lt;li&gt;Override tokens inline with the &lt;code&gt;style&lt;/code&gt; attribute for one-off adjustments.&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;p&gt;Read the &lt;a href=&quot;#&quot;&gt;full specification on MDN&lt;/a&gt; for advanced usage including &lt;code&gt;@property&lt;/code&gt; registrations, which enable smooth animation between token values.&lt;/p&gt;
+  &lt;/article&gt;</code></pre>
+      </details>
+  
+    </div>
   </section>
 
   <section>
-    <h2 class="heading-l">Controlling line length</h2>
-    <p>Override <code>--prose-measure</code> to widen or narrow the optimal reading column. The default is the global <code>--width-l</code> token (approximately 65ch).</p>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Controlling line length</h2>
+      <p>Override <code>--prose-measure</code> to widen or narrow the optimal reading column. The default is the global <code>--width-l</code> token (approximately 65ch).</p>
     
-    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
-<article class="prose flow" style="--prose-measure: 50ch">
-  <h2 class="heading-l">A narrower column</h2>
-  <p>Setting <code>--prose-measure</code> to <code>50ch</code> keeps the reading column tighter — a good choice for sidebar content or narrow layout regions where the full default width would feel too open.</p>
-  <p>The component uses <code>max-width</code> rather than <code>width</code>, so the column collapses gracefully on small screens without any media queries.</p>
-</article>
-    </div>
+      <div class="">
+  <article class="prose flow" style="--prose-measure: 50ch">
+    <h2 class="heading-l">A narrower column</h2>
+    <p>Setting <code>--prose-measure</code> to <code>50ch</code> keeps the reading column tighter — a good choice for sidebar content or narrow layout regions where the full default width would feel too open.</p>
+    <p>The component uses <code>max-width</code> rather than <code>width</code>, so the column collapses gracefully on small screens without any media queries.</p>
+  </article>
+      </div>
 
-    <details class="margin-y-s">
-      <summary class="padding-s">Show code</summary>
-      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;article class=&quot;prose flow&quot; style=&quot;--prose-measure: 50ch&quot;&gt;
-  &lt;h2 class=&quot;heading-l&quot;&gt;A narrower column&lt;/h2&gt;
-  &lt;p&gt;Setting &lt;code&gt;--prose-measure&lt;/code&gt; to &lt;code&gt;50ch&lt;/code&gt; keeps the reading column tighter — a good choice for sidebar content or narrow layout regions where the full default width would feel too open.&lt;/p&gt;
-  &lt;p&gt;The component uses &lt;code&gt;max-width&lt;/code&gt; rather than &lt;code&gt;width&lt;/code&gt;, so the column collapses gracefully on small screens without any media queries.&lt;/p&gt;
-&lt;/article&gt;</code></pre>
-    </details>
+      <details class="margin-y-s">
+        <summary>Show code</summary>
+        <pre class="padding-m"><code>&lt;article class=&quot;prose flow&quot; style=&quot;--prose-measure: 50ch&quot;&gt;
+    &lt;h2 class=&quot;heading-l&quot;&gt;A narrower column&lt;/h2&gt;
+    &lt;p&gt;Setting &lt;code&gt;--prose-measure&lt;/code&gt; to &lt;code&gt;50ch&lt;/code&gt; keeps the reading column tighter — a good choice for sidebar content or narrow layout regions where the full default width would feel too open.&lt;/p&gt;
+    &lt;p&gt;The component uses &lt;code&gt;max-width&lt;/code&gt; rather than &lt;code&gt;width&lt;/code&gt;, so the column collapses gracefully on small screens without any media queries.&lt;/p&gt;
+  &lt;/article&gt;</code></pre>
+      </details>
+  
+    </div>
   </section>
 
   <section>
-    <h2 class="heading-l">Tokens</h2>
-    <table class="">
-      <thead>
-        <tr>
-          <th>Token</th>
-          <th>Default</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><code>--prose-measure</code></td>
-          <td><code>var(--width-l)</code></td>
-          <td>Maximum line length for paragraphs and lists.</td>
-        </tr>
-        <tr>
-          <td><code>--prose-line-height</code></td>
-          <td><code>var(--line-height-l)</code></td>
-          <td>Line height for body copy inside prose.</td>
-        </tr>
-        <tr>
-          <td><code>--prose-flow-space</code></td>
-          <td><code>var(--space-s-m)</code></td>
-          <td>Default vertical gap between sibling elements. Sets <code>--flow-space</code> internally.</td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Tokens</h2>
+      <table class="">
+        <thead>
+          <tr>
+            <th>Token</th>
+            <th>Default</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>--prose-measure</code></td>
+            <td><code>var(--width-l)</code></td>
+            <td>Maximum line length for paragraphs and lists.</td>
+          </tr>
+          <tr>
+            <td><code>--prose-line-height</code></td>
+            <td><code>var(--line-height-l)</code></td>
+            <td>Line height for body copy inside prose.</td>
+          </tr>
+          <tr>
+            <td><code>--prose-flow-space</code></td>
+            <td><code>var(--space-s-m)</code></td>
+            <td>Default vertical gap between sibling elements. Sets <code>--flow-space</code> internally.</td>
+          </tr>
+        </tbody>
+      </table>
+  
+    </div>
   </section>
 
 </article>

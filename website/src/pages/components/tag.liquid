@@ -4,7 +4,7 @@
 {% block content %}
 <article class="flow">
 
-  <header class="padding-y-m margin-y-m" style="border-block-end: 1px solid var(--color-neutral-200);">
+  <header class="flow" style="padding-block-end: var(--space-l); border-block-end: var(--border-s) solid var(--color-neutral-200);">
     <nav aria-label="Breadcrumb" class="breadcrumb">
       <ol>
         <li><a href="/">Home</a></li>
@@ -13,209 +13,224 @@
       </ol>
     </nav>
     <h1>Tag</h1>
-    <p class="text-l color-neutral-600">Compact labels for taxonomy, filters, and attribute display. Static tags are purely presentational; chips are interactive and can be selected or dismissed.</p>
+    <p class="text-m color-neutral-600">Compact labels for taxonomy, filters, and attribute display. Static tags are purely presentational; chips are interactive and can be selected or dismissed.</p>
   </header>
 
   <section>
-    <h2 class="heading-l">Static tags</h2>
-    <p>Use a <code>&lt;span class="tag"&gt;</code> for read-only taxonomy labels. Combine with <code>.cluster</code> to wrap multiple tags with consistent spacing.</p>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Static tags</h2>
+      <p>Use a <code>&lt;span class="tag"&gt;</code> for read-only taxonomy labels. Combine with <code>.cluster</code> to wrap multiple tags with consistent spacing.</p>
     
-    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
-<div class="cluster">
-  <span class="tag">JavaScript</span>
-  <span class="tag">TypeScript</span>
-  <span class="tag">CSS</span>
-  <span class="tag">HTML</span>
-  <span class="tag">Accessibility</span>
-</div>
-    </div>
+      <div class="">
+  <div class="cluster">
+    <span class="tag">JavaScript</span>
+    <span class="tag">TypeScript</span>
+    <span class="tag">CSS</span>
+    <span class="tag">HTML</span>
+    <span class="tag">Accessibility</span>
+  </div>
+      </div>
 
-    <details class="margin-y-s">
-      <summary class="padding-s">Show code</summary>
-      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div class=&quot;cluster&quot;&gt;
-  &lt;span class=&quot;tag&quot;&gt;JavaScript&lt;/span&gt;
-  &lt;span class=&quot;tag&quot;&gt;TypeScript&lt;/span&gt;
-  &lt;span class=&quot;tag&quot;&gt;CSS&lt;/span&gt;
-  &lt;span class=&quot;tag&quot;&gt;HTML&lt;/span&gt;
-  &lt;span class=&quot;tag&quot;&gt;Accessibility&lt;/span&gt;
-&lt;/div&gt;</code></pre>
-    </details>
+      <details class="margin-y-s">
+        <summary>Show code</summary>
+        <pre class="padding-m"><code>&lt;div class=&quot;cluster&quot;&gt;
+    &lt;span class=&quot;tag&quot;&gt;JavaScript&lt;/span&gt;
+    &lt;span class=&quot;tag&quot;&gt;TypeScript&lt;/span&gt;
+    &lt;span class=&quot;tag&quot;&gt;CSS&lt;/span&gt;
+    &lt;span class=&quot;tag&quot;&gt;HTML&lt;/span&gt;
+    &lt;span class=&quot;tag&quot;&gt;Accessibility&lt;/span&gt;
+  &lt;/div&gt;</code></pre>
+      </details>
+  
+    </div>
   </section>
 
   <section>
-    <h2 class="heading-l">Selectable chips</h2>
-    <p>Use a <code>&lt;button class="tag" aria-pressed="…"&gt;</code> for toggle filters. Update <code>aria-pressed</code> to <code>"true"</code> when selected — the visual selected state is driven entirely by CSS.</p>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Selectable chips</h2>
+      <p>Use a <code>&lt;button class="tag" aria-pressed="…"&gt;</code> for toggle filters. Update <code>aria-pressed</code> to <code>"true"</code> when selected — the visual selected state is driven entirely by CSS.</p>
     
-    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
-<div class="cluster">
-  <button class="tag" aria-pressed="false">Free shipping</button>
-  <button class="tag" aria-pressed="true">In stock</button>
-  <button class="tag" aria-pressed="false">On sale</button>
-  <button class="tag" aria-pressed="true">New arrivals</button>
-  <button class="tag" aria-pressed="false">Under £20</button>
-</div>
-    </div>
+      <div class="">
+  <div class="cluster">
+    <button class="tag" aria-pressed="false">Free shipping</button>
+    <button class="tag" aria-pressed="true">In stock</button>
+    <button class="tag" aria-pressed="false">On sale</button>
+    <button class="tag" aria-pressed="true">New arrivals</button>
+    <button class="tag" aria-pressed="false">Under £20</button>
+  </div>
+      </div>
 
-    <details class="margin-y-s">
-      <summary class="padding-s">Show code</summary>
-      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div class=&quot;cluster&quot;&gt;
-  &lt;button class=&quot;tag&quot; aria-pressed=&quot;false&quot;&gt;Free shipping&lt;/button&gt;
-  &lt;button class=&quot;tag&quot; aria-pressed=&quot;true&quot;&gt;In stock&lt;/button&gt;
-  &lt;button class=&quot;tag&quot; aria-pressed=&quot;false&quot;&gt;On sale&lt;/button&gt;
-  &lt;button class=&quot;tag&quot; aria-pressed=&quot;true&quot;&gt;New arrivals&lt;/button&gt;
-  &lt;button class=&quot;tag&quot; aria-pressed=&quot;false&quot;&gt;Under £20&lt;/button&gt;
-&lt;/div&gt;</code></pre>
-    </details>
+      <details class="margin-y-s">
+        <summary>Show code</summary>
+        <pre class="padding-m"><code>&lt;div class=&quot;cluster&quot;&gt;
+    &lt;button class=&quot;tag&quot; aria-pressed=&quot;false&quot;&gt;Free shipping&lt;/button&gt;
+    &lt;button class=&quot;tag&quot; aria-pressed=&quot;true&quot;&gt;In stock&lt;/button&gt;
+    &lt;button class=&quot;tag&quot; aria-pressed=&quot;false&quot;&gt;On sale&lt;/button&gt;
+    &lt;button class=&quot;tag&quot; aria-pressed=&quot;true&quot;&gt;New arrivals&lt;/button&gt;
+    &lt;button class=&quot;tag&quot; aria-pressed=&quot;false&quot;&gt;Under £20&lt;/button&gt;
+  &lt;/div&gt;</code></pre>
+      </details>
+  
+    </div>
   </section>
 
   <section>
-    <h2 class="heading-l">Dismissible chips</h2>
-    <p>Add a close <code>&lt;button&gt;</code> inside the tag to make it dismissible. Use <code>aria-label</code> on the inner button to give screen reader users a meaningful action name.</p>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Dismissible chips</h2>
+      <p>Add a close <code>&lt;button&gt;</code> inside the tag to make it dismissible. Use <code>aria-label</code> on the inner button to give screen reader users a meaningful action name.</p>
     
-    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
-<div class="cluster">
-  <span class="tag">
-    Red
-    <button type="button" aria-label="Remove Red filter">
-      <svg aria-hidden="true" width="12" height="12" viewBox="0 0 12 12">
-        <path d="M2 2l8 8M10 2l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-      </svg>
-    </button>
-  </span>
-  <span class="tag">
-    XL
-    <button type="button" aria-label="Remove XL filter">
-      <svg aria-hidden="true" width="12" height="12" viewBox="0 0 12 12">
-        <path d="M2 2l8 8M10 2l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-      </svg>
-    </button>
-  </span>
-  <span class="tag">
-    Cotton
-    <button type="button" aria-label="Remove Cotton filter">
-      <svg aria-hidden="true" width="12" height="12" viewBox="0 0 12 12">
-        <path d="M2 2l8 8M10 2l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-      </svg>
-    </button>
-  </span>
-</div>
-    </div>
+      <div class="">
+  <div class="cluster">
+    <span class="tag">
+      Red
+      <button type="button" aria-label="Remove Red filter">
+        <svg aria-hidden="true" width="12" height="12" viewBox="0 0 12 12">
+          <path d="M2 2l8 8M10 2l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </span>
+    <span class="tag">
+      XL
+      <button type="button" aria-label="Remove XL filter">
+        <svg aria-hidden="true" width="12" height="12" viewBox="0 0 12 12">
+          <path d="M2 2l8 8M10 2l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </span>
+    <span class="tag">
+      Cotton
+      <button type="button" aria-label="Remove Cotton filter">
+        <svg aria-hidden="true" width="12" height="12" viewBox="0 0 12 12">
+          <path d="M2 2l8 8M10 2l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </span>
+  </div>
+      </div>
 
-    <details class="margin-y-s">
-      <summary class="padding-s">Show code</summary>
-      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div class=&quot;cluster&quot;&gt;
-  &lt;span class=&quot;tag&quot;&gt;
-    Red
-    &lt;button type=&quot;button&quot; aria-label=&quot;Remove Red filter&quot;&gt;
-      &lt;svg aria-hidden=&quot;true&quot; width=&quot;12&quot; height=&quot;12&quot; viewBox=&quot;0 0 12 12&quot;&gt;
-        &lt;path d=&quot;M2 2l8 8M10 2l-8 8&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; stroke-linecap=&quot;round&quot;/&gt;
-      &lt;/svg&gt;
-    &lt;/button&gt;
-  &lt;/span&gt;
-  &lt;span class=&quot;tag&quot;&gt;
-    XL
-    &lt;button type=&quot;button&quot; aria-label=&quot;Remove XL filter&quot;&gt;
-      &lt;svg aria-hidden=&quot;true&quot; width=&quot;12&quot; height=&quot;12&quot; viewBox=&quot;0 0 12 12&quot;&gt;
-        &lt;path d=&quot;M2 2l8 8M10 2l-8 8&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; stroke-linecap=&quot;round&quot;/&gt;
-      &lt;/svg&gt;
-    &lt;/button&gt;
-  &lt;/span&gt;
-  &lt;span class=&quot;tag&quot;&gt;
-    Cotton
-    &lt;button type=&quot;button&quot; aria-label=&quot;Remove Cotton filter&quot;&gt;
-      &lt;svg aria-hidden=&quot;true&quot; width=&quot;12&quot; height=&quot;12&quot; viewBox=&quot;0 0 12 12&quot;&gt;
-        &lt;path d=&quot;M2 2l8 8M10 2l-8 8&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; stroke-linecap=&quot;round&quot;/&gt;
-      &lt;/svg&gt;
-    &lt;/button&gt;
-  &lt;/span&gt;
-&lt;/div&gt;</code></pre>
-    </details>
+      <details class="margin-y-s">
+        <summary>Show code</summary>
+        <pre class="padding-m"><code>&lt;div class=&quot;cluster&quot;&gt;
+    &lt;span class=&quot;tag&quot;&gt;
+      Red
+      &lt;button type=&quot;button&quot; aria-label=&quot;Remove Red filter&quot;&gt;
+        &lt;svg aria-hidden=&quot;true&quot; width=&quot;12&quot; height=&quot;12&quot; viewBox=&quot;0 0 12 12&quot;&gt;
+          &lt;path d=&quot;M2 2l8 8M10 2l-8 8&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; stroke-linecap=&quot;round&quot;/&gt;
+        &lt;/svg&gt;
+      &lt;/button&gt;
+    &lt;/span&gt;
+    &lt;span class=&quot;tag&quot;&gt;
+      XL
+      &lt;button type=&quot;button&quot; aria-label=&quot;Remove XL filter&quot;&gt;
+        &lt;svg aria-hidden=&quot;true&quot; width=&quot;12&quot; height=&quot;12&quot; viewBox=&quot;0 0 12 12&quot;&gt;
+          &lt;path d=&quot;M2 2l8 8M10 2l-8 8&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; stroke-linecap=&quot;round&quot;/&gt;
+        &lt;/svg&gt;
+      &lt;/button&gt;
+    &lt;/span&gt;
+    &lt;span class=&quot;tag&quot;&gt;
+      Cotton
+      &lt;button type=&quot;button&quot; aria-label=&quot;Remove Cotton filter&quot;&gt;
+        &lt;svg aria-hidden=&quot;true&quot; width=&quot;12&quot; height=&quot;12&quot; viewBox=&quot;0 0 12 12&quot;&gt;
+          &lt;path d=&quot;M2 2l8 8M10 2l-8 8&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; stroke-linecap=&quot;round&quot;/&gt;
+        &lt;/svg&gt;
+      &lt;/button&gt;
+    &lt;/span&gt;
+  &lt;/div&gt;</code></pre>
+      </details>
+  
+    </div>
   </section>
 
   <section>
-    <h2 class="heading-l">Tag group</h2>
-    <p>Use <code>.tag-group</code> on a <code>&lt;ul&gt;</code> when tags represent a semantic list. It applies <code>display: flex; flex-wrap: wrap</code> with a consistent gap without needing an extra cluster wrapper.</p>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Tag group</h2>
+      <p>Use <code>.tag-group</code> on a <code>&lt;ul&gt;</code> when tags represent a semantic list. It applies <code>display: flex; flex-wrap: wrap</code> with a consistent gap without needing an extra cluster wrapper.</p>
     
-    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
-<ul class="tag-group" role="list">
-  <li><span class="tag">Cotton</span></li>
-  <li><span class="tag">Sustainable</span></li>
-  <li><span class="tag">Recycled materials</span></li>
-  <li><span class="tag">Vegan</span></li>
-  <li><span class="tag">OEKO-TEX certified</span></li>
-</ul>
-    </div>
+      <div class="">
+  <ul class="tag-group" role="list">
+    <li><span class="tag">Cotton</span></li>
+    <li><span class="tag">Sustainable</span></li>
+    <li><span class="tag">Recycled materials</span></li>
+    <li><span class="tag">Vegan</span></li>
+    <li><span class="tag">OEKO-TEX certified</span></li>
+  </ul>
+      </div>
 
-    <details class="margin-y-s">
-      <summary class="padding-s">Show code</summary>
-      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;ul class=&quot;tag-group&quot; role=&quot;list&quot;&gt;
-  &lt;li&gt;&lt;span class=&quot;tag&quot;&gt;Cotton&lt;/span&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;span class=&quot;tag&quot;&gt;Sustainable&lt;/span&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;span class=&quot;tag&quot;&gt;Recycled materials&lt;/span&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;span class=&quot;tag&quot;&gt;Vegan&lt;/span&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;span class=&quot;tag&quot;&gt;OEKO-TEX certified&lt;/span&gt;&lt;/li&gt;
-&lt;/ul&gt;</code></pre>
-    </details>
+      <details class="margin-y-s">
+        <summary>Show code</summary>
+        <pre class="padding-m"><code>&lt;ul class=&quot;tag-group&quot; role=&quot;list&quot;&gt;
+    &lt;li&gt;&lt;span class=&quot;tag&quot;&gt;Cotton&lt;/span&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;span class=&quot;tag&quot;&gt;Sustainable&lt;/span&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;span class=&quot;tag&quot;&gt;Recycled materials&lt;/span&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;span class=&quot;tag&quot;&gt;Vegan&lt;/span&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;span class=&quot;tag&quot;&gt;OEKO-TEX certified&lt;/span&gt;&lt;/li&gt;
+  &lt;/ul&gt;</code></pre>
+      </details>
+  
+    </div>
   </section>
 
   <section>
-    <h2 class="heading-l">Tokens</h2>
-    <table class="">
-      <thead>
-        <tr>
-          <th>Token</th>
-          <th>Default</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><code>--tag-background</code></td>
-          <td><code>var(--color-neutral-100)</code></td>
-          <td>Background of an idle tag.</td>
-        </tr>
-        <tr>
-          <td><code>--tag-color</code></td>
-          <td><code>var(--color-neutral-700)</code></td>
-          <td>Text colour of an idle tag.</td>
-        </tr>
-        <tr>
-          <td><code>--tag-border</code></td>
-          <td><code>solid var(--border-s) var(--color-neutral-300)</code></td>
-          <td>Border shorthand.</td>
-        </tr>
-        <tr>
-          <td><code>--tag-radius</code></td>
-          <td><code>9999px</code></td>
-          <td>Corner radius — full pill by default.</td>
-        </tr>
-        <tr>
-          <td><code>--tag-padding</code></td>
-          <td><code>0.25em 0.7em</code></td>
-          <td>Inner padding.</td>
-        </tr>
-        <tr>
-          <td><code>--tag-font-size</code></td>
-          <td><code>var(--font-size-xs)</code></td>
-          <td>Font size.</td>
-        </tr>
-        <tr>
-          <td><code>--tag-background-selected</code></td>
-          <td><code>var(--color-brand)</code></td>
-          <td>Background when <code>aria-pressed="true"</code>.</td>
-        </tr>
-        <tr>
-          <td><code>--tag-color-selected</code></td>
-          <td><code>var(--color-white)</code></td>
-          <td>Text colour when selected.</td>
-        </tr>
-        <tr>
-          <td><code>--tag-border-selected</code></td>
-          <td><code>solid var(--border-s) var(--color-brand)</code></td>
-          <td>Border when selected.</td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Tokens</h2>
+      <table class="">
+        <thead>
+          <tr>
+            <th>Token</th>
+            <th>Default</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>--tag-background</code></td>
+            <td><code>var(--color-neutral-100)</code></td>
+            <td>Background of an idle tag.</td>
+          </tr>
+          <tr>
+            <td><code>--tag-color</code></td>
+            <td><code>var(--color-neutral-700)</code></td>
+            <td>Text colour of an idle tag.</td>
+          </tr>
+          <tr>
+            <td><code>--tag-border</code></td>
+            <td><code>solid var(--border-s) var(--color-neutral-300)</code></td>
+            <td>Border shorthand.</td>
+          </tr>
+          <tr>
+            <td><code>--tag-radius</code></td>
+            <td><code>9999px</code></td>
+            <td>Corner radius — full pill by default.</td>
+          </tr>
+          <tr>
+            <td><code>--tag-padding</code></td>
+            <td><code>0.25em 0.7em</code></td>
+            <td>Inner padding.</td>
+          </tr>
+          <tr>
+            <td><code>--tag-font-size</code></td>
+            <td><code>var(--font-size-xs)</code></td>
+            <td>Font size.</td>
+          </tr>
+          <tr>
+            <td><code>--tag-background-selected</code></td>
+            <td><code>var(--color-brand)</code></td>
+            <td>Background when <code>aria-pressed="true"</code>.</td>
+          </tr>
+          <tr>
+            <td><code>--tag-color-selected</code></td>
+            <td><code>var(--color-white)</code></td>
+            <td>Text colour when selected.</td>
+          </tr>
+          <tr>
+            <td><code>--tag-border-selected</code></td>
+            <td><code>solid var(--border-s) var(--color-brand)</code></td>
+            <td>Border when selected.</td>
+          </tr>
+        </tbody>
+      </table>
+  
+    </div>
   </section>
 
 </article>

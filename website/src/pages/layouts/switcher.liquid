@@ -4,7 +4,7 @@
 {% block content %}
 <article class="flow">
 
-  <header class="padding-y-m margin-y-m" style="border-block-end: 1px solid var(--color-neutral-200);">
+  <header class="flow" style="padding-block-end: var(--space-l); border-block-end: var(--border-s) solid var(--color-neutral-200);">
     <nav aria-label="Breadcrumb" class="breadcrumb">
       <ol>
         <li><a href="/">Home</a></li>
@@ -13,137 +13,136 @@
       </ol>
     </nav>
     <h1>Switcher</h1>
-    <p class="text-l color-neutral-600">Switches a row of items between a horizontal layout and a vertical stack at a configurable container-width threshold — no media queries needed.</p>
+    <p class="text-m color-neutral-600">Switches a row of items between a horizontal layout and a vertical stack at a configurable container-width threshold — no media queries needed.</p>
   </header>
 
   <section>
-    <h2 class="heading-l">Basic</h2>
-    <p>Items sit side by side until the container falls below <code>--switcher-target-container-width</code> (default <code>40rem</code>), at which point they stack. Resize the demo to see the switch happen.</p>
-    
-    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
-<div class="switcher">
-  <div style="background: #e0e7ff; padding: 1.5rem; border-radius: 0.25rem; text-align: center; font-weight: 500;">Item one</div>
-  <div style="background: #a5b4fc; padding: 1.5rem; border-radius: 0.25rem; text-align: center; font-weight: 500;">Item two</div>
-  <div style="background: #6366f1; color: #fff; padding: 1.5rem; border-radius: 0.25rem; text-align: center; font-weight: 500;">Item three</div>
-</div>
-    </div>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Basic</h2>
+      <p>Items sit side by side until the container falls below <code>--switcher-target-container-width</code> (default <code>40rem</code>), at which point they stack. Resize the demo to see the switch happen.</p>
 
-    <details class="margin-y-s">
-      <summary class="padding-s">Show code</summary>
-      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div class=&quot;switcher&quot;&gt;
-  &lt;div style=&quot;background: #e0e7ff; padding: 1.5rem; border-radius: 0.25rem; text-align: center; font-weight: 500;&quot;&gt;Item one&lt;/div&gt;
-  &lt;div style=&quot;background: #a5b4fc; padding: 1.5rem; border-radius: 0.25rem; text-align: center; font-weight: 500;&quot;&gt;Item two&lt;/div&gt;
-  &lt;div style=&quot;background: #6366f1; color: #fff; padding: 1.5rem; border-radius: 0.25rem; text-align: center; font-weight: 500;&quot;&gt;Item three&lt;/div&gt;
-&lt;/div&gt;</code></pre>
-    </details>
+      <div class="">
+        <div class="switcher">
+          <div class="docs-demo-chip docs-demo-chip--1 text-bold">Item one</div>
+          <div class="docs-demo-chip docs-demo-chip--3 text-bold">Item two</div>
+          <div class="docs-demo-chip docs-demo-chip--6 text-bold">Item three</div>
+        </div>
+      </div>
 
-    <div class="callout" data-variant="brand" role="note">
-      <p>The switcher supports up to four inline items. Any fifth child (or beyond) always stacks full-width regardless of container size.</p>
+      <details class="margin-y-s">
+        <summary>Show code</summary>
+        <pre class="padding-m"><code>&lt;div class=&quot;switcher&quot;&gt;
+    &lt;div class=&quot;docs-demo-chip docs-demo-chip--1&quot;&gt;Item one&lt;/div&gt;
+    &lt;div class=&quot;docs-demo-chip docs-demo-chip--3&quot;&gt;Item two&lt;/div&gt;
+    &lt;div class=&quot;docs-demo-chip docs-demo-chip--6&quot;&gt;Item three&lt;/div&gt;
+  &lt;/div&gt;</code></pre>
+      </details>
+
+      <div class="callout wide" data-variant="brand" role="note">
+        <p>The switcher supports up to four inline items. Any fifth child (or beyond) always stacks full-width regardless of container size.</p>
+      </div>
+  
     </div>
   </section>
 
   <section>
-    <h2 class="heading-l">Custom threshold</h2>
-    <p>Override <code>--switcher-target-container-width</code> to control the breakpoint at which items switch from row to column.</p>
-    
-    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
-<p style="font-size: 0.875rem; color: #6b7280; margin-block-end: 0.5rem;">Switches at 24rem (narrow threshold)</p>
-<div class="switcher" style="--switcher-target-container-width: 24rem;">
-  <div style="background: #e0e7ff; padding: 1.25rem; border-radius: 0.25rem; text-align: center;">Alpha</div>
-  <div style="background: #6366f1; color: #fff; padding: 1.25rem; border-radius: 0.25rem; text-align: center;">Beta</div>
-</div>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Custom threshold</h2>
+      <p>Override <code>--switcher-target-container-width</code> to control the breakpoint at which items switch from row to column.</p>
 
-<p style="font-size: 0.875rem; color: #6b7280; margin-block-start: 1.5rem; margin-block-end: 0.5rem;">Switches at 64rem (wide threshold)</p>
-<div class="switcher" style="--switcher-target-container-width: 64rem;">
-  <div style="background: #c7d2fe; padding: 1.25rem; border-radius: 0.25rem; text-align: center;">Alpha</div>
-  <div style="background: #818cf8; color: #fff; padding: 1.25rem; border-radius: 0.25rem; text-align: center;">Beta</div>
-</div>
+      <div class=" flow" style="--flow-space: var(--space-l);">
+        <div>
+          <p class="text-s color-neutral-600 docs-caption">Switches at 24rem (narrow threshold)</p>
+          <div class="switcher" style="--switcher-target-container-width: 24rem;">
+            <div class="docs-demo-chip docs-demo-chip--1">Alpha</div>
+            <div class="docs-demo-chip docs-demo-chip--6">Beta</div>
+          </div>
+        </div>
+
+        <div>
+          <p class="text-s color-neutral-600 docs-caption">Switches at 64rem (wide threshold)</p>
+          <div class="switcher" style="--switcher-target-container-width: 64rem;">
+            <div class="docs-demo-chip docs-demo-chip--2">Alpha</div>
+            <div class="docs-demo-chip docs-demo-chip--5">Beta</div>
+          </div>
+        </div>
+      </div>
+
+      <details class="margin-y-s">
+        <summary>Show code</summary>
+        <pre class="padding-m"><code>&lt;div class=&quot;switcher&quot; style=&quot;--switcher-target-container-width: 24rem;&quot;&gt;
+    &lt;div class=&quot;docs-demo-chip docs-demo-chip--1&quot;&gt;Alpha&lt;/div&gt;
+    &lt;div class=&quot;docs-demo-chip docs-demo-chip--6&quot;&gt;Beta&lt;/div&gt;
+  &lt;/div&gt;</code></pre>
+      </details>
+  
     </div>
-
-    <details class="margin-y-s">
-      <summary class="padding-s">Show code</summary>
-      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;p style=&quot;font-size: 0.875rem; color: #6b7280; margin-block-end: 0.5rem;&quot;&gt;Switches at 24rem (narrow threshold)&lt;/p&gt;
-&lt;div class=&quot;switcher&quot; style=&quot;--switcher-target-container-width: 24rem;&quot;&gt;
-  &lt;div style=&quot;background: #e0e7ff; padding: 1.25rem; border-radius: 0.25rem; text-align: center;&quot;&gt;Alpha&lt;/div&gt;
-  &lt;div style=&quot;background: #6366f1; color: #fff; padding: 1.25rem; border-radius: 0.25rem; text-align: center;&quot;&gt;Beta&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;p style=&quot;font-size: 0.875rem; color: #6b7280; margin-block-start: 1.5rem; margin-block-end: 0.5rem;&quot;&gt;Switches at 64rem (wide threshold)&lt;/p&gt;
-&lt;div class=&quot;switcher&quot; style=&quot;--switcher-target-container-width: 64rem;&quot;&gt;
-  &lt;div style=&quot;background: #c7d2fe; padding: 1.25rem; border-radius: 0.25rem; text-align: center;&quot;&gt;Alpha&lt;/div&gt;
-  &lt;div style=&quot;background: #818cf8; color: #fff; padding: 1.25rem; border-radius: 0.25rem; text-align: center;&quot;&gt;Beta&lt;/div&gt;
-&lt;/div&gt;</code></pre>
-    </details>
   </section>
 
   <section>
-    <h2 class="heading-l">Real example</h2>
-    <p>A classic hero layout: descriptive text on the left, a visual on the right. At narrow widths the visual stacks below the text.</p>
-    
-    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
-<div class="switcher" style="--switcher-gutter: var(--space-l); --switcher-vertical-alignment: center;">
-  <div style="padding: 1rem;">
-    <h2 style="margin-block-end: 0.75rem; font-size: 1.5rem; line-height: 1.25;">Build UIs faster with design tokens</h2>
-    <p style="color: #6b7280; line-height: 1.6; margin-block-end: 1rem;">Cubito UI gives you a complete token system and layout primitives so you can focus on your product, not your CSS architecture.</p>
-    <div class="cluster" style="--gutter: var(--space-xs)">
-      <a href="#" class="button">Get started</a>
-      <a href="#" class="button" data-variant="outline">View docs</a>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Real example</h2>
+      <p>A classic hero layout: descriptive text on the left, a visual on the right. At narrow widths the visual stacks below the text.</p>
+
+      <div class="">
+        <div class="switcher" style="--switcher-gutter: var(--space-l); --switcher-vertical-alignment: center;">
+          <div class="padding-s flow" style="--flow-space: var(--space-s);">
+            <h2 class="heading-m">Build UIs faster with design tokens</h2>
+            <p class="color-neutral-600">Cubito UI gives you a complete token system and layout primitives so you can focus on your product, not your CSS architecture.</p>
+            <div class="cluster" style="--gutter: var(--space-xs);">
+              <a href="#" class="button">Get started</a>
+              <a href="#" class="button" data-variant="outline">View docs</a>
+            </div>
+          </div>
+
+          <div class="docs-demo-chip docs-demo-chip--6 padding-l text-center text-bold" style="min-height: 14rem; display: flex; align-items: center; justify-content: center;">
+            Hero visual
+          </div>
+        </div>
+      </div>
+
+      <details class="margin-y-s">
+        <summary>Show code</summary>
+        <pre class="padding-m"><code>&lt;div class=&quot;switcher&quot; style=&quot;--switcher-gutter: var(--space-l); --switcher-vertical-alignment: center;&quot;&gt;
+    &lt;div class=&quot;padding-s flow&quot;&gt;…&lt;/div&gt;
+    &lt;div class=&quot;docs-demo-chip docs-demo-chip--6&quot;&gt;Hero visual&lt;/div&gt;
+  &lt;/div&gt;</code></pre>
+      </details>
+  
     </div>
-  </div>
-
-  <div style="background: linear-gradient(135deg, #6366f1 0%, #4f46e5 50%, #3730a3 100%); border-radius: 0.5rem; min-height: 14rem; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 0.875rem; letter-spacing: 0.05em; text-transform: uppercase; font-weight: 600;">
-    Hero visual
-  </div>
-</div>
-    </div>
-
-    <details class="margin-y-s">
-      <summary class="padding-s">Show code</summary>
-      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;div class=&quot;switcher&quot; style=&quot;--switcher-gutter: var(--space-l); --switcher-vertical-alignment: center;&quot;&gt;
-  &lt;div style=&quot;padding: 1rem;&quot;&gt;
-    &lt;h2 style=&quot;margin-block-end: 0.75rem; font-size: 1.5rem; line-height: 1.25;&quot;&gt;Build UIs faster with design tokens&lt;/h2&gt;
-    &lt;p style=&quot;color: #6b7280; line-height: 1.6; margin-block-end: 1rem;&quot;&gt;Cubito UI gives you a complete token system and layout primitives so you can focus on your product, not your CSS architecture.&lt;/p&gt;
-    &lt;div class=&quot;cluster&quot; style=&quot;--gutter: var(--space-xs)&quot;&gt;
-      &lt;a href=&quot;#&quot; class=&quot;button&quot;&gt;Get started&lt;/a&gt;
-      &lt;a href=&quot;#&quot; class=&quot;button&quot; data-variant=&quot;outline&quot;&gt;View docs&lt;/a&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-
-  &lt;div style=&quot;background: linear-gradient(135deg, #6366f1 0%, #4f46e5 50%, #3730a3 100%); border-radius: 0.5rem; min-height: 14rem; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 0.875rem; letter-spacing: 0.05em; text-transform: uppercase; font-weight: 600;&quot;&gt;
-    Hero visual
-  &lt;/div&gt;
-&lt;/div&gt;</code></pre>
-    </details>
   </section>
 
   <section>
-    <h2 class="heading-l">Tokens</h2>
-    <table class="">
-      <thead>
-        <tr>
-          <th>Token</th>
-          <th>Default</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><code>--switcher-gutter</code></td>
-          <td><code>1rem</code></td>
-          <td>Gap between items in both horizontal and stacked orientations.</td>
-        </tr>
-        <tr>
-          <td><code>--switcher-target-container-width</code></td>
-          <td><code>40rem</code></td>
-          <td>Container width at which items switch from a row to a column. Items go inline above this threshold and stack below it.</td>
-        </tr>
-        <tr>
-          <td><code>--switcher-vertical-alignment</code></td>
-          <td><code>flex-start</code></td>
-          <td>Controls <code>align-items</code> in horizontal mode. Set to <code>center</code> to vertically align items of different heights.</td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Tokens</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Token</th>
+            <th>Default</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>--switcher-gutter</code></td>
+            <td><code>1rem</code></td>
+            <td>Gap between items in both horizontal and stacked orientations.</td>
+          </tr>
+          <tr>
+            <td><code>--switcher-target-container-width</code></td>
+            <td><code>40rem</code></td>
+            <td>Container width at which items switch from a row to a column.</td>
+          </tr>
+          <tr>
+            <td><code>--switcher-vertical-alignment</code></td>
+            <td><code>flex-start</code></td>
+            <td>Controls <code>align-items</code> in horizontal mode.</td>
+          </tr>
+        </tbody>
+      </table>
+  
+    </div>
   </section>
 
 </article>

@@ -4,7 +4,7 @@
 {% block content %}
 <article class="flow">
 
-  <header class="padding-y-m margin-y-m" style="border-block-end: 1px solid var(--color-neutral-200);">
+  <header class="flow" style="padding-block-end: var(--space-l); border-block-end: var(--border-s) solid var(--color-neutral-200);">
     <nav aria-label="Breadcrumb" class="breadcrumb">
       <ol>
         <li><a href="/">Home</a></li>
@@ -13,145 +13,154 @@
       </ol>
     </nav>
     <h1>Pagination</h1>
-    <p class="text-l color-neutral-600">Numbered page navigation with prev/next controls and an ellipsis for large page counts.</p>
+    <p class="text-m color-neutral-600">Numbered page navigation with prev/next controls and an ellipsis for large page counts.</p>
   </header>
 
   <section>
-    <h2 class="heading-l">Default</h2>
-    <p>Wrap the list in a <code>&lt;nav&gt;</code> with <code>aria-label="Pagination"</code>. Mark the current page with <code>aria-current="page"</code>. Use <code>.pagination__prev</code> and <code>.pagination__next</code> on the directional links, and <code>.pagination__ellipsis</code> on non-link gap indicators.</p>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Default</h2>
+      <p>Wrap the list in a <code>&lt;nav&gt;</code> with <code>aria-label="Pagination"</code>. Mark the current page with <code>aria-current="page"</code>. Use <code>.pagination__prev</code> and <code>.pagination__next</code> on the directional links, and <code>.pagination__ellipsis</code> on non-link gap indicators.</p>
     
-    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
-<nav aria-label="Pagination">
-  <ul class="pagination" role="list">
-    <li>
-      <a href="/page/1/" class="pagination__prev" aria-label="Previous page">← Prev</a>
-    </li>
-    <li><a href="/page/1/" aria-label="Page 1">1</a></li>
-    <li><a href="/page/2/" aria-label="Page 2" aria-current="page">2</a></li>
-    <li><a href="/page/3/" aria-label="Page 3">3</a></li>
-    <li><span class="pagination__ellipsis" aria-hidden="true">…</span></li>
-    <li><a href="/page/8/" aria-label="Page 8">8</a></li>
-    <li>
-      <a href="/page/3/" class="pagination__next" aria-label="Next page">Next →</a>
-    </li>
-  </ul>
-</nav>
-    </div>
+      <div class="">
+  <nav aria-label="Pagination">
+    <ul class="pagination" role="list">
+      <li>
+        <a href="/page/1/" class="pagination__prev" aria-label="Previous page">← Prev</a>
+      </li>
+      <li><a href="/page/1/" aria-label="Page 1">1</a></li>
+      <li><a href="/page/2/" aria-label="Page 2" aria-current="page">2</a></li>
+      <li><a href="/page/3/" aria-label="Page 3">3</a></li>
+      <li><span class="pagination__ellipsis" aria-hidden="true">…</span></li>
+      <li><a href="/page/8/" aria-label="Page 8">8</a></li>
+      <li>
+        <a href="/page/3/" class="pagination__next" aria-label="Next page">Next →</a>
+      </li>
+    </ul>
+  </nav>
+      </div>
 
-    <details class="margin-y-s">
-      <summary class="padding-s">Show code</summary>
-      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;nav aria-label=&quot;Pagination&quot;&gt;
-  &lt;ul class=&quot;pagination&quot; role=&quot;list&quot;&gt;
-    &lt;li&gt;
-      &lt;a href=&quot;/page/1/&quot; class=&quot;pagination__prev&quot; aria-label=&quot;Previous page&quot;&gt;← Prev&lt;/a&gt;
-    &lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;/page/1/&quot; aria-label=&quot;Page 1&quot;&gt;1&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;/page/2/&quot; aria-label=&quot;Page 2&quot; aria-current=&quot;page&quot;&gt;2&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;/page/3/&quot; aria-label=&quot;Page 3&quot;&gt;3&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;span class=&quot;pagination__ellipsis&quot; aria-hidden=&quot;true&quot;&gt;…&lt;/span&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;/page/8/&quot; aria-label=&quot;Page 8&quot;&gt;8&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;
-      &lt;a href=&quot;/page/3/&quot; class=&quot;pagination__next&quot; aria-label=&quot;Next page&quot;&gt;Next →&lt;/a&gt;
-    &lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/nav&gt;</code></pre>
-    </details>
+      <details class="margin-y-s">
+        <summary>Show code</summary>
+        <pre class="padding-m"><code>&lt;nav aria-label=&quot;Pagination&quot;&gt;
+    &lt;ul class=&quot;pagination&quot; role=&quot;list&quot;&gt;
+      &lt;li&gt;
+        &lt;a href=&quot;/page/1/&quot; class=&quot;pagination__prev&quot; aria-label=&quot;Previous page&quot;&gt;← Prev&lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/page/1/&quot; aria-label=&quot;Page 1&quot;&gt;1&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/page/2/&quot; aria-label=&quot;Page 2&quot; aria-current=&quot;page&quot;&gt;2&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/page/3/&quot; aria-label=&quot;Page 3&quot;&gt;3&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;span class=&quot;pagination__ellipsis&quot; aria-hidden=&quot;true&quot;&gt;…&lt;/span&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/page/8/&quot; aria-label=&quot;Page 8&quot;&gt;8&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;
+        &lt;a href=&quot;/page/3/&quot; class=&quot;pagination__next&quot; aria-label=&quot;Next page&quot;&gt;Next →&lt;/a&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/nav&gt;</code></pre>
+      </details>
+  
+    </div>
   </section>
 
   <section>
-    <h2 class="heading-l">First page</h2>
-    <p>When on the first page the Prev link should be absent or disabled. Use <code>aria-disabled="true"</code> if the link must remain in the DOM for layout consistency.</p>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">First page</h2>
+      <p>When on the first page the Prev link should be absent or disabled. Use <code>aria-disabled="true"</code> if the link must remain in the DOM for layout consistency.</p>
     
-    <div class="padding-m margin-y-m background-neutral-50 border border-neutral-200">
-<nav aria-label="Pagination">
-  <ul class="pagination" role="list">
-    <li><a href="/page/1/" aria-label="Page 1" aria-current="page">1</a></li>
-    <li><a href="/page/2/" aria-label="Page 2">2</a></li>
-    <li><a href="/page/3/" aria-label="Page 3">3</a></li>
-    <li><span class="pagination__ellipsis" aria-hidden="true">…</span></li>
-    <li><a href="/page/12/" aria-label="Page 12">12</a></li>
-    <li>
-      <a href="/page/2/" class="pagination__next" aria-label="Next page">Next →</a>
-    </li>
-  </ul>
-</nav>
-    </div>
+      <div class="">
+  <nav aria-label="Pagination">
+    <ul class="pagination" role="list">
+      <li><a href="/page/1/" aria-label="Page 1" aria-current="page">1</a></li>
+      <li><a href="/page/2/" aria-label="Page 2">2</a></li>
+      <li><a href="/page/3/" aria-label="Page 3">3</a></li>
+      <li><span class="pagination__ellipsis" aria-hidden="true">…</span></li>
+      <li><a href="/page/12/" aria-label="Page 12">12</a></li>
+      <li>
+        <a href="/page/2/" class="pagination__next" aria-label="Next page">Next →</a>
+      </li>
+    </ul>
+  </nav>
+      </div>
 
-    <details class="margin-y-s">
-      <summary class="padding-s">Show code</summary>
-      <pre class="padding-m background-neutral-900" style="overflow-x: auto;"><code>&lt;nav aria-label=&quot;Pagination&quot;&gt;
-  &lt;ul class=&quot;pagination&quot; role=&quot;list&quot;&gt;
-    &lt;li&gt;&lt;a href=&quot;/page/1/&quot; aria-label=&quot;Page 1&quot; aria-current=&quot;page&quot;&gt;1&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;/page/2/&quot; aria-label=&quot;Page 2&quot;&gt;2&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;/page/3/&quot; aria-label=&quot;Page 3&quot;&gt;3&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;span class=&quot;pagination__ellipsis&quot; aria-hidden=&quot;true&quot;&gt;…&lt;/span&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;/page/12/&quot; aria-label=&quot;Page 12&quot;&gt;12&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;
-      &lt;a href=&quot;/page/2/&quot; class=&quot;pagination__next&quot; aria-label=&quot;Next page&quot;&gt;Next →&lt;/a&gt;
-    &lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/nav&gt;</code></pre>
-    </details>
+      <details class="margin-y-s">
+        <summary>Show code</summary>
+        <pre class="padding-m"><code>&lt;nav aria-label=&quot;Pagination&quot;&gt;
+    &lt;ul class=&quot;pagination&quot; role=&quot;list&quot;&gt;
+      &lt;li&gt;&lt;a href=&quot;/page/1/&quot; aria-label=&quot;Page 1&quot; aria-current=&quot;page&quot;&gt;1&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/page/2/&quot; aria-label=&quot;Page 2&quot;&gt;2&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/page/3/&quot; aria-label=&quot;Page 3&quot;&gt;3&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;span class=&quot;pagination__ellipsis&quot; aria-hidden=&quot;true&quot;&gt;…&lt;/span&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/page/12/&quot; aria-label=&quot;Page 12&quot;&gt;12&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;
+        &lt;a href=&quot;/page/2/&quot; class=&quot;pagination__next&quot; aria-label=&quot;Next page&quot;&gt;Next →&lt;/a&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/nav&gt;</code></pre>
+      </details>
+  
+    </div>
   </section>
 
   <section>
-    <h2 class="heading-l">Tokens</h2>
-    <table class="">
-      <thead>
-        <tr>
-          <th>Token</th>
-          <th>Default</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><code>--pagination-item-size</code></td>
-          <td><code>2.5rem</code></td>
-          <td>Width and height of each page button.</td>
-        </tr>
-        <tr>
-          <td><code>--pagination-gap</code></td>
-          <td><code>var(--space-tiny)</code></td>
-          <td>Gap between pagination items.</td>
-        </tr>
-        <tr>
-          <td><code>--pagination-background</code></td>
-          <td><code>transparent</code></td>
-          <td>Background of an idle item.</td>
-        </tr>
-        <tr>
-          <td><code>--pagination-color</code></td>
-          <td><code>currentColor</code></td>
-          <td>Text colour of an idle item.</td>
-        </tr>
-        <tr>
-          <td><code>--pagination-border</code></td>
-          <td><code>none</code></td>
-          <td>Border shorthand for each item.</td>
-        </tr>
-        <tr>
-          <td><code>--pagination-radius</code></td>
-          <td><code>var(--border-radius-m)</code></td>
-          <td>Corner radius of each item.</td>
-        </tr>
-        <tr>
-          <td><code>--pagination-background-hover</code></td>
-          <td><code>var(--color-neutral-100)</code></td>
-          <td>Background on hover.</td>
-        </tr>
-        <tr>
-          <td><code>--pagination-background-active</code></td>
-          <td><code>var(--color-brand)</code></td>
-          <td>Background of the current page item.</td>
-        </tr>
-        <tr>
-          <td><code>--pagination-color-active</code></td>
-          <td><code>var(--color-white)</code></td>
-          <td>Text colour of the current page item.</td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Tokens</h2>
+      <table class="">
+        <thead>
+          <tr>
+            <th>Token</th>
+            <th>Default</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>--pagination-item-size</code></td>
+            <td><code>2.5rem</code></td>
+            <td>Width and height of each page button.</td>
+          </tr>
+          <tr>
+            <td><code>--pagination-gap</code></td>
+            <td><code>var(--space-tiny)</code></td>
+            <td>Gap between pagination items.</td>
+          </tr>
+          <tr>
+            <td><code>--pagination-background</code></td>
+            <td><code>transparent</code></td>
+            <td>Background of an idle item.</td>
+          </tr>
+          <tr>
+            <td><code>--pagination-color</code></td>
+            <td><code>currentColor</code></td>
+            <td>Text colour of an idle item.</td>
+          </tr>
+          <tr>
+            <td><code>--pagination-border</code></td>
+            <td><code>none</code></td>
+            <td>Border shorthand for each item.</td>
+          </tr>
+          <tr>
+            <td><code>--pagination-radius</code></td>
+            <td><code>var(--border-radius-m)</code></td>
+            <td>Corner radius of each item.</td>
+          </tr>
+          <tr>
+            <td><code>--pagination-background-hover</code></td>
+            <td><code>var(--color-neutral-100)</code></td>
+            <td>Background on hover.</td>
+          </tr>
+          <tr>
+            <td><code>--pagination-background-active</code></td>
+            <td><code>var(--color-brand)</code></td>
+            <td>Background of the current page item.</td>
+          </tr>
+          <tr>
+            <td><code>--pagination-color-active</code></td>
+            <td><code>var(--color-white)</code></td>
+            <td>Text colour of the current page item.</td>
+          </tr>
+        </tbody>
+      </table>
+  
+    </div>
   </section>
 
 </article>
