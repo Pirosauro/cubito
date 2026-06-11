@@ -1,4 +1,4 @@
-# @hobiri/ui
+# @cubito/ui
 
 Enterprise-grade CSS design system built on [CUBE CSS](https://cube.fyi) methodology and [Every Layout](https://every-layout.dev) primitives.
 
@@ -45,9 +45,9 @@ The library uses explicit CSS cascade layers, declared in `_layers.css`:
 ## Installation
 
 ```sh
-npm install @hobiri/ui
+npm install @cubito/ui
 # or
-pnpm add @hobiri/ui
+pnpm add @cubito/ui
 ```
 
 ---
@@ -58,62 +58,62 @@ Import layers in order. `_layers.css` must be the very first import.
 
 ```css
 /* 0. Layer order — must come first */
-@import "@hobiri/ui/lib/abstracts/_layers.css";
+@import "@cubito/ui/lib/abstracts/_layers.css";
 
 /* 1. Abstracts — design tokens */
-@import "@hobiri/ui/lib/abstracts/_theme.css";
-@import "@hobiri/ui/lib/abstracts/_z-index.css";
-@import "@hobiri/ui/lib/abstracts/_motion.css";
-@import "@hobiri/ui/lib/abstracts/_spacing.css";
-@import "@hobiri/ui/lib/abstracts/_typography.css";
+@import "@cubito/ui/lib/abstracts/_theme.css";
+@import "@cubito/ui/lib/abstracts/_z-index.css";
+@import "@cubito/ui/lib/abstracts/_motion.css";
+@import "@cubito/ui/lib/abstracts/_spacing.css";
+@import "@cubito/ui/lib/abstracts/_typography.css";
 
 /* 2. Base — element defaults */
-@import "@hobiri/ui/lib/base/_reset.css";
-@import "@hobiri/ui/lib/base/_button.css";
-@import "@hobiri/ui/lib/base/_code.css";
-@import "@hobiri/ui/lib/base/_details.css";
-@import "@hobiri/ui/lib/base/_form.css";
-@import "@hobiri/ui/lib/base/_nav.css";
-@import "@hobiri/ui/lib/base/_table.css";
-@import "@hobiri/ui/lib/base/_tooltip.css";
+@import "@cubito/ui/lib/base/_reset.css";
+@import "@cubito/ui/lib/base/_button.css";
+@import "@cubito/ui/lib/base/_code.css";
+@import "@cubito/ui/lib/base/_details.css";
+@import "@cubito/ui/lib/base/_form.css";
+@import "@cubito/ui/lib/base/_nav.css";
+@import "@cubito/ui/lib/base/_table.css";
+@import "@cubito/ui/lib/base/_tooltip.css";
 
 /* 3. Compositions — layout primitives */
-@import "@hobiri/ui/lib/compositions/_cluster.css";
-@import "@hobiri/ui/lib/compositions/_dialog.css";
-@import "@hobiri/ui/lib/compositions/_frame.css";
-@import "@hobiri/ui/lib/compositions/_grid.css";
-@import "@hobiri/ui/lib/compositions/_reel.css";
-@import "@hobiri/ui/lib/compositions/_repel.css";
-@import "@hobiri/ui/lib/compositions/_sidebar.css";
-@import "@hobiri/ui/lib/compositions/_switcher.css";
+@import "@cubito/ui/lib/compositions/_cluster.css";
+@import "@cubito/ui/lib/compositions/_dialog.css";
+@import "@cubito/ui/lib/compositions/_frame.css";
+@import "@cubito/ui/lib/compositions/_grid.css";
+@import "@cubito/ui/lib/compositions/_reel.css";
+@import "@cubito/ui/lib/compositions/_repel.css";
+@import "@cubito/ui/lib/compositions/_sidebar.css";
+@import "@cubito/ui/lib/compositions/_switcher.css";
 
 /* 4. Blocks — UI components */
-@import "@hobiri/ui/lib/blocks/_breadcrumb.css";
-@import "@hobiri/ui/lib/blocks/_callout.css";
-@import "@hobiri/ui/lib/blocks/_card.css";
-@import "@hobiri/ui/lib/blocks/_dialog.css";
-@import "@hobiri/ui/lib/blocks/_footnote.css";
-@import "@hobiri/ui/lib/blocks/_hero.css";
-@import "@hobiri/ui/lib/blocks/_pictogram.css";
-@import "@hobiri/ui/lib/blocks/_prose.css";
+@import "@cubito/ui/lib/blocks/_breadcrumb.css";
+@import "@cubito/ui/lib/blocks/_callout.css";
+@import "@cubito/ui/lib/blocks/_card.css";
+@import "@cubito/ui/lib/blocks/_dialog.css";
+@import "@cubito/ui/lib/blocks/_footnote.css";
+@import "@cubito/ui/lib/blocks/_hero.css";
+@import "@cubito/ui/lib/blocks/_pictogram.css";
+@import "@cubito/ui/lib/blocks/_prose.css";
 
 /* 5. Utilities — always last */
-@import "@hobiri/ui/lib/utilities/_accessibility.css";
-@import "@hobiri/ui/lib/utilities/_animation.css";
-@import "@hobiri/ui/lib/utilities/_border.css";
-@import "@hobiri/ui/lib/utilities/_color.css";
-@import "@hobiri/ui/lib/utilities/_display.css";
-@import "@hobiri/ui/lib/utilities/_flow.css";
-@import "@hobiri/ui/lib/utilities/_gap.css";
-@import "@hobiri/ui/lib/utilities/_print.css";
-@import "@hobiri/ui/lib/utilities/_region.css";
-@import "@hobiri/ui/lib/utilities/_shadow.css";
-@import "@hobiri/ui/lib/utilities/_skeleton.css";
-@import "@hobiri/ui/lib/utilities/_space.css";
-@import "@hobiri/ui/lib/utilities/_typography.css";
-@import "@hobiri/ui/lib/utilities/_wide.css";
-@import "@hobiri/ui/lib/utilities/_with-icon.css";
-@import "@hobiri/ui/lib/utilities/_wrapper.css";
+@import "@cubito/ui/lib/utilities/_accessibility.css";
+@import "@cubito/ui/lib/utilities/_animation.css";
+@import "@cubito/ui/lib/utilities/_border.css";
+@import "@cubito/ui/lib/utilities/_color.css";
+@import "@cubito/ui/lib/utilities/_display.css";
+@import "@cubito/ui/lib/utilities/_flow.css";
+@import "@cubito/ui/lib/utilities/_gap.css";
+@import "@cubito/ui/lib/utilities/_print.css";
+@import "@cubito/ui/lib/utilities/_region.css";
+@import "@cubito/ui/lib/utilities/_shadow.css";
+@import "@cubito/ui/lib/utilities/_skeleton.css";
+@import "@cubito/ui/lib/utilities/_space.css";
+@import "@cubito/ui/lib/utilities/_typography.css";
+@import "@cubito/ui/lib/utilities/_wide.css";
+@import "@cubito/ui/lib/utilities/_with-icon.css";
+@import "@cubito/ui/lib/utilities/_wrapper.css";
 ```
 
 > **Legacy:** `utilities/_spacing.css` (`.padding-1`, `.margin-2`, …) is deprecated in favour of `_space.css` (`.padding-s`, `.margin-m`, …). It remains importable for backward compatibility.
@@ -131,7 +131,7 @@ Define `--color-brand` and `--color-accent` in your own `:root` block **before**
   --color-accent: #f59e0b;
 }
 
-@import "@hobiri/ui/lib/abstracts/_theme.css";
+@import "@cubito/ui/lib/abstracts/_theme.css";
 /* … rest of imports */
 ```
 
@@ -662,7 +662,7 @@ Fixed overlay that centres a dialog. Prefer `<dialog showModal()>` where possibl
 <article class="prose flow">
   <h2>Getting started</h2>
   <p>Install the package…</p>
-  <pre><code>npm install @hobiri/ui</code></pre>
+  <pre><code>npm install @cubito/ui</code></pre>
 </article>
 ```
 

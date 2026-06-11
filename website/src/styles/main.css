@@ -80,15 +80,15 @@
   --code-color: var(--color-neutral-900);
 
   /* Buttons */
-  --button-background: var(--color-brand);
-  --button-border-color: var(--color-brand);
-  --button-color: var(--color-neutral-50);
+  --button-default-background: var(--color-brand);
+  --button-default-border-color: var(--color-brand);
+  --button-default-color: var(--color-neutral-50);
 
-  --button-outline-background-hover: transparent;
+  --button-outline-background-hover: var(--color-brand);
   --button-outline-border-color-active: var(--color-brand);
   --button-outline-border-color-hover: var(--color-brand);
-  --button-outline-color-active: var(--color-brand);
-  --button-outline-color-hover: var(--color-brand);
+  --button-outline-color-active: var(--color-white);
+  --button-outline-color-hover: var(--color-white);
 
   /* Vertical rhythm */
   --flow-space: var(--space-l);

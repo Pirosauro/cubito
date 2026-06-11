@@ -87,7 +87,7 @@
   <div class="cluster" style="align-items: center">
     <button type="button" style="--button-font-size: 0.75em; --button-padding: 0.25rem 0.625rem">Small</button>
     <button type="button">Default</button>
-    <button type="button" style="--button-font-size: 1em; --button-padding: 0.625rem 1.25rem">Large</button>
+    <button type="button" style="--button-font-size: 2em; --button-padding: var(--space-s) var(--space-m)">Large</button>
   </div>
       </div>
 
@@ -233,41 +233,93 @@
   <section>
     <div class="flow" style="--flow-space: var(--space-s);">
       <h2 class="heading-l">Tokens</h2>
-      <p>All button tokens are defined in <code>@layer tokens</code> on <code>:root</code> and can be overridden at any cascade scope.</p>
+      <p>All button tokens are defined in <code>@layer tokens</code> on <code>:root</code> and follow the convention <code>[scope]-[variant]-[property]-[optional state]</code>. Override them in <code>@layer theme</code> on <code>:root</code>, or use the internal <code>--button-[property]</code> shorthand for local, per-element overrides.</p>
 
+      <h3 class="heading-m">Default variant — base</h3>
       <table class="">
         <thead><tr><th>Token</th><th>Default</th><th>Description</th></tr></thead>
         <tbody>
-          <tr><td><code>--button-background</code></td><td><code>var(--color-neutral-400)</code></td><td>Fill colour.</td></tr>
-          <tr><td><code>--button-border-color</code></td><td><code>var(--color-neutral-600)</code></td><td>Border colour.</td></tr>
-          <tr><td><code>--button-border-width</code></td><td><code>var(--border-m)</code></td><td>Border thickness.</td></tr>
-          <tr><td><code>--button-border-style</code></td><td><code>solid</code></td><td>Border style.</td></tr>
-          <tr><td><code>--button-color</code></td><td><code>var(--color-white)</code></td><td>Label text colour.</td></tr>
-          <tr><td><code>--button-font-size</code></td><td><code>0.875em</code></td><td>Label font size.</td></tr>
-          <tr><td><code>--button-font-weight</code></td><td><code>var(--font-weight-bold)</code></td><td>Label font weight.</td></tr>
-          <tr><td><code>--button-padding</code></td><td><code>var(--space-xs) var(--space-s)</code></td><td>Inner spacing.</td></tr>
-          <tr><td><code>--button-radius</code></td><td><code>var(--border-radius-m)</code></td><td>Corner radius.</td></tr>
-          <tr><td><code>--button-gap</code></td><td><code>var(--space-xs)</code></td><td>Gap between label and icon.</td></tr>
-          <tr><td><code>--button-icon-size</code></td><td><code>1.2cap</code></td><td>Icon block/inline size.</td></tr>
-          <tr><td><code>--button-text-transform</code></td><td><code>uppercase</code></td><td>Label text transform.</td></tr>
-          <tr><td><code>--button-tracking</code></td><td><code>0.05em</code></td><td>Letter spacing.</td></tr>
-          <tr><td><code>--button-raise</code></td><td><code>var(--space-tiny)</code></td><td>translateY distance on hover.</td></tr>
-          <tr><td><code>--button-transition</code></td><td>multi-property</td><td>Transition shorthand for all animated properties.</td></tr>
-          <tr><td><code>--button-background-hover</code></td><td><code>var(--button-background)</code></td><td>Fill on hover/focus.</td></tr>
-          <tr><td><code>--button-background-active</code></td><td><code>var(--button-background)</code></td><td>Fill while pressed.</td></tr>
-          <tr><td><code>--button-background-disabled</code></td><td><code>var(--color-neutral-200)</code></td><td>Fill when disabled.</td></tr>
-          <tr><td><code>--button-color-disabled</code></td><td><code>var(--color-neutral-500)</code></td><td>Text colour when disabled.</td></tr>
-          <tr><td><code>--button-opacity-disabled</code></td><td><code>0.6</code></td><td>Opacity when disabled.</td></tr>
-          <tr><td><code>--button-opacity-busy</code></td><td><code>0.85</code></td><td>Opacity when loading.</td></tr>
-          <tr><td><code>--button-background-toggled</code></td><td><code>var(--color-neutral-500)</code></td><td>Fill for pressed/expanded state.</td></tr>
-          <tr><td><code>--button-outline-background-hover</code></td><td><code>color-mix(in srgb, currentColor 10%, transparent)</code></td><td>Hover fill for outline variant.</td></tr>
-          <tr><td><code>--button-ghost-background-hover</code></td><td><code>color-mix(in srgb, currentColor 10%, transparent)</code></td><td>Hover fill for ghost variant.</td></tr>
-          <tr><td><code>--button-elevate-offset</code></td><td><code>0.25rem</code></td><td>Shadow offset for elevate preset.</td></tr>
-          <tr><td><code>--button-elevate-shadow</code></td><td><code>0 0 0 var(--button-border-color)</code></td><td>Shadow at rest for elevate preset.</td></tr>
-          <tr><td><code>--button-elevate-shadow-hover</code></td><td>offset shadow</td><td>Shadow on hover for elevate preset.</td></tr>
+          <tr><td><code>--button-default-background</code></td><td><code>var(--color-neutral-400)</code></td><td>Fill colour.</td></tr>
+          <tr><td><code>--button-default-border-color</code></td><td><code>var(--color-neutral-600)</code></td><td>Border colour.</td></tr>
+          <tr><td><code>--button-default-border-width</code></td><td><code>var(--border-m)</code></td><td>Border thickness.</td></tr>
+          <tr><td><code>--button-default-border-style</code></td><td><code>solid</code></td><td>Border style.</td></tr>
+          <tr><td><code>--button-default-color</code></td><td><code>var(--color-white)</code></td><td>Label text colour.</td></tr>
+          <tr><td><code>--button-default-font-size</code></td><td><code>0.875em</code></td><td>Label font size.</td></tr>
+          <tr><td><code>--button-default-font-weight</code></td><td><code>var(--font-weight-bold)</code></td><td>Label font weight.</td></tr>
+          <tr><td><code>--button-default-padding</code></td><td><code>var(--space-xs) var(--space-s)</code></td><td>Inner spacing.</td></tr>
+          <tr><td><code>--button-default-radius</code></td><td><code>var(--border-radius-m)</code></td><td>Corner radius.</td></tr>
+          <tr><td><code>--button-default-gap</code></td><td><code>var(--space-xs)</code></td><td>Gap between label and icon.</td></tr>
+          <tr><td><code>--button-default-icon-size</code></td><td><code>1.2cap</code></td><td>Icon block/inline size.</td></tr>
+          <tr><td><code>--button-default-text-transform</code></td><td><code>uppercase</code></td><td>Label text transform.</td></tr>
+          <tr><td><code>--button-default-tracking</code></td><td><code>0.05em</code></td><td>Letter spacing.</td></tr>
+          <tr><td><code>--button-default-raise</code></td><td><code>var(--space-tiny)</code></td><td>translateY distance on hover.</td></tr>
+          <tr><td><code>--button-default-transition</code></td><td>multi-property</td><td>Transition shorthand for all animated properties.</td></tr>
         </tbody>
       </table>
-  
+
+      <h3 class="heading-m">Default variant — states</h3>
+      <table class="">
+        <thead><tr><th>Token</th><th>Default</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td><code>--button-default-background-hover</code></td><td><code>var(--button-default-background)</code></td><td>Fill on hover/focus.</td></tr>
+          <tr><td><code>--button-default-border-color-hover</code></td><td><code>var(--button-default-border-color)</code></td><td>Border colour on hover/focus.</td></tr>
+          <tr><td><code>--button-default-color-hover</code></td><td><code>var(--button-default-color)</code></td><td>Text colour on hover/focus.</td></tr>
+          <tr><td><code>--button-default-opacity-hover</code></td><td><code>0.65</code></td><td>Opacity on hover (not applied by default; available for custom use).</td></tr>
+          <tr><td><code>--button-default-background-active</code></td><td><code>var(--button-default-background)</code></td><td>Fill while pressed.</td></tr>
+          <tr><td><code>--button-default-border-color-active</code></td><td><code>var(--button-default-border-color)</code></td><td>Border colour while pressed.</td></tr>
+          <tr><td><code>--button-default-color-active</code></td><td><code>var(--button-default-color)</code></td><td>Text colour while pressed.</td></tr>
+          <tr><td><code>--button-default-opacity-busy</code></td><td><code>0.85</code></td><td>Opacity when loading.</td></tr>
+          <tr><td><code>--button-default-background-toggled</code></td><td><code>var(--color-neutral-500)</code></td><td>Fill for pressed/expanded state.</td></tr>
+          <tr><td><code>--button-default-border-color-toggled</code></td><td><code>var(--button-default-border-color)</code></td><td>Border colour for toggled state.</td></tr>
+          <tr><td><code>--button-default-color-toggled</code></td><td><code>var(--button-default-color)</code></td><td>Text colour for toggled state.</td></tr>
+          <tr><td><code>--button-default-background-disabled</code></td><td><code>var(--color-neutral-200)</code></td><td>Fill when disabled.</td></tr>
+          <tr><td><code>--button-default-border-color-disabled</code></td><td><code>var(--color-neutral-400)</code></td><td>Border colour when disabled.</td></tr>
+          <tr><td><code>--button-default-color-disabled</code></td><td><code>var(--color-neutral-500)</code></td><td>Text colour when disabled.</td></tr>
+          <tr><td><code>--button-default-opacity-disabled</code></td><td><code>0.6</code></td><td>Opacity when disabled.</td></tr>
+        </tbody>
+      </table>
+
+      <h3 class="heading-m">Outline variant</h3>
+      <table class="">
+        <thead><tr><th>Token</th><th>Default</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td><code>--button-outline-background-hover</code></td><td><code>color-mix(in srgb, currentColor 10%, transparent)</code></td><td>Hover fill for outline variant.</td></tr>
+          <tr><td><code>--button-outline-border-color-hover</code></td><td><code>currentColor</code></td><td>Border colour on hover (fallback).</td></tr>
+          <tr><td><code>--button-outline-border-color-active</code></td><td><code>currentColor</code></td><td>Border colour while pressed (fallback).</td></tr>
+          <tr><td><code>--button-outline-color-hover</code></td><td><code>currentColor</code></td><td>Text colour on hover (fallback).</td></tr>
+          <tr><td><code>--button-outline-color-active</code></td><td><code>currentColor</code></td><td>Text colour while pressed (fallback).</td></tr>
+        </tbody>
+      </table>
+
+      <h3 class="heading-m">Ghost variant</h3>
+      <table class="">
+        <thead><tr><th>Token</th><th>Default</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td><code>--button-ghost-background-hover</code></td><td><code>color-mix(in srgb, currentColor 10%, transparent)</code></td><td>Hover fill for ghost variant.</td></tr>
+        </tbody>
+      </table>
+
+      <h3 class="heading-m">Elevate preset</h3>
+      <table class="">
+        <thead><tr><th>Token</th><th>Default</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td><code>--button-elevate-offset</code></td><td><code>0.25rem</code></td><td>Shadow offset distance.</td></tr>
+          <tr><td><code>--button-elevate-shadow</code></td><td><code>0 0 0 var(--button-border-color)</code></td><td>Shadow at rest.</td></tr>
+          <tr><td><code>--button-elevate-shadow-hover</code></td><td>offset shadow</td><td>Shadow on hover.</td></tr>
+          <tr><td><code>--button-elevate-shadow-active</code></td><td><code>none</code></td><td>Shadow while pressed.</td></tr>
+          <tr><td><code>--button-elevate-transform-hover</code></td><td>translateY up</td><td>Transform on hover.</td></tr>
+          <tr><td><code>--button-elevate-transform-active</code></td><td><code>translate(0, 0)</code></td><td>Transform while pressed.</td></tr>
+        </tbody>
+      </table>
+
+      <h3 class="heading-m">Local overrides</h3>
+      <p>When scoping to a component, use the internal <code>--button-[property]</code> form to override the current value directly without touching the global tokens.</p>
+      <pre class="padding-m"><code>.checkout-form button[type="submit"] {
+  --button-background:       var(--color-status-ok);
+  --button-border-color:     var(--color-status-ok);
+  --button-background-hover: oklch(from var(--color-status-ok) calc(l - 0.08) c h);
+}</code></pre>
+
     </div>
   </section>
 

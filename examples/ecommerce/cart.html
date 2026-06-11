@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cubito Store - Cart</title>
+    <meta name="description" content="Cart page example built with Cubito CSS and HTML only.">
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="site-header">
+        <div class="wrapper repel padding-y-xs" style="--wrapper-max-width: 88rem;" data-nowrap>
+          <a class="logo" href="./index.html">cubito.store</a>
+          <div class="cluster">
+            <a href="./plp.html">Continue shopping</a>
+            <a href="./account.html">My account</a>
+          </div>
+        </div>
+      </header>
+
+      <main class="site-main wrapper region flow" style="--wrapper-max-width: 88rem;">
+        <nav aria-label="Breadcrumb" class="breadcrumb">
+          <ol>
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./cart.html" aria-current="page">Cart</a></li>
+          </ol>
+        </nav>
+
+        <div class="repel">
+          <div class="flow">
+            <p class="text-xs color-neutral-500">2 items</p>
+            <h1>Your cart</h1>
+            <p class="text-l color-neutral-600">A clear summary of value, delivery, and next steps keeps momentum high before checkout.</p>
+          </div>
+          <a href="./plp.html" class="button" data-variant="outline">Keep browsing</a>
+        </div>
+
+        <div class="sidebar" data-direction="reverse" style="--sidebar-target-width: 24rem; --sidebar-content-min-width: 62%;">
+          <section class="flow">
+            <article class="card" data-layout="horizontal" style="--card-image-width: 12rem;">
+              <svg viewBox="0 0 360 420" role="img" aria-label="Everyday Carryall bag in sand">
+                <rect width="360" height="420" rx="28" fill="#f8fafc" />
+                <rect x="90" y="118" width="180" height="170" rx="34" fill="#cbd5e1" />
+                <path d="M126 138c0-38 26-70 54-70s54 32 54 70" fill="none" stroke="#94a3b8" stroke-width="18" stroke-linecap="round" />
+              </svg>
+              <div class="flow">
+                <div class="repel">
+                  <div class="flow">
+                    <h2><a href="./pdp.html">Everyday Carryall</a></h2>
+                    <p class="text-s color-neutral-500">Color: Sand | Size: Standard</p>
+                  </div>
+                  <span class="badge">Best seller</span>
+                </div>
+                <p class="price"><span class="price__original">$138</span><span class="price__amount">$112</span></p>
+                <label for="bag-qty">Quantity
+                  <input id="bag-qty" name="bag-qty" type="number" min="1" value="1">
+                </label>
+                <div class="cluster text-s">
+                  <a href="./cart.html">Save for later</a>
+                  <a href="./cart.html">Remove</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="card" data-layout="horizontal" style="--card-image-width: 12rem;">
+              <svg viewBox="0 0 360 420" role="img" aria-label="Packing cube set illustration">
+                <rect width="360" height="420" rx="28" fill="#e0f2fe" />
+                <rect x="74" y="118" width="110" height="90" rx="18" fill="#bfdbfe" />
+                <rect x="154" y="168" width="128" height="100" rx="20" fill="#93c5fd" />
+              </svg>
+              <div class="flow">
+                <div class="repel">
+                  <div class="flow">
+                    <h2><a href="./pdp.html">Packing Cube Set</a></h2>
+                    <p class="text-s color-neutral-500">Color: Sky | 3-piece set</p>
+                  </div>
+                  <span class="badge" data-variant="brand">Bundle add-on</span>
+                </div>
+                <p class="price"><span class="price__amount">$28</span></p>
+                <label for="cube-qty">Quantity
+                  <input id="cube-qty" name="cube-qty" type="number" min="1" value="1">
+                </label>
+                <div class="cluster text-s">
+                  <a href="./cart.html">Save for later</a>
+                  <a href="./cart.html">Remove</a>
+                </div>
+              </div>
+            </article>
+
+            <section class="surface flow">
+              <div class="repel">
+                <div class="flow">
+                  <p class="text-xs color-neutral-500">Recommended with your cart</p>
+                  <h2 class="heading-s">Small add-ons with strong attach rate</h2>
+                </div>
+                <a href="./plp.html">View all</a>
+              </div>
+              <div class="grid" data-layout="50%">
+                <article class="surface flow">
+                  <h3 class="heading-xs">Insulated Travel Bottle</h3>
+                  <p class="price"><span class="price__amount">$24</span></p>
+                  <a href="./cart.html" class="button" data-variant="outline">Add</a>
+                </article>
+                <article class="surface flow">
+                  <h3 class="heading-xs">Leather Key Clip</h3>
+                  <p class="price"><span class="price__amount">$18</span></p>
+                  <a href="./cart.html" class="button" data-variant="outline">Add</a>
+                </article>
+              </div>
+            </section>
+          </section>
+
+          <aside class="flow">
+            <section class="surface flow">
+              <h2 class="heading-s">Order summary</h2>
+              <dl class="data-list" data-layout="horizontal">
+                <div>
+                  <dt>Subtotal</dt>
+                  <dd>$206.00</dd>
+                </div>
+                <div>
+                  <dt>Member savings</dt>
+                  <dd>-$26.00</dd>
+                </div>
+                <div>
+                  <dt>Shipping</dt>
+                  <dd>Free</dd>
+                </div>
+                <div>
+                  <dt>Tax estimate</dt>
+                  <dd>$18.00</dd>
+                </div>
+                <div class="data-list__total">
+                  <dt>Total</dt>
+                  <dd>$198.00</dd>
+                </div>
+              </dl>
+              <a href="./checkout.html" class="button" data-preset="elevate">Proceed to checkout</a>
+              <p class="text-xs color-neutral-500">Secure checkout, express pay ready, free returns included.</p>
+            </section>
+
+            <section class="surface surface-subtle flow">
+              <h2 class="heading-s">Promo code</h2>
+              <form action="./cart.html" method="get" class="flow">
+                <label for="promo-code">Discount or gift card
+                  <input id="promo-code" name="promo" type="text" placeholder="WELCOME10">
+                </label>
+                <button type="submit" data-variant="outline">Apply code</button>
+              </form>
+            </section>
+          </aside>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

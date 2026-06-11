@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cubito Store - Login and Registration</title>
+    <meta name="description" content="Combined login and registration page example built with Cubito CSS and HTML only.">
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="site-header">
+        <div class="wrapper repel padding-y-xs" style="--wrapper-max-width: 88rem;" data-nowrap>
+          <a class="logo" href="./index.html">cubito.store</a>
+          <div class="cluster">
+            <a href="./plp.html">Shop</a>
+            <a href="./cart.html">Cart</a>
+          </div>
+        </div>
+      </header>
+
+      <main class="site-main wrapper region flow" style="--wrapper-max-width: 88rem;">
+        <div class="flow text-center" style="margin-inline: auto; max-width: 48rem;">
+          <p class="text-xs color-neutral-500">Welcome back</p>
+          <h1>Sign in faster or create an account in one step.</h1>
+          <p class="text-l color-neutral-600">Putting login and registration side by side lowers decision friction while making the value of account creation obvious.</p>
+        </div>
+
+        <section class="grid" data-layout="50%">
+          <article class="surface flow">
+            <div class="flow">
+              <p class="text-xs color-neutral-500">Returning customers</p>
+              <h2>Sign in</h2>
+            </div>
+            <form action="./account.html" method="get" class="flow">
+              <label for="login-email">Email
+                <input id="login-email" name="email" type="email" placeholder="alex@example.com">
+              </label>
+              <label for="login-password">Password
+                <input id="login-password" name="password" type="password" placeholder="Enter your password">
+              </label>
+              <div class="repel">
+                <label><input type="checkbox"> Keep me signed in</label>
+                <a href="./login-registration.html">Forgot password?</a>
+              </div>
+              <button type="submit" data-preset="elevate">Sign in</button>
+            </form>
+          </article>
+
+          <article class="surface flow">
+            <div class="flow">
+              <p class="text-xs color-neutral-500">New customers</p>
+              <h2>Create account</h2>
+            </div>
+            <form action="./account.html" method="get" class="flow">
+              <div class="form-grid">
+                <label for="register-first-name">First name
+                  <input id="register-first-name" name="first-name" type="text" placeholder="Alex">
+                </label>
+                <label for="register-last-name">Last name
+                  <input id="register-last-name" name="last-name" type="text" placeholder="Rivera">
+                </label>
+              </div>
+              <label for="register-email">Email
+                <input id="register-email" name="email" type="email" placeholder="alex@example.com">
+              </label>
+              <label for="register-password">Password
+                <input id="register-password" name="password" type="password" placeholder="Create a password">
+              </label>
+              <label><input type="checkbox" checked> Email me early access, offers, and restock alerts</label>
+              <button type="submit">Create account</button>
+            </form>
+          </article>
+        </section>
+
+        <section class="surface surface-subtle flow">
+          <div class="repel">
+            <div class="flow">
+              <p class="text-xs color-neutral-500">Why create an account</p>
+              <h2 class="heading-s">Membership turns repeat purchasing into a low-effort habit.</h2>
+            </div>
+            <span class="badge" data-variant="brand">Members save 10%</span>
+          </div>
+          <div class="grid" data-layout="33%">
+            <div class="mini-stat flow">
+              <h3 class="heading-xs">Faster checkout</h3>
+              <p>Saved addresses and payment preferences reduce repeat purchase time.</p>
+            </div>
+            <div class="mini-stat flow">
+              <h3 class="heading-xs">Order visibility</h3>
+              <p>Track delivery, manage returns, and reorder favorites from one place.</p>
+            </div>
+            <div class="mini-stat flow">
+              <h3 class="heading-xs">Personalized alerts</h3>
+              <p>Get size restocks, wishlist drops, and bundle offers based on browsing intent.</p>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

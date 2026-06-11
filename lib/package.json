@@ -9,8 +9,7 @@
     "./"
   ],
   "publishConfig": {
-    "access": "public",
-    "registry": "https://n.ho.net.co"
+    "access": "public"
   },
   "exports": {
     "./*.css": "./*.css"

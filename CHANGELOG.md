@@ -1,4 +1,4 @@
-# @hobiri/ui
+# @cubito/ui
 
 ## 0.4.0
 

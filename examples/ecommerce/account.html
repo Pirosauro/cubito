@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cubito Store - My Account</title>
+    <meta name="description" content="My account page example built with Cubito CSS and HTML only.">
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="site-header">
+        <div class="wrapper repel padding-y-xs" style="--wrapper-max-width: 88rem;" data-nowrap>
+          <a class="logo" href="./index.html">cubito.store</a>
+          <div class="cluster">
+            <a href="./plp.html">Shop</a>
+            <a href="./cart.html">Cart</a>
+            <a href="./login-registration.html">Sign out</a>
+          </div>
+        </div>
+      </header>
+
+      <main class="site-main wrapper region flow" style="--wrapper-max-width: 88rem;">
+        <section class="surface flow">
+          <div class="repel">
+            <div class="cluster">
+              <span class="avatar" data-size="xl" data-status="online" aria-label="Alex Rivera">AR</span>
+              <div class="flow" style="--flow-space: var(--space-tiny);">
+                <p class="text-xs color-neutral-500">Member since 2023</p>
+                <h1>Hi, Alex</h1>
+                <p class="text-s color-neutral-600">2 active orders, 1 saved cart, and 340 reward points.</p>
+              </div>
+            </div>
+            <a href="./plp.html" class="button" data-variant="outline">Shop new arrivals</a>
+          </div>
+        </section>
+
+        <div class="sidebar" data-variant="sticky" style="--sidebar-target-width: 18rem; --sidebar-content-min-width: 62%;">
+          <aside class="flow">
+            <nav data-variant="sidebar" aria-label="Account sections" class="surface">
+              <ul role="list" class="flow margin-0 padding-0">
+                <li><a href="./account.html" aria-current="page">Overview</a></li>
+                <li><a href="./account.html">Orders</a></li>
+                <li><a href="./account.html">Addresses</a></li>
+                <li><a href="./account.html">Wishlist</a></li>
+                <li><a href="./account.html">Saved payments</a></li>
+              </ul>
+            </nav>
+            <section class="surface surface-subtle flow">
+              <p class="text-xs color-neutral-500">Rewards</p>
+              <h2 class="heading-s">340 points</h2>
+              <p>You are $48 away from unlocking free priority shipping for the year.</p>
+              <a href="./plp.html">Earn more points</a>
+            </section>
+          </aside>
+
+          <section class="flow">
+            <div class="grid" data-layout="50%">
+              <article class="surface flow">
+                <div class="repel">
+                  <div class="flow">
+                    <p class="text-xs color-neutral-500">Recent order</p>
+                    <h2 class="heading-s">Order #CB10482</h2>
+                  </div>
+                  <span class="badge" data-variant="success">In transit</span>
+                </div>
+                <dl class="data-list" data-layout="horizontal">
+                  <div>
+                    <dt>Placed</dt>
+                    <dd>May 29</dd>
+                  </div>
+                  <div>
+                    <dt>Total</dt>
+                    <dd>$152.60</dd>
+                  </div>
+                  <div>
+                    <dt>ETA</dt>
+                    <dd>Jun 4</dd>
+                  </div>
+                </dl>
+                <a href="./account.html" class="button" data-variant="outline">Track order</a>
+              </article>
+
+              <article class="surface flow">
+                <div class="repel">
+                  <div class="flow">
+                    <p class="text-xs color-neutral-500">Saved cart</p>
+                    <h2 class="heading-s">Weekend travel edit</h2>
+                  </div>
+                  <span class="badge">3 items</span>
+                </div>
+                <p class="text-s color-neutral-600">You saved this cart yesterday. Two items still qualify for bundle pricing.</p>
+                <a href="./cart.html" class="button" data-variant="outline">Resume checkout</a>
+              </article>
+            </div>
+
+            <section class="surface flow">
+              <div class="repel">
+                <div class="flow">
+                  <p class="text-xs color-neutral-500">Order history</p>
+                  <h2 class="heading-s">Recent purchases</h2>
+                </div>
+                <a href="./account.html">View all orders</a>
+              </div>
+              <div class="table-wrapper">
+                <table data-variant="lined">
+                  <thead>
+                    <tr>
+                      <th scope="col">Order</th>
+                      <th scope="col">Date</th>
+                      <th scope="col">Status</th>
+                      <th scope="col">Total</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>#CB10482</td>
+                      <td>May 29</td>
+                      <td>In transit</td>
+                      <td>$152.60</td>
+                    </tr>
+                    <tr>
+                      <td>#CB10219</td>
+                      <td>Apr 16</td>
+                      <td>Delivered</td>
+                      <td>$94.00</td>
+                    </tr>
+                    <tr>
+                      <td>#CB09774</td>
+                      <td>Feb 03</td>
+                      <td>Delivered</td>
+                      <td>$186.00</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+
+            <div class="grid" data-layout="50%">
+              <section class="surface flow">
+                <div class="repel">
+                  <h2 class="heading-s">Profile</h2>
+                  <a href="./account.html">Edit</a>
+                </div>
+                <dl class="data-list">
+                  <div>
+                    <dt>Name</dt>
+                    <dd>Alex Rivera</dd>
+                  </div>
+                  <div>
+                    <dt>Email</dt>
+                    <dd>alex@example.com</dd>
+                  </div>
+                  <div>
+                    <dt>Phone</dt>
+                    <dd>(555) 123-4567</dd>
+                  </div>
+                </dl>
+              </section>
+
+              <section class="surface flow">
+                <div class="repel">
+                  <h2 class="heading-s">Default address</h2>
+                  <a href="./account.html">Manage</a>
+                </div>
+                <p>Alex Rivera<br>225 Market Street<br>San Francisco, CA 94105<br>United States</p>
+                <a href="./checkout.html" class="button" data-variant="outline">Ship here again</a>
+              </section>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

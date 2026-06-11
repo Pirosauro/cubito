@@ -2,7 +2,7 @@
 Layers
 ---
 Declares the cascade layer order for the entire library.
-Import this as the very first stylesheet — before any other @hobiri/ui import
+Import this as the very first stylesheet — before any other @cubito/ui import
 and before your application styles.
 
 Without this declaration, layer precedence is determined by first-encountered

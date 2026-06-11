@@ -1,20 +1,24 @@
 /*
 Button
 ---
-Styles and tokens for interactive button controls: <button>, submit/reset inputs, and the utility `.button`. 
-Tokens control appearance, motion and states (hover, active, disabled, busy, toggled). 
+Styles and tokens for interactive button controls: <button>, submit/reset inputs, and the utility `.button`.
+Tokens control appearance, motion and states (hover, active, disabled, busy, toggled).
 Variants (outline, ghost, naked) and presets (elevate) are supported and composable.
 
 USAGE
+  Token naming follows [scope]-[variant]-[property]-[optional state].
+  Public tokens (theme overrides, :root):
+
   @layer theme {
     :root {
-      --button-background:           var(--color-brand);
-      --button-color:                var(--color-white);
-      --button-border-color:         var(--color-brand);
-      --button-opacity-disabled:     0.4;
-      --button-outline-border-color: var(--color-brand);
+      --button-default-background:           var(--color-brand);
+      --button-default-color:                var(--color-white);
+      --button-default-border-color:         var(--color-brand);
+      --button-default-opacity-disabled:     0.4;
     }
   }
+
+  Local overrides at component scope use the internal [scope]-[property] form:
 
   .checkout-form button[type="submit"] {
     --button-background:       var(--color-status-ok);
@@ -33,29 +37,51 @@ USAGE
   <button aria-pressed="true">Toggled</button>
 
 TOKENS (defined in this file, @layer tokens)
-  Base:     --button-background     --button-border-color     --button-border-style
-            --button-border-width   --button-color
-            --button-font-family    --button-font-size        --button-font-weight
-            --button-gap            --button-icon-size        --button-padding
-            --button-opacity        --button-padding          --button-radius
-            --button-raise          --button-shadow           --button-text-transform
-            --button-tracking       --button-transform        --button-transition
+  Default variant (base):
+            --button-default-background     --button-default-border-color     --button-default-border-style
+            --button-default-border-width   --button-default-color
+            --button-default-font-family    --button-default-font-size        --button-default-font-weight
+            --button-default-gap            --button-default-icon-size        --button-default-padding
+            --button-default-opacity        --button-default-padding          --button-default-radius
+            --button-default-raise          --button-default-shadow           --button-default-text-transform
+            --button-default-tracking       --button-default-transform        --button-default-transition
 
-  State:    --button-background-active    --button-border-color-active  --button-color-active
-            --button-shadow-active        --button-transform-active
-            --button-background-disabled  --button-border-color-disabled
-            --button-color-disabled       --button-opacity-busy         --button-opacity-disabled
-            --button-background-hover     --button-border-color-hover   --button-color-hover
-            --button-shadow-hover         --button-transform-hover
-            --button-background-toggled   --button-border-color-toggled --button-color-toggled
+  Default variant (states):
+            --button-default-background-hover     --button-default-border-color-hover   --button-default-color-hover
+            --button-default-opacity-hover        --button-default-shadow-hover         --button-default-transform-hover
+            --button-default-background-active    --button-default-border-color-active  --button-default-color-active
+            --button-default-opacity-active       --button-default-shadow-active        --button-default-transform-active
+            --button-default-opacity-busy
+            --button-default-background-toggled   --button-default-border-color-toggled --button-default-color-toggled
+            --button-default-opacity-toggled      --button-default-shadow-toggled       --button-default-transform-toggled
+            --button-default-background-disabled  --button-default-border-color-disabled
+            --button-default-color-disabled       --button-default-opacity-disabled
+            --button-default-shadow-disabled      --button-default-transform-disabled
 
-  Variant:  --button-ghost-background-hover
+  Outline variant:
+            --button-outline-background-hover
+            --button-outline-border-color-hover   --button-outline-border-color-active
+            --button-outline-color-hover          --button-outline-color-active
+
+  Ghost variant:
+            --button-ghost-background-hover
+
+  Naked variant:
             --button-naked-color-hover
-            --button-outline-background-hover  --button-outline-border-color
 
-  Preset:   --button-elevate-offset          --button-elevate-shadow
+  Elevate preset:
+            --button-elevate-offset          --button-elevate-shadow
             --button-elevate-shadow-active   --button-elevate-shadow-hover
             --button-elevate-transform-active  --button-elevate-transform-hover
+
+INTERNAL VARS (set per-element in @layer blocks, not for theme overrides)
+  --button-background       --button-border-color     --button-color
+  --button-opacity          --button-shadow           --button-transform
+  --button-background-hover --button-border-color-hover --button-color-hover
+  --button-shadow-hover     --button-transform-hover
+  --button-background-active --button-border-color-active --button-color-active
+  --button-shadow-active    --button-transform-active
+  (plus structural: --button-font-size, --button-padding, --button-radius, etc.)
 
 STATES
   :hover / :focus-visible     Lift via translateY (--button-raise) only — no shadow
@@ -77,10 +103,8 @@ PRESETS
   [data-preset="elevate"]     Hard offset shadow (x/y), presses flush on :active
 
 NOTE ON HOVER COLOUR DERIVATION
-  --button-background-hover uses color-mix() relative to --button-background.
-  Because CSS custom properties resolve at used-value time on an element,
-  if you change --button-background locally (e.g. on .my-form button) you must
-  also set --button-background-hover explicitly, or use a relative colour:
+  --button-default-background-hover defaults to var(--button-default-background).
+  If you override --button-background locally, also set --button-background-hover:
     .my-form button {
       --button-background:       var(--color-brand);
       --button-border-color:     var(--color-brand);
@@ -90,26 +114,16 @@ NOTE ON HOVER COLOUR DERIVATION
 
 @layer tokens {
   :root {
-    /* --- Base --- */
-
-    --button-background: var(--color-neutral-400);
-    --button-border-color: var(--color-neutral-600);
-    --button-border-style: solid;
-    --button-border-width: var(--border-m);
-    --button-color: var(--color-white);
     --button-font-family: var(--font-family);
     --button-font-size: 0.875em;
     --button-font-weight: var(--font-weight-bold);
     --button-gap: var(--space-xs);
     --button-icon-size: 1.2cap;
-    --button-opacity: 1;
     --button-padding: var(--space-xs) var(--space-s);
     --button-radius: var(--border-radius-m);
     --button-raise: var(--space-tiny, 0.25rem);
-    --button-shadow: none;
     --button-text-transform: uppercase;
     --button-tracking: 0.05em;
-    --button-transform: translateY(0);
     --button-transition:
       background-color var(--motion-duration-fast, 150ms)
         var(--motion-easing-out),
@@ -119,62 +133,87 @@ NOTE ON HOVER COLOUR DERIVATION
       opacity var(--motion-duration-fast, 150ms) var(--motion-easing-out),
       transform var(--motion-duration-fast, 150ms) var(--motion-easing-out);
 
-    /* --- State: hover --- */
-    --button-background-hover: var(--button-background);
-    --button-border-color-hover: var(--button-border-color);
-    --button-color-hover: var(--button-color);
-    --button-shadow-hover: none;
-    --button-transform-hover: translateY(calc(-1 * var(--button-raise)));
+    /* --- Default variant --- */
 
-    /* --- State: active --- */
+    --button-default-background: var(--color-neutral-400);
+    --button-default-border-color: var(--color-neutral-600);
+    --button-default-border-style: solid;
+    --button-default-border-width: var(--border-m);
+    --button-default-color: var(--color-white);
+    --button-default-opacity: 1;
+    --button-default-shadow: none;
+    --button-default-transform: none;
 
-    --button-background-active: var(--button-background);
-    --button-border-color-active: var(--button-border-color);
-    --button-color-active: var(--button-color);
-    --button-shadow-active: none;
-    --button-transform-active: translateY(0);
+    /* --- Default variant: hover state --- */
 
-    /* --- State: busy --- */
+    --button-default-background-hover: var(--button-default-background);
+    --button-default-border-color-hover: var(--button-default-border-color);
+    --button-default-color-hover: var(--button-default-color);
+    --button-default-opacity-hover: 0.85;
+    --button-default-shadow-hover: none;
+    --button-default-transform-hover: none; /* translateY(calc(-1 * var(--button-raise))); */
 
-    --button-opacity-busy: 0.85;
+    /* --- Default variant: active state --- */
 
-    /* --- State: toggled (aria-pressed / aria-expanded) --- */
+    --button-default-background-active: var(--button-default-background);
+    --button-default-border-color-active: var(--button-default-border-color);
+    --button-default-color-active: color-mix(
+      in oklab,
+      var(--button-default-color),
+      var(--button-default-background-active) 25%
+    );
+    --button-default-opacity-active: var(--button-default-opacity-hover);
+    --button-default-shadow-active: none;
+    --button-default-transform-active: scale(0.95);
 
-    --button-background-toggled: var(--color-neutral-500);
-    --button-border-color-toggled: var(--button-border-color);
-    --button-color-toggled: var(--button-color);
+    /* --- Default variant: busy state --- */
 
-    /* --- State: disabled --- */
+    --button-default-opacity-busy: 0.85;
 
-    --button-background-disabled: var(--color-neutral-200);
-    --button-border-color-disabled: var(--color-neutral-400);
-    --button-color-disabled: var(--color-neutral-500);
-    --button-opacity-disabled: 0.6;
+    /* --- Default variant: toggled (aria-pressed / aria-expanded) state --- */
 
-    /* --- Variant: outline --- */
+    --button-default-background-toggled: var(--button-default-background);
+    --button-default-border-color-toggled: var(--button-default-border-color);
+    --button-default-color-toggled: var(--button-default-color);
+    --button-default-opacity-toggled: 1;
+    --button-default-shadow-toggled: none;
+    --button-default-transform-toggled: scale(0.9);
 
+    /* --- Default variant: disabled state --- */
+
+    --button-default-background-disabled: var(--color-neutral-200);
+    --button-default-border-color-disabled: var(--color-neutral-400);
+    --button-default-color-disabled: var(--color-neutral-500);
+    --button-default-opacity-disabled: 0.6;
+    --button-default-shadow-disabled: none;
+    --button-default-transform-disabled: none;
+
+    /* --- Outline variant --- */
+
+    --button-outline-transform-active: scale(0.95);
     --button-outline-background-hover: color-mix(
       in srgb,
       currentColor 10%,
       transparent
     );
 
-    /* --- Variant: ghost --- */
+    /* --- Ghost variant --- */
 
+    --button-ghost-transform-active: scale(0.95);
     --button-ghost-background-hover: color-mix(
       in srgb,
       currentColor 10%,
       transparent
     );
 
-    /* --- Preset: elevate --- */
+    /* --- Elevate preset --- */
 
     --button-elevate-offset: 0.25rem;
     --button-elevate-shadow: 0 0 0 var(--button-border-color);
     --button-elevate-shadow-active: none;
+    --button-elevate-transform-active: translate(0, 0);
     --button-elevate-shadow-hover: 0 var(--button-elevate-offset) 0
       var(--button-border-color);
-    --button-elevate-transform-active: translate(0, 0);
     --button-elevate-transform-hover: translateY(
       calc(-1 * var(--button-elevate-offset))
     );
@@ -189,6 +228,28 @@ NOTE ON HOVER COLOUR DERIVATION
   input[type="reset"],
   input[type="button"],
   .button {
+    /* Internal bridge vars — initialize from public tokens */
+    --button-background: var(--button-default-background);
+    --button-border-color: var(--button-default-border-color);
+    --button-border-style: var(--button-default-border-style);
+    --button-border-width: var(--button-default-border-width);
+    --button-color: var(--button-default-color);
+    --button-opacity: var(--button-default-opacity);
+    --button-shadow: var(--button-default-shadow);
+    --button-transform: var(--button-default-transform);
+    /* Hover/active intermediaries — variants override these to redirect state appearance */
+    --button-background-active: var(--button-default-background-active);
+    --button-border-color-active: var(--button-default-border-color-active);
+    --button-color-active: var(--button-default-color-active);
+    --button-opacity-active: var(--button-default-opacity-active);
+    --button-shadow-active: var(--button-default-shadow-active);
+    --button-transform-active: var(--button-default-transform-active);
+    --button-background-hover: var(--button-default-background-hover);
+    --button-border-color-hover: var(--button-default-border-color-hover);
+    --button-color-hover: var(--button-default-color-hover);
+    --button-opacity-hover: var(--button-default-opacity-hover);
+    --button-shadow-hover: var(--button-default-shadow-hover);
+    --button-transform-hover: var(--button-default-transform-hover);
     /* Layout */
     align-items: center;
     display: inline-flex;
@@ -255,6 +316,7 @@ NOTE ON HOVER COLOUR DERIVATION
     --button-background: var(--button-background-hover);
     --button-border-color: var(--button-border-color-hover);
     --button-color: var(--button-color-hover);
+    --button-opacity: var(--button-opacity-hover);
     --button-shadow: var(--button-shadow-hover);
     --button-transform: var(--button-transform-hover);
     /* Link inheritance */
@@ -278,6 +340,7 @@ NOTE ON HOVER COLOUR DERIVATION
     --button-background: var(--button-background-active);
     --button-border-color: var(--button-border-color-active);
     --button-color: var(--button-color-active);
+    --button-opacity: var(--button-opacity-active);
     --button-shadow: var(--button-shadow-active);
     --button-transform: var(--button-transform-active);
   }
@@ -288,10 +351,12 @@ NOTE ON HOVER COLOUR DERIVATION
   button[aria-expanded="true"],
   .button[aria-pressed="true"],
   .button[aria-expanded="true"] {
-    --button-background: var(--button-background-toggled);
-    --button-border-color: var(--button-border-color-toggled);
-    --button-color: var(--button-color-toggled);
-    --button-raise: 0px;
+    --button-background: var(--button-default-background-toggled);
+    --button-border-color: var(--button-default-border-color-toggled);
+    --button-color: var(--button-default-color-toggled);
+    --button-opacity: var(--button-default-opacity-toggled);
+    --button-shadow: var(--button-default-shadow-toggled);
+    --button-transform: var(--button-default-transform-toggled);
   }
 
   /* --- Disabled --- */
@@ -301,13 +366,15 @@ NOTE ON HOVER COLOUR DERIVATION
   input[type="reset"]:disabled,
   input[type="button"]:disabled,
   .button[aria-disabled="true"] {
-    --button-background: var(--button-background-disabled);
-    --button-border-color: var(--button-border-color-disabled);
-    --button-color: var(--button-color-disabled);
-    --button-raise: 0px;
+    --button-background: var(--button-default-background-disabled);
+    --button-border-color: var(--button-default-border-color-disabled);
+    --button-color: var(--button-default-color-disabled);
+    --button-opacity: var(--button-default-opacity-disabled);
+    --button-shadow: var(--button-default-shadow-disabled);
+    --button-transform: var(--button-default-transform-disabled);
 
     cursor: var(--cursor-not-allowed, not-allowed);
-    opacity: var(--button-opacity-disabled);
+    opacity: var(--button-default-opacity-disabled);
     pointer-events: none;
   }
 
@@ -315,14 +382,32 @@ NOTE ON HOVER COLOUR DERIVATION
 
   button[data-busy="true"],
   .button[data-busy="true"] {
-    --button-background: var(--button-background-toggled);
-    --button-border-color: var(--button-border-color-toggled);
-    --button-color: var(--button-color-toggled);
-    --button-raise: 0px;
-    --button-transform: translate(0, 0);
+    --button-background: var(
+      --button-default-background-toggled,
+      var(--button-default-background)
+    );
+    --button-border-color: var(
+      --button-default-border-color-toggled,
+      var(--button-default-border-color)
+    );
+    --button-color: var(
+      --button-default-color-toggled,
+      var(--button-default-color)
+    );
+    --button-opacity: var(
+      --button-default-opacity-toggled,
+      var(--button-default-opacity)
+    );
+    --button-shadow: var(
+      --button-default-shadow-toggled,
+      var(--button-default-shadow)
+    );
+    --button-transform: var(
+      --button-default-transform-toggled,
+      var(--button-default-transform)
+    );
 
     cursor: wait;
-    opacity: var(--button-opacity-busy);
     pointer-events: none;
   }
 
@@ -357,16 +442,26 @@ NOTE ON HOVER COLOUR DERIVATION
     --button-background: transparent;
     --button-border-color: currentColor;
     --button-color: currentColor;
-    --button-raise: 0px;
-    --button-transform-active: translate(0, 0);
-    --button-transform-hover: translate(0, 0);
+    --button-opacity: 1;
     /* State overrides */
     --button-background-active: var(--button-outline-background-hover);
-    --button-background-hover: var(--button-outline-background-hover);
-    --button-border-color-active: var(--button-outline-border-color-active, currentColor);
-    --button-border-color-hover: var(--button-outline-border-color-hover, currentColor);
+    --button-border-color-active: var(
+      --button-outline-border-color-active,
+      currentColor
+    );
     --button-color-active: var(--button-outline-color-active, currentColor);
+    --button-opacity-active: var(--button-outline-opacity-active);
+    --button-shadow-active: var(--button-outline-shadow-active);
+    --button-transform-active: var(--button-outline-transform-active);
+    --button-background-hover: var(--button-outline-background-hover);
+    --button-border-color-hover: var(
+      --button-outline-border-color-hover,
+      currentColor
+    );
     --button-color-hover: var(--button-outline-color-hover, currentColor);
+    --button-opacity-hover: var(--button-outline-opacity-hover);
+    --button-shadow-hover: var(--button-outline-shadow-hover);
+    --button-transform-hover: var(--button-outline-transform-hover);
   }
 
   /* --- Ghost --- */
@@ -380,16 +475,16 @@ NOTE ON HOVER COLOUR DERIVATION
     --button-background: transparent;
     --button-border-color: transparent;
     --button-color: currentColor;
-    --button-raise: 0px; /* no lift; translate derives to translateY(0) */
-    --button-transform-active: translate(0, 0);
-    --button-transform-hover: translate(0, 0);
+    --button-opacity: 1;
     /* State overrides */
     --button-background-active: var(--button-ghost-background-hover);
-    --button-background-hover: var(--button-ghost-background-hover);
     --button-border-color-active: transparent;
-    --button-border-color-hover: transparent;
     --button-color-active: currentColor;
+    --button-transform-active: var(--button-ghost-transform-active);
+    --button-background-hover: var(--button-ghost-background-hover);
+    --button-border-color-hover: transparent;
     --button-color-hover: currentColor;
+    --button-transform-hover: var(--button-ghost-transform-hover);
   }
 
   /* --- Naked --- */
@@ -408,8 +503,9 @@ NOTE ON HOVER COLOUR DERIVATION
     --button-transform-hover: translateY(0);
     /* State overrides */
     --button-background-active: transparent;
-    --button-background-hover: transparent;
     --button-border-color-active: transparent;
+    --button-color-active: var(--link-color);
+    --button-background-hover: transparent;
     --button-border-color-hover: transparent;
     --button-color-hover: var(--link-color-hover);
     /* Link inheritance */
@@ -433,10 +529,10 @@ NOTE ON HOVER COLOUR DERIVATION
   button[data-preset="elevate"],
   .button[data-preset="elevate"] {
     --button-shadow: var(--button-elevate-shadow);
-    --button-shadow-hover: var(--button-elevate-shadow-hover);
     --button-shadow-active: var(--button-elevate-shadow-active);
-    --button-transform-hover: var(--button-elevate-transform-hover);
     --button-transform-active: var(--button-elevate-transform-active);
+    --button-shadow-hover: var(--button-elevate-shadow-hover);
+    --button-transform-hover: var(--button-elevate-transform-hover);
   }
 
   /* --- Reduced motion --- */

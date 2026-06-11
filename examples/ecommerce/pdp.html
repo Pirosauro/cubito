@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cubito Store - Product Detail</title>
+    <meta name="description" content="Product detail page example built with Cubito CSS and HTML only.">
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="site-header">
+        <div class="wrapper flow" style="--flow-space: var(--space-xs); --wrapper-max-width: 88rem;">
+          <div class="repel padding-y-xs" data-nowrap>
+            <a class="logo" href="./index.html">cubito.store</a>
+            <div class="cluster">
+              <a href="./plp.html">Shop</a>
+              <a href="./cart.html">Cart</a>
+              <a href="./account.html">Account</a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="site-main wrapper region flow" style="--wrapper-max-width: 88rem;">
+        <nav aria-label="Breadcrumb" class="breadcrumb">
+          <ol>
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./plp.html">Bags</a></li>
+            <li><a href="./pdp.html" aria-current="page">Everyday Carryall</a></li>
+          </ol>
+        </nav>
+
+        <section class="sidebar" style="--sidebar-target-width: 34rem; --sidebar-content-min-width: 24rem;">
+          <div class="flow">
+            <div class="product-stage">
+              <svg viewBox="0 0 720 820" role="img" aria-label="Everyday Carryall bag in sand with structured handles">
+                <rect width="720" height="820" rx="36" fill="#f8fafc" />
+                <rect x="190" y="226" width="340" height="320" rx="56" fill="#cbd5e1" />
+                <path d="M260 266c0-62 38-118 100-118s100 56 100 118" fill="none" stroke="#94a3b8" stroke-width="28" stroke-linecap="round" />
+                <rect x="272" y="318" width="176" height="24" rx="12" fill="#e2e8f0" />
+                <text x="360" y="688" text-anchor="middle" font-family="Arial, sans-serif" font-size="42" fill="#111827">Everyday Carryall</text>
+              </svg>
+            </div>
+            <div class="thumbnail-row">
+              <div class="thumbnail">
+                <svg viewBox="0 0 240 240" role="img" aria-label="Front view thumbnail">
+                  <rect width="240" height="240" rx="20" fill="#dbeafe" />
+                  <rect x="60" y="70" width="120" height="110" rx="22" fill="#cbd5e1" />
+                  <path d="M84 84c0-22 14-40 36-40s36 18 36 40" fill="none" stroke="#94a3b8" stroke-width="14" stroke-linecap="round" />
+                </svg>
+              </div>
+              <div class="thumbnail">
+                <svg viewBox="0 0 240 240" role="img" aria-label="Side view thumbnail">
+                  <rect width="240" height="240" rx="20" fill="#e0f2fe" />
+                  <rect x="70" y="72" width="98" height="110" rx="24" fill="#cbd5e1" />
+                  <path d="M150 84c0-22-12-36-30-40" fill="none" stroke="#94a3b8" stroke-width="14" stroke-linecap="round" />
+                </svg>
+              </div>
+              <div class="thumbnail">
+                <svg viewBox="0 0 240 240" role="img" aria-label="Interior thumbnail">
+                  <rect width="240" height="240" rx="20" fill="#fff7ed" />
+                  <rect x="54" y="56" width="132" height="128" rx="24" fill="#ffffff" opacity="0.9" />
+                  <rect x="80" y="86" width="82" height="56" rx="12" fill="#bfdbfe" />
+                </svg>
+              </div>
+              <div class="thumbnail">
+                <svg viewBox="0 0 240 240" role="img" aria-label="Styled look thumbnail">
+                  <rect width="240" height="240" rx="20" fill="#f1f5f9" />
+                  <circle cx="122" cy="70" r="26" fill="#fed7aa" />
+                  <rect x="90" y="96" width="64" height="86" rx="22" fill="#93c5fd" />
+                  <rect x="120" y="118" width="72" height="62" rx="20" fill="#cbd5e1" />
+                </svg>
+              </div>
+            </div>
+            <!-- Gallery image swapping, zoom, and gesture support would require JS. -->
+          </div>
+
+          <div class="flow">
+            <div class="cluster gap">
+              <span class="badge">Best seller</span>
+              <span class="badge" data-variant="success">Free returns</span>
+              <span class="text-s color-neutral-500">12,348 reviews</span>
+            </div>
+            <div class="flow">
+              <h1>Everyday Carryall</h1>
+              <p class="text-l color-neutral-600">A structured everyday tote that keeps essentials visible, protected, and easy to reach from commute to weekend trip.</p>
+            </div>
+            <p class="price" style="--price-size: var(--font-size-xxl);"><span class="price__original">$138</span><span class="price__amount">$112</span><span class="price__badge">Save 19%</span></p>
+            <div class="surface surface-subtle flow">
+              <div class="cluster gap text-s">
+                <span>Delivery by Tue, Jun 4</span>
+                <span>Pickup today</span>
+                <span>Low return rate</span>
+              </div>
+            </div>
+
+            <form class="flow" action="./cart.html" method="get">
+              <fieldset>
+                <legend>Color</legend>
+                <div class="cluster gap">
+                  <label><input type="radio" name="color" checked> Sand</label>
+                  <label><input type="radio" name="color"> Slate</label>
+                  <label><input type="radio" name="color"> Black</label>
+                </div>
+              </fieldset>
+
+              <fieldset>
+                <legend>Size</legend>
+                <div class="cluster gap">
+                  <label><input type="radio" name="size"> Compact</label>
+                  <label><input type="radio" name="size" checked> Standard</label>
+                  <label><input type="radio" name="size"> Large</label>
+                </div>
+              </fieldset>
+
+              <label for="qty">Quantity
+                <input id="qty" name="quantity" type="number" min="1" value="1">
+              </label>
+
+              <div class="cta-row">
+                <button type="submit" data-preset="elevate">Add to bag</button>
+                <a href="./checkout.html" class="button" data-variant="outline">Buy now</a>
+              </div>
+            </form>
+
+            <dl class="data-list" data-layout="horizontal">
+              <div>
+                <dt>SKU</dt>
+                <dd>CB-EC-204</dd>
+              </div>
+              <div>
+                <dt>Material</dt>
+                <dd>Recycled woven shell</dd>
+              </div>
+              <div>
+                <dt>Capacity</dt>
+                <dd>18L</dd>
+              </div>
+              <div>
+                <dt>Warranty</dt>
+                <dd>2 years</dd>
+              </div>
+            </dl>
+
+            <details open>
+              <summary>Why shoppers choose it</summary>
+              <p>It keeps a 16-inch laptop suspended off the base, includes a luggage sleeve, and stands upright so packing feels intuitive.</p>
+            </details>
+            <details>
+              <summary>Shipping and returns</summary>
+              <p>Free standard shipping over $80, expedited delivery available at checkout, and 30-day free returns on unused items.</p>
+            </details>
+            <details>
+              <summary>Care and materials</summary>
+              <p>Spot clean with mild soap. Lining and shell contain recycled fibers. Hardware is nickel-free.</p>
+            </details>
+          </div>
+        </section>
+
+        <section class="region flow" style="--region-space: var(--space-l);">
+          <div class="repel">
+            <div class="flow">
+              <p class="text-xs color-neutral-500">Complete the look</p>
+              <h2>High-affinity add-ons that raise basket value naturally.</h2>
+            </div>
+            <a href="./cart.html">View bag</a>
+          </div>
+          <div class="grid" data-layout="33%">
+            <article class="card">
+              <svg viewBox="0 0 640 520" role="img" aria-label="Packing cube set illustration">
+                <rect width="640" height="520" rx="28" fill="#e0f2fe" />
+                <rect x="120" y="130" width="180" height="150" rx="22" fill="#bfdbfe" />
+                <rect x="266" y="200" width="226" height="170" rx="24" fill="#93c5fd" />
+                <text x="320" y="442" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" fill="#111827">Packing Cubes</text>
+              </svg>
+              <div class="flow">
+                <h3><a href="./pdp.html">Packing Cube Set</a></h3>
+                <p>Three nesting organizers that fit the carryall perfectly.</p>
+                <p class="price"><span class="price__amount">$28</span></p>
+              </div>
+            </article>
+            <article class="card">
+              <svg viewBox="0 0 640 520" role="img" aria-label="Travel bottle illustration">
+                <rect width="640" height="520" rx="28" fill="#f8fafc" />
+                <rect x="270" y="100" width="100" height="250" rx="36" fill="#94a3b8" />
+                <rect x="286" y="70" width="68" height="44" rx="16" fill="#cbd5e1" />
+                <text x="320" y="442" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" fill="#111827">Travel Bottle</text>
+              </svg>
+              <div class="flow">
+                <h3><a href="./pdp.html">Insulated Travel Bottle</a></h3>
+                <p>Leak-proof bottle sized for the hidden side pocket.</p>
+                <p class="price"><span class="price__amount">$24</span></p>
+              </div>
+            </article>
+            <article class="card">
+              <svg viewBox="0 0 640 520" role="img" aria-label="Tech pouch illustration">
+                <rect width="640" height="520" rx="28" fill="#fff7ed" />
+                <rect x="164" y="164" width="312" height="156" rx="28" fill="#fdba74" />
+                <rect x="184" y="194" width="274" height="26" rx="13" fill="#ffffff" opacity="0.7" />
+                <text x="320" y="442" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" fill="#111827">Tech Pouch</text>
+              </svg>
+              <div class="flow">
+                <h3><a href="./pdp.html">Daily Tech Pouch</a></h3>
+                <p>Cable-ready organizer for chargers, earbuds, and passport.</p>
+                <p class="price"><span class="price__amount">$32</span></p>
+              </div>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

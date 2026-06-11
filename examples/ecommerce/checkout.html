@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cubito Store - Checkout</title>
+    <meta name="description" content="Checkout page example built with Cubito CSS and HTML only.">
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="site-header">
+        <div class="wrapper repel padding-y-xs" style="--wrapper-max-width: 88rem;" data-nowrap>
+          <a class="logo" href="./index.html">cubito.store</a>
+          <div class="cluster">
+            <a href="./cart.html">Back to cart</a>
+            <span class="text-s color-neutral-500">Secure checkout</span>
+          </div>
+        </div>
+      </header>
+
+      <main class="site-main wrapper region flow" style="--wrapper-max-width: 88rem;">
+        <div class="progress-bar">
+          <div class="progress-bar__header">
+            <span id="checkout-progress">Checkout progress</span>
+            <span aria-hidden="true">67%</span>
+          </div>
+          <progress value="67" max="100" aria-labelledby="checkout-progress"></progress>
+        </div>
+
+        <div class="repel">
+          <div class="flow">
+            <p class="text-xs color-neutral-500">Step 2 of 3</p>
+            <h1>Checkout</h1>
+            <p class="text-l color-neutral-600">Focused form grouping, clear totals, and visible reassurance reduce drop-off at the final decision point.</p>
+          </div>
+          <span class="badge" data-variant="success">Express delivery available</span>
+        </div>
+
+        <div class="sidebar" data-direction="reverse" style="--sidebar-target-width: 25rem; --sidebar-content-min-width: 60%;">
+          <form class="flow checkout-sections" action="./account.html" method="get">
+            <section class="surface flow">
+              <div class="repel">
+                <div class="flow">
+                  <p class="text-xs color-neutral-500">Contact</p>
+                  <h2 class="heading-s">How can we reach you?</h2>
+                </div>
+                <a href="./login-registration.html">Sign in</a>
+              </div>
+              <div class="form-grid">
+                <label for="checkout-email">Email
+                  <input id="checkout-email" name="email" type="email" value="alex@example.com">
+                </label>
+                <label for="checkout-phone">Phone
+                  <input id="checkout-phone" name="phone" type="tel" placeholder="(555) 123-4567">
+                </label>
+              </div>
+              <label><input type="checkbox" checked> Send shipping updates by email</label>
+            </section>
+
+            <section class="surface flow">
+              <p class="text-xs color-neutral-500">Shipping address</p>
+              <h2 class="heading-s">Where should we send it?</h2>
+              <div class="form-grid">
+                <label for="first-name">First name
+                  <input id="first-name" name="first-name" type="text" value="Alex">
+                </label>
+                <label for="last-name">Last name
+                  <input id="last-name" name="last-name" type="text" value="Rivera">
+                </label>
+                <label for="street-address">Street address
+                  <input id="street-address" name="street-address" type="text" value="225 Market Street">
+                </label>
+                <label for="apartment">Apartment, suite, etc.
+                  <input id="apartment" name="apartment" type="text" placeholder="Optional">
+                </label>
+                <label for="city">City
+                  <input id="city" name="city" type="text" value="San Francisco">
+                </label>
+                <label for="region">State / region
+                  <input id="region" name="region" type="text" value="California">
+                </label>
+                <label for="postcode">Postal code
+                  <input id="postcode" name="postcode" type="text" value="94105">
+                </label>
+                <label for="country">Country
+                  <select id="country" name="country">
+                    <option selected>United States</option>
+                    <option>Canada</option>
+                    <option>United Kingdom</option>
+                    <option>Italy</option>
+                  </select>
+                </label>
+              </div>
+              <label><input type="checkbox" checked> Billing address is the same as shipping</label>
+            </section>
+
+            <section class="surface flow">
+              <p class="text-xs color-neutral-500">Delivery</p>
+              <h2 class="heading-s">Choose shipping speed</h2>
+              <div class="checkout-payment-options">
+                <div class="payment-option flow">
+                  <label><input type="radio" name="shipping" checked> Free standard shipping</label>
+                  <p class="text-s color-neutral-500">3-5 business days. Estimated delivery by Tue, Jun 4.</p>
+                </div>
+                <div class="payment-option flow">
+                  <label><input type="radio" name="shipping"> Express shipping</label>
+                  <p class="text-s color-neutral-500">$12.00. Delivered in 1-2 business days.</p>
+                </div>
+              </div>
+            </section>
+
+            <section class="surface flow">
+              <p class="text-xs color-neutral-500">Payment</p>
+              <h2 class="heading-s">How would you like to pay?</h2>
+              <div class="checkout-payment-options">
+                <div class="payment-option flow">
+                  <label><input type="radio" name="payment-method" checked> Credit or debit card</label>
+                  <div class="form-grid">
+                    <label for="card-number">Card number
+                      <input id="card-number" name="card-number" type="text" inputmode="numeric" placeholder="4242 4242 4242 4242">
+                    </label>
+                    <label for="name-on-card">Name on card
+                      <input id="name-on-card" name="name-on-card" type="text" value="Alex Rivera">
+                    </label>
+                    <label for="expiry">Expiry
+                      <input id="expiry" name="expiry" type="text" placeholder="MM / YY">
+                    </label>
+                    <label for="cvc">Security code
+                      <input id="cvc" name="cvc" type="text" placeholder="CVC">
+                    </label>
+                  </div>
+                </div>
+                <div class="payment-option flow">
+                  <label><input type="radio" name="payment-method"> PayPal</label>
+                  <p class="text-s color-neutral-500">Complete your purchase with your saved PayPal balance, card, or bank account.</p>
+                </div>
+                <div class="payment-option flow">
+                  <label><input type="radio" name="payment-method"> Apple Pay / wallet</label>
+                  <p class="text-s color-neutral-500">Express checkout for returning customers on supported devices.</p>
+                </div>
+              </div>
+              <!-- Showing only the selected payment form would require JS to toggle sections accessibly. -->
+            </section>
+
+            <section class="surface surface-subtle flow">
+              <p class="text-xs color-neutral-500">Review</p>
+              <h2 class="heading-s">Before you place the order</h2>
+              <label><input type="checkbox" checked> I agree to the terms and delivery policy</label>
+              <label><input type="checkbox"> Save this card securely for next time</label>
+            </section>
+
+            <div class="cta-row">
+              <button type="submit" data-preset="elevate">Place order</button>
+              <a href="./cart.html" class="button" data-variant="ghost">Return to cart</a>
+            </div>
+          </form>
+
+          <aside class="flow">
+            <section class="surface flow">
+              <h2 class="heading-s">Order recap</h2>
+              <article class="card" data-layout="horizontal" style="--card-image-width: 6rem; --card-padding: var(--space-xs);">
+                <svg viewBox="0 0 240 240" role="img" aria-label="Everyday Carryall bag thumbnail">
+                  <rect width="240" height="240" rx="20" fill="#f8fafc" />
+                  <rect x="58" y="72" width="124" height="108" rx="24" fill="#cbd5e1" />
+                  <path d="M90 88c0-24 12-42 30-42s30 18 30 42" fill="none" stroke="#94a3b8" stroke-width="12" stroke-linecap="round" />
+                </svg>
+                <div class="flow">
+                  <h3 class="heading-xs">Everyday Carryall</h3>
+                  <p class="text-xs color-neutral-500">Sand | Standard | Qty 1</p>
+                  <p class="price"><span class="price__amount">$112</span></p>
+                </div>
+              </article>
+              <article class="card" data-layout="horizontal" style="--card-image-width: 6rem; --card-padding: var(--space-xs);">
+                <svg viewBox="0 0 240 240" role="img" aria-label="Packing cube set thumbnail">
+                  <rect width="240" height="240" rx="20" fill="#e0f2fe" />
+                  <rect x="44" y="82" width="78" height="58" rx="16" fill="#bfdbfe" />
+                  <rect x="106" y="116" width="92" height="72" rx="18" fill="#93c5fd" />
+                </svg>
+                <div class="flow">
+                  <h3 class="heading-xs">Packing Cube Set</h3>
+                  <p class="text-xs color-neutral-500">Sky | Qty 1</p>
+                  <p class="price"><span class="price__amount">$28</span></p>
+                </div>
+              </article>
+              <dl class="data-list" data-layout="horizontal">
+                <div>
+                  <dt>Subtotal</dt>
+                  <dd>$140.00</dd>
+                </div>
+                <div>
+                  <dt>Shipping</dt>
+                  <dd>Free</dd>
+                </div>
+                <div>
+                  <dt>Tax</dt>
+                  <dd>$12.60</dd>
+                </div>
+                <div class="data-list__total">
+                  <dt>Total</dt>
+                  <dd>$152.60</dd>
+                </div>
+              </dl>
+            </section>
+
+            <section class="surface surface-subtle flow">
+              <p class="text-xs color-neutral-500">Confidence boosters</p>
+              <ul role="list" class="flow margin-0 padding-0">
+                <li>Encrypted payment processing</li>
+                <li>Free returns for 30 days</li>
+                <li>Delivery estimates before payment</li>
+              </ul>
+            </section>
+          </aside>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

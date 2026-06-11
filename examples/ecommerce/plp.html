@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cubito Store - Product Listing</title>
+    <meta name="description" content="Product listing page example for an ecommerce store built with Cubito CSS and HTML only.">
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="site-header">
+        <div class="wrapper flow" style="--flow-space: var(--space-xs); --wrapper-max-width: 88rem;">
+          <div class="repel padding-y-xs" data-nowrap>
+            <a class="logo" href="./index.html">cubito.store</a>
+            <form class="site-search" action="./plp.html" method="get" role="search">
+              <label for="plp-search" class="text-xs">Search</label>
+              <input id="plp-search" name="q" type="search" value="essentials" placeholder="Search the catalog">
+            </form>
+          </div>
+          <div class="repel padding-y-xs section-divider">
+            <nav data-variant="main" aria-label="Primary">
+              <ul role="list" class="cluster margin-0 padding-0">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./plp.html" aria-current="page">Shop</a></li>
+                <li><a href="./pdp.html">Featured</a></li>
+                <li><a href="./account.html">Account</a></li>
+              </ul>
+            </nav>
+            <div class="cluster">
+              <a href="./login-registration.html">Sign in</a>
+              <a href="./cart.html" class="with-icon" data-icon-position="right">Cart <span class="badge" aria-label="2 items">2</span></a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="site-main wrapper region flow" style="--wrapper-max-width: 88rem;">
+        <nav aria-label="Breadcrumb" class="breadcrumb">
+          <ol>
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./plp.html" aria-current="page">Women</a></li>
+          </ol>
+        </nav>
+
+        <div class="repel">
+          <div class="flow">
+            <p class="text-xs color-neutral-500">231 results</p>
+            <h1>Women&#39;s everyday essentials</h1>
+            <p class="text-l color-neutral-600">A tightly merchandised edit built to help shoppers compare fast, filter confidently, and find complete looks with less effort.</p>
+          </div>
+          <div class="surface flow" style="min-width: 16rem;">
+            <label for="sort-by">Sort by
+              <select id="sort-by" name="sort">
+                <option selected>Best selling</option>
+                <option>Newest</option>
+                <option>Price: low to high</option>
+                <option>Price: high to low</option>
+              </select>
+            </label>
+          </div>
+        </div>
+
+        <div class="sidebar" data-variant="sticky" style="--sidebar-target-width: 18rem; --sidebar-content-min-width: 62%;">
+          <aside class="flow">
+            <form class="surface flow" action="./plp.html" method="get">
+              <div class="repel">
+                <h2 class="heading-s">Filters</h2>
+                <button type="reset" data-variant="ghost">Clear</button>
+              </div>
+
+              <details open>
+                <summary>Category</summary>
+                <label><input type="checkbox" checked> Jackets</label>
+                <label><input type="checkbox"> Knitwear</label>
+                <label><input type="checkbox"> Bags</label>
+                <label><input type="checkbox"> Travel sets</label>
+              </details>
+
+              <details open>
+                <summary>Size</summary>
+                <div class="cluster gap">
+                  <label><input type="checkbox"> XS</label>
+                  <label><input type="checkbox"> S</label>
+                  <label><input type="checkbox" checked> M</label>
+                  <label><input type="checkbox"> L</label>
+                  <label><input type="checkbox"> XL</label>
+                </div>
+              </details>
+
+              <details open>
+                <summary>Price</summary>
+                <label for="min-price">Minimum
+                  <input id="min-price" name="min" type="number" placeholder="50">
+                </label>
+                <label for="max-price">Maximum
+                  <input id="max-price" name="max" type="number" placeholder="250">
+                </label>
+              </details>
+
+              <details>
+                <summary>Preferences</summary>
+                <label><input type="checkbox" checked> Free returns</label>
+                <label><input type="checkbox"> In stock only</label>
+                <label><input type="checkbox"> Sustainable materials</label>
+              </details>
+
+              <button type="submit">Apply filters</button>
+            </form>
+            <!-- Real-time facet counts, URL state syncing, and instant filtering would require JS. -->
+          </aside>
+
+          <section class="flow">
+            <div class="cluster">
+              <span class="badge">Best selling</span>
+              <span class="badge">Size M</span>
+              <span class="badge">Free returns</span>
+            </div>
+
+            <div class="grid" data-layout="33%" style="--grid-min-item-size: 15rem;">
+              <article class="card">
+                <svg viewBox="0 0 640 700" role="img" aria-label="Transit shell jacket in navy">
+                  <rect width="640" height="700" rx="28" fill="#eff6ff" />
+                  <path d="M220 174h200l68 120-56 228H208l-56-228 68-120z" fill="#1e3a8a" opacity="0.9" />
+                  <path d="M320 184v328" stroke="#ffffff" stroke-width="16" stroke-linecap="round" />
+                  <text x="320" y="590" text-anchor="middle" font-family="Arial, sans-serif" font-size="36" fill="#111827">Transit Shell</text>
+                </svg>
+                <div class="flow">
+                  <div class="cluster gap">
+                    <span class="badge" data-variant="info">New</span>
+                    <span class="text-xs color-neutral-500">6 colors</span>
+                  </div>
+                  <h2><a href="./pdp.html">Transit Shell Jacket</a></h2>
+                  <p>Packable outer layer for daily commuting and light travel.</p>
+                  <p class="price"><span class="price__amount">$148</span></p>
+                </div>
+              </article>
+
+              <article class="card">
+                <svg viewBox="0 0 640 700" role="img" aria-label="Everyday Carryall bag in sand">
+                  <rect width="640" height="700" rx="28" fill="#f8fafc" />
+                  <rect x="170" y="188" width="300" height="270" rx="42" fill="#cbd5e1" />
+                  <path d="M230 218c0-50 32-90 90-90s90 40 90 90" fill="none" stroke="#94a3b8" stroke-width="26" stroke-linecap="round" />
+                  <text x="320" y="590" text-anchor="middle" font-family="Arial, sans-serif" font-size="36" fill="#111827">Carryall</text>
+                </svg>
+                <div class="flow">
+                  <div class="cluster gap">
+                    <span class="badge">Best seller</span>
+                    <span class="text-xs color-neutral-500">Laptop sleeve</span>
+                  </div>
+                  <h2><a href="./pdp.html">Everyday Carryall</a></h2>
+                  <p>Structured tote with hidden bottle pocket and trolley strap.</p>
+                  <p class="price"><span class="price__original">$138</span><span class="price__amount">$112</span><span class="price__badge">Save 19%</span></p>
+                </div>
+              </article>
+
+              <article class="card">
+                <svg viewBox="0 0 640 700" role="img" aria-label="Weekender knit set in clay">
+                  <rect width="640" height="700" rx="28" fill="#fff7ed" />
+                  <rect x="204" y="182" width="232" height="280" rx="58" fill="#fdba74" />
+                  <circle cx="320" cy="176" r="48" fill="#fed7aa" />
+                  <text x="320" y="590" text-anchor="middle" font-family="Arial, sans-serif" font-size="36" fill="#111827">Knit Set</text>
+                </svg>
+                <div class="flow">
+                  <div class="cluster gap">
+                    <span class="badge" data-variant="warning">Low stock</span>
+                    <span class="text-xs color-neutral-500">Bundle pick</span>
+                  </div>
+                  <h2><a href="./pdp.html">Weekender Knit Set</a></h2>
+                  <p>Warm-weather matching set built for travel-ready styling.</p>
+                  <p class="price"><span class="price__amount">$94</span></p>
+                </div>
+              </article>
+
+              <article class="card">
+                <svg viewBox="0 0 640 700" role="img" aria-label="Cloud tee in chalk white">
+                  <rect width="640" height="700" rx="28" fill="#f8fafc" />
+                  <path d="M224 188h192l72 120-56 184H208l-56-184 72-120z" fill="#ffffff" stroke="#cbd5e1" stroke-width="12" />
+                  <text x="320" y="590" text-anchor="middle" font-family="Arial, sans-serif" font-size="36" fill="#111827">Cloud Tee</text>
+                </svg>
+                <div class="flow">
+                  <div class="cluster gap">
+                    <span class="badge" data-variant="success">Restocked</span>
+                    <span class="text-xs color-neutral-500">Organic cotton</span>
+                  </div>
+                  <h2><a href="./pdp.html">Cloud Tee</a></h2>
+                  <p>Softweight base layer with elevated drape and clean neckline.</p>
+                  <p class="price"><span class="price__amount">$38</span></p>
+                </div>
+              </article>
+
+              <article class="card">
+                <svg viewBox="0 0 640 700" role="img" aria-label="Daily pleat trouser in stone">
+                  <rect width="640" height="700" rx="28" fill="#eef2ff" />
+                  <path d="M250 162h140l38 352H328l-8-182-8 182H212l38-352z" fill="#a5b4fc" />
+                  <text x="320" y="590" text-anchor="middle" font-family="Arial, sans-serif" font-size="36" fill="#111827">Pleat Trouser</text>
+                </svg>
+                <div class="flow">
+                  <div class="cluster gap">
+                    <span class="badge">Top rated</span>
+                    <span class="text-xs color-neutral-500">Office favorite</span>
+                  </div>
+                  <h2><a href="./pdp.html">Daily Pleat Trouser</a></h2>
+                  <p>Relaxed tailored pant with stretch waistband and crisp drape.</p>
+                  <p class="price"><span class="price__amount">$86</span></p>
+                </div>
+              </article>
+
+              <article class="card">
+                <svg viewBox="0 0 640 700" role="img" aria-label="Metro sling bag in black">
+                  <rect width="640" height="700" rx="28" fill="#e2e8f0" />
+                  <path d="M190 316c0-82 66-148 148-148h60c76 0 138 62 138 138 0 82-66 148-148 148H250c-33 0-60-27-60-60z" fill="#111827" />
+                  <path d="M224 258c46-54 102-78 168-70" fill="none" stroke="#64748b" stroke-width="14" stroke-linecap="round" />
+                  <text x="320" y="590" text-anchor="middle" font-family="Arial, sans-serif" font-size="36" fill="#111827">Metro Sling</text>
+                </svg>
+                <div class="flow">
+                  <div class="cluster gap">
+                    <span class="badge" data-variant="brand">Trending</span>
+                    <span class="text-xs color-neutral-500">Travel ready</span>
+                  </div>
+                  <h2><a href="./pdp.html">Metro Sling Bag</a></h2>
+                  <p>Compact crossbody sized for phone, wallet, passport, and chargers.</p>
+                  <p class="price"><span class="price__amount">$64</span></p>
+                </div>
+              </article>
+            </div>
+
+            <div class="repel surface surface-subtle">
+              <p class="text-s color-neutral-600">Showing 1-6 of 231 results</p>
+              <nav aria-label="Pagination">
+                <ul class="pagination" role="list">
+                  <li><a href="./plp.html" class="pagination__prev" aria-label="Previous page">Prev</a></li>
+                  <li><a href="./plp.html" aria-label="Page 1" aria-current="page">1</a></li>
+                  <li><a href="./plp.html" aria-label="Page 2">2</a></li>
+                  <li><a href="./plp.html" aria-label="Page 3">3</a></li>
+                  <li><span class="pagination__ellipsis" aria-hidden="true">...</span></li>
+                  <li><a href="./plp.html" aria-label="Page 12">12</a></li>
+                  <li><a href="./plp.html" class="pagination__next" aria-label="Next page">Next</a></li>
+                </ul>
+              </nav>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

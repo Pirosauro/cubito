@@ -26,6 +26,8 @@ NOTE
     --sidebar-gutter: var(--space-s-l);
     --sidebar-target-width: 20rem;
     --sidebar-content-min-width: 50%;
+
+    --sidebar-offset-sticky: var(--space-m);
   }
 }
 
@@ -64,9 +66,9 @@ NOTE
   @media screen and (min-width: 960px) {
     .sidebar[data-variant="sticky"] > :first-child {
       position: sticky;
-      top: var(--space-m);
-      max-height: 100vh;
-      overflow-y: auto;
+      top: var(--sidebar-offset-sticky);
+      /* max-height: 100vh;
+      overflow-y: auto; */
     }
   }
 }

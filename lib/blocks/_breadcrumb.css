@@ -47,6 +47,8 @@ TOKENS
 
 @layer blocks {
   .breadcrumb {
+    --link-color: var(--breadcrumb-color);
+    --link-color-hover: var(--breadcrumb-color-current);
   }
 
   .breadcrumb ol {
@@ -74,7 +76,6 @@ TOKENS
   .breadcrumb a {
     display: inline-flex;
     align-items: center;
-    color: var(--breadcrumb-color);
   }
 
   .breadcrumb a svg {
