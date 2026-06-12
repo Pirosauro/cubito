@@ -1,76 +1,102 @@
 /*
 Navigation
 ---
-Component styles for navigation variants. Element-level resets live in
-_reset.css.
+Styles for semantic navigation: main nav bar, horizontal row, sidebar tree.
+Token naming follows [scope]-[variant]-[property].
 
-EXCEPTIONS
-  nav[data-variant="main"]     top-level navigation bar.
-  nav[data-variant="sidebar"]  collapsible tree navigation.
+VARIANTS
+  nav                            default navigation bar
+  nav[data-variant="horizontal"] horizontal navigation row
+  nav[data-variant="sidebar"]    collapsible tree navigation
 
 STATES
-  a[data-state="active"]                        currently active link.
-  li[data-children="true"]                      item with a nested sub-list.
-  li[data-children="true"][data-state="active"] expanded item.
-  ul[data-state="visible"]                      sub-list that is visible.
+  a[aria-current="page"]                      currently active link (semantic, preferred)
+  a[data-state="active"]                      currently active link (alternative)
+  li[data-children="true"]                    item with nested sub-list
+  li[data-children="true"][data-state="active"] expanded item
+  ul[data-state="visible"]                    sub-list is visible
 
 ARIA
   Prefer aria-current="page" on the active <a> for semantic state.
-  data-state="active" is kept for JS-driven trees where aria-expanded
-  is already used on the parent <li> or <button>.
+  data-state="active" is kept for JS-driven trees where aria-expanded is used elsewhere.
+
+INTERNAL
+  Element-level resets live in _reset.css.
+  Chevrons rendered via mask-image inherit currentColor for dark-mode support.
 */
 
 @layer tokens {
   :root {
-    /* --- Main Nav --- */
+    /* --- Default variant --- */
 
-    --nav-main-item-padding: var(--space-xxs) var(--space-xs);
-    --nav-main-active-decoration: underline;
-    --nav-main-active-offset: 0.25em;
-    --nav-main-active-color: var(--color-brand, #ff00ff);
+    --nav-default-padding: var(--space-xxs) var(--space-xs);
+    --nav-default-gap: var(--space-xxs);
 
-    /* --- Sidebar Nav --- */
+    /* --- Horizontal variant --- */
 
-    --nav-sidebar-item-padding: var(--space-tiny) var(--space-s);
-    --nav-sidebar-active-decoration: line-through;
-    --nav-sidebar-active-color: var(--color-brand, #ff00ff);
-    --nav-sidebar-active-bg: transparent;
+    --nav-horizontal-padding: var(--nav-default-padding);
+    --nav-horizontal-gap: var(--nav-default-gap);
 
-    /* Chevron */
+    /* --- Sidebar variant --- */
+
+    --nav-sidebar-padding: var(--space-tiny) var(--space-s);
     --nav-sidebar-chevron-size: 1.25rem;
     --nav-sidebar-chevron-color: currentColor;
     --nav-sidebar-chevron: var(--icon-chevron);
-
-    /* Nested (Submenus) */
     --nav-sidebar-nested-padding: var(--space-s);
   }
 }
 
 @layer blocks {
-  /* --- Main navigation --- */
+  /* --- Default --- */
 
-  nav[data-variant="main"] a[aria-current],
-  nav[data-variant="main"] a[data-state="active"] {
-    text-decoration: underline;
-    text-underline-offset: 0.25em;
+  nav {
+    --nav-padding: var(--nav-main-padding);
+    --nav-gap: var(--nav-main-gap);
   }
 
-  nav[data-variant="main"] li a {
+  nav li a {
     display: flex;
     align-items: center;
+    padding: var(--nav-padding);
   }
 
-  nav[data-variant="main"] li a span {
+  nav li a span {
     display: flex;
     align-items: center;
     margin-inline-end: var(--space-xxs);
   }
 
-  /* --- Sidebar navigation --- */
+  /* --- Horizontal variant --- */
 
-  nav[data-variant="sidebar"] a[aria-current],
-  nav[data-variant="sidebar"] a[data-state="active"] {
-    text-decoration: line-through;
+  nav[data-variant="horizontal"] {
+    --nav-gap: var(--nav-horizontal-gap);
+    --nav-padding: var(--nav-horizontal-padding);
+  }
+
+  nav[data-variant="horizontal"] ul {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--nav-gap);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  nav[data-variant="horizontal"] li {
+    max-width: unset;
+  }
+
+  nav[data-variant="horizontal"] a {
+    display: inline-flex;
+    padding: var(--nav-padding);
+  }
+
+  /* --- Sidebar variant --- */
+
+  nav[data-variant="sidebar"] {
+    --nav-padding: var(--nav-sidebar-padding);
   }
 
   nav[data-variant="sidebar"] li {
@@ -81,15 +107,11 @@ ARIA
     position: relative;
   }
 
-  /* Chevron rendered via mask-image so it inherits currentColor in both
-     light and dark mode — no hardcoded fill values. */
   nav[data-variant="sidebar"] li[data-children="true"]::before {
-    --chevron-size: 1.25rem;
-
     content: "";
     display: block;
-    width: var(--chevron-size);
-    height: var(--chevron-size);
+    inline-size: var(--nav-sidebar-chevron-size);
+    block-size: var(--nav-sidebar-chevron-size);
     pointer-events: none;
     position: absolute;
     inset-inline-end: var(--space-s);
@@ -98,8 +120,8 @@ ARIA
     transition: transform var(--motion-duration-fast, 150ms)
       var(--motion-easing-in-out, ease);
 
-    background-color: currentColor;
-    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    background-color: var(--nav-sidebar-chevron-color);
+    mask-image: var(--nav-sidebar-chevron);
     mask-repeat: no-repeat;
     mask-position: center;
     mask-size: contain;
@@ -107,14 +129,14 @@ ARIA
 
   nav[data-variant="sidebar"]
     li[data-children="true"][data-state="active"]::before {
-    inset-block-start: var(--space-tiny);
+    /* inset-block-start: var(--space-tiny); */
     transform: rotate(0deg);
   }
 
   nav[data-variant="sidebar"] li[data-state="active"] + ul,
   nav[data-variant="sidebar"] ul[data-state="visible"] {
     display: block;
-    padding-inline: var(--space-s);
+    padding-inline: var(--nav-sidebar-nested-padding);
     width: 100%;
     height: auto;
     clip: auto;

@@ -51,9 +51,9 @@ TOKENS
   --avatar-radius       Border radius.         Default: 9999px (circle)
   --avatar-background   Initials fill.         Default: --color-neutral-300
   --avatar-color        Initials text colour.  Default: --color-neutral-800
-  --avatar-font-size    Initials text size.    Default: 0.4em relative to size
+  --avatar-font-size    Initials text size.    Default: 38% of avatar diameter
   --avatar-border       Ring border.           Default: none
-  --avatar-status-size  Status dot diameter.   Default: 0.75em
+  --avatar-status-size  Status dot diameter.   Default: 26% of avatar diameter
 */
 
 @layer tokens {
@@ -61,10 +61,10 @@ TOKENS
     --avatar-background: var(--color-neutral-300);
     --avatar-border: none;
     --avatar-color: var(--color-neutral-800);
-    --avatar-font-size: 0.4em;
+    --avatar-font-size: calc(var(--avatar-size) * 0.38);
     --avatar-radius: 9999px;
     --avatar-size: 2.5rem;
-    --avatar-status-size: 0.75em;
+    --avatar-status-size: calc(var(--avatar-size) * 0.26);
   }
 }
 
@@ -89,7 +89,7 @@ TOKENS
     border: var(--avatar-border);
     background: var(--avatar-background);
     color: var(--avatar-color);
-    font-size: var(--avatar-size); /* base for em-derived child sizes */
+    font-size: 1rem;
     font-weight: var(--font-weight-bold);
     line-height: 1;
     letter-spacing: 0.02em;
@@ -100,7 +100,7 @@ TOKENS
 
   /* Initials text */
   .avatar:not(:has(img)) {
-    font-size: calc(var(--avatar-size) * 0.38);
+    font-size: var(--avatar-font-size);
   }
 
   /* Image fills the circle */
@@ -134,12 +134,15 @@ TOKENS
   .avatar[data-status]::after {
     content: "";
     position: absolute;
-    inset-block-end: 4%;
-    inset-inline-end: 4%;
-    width: var(--avatar-status-size);
-    height: var(--avatar-status-size);
+    inset-block-end: 0;
+    inset-inline-end: 0;
+    width: max(0.5rem, var(--avatar-status-size));
+    height: max(0.5rem, var(--avatar-status-size));
+    bottom: 15%;
+    right: 15%;
     border-radius: 50%;
-    border: 0.15em solid var(--body-background, var(--color-white));
+    border: max(1px, calc(var(--avatar-size) * 0.05)) solid
+      var(--body-background, var(--color-white));
     background: var(--_avatar-status-color, var(--color-neutral-400));
   }
 

@@ -29,6 +29,7 @@ VARIANTS
 
 LAYOUT
   data-layout="dot"       Circular dot — no text content.
+  data-layout="round"     Round count badge — up to 2 visible characters.
 
 CONFIGURATION
     :root {
@@ -46,6 +47,7 @@ TOKENS
   --badge-padding       Inner space.   Default: 0.2em 0.55em
   --badge-font-size     Text size.     Default: --font-size-xxs
   --badge-dot-size      Dot diameter.  Default: 0.625rem
+  --badge-round-size    Round diameter. Default: 2.25em
 */
 
 @layer tokens {
@@ -60,6 +62,7 @@ TOKENS
     --badge-dot-size: 0.625rem;
 
     --badge-round-padding: 0.25em;
+    --badge-round-size: 2.25em;
   }
 }
 
@@ -86,6 +89,7 @@ TOKENS
     font-size: var(--badge-font-size);
     font-weight: var(--font-weight-bold);
     line-height: 1;
+    text-decoration: none;
     white-space: nowrap;
     vertical-align: middle;
   }
@@ -103,14 +107,17 @@ TOKENS
     text-indent: 100%; /* visually hide any text */
   }
 
-  /* --- Variant: dot layout (circular indicator, no text) --- */
+  /* --- Variant: round layout --- */
 
   .badge[data-layout="round"] {
     --badge-padding: var(--badge-round-padding);
 
-    aspect-ratio: 1 / 1;
-    width: 2em;
-    max-width: 2em;
+    block-size: var(--badge-round-size);
+    font-variant-numeric: tabular-nums;
+    inline-size: var(--badge-round-size);
+    max-inline-size: var(--badge-round-size);
+    overflow: hidden;
+    text-overflow: clip;
   }
 
 }

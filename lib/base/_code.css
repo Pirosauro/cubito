@@ -18,7 +18,7 @@ CONFIGURATION (override in _reset.css token scope or globally)
     --code-background: var(--color-neutral-100);
     --code-color: var(--color-neutral-900);
     --code-font-size: 0.85em;
-    --code-padding: var(--space-xxs, 0.5rem) var(--space-s, 1rem);
+    --code-padding: var(--space-xxs) var(--space-s);
     --code-radius: var(--border-radius);
   }
 }
@@ -44,6 +44,6 @@ CONFIGURATION (override in _reset.css token scope or globally)
   td code,
   th code {
     border-radius: var(--border-radius-s);
-    padding: var(--space-tiny, 0.125rem) var(--space-xxs, 0.375rem);
+    padding: var(--space-tiny) var(--space-xxs);
   }
 }

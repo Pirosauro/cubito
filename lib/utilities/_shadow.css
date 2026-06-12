@@ -39,15 +39,19 @@ TOKENS
       transform var(--shadow-transition);
   }
 
-  /* On hover/focus: collapse shadow and nudge to fill the gap */
-  a.shadow:hover,
-  a.shadow:focus-visible,
-  button.shadow:hover,
-  button.shadow:focus-visible {
+  /* On interaction: collapse shadow and nudge to fill the gap */
+  .shadow:is(
+      a,
+      button,
+      .button,
+      input[type="button"],
+      input[type="submit"],
+      input[type="reset"]
+    ):is(:hover, :focus-visible, :active) {
     box-shadow: 0 0 0 0 var(--shadow-color);
     transform: translate(
-      calc(var(--shadow-offset) / 2),
-      calc(var(--shadow-offset) / 2)
+      var(--shadow-offset),
+      var(--shadow-offset)
     );
   }
 

@@ -130,13 +130,14 @@
   <section>
     <div class="flow" style="--flow-space: var(--space-s);">
       <h2 class="heading-l">Text shadow</h2>
-      <p><code>.text-shadow</code> applies a multi-directional 1px outline using <code>text-shadow</code> — a striking effect for display headings. It uses <code>currentColor</code>, so it inherits from the parent's text colour.</p>
+      <p><code>.text-shadow</code> applies a multi-directional 1px outline using <code>text-shadow</code> — a striking effect for display headings. It uses <code>currentColor</code> by default and can be overridden with <code>--shadow-color</code>.</p>
     
       <div class="">
   <div style="display: flex; flex-direction: column; gap: var(--space-s)">
     <h2 class="heading-xl text-shadow" style="color: var(--color-brand)">Display heading</h2>
     <h2 class="heading-l text-shadow" style="color: var(--color-neutral-900)">Neutral outline</h2>
     <h2 class="heading-m text-shadow" style="color: var(--color-accent)">Accent colour</h2>
+    <h2 class="heading-s text-shadow" style="color: var(--color-brand); --shadow-color: var(--color-neutral-900)">Custom outline colour</h2>
   </div>
       </div>
 
@@ -146,6 +147,7 @@
     &lt;h2 class=&quot;heading-xl text-shadow&quot; style=&quot;color: var(--color-brand)&quot;&gt;Display heading&lt;/h2&gt;
     &lt;h2 class=&quot;heading-l text-shadow&quot; style=&quot;color: var(--color-neutral-900)&quot;&gt;Neutral outline&lt;/h2&gt;
     &lt;h2 class=&quot;heading-m text-shadow&quot; style=&quot;color: var(--color-accent)&quot;&gt;Accent colour&lt;/h2&gt;
+      &lt;h2 class=&quot;heading-s text-shadow&quot; style=&quot;color: var(--color-brand); --shadow-color: var(--color-neutral-900)&quot;&gt;Custom outline colour&lt;/h2&gt;
   &lt;/div&gt;</code></pre>
       </details>
   

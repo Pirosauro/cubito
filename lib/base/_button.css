@@ -37,79 +37,86 @@ USAGE
   <button aria-pressed="true">Toggled</button>
 
 TOKENS (defined in this file, @layer tokens)
+  Shared structure/typography/motion:
+            --button-font-family           --button-font-size
+            --button-font-weight           --button-gap
+            --button-icon-size             --button-padding
+            --button-radius                --button-tracking
+            --button-text-transform
+            --button-transition
+
   Default variant (base):
-            --button-default-background     --button-default-border-color     --button-default-border-style
-            --button-default-border-width   --button-default-color
-            --button-default-font-family    --button-default-font-size        --button-default-font-weight
-            --button-default-gap            --button-default-icon-size        --button-default-padding
-            --button-default-opacity        --button-default-padding          --button-default-radius
-            --button-default-raise          --button-default-shadow           --button-default-text-transform
-            --button-default-tracking       --button-default-transform        --button-default-transition
+            --button-default-background     --button-default-border-color
+            --button-default-border-style   --button-default-border-width
+            --button-default-color          --button-default-opacity
+            --button-default-shadow         --button-default-transform
 
   Default variant (states):
-            --button-default-background-hover     --button-default-border-color-hover   --button-default-color-hover
-            --button-default-opacity-hover        --button-default-shadow-hover         --button-default-transform-hover
-            --button-default-background-active    --button-default-border-color-active  --button-default-color-active
-            --button-default-opacity-active       --button-default-shadow-active        --button-default-transform-active
+            --button-default-background-hover     --button-default-border-color-hover
+            --button-default-color-hover          --button-default-opacity-hover
+            --button-default-shadow-hover         --button-default-transform-hover
+            --button-default-background-active    --button-default-border-color-active
+            --button-default-color-active         --button-default-opacity-active
+            --button-default-shadow-active        --button-default-transform-active
             --button-default-opacity-busy
-            --button-default-background-toggled   --button-default-border-color-toggled --button-default-color-toggled
-            --button-default-opacity-toggled      --button-default-shadow-toggled       --button-default-transform-toggled
+            --button-default-background-toggled   --button-default-border-color-toggled
+            --button-default-color-toggled        --button-default-opacity-toggled
+            --button-default-shadow-toggled       --button-default-transform-toggled
             --button-default-background-disabled  --button-default-border-color-disabled
             --button-default-color-disabled       --button-default-opacity-disabled
             --button-default-shadow-disabled      --button-default-transform-disabled
 
-  Outline variant:
+  Outline variant overrides:
             --button-outline-background-hover
             --button-outline-border-color-hover   --button-outline-border-color-active
             --button-outline-color-hover          --button-outline-color-active
+            --button-outline-opacity-hover        --button-outline-opacity-active
+            --button-outline-shadow-hover         --button-outline-shadow-active
+            --button-outline-transform-hover      --button-outline-transform-active
 
-  Ghost variant:
+  Ghost variant overrides:
             --button-ghost-background-hover
+            --button-ghost-transform-hover        --button-ghost-transform-active
 
   Naked variant:
-            --button-naked-color-hover
+            uses link tokens for colour/underline behaviour (for example
+            --link-color, --link-color-hover, --link-thickness, --link-offset)
 
   Elevate preset:
-            --button-elevate-offset          --button-elevate-shadow
-            --button-elevate-shadow-active   --button-elevate-shadow-hover
-            --button-elevate-transform-active  --button-elevate-transform-hover
+            --button-elevate-offset           --button-elevate-shadow
+            --button-elevate-shadow-hover     --button-elevate-shadow-active
+            --button-elevate-transform-hover  --button-elevate-transform-active
 
-INTERNAL VARS (set per-element in @layer blocks, not for theme overrides)
+INTERNAL BRIDGE VARS (set per-element in @layer blocks)
   --button-background       --button-border-color     --button-color
   --button-opacity          --button-shadow           --button-transform
   --button-background-hover --button-border-color-hover --button-color-hover
-  --button-shadow-hover     --button-transform-hover
+  --button-opacity-hover    --button-shadow-hover     --button-transform-hover
   --button-background-active --button-border-color-active --button-color-active
-  --button-shadow-active    --button-transform-active
-  (plus structural: --button-font-size, --button-padding, --button-radius, etc.)
+  --button-opacity-active   --button-shadow-active    --button-transform-active
 
 STATES
-  :hover / :focus-visible     Lift via translateY (--button-raise) only — no shadow
-  :active                     Snaps back; overrides hover transform/shadow
-  :disabled / [aria-disabled] Muted, pointer-events: none
-  [data-busy="true"]          Inline spinner after label
-  [aria-pressed="true"]       Toggled on: brand fill, white text
-  [aria-expanded="true"]      Same as aria-pressed
+  :hover / :focus-visible     Applies hover bridge vars (includes visual + motion tokens)
+  :active                     Applies active bridge vars and overrides hover
+  :disabled / [aria-disabled] Muted and non-interactive
+  [data-busy="true"]          Uses toggled palette and appends spinner
+  [aria-pressed="true"]       Uses toggled tokens
+  [aria-expanded="true"]      Mirrors aria-pressed styling
 
 VARIANTS
-  [data-variant="outline"]    Transparent fill, coloured border
-  [data-variant="ghost"]      No border, subtle hover fill
-  [data-variant="naked"]      Zero chrome — icon buttons, inline actions
+  [data-variant="outline"]    Transparent fill + currentColor border
+  [data-variant="ghost"]      Chromeless with subtle hover fill
+  [data-variant="naked"]      Link-like inline action with underline tokens
 
 PRESETS
-  Presets control motion and elevation only — orthogonal to variants.
+  Presets are orthogonal to variants.
   Compose: <button data-variant="outline" data-preset="elevate">
+  [data-preset="elevate"]     Hard-offset shadow at rest, deeper on hover, flush on active
 
-  [data-preset="elevate"]     Hard offset shadow (x/y), presses flush on :active
-
-NOTE ON HOVER COLOUR DERIVATION
-  --button-default-background-hover defaults to var(--button-default-background).
-  If you override --button-background locally, also set --button-background-hover:
-    .my-form button {
-      --button-background:       var(--color-brand);
-      --button-border-color:     var(--color-brand);
-      --button-background-hover: oklch(from var(--color-brand) calc(l - 0.08) c h);
-    }
+NOTE ON LOCAL OVERRIDES
+  If you override internal bridge vars at component scope, set their state
+  counterparts too (for example --button-background and --button-background-hover)
+  to keep hover/active transitions coherent.
 */
 
 @layer tokens {
@@ -121,7 +128,6 @@ NOTE ON HOVER COLOUR DERIVATION
     --button-icon-size: 1.2cap;
     --button-padding: var(--space-xs) var(--space-s);
     --button-radius: var(--border-radius-m);
-    --button-raise: var(--space-tiny, 0.25rem);
     --button-text-transform: uppercase;
     --button-tracking: 0.05em;
     --button-transition:
@@ -133,7 +139,7 @@ NOTE ON HOVER COLOUR DERIVATION
       opacity var(--motion-duration-fast, 150ms) var(--motion-easing-out),
       transform var(--motion-duration-fast, 150ms) var(--motion-easing-out);
 
-    /* --- Default variant --- */
+    /* --- Default --- */
 
     --button-default-background: var(--color-neutral-400);
     --button-default-border-color: var(--color-neutral-600);
@@ -144,16 +150,16 @@ NOTE ON HOVER COLOUR DERIVATION
     --button-default-shadow: none;
     --button-default-transform: none;
 
-    /* --- Default variant: hover state --- */
+    /* --- Default, hover state --- */
 
     --button-default-background-hover: var(--button-default-background);
     --button-default-border-color-hover: var(--button-default-border-color);
     --button-default-color-hover: var(--button-default-color);
     --button-default-opacity-hover: 0.85;
     --button-default-shadow-hover: none;
-    --button-default-transform-hover: none; /* translateY(calc(-1 * var(--button-raise))); */
+    --button-default-transform-hover: none;
 
-    /* --- Default variant: active state --- */
+    /* --- Default, active state --- */
 
     --button-default-background-active: var(--button-default-background);
     --button-default-border-color-active: var(--button-default-border-color);
@@ -166,11 +172,11 @@ NOTE ON HOVER COLOUR DERIVATION
     --button-default-shadow-active: none;
     --button-default-transform-active: scale(0.95);
 
-    /* --- Default variant: busy state --- */
+    /* --- Default, busy state --- */
 
     --button-default-opacity-busy: 0.85;
 
-    /* --- Default variant: toggled (aria-pressed / aria-expanded) state --- */
+    /* --- Default, toggled (aria-pressed / aria-expanded) state --- */
 
     --button-default-background-toggled: var(--button-default-background);
     --button-default-border-color-toggled: var(--button-default-border-color);
@@ -179,7 +185,7 @@ NOTE ON HOVER COLOUR DERIVATION
     --button-default-shadow-toggled: none;
     --button-default-transform-toggled: scale(0.9);
 
-    /* --- Default variant: disabled state --- */
+    /* --- Default, disabled state --- */
 
     --button-default-background-disabled: var(--color-neutral-200);
     --button-default-border-color-disabled: var(--color-neutral-400);
@@ -209,10 +215,11 @@ NOTE ON HOVER COLOUR DERIVATION
     /* --- Elevate preset --- */
 
     --button-elevate-offset: 0.25rem;
-    --button-elevate-shadow: 0 0 0 var(--button-border-color);
+    --button-elevate-shadow: 0 var(--button-elevate-offset) 0
+      var(--button-border-color);
     --button-elevate-shadow-active: none;
     --button-elevate-transform-active: translate(0, 0);
-    --button-elevate-shadow-hover: 0 var(--button-elevate-offset) 0
+    --button-elevate-shadow-hover: 0 calc(var(--button-elevate-offset) * 2) 0
       var(--button-border-color);
     --button-elevate-transform-hover: translateY(
       calc(-1 * var(--button-elevate-offset))
@@ -221,7 +228,7 @@ NOTE ON HOVER COLOUR DERIVATION
 }
 
 @layer blocks {
-  /* --- Base --- */
+  /* --- Default --- */
 
   button,
   input[type="submit"],
@@ -297,7 +304,7 @@ NOTE ON HOVER COLOUR DERIVATION
     inline-size: auto;
   }
 
-  /* --- Hover / focus-visible --- */
+  /* --- Default, hover / focus-visible state --- */
 
   :is(
       button,
@@ -324,7 +331,7 @@ NOTE ON HOVER COLOUR DERIVATION
     --underline-offset: var(--link-offset-hover);
   }
 
-  /* --- Active — overrides hover, snaps back --- */
+  /* --- Default, active state --- */
 
   :is(
       button,
@@ -345,7 +352,7 @@ NOTE ON HOVER COLOUR DERIVATION
     --button-transform: var(--button-transform-active);
   }
 
-  /* --- Toggled (aria-pressed / aria-expanded) --- */
+  /* --- Default, toggled (aria-pressed / aria-expanded) state --- */
 
   button[aria-pressed="true"],
   button[aria-expanded="true"],
@@ -359,7 +366,7 @@ NOTE ON HOVER COLOUR DERIVATION
     --button-transform: var(--button-default-transform-toggled);
   }
 
-  /* --- Disabled --- */
+  /* --- Default, disabled state --- */
 
   button:disabled,
   input[type="submit"]:disabled,
@@ -378,7 +385,7 @@ NOTE ON HOVER COLOUR DERIVATION
     pointer-events: none;
   }
 
-  /* --- Loading (data-busy) --- */
+  /* --- Default, loading (data-busy) state --- */
 
   button[data-busy="true"],
   .button[data-busy="true"] {
@@ -431,7 +438,7 @@ NOTE ON HOVER COLOUR DERIVATION
     }
   }
 
-  /* --- Outline --- */
+  /* --- Outline variant --- */
 
   button[data-variant="outline"],
   input[type="submit"][data-variant="outline"],
@@ -464,7 +471,7 @@ NOTE ON HOVER COLOUR DERIVATION
     --button-transform-hover: var(--button-outline-transform-hover);
   }
 
-  /* --- Ghost --- */
+  /* --- Ghost variant --- */
 
   button[data-variant="ghost"],
   input[type="submit"][data-variant="ghost"],
@@ -487,7 +494,7 @@ NOTE ON HOVER COLOUR DERIVATION
     --button-transform-hover: var(--button-ghost-transform-hover);
   }
 
-  /* --- Naked --- */
+  /* --- Naked variant --- */
 
   button[data-variant="naked"],
   input[type="submit"][data-variant="naked"],
@@ -498,7 +505,6 @@ NOTE ON HOVER COLOUR DERIVATION
     --button-background: transparent;
     --button-border-color: transparent;
     --button-color: var(--link-color);
-    --button-raise: 0px; /* no lift; translate derives to translateY(0) */
     --button-transform-active: translateY(0);
     --button-transform-hover: translateY(0);
     /* State overrides */
@@ -524,7 +530,7 @@ NOTE ON HOVER COLOUR DERIVATION
     font-size: inherit;
   }
 
-  /* --- Elevate --- */
+  /* --- Elevate preset --- */
 
   button[data-preset="elevate"],
   .button[data-preset="elevate"] {
@@ -543,11 +549,9 @@ NOTE ON HOVER COLOUR DERIVATION
     input[type="reset"],
     input[type="button"],
     .button {
-      --button-transform: translateY(0);
-      --button-transform-hover: translateY(0);
-      --button-transform-active: translateY(0);
-      --button-elevate-transform-hover: translate(0, 0);
-      --button-elevate-transform-active: translate(0, 0);
+      --button-transform: none !important;
+      --button-transform-hover: none !important;
+      --button-transform-active: none !important;
     }
   }
 }

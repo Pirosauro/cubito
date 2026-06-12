@@ -94,13 +94,14 @@ USAGE
     --input-background-hover: var(--input-background);
     --input-border-color: var(--color);
     --input-border-color-disabled: var(--color-neutral-200);
+    --input-border-color-focus: var(--color-brand);
     --input-border-color-hover: var(--link-color);
     --input-border-style: solid;
     --input-border-width: var(--border-m);
     --input-color: var(--color);
     --input-color-disabled: var(--color-neutral-500);
     --input-min-height: var(--space-l, 2.75rem); /* WCAG minimum touch target */
-    --input-padding: var(--space-tiny) var(--space-xxs);
+    --input-padding: var(--space-xxs);
     --input-radius: var(--border-radius-m);
     --input-shadow-focus: 0 0 0 var(--focus-ring-width, 0.1875rem)
       color-mix(
@@ -281,7 +282,7 @@ USAGE
   textarea:focus-visible,
   select:focus-visible {
     background-color: var(--input-background-hover);
-    border-color: var(--input-border-color-hover);
+    border-color: var(--input-border-color-focus);
     box-shadow: var(--input-shadow-focus);
     outline: none; /* focus indicator provided by box-shadow above */
   }
@@ -328,6 +329,11 @@ USAGE
     margin-inline-end: var(--space-xxs);
     margin-inline-start: 0;
     width: var(--checkbox-size);
+  }
+
+  label > input[type="checkbox"],
+  label > input[type="radio"] {
+    margin-inline-end: 0;
   }
 
   input[type="checkbox"]:checked,
