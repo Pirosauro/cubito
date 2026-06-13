@@ -52,4 +52,8 @@ CUSTOM PROPERTIES
     margin-inline-end: 0;
     margin-inline-start: 0.5em;
   }
+
+  .with-icon[data-icon-align="middle"] {
+    align-items: center;
+  }
 }

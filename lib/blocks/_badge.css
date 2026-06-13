@@ -7,8 +7,8 @@ Inline by default; pairs naturally with avatars, nav items, and headings.
 MARKUP PATTERN
   <!-- Status -->
   <span class="badge">New</span>
-  <span class="badge" data-variant="success">Active</span>
-  <span class="badge" data-variant="error">3 errors</span>
+  <span class="badge">Active</span>
+  <span class="badge">3 errors</span>
 
   <!-- Count attached to a nav item -->
   <span class="with-icon">
@@ -17,15 +17,7 @@ MARKUP PATTERN
   </span>
 
   <!-- Dot-only indicator (no text — provide aria-label) -->
-  <span class="badge" data-variant="success" data-layout="dot" aria-label="Online"></span>
-
-VARIANTS
-  (none)                  Neutral grey.
-  data-variant="brand"    Brand colour.
-  data-variant="success"  Green.
-  data-variant="warning"  Amber.
-  data-variant="error"    Red.
-  data-variant="info"     Blue.
+  <span class="badge" data-layout="dot" aria-label="Online"></span>
 
 LAYOUT
   data-layout="dot"       Circular dot — no text content.
@@ -33,20 +25,21 @@ LAYOUT
 
 CONFIGURATION
     :root {
-      --badge-font-size:  var(--font-size-xxs);
-      --badge-background: var(--color-neutral-200);
+      --badge-default-font-size:  var(--font-size-xxs);
+      --badge-default-background: var(--color-neutral-200);
     }
 
     <span class="badge" style="--badge-background: oklch(70% 0.15 145)">…</span>
 
 TOKENS
-  --badge-background    Fill.          Default: --color-neutral-200
-  --badge-color         Text colour.   Default: --color-neutral-800
-  --badge-border        Border.        Default: none
-  --badge-radius        Radius.        Default: 9999px (pill)
-  --badge-padding       Inner space.   Default: 0.2em 0.55em
-  --badge-font-size     Text size.     Default: --font-size-xxs
+  --badge-default-background    Fill.          Default: --color-neutral-200
+  --badge-default-color         Text colour.   Default: --color-neutral-800
+  --badge-default-border        Border.        Default: none
+  --badge-default-radius        Radius.        Default: 9999px (pill)
+  --badge-default-padding       Inner space.   Default: 0.35em 0.55em
+  --badge-default-font-size     Text size.     Default: --font-size-xxs
   --badge-dot-size      Dot diameter.  Default: 0.625rem
+  --badge-round-padding Round padding. Default: 0.2em
   --badge-round-size    Round diameter. Default: 2.25em
 */
 
@@ -56,13 +49,13 @@ TOKENS
     --badge-default-border: none;
     --badge-default-color: var(--color-neutral-800);
     --badge-default-font-size: var(--font-size-xxs);
-    --badge-default-padding: 0.35em 0.55em;
+    --badge-default-padding: 0.45em 0.55em;
     --badge-default-radius: 9999px;
 
     --badge-dot-size: 0.625rem;
 
-    --badge-round-padding: 0.25em;
-    --badge-round-size: 2.25em;
+    --badge-round-padding: 0.2em;
+    --badge-round-size: 2.15em;
   }
 }
 
@@ -97,6 +90,7 @@ TOKENS
     font-weight: var(--font-weight-bold);
     line-height: 1;
     text-decoration: none;
+    text-decoration-line: none;
     white-space: nowrap;
     vertical-align: middle;
   }

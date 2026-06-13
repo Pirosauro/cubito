@@ -35,29 +35,25 @@
 
   <section>
     <div class="flow" style="--flow-space: var(--space-s);">
-      <h2 class="heading-l">Variants</h2>
-      <p>Use <code>data-variant</code> to communicate meaning through colour.</p>
+      <h2 class="heading-l">Round layout</h2>
+      <p>Add <code>data-layout="round"</code> to render a circular count badge. This layout works best for one or two visible characters.</p>
 
       <div class="">
         <div class="cluster">
-          <span class="badge">Neutral</span>
-          <span class="badge" data-variant="brand">Brand</span>
-          <span class="badge" data-variant="success">Active</span>
-          <span class="badge" data-variant="warning">Pending</span>
-          <span class="badge" data-variant="error">Rejected</span>
-          <span class="badge" data-variant="info">Beta</span>
+          <span class="badge" data-layout="round" aria-label="3 unread messages">3</span>
+          <span class="badge" data-layout="round" aria-label="12 unread messages">12</span>
+          <span class="badge" data-layout="round" aria-label="99 or more notifications">99+</span>
+          <span class="badge" data-layout="round" style="--badge-background: var(--color-neutral-800); --badge-color: var(--color-white);" aria-label="8 active sessions">8</span>
         </div>
       </div>
 
       <details class="margin-y-s">
         <summary>Show code</summary>
         <pre class="padding-m"><code>&lt;div class="cluster"&gt;
-    &lt;span class="badge"&gt;Neutral&lt;/span&gt;
-    &lt;span class="badge" data-variant="brand"&gt;Brand&lt;/span&gt;
-    &lt;span class="badge" data-variant="success"&gt;Active&lt;/span&gt;
-    &lt;span class="badge" data-variant="warning"&gt;Pending&lt;/span&gt;
-    &lt;span class="badge" data-variant="error"&gt;Rejected&lt;/span&gt;
-    &lt;span class="badge" data-variant="info"&gt;Beta&lt;/span&gt;
+    &lt;span class="badge" data-layout="round" aria-label="3 unread messages"&gt;3&lt;/span&gt;
+    &lt;span class="badge" data-layout="round" aria-label="12 unread messages"&gt;12&lt;/span&gt;
+    &lt;span class="badge" data-layout="round" aria-label="99 or more notifications"&gt;99+&lt;/span&gt;
+    &lt;span class="badge" data-layout="round" style="--badge-background: var(--color-neutral-800); --badge-color: var(--color-white);" aria-label="8 active sessions"&gt;8&lt;/span&gt;
   &lt;/div&gt;</code></pre>
       </details>
   
@@ -67,13 +63,13 @@
   <section>
     <div class="flow" style="--flow-space: var(--space-s);">
       <h2 class="heading-l">Dot layout</h2>
-      <p>Add <code>data-layout="dot"</code> to render a circular indicator with no text. Always provide an <code>aria-label</code> so the meaning is accessible.</p>
+      <p>Add <code>data-layout="dot"</code> to render a circular indicator with no text. Always provide an <code>aria-label</code> so the meaning is accessible. Use local badge tokens to override the fill when you need different statuses.</p>
 
       <div class="">
         <div class="cluster" style="align-items: center;">
-          <span class="badge" data-variant="success" data-layout="dot" aria-label="Online"></span>
-          <span class="badge" data-variant="warning" data-layout="dot" aria-label="Degraded"></span>
-          <span class="badge" data-variant="error" data-layout="dot" aria-label="Offline"></span>
+          <span class="badge" data-layout="dot" style="--badge-background: var(--color-status-ok);" aria-label="Online"></span>
+          <span class="badge" data-layout="dot" style="--badge-background: var(--color-status-warning);" aria-label="Degraded"></span>
+          <span class="badge" data-layout="dot" style="--badge-background: var(--color-status-ko);" aria-label="Offline"></span>
           <span class="badge" data-layout="dot" aria-label="Unknown"></span>
         </div>
       </div>
@@ -81,9 +77,9 @@
       <details class="margin-y-s">
         <summary>Show code</summary>
         <pre class="padding-m"><code>&lt;div class="cluster" style="align-items: center;"&gt;
-    &lt;span class="badge" data-variant="success" data-layout="dot" aria-label="Online"&gt;&lt;/span&gt;
-    &lt;span class="badge" data-variant="warning" data-layout="dot" aria-label="Degraded"&gt;&lt;/span&gt;
-    &lt;span class="badge" data-variant="error" data-layout="dot" aria-label="Offline"&gt;&lt;/span&gt;
+    &lt;span class="badge" data-layout="dot" style="--badge-background: var(--color-status-ok);" aria-label="Online"&gt;&lt;/span&gt;
+    &lt;span class="badge" data-layout="dot" style="--badge-background: var(--color-status-warning);" aria-label="Degraded"&gt;&lt;/span&gt;
+    &lt;span class="badge" data-layout="dot" style="--badge-background: var(--color-status-ko);" aria-label="Offline"&gt;&lt;/span&gt;
     &lt;span class="badge" data-layout="dot" aria-label="Unknown"&gt;&lt;/span&gt;
   &lt;/div&gt;</code></pre>
       </details>
@@ -100,21 +96,21 @@
         <nav>
           <ul style="list-style: none; padding: 0; display: flex; gap: var(--space-s);">
             <li>
-              <a href="#" class="with-icon">
+              <a href="#" class="with-icon" data-icon-align="middle">
                 Inbox
-                <span class="badge" data-variant="brand" aria-label="12 unread messages">12</span>
+                <span class="badge" data-layout="round" aria-label="12 unread messages">12</span>
               </a>
             </li>
             <li>
-              <a href="#" class="with-icon">
+              <a href="#" class="with-icon" data-icon-align="middle">
                 Alerts
-                <span class="badge" data-variant="error" aria-label="3 alerts">3</span>
+                <span class="badge" data-layout="round" style="--badge-background: var(--color-status-ko); --badge-color: var(--color-white);" aria-label="3 alerts">3</span>
               </a>
             </li>
             <li>
-              <a href="#" class="with-icon">
+              <a href="#" class="with-icon" data-icon-align="middle">
                 Updates
-                <span class="badge" data-variant="info" aria-label="Beta feature">Beta</span>
+                <span class="badge" aria-label="Beta feature">Beta</span>
               </a>
             </li>
           </ul>
@@ -128,19 +124,19 @@
       &lt;li&gt;
         &lt;a href="#" class="with-icon"&gt;
           Inbox
-          &lt;span class="badge" data-variant="brand" aria-label="12 unread messages"&gt;12&lt;/span&gt;
+          &lt;span class="badge" data-layout="round" aria-label="12 unread messages"&gt;12&lt;/span&gt;
         &lt;/a&gt;
       &lt;/li&gt;
       &lt;li&gt;
         &lt;a href="#" class="with-icon"&gt;
           Alerts
-          &lt;span class="badge" data-variant="error" aria-label="3 alerts"&gt;3&lt;/span&gt;
+          &lt;span class="badge" data-layout="round" style="--badge-background: var(--color-status-ko); --badge-color: var(--color-white);" aria-label="3 alerts"&gt;3&lt;/span&gt;
         &lt;/a&gt;
       &lt;/li&gt;
       &lt;li&gt;
         &lt;a href="#" class="with-icon"&gt;
           Updates
-          &lt;span class="badge" data-variant="info" aria-label="Beta feature"&gt;Beta&lt;/span&gt;
+          &lt;span class="badge" aria-label="Beta feature"&gt;Beta&lt;/span&gt;
         &lt;/a&gt;
       &lt;/li&gt;
     &lt;/ul&gt;
@@ -166,6 +162,7 @@
             <tr><td><code>--badge-default-padding</code></td><td><code>0.35em 0.55em</code></td><td>Inner spacing.</td></tr>
             <tr><td><code>--badge-default-font-size</code></td><td><code>var(--font-size-xxs)</code></td><td>Text size.</td></tr>
             <tr><td><code>--badge-dot-size</code></td><td><code>0.625rem</code></td><td>Diameter when using <code>data-layout="dot"</code>.</td></tr>
+            <tr><td><code>--badge-round-size</code></td><td><code>2.25em</code></td><td>Diameter when using <code>data-layout="round"</code>.</td></tr>
           </tbody>
         </table>
       </div>
