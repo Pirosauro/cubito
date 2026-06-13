@@ -80,6 +80,10 @@ CONFIGURATION
     --border-m: 0.125rem; /*  ~2px */
     --border-l: 0.25rem; /*  ~4px */
 
+    /* --- Transitions --- */
+
+    --transition: 250ms ease; /* base alias; reference --motion-* for fine control */
+
     /* --- Focus ring --- */
 
     --focus-ring-width: 0.1875rem;

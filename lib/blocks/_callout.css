@@ -40,16 +40,22 @@ TOKENS
 
 @layer tokens {
   :root {
-    --callout-background: transparent;
-    --callout-border: solid var(--border-m) currentColor;
-    --callout-color: currentColor;
-    --callout-padding: var(--space-xs-s);
-    --callout-radius: var(--border-radius-l);
+    --callout-default-background: transparent;
+    --callout-default-border: solid var(--border-m) currentColor;
+    --callout-default-color: currentColor;
+    --callout-default-padding: var(--space-xs-s);
+    --callout-default-radius: var(--border-radius-l);
   }
 }
 
 @layer blocks {
   .callout {
+    --callout-background: var(--callout-default-background);
+    --callout-border: var(--callout-default-border);
+    --callout-color: var(--callout-default-color);
+    --callout-padding: var(--callout-default-padding);
+    --callout-radius: var(--callout-default-radius);
+
     padding: var(--callout-padding);
     border: var(--callout-border);
     border-radius: var(--callout-radius);

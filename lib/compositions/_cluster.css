@@ -7,13 +7,14 @@ out of space. No media queries needed.
 @link https://every-layout.dev/layouts/cluster/
 
 CUSTOM PROPERTIES
-  --gutter                            Gap between items. Default: var(--space-s-l).
+  --cluster-gutter                    Gap between items. Default: var(--space-s-l).
   --cluster-horizontal-alignment      justify-content value. Default: flex-start.
   --cluster-vertical-alignment        align-items value. Default: center.
 */
 
 @layer tokens {
   :root {
+    --cluster-gutter: var(--space-s-l);
     --cluster-horizontal-alignment: flex-start;
     --cluster-vertical-alignment: center;
   }
@@ -23,7 +24,7 @@ CUSTOM PROPERTIES
   .cluster {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--gutter, var(--space-s-l));
+    gap: var(--cluster-gutter);
     justify-content: var(--cluster-horizontal-alignment);
     align-items: var(--cluster-vertical-alignment);
   }

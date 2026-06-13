@@ -51,11 +51,11 @@
 
   <section>
     <div class="flow" style="--flow-space: var(--space-s);">
-      <h2 class="heading-l">Main nav variant</h2>
-      <p>Add <code>data-variant="main"</code> to a <code>&lt;nav&gt;</code> for a top-level navigation bar. Active links receive an underline treatment driven by <code>--nav-main-active-decoration</code> and <code>--nav-main-active-offset</code>. An optional <code>&lt;span&gt;</code> inside the link can hold an icon.</p>
+      <h2 class="heading-l">Horizontal nav variant</h2>
+      <p>Add <code>data-variant="horizontal"</code> to a <code>&lt;nav&gt;</code> for a top-level navigation bar rendered as a horizontal row. Active links use the default link active tokens. An optional <code>&lt;span&gt;</code> inside the link can hold an icon.</p>
     
       <div class="">
-  <nav data-variant="main" aria-label="Main navigation">
+  <nav data-variant="horizontal" aria-label="Main navigation">
     <ul role="list" style="display: flex; gap: 0; list-style: none; margin: 0; padding: 0">
       <li>
         <a href="#">
@@ -96,10 +96,8 @@
       <table class="">
         <thead><tr><th>Token</th><th>Default</th><th>Description</th></tr></thead>
         <tbody>
-          <tr><td><code>--nav-main-item-padding</code></td><td><code>var(--space-xxs) var(--space-xs)</code></td><td>Padding around each link.</td></tr>
-          <tr><td><code>--nav-main-active-decoration</code></td><td><code>underline</code></td><td>Text decoration for the active link.</td></tr>
-          <tr><td><code>--nav-main-active-offset</code></td><td><code>0.25em</code></td><td>Underline offset for the active link.</td></tr>
-          <tr><td><code>--nav-main-active-color</code></td><td><code>var(--color-brand)</code></td><td>Active link colour.</td></tr>
+          <tr><td><code>--nav-horizontal-gap</code></td><td><code>var(--nav-default-gap)</code></td><td>Gap between links in the horizontal row.</td></tr>
+          <tr><td><code>--nav-horizontal-padding</code></td><td><code>var(--nav-default-padding)</code></td><td>Padding around each link.</td></tr>
         </tbody>
       </table>
   
@@ -169,12 +167,11 @@
       <table class="">
         <thead><tr><th>Token</th><th>Default</th><th>Description</th></tr></thead>
         <tbody>
-          <tr><td><code>--nav-sidebar-item-padding</code></td><td><code>var(--space-tiny) var(--space-s)</code></td><td>Padding around each link.</td></tr>
-          <tr><td><code>--nav-sidebar-active-decoration</code></td><td><code>line-through</code></td><td>Text decoration for the active link.</td></tr>
-          <tr><td><code>--nav-sidebar-active-color</code></td><td><code>var(--color-brand)</code></td><td>Active link colour.</td></tr>
-          <tr><td><code>--nav-sidebar-active-bg</code></td><td><code>transparent</code></td><td>Active link background colour.</td></tr>
-          <tr><td><code>--nav-sidebar-chevron-size</code></td><td><code>1.25rem</code></td><td>Size of the expand/collapse chevron.</td></tr>
-          <tr><td><code>--nav-sidebar-nested-padding</code></td><td><code>var(--space-s)</code></td><td>Inline padding for nested sub-lists.</td></tr>
+          <tr><td><code>--nav-sidebar-gap</code></td><td><code>var(--nav-default-gap)</code></td><td>Gap between list items.</td></tr>
+          <tr><td><code>--nav-sidebar-padding</code></td><td><code>var(--space-tiny) var(--space-s)</code></td><td>Padding around each link.</td></tr>
+          <tr><td><code>--nav-sidebar-nested-padding</code></td><td><code>var(--space-s)</code></td><td>Inline padding applied to nested sub-lists.</td></tr>
+          <tr><td><code>--nav-sidebar-chevron-size</code></td><td><code>1.25rem</code></td><td>Size of the expand/collapse chevron indicator.</td></tr>
+          <tr><td><code>--nav-sidebar-chevron-color</code></td><td><code>currentColor</code></td><td>Colour of the chevron indicator.</td></tr>
         </tbody>
       </table>
   

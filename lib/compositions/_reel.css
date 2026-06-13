@@ -19,6 +19,7 @@ EXCEPTIONS
   :root {
     --reel-item-width: calc(33.333% - var(--reel-space));
     --reel-space: 2rem;
+    --reel-height: 50vh;
   }
 }
 

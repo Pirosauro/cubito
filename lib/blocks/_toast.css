@@ -62,16 +62,16 @@ TOKENS (on .toast)
 
 @layer tokens {
   :root {
-    --toast-background: var(--color-neutral-900);
-    --toast-border: none;
-    --toast-color: var(--color-neutral-50);
-    --toast-gap: var(--space-xs);
-    --toast-inset: var(--space-s);
-    --toast-padding: var(--space-xs) var(--space-s);
-    --toast-radius: var(--border-radius-l);
-    --toast-shadow:
+    --toast-default-background: var(--color-neutral-900);
+    --toast-default-border: none;
+    --toast-default-color: var(--color-neutral-50);
+    --toast-default-gap: var(--space-xs);
+    --toast-default-inset: var(--space-s);
+    --toast-default-padding: var(--space-xs) var(--space-s);
+    --toast-default-radius: var(--border-radius-l);
+    --toast-default-shadow:
       0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 10px 15px -3px rgba(0, 0, 0, 0.15);
-    --toast-width: 22rem;
+    --toast-default-width: 22rem;
   }
 }
 
@@ -79,6 +79,10 @@ TOKENS (on .toast)
   /* --- Toast region --- */
 
   .toast-region {
+    --toast-gap: var(--toast-default-gap);
+    --toast-inset: var(--toast-default-inset);
+    --toast-width: var(--toast-default-width);
+
     position: fixed;
     z-index: var(--z-notification, 80);
     display: flex;
@@ -127,6 +131,13 @@ TOKENS (on .toast)
   /* --- Individual toast --- */
 
   .toast {
+    --toast-background: var(--toast-default-background);
+    --toast-border: var(--toast-default-border);
+    --toast-color: var(--toast-default-color);
+    --toast-padding: var(--toast-default-padding);
+    --toast-radius: var(--toast-default-radius);
+    --toast-shadow: var(--toast-default-shadow);
+
     display: flex;
     align-items: flex-start;
     gap: var(--space-xs);

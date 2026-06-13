@@ -55,19 +55,24 @@ TOKENS
 
 @layer tokens {
   :root {
-    --banner-background: color-mix(
+    --banner-default-background: color-mix(
       in srgb,
       var(--color-brand, var(--color-status-info)) 12%,
       transparent
     );
-    --banner-border: none;
-    --banner-color: currentColor;
-    --banner-padding: var(--space-xs) var(--gutter);
+    --banner-default-border: none;
+    --banner-default-color: currentColor;
+    --banner-default-padding: var(--space-xs) var(--gutter);
   }
 }
 
 @layer blocks {
   .banner {
+    --banner-background: var(--banner-default-background);
+    --banner-border: var(--banner-default-border);
+    --banner-color: var(--banner-default-color);
+    --banner-padding: var(--banner-default-padding);
+
     display: flex;
     flex-wrap: wrap;
     align-items: center;

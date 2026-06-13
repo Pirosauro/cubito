@@ -7,7 +7,7 @@ allows; stacks them vertically on narrow viewports.
 Typical uses: pagination + count, breadcrumb + actions, logo + nav.
 
 CUSTOM PROPERTIES
-  --gutter                      Gap when stacked. Default: var(--space-s-l).
+  --repel-gutter                Gap when stacked. Default: var(--space-s-l).
   --repel-vertical-alignment    align-items value. Default: center.
 
 EXCEPTIONS

@@ -9,7 +9,7 @@ columns as will fit.
 @link https://piccalil.li/tutorial/create-a-responsive-grid-layout-with-no-media-queries-using-css-grid/
 
 CUSTOM PROPERTIES
-  --gutter                Gap between cells. Default: var(--space-s-l).
+  --grid-gutter           Gap between cells. Default: var(--space-s-l).
   --grid-min-item-size    Minimum column width. Default: 16rem.
   --grid-placement        auto-fill (keeps empty tracks) or auto-fit (collapses
                           them). Default: auto-fill.

@@ -67,11 +67,6 @@ TOKENS
 
 @layer blocks {
   .data-list {
-    --data-list-term-color: var(--color-neutral-500);
-    --data-list-term-size: var(--font-size-xs);
-    --data-list-value-size: var(--font-size-s);
-    --data-list-value-weight: var(--font-weight-normal);
-
     display: flex;
     flex-direction: column;
     gap: var(--data-list-gap);

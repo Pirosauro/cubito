@@ -53,7 +53,7 @@
       <p>A cluster is ideal for tag clouds, badge groups, and filter bars where items have variable widths.</p>
 
       <div class="">
-        <div class="cluster" style="--gutter: var(--space-xxs);">
+        <div class="cluster" style="--cluster-gutter: var(--space-xxs);">
           <span class="badge">All</span>
           <span class="badge" data-variant="info">Design</span>
           <span class="badge" data-variant="success">Engineering</span>
@@ -66,7 +66,7 @@
 
       <details class="margin-y-s">
         <summary>Show code</summary>
-        <pre class="padding-m"><code>&lt;div class=&quot;cluster&quot; style=&quot;--gutter: var(--space-xxs);&quot;&gt;
+        <pre class="padding-m"><code>&lt;div class=&quot;cluster&quot; style=&quot;--cluster-gutter: var(--space-xxs);&quot;&gt;
     &lt;span class=&quot;badge&quot;&gt;All&lt;/span&gt;
     …
   &lt;/div&gt;</code></pre>
@@ -135,9 +135,9 @@
         </thead>
         <tbody>
           <tr>
-            <td><code>--gutter</code></td>
+            <td><code>--cluster-gutter</code></td>
             <td><code>var(--space-s-l)</code></td>
-            <td>Gap between items. Falls back to the global <code>--space-s-l</code> fluid spacing token.</td>
+            <td>Gap between items.</td>
           </tr>
           <tr>
             <td><code>--cluster-horizontal-alignment</code></td>

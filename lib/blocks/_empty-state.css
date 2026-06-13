@@ -69,7 +69,7 @@ TOKENS
     text-align: center;
     padding: var(--empty-state-padding);
     gap: var(--empty-state-gap);
-    max-width: var(--empty-state-max-width);
+    max-width: var(--empty-state-default-width);
     margin-inline: auto;
   }
 

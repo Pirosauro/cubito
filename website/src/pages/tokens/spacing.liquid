@@ -297,7 +297,7 @@
   <section>
     <div class="flow" style="--flow-space: var(--space-s);">
       <h2 class="heading-l">Custom pairs and gutter</h2>
-      <p><code>--space-s-l</code> is a custom pair skipping two steps, useful for larger layout jumps. <code>--gutter</code> is a special fluid token used as the default gap in all composition primitives — override it at the composition level to adjust spacing without touching the scale.</p>
+      <p><code>--space-s-l</code> is a custom pair skipping two steps, useful for larger layout jumps. <code>--gutter</code> is a global fluid token used in components like banners and wrappers. Each layout composition has its own namespaced gap token (e.g. <code>--cluster-gutter</code>, <code>--grid-gutter</code>) — override those at the composition level to adjust spacing independently.</p>
 
     
       <div class="">
@@ -339,19 +339,24 @@
   &lt;/div&gt;</code></pre>
       </details>
 
-      <h3>Using <code>--gutter</code> in compositions</h3>
-      <p>Every layout composition uses <code>--gutter</code> as its default gap. Override it locally to adjust spacing for a specific section without affecting the global scale:</p>
-      <pre><code>&lt;!-- Default gutter --&gt;
+      <h3>Using composition gap tokens</h3>
+      <p>Each layout composition exposes its own namespaced gap token. Override it locally on the element to adjust spacing for a specific section without affecting the global scale:</p>
+      <pre><code>&lt;!-- Default cluster gap --&gt;
   &lt;div class="cluster"&gt;
     &lt;a href="/home/"&gt;Home&lt;/a&gt;
     &lt;a href="/products/"&gt;Products&lt;/a&gt;
   &lt;/div&gt;
 
-  &lt;!-- Tight gutter for a compact toolbar --&gt;
-  &lt;div class="cluster" style="--gutter: var(--space-xs)"&gt;
+  &lt;!-- Tight gap for a compact toolbar --&gt;
+  &lt;div class="cluster" style="--cluster-gutter: var(--space-xs)"&gt;
     &lt;button&gt;Bold&lt;/button&gt;
     &lt;button&gt;Italic&lt;/button&gt;
     &lt;button&gt;Underline&lt;/button&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Override grid gap --&gt;
+  &lt;div class="grid" style="--grid-gutter: var(--space-s)"&gt;
+    &lt;div&gt;…&lt;/div&gt;
   &lt;/div&gt;</code></pre>
   
     </div>
@@ -376,7 +381,7 @@
         </thead>
         <tbody>
           <tr><td><code>--su</code></td><td><code>0.5rem</code></td><td>Legacy BBC GEL 8 px unit — kept for compat</td></tr>
-          <tr><td><code>--gutter</code></td><td><code>clamp(1rem, calc(0.7rem + 1.52vw), 1.88rem)</code></td><td>Default gap for all composition primitives</td></tr>
+          <tr><td><code>--gutter</code></td><td><code>clamp(1rem, calc(0.7rem + 1.52vw), 1.88rem)</code></td><td>Global fluid inline gutter — used by wrappers and banners</td></tr>
           <tr><td><code>--space-tiny</code></td><td><code>clamp(0.25rem, calc(0.23rem + 0.11vw), 0.31rem)</code></td><td>~4 px — icon nudges, hairline gaps</td></tr>
           <tr><td><code>--space-xxs</code></td><td><code>clamp(0.5rem, calc(0.46rem + 0.22vw), 0.63rem)</code></td><td>~8 px — tight component padding</td></tr>
           <tr><td><code>--space-xs</code></td><td><code>clamp(0.75rem, calc(0.68rem + 0.33vw), 0.94rem)</code></td><td>~12 px — button padding, small gaps</td></tr>

@@ -54,8 +54,6 @@ TOKENS
 
 @layer blocks {
   .price {
-    --price-badge-color: var(--color-status-ko);
-
     display: inline-flex;
     align-items: baseline;
     flex-wrap: wrap;

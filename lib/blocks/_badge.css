@@ -52,12 +52,12 @@ TOKENS
 
 @layer tokens {
   :root {
-    --badge-background: var(--color-neutral-200);
-    --badge-border: none;
-    --badge-color: var(--color-neutral-800);
-    --badge-font-size: var(--font-size-xxs);
-    --badge-padding: 0.35em 0.55em;
-    --badge-radius: 9999px;
+    --badge-default-background: var(--color-neutral-200);
+    --badge-default-border: none;
+    --badge-default-color: var(--color-neutral-800);
+    --badge-default-font-size: var(--font-size-xxs);
+    --badge-default-padding: 0.35em 0.55em;
+    --badge-default-radius: 9999px;
 
     --badge-dot-size: 0.625rem;
 
@@ -69,14 +69,21 @@ TOKENS
 @layer dark {
   @media (prefers-color-scheme: dark) {
     :root {
-      --badge-background: var(--color-neutral-700);
-      --badge-color: var(--color-neutral-100);
+      --badge-default-background: var(--color-neutral-700);
+      --badge-default-color: var(--color-neutral-100);
     }
   }
 }
 
 @layer blocks {
   .badge {
+    --badge-background: var(--badge-default-background);
+    --badge-border: var(--badge-default-border);
+    --badge-color: var(--badge-default-color);
+    --badge-font-size: var(--badge-default-font-size);
+    --badge-padding: var(--badge-default-padding);
+    --badge-radius: var(--badge-default-radius);
+
     display: inline-flex;
     align-items: center;
     justify-content: center;

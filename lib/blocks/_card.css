@@ -76,6 +76,11 @@ TOKENS
     display: flex;
     flex-direction: column;
     position: relative;
+    --card-border: var(--card-border, solid var(--border-m) var(--color-neutral-200));
+    --card-background: var(--card-background, var(--color-white));
+    --card-border-hover: var(--card-border-hover, solid var(--border-m) var(--color-neutral-700));
+    --card-background-hover: var(--card-background-hover, var(--color-white));
+
     border: var(--card-border);
     border-radius: var(--card-radius);
     overflow: hidden; /* clips image to radius */
@@ -85,8 +90,8 @@ TOKENS
 
   .card:is(a):hover,
   .card:is(a):focus-within {
-    background: var(--card-background-hover);
-    border: var(--card-border-hover);
+    --card-background: var(--card-background-hover);
+    --card-border: var(--card-border-hover);
   }
 
   /* Consistent heading size regardless of heading level used */

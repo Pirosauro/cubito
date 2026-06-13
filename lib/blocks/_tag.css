@@ -60,32 +60,43 @@ TOKENS
 
 @layer tokens {
   :root {
-    --tag-background: var(--color-neutral-100);
-    --tag-background-selected: var(--color-brand);
-    --tag-background-hover: var(--color-neutral-200);
-    --tag-border: solid var(--border-s) var(--color-neutral-300);
-    --tag-border-selected: solid var(--border-s) var(--color-brand);
-    --tag-color: var(--color-neutral-700);
-    --tag-color-selected: var(--color-white);
-    --tag-font-size: var(--font-size-xs);
-    --tag-padding: 0.25em 0.7em;
-    --tag-radius: 9999px;
+    --tag-default-background: var(--color-neutral-100);
+    --tag-default-background-hover: var(--color-neutral-200);
+    --tag-default-background-selected: var(--color-brand);
+    --tag-default-border: solid var(--border-s) var(--color-neutral-300);
+    --tag-default-border-selected: solid var(--border-s) var(--color-brand);
+    --tag-default-color: var(--color-neutral-700);
+    --tag-default-color-selected: var(--color-white);
+    --tag-default-font-size: var(--font-size-xs);
+    --tag-default-padding: 0.25em 0.7em;
+    --tag-default-radius: 9999px;
   }
 }
 
 @layer dark {
   @media (prefers-color-scheme: dark) {
     :root {
-      --tag-background: var(--color-neutral-800);
-      --tag-background-hover: var(--color-neutral-700);
-      --tag-border: solid var(--border-s) var(--color-neutral-700);
-      --tag-color: var(--color-neutral-300);
+      --tag-default-background: var(--color-neutral-800);
+      --tag-default-background-hover: var(--color-neutral-700);
+      --tag-default-border: solid var(--border-s) var(--color-neutral-700);
+      --tag-default-color: var(--color-neutral-300);
     }
   }
 }
 
 @layer blocks {
   .tag {
+    --tag-background: var(--tag-default-background);
+    --tag-background-hover: var(--tag-default-background-hover);
+    --tag-background-selected: var(--tag-default-background-selected);
+    --tag-border: var(--tag-default-border);
+    --tag-border-selected: var(--tag-default-border-selected);
+    --tag-color: var(--tag-default-color);
+    --tag-color-selected: var(--tag-default-color-selected);
+    --tag-font-size: var(--tag-default-font-size);
+    --tag-padding: var(--tag-default-padding);
+    --tag-radius: var(--tag-default-radius);
+
     display: inline-flex;
     align-items: center;
     gap: 0.35em;

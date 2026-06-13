@@ -108,6 +108,8 @@ TOKENS
     border: none;
     border-radius: 0;
     background: transparent;
+    --tabs-tab-color: var(--tabs-tab-color, var(--color-neutral-500));
+    --tabs-tab-hover-color: var(--tabs-tab-hover-color, var(--color-neutral-800));
     color: var(--tabs-tab-color);
     font-size: var(--font-size-s);
     font-weight: var(--font-weight-normal);
@@ -120,7 +122,7 @@ TOKENS
   }
 
   .tabs [role="tab"]:hover {
-    color: var(--tabs-tab-hover-color);
+    --tabs-tab-color: var(--tabs-tab-hover-color);
   }
 
   /* Active indicator underline */

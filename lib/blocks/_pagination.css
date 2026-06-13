@@ -66,12 +66,6 @@ TOKENS
 
 @layer blocks {
   .pagination {
-    --pagination-border: none;
-    --pagination-radius: var(--border-radius-m);
-    --pagination-background-hover: var(--color-neutral-100);
-    --pagination-background-active: var(--color-brand);
-    --pagination-color-active: var(--color-white);
-
     display: flex;
     flex-wrap: wrap;
     align-items: center;
