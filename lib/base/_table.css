@@ -22,52 +22,82 @@ VARIANTS
   table[data-variant="compact"]     Reduced cell padding and font size.
 
 CONFIGURATION
-  Row and header background tokens are set in _reset.css:
-    --tr-background-odd   / --tr-background-even  — alternating row fills
-    --th-background                               — header cell fill
+  Override at any scope — globally, per-context, or inline:
 
-  Override at any scope:
-    :root { --tr-background-odd: var(--color-neutral-50); }
+    :root {
+      --tr-default-background-odd: var(--color-neutral-50);
+    }
 
     .pricing-table {
-      --th-background:        var(--color-brand);
-      --tr-background-odd:    white;
-      --tr-background-even:   var(--color-neutral-50);
+      --th-background:                  var(--color-brand);
+      --tr-default-background-odd:      white;
+      --tr-default-background-even:     var(--color-neutral-50);
     }
+
+TOKENS
+  Naming mirrors button conventions:
+
+  Design tokens (default variant):
+    --tr-default-background-odd     --tr-default-color-odd
+    --tr-default-background-even    --tr-default-color-even
+    --tr-default-background-odd-hover   --tr-default-color-odd-hover
+    --tr-default-background-even-hover  --tr-default-color-even-hover
+    --td-default-border-color   --td-default-border-width
+    --td-default-border-style   --td-default-padding   --td-default-font-size
+    --th-default-background     --th-default-color
+    --caption-default-color     --caption-default-font-size
+    --caption-default-padding
+
+  Design tokens (compact variant):
+    --td-compact-default-padding    --td-compact-default-font-size
+
+  Local bridge vars (override per scope):
+    --tr-background   --tr-color   --tr-background-hover   --tr-color-hover
+    --td-border-color --td-border-width --td-border-style
+    --td-padding      --td-font-size
+    --th-background   --th-color
+    --caption-color   --caption-font-size   --caption-padding
 */
 
 @layer tokens {
   :root {
-    /* Row */
-    --tr-background-odd: transparent;
-    --tr-background-even: transparent;
-    --tr-color-odd: inherit;
-    --tr-color-even: inherit;
+    /* --- Row: default variant --- */
 
-    /* Cell */
-    --td-border-color: var(--color);
-    --td-border-width: var(--border-s);
-    --td-border-style: solid;
-    --td-padding: var(--space-tiny) var(--space-xxs);
+    --tr-default-background-odd: transparent;
+    --tr-default-background-even: transparent;
+    --tr-default-color-odd: inherit;
+    --tr-default-color-even: inherit;
 
-    /* Header */
-    --th-background: var(--color);
-    --th-color: var(--background);
+    /* --- Row: default, hover state --- */
 
-    /* Caption */
-    --caption-color: var(--color-neutral-500);
-    --caption-font-size: var(--font-size-xs);
-    --caption-padding: var(--space-tiny) var(--space-xxs);
+    --tr-default-background-odd-hover: var(--tr-default-background-odd);
+    --tr-default-background-even-hover: var(--tr-default-background-even);
+    --tr-default-color-odd-hover: var(--tr-default-color-odd);
+    --tr-default-color-even-hover: var(--tr-default-color-even);
 
-    /* State: hover */
-    --tr-background-odd-hover: var(--tr-background-odd);
-    --tr-background-even-hover: var(--tr-background-even);
-    --tr-color-odd-hover: var(--tr-color-odd);
-    --tr-color-even-hover: var(--tr-color-even);
+    /* --- Cell: default variant --- */
 
-    /* Variant: compact */
-    --td-compact-padding: var(--space-tiny);
-    --td-compact-font-size: var(--font-size-xs);
+    --td-default-border-color: var(--color);
+    --td-default-border-style: solid;
+    --td-default-border-width: var(--border-s);
+    --td-default-font-size: inherit;
+    --td-default-padding: var(--space-tiny) var(--space-xxs);
+
+    /* --- Header cell: default variant --- */
+
+    --th-default-background: var(--color);
+    --th-default-color: var(--background);
+
+    /* --- Caption: default variant --- */
+
+    --caption-default-color: var(--color-neutral-500);
+    --caption-default-font-size: var(--font-size-xs);
+    --caption-default-padding: var(--space-tiny) var(--space-xxs);
+
+    /* --- Compact variant --- */
+
+    --td-compact-default-font-size: var(--font-size-xs);
+    --td-compact-default-padding: var(--space-tiny);
   }
 }
 
@@ -86,34 +116,68 @@ CONFIGURATION
   }
 
   tr {
-    background: var(--tr-background-odd);
-    color: var(--tr-color-odd);
+    /* Bridge vars — odd is default; even and hover states redirect below */
+    --tr-background: var(--tr-default-background-odd);
+    --tr-background-hover: var(--tr-default-background-odd-hover);
+    --tr-color: var(--tr-default-color-odd);
+    --tr-color-hover: var(--tr-default-color-odd-hover);
+
+    background: var(--tr-background);
+    color: var(--tr-color);
   }
 
+  /* --- Even rows: redirect bridge vars to even variant tokens --- */
+
   tr:nth-child(even) {
-    background: var(--tr-background-even);
-    color: var(--tr-color-even);
+    --tr-background: var(--tr-default-background-even);
+    --tr-background-hover: var(--tr-default-background-even-hover);
+    --tr-color: var(--tr-default-color-even);
+    --tr-color-hover: var(--tr-default-color-even-hover);
+  }
+
+  /* --- Hover state --- */
+
+  tbody tr:hover {
+    --tr-background: var(--tr-background-hover);
+    --tr-color: var(--tr-color-hover);
   }
 
   td,
   th {
+    /* Bridge vars — initialized from default variant tokens */
+    --td-border-color: var(--td-default-border-color);
+    --td-border-style: var(--td-default-border-style);
+    --td-border-width: var(--td-default-border-width);
+    --td-font-size: var(--td-default-font-size);
+    --td-padding: var(--td-default-padding);
+
     border-color: var(--td-border-color);
-    border-width: var(--td-border-width);
     border-style: var(--td-border-style);
-    text-align: start;
+    border-width: var(--td-border-width);
+    font-size: var(--td-font-size);
     padding: var(--td-padding);
+    text-align: start;
   }
 
   th {
+    /* Bridge vars — initialized from default variant tokens */
+    --th-background: var(--th-default-background);
+    --th-color: var(--th-default-color);
+
     background: var(--th-background);
     color: var(--th-color);
   }
 
   table caption {
-    padding: var(--caption-padding);
+    /* Bridge vars — initialized from default variant tokens */
+    --caption-color: var(--caption-default-color);
+    --caption-font-size: var(--caption-default-font-size);
+    --caption-padding: var(--caption-default-padding);
+
     caption-side: bottom;
-    font-size: var(--caption-font-size);
     color: var(--caption-color);
+    font-size: var(--caption-font-size);
+    padding: var(--caption-padding);
     text-align: start;
   }
 
@@ -131,12 +195,12 @@ CONFIGURATION
     border-width: 0 0 var(--td-border-width) 0;
   }
 
-  /* --- Variant: compact --- */
+  /* --- Variant: compact — redirect bridge vars --- */
 
   table[data-variant="compact"] td,
   table[data-variant="compact"] th {
-    padding: var(--td-compact-padding);
-    font-size: var(--td-compact-font-size);
+    --td-font-size: var(--td-compact-default-font-size);
+    --td-padding: var(--td-compact-default-padding);
   }
 
   /* --- Variant: sticky header --- */

@@ -29,43 +29,83 @@ VARIANTS
   data-variant="bare"    No background or padding.
 
 CONFIGURATION
-  --details-background is set in _reset.css. Override at any scope:
-    .sidebar details { --details-background: transparent; }
+  Override at any scope — globally, per-context, or inline:
+
+    :root {
+      --details-default-background: var(--color-neutral-100);
+    }
+
+    .sidebar details {
+      --details-background: transparent;
+    }
+
     <details style="--details-background: var(--color-neutral-100)">
 
-  --details-chevron-size controls the icon size in the fancy variant:
-    details[data-variant="fancy"] { --details-chevron-size: 2rem; }
+TOKENS
+  Naming mirrors button conventions:
+
+  Design tokens (default variant):
+    --details-default-background   --details-default-color
+    --details-default-radius
+
+  Design tokens (summary):
+    --summary-default-color   --summary-default-font-weight
+    --summary-default-padding
+
+  Design tokens (fancy variant):
+    --details-fancy-chevron   --details-fancy-chevron-size
+
+  Local bridge vars (override per scope):
+    --details-background   --details-color   --details-radius
+    --summary-color   --summary-font-weight   --summary-padding
+
+  --details-fancy-chevron-size controls the icon size in the fancy variant:
+    details[data-variant="fancy"] { --details-fancy-chevron-size: 2rem; }
 */
 
 @layer tokens {
   :root {
-    --details-background: var(--color-neutral-50);
-    --details-chevron-size: 1.5rem;
-    --details-color: var(--color);
-    --details-radius: var(--border-radius);
+    /* --- Default variant --- */
 
-    --summary-color: var(--details-color);
-    --summary-font-weight: var(--font-weight-bold);
-    --summary-padding: var(--space-xxs) var(--space-s);
+    --details-default-background: var(--color-neutral-50);
+    --details-default-color: var(--color);
+    --details-default-radius: var(--border-radius);
+
+    /* --- Summary: default --- */
+
+    --summary-default-color: var(--details-default-color);
+    --summary-default-font-weight: var(--font-weight-bold);
+    --summary-default-padding: var(--space-xxs) var(--space-s);
+
+    /* --- Fancy variant --- */
+
+    --details-fancy-chevron: var(--icon-chevron);
+    --details-fancy-chevron-size: 1.5rem;
   }
 }
 
 @layer blocks {
-  summary {
-    /* Interaction */
-    cursor: pointer;
-    /* Typography */
-    font-weight: var(--summary-font-weight);
-    /* Box Model */
-    padding: var(--summary-padding);
-  }
-
   details {
-    /* Typography */
-    color: var(--details-color);
-    /* Visual */
+    /* Bridge vars — initialized from default variant tokens */
+    --details-background: var(--details-default-background);
+    --details-color: var(--details-default-color);
+    --details-radius: var(--details-default-radius);
+
     background: var(--details-background);
     border-radius: var(--details-radius);
+    color: var(--details-color);
+  }
+
+  summary {
+    /* Bridge vars — initialized from default variant tokens */
+    --summary-color: var(--summary-default-color);
+    --summary-font-weight: var(--summary-default-font-weight);
+    --summary-padding: var(--summary-default-padding);
+
+    color: var(--summary-color);
+    cursor: pointer;
+    font-weight: var(--summary-font-weight);
+    padding: var(--summary-padding);
   }
 
   details[open] {
@@ -82,15 +122,15 @@ CONFIGURATION
     margin-bottom: 0;
   }
 
-  /* --- Bare variant: no chrome ---*/
+  /* --- Bare variant: no chrome — redirect bridge vars --- */
 
   details[data-variant="bare"] {
-    background: transparent;
-    border-radius: 0;
+    --details-background: transparent;
+    --details-radius: 0;
   }
 
   details[data-variant="bare"] summary {
-    padding: 0;
+    --summary-padding: 0;
   }
 
   /* --- Fancy variant: custom chevron --- */
@@ -117,10 +157,10 @@ CONFIGURATION
     position: absolute;
     right: var(--space-s);
     top: var(--space-xxs);
-    height: var(--details-chevron-size);
-    width: var(--details-chevron-size);
+    height: var(--details-fancy-chevron-size);
+    width: var(--details-fancy-chevron-size);
     background-color: currentColor;
-    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    mask-image: var(--details-fancy-chevron);
     mask-position: center;
     mask-repeat: no-repeat;
     mask-size: contain;

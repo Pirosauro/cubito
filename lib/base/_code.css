@@ -1,41 +1,64 @@
 /*
 Preformatted text
 ---
-Styles for code blocks and inline code. Base token assignments (--pre-background,
---code-background, --code-color) are set in _reset.css; this file adds layout
-and contextual sizing.
+Styles for <pre> and <code> blocks.
 
-CONFIGURATION (override in _reset.css token scope or globally)
+CONFIGURATION
+  Override at any scope — globally, per-context, or inline:
+
     :root {
-      --pre-background:  #1e1e2e;
-      --code-background: #2d2d2d;
-      --code-color:      #f8f8f2;
+      --code-default-background: #1e1e2e;
+      --code-default-color:      #f8f8f2;
     }
+
+    .dark-theme pre {
+      --code-background: var(--color-neutral-900);
+      --code-color:      var(--color-neutral-50);
+    }
+
+TOKENS
+  Naming mirrors button conventions:
+
+  Design tokens (default variant):
+    --code-default-background   --code-default-color
+    --code-default-font-size    --code-default-padding
+    --code-default-radius
+
+  Local bridge vars (override per scope):
+    --code-background   --code-color   --code-font-size
+    --code-padding      --code-radius
 */
 
 @layer tokens {
   :root {
-    --code-background: var(--color-neutral-100);
-    --code-color: var(--color-neutral-900);
-    --code-font-size: 0.85em;
-    --code-padding: var(--space-xxs) var(--space-s);
-    --code-radius: var(--border-radius);
+    /* --- Default variant --- */
+
+    --code-default-background: var(--color-neutral-100);
+    --code-default-color: var(--color-neutral-900);
+    --code-default-font-size: 0.85em;
+    --code-default-padding: var(--space-xxs) var(--space-s);
+    --code-default-radius: var(--border-radius);
   }
 }
 
 @layer blocks {
+  pre,
+  code {
+    /* Bridge vars — initialized from default variant tokens */
+    --code-background: var(--code-default-background);
+    --code-color: var(--code-default-color);
+    --code-font-size: var(--code-default-font-size);
+    --code-padding: var(--code-default-padding);
+    --code-radius: var(--code-default-radius);
+
+    background: var(--code-background);
+    color: var(--code-color);
+    font-size: var(--code-font-size);
+  }
+
   pre {
     border-radius: var(--code-radius);
     padding: var(--code-padding);
-    font-size: var(--code-font-size);
-    background: var(--code-background);
-    color: var(--code-color);
-  }
-
-  code {
-    background: var(--code-background);
-    color: var(--code-color);
-    font-size: var(--code-font-size);
   }
 
   /* Inline code inside prose */

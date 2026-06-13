@@ -23,11 +23,16 @@ CONFIGURATION
     <span data-tooltip="true" style="--tooltip-max-width: 24rem">
 
 TOKENS
-  --tooltip-background   Fill.          Default: --color-neutral-800
-  --tooltip-color        Text colour.   Default: --color-neutral-50
-  --tooltip-radius       Corner radius. Default: --border-radius-m
-  --tooltip-padding      Inner space.   Default: --space-tiny --space-xxs
-  --tooltip-max-width    Max width.     Default: 18rem
+  Naming mirrors button conventions:
+
+  Design tokens (default variant):
+    --tooltip-default-background   --tooltip-default-color
+    --tooltip-default-max-width    --tooltip-default-padding
+    --tooltip-default-radius       --tooltip-default-transition
+
+  Local bridge vars (override per scope):
+    --tooltip-background   --tooltip-color   --tooltip-max-width
+    --tooltip-padding      --tooltip-radius   --tooltip-transition
 
 ACCESSIBILITY
   - [role="tooltip"] must be referenced via aria-describedby on the trigger.
@@ -36,12 +41,14 @@ ACCESSIBILITY
 
 @layer tokens {
   :root {
-    --tooltip-background: var(--color-neutral-800);
-    --tooltip-color: var(--color-neutral-50);
-    --tooltip-max-width: 18rem;
-    --tooltip-padding: var(--space-tiny) var(--space-xxs);
-    --tooltip-radius: var(--border-radius-m);
-    --tooltip-transition:
+    /* --- Default variant --- */
+
+    --tooltip-default-background: var(--color-neutral-800);
+    --tooltip-default-color: var(--color-neutral-50);
+    --tooltip-default-max-width: 18rem;
+    --tooltip-default-padding: var(--space-tiny) var(--space-xxs);
+    --tooltip-default-radius: var(--border-radius-m);
+    --tooltip-default-transition:
       opacity var(--motion-duration-fast, 150ms) var(--motion-easing-out),
       visibility var(--motion-duration-fast, 150ms) var(--motion-easing-out);
   }
@@ -54,27 +61,35 @@ ACCESSIBILITY
   }
 
   [role="tooltip"] {
-    position: absolute;
-    bottom: calc(100% + var(--space-xxs, 0.5rem));
-    left: 50%;
-    transform: translateX(-50%);
-    width: max-content;
-    z-index: var(--z-tooltip, 70);
-    visibility: hidden;
-    opacity: 0;
-    pointer-events: none;
-    max-width: var(--tooltip-max-width);
-    padding: var(--tooltip-padding);
-    transition: var(--tooltip-transition);
+    /* Bridge vars — initialized from default variant tokens */
+    --tooltip-background: var(--tooltip-default-background);
+    --tooltip-color: var(--tooltip-default-color);
+    --tooltip-max-width: var(--tooltip-default-max-width);
+    --tooltip-padding: var(--tooltip-default-padding);
+    --tooltip-radius: var(--tooltip-default-radius);
+    --tooltip-transition: var(--tooltip-default-transition);
+
     background: var(--tooltip-background);
     border-radius: var(--tooltip-radius);
+    bottom: calc(100% + var(--space-xxs, 0.5rem));
     color: var(--tooltip-color);
     font-size: var(--font-size-xs);
     font-weight: var(--font-weight-normal);
+    left: 50%;
     letter-spacing: 0;
     line-height: var(--line-height-m);
+    max-width: var(--tooltip-max-width);
+    opacity: 0;
+    padding: var(--tooltip-padding);
+    pointer-events: none;
+    position: absolute;
     text-align: start;
     text-transform: none;
+    transform: translateX(-50%);
+    transition: var(--tooltip-transition);
+    visibility: hidden;
+    width: max-content;
+    z-index: var(--z-tooltip, 70);
   }
 
   /* Arrow — points toward the trigger */

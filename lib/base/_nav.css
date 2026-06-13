@@ -2,7 +2,47 @@
 Navigation
 ---
 Styles for semantic navigation: main nav bar, horizontal row, sidebar tree.
-Token naming follows [scope]-[variant]-[property].
+All configurable tokens are defined here in @layer tokens.
+
+CONFIGURATION
+  Override at any scope — globally, per-context, or inline:
+
+    :root {
+      --nav-default-link-color: var(--color-neutral-700);
+    }
+
+    .primary-nav {
+      --nav-link-color-hover: var(--color-brand);
+    }
+
+TOKENS
+  Naming mirrors button conventions:
+
+  Design tokens (variant/state):
+    --[namespace]-[variant]-[property]-[optional-state]
+    Example: --nav-default-link-background-hover
+
+  Local/common bridge vars:
+    --[namespace]-[property]-[optional-state]
+    Example: --nav-link-color-hover
+
+  Default variant tokens:
+    --nav-default-background        --nav-default-color
+    --nav-default-gap               --nav-default-padding
+
+  Default variant: link tokens:
+    --nav-default-link-background   --nav-default-link-color
+    --nav-default-link-radius       --nav-default-link-transition
+    --nav-default-link-background-hover   --nav-default-link-color-hover
+    --nav-default-link-background-active  --nav-default-link-color-active
+
+  Sidebar variant tokens:
+    --nav-sidebar-chevron           --nav-sidebar-chevron-color
+    --nav-sidebar-chevron-size      --nav-sidebar-nested-padding
+    --nav-sidebar-gap               --nav-sidebar-padding
+
+  Horizontal variant tokens:
+    --nav-horizontal-gap            --nav-horizontal-padding
 
 VARIANTS
   nav                            default navigation bar
@@ -10,11 +50,11 @@ VARIANTS
   nav[data-variant="sidebar"]    collapsible tree navigation
 
 STATES
-  a[aria-current="page"]                      currently active link (semantic, preferred)
-  a[data-state="active"]                      currently active link (alternative)
-  li[data-children="true"]                    item with nested sub-list
+  a[aria-current="page"]                        currently active link (semantic, preferred)
+  a[data-state="active"]                        currently active link (alternative)
+  li[data-children="true"]                      item with nested sub-list
   li[data-children="true"][data-state="active"] expanded item
-  ul[data-state="visible"]                    sub-list is visible
+  ul[data-state="visible"]                      sub-list is visible
 
 ARIA
   Prefer aria-current="page" on the active <a> for semantic state.
@@ -29,21 +69,43 @@ INTERNAL
   :root {
     /* --- Default variant --- */
 
-    --nav-default-padding: var(--space-xxs) var(--space-xs);
+    --nav-default-background: transparent;
+    --nav-default-color: inherit;
     --nav-default-gap: var(--space-xxs);
+    --nav-default-padding: var(--space-xxs) var(--space-xs);
+
+    /* --- Default variant: link --- */
+
+    --nav-default-link-background: transparent;
+    --nav-default-link-color: inherit;
+    --nav-default-link-radius: var(--border-radius-s);
+    --nav-default-link-transition:
+      background-color var(--motion-duration-fast, 150ms) var(--motion-easing-out),
+      color var(--motion-duration-fast, 150ms) var(--motion-easing-out);
+
+    /* --- Default variant: link, hover state --- */
+
+    --nav-default-link-background-hover: color-mix(in srgb, currentColor 8%, transparent);
+    --nav-default-link-color-hover: var(--link-color-hover, inherit);
+
+    /* --- Default variant: link, active/current state --- */
+
+    --nav-default-link-background-active: color-mix(in srgb, currentColor 12%, transparent);
+    --nav-default-link-color-active: var(--link-color, inherit);
 
     /* --- Horizontal variant --- */
 
-    --nav-horizontal-padding: var(--nav-default-padding);
     --nav-horizontal-gap: var(--nav-default-gap);
+    --nav-horizontal-padding: var(--nav-default-padding);
 
     /* --- Sidebar variant --- */
 
-    --nav-sidebar-padding: var(--space-tiny) var(--space-s);
-    --nav-sidebar-chevron-size: 1.25rem;
-    --nav-sidebar-chevron-color: currentColor;
     --nav-sidebar-chevron: var(--icon-chevron);
+    --nav-sidebar-chevron-color: currentColor;
+    --nav-sidebar-chevron-size: 1.25rem;
+    --nav-sidebar-gap: var(--nav-default-gap);
     --nav-sidebar-nested-padding: var(--space-s);
+    --nav-sidebar-padding: var(--space-tiny) var(--space-s);
   }
 }
 
@@ -51,25 +113,59 @@ INTERNAL
   /* --- Default --- */
 
   nav {
-    --nav-padding: var(--nav-main-padding);
-    --nav-gap: var(--nav-main-gap);
+    /* Bridge vars — initialized from default variant tokens */
+    --nav-background: var(--nav-default-background);
+    --nav-color: var(--nav-default-color);
+    --nav-gap: var(--nav-default-gap);
+    --nav-padding: var(--nav-default-padding);
+
+    background-color: var(--nav-background);
+    color: var(--nav-color);
   }
 
   nav li a {
-    display: flex;
+    /* Bridge vars — state rules redirect these to hover/active counterparts */
+    --nav-link-background: var(--nav-default-link-background);
+    --nav-link-background-hover: var(--nav-default-link-background-hover);
+    --nav-link-background-active: var(--nav-default-link-background-active);
+    --nav-link-color: var(--nav-default-link-color);
+    --nav-link-color-hover: var(--nav-default-link-color-hover);
+    --nav-link-color-active: var(--nav-default-link-color-active);
+
     align-items: center;
+    background-color: var(--nav-link-background);
+    border-radius: var(--nav-link-radius, var(--nav-default-link-radius));
+    color: var(--nav-link-color);
+    display: flex;
     padding: var(--nav-padding);
+    transition: var(--nav-link-transition, var(--nav-default-link-transition));
+  }
+
+  /* --- Default: hover state --- */
+
+  nav li a:hover {
+    --nav-link-background: var(--nav-link-background-hover);
+    --nav-link-color: var(--nav-link-color-hover);
+  }
+
+  /* --- Default: active / current state --- */
+
+  nav li a[aria-current="page"],
+  nav li a[data-state="active"] {
+    --nav-link-background: var(--nav-link-background-active);
+    --nav-link-color: var(--nav-link-color-active);
   }
 
   nav li a span {
-    display: flex;
     align-items: center;
+    display: flex;
     margin-inline-end: var(--space-xxs);
   }
 
   /* --- Horizontal variant --- */
 
   nav[data-variant="horizontal"] {
+    /* Redirect bridge vars to horizontal variant tokens */
     --nav-gap: var(--nav-horizontal-gap);
     --nav-padding: var(--nav-horizontal-padding);
   }
@@ -96,6 +192,8 @@ INTERNAL
   /* --- Sidebar variant --- */
 
   nav[data-variant="sidebar"] {
+    /* Redirect bridge vars to sidebar variant tokens */
+    --nav-gap: var(--nav-sidebar-gap);
     --nav-padding: var(--nav-sidebar-padding);
   }
 
