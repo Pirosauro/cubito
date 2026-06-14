@@ -55,16 +55,6 @@ TOKENS
   }
 }
 
-@layer dark {
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --dialog-background: var(--color-neutral-800);
-      --dialog-border: solid var(--border-s) var(--color-neutral-700);
-      --dialog-color: var(--color-neutral-50);
-    }
-  }
-}
-
 @layer blocks {
   dialog,
   [role="dialog"] {

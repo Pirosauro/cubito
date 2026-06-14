@@ -66,19 +66,6 @@ TOKENS
   }
 }
 
-@layer dark {
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --tabs-border: solid var(--border-s) var(--color-neutral-700);
-      --tabs-lifted-selected-background: var(--color-neutral-900);
-      --tabs-lifted-selected-border-color: var(--color-neutral-700);
-      --tabs-pills-background: var(--color-neutral-800);
-      --tabs-pills-selected-background: var(--color-neutral-700);
-      --tabs-tab-hover-color: var(--color-neutral-200);
-    }
-  }
-}
-
 @layer blocks {
   /* --- Tablist --- */
 

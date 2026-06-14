@@ -110,12 +110,30 @@
 
   <section>
     <div class="flow" style="--flow-space: var(--space-s);">
-      <h2 class="heading-l">Dark mode</h2>
-      <p>Dark mode is handled automatically. All color tokens respond to <code>prefers-color-scheme: dark</code> at the OS level — no JavaScript or class toggling required. If your application needs a manual toggle, you can use the <code>data-theme</code> attribute pattern to force a specific scheme:</p>
-      <pre><code>&lt;html data-theme="dark"&gt;
-    &lt;!-- overrides prefers-color-scheme --&gt;
-  &lt;/html&gt;</code></pre>
-      <p>Wire this up with a small JavaScript toggle and <code>localStorage</code> to persist the user's preference across sessions.</p>
+      <h2 class="heading-l">Dark mode (optional)</h2>
+      <p>The core framework does not include automatic dark mode. Dark mode is an optional theme layer you define in your application. Create a theme file that overrides colour tokens based on <code>prefers-color-scheme</code> or a manual toggle:</p>
+      <pre><code>/* theme-dark.css */
+@layer theme {
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-surface-primary: var(--color-neutral-900);
+      --color-surface-secondary: var(--color-neutral-800);
+      --color-surface-tertiary: var(--color-neutral-700);
+      --color-text: var(--color-neutral-50);
+      --color-text-secondary: var(--color-neutral-300);
+      --color-border: var(--color-neutral-700);
+    }
+  }
+
+  /* Optional: manual toggle via data-theme attribute */
+  [data-theme="dark"] {
+    --color-surface-primary: var(--color-neutral-900);
+    --color-surface-secondary: var(--color-neutral-800);
+    --color-text: var(--color-neutral-50);
+    /* ... override all semantic tokens ... */
+  }
+}</code></pre>
+      <p>Import your theme file after the core library and use JavaScript to manage the <code>data-theme</code> attribute if you need a manual toggle separate from the OS preference.</p>
   
     </div>
   </section>

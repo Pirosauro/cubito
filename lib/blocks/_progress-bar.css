@@ -61,15 +61,6 @@ TOKENS
   }
 }
 
-@layer dark {
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --progress-bar-header-color: var(--color-neutral-400);
-      --progress-bar-track: var(--color-neutral-700);
-    }
-  }
-}
-
 @layer blocks {
   .progress-bar {
     display: flex;

@@ -1,14 +1,20 @@
 /*
 Low contrast
 ---
-Reduces the visual intensity of images and pictures in dark mode.
-Apply data-low-contrast to any img or picture that appears too bright
-against a dark background (photographs, illustrations, product shots).
+Optional filter for images that need adjustment when rendered in dark mode.
+Apply data-low-contrast to any img or picture element, then override
+--low-contrast-filter in your theme styles to activate the filter.
 
-The filter lowers brightness slightly and boosts contrast so images
+The default filter lowers brightness slightly and boosts contrast so images
 remain legible without glaring against dark surfaces.
 
 USAGE
+  <!-- In your theme layer: -->
+  @media (prefers-color-scheme: dark) {
+    :root { --low-contrast-filter: brightness(0.85) contrast(1.1); }
+  }
+
+  <!-- In HTML: -->
   <img src="hero.jpg" alt="…" data-low-contrast>
   <picture data-low-contrast>
     <source srcset="hero.webp" type="image/webp">
@@ -19,14 +25,6 @@ USAGE
 @layer tokens {
   :root {
     --low-contrast-filter: none;
-  }
-}
-
-@layer dark {
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --low-contrast-filter: brightness(0.85) contrast(1.1);
-    }
   }
 }
 

@@ -37,14 +37,6 @@ TOKENS
   }
 }
 
-@layer dark {
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --skeleton-background: var(--color-neutral-700);
-    }
-  }
-}
-
 @layer utilities {
   .skeleton:not(tr),
   tr.skeleton td::before {

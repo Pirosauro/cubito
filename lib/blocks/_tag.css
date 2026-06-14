@@ -73,17 +73,6 @@ TOKENS
   }
 }
 
-@layer dark {
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --tag-default-background: var(--color-neutral-800);
-      --tag-default-background-hover: var(--color-neutral-700);
-      --tag-default-border: solid var(--border-s) var(--color-neutral-700);
-      --tag-default-color: var(--color-neutral-300);
-    }
-  }
-}
-
 @layer blocks {
   .tag {
     --tag-background: var(--tag-default-background);

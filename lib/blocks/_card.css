@@ -58,19 +58,6 @@ TOKENS
   }
 }
 
-@layer dark {
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --card-background: var(--color-neutral-800);
-      --card-border: solid var(--border-m) var(--color-neutral-700);
-
-      /** --- State: hover (only for interactive cards) --- */
-      --card-background-hover: var(--color-neutral-800);
-      --card-border-hover: solid var(--border-m) var(--color-neutral-500);
-    }
-  }
-}
-
 @layer blocks {
   .card {
     display: flex;

@@ -231,7 +231,7 @@
   <section>
     <div class="flow" style="--flow-space: var(--space-s);">
       <h2 class="heading-l">Surface aliases</h2>
-      <p>These tokens map to semantic roles and automatically adapt in dark mode. Always use these in component styles — never reference neutral palette tokens directly.</p>
+      <p>These tokens map to semantic roles and are intended to support light-mode design by default. Dark mode support requires an explicit theme layer in your application. Always use these in component styles — never reference neutral palette tokens directly.</p>
 
       <table class="">
         <thead>
@@ -276,9 +276,18 @@
 
   <section>
     <div class="flow" style="--flow-space: var(--space-s);">
-      <h2 class="heading-l">Dark mode</h2>
-      <p>All surface alias tokens automatically adapt when the operating system is set to dark mode via <code>prefers-color-scheme: dark</code>. No JavaScript or extra class names are needed. Neutral palette tokens (the raw <code>--color-neutral-*</code> values) do not change — they are fixed reference points. The semantic aliases are what switch.</p>
-      <div class="callout wide" data-variant="brand" role="note"><p>To test dark mode locally, toggle the OS appearance setting or use DevTools to emulate <code>prefers-color-scheme: dark</code>.</p></div>
+      <h2 class="heading-l">Dark mode support</h2>
+      <p>The core framework does not include automatic dark mode. Dark mode is delivered as an optional theme layer in your application. To implement dark mode, override semantic colour tokens inside a <code>@media (prefers-color-scheme: dark)</code> block within <code>@layer theme</code>:</p>
+      <pre><code>@layer theme {
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-surface-primary: var(--color-neutral-900);
+      --color-surface-secondary: var(--color-neutral-800);
+      --color-text: var(--color-neutral-50);
+    }
+  }
+}</code></pre>
+      <p>This approach keeps the core framework theme-agnostic and gives applications full control over dark mode behavior, including manual toggles if needed.</p>
   
     </div>
   </section>

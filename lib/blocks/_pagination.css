@@ -56,14 +56,6 @@ TOKENS
   }
 }
 
-@layer dark {
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --pagination-background-hover: var(--color-neutral-800);
-    }
-  }
-}
-
 @layer blocks {
   .pagination {
     display: flex;

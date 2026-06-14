@@ -51,14 +51,6 @@ TOKENS
   }
 }
 
-@layer dark {
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --rating-empty-color: var(--color-neutral-700);
-    }
-  }
-}
-
 @layer blocks {
   .rating {
     display: inline-flex;

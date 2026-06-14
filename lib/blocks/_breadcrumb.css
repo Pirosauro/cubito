@@ -36,15 +36,6 @@ TOKENS
   }
 }
 
-@layer dark {
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --breadcrumb-color: var(--color-neutral-400);
-      --breadcrumb-color-current: var(--color-neutral-100);
-    }
-  }
-}
-
 @layer blocks {
   .breadcrumb {
     --link-color: var(--breadcrumb-color);

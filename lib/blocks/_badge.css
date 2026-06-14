@@ -59,15 +59,6 @@ TOKENS
   }
 }
 
-@layer dark {
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --badge-default-background: var(--color-neutral-700);
-      --badge-default-color: var(--color-neutral-100);
-    }
-  }
-}
-
 @layer blocks {
   .badge {
     --badge-background: var(--badge-default-background);

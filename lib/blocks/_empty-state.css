@@ -52,14 +52,6 @@ TOKENS
   }
 }
 
-@layer dark {
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --empty-state-description-color: var(--color-neutral-400);
-    }
-  }
-}
-
 @layer blocks {
   .empty-state {
     display: flex;

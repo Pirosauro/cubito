@@ -68,15 +68,6 @@ TOKENS
   }
 }
 
-@layer dark {
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --avatar-background: var(--color-neutral-700);
-      --avatar-color: var(--color-neutral-100);
-    }
-  }
-}
-
 @layer blocks {
   .avatar {
     position: relative;
