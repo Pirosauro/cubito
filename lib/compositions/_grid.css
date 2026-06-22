@@ -47,12 +47,18 @@ EXCEPTIONS
   /* Two columns when space permits */
   .grid[data-layout="50%"] {
     --grid-placement: auto-fit;
-    --grid-min-item-size: clamp(16rem, 50vw, 26rem);
+    --grid-min-item-size: clamp(16rem, 50vw, 27.25rem);
   }
 
   /* Three columns when space permits */
   .grid[data-layout="33%"] {
     --grid-placement: auto-fit;
-    --grid-min-item-size: clamp(16rem, 33vw, 18rem);
+    --grid-min-item-size: clamp(16rem, 33vw, 19.75rem);
+  }
+
+  /* Four columns when space permits */
+  .grid[data-layout="25%"] {
+    --grid-placement: auto-fit;
+    --grid-min-item-size: clamp(16rem, 25vw, 16rem);
   }
 }

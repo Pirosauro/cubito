@@ -18,27 +18,45 @@ MARKUP PATTERN
 VARIANTS
   .card[data-layout="reversed"]    image below the text content
   .card[data-layout="horizontal"]  image left, content right
+  .card[data-variant="outline"]    transparent fill, stronger border
+  .card[data-variant="elevated"]   subtle shadowed surface
+  .card[data-variant="subtle"]     tinted neutral surface
 
 CONFIGURATION
     :root {
-      --card-background: var(--color-neutral-50);
-      --card-border:     solid 2px var(--color-neutral-300);
+      --card-default-background: var(--color-neutral-50);
+      --card-default-border-color: var(--color-neutral-300);
+      --card-default-border-width: var(--border-m);
       --card-radius:     var(--border-radius-xl);
     }
 
-    .card[data-variant="featured"] {
-      --card-border: solid 2px var(--color-brand);
-      --card-background: color-mix(in srgb, var(--color-brand) 5%, white);
+    .card[data-variant="elevated"] {
+      --card-shadow: 0 8px 24px -12px rgba(0, 0, 0, 0.35);
     }
 
     <article class="card" style="--card-image-ratio: 16 / 9">…</article>
 
 TOKENS
-  --card-background    Surface fill.          Default: --color-white
-  --card-border        Full border shorthand. Default: 2px solid --color-neutral-200
+  --card-default-background       Surface fill.          Default: --color-white
+  --card-default-border-color     Border colour.         Default: --color-neutral-200
+  --card-default-border-style     Border style.          Default: solid
+  --card-default-border-width     Border width.          Default: --border-s
+  --card-default-color            Foreground colour.     Default: inherit
+  --card-default-image-ratio      Image aspect ratio.    Default: 3 / 2
+  --card-default-opacity          Opacity.               Default: 1
+  --card-default-shadow           Box shadow.            Default: none
+  --card-default-transform        Transform.             Default: none
+  --card-default-background-hover Hover fill.            Default: --color-white
+  --card-default-border-color-hover Hover border colour. Default: --color-neutral-700
+  --card-outline-border-color     Outline border colour. Default: --color-neutral-400
+  --card-outline-border-color-hover Outline border hover. Default: --color-neutral-700
+  --card-elevated-background      Elevated fill.         Default: --color-white
+  --card-elevated-shadow          Elevated shadow.       Default: layered shadow
+  --card-elevated-shadow-hover    Elevated hover shadow. Default: stronger layered shadow
+  --card-subtle-background        Subtle fill.           Default: tinted neutral
+  --card-subtle-background-hover  Subtle hover fill.     Default: stronger tinted neutral
   --card-radius        Corner radius.         Default: --border-radius-l
   --card-padding       Content area padding.  Default: --space-s
-  --card-image-ratio   Image aspect ratio.    Default: 3 / 2
   --card-image-width   Horizontal layout img. Default: 12rem
 
 @link https://inclusive-components.design/cards/#thepseudocontenttrick
@@ -46,39 +64,126 @@ TOKENS
 
 @layer tokens {
   :root {
-    --card-background: var(--color-white);
-    --card-border: solid var(--border-m) var(--color-neutral-200);
-    --card-image-ratio: 3 / 2;
     --card-padding: var(--space-s);
     --card-radius: var(--border-radius-l);
+    --card-transition:
+      background-color var(--motion-duration-fast, 150ms)
+        var(--motion-easing-out),
+      border-color var(--motion-duration-fast, 150ms) var(--motion-easing-out),
+      box-shadow var(--motion-duration-fast, 150ms) var(--motion-easing-out),
+      color var(--motion-duration-fast, 150ms) var(--motion-easing-out),
+      opacity var(--motion-duration-fast, 150ms) var(--motion-easing-out),
+      transform var(--motion-duration-fast, 150ms) var(--motion-easing-out);
+
+    /*  */
+    --card-default-background: var(--color-white);
+    --card-default-border-color: var(--color-neutral-200);
+    --card-default-border-style: solid;
+    --card-default-border-width: var(--border-s);
+    --card-default-color: inherit;
+    --card-default-image-ratio: 3 / 2;
+    --card-default-opacity: 1;
+    --card-default-shadow: none;
+    --card-default-transform: none;
 
     /** --- State: hover (only for interactive cards) --- */
-    --card-background-hover: var(--color-white);
-    --card-border-hover: solid var(--border-m) var(--color-neutral-700);
+    --card-default-background-hover: var(--color-white);
+    --card-default-border-color-hover: var(--color-neutral-700);
+
+    /* Variant: outline */
+    --card-outline-border-color: var(--color-neutral-400);
+    --card-outline-border-color-hover: var(--color-neutral-700);
+
+    /* Variant: elevated */
+    --card-elevated-background: var(--color-white);
+    --card-elevated-shadow: 0 6px 18px -10px rgba(0, 0, 0, 0.28);
+    --card-elevated-shadow-hover: 0 10px 26px -12px rgba(0, 0, 0, 0.35);
+
+    /* Variant: subtle */
+    --card-subtle-background: color-mix(
+      in srgb,
+      var(--color-neutral-100) 70%,
+      var(--color-white)
+    );
+    --card-subtle-background-hover: color-mix(
+      in srgb,
+      var(--color-neutral-200) 65%,
+      var(--color-white)
+    );
   }
 }
 
 @layer blocks {
   .card {
+    --card-background: var(--card-default-background);
+    --card-border-color: var(--card-default-border-color);
+    --card-border-style: var(--card-default-border-style);
+    --card-border-width: var(--card-default-border-width);
+    --card-color: var(--card-default-color);
+    --card-image-ratio: var(--card-default-image-ratio);
+    --card-opacity: var(--card-default-opacity);
+    --card-shadow: var(--card-default-shadow);
+    --card-transform: var(--card-default-transform);
+    --card-background-hover: var(--card-default-background-hover);
+    --card-border-color-hover: var(--card-default-border-color-hover);
+
     display: flex;
     flex-direction: column;
     position: relative;
-    --card-border: var(--card-border, solid var(--border-m) var(--color-neutral-200));
-    --card-background: var(--card-background, var(--color-white));
-    --card-border-hover: var(--card-border-hover, solid var(--border-m) var(--color-neutral-700));
-    --card-background-hover: var(--card-background-hover, var(--color-white));
-
-    border: var(--card-border);
+    border-color: var(--card-border-color);
+    border-style: var(--card-border-style);
+    border-width: var(--card-border-width);
     border-radius: var(--card-radius);
     overflow: hidden; /* clips image to radius */
     background: var(--card-background);
     text-decoration: none;
+    transition: var(--card-transition);
+    color: var(--card-color);
+    box-shadow: var(--card-shadow);
+    transform: var(--card-transform);
+    opacity: var(--card-opacity);
+  }
+
+  .card[data-variant="outline"] {
+    --card-background: transparent;
+    --card-border-color: var(--card-outline-border-color);
+    --card-background-hover: transparent;
+    --card-border-color-hover: var(--card-outline-border-color-hover);
+  }
+
+  .card[data-variant="elevated"] {
+    --card-background: var(--card-elevated-background);
+    --card-border-color: transparent;
+    --card-shadow: var(--card-elevated-shadow);
+    --card-background-hover: var(--card-elevated-background);
+    --card-border-color-hover: transparent;
+  }
+
+  .card[data-variant="elevated"]:is(a):hover,
+  .card[data-variant="elevated"]:is(a):focus-within {
+    --card-shadow: var(--card-elevated-shadow-hover);
+    --card-transform: translateY(-1px);
+  }
+
+  .card[data-variant="subtle"] {
+    --card-background: var(--card-subtle-background);
+    --card-border-color: color-mix(
+      in srgb,
+      var(--color-neutral-200) 80%,
+      transparent
+    );
+    --card-background-hover: var(--card-subtle-background-hover);
+    --card-border-color-hover: color-mix(
+      in srgb,
+      var(--color-neutral-300) 85%,
+      transparent
+    );
   }
 
   .card:is(a):hover,
   .card:is(a):focus-within {
     --card-background: var(--card-background-hover);
-    --card-border: var(--card-border-hover);
+    --card-border-color: var(--card-border-color-hover);
   }
 
   /* Consistent heading size regardless of heading level used */
@@ -91,6 +196,7 @@ TOKENS
     content: "";
     position: absolute;
     inset: 0;
+    z-index: calc(var(--z-base, 1) + 1);
   }
 
   /* Raise interactive children above the pseudo-content overlay */
@@ -99,7 +205,7 @@ TOKENS
   .card .button,
   .card a:not(:is(h2, h3, h4) > a) {
     position: relative;
-    z-index: 1; /* var(--z-base, 1); */
+    z-index: var(--z-base, 1);
   }
 
   /* Fallback focus style for browsers without :focus-within */

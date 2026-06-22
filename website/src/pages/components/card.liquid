@@ -140,17 +140,92 @@
 
   <section>
     <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Variants</h2>
+      <p>Cards support visual variants via <code>data-variant</code>. These affect surface, border, and elevation while preserving the same layout and content structure.</p>
+
+      <div class="grid" style="--grid-min-item-size: 14rem;">
+  <article class="card" data-variant="outline">
+    <div>
+      <h3><a href="#">Outline card</a></h3>
+      <p>Transparent surface with a stronger border.</p>
+    </div>
+  </article>
+
+  <article class="card" data-variant="elevated">
+    <div>
+      <h3><a href="#">Elevated card</a></h3>
+      <p>Subtle shadow for layered interfaces.</p>
+    </div>
+  </article>
+
+  <article class="card" data-variant="subtle">
+    <div>
+      <h3><a href="#">Subtle card</a></h3>
+      <p>Tinted neutral background for grouped content.</p>
+    </div>
+  </article>
+      </div>
+
+      <details class="margin-y-s">
+        <summary>Show code</summary>
+        <pre class="padding-m"><code>&lt;article class=&quot;card&quot; data-variant=&quot;outline&quot;&gt;…&lt;/article&gt;
+&lt;article class=&quot;card&quot; data-variant=&quot;elevated&quot;&gt;…&lt;/article&gt;
+&lt;article class=&quot;card&quot; data-variant=&quot;subtle&quot;&gt;…&lt;/article&gt;</code></pre>
+      </details>
+  
+    </div>
+  </section>
+
+  <section>
+    <div class="flow" style="--flow-space: var(--space-s);">
       <h2 class="heading-l">Tokens</h2>
+      <p>Card tokens follow the same separation as buttons: design tokens for defaults and variants, plus local bridge vars for per-element overrides.</p>
+
+      <h3 class="heading-m">Default variant</h3>
       <table class="">
         <thead>
           <tr><th>Token</th><th>Default</th><th>Description</th></tr>
         </thead>
         <tbody>
-          <tr><td><code>--card-background</code></td><td><code>--color-white</code></td><td>Card surface fill.</td></tr>
-          <tr><td><code>--card-border</code></td><td><code>solid var(--border-m) --color-neutral-200</code></td><td>Full border shorthand.</td></tr>
+          <tr><td><code>--card-default-background</code></td><td><code>var(--color-white)</code></td><td>Card surface fill.</td></tr>
+          <tr><td><code>--card-default-border-color</code></td><td><code>var(--color-neutral-200)</code></td><td>Default border colour.</td></tr>
+          <tr><td><code>--card-default-border-style</code></td><td><code>solid</code></td><td>Default border style.</td></tr>
+          <tr><td><code>--card-default-border-width</code></td><td><code>var(--border-s)</code></td><td>Default border width.</td></tr>
+          <tr><td><code>--card-default-color</code></td><td><code>inherit</code></td><td>Foreground text color.</td></tr>
+          <tr><td><code>--card-default-image-ratio</code></td><td><code>3 / 2</code></td><td>Image aspect ratio.</td></tr>
+          <tr><td><code>--card-default-shadow</code></td><td><code>none</code></td><td>Box shadow at rest.</td></tr>
+          <tr><td><code>--card-default-transform</code></td><td><code>none</code></td><td>Transform at rest.</td></tr>
+          <tr><td><code>--card-default-opacity</code></td><td><code>1</code></td><td>Opacity at rest.</td></tr>
+          <tr><td><code>--card-default-background-hover</code></td><td><code>var(--color-white)</code></td><td>Hover/focus surface fill for interactive cards.</td></tr>
+          <tr><td><code>--card-default-border-color-hover</code></td><td><code>var(--color-neutral-700)</code></td><td>Hover/focus border colour for interactive cards.</td></tr>
+        </tbody>
+      </table>
+
+      <h3 class="heading-m">Named variants</h3>
+      <table class="">
+        <thead>
+          <tr><th>Token</th><th>Default</th><th>Description</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>--card-outline-border-color</code></td><td><code>var(--color-neutral-400)</code></td><td>Outline border colour.</td></tr>
+          <tr><td><code>--card-outline-border-color-hover</code></td><td><code>var(--color-neutral-700)</code></td><td>Outline hover border colour.</td></tr>
+          <tr><td><code>--card-elevated-background</code></td><td><code>var(--color-white)</code></td><td>Elevated surface fill.</td></tr>
+          <tr><td><code>--card-elevated-shadow</code></td><td><code>layered shadow</code></td><td>Shadow at rest for elevated cards.</td></tr>
+          <tr><td><code>--card-elevated-shadow-hover</code></td><td><code>stronger layered shadow</code></td><td>Hover/focus shadow for elevated cards.</td></tr>
+          <tr><td><code>--card-subtle-background</code></td><td><code>tinted neutral mix</code></td><td>Subtle variant background.</td></tr>
+          <tr><td><code>--card-subtle-background-hover</code></td><td><code>stronger tinted neutral mix</code></td><td>Subtle variant hover background.</td></tr>
+        </tbody>
+      </table>
+
+      <h3 class="heading-m">Common tokens</h3>
+      <table class="">
+        <thead>
+          <tr><th>Token</th><th>Default</th><th>Description</th></tr>
+        </thead>
+        <tbody>
           <tr><td><code>--card-radius</code></td><td><code>--border-radius-l</code></td><td>Corner radius, also clips the image.</td></tr>
           <tr><td><code>--card-padding</code></td><td><code>--space-s</code></td><td>Padding applied to the content <code>&lt;div&gt;</code>.</td></tr>
-          <tr><td><code>--card-image-ratio</code></td><td><code>3 / 2</code></td><td>Aspect ratio of the card image.</td></tr>
+          <tr><td><code>--card-transition</code></td><td><code>multi-property transition</code></td><td>Transition used by card state changes.</td></tr>
           <tr><td><code>--card-image-width</code></td><td><code>12rem</code></td><td>Fixed image width in horizontal layout.</td></tr>
         </tbody>
       </table>
