@@ -27,7 +27,7 @@ CONFIGURATION
       --card-default-background: var(--color-neutral-50);
       --card-default-border-color: var(--color-neutral-300);
       --card-default-border-width: var(--border-m);
-      --card-radius:     var(--border-radius-xl);
+      --card-radius:     var(--border-radius-l);
     }
 
     .card[data-variant="elevated"] {
@@ -196,16 +196,18 @@ TOKENS
     content: "";
     position: absolute;
     inset: 0;
-    z-index: calc(var(--z-base, 1) + 1);
+    z-index: var(--z-base, 0);
   }
 
   /* Raise interactive children above the pseudo-content overlay */
   .card p,
   .card button,
   .card .button,
-  .card a:not(:is(h2, h3, h4) > a) {
+  .card a:not(:is(h2, h3, h4) > a),
+  .card input,
+  .card select {
     position: relative;
-    z-index: var(--z-base, 1);
+    z-index: calc(var(--z-base, 0) + 2);
   }
 
   /* Fallback focus style for browsers without :focus-within */

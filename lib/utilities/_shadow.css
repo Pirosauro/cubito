@@ -11,20 +11,25 @@ USAGE
 CONFIGURATION
     :root {
       --shadow-color:  var(--color-brand);
-      --shadow-offset: 0.5rem;
+      --shadow-offset-x: 0.5rem;
+      --shadow-offset-y: 0.5rem;
     }
 
     <div class="shadow" style="--shadow-color: oklch(30% 0.1 250)">…</div>
 
 TOKENS
-  --shadow-color   Shadow colour.  Default: currentColor
-  --shadow-offset  Shadow offset.  Default: 0.35rem
+  --shadow-color      Shadow colour.  Default: currentColor
+  --shadow-offset-x   Shadow X offset.  Default: 0.35rem
+  --shadow-offset-y   Shadow Y offset.  Default: 0.35rem
+  --shadow-blur       Shadow blur.      Default: 0
 */
 
 @layer tokens {
   :root {
     --shadow-color: currentColor;
-    --shadow-offset: 0.35rem 0.35rem 0;
+    --shadow-offset-x: 0.35rem;
+    --shadow-offset-y: 0.35rem;
+    --shadow-blur: 0;
     --shadow-transition: var(--transition);
   }
 }
@@ -33,7 +38,7 @@ TOKENS
   /* --- Box shadow --- */
 
   .shadow {
-    box-shadow: var(--shadow-offset) var(--shadow-color);
+    box-shadow: var(--shadow-offset-x) var(--shadow-offset-y) var(--shadow-blur) var(--shadow-color);
     transition:
       box-shadow var(--shadow-transition),
       transform var(--shadow-transition);
@@ -50,8 +55,8 @@ TOKENS
     ):is(:hover, :focus-visible, :active) {
     box-shadow: 0 0 0 0 var(--shadow-color);
     transform: translate(
-      var(--shadow-offset),
-      var(--shadow-offset)
+      var(--shadow-offset-x),
+      var(--shadow-offset-y)
     );
   }
 

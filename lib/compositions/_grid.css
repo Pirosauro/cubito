@@ -17,48 +17,77 @@ CUSTOM PROPERTIES
 EXCEPTIONS
   data-layout="50%"    Two columns when space allows (≥ ~16rem each).
   data-layout="33%"    Three columns when space allows.
+  data-layout="25%"    Four columns when space allows.
   data-rows="masonry"  Masonry row layout (progressive enhancement).
 */
 
 @layer tokens {
   :root {
+    /* Invariants */
     --grid-gutter: var(--space-s-l);
     --grid-min-item-size: 16rem;
     --grid-placement: auto-fill;
+
+    /* Default Variant Tokens */
+    --grid-default-placement: auto-fill;
+    --grid-default-min-item-size: 16rem;
+
+    /* Layout Variant Tokens */
+    --grid-50-placement: auto-fit;
+    --grid-50-min-item-size: clamp(16rem, 50vw, 27.25rem);
+    --grid-33-placement: auto-fit;
+    --grid-33-min-item-size: clamp(16rem, 33vw, 19.75rem);
+    --grid-25-placement: auto-fit;
+    --grid-25-min-item-size: clamp(16rem, 25vw, 16rem);
+
+    /* Rows Variant Tokens */
+    --grid-masonry-placement: auto-fill;
+    --grid-masonry-template-rows: masonry;
+    --grid-masonry-align-items: start;
   }
 }
 
 @layer layout {
   .grid {
+    /* Bridge Variables - initialized with default variant */
+    --grid-placement: var(--grid-default-placement);
+    --grid-min-item-size: var(--grid-default-min-item-size);
+    --grid-template-rows: none;
+    --grid-align-items: normal;
+
+    /* Layout */
     display: grid;
     grid-template-columns: repeat(
       var(--grid-placement),
       minmax(var(--grid-min-item-size), 1fr)
     );
     gap: var(--grid-gutter);
+    grid-template-rows: var(--grid-template-rows);
+    align-items: var(--grid-align-items);
   }
 
   /* Masonry — works where supported, degrades to normal grid */
   .grid[data-rows="masonry"] {
-    grid-template-rows: masonry;
-    align-items: start;
+    --grid-placement: var(--grid-masonry-placement);
+    --grid-template-rows: var(--grid-masonry-template-rows);
+    --grid-align-items: var(--grid-masonry-align-items);
   }
 
   /* Two columns when space permits */
   .grid[data-layout="50%"] {
-    --grid-placement: auto-fit;
-    --grid-min-item-size: clamp(16rem, 50vw, 27.25rem);
+    --grid-placement: var(--grid-50-placement);
+    --grid-min-item-size: var(--grid-50-min-item-size);
   }
 
   /* Three columns when space permits */
   .grid[data-layout="33%"] {
-    --grid-placement: auto-fit;
-    --grid-min-item-size: clamp(16rem, 33vw, 19.75rem);
+    --grid-placement: var(--grid-33-placement);
+    --grid-min-item-size: var(--grid-33-min-item-size);
   }
 
   /* Four columns when space permits */
   .grid[data-layout="25%"] {
-    --grid-placement: auto-fit;
-    --grid-min-item-size: clamp(16rem, 25vw, 16rem);
+    --grid-placement: var(--grid-25-placement);
+    --grid-min-item-size: var(--grid-25-min-item-size);
   }
 }

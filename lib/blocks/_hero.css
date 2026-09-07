@@ -41,49 +41,80 @@ TOKENS
 
 @layer tokens {
   :root {
+    /* Invariants */
+    --hero-space: var(--space-xxl);
     --hero-align: center;
     --hero-flow-space: var(--space-s);
     --hero-image-radius: var(--border-radius-l);
-    --hero-space: var(--space-xxl);
+
+    /* Default Variant Tokens */
+    --hero-default-split-gap: var(--space-l);
+    --hero-default-text-align: center;
+    --hero-default-display: block;
+    --hero-default-flex-wrap: nowrap;
+    --hero-default-align-items: stretch;
+    --hero-default-gap: 0;
+    --hero-default-child-margin: auto;
+    --hero-default-child-flex: 1;
+    --hero-default-img-flex: 0;
+    --hero-default-img-radius: 0;
+
+    /* Split Variant Tokens */
+    --hero-split-split-gap: var(--space-l);
+    --hero-split-image-radius: var(--border-radius-l);
+    --hero-split-text-align: start;
+    --hero-split-display: flex;
+    --hero-split-flex-wrap: wrap;
+    --hero-split-align-items: center;
     --hero-split-gap: var(--space-l);
+    --hero-split-child-margin: 0;
+    --hero-split-child-flex: 1 1 min(24rem, 100%);
+    --hero-split-img-flex: 1 1 min(20rem, 100%);
+    --hero-split-img-radius: var(--border-radius-l);
   }
 }
 
 @layer blocks {
   .hero {
-    --region-space: var(--hero-space);
+    /* Bridge Variables - initialized with default variant */
+    --hero-space: var(--hero-space);
+    --hero-align: var(--hero-align);
+    --hero-flow-space: var(--hero-flow-space);
+    --hero-image-radius: var(--hero-image-radius);
 
+    /* Layout */
+    --region-space: var(--hero-space);
     padding-inline: var(--space-s-m);
-    text-align: var(--hero-align);
+    text-align: var(--hero-text-align, var(--hero-default-text-align));
+    display: var(--hero-display, var(--hero-default-display));
+    flex-wrap: var(--hero-flex-wrap, var(--hero-default-flex-wrap));
+    align-items: var(--hero-align-items, var(--hero-default-align-items));
+    gap: var(--hero-gap, var(--hero-default-gap));
   }
 
   .hero > * {
     --flow-space: var(--hero-flow-space);
-
-    margin-inline: auto;
+    margin-inline: var(--hero-child-margin, var(--hero-default-child-margin));
+    flex: var(--hero-child-flex, var(--hero-default-child-flex));
   }
 
   /* --- Split layout --- */
 
   .hero[data-layout="split"] {
-    --hero-split-gap: var(--space-l);
-    --hero-image-radius: var(--border-radius-l);
-
-    text-align: start;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: var(--hero-split-gap);
-  }
-
-  .hero[data-layout="split"] > * {
-    margin-inline: 0;
-    flex: 1 1 min(24rem, 100%);
+    --hero-text-align: var(--hero-split-text-align);
+    --hero-display: var(--hero-split-display);
+    --hero-flex-wrap: var(--hero-split-flex-wrap);
+    --hero-align-items: var(--hero-split-align-items);
+    --hero-gap: var(--hero-split-gap);
+    --hero-child-margin: var(--hero-split-child-margin);
+    --hero-child-flex: var(--hero-split-child-flex);
+    --hero-img-flex: var(--hero-split-img-flex);
+    --hero-image-radius: var(--hero-split-image-radius);
   }
 
   .hero[data-layout="split"] > img,
   .hero[data-layout="split"] > picture {
-    flex: 1 1 min(20rem, 100%);
+    flex: var(--hero-img-flex);
     object-fit: cover;
     border-radius: var(--hero-image-radius);
   }

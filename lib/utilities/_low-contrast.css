@@ -1,17 +1,17 @@
 /*
 Low contrast
 ---
-Optional filter for images that need adjustment when rendered in dark mode.
+Optional filter for images that need adjustment in custom themes.
 Apply data-low-contrast to any img or picture element, then override
---low-contrast-filter in your theme styles to activate the filter.
+--low-contrast-filter in your theme layer to activate the filter.
 
 The default filter lowers brightness slightly and boosts contrast so images
 remain legible without glaring against dark surfaces.
 
 USAGE
-  <!-- In your theme layer: -->
-  @media (prefers-color-scheme: dark) {
-    :root { --low-contrast-filter: brightness(0.85) contrast(1.1); }
+  <!-- In your theme layer (e.g. @layer theme): -->
+  :root {
+    --low-contrast-filter: brightness(0.85) contrast(1.1);
   }
 
   <!-- In HTML: -->

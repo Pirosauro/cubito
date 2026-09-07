@@ -9,7 +9,6 @@ CONFIGURATION
   custom properties. Override them at any scope — no separate hook layer needed:
 
     Globally   :root { --input-background: var(--color-neutral-50); }
-    Per-block  .dark-panel { --body-background: var(--color-neutral-900); }
     Inline     <input style="--input-border-color: var(--color-brand)">
 */
 
@@ -19,7 +18,6 @@ CONFIGURATION
     --body-color: var(--color-black);
 
     --link-background: transparent;
-    --link-color: blue;
     --link-decoration: underline;
     --link-offset: max(2px, 0.125rem);
     --link-thickness: max(1px, 0.0625rem);

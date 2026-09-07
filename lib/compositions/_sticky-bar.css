@@ -22,9 +22,20 @@ MARKUP PATTERN
     </div>
   </div>
 
+  <!-- Frosted glass variant -->
+  <div class="sticky-bar" data-position="bottom" data-variant="frosted">
+    <div class="wrapper repel">
+      <p>2 items — <strong>£58.00</strong></p>
+      <a href="/cart/" class="button">View cart</a>
+    </div>
+  </div>
+
 PLACEMENT
   data-position="bottom"   (default) Fixed to viewport bottom.
   data-position="top"      Fixed to viewport top.
+
+VARIANTS
+  data-variant="frosted"   Frosted glass effect with backdrop blur.
 
 CONFIGURATION
     :root {
@@ -41,29 +52,61 @@ TOKENS
   --sticky-bar-padding       Inner space.  Default: --space-xs 0
   --sticky-bar-shadow        Box shadow.   Default: layered shadow
   --sticky-bar-z             z-index.      Default: --z-fixed
+  --sticky-bar-blur          Backdrop blur radius for frosted variant. Default: 0.75rem
+  --sticky-bar-frosted-bg    Frosted variant background. Default: semi-transparent via color-mix
+  --sticky-bar-frosted-border Frosted variant border. Default: semi-transparent via color-mix
 */
 
 @layer tokens {
   :root {
-    --sticky-bar-background: var(--color-white);
-    --sticky-bar-color: currentColor;
-    --sticky-bar-border: solid var(--border-s) var(--color-neutral-200);
+    /* Invariants */
     --sticky-bar-padding: var(--space-xs) 0;
-    --sticky-bar-shadow: 0 -2px 8px rgba(0, 0, 0, 0.08);
     --sticky-bar-z: var(--z-fixed, 30);
+    --sticky-bar-blur: 0.75rem;
 
-    --sticky-bar-shadow-top: 0 2px 8px rgba(0, 0, 0, 0.08);
+    /* Default Variant Tokens */
+    --sticky-bar-default-background: var(--color-white);
+    --sticky-bar-default-color: currentColor;
+    --sticky-bar-default-border: solid var(--border-s) var(--color-neutral-200);
+    --sticky-bar-default-shadow: 0 -2px 8px rgba(0, 0, 0, 0.08);
+    --sticky-bar-default-shadow-top: 0 2px 8px rgba(0, 0, 0, 0.08);
+    --sticky-bar-default-backdrop-filter: none;
+
+    /* Frosted Variant Tokens */
+    --sticky-bar-frosted-background: light-dark(
+      color-mix(in srgb, var(--color-white) 72%, transparent),
+      color-mix(in srgb, var(--color-neutral-900) 70%, transparent)
+    );
+    --sticky-bar-frosted-color: currentColor;
+    --sticky-bar-frosted-border: solid var(--border-s) light-dark(
+      color-mix(in srgb, var(--color-neutral-200) 60%, transparent),
+      color-mix(in srgb, var(--color-neutral-700) 60%, transparent)
+    );
+    --sticky-bar-frosted-shadow: none;
+    --sticky-bar-frosted-backdrop-filter: blur(var(--sticky-bar-blur));
   }
 }
 
 @layer layout {
   .sticky-bar {
+    /* Bridge Variables - initialized with default variant */
+    --sticky-bar-background: var(--sticky-bar-default-background);
+    --sticky-bar-color: var(--sticky-bar-default-color);
+    --sticky-bar-border: var(--sticky-bar-default-border);
+    --sticky-bar-shadow: var(--sticky-bar-default-shadow);
+    --sticky-bar-shadow-top: var(--sticky-bar-default-shadow-top);
+    --sticky-bar-backdrop-filter: var(--sticky-bar-default-backdrop-filter);
+
+    /* Layout */
     position: fixed;
     inset-inline: 0;
     z-index: var(--sticky-bar-z);
+    padding: var(--sticky-bar-padding);
     background: var(--sticky-bar-background);
     color: var(--sticky-bar-color);
-    padding: var(--sticky-bar-padding);
+    box-shadow: var(--sticky-bar-shadow);
+    -webkit-backdrop-filter: var(--sticky-bar-backdrop-filter);
+    backdrop-filter: var(--sticky-bar-backdrop-filter);
   }
 
   /* Bottom (default) */
@@ -72,6 +115,7 @@ TOKENS
     inset-block-end: 0;
     inset-block-start: auto;
     border-top: var(--sticky-bar-border);
+    border-bottom: none;
     box-shadow: var(--sticky-bar-shadow);
   }
 
@@ -82,5 +126,31 @@ TOKENS
     border-top: none;
     border-bottom: var(--sticky-bar-border);
     box-shadow: var(--sticky-bar-shadow-top);
+  }
+
+  /* Frosted glass variant */
+  .sticky-bar[data-variant="frosted"] {
+    --sticky-bar-background: var(--sticky-bar-frosted-background);
+    --sticky-bar-color: var(--sticky-bar-frosted-color);
+    --sticky-bar-border: var(--sticky-bar-frosted-border);
+    --sticky-bar-shadow: var(--sticky-bar-frosted-shadow);
+    --sticky-bar-shadow-top: var(--sticky-bar-frosted-shadow);
+    --sticky-bar-backdrop-filter: var(--sticky-bar-frosted-backdrop-filter);
+  }
+
+  /* Fallback for browsers without backdrop-filter support */
+  @supports not (backdrop-filter: blur(1px)) {
+    .sticky-bar[data-variant="frosted"] {
+      --sticky-bar-background: var(--sticky-bar-default-background);
+      --sticky-bar-border: var(--sticky-bar-default-border);
+      --sticky-bar-shadow: var(--sticky-bar-default-shadow);
+      --sticky-bar-shadow-top: var(--sticky-bar-default-shadow-top);
+      --sticky-bar-backdrop-filter: none;
+    }
+
+    .sticky-bar[data-variant="frosted"][data-position="top"] {
+      border-top: none;
+      border-bottom: var(--sticky-bar-default-border);
+    }
   }
 }

@@ -9,6 +9,7 @@ Items don't wrap — they scroll off-screen. Optional scroll-snap alignment.
 CUSTOM PROPERTIES
   --reel-item-width   Width of each item. Default: calc(33.333% - 2rem).
   --reel-space        Gap between items. Default: 2rem.
+  --reel-height       Height for image variant. Default: 50vh.
 
 EXCEPTIONS
   data-scroll="snap"    Enables scroll-snap on each item.
@@ -17,28 +18,57 @@ EXCEPTIONS
 
 @layer tokens {
   :root {
-    --reel-item-width: calc(33.333% - var(--reel-space));
+    /* Invariants */
     --reel-space: 2rem;
-    --reel-height: 50vh;
+    --reel-padding: 0.5rem;
+
+    /* Default Variant Tokens */
+    --reel-default-item-width: calc(33.333% - var(--reel-space));
+    --reel-default-height: auto;
+    --reel-default-flex-basis: var(--reel-default-item-width);
+    --reel-default-img-block-size: auto;
+    --reel-default-img-width: auto;
+    --reel-default-scroll-snap-type: none;
+    --reel-default-scroll-snap-align: none;
+
+    /* Scroll Snap Variant Tokens */
+    --reel-snap-scroll-snap-type: x mandatory;
+    --reel-snap-scroll-snap-align: start;
+
+    /* Image Variant Tokens */
+    --reel-img-height: 50vh;
+    --reel-img-block-size: 100%;
+    --reel-img-width: auto;
   }
 }
 
 @layer layout {
   .reel {
+    /* Bridge Variables - initialized with default variant */
+    --reel-item-width: var(--reel-default-item-width);
+    --reel-flex-basis: var(--reel-default-flex-basis);
+    --reel-height: var(--reel-default-height);
+    --reel-img-block-size: var(--reel-default-img-block-size);
+    --reel-img-width: var(--reel-default-img-width);
+    --reel-scroll-snap-type: var(--reel-default-scroll-snap-type);
+    --reel-scroll-snap-align: var(--reel-default-scroll-snap-align);
+
+    /* Layout */
     display: flex;
-    height: auto;
+    height: var(--reel-height);
     max-width: 100%;
     margin-inline: auto;
-    /* Padding shows child hover/focus outlines that would otherwise be clipped */
-    padding: 0.5rem;
+    padding: var(--reel-padding);
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: thin;
+    scroll-snap-type: var(--reel-scroll-snap-type);
   }
 
   .reel > * {
-    flex-basis: var(--reel-item-width);
+    flex-basis: var(--reel-flex-basis);
     flex-shrink: 0;
+    scroll-snap-align: var(--reel-scroll-snap-align);
   }
 
   .reel > * + * {
@@ -48,21 +78,20 @@ EXCEPTIONS
   /* --- Scroll snap --- */
 
   .reel[data-scroll="snap"] {
-    scroll-snap-type: x mandatory;
-  }
-
-  .reel[data-scroll="snap"] > * {
-    scroll-snap-align: start;
+    --reel-scroll-snap-type: var(--reel-snap-scroll-snap-type);
+    --reel-scroll-snap-align: var(--reel-snap-scroll-snap-align);
   }
 
   /* --- Image variant: fixed-height reel preserving aspect ratios --- */
 
   .reel[data-variant="img"] {
-    block-size: var(--reel-height, 50vh);
+    --reel-height: var(--reel-img-height);
+    --reel-img-block-size: var(--reel-img-block-size);
+    --reel-img-width: var(--reel-img-width);
   }
 
   .reel[data-variant="img"] > img {
-    block-size: 100%;
-    width: auto;
+    block-size: var(--reel-img-block-size);
+    width: var(--reel-img-width);
   }
 }

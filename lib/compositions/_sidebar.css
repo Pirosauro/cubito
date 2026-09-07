@@ -11,6 +11,7 @@ CUSTOM PROPERTIES
   --sidebar-gutter              Space between sidebar and content. Default: var(--space-s-l).
   --sidebar-target-width        Target width of the sidebar. Default: 20rem.
   --sidebar-content-min-width   Minimum width of the main content. Default: 50%.
+  --sidebar-offset-sticky       Sticky top offset. Default: var(--space-m).
 
 EXCEPTIONS
   data-direction="reverse"  Sidebar on the right instead of the left.
@@ -23,16 +24,43 @@ NOTE
 
 @layer tokens {
   :root {
+    /* Invariants */
     --sidebar-gutter: var(--space-s-l);
     --sidebar-target-width: 20rem;
     --sidebar-content-min-width: 50%;
-
     --sidebar-offset-sticky: var(--space-m);
+
+    /* Default Variant Tokens (Sidebar left) */
+    --sidebar-default-sidebar-basis: var(--sidebar-target-width);
+    --sidebar-default-sidebar-grow: 1;
+    --sidebar-default-content-basis: 0;
+    --sidebar-default-content-grow: 999;
+    --sidebar-default-content-min-width: var(--sidebar-content-min-width);
+
+    /* Direction Variant Tokens (reverse) */
+    --sidebar-reverse-sidebar-basis: 0;
+    --sidebar-reverse-sidebar-grow: 999;
+    --sidebar-reverse-content-basis: var(--sidebar-target-width);
+    --sidebar-reverse-content-grow: 1;
+
+    /* Sticky Variant Tokens */
+    --sidebar-sticky-position: sticky;
+    --sidebar-sticky-top: var(--sidebar-offset-sticky);
   }
 }
 
 @layer layout {
   .sidebar {
+    /* Bridge Variables - initialized with default variant (sidebar left) */
+    --sidebar-first-basis: var(--sidebar-default-sidebar-basis);
+    --sidebar-first-grow: var(--sidebar-default-sidebar-grow);
+    --sidebar-last-basis: var(--sidebar-default-content-basis);
+    --sidebar-last-grow: var(--sidebar-default-content-grow);
+    --sidebar-last-min-width: var(--sidebar-default-content-min-width);
+    --sidebar-sticky-position: static;
+    --sidebar-sticky-top: auto;
+
+    /* Layout */
     display: flex;
     flex-wrap: wrap;
     gap: var(--sidebar-gutter);
@@ -40,35 +68,34 @@ NOTE
 
   /* Sidebar left (default): first child is the sidebar */
   .sidebar:not([data-direction]) > :first-child {
-    flex-basis: var(--sidebar-target-width);
-    flex-grow: 1;
+    flex-basis: var(--sidebar-first-basis);
+    flex-grow: var(--sidebar-first-grow);
   }
 
   .sidebar:not([data-direction]) > :last-child {
-    flex-basis: 0;
-    flex-grow: 999;
-    min-width: var(--sidebar-content-min-width);
+    flex-basis: var(--sidebar-last-basis);
+    flex-grow: var(--sidebar-last-grow);
+    min-width: var(--sidebar-last-min-width);
   }
 
   /* Sidebar right: last child is the sidebar */
-  .sidebar[data-direction="reverse"] > :last-child {
-    flex-basis: var(--sidebar-target-width);
-    flex-grow: 1;
-  }
-
-  .sidebar[data-direction="reverse"] > :first-child {
-    flex-basis: 0;
-    flex-grow: 999;
-    min-width: var(--sidebar-content-min-width);
+  .sidebar[data-direction="reverse"] {
+    --sidebar-first-basis: var(--sidebar-reverse-sidebar-basis);
+    --sidebar-first-grow: var(--sidebar-reverse-sidebar-grow);
+    --sidebar-last-basis: var(--sidebar-reverse-content-basis);
+    --sidebar-last-grow: var(--sidebar-reverse-content-grow);
   }
 
   /* Sticky sidebar on desktop */
   @media screen and (min-width: 960px) {
+    .sidebar[data-variant="sticky"] {
+      --sidebar-sticky-position: var(--sidebar-sticky-position);
+      --sidebar-sticky-top: var(--sidebar-sticky-top);
+    }
+
     .sidebar[data-variant="sticky"] > :first-child {
-      position: sticky;
-      top: var(--sidebar-offset-sticky);
-      /* max-height: 100vh;
-      overflow-y: auto; */
+      position: var(--sidebar-sticky-position);
+      top: var(--sidebar-sticky-top);
     }
   }
 }
