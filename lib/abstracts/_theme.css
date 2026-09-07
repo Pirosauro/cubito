@@ -28,6 +28,9 @@ CONFIGURATION
 
 @layer tokens {
   :root {
+    --color-scheme: light dark;
+    color-scheme: var(--color-scheme);
+
     /* --- Palette --- */
 
     --color-current: currentColor;
@@ -55,10 +58,12 @@ CONFIGURATION
 
     /* --- Status --- */
 
-    --color-status-ok: #1a4;
-    --color-status-warning: #e90;
-    --color-status-ko: #d22;
-    --color-status-info: #26e;
+    /* 3-char hex (expanded from the quoted on white & with white text):
+       each value keeps WCAG AA ≥ 4.5:1 contrast ratio. */
+    --color-status-ok: #173; /* 5.66:1 */
+    --color-status-warning: #b50; /* 4.76:1 */
+    --color-status-ko: #d22; /* 4.85:1 */
+    --color-status-info: #26b; /* 5.70:1 */
 
     /* --- Surface aliases --- */
 
@@ -96,6 +101,18 @@ CONFIGURATION
     --shadow-l: 0 0.5rem 0;
     --shadow-m: 0 0.25rem 0;
     --shadow-s: 0 0.125rem 0;
+  }
+
+  /* Theme-driven colour scheme for native controls (select popup, date/time
+     pickers, scrollbars). Apply the class/attribute to switch UA chrome. */
+  :root.dark,
+  [data-theme="dark"] {
+    --color-scheme: dark;
+  }
+
+  :root.light,
+  [data-theme="light"] {
+    --color-scheme: light;
   }
 
   /* Registered custom property — enables smooth text-underline-offset transition */

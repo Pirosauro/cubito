@@ -277,21 +277,11 @@ USAGE
 
   /* --- Text-like inputs --- */
 
-  button[role="combobox"],
-  input[type="email"],
-  input[type="number"],
-  input[type="password"],
-  input[type="search"],
-  input[type="tel"],
-  input[type="text"],
-  input[type="url"],
-  input[type="date"],
-  input[type="datetime-local"],
-  input[type="month"],
-  input[type="week"],
-  input[type="time"],
-  textarea,
-  select {
+  :is(button[role="combobox"], input[type="email"], input[type="number"],
+      input[type="password"], input[type="search"], input[type="tel"],
+      input[type="text"], input[type="url"], input[type="date"],
+      input[type="datetime-local"], input[type="month"], input[type="week"],
+      input[type="time"], textarea, select) {
     /* State bridge vars (local/common): defaults come from default variant tokens. */
     --input-background-hover: var(--input-default-background-hover);
     --input-border-color-hover: var(--input-default-border-color-hover);
@@ -339,21 +329,11 @@ USAGE
 
   /* --- Hover state --- */
 
-  button[role="combobox"]:hover:not(:disabled),
-  input[type="email"]:hover:not(:disabled),
-  input[type="number"]:hover:not(:disabled),
-  input[type="password"]:hover:not(:disabled),
-  input[type="search"]:hover:not(:disabled),
-  input[type="tel"]:hover:not(:disabled),
-  input[type="text"]:hover:not(:disabled),
-  input[type="url"]:hover:not(:disabled),
-  input[type="date"]:hover:not(:disabled),
-  input[type="datetime-local"]:hover:not(:disabled),
-  input[type="month"]:hover:not(:disabled),
-  input[type="week"]:hover:not(:disabled),
-  input[type="time"]:hover:not(:disabled),
-  textarea:hover:not(:disabled),
-  select:hover:not(:disabled) {
+  :is(button[role="combobox"], input[type="email"], input[type="number"],
+      input[type="password"], input[type="search"], input[type="tel"],
+      input[type="text"], input[type="url"], input[type="date"],
+      input[type="datetime-local"], input[type="month"], input[type="week"],
+      input[type="time"], textarea, select):hover:not(:disabled) {
     --input-background: var(--input-background-hover);
     --input-border-color: var(--input-border-color-hover);
     --input-color: var(--input-color-hover);
@@ -362,42 +342,22 @@ USAGE
   }
 
   /* Hover on a focused input must not override the focus shadow/outline */
-  button[role="combobox"]:hover:focus-visible,
-  input[type="email"]:hover:focus-visible,
-  input[type="number"]:hover:focus-visible,
-  input[type="password"]:hover:focus-visible,
-  input[type="search"]:hover:focus-visible,
-  input[type="tel"]:hover:focus-visible,
-  input[type="text"]:hover:focus-visible,
-  input[type="url"]:hover:focus-visible,
-  input[type="date"]:hover:focus-visible,
-  input[type="datetime-local"]:hover:focus-visible,
-  input[type="month"]:hover:focus-visible,
-  input[type="week"]:hover:focus-visible,
-  input[type="time"]:hover:focus-visible,
-  textarea:hover:focus-visible,
-  select:hover:focus-visible {
+  :is(button[role="combobox"], input[type="email"], input[type="number"],
+      input[type="password"], input[type="search"], input[type="tel"],
+      input[type="text"], input[type="url"], input[type="date"],
+      input[type="datetime-local"], input[type="month"], input[type="week"],
+      input[type="time"], textarea, select):hover:focus-visible {
     --input-outline: var(--input-outline-focus);
     --input-shadow: var(--input-shadow-focus);
   }
 
   /* --- Focus state --- */
 
-  button[role="combobox"]:focus-visible,
-  input[type="email"]:focus-visible,
-  input[type="number"]:focus-visible,
-  input[type="password"]:focus-visible,
-  input[type="search"]:focus-visible,
-  input[type="tel"]:focus-visible,
-  input[type="text"]:focus-visible,
-  input[type="url"]:focus-visible,
-  input[type="date"]:focus-visible,
-  input[type="datetime-local"]:focus-visible,
-  input[type="month"]:focus-visible,
-  input[type="week"]:focus-visible,
-  input[type="time"]:focus-visible,
-  textarea:focus-visible,
-  select:focus-visible {
+  :is(button[role="combobox"], input[type="email"], input[type="number"],
+      input[type="password"], input[type="search"], input[type="tel"],
+      input[type="text"], input[type="url"], input[type="date"],
+      input[type="datetime-local"], input[type="month"], input[type="week"],
+      input[type="time"], textarea, select):focus-visible {
     --input-background: var(--input-background-focus);
     --input-border-color: var(--input-border-color-focus);
     --input-color: var(--input-color-focus);
@@ -406,8 +366,7 @@ USAGE
     /* focus indicator provided by shadow / outline tokens above */
   }
 
-  input[type="checkbox"]:focus-visible,
-  input[type="radio"]:focus-visible {
+  :is(input[type="checkbox"], input[type="radio"]):focus-visible {
     --checkbox-border-color: var(--checkbox-border-color-focus);
     --checkbox-outline: var(--checkbox-outline-focus);
     --checkbox-shadow: var(--checkbox-shadow-focus);
@@ -452,8 +411,7 @@ USAGE
 
   /* --- Checkbox and radio --- */
 
-  input[type="checkbox"],
-  input[type="radio"] {
+  :is(input[type="checkbox"], input[type="radio"]) {
     /* Bridge vars — state rules redirect these */
     --checkbox-background: var(--checkbox-default-background);
     --checkbox-background-hover: var(--checkbox-default-background-hover);
@@ -484,15 +442,13 @@ USAGE
     width: var(--checkbox-size);
   }
 
-  label > input[type="checkbox"],
-  label > input[type="radio"] {
+  label > :is(input[type="checkbox"], input[type="radio"]) {
     margin-inline-end: 0;
   }
 
   /* --- Checkbox / radio: hover state --- */
 
-  input[type="checkbox"]:hover:not(:disabled),
-  input[type="radio"]:hover:not(:disabled) {
+  :is(input[type="checkbox"], input[type="radio"]):hover:not(:disabled) {
     --checkbox-background: var(--checkbox-background-hover);
     --checkbox-border-color: var(--checkbox-border-color-hover);
     --checkbox-outline: var(--checkbox-outline-hover);
@@ -500,14 +456,12 @@ USAGE
   }
 
   /* Hover on a focused checkbox/radio must not override the focus shadow/outline */
-  input[type="checkbox"]:hover:focus-visible,
-  input[type="radio"]:hover:focus-visible {
+  :is(input[type="checkbox"], input[type="radio"]):hover:focus-visible {
     --checkbox-outline: var(--checkbox-outline-focus);
     --checkbox-shadow: var(--checkbox-shadow-focus);
   }
 
-  input[type="checkbox"]:checked,
-  input[type="radio"]:checked {
+  :is(input[type="checkbox"], input[type="radio"]):checked {
     background-color: var(--checkbox-background);
     background-image: radial-gradient(
       circle,
@@ -522,21 +476,11 @@ USAGE
 
   /* --- Disabled inputs --- */
 
-  button[role="combobox"]:disabled,
-  input[type="email"]:disabled,
-  input[type="number"]:disabled,
-  input[type="password"]:disabled,
-  input[type="search"]:disabled,
-  input[type="tel"]:disabled,
-  input[type="text"]:disabled,
-  input[type="url"]:disabled,
-  input[type="date"]:disabled,
-  input[type="datetime-local"]:disabled,
-  input[type="month"]:disabled,
-  input[type="week"]:disabled,
-  input[type="time"]:disabled,
-  textarea:disabled,
-  select:disabled {
+  :is(button[role="combobox"], input[type="email"], input[type="number"],
+      input[type="password"], input[type="search"], input[type="tel"],
+      input[type="text"], input[type="url"], input[type="date"],
+      input[type="datetime-local"], input[type="month"], input[type="week"],
+      input[type="time"], textarea, select):disabled {
     --input-background: var(--input-background-disabled);
     --input-border-color: var(--input-border-color-disabled);
     --input-color: var(--input-color-disabled);

@@ -51,6 +51,8 @@ TOKENS
     --sticky-bar-padding: var(--space-xs) 0;
     --sticky-bar-shadow: 0 -2px 8px rgba(0, 0, 0, 0.08);
     --sticky-bar-z: var(--z-fixed, 30);
+
+    --sticky-bar-shadow-top: 0 2px 8px rgba(0, 0, 0, 0.08);
   }
 }
 
@@ -79,6 +81,6 @@ TOKENS
     inset-block-end: auto;
     border-top: none;
     border-bottom: var(--sticky-bar-border);
-    box-shadow: var(--sticky-bar-shadow);
+    box-shadow: var(--sticky-bar-shadow-top);
   }
 }

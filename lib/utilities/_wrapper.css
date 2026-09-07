@@ -19,10 +19,14 @@ TOKENS
 @link https://piccalil.li/quick-tip/use-css-clamp-to-create-a-more-flexible-wrapper-utility/
 */
 
+@layer tokens {
+  :root {
+    --wrapper-max-width: 90rem;
+  }
+}
+
 @layer utilities {
   .wrapper {
-    --wrapper-max-width: 90rem;
-
     max-width: var(--wrapper-max-width);
     margin-inline: auto;
     padding-inline: var(--gutter);

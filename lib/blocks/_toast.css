@@ -247,8 +247,10 @@ TOKENS (on .toast)
   /* --- Reduced motion --- */
 
   @media (prefers-reduced-motion: reduce) {
-    .toast,
-    .toast.is-dismissing {
+    /* Freeze the entrance animation only. The .is-dismissing frame must keep
+       running: the global 0.01ms duration reset lets animationend fire so the
+       JS dismiss contract still works under reduced motion. */
+    .toast {
       animation: none;
     }
   }

@@ -12,27 +12,27 @@ Use .aspect-* when you want to reserve intrinsic space for an element
 
 USAGE
   <!-- Square avatar container -->
-  <div class="aspect-square">…</div>
+  <div data-aspect="square">…</div>
 
   <!-- 16:9 video embed -->
-  <div class="aspect-video">
+  <div data-aspect="video">
     <iframe src="…" title="Product demo"></iframe>
   </div>
 
   <!-- Custom ratio inline -->
-  <div class="aspect" style="--aspect-ratio: 4/3">…</div>
+  <div data-aspect="custom" style="--aspect-ratio: 4/3">…</div>
 
   <!-- Responsive image that retains its ratio without object-fit crop -->
-  <img class="aspect-video" src="banner.jpg" alt="…" style="width:100%">
+  <img data-aspect="video" src="banner.jpg" alt="…" style="width:100%">
 
 UTILITIES
-  .aspect            Custom ratio via --aspect-ratio token.
-  .aspect-square     1:1
-  .aspect-video      16:9
-  .aspect-photo      4:3
-  .aspect-portrait   3:4
-  .aspect-wide       21:9
-  .aspect-auto       Removes any set ratio (revert to natural dimensions)
+  [data-aspect]              Custom ratio via --aspect-ratio token.
+  [data-aspect="square"]     1:1
+  [data-aspect="video"]      16:9
+  [data-aspect="photo"]      4:3
+  [data-aspect="portrait"]   3:4
+  [data-aspect="wide"]       21:9
+  [data-aspect="auto"]       Removes any set ratio (revert to natural dimensions)
 
 TOKENS
   --aspect-ratio   Ratio for .aspect class.  Default: 1 / 1

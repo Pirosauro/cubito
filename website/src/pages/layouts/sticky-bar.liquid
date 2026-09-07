@@ -89,8 +89,8 @@
         <tbody>
           <tr>
             <td><code>--sticky-bar-background</code></td>
-            <td><code>var(--color-white)</code></td>
-            <td>Background fill of the bar.</td>
+            <td><code>light-dark(72% white, 70% neutral-900) traslucido</code></td>
+            <td>Frosted-glass fill — translucent, theme-aware via the <code>color-scheme</code> token.</td>
           </tr>
           <tr>
             <td><code>--sticky-bar-color</code></td>
@@ -99,18 +99,18 @@
           </tr>
           <tr>
             <td><code>--sticky-bar-border</code></td>
-            <td><code>solid var(--border-s) var(--color-neutral-200)</code></td>
-            <td>Top border (bottom bar) or bottom border (top bar).</td>
+            <td><code>solid var(--border-s) color-mix(...)</code></td>
+            <td>Top border (bottom bar) or bottom border (top bar) — tinted, translucent neutral.</td>
+          </tr>
+          <tr>
+            <td><code>--sticky-bar-blur</code></td>
+            <td><code>0.75rem</code></td>
+            <td>Backdrop blur radius for the frosted-glass effect.</td>
           </tr>
           <tr>
             <td><code>--sticky-bar-padding</code></td>
             <td><code>var(--space-xs) 0</code></td>
             <td>Internal block and inline padding.</td>
-          </tr>
-          <tr>
-            <td><code>--sticky-bar-shadow</code></td>
-            <td><code>0 -2px 8px rgba(0,0,0,0.08)</code></td>
-            <td>Box shadow on the bar.</td>
           </tr>
           <tr>
             <td><code>--sticky-bar-z</code></td>

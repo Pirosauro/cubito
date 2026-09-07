@@ -24,7 +24,7 @@ TOKENS
 @layer tokens {
   :root {
     --shadow-color: currentColor;
-    --shadow-offset: 0.35rem;
+    --shadow-offset: 0.35rem 0.35rem 0;
     --shadow-transition: var(--transition);
   }
 }
@@ -33,7 +33,7 @@ TOKENS
   /* --- Box shadow --- */
 
   .shadow {
-    box-shadow: var(--shadow-offset) var(--shadow-offset) 0 var(--shadow-color);
+    box-shadow: var(--shadow-offset) var(--shadow-color);
     transition:
       box-shadow var(--shadow-transition),
       transform var(--shadow-transition);

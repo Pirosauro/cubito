@@ -16,16 +16,37 @@ NOTE: Prefer the native <dialog> element with showModal() where possible.
 
 @layer layout {
   .dialog {
-    align-items: center;
     bottom: 0;
     display: flex;
     justify-content: center;
     left: 0;
+    max-width: 100vw;
+    max-height: 100vh;
+    max-height: 100dvh;
     overflow-y: auto;
     padding: var(--space-s);
     position: fixed;
     right: 0;
     top: 0;
     z-index: var(--z-modal, 51);
+  }
+
+  /* Centre the panel via auto margins: unlike align-items:center this keeps
+     the top edge of tall content reachable when it overflows (mobile). */
+  .dialog > * {
+    margin-block: auto;
+  }
+
+  .dialog > dialog,
+  .dialog > [role="dialog"] {
+    --dialog-max-width: initial;
+    --dialog-max-height: initial;
+    
+    overflow-y: visible !important;
+  }
+
+  .dialog:has(> [role="dialog"]) {
+    background-color: var(--dialog-backdrop-background);
+    backdrop-filter: blur(2px);
   }
 }

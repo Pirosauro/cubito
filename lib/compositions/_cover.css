@@ -17,10 +17,10 @@ MARKUP PATTERN
     </div>
   </div>
 
-  <!-- With pinned header and footer -->
+  <!-- With pinned header and footer: mark the principal element explicitly -->
   <div class="cover">
     <header>Site header</header>         <!-- pinned to top -->
-    <main>
+    <main data-cover="principal">
       <h1>Hero heading</h1>
       <p>Centred vertically in the remaining space.</p>
     </main>
@@ -49,6 +49,7 @@ TOKENS
 
 @layer tokens {
   :root {
+    --cover-min-height: 100vh;
     --cover-min-height: 100dvh;
     --cover-padding: var(--space-s);
     --cover-gap: var(--space-s);
@@ -66,20 +67,18 @@ TOKENS
 
   /*
     Centre the principal element.
-    Target: the first child that is not a <header> or <footer>, OR any child
-    explicitly marked with data-cover="principal".
-    Using :not(header):not(footer) keeps this zero-JS for the common case.
+    A lone child is centred automatically (zero-JS for the common case);
+    with multiple children, mark the one to centre with data-cover="principal".
+    Header/footer and [data-cover="edge"] stay pinned to the edges.
   */
-  .cover > :not(header):not(footer):not([data-cover="edge"]) {
-    margin-block: auto;
-  }
-
-  /* Explicit principal override */
+  .cover > :only-child:not(header):not(footer):not([data-cover="edge"]),
   .cover > [data-cover="principal"] {
     margin-block: auto;
   }
 
   /* Explicit edge pin */
+  .cover > header,
+  .cover > footer,
   .cover > [data-cover="edge"] {
     margin-block: 0;
   }

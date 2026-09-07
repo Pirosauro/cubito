@@ -1,0 +1,161 @@
+/*
+Drawer
+---
+Off-canvas panel built on the native <dialog> element. Uses the browser's
+Top Layer (no z-index juggling) plus the modern discrete-transition APIs
+(@starting-style + transition-behavior: allow-discrete on display/overlay)
+so the panel and its native ::backdrop animate in and out. No media queries.
+
+MARKUP PATTERN
+  <!-- Trigger: JS calls drawer.showModal() / drawer.close() -->
+  <button type="button" data-drawer-open="cart">Open cart</button>
+
+  <!-- Drawer (rendered anywhere; Top Layer positions and stacks it) -->
+  <dialog class="drawer" id="cart" data-drawer-placement="end"
+          aria-labelledby="cart-title">
+    <h2 id="cart-title">Your cart</h2>
+    <p>…</p>
+  </dialog>
+
+  <script>
+    const drawer = document.getElementById('cart');
+    document.querySelector('[data-drawer-open="cart"]')
+      .addEventListener('click', () => drawer.showModal());
+  </script>
+
+PLACEMENT
+  data-drawer-placement="end"    (default) Slides in from the right edge.
+  data-drawer-placement="start"  Slides in from the left edge.
+
+CONFIGURATION
+    :root {
+      --drawer-width: 24rem;
+    }
+
+    <dialog class="drawer" style="--drawer-width: 30rem; --drawer-background: var(--color-neutral-900)">…</dialog>
+
+TOKENS
+  --drawer-background            Surface fill.           Default: --color-neutral-50
+  --drawer-color                 Text colour.            Default: --color-black
+  --drawer-width                 Panel width.            Default: min(28rem, 100vw)
+  --drawer-padding               Inner space.            Default: --space-l
+  --drawer-border                Separator border.       Default: none
+  --drawer-shadow                Box shadow.             Default: layered shadow
+  --drawer-backdrop-background   Overlay behind panel.   Default: rgba(10,10,10,0.5)
+  --drawer-transition-duration   Transition length.      Default: --motion-duration-base
+  --drawer-transition-easing     Transition timing.      Default: --motion-easing-out
+
+ACCESSIBILITY
+  - showModal() moves the drawer to the Top Layer, traps focus, and closes on
+    Escape natively — no z-index or key handling in CSS.
+  - Associate the panel title via aria-labelledby (as above).
+  - prefers-reduced-motion collapses every transition to an instant snap.
+
+@link https://developer.chrome.com/blog/entry/transitioning-dialogs/
+@link https://developer.mozilla.org/en-US/docs/Web/CSS/@starting-style
+*/
+
+@layer tokens {
+  :root {
+    --drawer-background: var(--color-neutral-50);
+    --drawer-color: var(--color-black);
+    --drawer-width: min(28rem, 100vw);
+    --drawer-padding: var(--space-l);
+    --drawer-border: none;
+    --drawer-shadow:
+      0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 16px 24px -4px rgba(0, 0, 0, 0.12);
+    --drawer-backdrop-background: rgba(10, 10, 10, 0.5);
+    --drawer-transition-duration: var(--motion-duration-base, 250ms);
+    --drawer-transition-easing: var(--motion-easing-out, ease);
+  }
+}
+
+@layer blocks {
+  dialog.drawer {
+    /* Top Layer: the browser stacks :modal above the page — no z-index. */
+    position: fixed;
+    inset-block: 0;
+    inset-inline-end: 0;
+    margin: 0;
+
+    border: var(--drawer-border);
+    border-radius: 0; /* override generic dialog radius */
+    padding: var(--drawer-padding);
+    width: var(--drawer-width);
+    height: 100vh;
+    height: 100dvh;
+    max-width: none; /* override generic dialog width cap */
+    max-height: none;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+
+    background: var(--drawer-background);
+    color: var(--drawer-color);
+    box-shadow: var(--drawer-shadow);
+
+    /* Hidden state: pushed off the inline-end edge (placement: end). */
+    translate: 100% 0;
+
+    transition:
+      display var(--drawer-transition-duration) allow-discrete,
+      overlay var(--drawer-transition-duration) allow-discrete,
+      translate var(--drawer-transition-duration) var(--drawer-transition-easing);
+  }
+
+  /* Placement: start (left edge) — slides in from the left. */
+  dialog.drawer[data-drawer-placement="start"] {
+    inset-inline-end: auto;
+    inset-inline-start: 0;
+    translate: -100% 0;
+  }
+
+  /* Open: slide into view. */
+  dialog.drawer[open] {
+    translate: 0 0;
+  }
+
+  /* Closed: disable pointer events. */
+  dialog.drawer:not([open]) {
+    pointer-events: none;
+  }
+
+  /* Opening "from" state for the discrete transition (closed → open). */
+  @starting-style {
+    dialog.drawer[open] {
+      translate: 100% 0;
+    }
+
+    dialog.drawer[data-drawer-placement="start"][open] {
+      translate: -100% 0;
+    }
+  }
+
+  /* Native backdrop fades in behind the panel. */
+  dialog.drawer::backdrop {
+    background-color: transparent;
+    transition:
+      display var(--drawer-transition-duration) allow-discrete,
+      overlay var(--drawer-transition-duration) allow-discrete,
+      background-color var(--drawer-transition-duration)
+        var(--drawer-transition-easing);
+  }
+
+  dialog.drawer[open]::backdrop {
+    background-color: var(--drawer-backdrop-background);
+  }
+
+  @starting-style {
+    dialog.drawer[open]::backdrop {
+      background-color: transparent;
+    }
+  }
+
+  /* Reduced motion: snap instead of animating. */
+  @media (prefers-reduced-motion: reduce) {
+    dialog.drawer,
+    dialog.drawer::backdrop {
+      transition: none;
+    }
+  }
+}
