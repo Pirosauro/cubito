@@ -37,27 +37,45 @@ CONFIGURATION
     <article class="card" style="--card-image-ratio: 16 / 9">…</article>
 
 TOKENS
-  --card-default-background       Surface fill.          Default: --color-white
-  --card-default-border-color     Border colour.         Default: --color-neutral-200
-  --card-default-border-style     Border style.          Default: solid
-  --card-default-border-width     Border width.          Default: --border-s
-  --card-default-color            Foreground colour.     Default: inherit
-  --card-default-image-ratio      Image aspect ratio.    Default: 3 / 2
-  --card-default-opacity          Opacity.               Default: 1
-  --card-default-shadow           Box shadow.            Default: none
-  --card-default-transform        Transform.             Default: none
-  --card-default-background-hover Hover fill.            Default: --color-white
-  --card-default-border-color-hover Hover border colour. Default: --color-neutral-700
-  --card-outline-border-color     Outline border colour. Default: --color-neutral-400
-  --card-outline-border-color-hover Outline border hover. Default: --color-neutral-700
-  --card-elevated-background      Elevated fill.         Default: --color-white
-  --card-elevated-shadow          Elevated shadow.       Default: layered shadow
-  --card-elevated-shadow-hover    Elevated hover shadow. Default: stronger layered shadow
-  --card-subtle-background        Subtle fill.           Default: tinted neutral
-  --card-subtle-background-hover  Subtle hover fill.     Default: stronger tinted neutral
-  --card-radius        Corner radius.         Default: --border-radius-l
-  --card-padding       Content area padding.  Default: --space-s
-  --card-image-width   Horizontal layout img. Default: 12rem
+  Invariants:
+    --card-radius        Corner radius.         Default: --border-radius-l
+    --card-padding       Content area padding.  Default: --space-s
+    --card-image-width   Horizontal layout img. Default: 12rem
+
+  Default Variant Tokens:
+    --card-default-background       Surface fill.          Default: --color-white
+    --card-default-border-color     Border colour.         Default: --color-neutral-200
+    --card-default-border-style     Border style.          Default: solid
+    --card-default-border-width     Border width.          Default: --border-s
+    --card-default-color            Foreground colour.     Default: inherit
+    --card-default-image-ratio      Image aspect ratio.    Default: 3 / 2
+    --card-default-opacity          Opacity.               Default: 1
+    --card-default-shadow           Box shadow.            Default: none
+    --card-default-transform        Transform.             Default: none
+    --card-default-background-hover Hover fill.            Default: --color-white
+    --card-default-border-color-hover Hover border colour. Default: --color-neutral-700
+
+  Outline Variant Tokens:
+    --card-outline-border-color     Outline border colour. Default: --color-neutral-400
+    --card-outline-border-color-hover Outline border hover. Default: --color-neutral-700
+
+  Elevated Variant Tokens:
+    --card-elevated-background      Elevated fill.         Default: --color-white
+    --card-elevated-shadow          Elevated shadow.       Default: layered shadow
+    --card-elevated-shadow-hover    Elevated hover shadow. Default: stronger layered shadow
+
+  Subtle Variant Tokens:
+    --card-subtle-background        Subtle fill.           Default: tinted neutral
+    --card-subtle-background-hover  Subtle hover fill.     Default: stronger tinted neutral
+
+  Bridge Variables (internal, set on .card):
+    --card-background, --card-border-color, --card-border-style, --card-border-width,
+    --card-color, --card-image-ratio, --card-opacity, --card-shadow, --card-transform,
+    --card-background-hover, --card-border-color-hover
+
+  Layout Variants (data-layout):
+    --card-reversed-flex-direction, --card-horizontal-flex-direction,
+    --card-horizontal-img-width, --card-horizontal-img-flex-shrink
 
 @link https://inclusive-components.design/cards/#thepseudocontenttrick
 */

@@ -44,6 +44,7 @@ TOKENS
     --input-default-shadow-focus --input-default-outline-focus
     --input-default-background-disabled --input-default-border-color-disabled
     --input-default-color-disabled --input-default-shadow-disabled --input-default-outline-disabled
+    --input-default-border-color-invalid --input-default-outline-color-invalid
 
   Local overrides remain supported at scope level:
     --input-background --input-border-color --input-color --input-shadow --input-outline

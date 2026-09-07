@@ -46,15 +46,36 @@ CONFIGURATION
     <div class="sticky-bar" style="--sticky-bar-z: var(--z-modal)">…</div>
 
 TOKENS
-  --sticky-bar-background    Fill.         Default: --color-white
-  --sticky-bar-color         Text colour.  Default: currentColor
-  --sticky-bar-border        Top/bottom border. Default: 1px solid --color-neutral-200
-  --sticky-bar-padding       Inner space.  Default: --space-xs 0
-  --sticky-bar-shadow        Box shadow.   Default: layered shadow
-  --sticky-bar-z             z-index.      Default: --z-fixed
-  --sticky-bar-blur          Backdrop blur radius for frosted variant. Default: 0.75rem
-  --sticky-bar-frosted-bg    Frosted variant background. Default: semi-transparent via color-mix
-  --sticky-bar-frosted-border Frosted variant border. Default: semi-transparent via color-mix
+  Invariants:
+    --sticky-bar-padding       Inner space.              Default: --space-xs 0
+    --sticky-bar-z             z-index.                  Default: --z-fixed
+    --sticky-bar-blur          Backdrop blur radius for frosted variant. Default: 0.75rem
+
+  Default Variant Tokens:
+    --sticky-bar-default-background    Fill.                Default: --color-white
+    --sticky-bar-default-color         Text colour.         Default: currentColor
+    --sticky-bar-default-border        Top/bottom border.   Default: 1px solid --color-neutral-200
+    --sticky-bar-default-shadow        Box shadow.          Default: layered shadow (bottom)
+    --sticky-bar-default-shadow-top    Box shadow (top).    Default: layered shadow (top)
+    --sticky-bar-default-backdrop-filter Default: none
+
+  Frosted Variant Tokens (data-variant="frosted"):
+    --sticky-bar-frosted-background    Frosted fill via light-dark(). Default: translucent white / neutral-900
+    --sticky-bar-frosted-color         Text colour.         Default: currentColor
+    --sticky-bar-frosted-border        Frosted border.      Default: translucent neutral-200 / neutral-700
+    --sticky-bar-frosted-shadow        Default: none
+    --sticky-bar-frosted-backdrop-filter Default: blur(var(--sticky-bar-blur))
+
+  Bridge Variables (internal, set on .sticky-bar):
+    --sticky-bar-background, --sticky-bar-color, --sticky-bar-border,
+    --sticky-bar-shadow, --sticky-bar-shadow-top, --sticky-bar-backdrop-filter
+
+  Placement Variants (data-position):
+    --sticky-bar-bottom-inset-block-end, --sticky-bar-top-inset-block-start,
+    --sticky-bar-bottom-border-top, --sticky-bar-top-border-bottom,
+    --sticky-bar-bottom-shadow, --sticky-bar-top-shadow
+
+@supports not (backdrop-filter: blur(1px)) fallback reverts to opaque default tokens.
 */
 
 @layer tokens {

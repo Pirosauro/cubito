@@ -7,7 +7,7 @@ simply enforce a ratio on the element itself — the content inside is not
 clipped unless you also add overflow:hidden.
 
 Use .frame when you need to crop media to fill a space.
-Use .aspect-* when you want to reserve intrinsic space for an element
+Use data-aspect when you want to reserve intrinsic space for an element
 (iframes, embeds, custom components) without clipping.
 
 USAGE
@@ -35,7 +35,7 @@ UTILITIES
   [data-aspect="auto"]       Removes any set ratio (revert to natural dimensions)
 
 TOKENS
-  --aspect-ratio   Ratio for .aspect class.  Default: 1 / 1
+  --aspect-ratio   Aspect ratio value.  Default: 1 / 1
 */
 
 @layer utilities {

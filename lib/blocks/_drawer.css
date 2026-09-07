@@ -51,6 +51,13 @@ ACCESSIBILITY
   - Associate the panel title via aria-labelledby (as above).
   - prefers-reduced-motion collapses every transition to an instant snap.
 
+PROGRESSIVE ENHANCEMENT
+  - The drawer uses @starting-style + transition-behavior: allow-discrete for
+    animating display/overlay. Browsers without support (Firefox < 129, Safari < 18.2)
+    will snap open/closed instantly — no layout breakage.
+  - The drawer's ::backdrop inherits the generic dialog backdrop-filter: blur(2px)
+    from _dialog.css. This provides a frosted overlay effect on supported browsers.
+
 @link https://developer.chrome.com/blog/entry/transitioning-dialogs/
 @link https://developer.mozilla.org/en-US/docs/Web/CSS/@starting-style
 */

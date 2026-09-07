@@ -22,6 +22,7 @@ USAGE
 
 TOKENS
   --icon-chevron   Down-pointing chevron. Used by details, select, and nav.
+  --icon-star      Five-pointed star. Used by rating component.
 */
 
 @layer tokens {
