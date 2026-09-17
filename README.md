@@ -816,7 +816,7 @@ Fixed overlay that centres a dialog. Prefer `<dialog showModal()>` where possibl
 
 ```html
 <!-- Place as first child of <body> -->
-<a href="#main-content" class="skip-link">Skip to content</a>
+<a href="#main" class="skip-link">Skip to content</a>
 
 <button type="button">
   <svg aria-hidden="true">…</svg>
@@ -876,7 +876,7 @@ Internal state tokens not intended for consumer override are **prefixed `--_`**:
 ## Accessibility
 
 - `:focus-visible` is handled globally in `_reset.css`.
-- Skip link: `<a href="#main" class="skip-link">Skip to content</a>` — first child of `<body>`.
+- Skip link: `<a href="#main" class="skip-link">Skip to content</a>` — first child of `<body>`. The target region is visibly highlighted via `:target`.
 - `.sr-only` / `.visually-hidden` for screen-reader-only text.
 - `prefers-reduced-motion` collapses all `--motion-duration-*` tokens to `0ms`.
 - `forced-colors` (Windows High Contrast) supported in `_reset.css`.
@@ -887,7 +887,7 @@ Internal state tokens not intended for consumer override are **prefixed `--_`**:
 
 ## Dark mode
 
-Dark mode is handled automatically via `prefers-color-scheme: dark` in each file. To force a colour scheme on a subtree, override the surface tokens directly:
+Dark mode is supported through the cascade, not a separate theme API. The library ships light defaults and `color-scheme: light dark`; override semantic tokens directly in a `@layer theme` block to support dark surfaces or manual theme toggles:
 
 ```css
 .force-light {

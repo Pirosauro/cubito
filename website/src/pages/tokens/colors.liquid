@@ -143,7 +143,7 @@
   <section>
     <div class="flow" style="--flow-space: var(--space-s);">
       <h2 class="heading-l">Status colors</h2>
-      <p>Four semantic feedback colors for communicating system state. Use these in callouts, badges, alert icons, and validation messages.</p>
+      <p>Four semantic feedback colors for communicating system state. Use these in callouts, badges, alert icons, and validation messages. The shipped values keep white text at AAA contrast.</p>
 
     
       <div class="">
@@ -195,7 +195,7 @@
   <section>
     <div class="flow" style="--flow-space: var(--space-s);">
       <h2 class="heading-l">Brand tokens</h2>
-      <p>These two tokens are <strong>required</strong> and must be set by the consuming application before importing the library. The library does not provide defaults for them — components that depend on these tokens will fall back gracefully (e.g. focus rings use <code>#26e</code> as a fallback), but for correct brand-aligned rendering you must supply both.</p>
+      <p>These two tokens are <strong>required</strong> and must be set by the consuming application before importing the library. The library does not provide defaults for them — components that depend on these tokens will fall back gracefully (e.g. focus rings use <code>#26e</code> as a fallback), but for correct brand-aligned rendering you must supply both. Choose values that remain legible in the contexts you use them: text applications need at least <code>4.5:1</code>, and AAA text use needs <code>7:1</code>.</p>
 
       <table class="">
         <thead>
@@ -209,7 +209,7 @@
           <tr>
             <td><code>--color-brand</code></td>
             <td>Yes</td>
-            <td>Primary interactive color. Used for buttons, focus rings, links, and primary actions. Should have at least 4.5:1 contrast against white.</td>
+            <td>Primary interactive color. Used for buttons, focus rings, links, and primary actions. Choose a contrast-safe value for each context it is used in.</td>
           </tr>
           <tr>
             <td><code>--color-accent</code></td>

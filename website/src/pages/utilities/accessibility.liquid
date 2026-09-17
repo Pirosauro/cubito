@@ -13,6 +13,7 @@
       </ol>
     </nav>
     <h1>Accessibility</h1>
+    <p>Cubito is WCAG 2.2 AA compliant out of the box. It provides an accessible foundation that can be extended and customized to meet AAA requirements where required by the product, content, design, and implementation.</p>
     <p class="text-m color-neutral-600">Skip-link and visually-hidden utilities that keep content reachable by screen readers without affecting visual layout.</p>
   </header>
 
@@ -20,11 +21,11 @@
     <div class="flow" style="--flow-space: var(--space-s);">
       <h2 class="heading-l">Skip link</h2>
       <p>The <code>.skip-link</code> is the first focusable element on the page. It is clipped off-screen until it receives keyboard focus, at which point it snaps into view so keyboard users can jump straight to the main content and bypass the navigation.</p>
-      <p>Place it as the very first child of <code>&lt;body&gt;</code>, before any navigation or header elements.</p>
+      <p>Place it as the very first child of <code>&lt;body&gt;</code>, before any navigation or header elements. The destination region should use the matching id, and Cubito highlights the target with <code>:target</code> when the link is activated.</p>
     
       <div class="">
   <div style="position: relative; height: 4rem; overflow: hidden; background: var(--color-neutral-50); border-radius: var(--border-radius-m);">
-    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <a href="#main" class="skip-link">Skip to main content</a>
     <p style="padding: 1rem; font-size: var(--font-size-s); color: var(--color-neutral-500)">Tab into this area to see the skip link appear.</p>
   </div>
       </div>
@@ -32,7 +33,7 @@
       <details class="margin-y-s">
         <summary>Show code</summary>
         <pre class="padding-m"><code>&lt;div style=&quot;position: relative; height: 4rem; overflow: hidden; background: var(--color-neutral-50); border-radius: var(--border-radius-m);&quot;&gt;
-    &lt;a href=&quot;#main-content&quot; class=&quot;skip-link&quot;&gt;Skip to main content&lt;/a&gt;
+    &lt;a href=&quot;#main&quot; class=&quot;skip-link&quot;&gt;Skip to main content&lt;/a&gt;
     &lt;p style=&quot;padding: 1rem; font-size: var(--font-size-s); color: var(--color-neutral-500)&quot;&gt;Tab into this area to see the skip link appear.&lt;/p&gt;
   &lt;/div&gt;</code></pre>
       </details>

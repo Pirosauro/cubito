@@ -141,9 +141,6 @@ CONFIGURATION
   :target {
     scroll-margin-top: 2ex;
   }
-  main:focus {
-    outline: none;
-  }
 
   /* --- Text block content --- */
 

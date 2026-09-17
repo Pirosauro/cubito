@@ -145,7 +145,7 @@ NOTE ON LOCAL OVERRIDES
     --button-default-border-color: var(--color-neutral-600);
     --button-default-border-style: solid;
     --button-default-border-width: var(--border-m);
-    --button-default-color: var(--color-white);
+    --button-default-color: var(--color-black);
     --button-default-opacity: 1;
     --button-default-shadow: none;
     --button-default-transform: none;
