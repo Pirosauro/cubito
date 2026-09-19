@@ -1,0 +1,151 @@
+{% layout "layouts/base.liquid" %}
+{% block title %}Drawer — Cubito UI Docs{% endblock %}
+
+{% block content %}
+<article class="flow">
+
+  <header class="flow" style="padding-block-end: var(--space-l); border-block-end: var(--border-s) solid var(--color-neutral-200);">
+    <nav aria-label="Breadcrumb" class="breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/components/">Components</a></li>
+        <li aria-current="page">Drawer</li>
+      </ol>
+    </nav>
+    <h1>Drawer</h1>
+    <p class="text-m color-neutral-600">An off-canvas panel built on the native <code>&lt;dialog&gt;</code> element. It uses the browser’s top layer, focus trap, and Escape handling so the CSS only needs to handle layout and motion.</p>
+  </header>
+
+  <section>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Live demo</h2>
+      <p>Click a button to open the drawer. The browser manages focus and dismissal because the panel is opened with <code>showModal()</code>.</p>
+
+      <div class="cluster" style="align-items: flex-start;">
+        <button type="button" class="button" onclick="document.getElementById('cart-drawer').showModal()">Open cart drawer</button>
+        <button type="button" class="button" data-variant="outline" onclick="document.getElementById('settings-drawer').showModal()">Open settings drawer</button>
+
+        <dialog class="drawer" id="cart-drawer" aria-labelledby="cart-drawer-title" data-drawer-placement="end">
+          <div class="flow" style="--flow-space: var(--space-m);">
+            <div class="repel" style="align-items: start;">
+              <div class="flow" style="--flow-space: var(--space-3xs);">
+                <h2 id="cart-drawer-title" class="heading-m">Your cart</h2>
+                <p class="text-s color-neutral-600">Review items before checkout.</p>
+              </div>
+              <button type="button" class="button" data-variant="outline" onclick="this.closest('dialog').close()">Close</button>
+            </div>
+
+            <div class="flow" style="--flow-space: var(--space-s);">
+              <div class="cluster" style="justify-content: space-between; align-items: start;">
+                <div class="flow" style="--flow-space: var(--space-3xs);">
+                  <strong>Everyday tee</strong>
+                  <span class="text-s color-neutral-600">1 × Navy / Medium</span>
+                </div>
+                <span class="text-s">$24.00</span>
+              </div>
+              <div class="cluster" style="justify-content: space-between; align-items: start;">
+                <div class="flow" style="--flow-space: var(--space-3xs);">
+                  <strong>Canvas tote</strong>
+                  <span class="text-s color-neutral-600">2 × Natural</span>
+                </div>
+                <span class="text-s">$36.00</span>
+              </div>
+            </div>
+
+            <div class="flow" style="--flow-space: var(--space-xs);">
+              <button type="button" class="button">Proceed to checkout</button>
+              <button type="button" class="button" data-variant="outline" onclick="this.closest('dialog').close()">Continue shopping</button>
+            </div>
+          </div>
+        </dialog>
+
+        <dialog class="drawer" id="settings-drawer" aria-labelledby="settings-drawer-title" data-drawer-placement="start">
+          <div class="flow" style="--flow-space: var(--space-m);">
+            <div class="repel" style="align-items: start;">
+              <div class="flow" style="--flow-space: var(--space-3xs);">
+                <h2 id="settings-drawer-title" class="heading-m">Account settings</h2>
+                <p class="text-s color-neutral-600">A left-anchored example using the same drawer styles.</p>
+              </div>
+              <button type="button" class="button" data-variant="outline" onclick="this.closest('dialog').close()">Close</button>
+            </div>
+
+            <div class="flow" style="--flow-space: var(--space-s);">
+              <p>Drawer content can hold any regular page content. Keep actions grouped and include a clear title via <code>aria-labelledby</code>.</p>
+              <button type="button" class="button">Save changes</button>
+            </div>
+          </div>
+        </dialog>
+      </div>
+
+      <details class="margin-y-s">
+        <summary>Show code</summary>
+        <pre class="padding-m"><code>&lt;button type=&quot;button&quot; class=&quot;button&quot; onclick=&quot;document.getElementById(&#x27;cart-drawer&#x27;).showModal()&quot;&gt;Open cart drawer&lt;/button&gt;
+
+&lt;dialog class=&quot;drawer&quot; id=&quot;cart-drawer&quot; aria-labelledby=&quot;cart-drawer-title&quot; data-drawer-placement=&quot;end&quot;&gt;
+  &lt;div class=&quot;flow&quot; style=&quot;--flow-space: var(--space-m);&quot;&gt;
+    &lt;div class=&quot;repel&quot; style=&quot;align-items: start;&quot;&gt;
+      &lt;div class=&quot;flow&quot; style=&quot;--flow-space: var(--space-3xs);&quot;&gt;
+        &lt;h2 id=&quot;cart-drawer-title&quot; class=&quot;heading-m&quot;&gt;Your cart&lt;/h2&gt;
+        &lt;p class=&quot;text-s color-neutral-600&quot;&gt;Review items before checkout.&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;button type=&quot;button&quot; class=&quot;button&quot; data-variant=&quot;outline&quot; onclick=&quot;this.closest(&#x27;dialog&#x27;).close()&quot;&gt;Close&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/dialog&gt;</code></pre>
+      </details>
+
+    </div>
+  </section>
+
+  <section>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Placement</h2>
+      <p>Use <code>data-drawer-placement</code> to choose which edge the drawer enters from. The default is <code>end</code>, which slides in from the inline end side of the viewport.</p>
+
+      <table class="">
+        <thead>
+          <tr><th>Value</th><th>Behavior</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>end</code></td><td>Slides in from the inline end edge.</td></tr>
+          <tr><td><code>start</code></td><td>Slides in from the inline start edge.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Accessibility</h2>
+      <div class="callout wide color-brand" role="note">
+        <p>Drawers use the browser’s native modal behavior, so <code>showModal()</code> moves the element to the top layer, traps focus, and closes on <kbd>Escape</kbd> without extra JavaScript focus management.</p>
+      </div>
+
+      <p>Always connect the drawer to a heading with <code>aria-labelledby</code>. Keep the close button inside the drawer and use <code>dialog.close()</code> to dismiss it. The CSS handles the animation, backdrop, and panel sizing; the browser handles focus and keyboard interaction.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Tokens</h2>
+      <table class="">
+        <thead>
+          <tr><th>Token</th><th>Default</th><th>Description</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>--drawer-background</code></td><td><code>var(--color-neutral-50)</code></td><td>Panel surface fill.</td></tr>
+          <tr><td><code>--drawer-color</code></td><td><code>var(--color-black)</code></td><td>Text colour inside the drawer.</td></tr>
+          <tr><td><code>--drawer-width</code></td><td><code>min(28rem, 100vw)</code></td><td>Drawer width.</td></tr>
+          <tr><td><code>--drawer-padding</code></td><td><code>var(--space-l)</code></td><td>Inner padding.</td></tr>
+          <tr><td><code>--drawer-border</code></td><td><code>none</code></td><td>Panel border shorthand.</td></tr>
+          <tr><td><code>--drawer-shadow</code></td><td>Layered shadow</td><td>Panel elevation shadow.</td></tr>
+          <tr><td><code>--drawer-backdrop-background</code></td><td><code>rgba(10, 10, 10, 0.5)</code></td><td>Backdrop fill behind the drawer.</td></tr>
+          <tr><td><code>--drawer-transition-duration</code></td><td><code>--motion-duration-base</code></td><td>Motion duration.</td></tr>
+          <tr><td><code>--drawer-transition-easing</code></td><td><code>--motion-easing-out</code></td><td>Motion easing.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+</article>
+{% endblock %}

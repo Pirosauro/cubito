@@ -23,7 +23,7 @@
       <p>Or with npm or yarn:</p>
       <pre><code>npm install @cubito/ui
   yarn add @cubito/ui</code></pre>
-      <div class="callout wide" data-variant="brand" role="note">
+      <div class="callout wide color-brand" role="note">
         <p>The package is hosted on a private registry. Make sure your <code>.npmrc</code> points to the correct registry URL before installing. Contact your team lead if you do not have access credentials.</p>
       </div>
   
@@ -101,7 +101,7 @@
 
   /* 7. Your application tokens (brand colours, overrides) */
   @import "./tokens.css";</code></pre>
-      <div class="callout wide" data-variant="brand" role="note">
+      <div class="callout wide color-brand" role="note">
         <p><strong>Why <code>_layers.css</code> must come first:</strong> The file contains a single <code>@layer</code> declaration that establishes the precedence order: <code>tokens → reset → layout → blocks → utilities</code>. If it is omitted or imported after other stylesheets, cascade layer precedence falls back to first-encountered order, which silently breaks component overrides.</p>
       </div>
   

@@ -59,6 +59,7 @@
         { "label": "Card",          "href": "/components/card" },
         { "label": "Data List",     "href": "/components/data-list" },
         { "label": "Dialog",        "href": "/components/dialog" },
+        { "label": "Drawer",        "href": "/components/drawer" },
         { "label": "Empty State",   "href": "/components/empty-state" },
         { "label": "Footnote",      "href": "/components/footnote" },
         { "label": "Hero",          "href": "/components/hero" },
