@@ -91,6 +91,12 @@ CONFIGURATION
     }
   }
 
+  html:has(dialog[open]),
+  body:has(dialog[open]) {
+    overflow: hidden;
+    scrollbar-gutter: stable;
+  }
+
   /* --- Content sectioning --- */
 
   h1,
