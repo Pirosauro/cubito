@@ -28,4 +28,13 @@ CUSTOM PROPERTIES
     justify-content: var(--cluster-horizontal-alignment);
     align-items: var(--cluster-vertical-alignment);
   }
+
+  /* Variants for horizontal alignment */
+  .cluster[data-horizontal-alignment="center"] {
+    --cluster-horizontal-alignment: center;
+  }
+
+  .cluster[data-horizontal-alignment="end"] {
+    --cluster-horizontal-alignment: flex-end;
+  }
 }

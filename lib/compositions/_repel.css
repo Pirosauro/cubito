@@ -34,4 +34,12 @@ EXCEPTIONS
   .repel[data-nowrap] {
     flex-wrap: nowrap;
   }
+
+  .repel[data-vertical-alignment="start"] {
+    --repel-vertical-alignment: flex-start;
+  }
+
+  .repel[data-vertical-alignment="end"] {
+    --repel-vertical-alignment: flex-end;
+  }
 }

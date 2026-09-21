@@ -1,6 +1,6 @@
 {
   "name": "cubito",
-  "version": "0.7.3",
+  "version": "0.7.4",
   "type": "module",
   "engines": {
     "pnpm": ">=10.0.0 <11.0.0"

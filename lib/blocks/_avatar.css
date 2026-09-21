@@ -161,11 +161,11 @@ TOKENS
 
   .avatar-group .avatar {
     --avatar-border: solid 0.15em var(--body-background, var(--color-white));
+
     margin-inline-start: calc(-1 * var(--avatar-group-overlap));
   }
 
   .avatar-group .avatar:first-child {
     margin-inline-start: 0;
   }
-
 }

@@ -74,6 +74,20 @@ typography, set the tokens directly on the component.
     font-size: var(--font-size-xs);
   }
 
+  /* --- Text transform --- */
+
+  .text-uppercase {
+    text-transform: uppercase;
+  }
+
+  .text-lowercase {
+    text-transform: lowercase;
+  }
+  
+  .text-capitalize {
+    text-transform: capitalize;
+  }
+
   /* --- Weight --- */
 
   .text-normal {
