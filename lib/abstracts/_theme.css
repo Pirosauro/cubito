@@ -68,7 +68,7 @@ CONFIGURATION
 
     --color: var(--color-black);
     --background: var(--color-white);
-    --link-color: inherit;
+    --link-color: currentColor;
     --link-color-hover: var(--link-color);
     --highlight-background: color-mix(in srgb, currentColor 15%, transparent);
     --highlight-color: var(--color);

@@ -31,7 +31,7 @@ MIGRATION from _spacing.css
 @layer utilities {
   /* --- Padding: all sides --- */
 
-  .padding-0 {
+  .padding-none {
     padding: 0;
   }
   .padding-tiny {
@@ -64,7 +64,7 @@ MIGRATION from _spacing.css
 
   /* --- Padding: block axis (top / bottom) --- */
 
-  .padding-y-0 {
+  .padding-y-none {
     padding-block: 0;
   }
   .padding-y-tiny {
@@ -97,7 +97,7 @@ MIGRATION from _spacing.css
 
   /* --- Padding: inline axis (left / right) --- */
 
-  .padding-x-0 {
+  .padding-x-none {
     padding-inline: 0;
   }
   .padding-x-tiny {
@@ -130,7 +130,7 @@ MIGRATION from _spacing.css
 
   /* --- Margin: all sides --- */
 
-  .margin-0 {
+  .margin-none {
     margin: 0;
   }
   .margin-tiny {
@@ -163,7 +163,7 @@ MIGRATION from _spacing.css
 
   /* --- Margin: block axis --- */
 
-  .margin-y-0 {
+  .margin-y-none {
     margin-block: 0;
   }
   .margin-y-tiny {
@@ -196,7 +196,7 @@ MIGRATION from _spacing.css
 
   /* --- Margin: inline axis --- */
 
-  .margin-x-0 {
+  .margin-x-none {
     margin-inline: 0;
   }
   .margin-x-tiny {
