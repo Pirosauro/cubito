@@ -76,12 +76,6 @@ TOKENS
 
 @layer blocks {
   .hero {
-    /* Bridge Variables - initialized with default variant */
-    --hero-space: var(--hero-space);
-    --hero-align: var(--hero-align);
-    --hero-flow-space: var(--hero-flow-space);
-    --hero-image-radius: var(--hero-image-radius);
-
     /* Layout */
     --region-space: var(--hero-space);
     padding-inline: var(--space-s-m);

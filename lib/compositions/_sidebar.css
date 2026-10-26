@@ -38,10 +38,10 @@ NOTE
     --sidebar-default-content-min-width: var(--sidebar-content-min-width);
 
     /* Direction Variant Tokens (reverse) */
-    --sidebar-reverse-sidebar-basis: 0;
-    --sidebar-reverse-sidebar-grow: 999;
-    --sidebar-reverse-content-basis: var(--sidebar-target-width);
-    --sidebar-reverse-content-grow: 1;
+    --sidebar-reverse-content-basis: 0;
+    --sidebar-reverse-content-grow: 999;
+    --sidebar-reverse-sidebar-basis: var(--sidebar-target-width);
+    --sidebar-reverse-sidebar-grow: 1;
 
     /* Sticky Variant Tokens */
     --sidebar-sticky-position: sticky;
@@ -51,14 +51,14 @@ NOTE
 
 @layer layout {
   .sidebar {
-    /* Bridge Variables - initialized with default variant (sidebar left) */
+    /* Bridge Variables - initialized with default variant (sidebar left).
+       "first" / "last" refer to the DOM position of the child. */
     --sidebar-first-basis: var(--sidebar-default-sidebar-basis);
     --sidebar-first-grow: var(--sidebar-default-sidebar-grow);
+    --sidebar-first-min-width: auto;
     --sidebar-last-basis: var(--sidebar-default-content-basis);
     --sidebar-last-grow: var(--sidebar-default-content-grow);
     --sidebar-last-min-width: var(--sidebar-default-content-min-width);
-    --sidebar-sticky-position: static;
-    --sidebar-sticky-top: auto;
 
     /* Layout */
     display: flex;
@@ -66,34 +66,34 @@ NOTE
     gap: var(--sidebar-gutter);
   }
 
-  /* Sidebar left (default): first child is the sidebar */
-  .sidebar:not([data-direction]) > :first-child {
+  .sidebar > :first-child {
     flex-basis: var(--sidebar-first-basis);
     flex-grow: var(--sidebar-first-grow);
+    min-width: var(--sidebar-first-min-width);
   }
 
-  .sidebar:not([data-direction]) > :last-child {
+  .sidebar > :last-child {
     flex-basis: var(--sidebar-last-basis);
     flex-grow: var(--sidebar-last-grow);
     min-width: var(--sidebar-last-min-width);
   }
 
-  /* Sidebar right: last child is the sidebar */
+  /* Sidebar right: the last child is the sidebar, the first is the content */
   .sidebar[data-direction="reverse"] {
-    --sidebar-first-basis: var(--sidebar-reverse-sidebar-basis);
-    --sidebar-first-grow: var(--sidebar-reverse-sidebar-grow);
-    --sidebar-last-basis: var(--sidebar-reverse-content-basis);
-    --sidebar-last-grow: var(--sidebar-reverse-content-grow);
+    --sidebar-first-basis: var(--sidebar-reverse-content-basis);
+    --sidebar-first-grow: var(--sidebar-reverse-content-grow);
+    --sidebar-first-min-width: var(--sidebar-content-min-width);
+    --sidebar-last-basis: var(--sidebar-reverse-sidebar-basis);
+    --sidebar-last-grow: var(--sidebar-reverse-sidebar-grow);
+    --sidebar-last-min-width: auto;
   }
 
-  /* Sticky sidebar on desktop */
+  /* Sticky sidebar on desktop. align-self: start is required, otherwise the
+     flex item stretches to the row height and sticky has nothing to travel. */
   @media screen and (min-width: 960px) {
-    .sidebar[data-variant="sticky"] {
-      --sidebar-sticky-position: var(--sidebar-sticky-position);
-      --sidebar-sticky-top: var(--sidebar-sticky-top);
-    }
-
-    .sidebar[data-variant="sticky"] > :first-child {
+    .sidebar[data-variant="sticky"]:not([data-direction]) > :first-child,
+    .sidebar[data-variant="sticky"][data-direction="reverse"] > :last-child {
+      align-self: flex-start;
       position: var(--sidebar-sticky-position);
       top: var(--sidebar-sticky-top);
     }

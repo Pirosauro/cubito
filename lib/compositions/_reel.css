@@ -37,8 +37,8 @@ EXCEPTIONS
 
     /* Image Variant Tokens */
     --reel-img-height: 50vh;
-    --reel-img-block-size: 100%;
-    --reel-img-width: auto;
+    --reel-img-image-block-size: 100%;
+    --reel-img-image-width: auto;
   }
 }
 
@@ -86,8 +86,8 @@ EXCEPTIONS
 
   .reel[data-variant="img"] {
     --reel-height: var(--reel-img-height);
-    --reel-img-block-size: var(--reel-img-block-size);
-    --reel-img-width: var(--reel-img-width);
+    --reel-img-block-size: var(--reel-img-image-block-size);
+    --reel-img-width: var(--reel-img-image-width);
   }
 
   .reel[data-variant="img"] > img {

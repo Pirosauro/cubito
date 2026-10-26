@@ -93,7 +93,6 @@ TOKENS
     --tabs-border: var(--tabs-default-border);
     --tabs-tab-color: var(--tabs-default-tab-color);
     --tabs-tab-hover-color: var(--tabs-default-tab-hover-color);
-    --tabs-tab-padding: var(--tabs-tab-padding);
     --tabs-tablist-gap: var(--space-xxs);
     --tabs-tablist-padding: 0;
     --tabs-tablist-border-bottom: var(--tabs-border);
@@ -106,7 +105,6 @@ TOKENS
     --tabs-panel-border: none;
     --tabs-panel-border-top: none;
     --tabs-panel-radius: 0;
-    --tabs-panel-padding: var(--tabs-panel-padding);
 
     /* Layout */
     display: block;
