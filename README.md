@@ -9,7 +9,7 @@ Enterprise-grade CSS design system built on [CUBE CSS](https://cube.fyi) methodo
 - [Architecture](#architecture)
 - [Installation](#installation)
 - [Quick start](#quick-start)
-- [Required tokens](#required-tokens)
+- [Brand tokens](#brand-tokens)
 - [Configuration model](#configuration-model)
 - [Abstracts (design tokens)](#abstracts-design-tokens)
 - [Base](#base)
@@ -29,7 +29,7 @@ Enterprise-grade CSS design system built on [CUBE CSS](https://cube.fyi) methodo
 The library uses explicit CSS cascade layers, declared in `_layers.css`:
 
 ```
-@layer tokens, reset, layout, blocks, utilities
+@layer tokens, reset, layout, blocks, utilities, theme
 ```
 
 | Folder          | Layer(s)           | Purpose                                              |
@@ -39,6 +39,7 @@ The library uses explicit CSS cascade layers, declared in `_layers.css`:
 | `compositions/` | `layout`           | Layout primitives (Every Layout patterns)            |
 | `blocks/`       | `blocks`           | Reusable UI components                               |
 | `utilities/`    | `utilities`        | Single-purpose helpers                               |
+|                 | `theme`            | Reserved for your own overrides (highest precedence) |
 
 ---
 
@@ -62,67 +63,89 @@ Import layers in order. `_layers.css` must be the very first import.
 
 /* 1. Abstracts — design tokens */
 @import "@cubito/ui/lib/abstracts/_theme.css";
+@import "@cubito/ui/lib/abstracts/_icons.css";
 @import "@cubito/ui/lib/abstracts/_z-index.css";
 @import "@cubito/ui/lib/abstracts/_motion.css";
 @import "@cubito/ui/lib/abstracts/_spacing.css";
 @import "@cubito/ui/lib/abstracts/_typography.css";
 
 /* 2. Base — element defaults */
-@import "@cubito/ui/lib/base/_reset.css";
 @import "@cubito/ui/lib/base/_button.css";
 @import "@cubito/ui/lib/base/_code.css";
 @import "@cubito/ui/lib/base/_details.css";
 @import "@cubito/ui/lib/base/_form.css";
 @import "@cubito/ui/lib/base/_nav.css";
+@import "@cubito/ui/lib/base/_reset.css";
 @import "@cubito/ui/lib/base/_table.css";
 @import "@cubito/ui/lib/base/_tooltip.css";
 
 /* 3. Compositions — layout primitives */
 @import "@cubito/ui/lib/compositions/_cluster.css";
+@import "@cubito/ui/lib/compositions/_cover.css";
 @import "@cubito/ui/lib/compositions/_dialog.css";
 @import "@cubito/ui/lib/compositions/_frame.css";
 @import "@cubito/ui/lib/compositions/_grid.css";
 @import "@cubito/ui/lib/compositions/_reel.css";
 @import "@cubito/ui/lib/compositions/_repel.css";
 @import "@cubito/ui/lib/compositions/_sidebar.css";
+@import "@cubito/ui/lib/compositions/_sticky-bar.css";
 @import "@cubito/ui/lib/compositions/_switcher.css";
 
 /* 4. Blocks — UI components */
+@import "@cubito/ui/lib/blocks/_avatar.css";
+@import "@cubito/ui/lib/blocks/_badge.css";
+@import "@cubito/ui/lib/blocks/_banner.css";
 @import "@cubito/ui/lib/blocks/_breadcrumb.css";
 @import "@cubito/ui/lib/blocks/_callout.css";
 @import "@cubito/ui/lib/blocks/_card.css";
+@import "@cubito/ui/lib/blocks/_data-list.css";
 @import "@cubito/ui/lib/blocks/_dialog.css";
+@import "@cubito/ui/lib/blocks/_drawer.css";
+@import "@cubito/ui/lib/blocks/_empty-state.css";
 @import "@cubito/ui/lib/blocks/_footnote.css";
 @import "@cubito/ui/lib/blocks/_hero.css";
+@import "@cubito/ui/lib/blocks/_pagination.css";
 @import "@cubito/ui/lib/blocks/_pictogram.css";
+@import "@cubito/ui/lib/blocks/_price.css";
+@import "@cubito/ui/lib/blocks/_progress-bar.css";
 @import "@cubito/ui/lib/blocks/_prose.css";
+@import "@cubito/ui/lib/blocks/_rating.css";
+@import "@cubito/ui/lib/blocks/_stepper.css";
+@import "@cubito/ui/lib/blocks/_tabs.css";
+@import "@cubito/ui/lib/blocks/_tag.css";
+@import "@cubito/ui/lib/blocks/_toast.css";
 
 /* 5. Utilities — always last */
 @import "@cubito/ui/lib/utilities/_accessibility.css";
 @import "@cubito/ui/lib/utilities/_animation.css";
+@import "@cubito/ui/lib/utilities/_aspect.css";
 @import "@cubito/ui/lib/utilities/_border.css";
 @import "@cubito/ui/lib/utilities/_color.css";
-@import "@cubito/ui/lib/utilities/_display.css";
 @import "@cubito/ui/lib/utilities/_flow.css";
 @import "@cubito/ui/lib/utilities/_gap.css";
+@import "@cubito/ui/lib/utilities/_low-contrast.css";
 @import "@cubito/ui/lib/utilities/_print.css";
 @import "@cubito/ui/lib/utilities/_region.css";
 @import "@cubito/ui/lib/utilities/_shadow.css";
 @import "@cubito/ui/lib/utilities/_skeleton.css";
-@import "@cubito/ui/lib/utilities/_space.css";
+@import "@cubito/ui/lib/utilities/_spacing.css";
+@import "@cubito/ui/lib/utilities/_sticky.css";
+@import "@cubito/ui/lib/utilities/_truncate.css";
 @import "@cubito/ui/lib/utilities/_typography.css";
 @import "@cubito/ui/lib/utilities/_wide.css";
 @import "@cubito/ui/lib/utilities/_with-icon.css";
 @import "@cubito/ui/lib/utilities/_wrapper.css";
 ```
 
-> **Legacy:** `utilities/_spacing.css` (`.padding-1`, `.margin-2`, …) is deprecated in favour of `_space.css` (`.padding-s`, `.margin-m`, …). It remains importable for backward compatibility.
+> **Legacy:** `utilities/_spacing-legacy.css` (`.padding-1`, `.margin-2`, …, based on the 8px `--su` unit) is deprecated in favour of `utilities/_spacing.css` (`.padding-s`, `.margin-m`, …, based on the fluid `--space-*` scale). It is not part of the quick start above but remains importable for backward compatibility.
+>
+> Import only what you use: every file is independent and declares its own tokens in `@layer tokens`.
 
 ---
 
-## Required tokens
+## Brand tokens
 
-Define `--color-brand` and `--color-accent` in your own `:root` block **before** importing the library. Everything else has sensible defaults.
+Define `--color-brand` and `--color-accent` in your own `:root` block. Both have defaults (`#26e`, and accent follows brand) declared in `@layer tokens`, so your unlayered declaration wins regardless of import order. Everything else has sensible defaults too.
 
 ```css
 /* app/global.css */
@@ -131,8 +154,7 @@ Define `--color-brand` and `--color-accent` in your own `:root` block **before**
   --color-accent: #f59e0b;
 }
 
-@import "@cubito/ui/lib/abstracts/_theme.css";
-/* … rest of imports */
+/* … library imports, before or after — the layer order decides */
 ```
 
 ---
@@ -168,7 +190,7 @@ Variants (`data-variant`) and states (`:hover`, `:disabled`, `[aria-pressed]`) s
   --body-background: var(--color-neutral-900);
   --body-color: var(--color-neutral-100);
   --card-background: var(--color-neutral-800);
-  --card-border: solid 1px var(--color-neutral-700);
+  --card-border-color: var(--color-neutral-700);
 }
 ```
 
@@ -177,7 +199,8 @@ Variants (`data-variant`) and states (`:hover`, `:disabled`, `[aria-pressed]`) s
 <article
   class="card"
   style="
-  --card-border:     solid 2px var(--color-brand);
+  --card-border-color: var(--color-brand);
+  --card-border-width: 2px;
   --card-background: color-mix(in srgb, var(--color-brand) 5%, white);
 "
 >
@@ -202,10 +225,10 @@ Variants (`data-variant`) and states (`:hover`, `:disabled`, `[aria-pressed]`) s
 --color-brand, --color-accent
 
 /* Status */
---color-status-ok       /* #16a34a — green  */
---color-status-warning  /* #d97706 — amber  */
---color-status-ko       /* #dc2626 — red    */
---color-status-info     /* #2563eb — blue   */
+--color-status-ok       /* #173 — green,  5.66:1 on white */
+--color-status-warning  /* #b50 — amber,  4.76:1 on white */
+--color-status-ko       /* #d22 — red,    4.85:1 on white */
+--color-status-info     /* #26b — blue,   5.70:1 on white */
 
 /* Border scale */
 --border-s   /* 0.0625rem  ~1px */
@@ -222,7 +245,7 @@ Variants (`data-variant`) and states (`:hover`, `:disabled`, `[aria-pressed]`) s
 --focus-ring  /* shorthand */
 
 /* Transitions */
---transition  /* 0.25s cubic-bezier(0.4, 0, 0.2, 1) */
+--transition  /* 250ms ease — prefer --motion-* for fine control */
 ```
 
 ### `_z-index.css`
@@ -277,7 +300,7 @@ Fluid `clamp()` tokens between 320 px (min) and 1240 px (max) viewports.
 | `--space-xxl`  | 4rem    | 5rem    |
 | `--space-huge` | 6rem    | 7.5rem  |
 
-One-up pairs (e.g. `--space-s-m`) span two adjacent steps. `--gutter` is a fluid one-up pair used as the default gap in compositions.
+One-up pairs (e.g. `--space-s-m`) span two adjacent steps. `--gutter` is a fluid one-up pair used by `.wrapper` for its inline padding; each composition has its own gap token (`--cluster-gutter`, `--grid-gutter`, …), which defaults to `--space-s-l`.
 
 ### `_typography.css`
 
@@ -490,7 +513,7 @@ Distributes items with consistent wrapping.
 </ul>
 ```
 
-**Tokens:** `--gutter`, `--cluster-horizontal-alignment`, `--cluster-vertical-alignment`
+**Tokens:** `--cluster-gutter`, `--cluster-horizontal-alignment`, `--cluster-vertical-alignment`
 
 ### `.grid`
 
@@ -507,7 +530,7 @@ Auto-fill responsive grid. No media queries.
 <!-- 3 columns -->
 ```
 
-**Tokens:** `--grid-min-item-size` (default `16rem`), `--grid-placement`, `--gutter`
+**Tokens:** `--grid-min-item-size` (default `16rem`), `--grid-placement`, `--grid-gutter`
 
 ### `.sidebar`
 
@@ -523,7 +546,7 @@ Fixed-width sidebar + flexible main. Stacks below threshold. No media queries.
 <div class="sidebar" data-variant="sticky">…</div>
 ```
 
-**Tokens:** `--sidebar-target-width` (default `20rem`), `--sidebar-content-min-width` (default `50%`), `--gutter`
+**Tokens:** `--sidebar-target-width` (default `20rem`), `--sidebar-content-min-width` (default `50%`), `--sidebar-gutter`
 
 ### `.switcher`
 
@@ -537,7 +560,7 @@ Horizontal ↔ stacked layout at a container width threshold.
 </div>
 ```
 
-**Tokens:** `--switcher-target-container-width` (default `40rem`), `--gutter`, `--switcher-vertical-alignment`
+**Tokens:** `--switcher-target-container-width` (default `40rem`), `--switcher-gutter`, `--switcher-vertical-alignment`
 
 ### `.reel`
 
@@ -549,7 +572,7 @@ Horizontal scroll row with optional snap.
 <div class="reel" data-variant="img">…</div>
 ```
 
-**Tokens:** `--reel-item-width`, `--reel-space`
+**Tokens:** `--reel-item-width`, `--reel-space`, `--reel-img-height`
 
 ### `.repel`
 
@@ -562,7 +585,7 @@ Pushes two groups apart; stacks on narrow viewports.
 </div>
 ```
 
-**Tokens:** `--gutter`, `--repel-vertical-alignment`
+**Tokens:** `--repel-gutter`, `--repel-vertical-alignment`
 
 ### `.frame`
 
@@ -607,7 +630,7 @@ Fixed overlay that centres a dialog. Prefer `<dialog showModal()>` where possibl
 <article class="card" data-layout="horizontal">…</article>
 ```
 
-**Tokens:** `--card-background`, `--card-border`, `--card-radius`, `--card-padding`, `--card-image-ratio`, `--card-image-width`
+**Tokens:** `--card-background`, `--card-border-color`, `--card-border-style`, `--card-border-width`, `--card-radius`, `--card-padding`, `--card-image-ratio`, `--card-image-width` (each state/variant also has `--card-default-*` counterparts)
 
 ### `.callout`
 
@@ -721,9 +744,9 @@ Fixed overlay that centres a dialog. Prefer `<dialog showModal()>` where possibl
 ### Spacing
 
 ```html
-<section class="padding-4">Large padded section</section>
-<div class="padding-2-inline margin-1-block">…</div>
-<div class="margin-auto-inline">Horizontally centred</div>
+<section class="padding-l">Large padded section</section>
+<div class="padding-x-s margin-y-xs">…</div>
+<div class="margin-x-auto">Horizontally centred</div>
 ```
 
 ### Flow
@@ -852,7 +875,7 @@ Tokens follow a `{category}-{scale}` or `{category}-{scale}-{modifier}` pattern.
 
 Component tokens are **prefixed with the component name**: `--button-*`, `--card-*`, `--dialog-*`, etc.
 
-Internal state tokens not intended for consumer override are **prefixed `--_`**: `--_button-shadow`, `--_button-transform`.
+Each component declares its tokens in `@layer tokens` as `--{component}-default-*` (plus `--{component}-{variant}-*` for variants). The unprefixed `--{component}-*` variables are the optional local overrides described in [Configuration model](#configuration-model).
 
 ### Data attributes
 
@@ -885,7 +908,7 @@ Internal state tokens not intended for consumer override are **prefixed `--_`**:
 ## Accessibility
 
 - `:focus-visible` is handled globally in `_reset.css`.
-- Skip link: `<a href="#main" class="skip-link">Skip to content</a>` — first child of `<body>`. The target region is visibly highlighted via `:target`.
+- Skip link: `<a href="#main" class="skip-link">Skip to content</a>` — first child of `<body>`. Targets of in-page links get a `scroll-margin-top` via `:target` so they are not flush with the viewport edge.
 - `.sr-only` / `.visually-hidden` for screen-reader-only text.
 - `prefers-reduced-motion` collapses all `--motion-duration-*` tokens to `0ms`.
 - `forced-colors` (Windows High Contrast) supported in `_reset.css`.
@@ -904,7 +927,7 @@ Dark mode is supported through the cascade, not a separate theme API. The librar
   --body-background: var(--color-white);
   --body-color: var(--color-black);
   --card-background: var(--color-white);
-  --card-border: solid var(--border-m) var(--color-neutral-200);
+  --card-border-color: var(--color-neutral-200);
 }
 
 .force-dark {
@@ -912,7 +935,7 @@ Dark mode is supported through the cascade, not a separate theme API. The librar
   --body-background: var(--color-neutral-900);
   --body-color: var(--color-neutral-100);
   --card-background: var(--color-neutral-800);
-  --card-border: solid var(--border-m) var(--color-neutral-700);
+  --card-border-color: var(--color-neutral-700);
 }
 ```
 

@@ -198,6 +198,11 @@ NOTE ON LOCAL OVERRIDES
 
     /* --- Outline variant --- */
 
+    --button-outline-opacity-hover: 1;
+    --button-outline-opacity-active: 1;
+    --button-outline-shadow-hover: none;
+    --button-outline-shadow-active: none;
+    --button-outline-transform-hover: none;
     --button-outline-transform-active: scale(0.95);
     --button-outline-background-hover: color-mix(
       in srgb,
@@ -207,6 +212,7 @@ NOTE ON LOCAL OVERRIDES
 
     /* --- Ghost variant --- */
 
+    --button-ghost-transform-hover: none;
     --button-ghost-transform-active: scale(0.95);
     --button-ghost-background-hover: color-mix(
       in srgb,

@@ -1,105 +1,186 @@
-import { readFileSync } from 'node:fs';
-import { resolve } from 'node:path';
+import { readFileSync, readdirSync } from 'node:fs';
+import { join, relative, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = resolve(fileURLToPath(new URL('..', import.meta.url)));
+const lib = join(root, 'lib');
 
-function read(relativePath) {
-  return readFileSync(resolve(root, relativePath), 'utf8');
+const unique = (list) => [...new Set(list)];
+
+const errors = [];
+const warnings = [];
+
+const read = (relativePath) => readFileSync(resolve(root, relativePath), 'utf8');
+const check = (condition, message) => { if (!condition) errors.push(message); };
+const warn = (condition, message) => { if (!condition) warnings.push(message); };
+
+function cssFiles(dir) {
+  return readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
+    const path = join(dir, entry.name);
+    if (entry.isDirectory()) return cssFiles(path);
+    return entry.name.endsWith('.css') ? [path] : [];
+  });
 }
 
-function assert(condition, message) {
-  if (!condition) {
-    throw new Error(message);
+const stripComments = (source) => source.replace(/\/\*[\s\S]*?\*\//g, '');
+
+// email.css is a standalone, un-layered stylesheet: it is not part of the token system.
+const files = cssFiles(lib)
+  .filter((file) => !file.endsWith('email.css'))
+  .map((file) => ({ name: relative(root, file), source: stripComments(readFileSync(file, 'utf8')) }));
+
+// ---------------------------------------------------------------------------
+// Token resolution — read the real values from the CSS, never a hardcoded copy
+// ---------------------------------------------------------------------------
+
+const declarations = new Map(); // --token -> last declared value
+for (const { source } of files) {
+  for (const [, name, value] of source.matchAll(/(--[\w-]+)\s*:\s*([^;{}]+);/g)) {
+    declarations.set(name, value.trim());
   }
 }
 
-function hexToRgb(hex) {
+function resolveColor(value, seen = new Set()) {
+  const hex = value.match(/^#(?:[0-9a-f]{3}|[0-9a-f]{6})$/i);
+  if (hex) return value;
+
+  const reference = value.match(/^var\(\s*(--[\w-]+)\s*(?:,\s*([^)]+))?\)$/);
+  if (!reference) return null;
+
+  const [, name, fallback] = reference;
+  if (seen.has(name)) return null;
+  seen.add(name);
+
+  const next = declarations.get(name) ?? fallback?.trim();
+  return next ? resolveColor(next, seen) : null;
+}
+
+const color = (token) => {
+  const value = declarations.get(token);
+  const resolved = value && resolveColor(value);
+  check(resolved, `cannot resolve ${token} to a hex colour (found: ${value ?? 'nothing'})`);
+  return resolved;
+};
+
+function luminance(hex) {
   const normalized = hex.replace('#', '');
   const expanded = normalized.length === 3
     ? normalized.split('').map((char) => char + char).join('')
     : normalized;
-
-  return [0, 2, 4].map((offset) => Number.parseInt(expanded.slice(offset, offset + 2), 16) / 255);
-}
-
-function linearize(channel) {
-  return channel <= 0.03928
-    ? channel / 12.92
-    : ((channel + 0.055) / 1.055) ** 2.4;
+  const [r, g, b] = [0, 2, 4].map((offset) => {
+    const channel = Number.parseInt(expanded.slice(offset, offset + 2), 16) / 255;
+    return channel <= 0.03928 ? channel / 12.92 : ((channel + 0.055) / 1.055) ** 2.4;
+  });
+  return 0.2126 * r + 0.7152 * g + 0.0722 * b;
 }
 
 function contrastRatio(foreground, background) {
-  const [fr, fg, fb] = hexToRgb(foreground);
-  const [br, bg, bb] = hexToRgb(background);
-  const foregroundLuminance = 0.2126 * linearize(fr) + 0.7152 * linearize(fg) + 0.0722 * linearize(fb);
-  const backgroundLuminance = 0.2126 * linearize(br) + 0.7152 * linearize(bg) + 0.0722 * linearize(bb);
-  const lighter = Math.max(foregroundLuminance, backgroundLuminance);
-  const darker = Math.min(foregroundLuminance, backgroundLuminance);
+  const [lighter, darker] = [luminance(foreground), luminance(background)].sort((a, b) => b - a);
   return (lighter + 0.05) / (darker + 0.05);
 }
 
-function tokenValue(source, tokenName) {
-  const matches = [...source.matchAll(new RegExp(`${tokenName}:\\s*([^;]+);`, 'gm'))];
-  assert(matches.length > 0, `missing token ${tokenName}`);
-  return matches[matches.length - 1][1].trim();
-}
+const AA_TEXT = 4.5; // WCAG 1.4.3 — documented target in abstracts/_theme.css
+const AA_UI = 3; //     WCAG 1.4.11 — non-text contrast
 
-function resolveColor(value, tokenMap) {
-  const hexMatch = value.match(/#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})/);
-  if (hexMatch) {
-    return hexMatch[0];
-  }
+const white = color('--color-white');
 
-  const variableMatch = value.match(/var\((--[a-z0-9-]+)/i);
-  assert(variableMatch, `cannot resolve color value: ${value}`);
-  const resolved = tokenMap.get(variableMatch[1]);
-  assert(resolved, `unknown color token: ${variableMatch[1]}`);
-  return resolved;
-}
+// ---------------------------------------------------------------------------
+// Structural contracts
+// ---------------------------------------------------------------------------
 
-const theme = read('lib/abstracts/_theme.css');
-const button = read('lib/base/_button.css');
+const layers = read('lib/abstracts/_layers.css');
 const reset = read('lib/base/_reset.css');
 const motion = read('lib/abstracts/_motion.css');
-const layers = read('lib/abstracts/_layers.css');
+const accessibility = read('lib/utilities/_accessibility.css');
 const layout = read('website/src/layouts/base.liquid');
 
-assert(layers.includes('@layer tokens, reset, layout, blocks, utilities, theme;'), 'layer order declaration is missing or changed');
-assert(layout.includes('<a class="skip-link" href="#main">Skip to content</a>'), 'skip-link target in the docs layout is incorrect');
-assert(reset.includes('main:target'), 'main:target highlight is missing from the reset');
-assert(motion.includes('--motion-duration-instant: 0ms;'), 'reduced-motion token collapse is missing');
-assert(motion.includes('--motion-duration-deliberate: 0ms;'), 'reduced-motion token collapse is incomplete');
+check(
+  layers.includes('@layer tokens, reset, layout, blocks, utilities, theme;'),
+  'layer order declaration is missing or changed',
+);
+check(
+  layout.includes('<a class="skip-link" href="#main">Skip to content</a>'),
+  'skip-link target in the docs layout is incorrect',
+);
+check(accessibility.includes('.skip-link'), 'skip-link utility is missing');
+check(/(^|\s):target\s*\{/.test(reset), ':target rule is missing from the reset');
+check(
+  /--motion-duration-instant:\s*0ms;/.test(motion) && /--motion-duration-deliberate:\s*0ms;/.test(motion),
+  'reduced-motion token collapse is missing or incomplete',
+);
 
-const tokenMap = new Map([
-  ['--color-white', '#fff'],
-  ['--color-black', '#0a0a0a'],
-  ['--color-neutral-50', '#fcfcfc'],
-  ['--color-neutral-100', '#f5f5f5'],
-  ['--color-neutral-200', '#e2e2e2'],
-  ['--color-neutral-300', '#c9c9c9'],
-  ['--color-neutral-400', '#999999'],
-  ['--color-neutral-500', '#6d6d6d'],
-  ['--color-neutral-600', '#4b4b4b'],
-  ['--color-neutral-700', '#333333'],
-  ['--color-neutral-800', '#1e1e1e'],
-  ['--color-neutral-900', '#121212'],
-  ['--color-neutral-950', '#0a0a0a'],
-  ['--color-status-ok', '#166534'],
-  ['--color-status-warning', '#92400e'],
-  ['--color-status-ko', '#991b1b'],
-  ['--color-status-info', '#1e40af'],
-]);
+// ---------------------------------------------------------------------------
+// Documentation drift — the README quick start must match the files on disk
+// ---------------------------------------------------------------------------
 
-const buttonBackground = resolveColor(tokenValue(button, '--button-default-background'), tokenMap);
-const buttonForeground = resolveColor(tokenValue(button, '--button-default-color'), tokenMap);
+const readme = read('README.md');
+const docsIndex = read('docs/index.mdx');
+const imported = (source) => [...source.matchAll(/@cubito\/ui\/(lib\/[\w/.-]+\.css)/g)].map((match) => match[1]);
+const onDisk = cssFiles(lib)
+  .map((file) => relative(root, file))
+  .filter((file) => !file.endsWith('email.css') && !file.endsWith('_spacing-legacy.css'));
 
-assert(contrastRatio(buttonForeground, buttonBackground) >= 7, 'default button contrast is below AAA');
-
-for (const tokenName of ['--color-status-ok', '--color-status-warning', '--color-status-ko', '--color-status-info']) {
-  const background = tokenMap.get(tokenName);
-  assert(background, `missing status token ${tokenName}`);
-  assert(contrastRatio('#ffffff', background) >= 7, `${tokenName} does not meet AAA with white text`);
+for (const file of unique(imported(readme).concat(imported(docsIndex)))) {
+  check(onDisk.includes(file) || file.endsWith('_spacing-legacy.css'), `docs import ${file}, which does not exist`);
+}
+for (const file of onDisk) {
+  check(imported(readme).includes(file), `README quick start does not import ${file}`);
 }
 
-console.log('Cubito verification passed');
+const declaredOrder = layers.match(/@layer ([\w, ]+);/)?.[1];
+for (const [name, source] of [['README.md', readme], ['docs/index.mdx', docsIndex]]) {
+  for (const [, order] of source.matchAll(/@layer ([a-z, ]+)(?:;|\n)/g)) {
+    if (order.includes(',')) check(order.trim() === declaredOrder, `${name} documents layer order "${order.trim()}", but _layers.css declares "${declaredOrder}"`);
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Contrast — values come from the CSS
+// ---------------------------------------------------------------------------
+
+const buttonBackground = color('--button-default-background');
+const buttonForeground = color('--button-default-color');
+
+if (buttonBackground && buttonForeground) {
+  const ratio = contrastRatio(buttonForeground, buttonBackground);
+  check(ratio >= AA_TEXT, `default button contrast is ${ratio.toFixed(2)}:1, below AA (${AA_TEXT}:1)`);
+}
+
+for (const token of ['--color-status-ok', '--color-status-warning', '--color-status-ko', '--color-status-info']) {
+  const background = color(token);
+  if (!background) continue;
+  const ratio = contrastRatio(white, background);
+  check(ratio >= AA_TEXT, `${token} (${background}) is ${ratio.toFixed(2)}:1 with white text, below AA (${AA_TEXT}:1)`);
+}
+
+const inputBorder = resolveColor(declarations.get('--input-default-border-color') ?? declarations.get('--input-border-color') ?? '');
+if (inputBorder) {
+  const ratio = contrastRatio(inputBorder, white);
+  warn(ratio >= AA_UI, `input border (${inputBorder}) is ${ratio.toFixed(2)}:1 on white, below ${AA_UI}:1 for UI components (WCAG 1.4.11)`);
+}
+
+// ---------------------------------------------------------------------------
+// Custom property hygiene
+// ---------------------------------------------------------------------------
+
+for (const { name, source } of files) {
+  for (const [, property] of source.matchAll(/(--[\w-]+)\s*:\s*var\(\s*\1\s*[,)]/g)) {
+    check(false, `${name}: ${property} references itself (cyclic, invalid at computed-value time)`);
+  }
+
+  for (const [, property] of source.matchAll(/var\(\s*(--[\w-]+)\s*\)/g)) {
+    check(declarations.has(property), `${name}: var(${property}) has no fallback and the token is never defined`);
+  }
+}
+
+// ---------------------------------------------------------------------------
+
+for (const message of unique(warnings)) console.warn(`warning: ${message}`);
+
+if (errors.length > 0) {
+  for (const message of unique(errors)) console.error(`error: ${message}`);
+  console.error(`\nCubito verification failed (${unique(errors).length} error(s), ${unique(warnings).length} warning(s))`);
+  process.exit(1);
+}
+
+console.log(`Cubito verification passed (${unique(warnings).length} warning(s))`);

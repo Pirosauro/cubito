@@ -1,8 +1,9 @@
 # Spacing
 
-Spacing in `@cubito/ui` is built on two complementary systems that work
-together: a **legacy spacing unit** (`--su`) used in utility classes, and a
-**fluid spacing scale** (`--space-*`) used in components.
+Spacing in `@cubito/ui` is built on a **fluid spacing scale** (`--space-*`)
+used by both components and the `.padding-*` / `.margin-*` utilities. A
+**legacy spacing unit** (`--su`) survives only in the deprecated
+`utilities/_spacing-legacy.css`.
 
 ---
 
@@ -50,33 +51,34 @@ Ideal for gutters and section padding.
 | `--space-xxl-huge` | `--space-xxl`  | `--space-huge` |
 | `--space-s-l`      | `--space-s`    | `--space-l`    |
 
-`--gutter` is a fluid one-up pair (`--space-s-m`) used as the default gap
-across all layout compositions.
+`--gutter` is a fluid one-up pair (equal to `--space-s-m`) used by `.wrapper`
+for its inline padding. Each layout composition has its own gap token
+(`--cluster-gutter`, `--grid-gutter`, …) that defaults to `--space-s-l`.
 
 ---
 
 ## Legacy Spacing Unit (`--su`)
 
-A fixed 0.5 rem (~8 px) unit. Used exclusively by the `.padding-*` and
-`.margin-*` utility classes for quick template overrides. In new components,
-use `--space-*` tokens instead.
+A fixed 0.5 rem (~8 px) unit. Used only by the deprecated
+`utilities/_spacing-legacy.css` (`.padding-2`, `.margin-y-1`, …). New code
+should use the `--space-*` scale and `utilities/_spacing.css` instead.
 
 ```css
 :root {
   --su: 0.5rem; /* ~8px */
 }
 
-/* Utility class usage */
+/* Legacy utility class usage */
 .padding-2 {
   padding: calc(2 * var(--su));
 } /* 1rem */
-.padding-2-block {
+.padding-y-2 {
   padding-block: calc(2 * var(--su));
 }
 ```
 
 Multipliers available: `0`, `½`, `1`, `1½`, `2`, `2½`, `3`, `4`.
-Axes available: (all sides), `-block`, `-inline`.
+Axes available: (all sides), `-y` (block), `-x` (inline).
 
 ---
 
@@ -95,17 +97,17 @@ Axes available: (all sides), `-block`, `-inline`.
 
 ```html
 <!-- Quick one-off overrides in markup -->
-<section class="padding-4-block">…</section>
-<div class="margin-2-inline">…</div>
+<section class="padding-y-l">…</section>
+<div class="margin-x-s">…</div>
 ```
 
-### In layouts: use `--gutter`
+### In layouts: use the composition's gutter token
 
-Composition primitives default their gap to `var(--gutter)`. Override per
-component:
+Composition primitives default their gap to `var(--space-s-l)` through their own
+token. Override per component:
 
 ```html
-<div class="grid" style="--gutter: var(--space-xl)">…</div>
+<div class="grid" style="--grid-gutter: var(--space-xl)">…</div>
 ```
 
 ### Avoid fixed pixel values

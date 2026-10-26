@@ -8,10 +8,11 @@ COLOUR SYSTEM
   Semantic:  Role-based aliases — always use these in components.
   Status:    Feedback colours — ok / warning / ko / info.
 
-REQUIRED APPLICATION TOKENS
-  Consuming applications MUST define --color-brand and --color-accent in their
-  own :root block before importing this library. Everything else has sensible
-  defaults.
+APPLICATION TOKENS
+  Consuming applications should define --color-brand and --color-accent in
+  their own :root block. The defaults below live in @layer tokens, so any
+  unlayered declaration wins regardless of import order. Everything else has
+  sensible defaults too.
 
 CONFIGURATION
   All component tokens (--button-background, --card-border, etc.) are plain
@@ -50,10 +51,10 @@ CONFIGURATION
     --color-neutral-900: #121212;
     --color-neutral-950: #0a0a0a;
 
-    /* --- Semantic (define in your application before importing) --- */
+    /* --- Semantic (override in your application) --- */
 
-    /* --color-brand:  #your-brand-color; */
-    /* --color-accent: #your-accent-color; */
+    --color-brand: #26e; /* 5.00:1 on white */
+    --color-accent: var(--color-brand);
 
     /* --- Status --- */
 
@@ -100,12 +101,13 @@ CONFIGURATION
     --shadow-l: 0 0.5rem 0;
     --shadow-m: 0 0.25rem 0;
     --shadow-s: 0 0.125rem 0;
-
-    /* Registered custom property — enables smooth text-underline-offset transition */
-    @property --underline-offset {
-      syntax: "<length>";
-      inherits: false;
-      initial-value: 2px;
-    }
   }
+}
+
+/* Registered custom property — enables smooth text-underline-offset transition.
+   @property cannot be nested inside a style rule, so it lives at the top level. */
+@property --underline-offset {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 2px;
 }

@@ -50,16 +50,17 @@ Every file in the library is scoped to a named `@layer`. The recommended
 import order declares layers once, in ascending priority order:
 
 ```css
-@layer reset, tokens, composition, blocks, utility;
+@layer tokens, reset, layout, blocks, utilities, theme;
 ```
 
-| Layer         | Source folder          | Purpose                                    |
-| ------------- | ---------------------- | ------------------------------------------ |
-| `reset`       | `base/_reset.css`      | Browser normalisation                      |
-| `tokens`      | `abstracts/`, `base/_button.css`, `base/_form.css` | Design tokens (`:root` custom properties) |
-| `composition` | `compositions/`        | Layout skeletons (cluster, grid, sidebar…) |
-| `blocks`      | `base/`, `blocks/`     | Component and element styles               |
-| `utility`     | `utilities/`           | Single-responsibility overrides            |
+| Layer       | Source folder                       | Purpose                                              |
+| ----------- | ----------------------------------- | ---------------------------------------------------- |
+| `tokens`    | `abstracts/`, plus `:root` blocks in every component file | Design tokens (`:root` custom properties) |
+| `reset`     | `base/_reset.css`                   | Browser normalisation                                |
+| `layout`    | `compositions/`                     | Layout skeletons (cluster, grid, sidebar…)           |
+| `blocks`    | `base/` (except the reset), `blocks/` | Component and element styles                       |
+| `utilities` | `utilities/`                        | Single-responsibility overrides                      |
+| `theme`     | — (yours)                           | Optional theme overrides, highest layer precedence   |
 
 **Why this order matters:**
 
@@ -67,8 +68,9 @@ import order declares layers once, in ascending priority order:
   text alignment without `!important`.
 - Block styles win over compositions → a component can override a layout default
   cleanly.
-- Token overrides at `:root` propagate everywhere because `@layer tokens` sits
-  above `@layer reset` — the reset layer only uses tokens, never re-declares them.
+- Tokens sit in the lowest layer, so any declaration you make outside the
+  library's layers (or in `@layer theme`) overrides them without specificity
+  tricks. The reset only consumes tokens, it never re-declares them.
 
 ### Overriding tokens
 
@@ -106,7 +108,7 @@ any input, button, or component token from a `<style>` block or a later layer:
 ### Compositions (Every Layout primitives)
 
 Lowercase, single word: `.cluster`, `.grid`, `.sidebar`, `.switcher`,
-`.reel`, `.frame`, `.repel`, `.dialog`
+`.reel`, `.frame`, `.repel`, `.cover`, `.sticky-bar`, `.dialog`
 
 ### Blocks (UI components)
 
@@ -120,8 +122,8 @@ Lowercase, property-first naming:
 
 | Pattern                     | Example                                 |
 | --------------------------- | --------------------------------------- |
-| `{property}-{value}`        | `.padding-2`, `.margin-auto`            |
-| `{property}-{value}-{axis}` | `.padding-1-block`, `.margin-0-inline`  |
+| `{property}-{scale}`        | `.padding-s`, `.margin-auto`            |
+| `{property}-{axis}-{scale}` | `.padding-y-s`, `.margin-x-auto`        |
 | `{property}-{scale}`        | `.text-l`, `.heading-m`                 |
 | `.{name}`                   | `.flow`, `.wrapper`, `.region`, `.wide` |
 | `.{verb}`                   | `.flex`, `.hidden`, `.flex-col`         |

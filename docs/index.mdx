@@ -10,8 +10,9 @@ fluid-responsive design tokens.
 ## Quick start
 
 ```css
-/* 1. Declare layer order (controls cascade precedence) */
-@layer reset, tokens, composition, blocks, utility;
+/* 1. Declare layer order (controls cascade precedence).
+      It must come first: abstracts/_layers.css contains exactly this line. */
+@import "@cubito/ui/lib/abstracts/_layers.css";
 
 /* 2. Import in any order — the layer declaration above governs precedence */
 @import "@cubito/ui/lib/abstracts/_motion.css";
@@ -28,20 +29,25 @@ fluid-responsive design tokens.
 
 ## CSS Cascade Layers
 
-Every file in the library is scoped to a named `@layer`. The recommended
-import-order declaration is:
+Every file in the library is scoped to a named `@layer`. The order is declared
+once, in `abstracts/_layers.css`:
 
 ```css
-@layer reset, tokens, composition, blocks, utility;
+@layer tokens, reset, layout, blocks, utilities, theme;
 ```
 
-| Layer         | Files                                                   | Priority (higher = wins) |
-| ------------- | ------------------------------------------------------- | ------------------------ |
-| `reset`       | `base/_reset.css`                                       | lowest                   |
-| `tokens`      | `abstracts/*.css`, `base/_button.css`, `base/_form.css` | ↑                        |
-| `composition` | `compositions/*.css`                                    | ↑                        |
-| `blocks`      | `base/*.css`, `blocks/*.css`                            | ↑                        |
-| `utility`     | `utilities/*.css`                                       | highest                  |
+| Layer       | Files                                                              | Priority (higher = wins) |
+| ----------- | ------------------------------------------------------------------ | ------------------------ |
+| `tokens`    | `abstracts/*.css`, plus the `:root` tokens each file declares      | lowest                   |
+| `reset`     | `base/_reset.css`                                                  | ↑                        |
+| `layout`    | `compositions/*.css`                                               | ↑                        |
+| `blocks`    | `base/*.css` (except the reset), `blocks/*.css`                    | ↑                        |
+| `utilities` | `utilities/*.css`                                                  | ↑                        |
+| `theme`     | none — reserved for your own overrides                             | highest                  |
+
+Component files declare their tokens in `@layer tokens` and their rules in
+their own layer, so tokens never compete with component rules. Your own
+un-layered CSS always beats every layer.
 
 Utility classes intentionally have the highest precedence so a single-property
 helper (e.g. `.text-center`) can always override a component default.

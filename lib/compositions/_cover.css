@@ -50,9 +50,16 @@ TOKENS
 @layer tokens {
   :root {
     --cover-min-height: 100vh;
-    --cover-min-height: 100dvh;
     --cover-padding: var(--space-s);
     --cover-gap: var(--space-s);
+  }
+
+  /* Custom properties take no fallback declarations: the last one wins even
+     when its value is unsupported, so gate the dynamic unit with @supports. */
+  @supports (min-height: 100dvh) {
+    :root {
+      --cover-min-height: 100dvh;
+    }
   }
 }
 

@@ -9,7 +9,7 @@ Items don't wrap — they scroll off-screen. Optional scroll-snap alignment.
 CUSTOM PROPERTIES
   --reel-item-width   Width of each item. Default: calc(33.333% - 2rem).
   --reel-space        Gap between items. Default: 2rem.
-  --reel-height       Height for image variant. Default: 50vh.
+  --reel-img-height   Height for image variant. Default: 50vh.
 
 EXCEPTIONS
   data-scroll="snap"    Enables scroll-snap on each item.
@@ -25,7 +25,6 @@ EXCEPTIONS
     /* Default Variant Tokens */
     --reel-default-item-width: calc(33.333% - var(--reel-space));
     --reel-default-height: auto;
-    --reel-default-flex-basis: var(--reel-default-item-width);
     --reel-default-img-block-size: auto;
     --reel-default-img-width: auto;
     --reel-default-scroll-snap-type: none;
@@ -45,8 +44,6 @@ EXCEPTIONS
 @layer layout {
   .reel {
     /* Bridge Variables - initialized with default variant */
-    --reel-item-width: var(--reel-default-item-width);
-    --reel-flex-basis: var(--reel-default-flex-basis);
     --reel-height: var(--reel-default-height);
     --reel-img-block-size: var(--reel-default-img-block-size);
     --reel-img-width: var(--reel-default-img-width);
@@ -66,7 +63,7 @@ EXCEPTIONS
   }
 
   .reel > * {
-    flex-basis: var(--reel-flex-basis);
+    flex-basis: var(--reel-item-width, var(--reel-default-item-width));
     flex-shrink: 0;
     scroll-snap-align: var(--reel-scroll-snap-align);
   }
