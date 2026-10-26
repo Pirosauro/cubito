@@ -24,7 +24,7 @@ TOKENS
     --code-default-font-size    --code-default-padding
     --code-default-radius
 
-  Local bridge vars (override per scope):
+  Local override vars (unset by default; fall back to the --*-default-* tokens):
     --code-background   --code-color   --code-font-size
     --code-padding      --code-radius
 */
@@ -44,21 +44,14 @@ TOKENS
 @layer blocks {
   pre,
   code {
-    /* Bridge vars — initialized from default variant tokens */
-    --code-background: var(--code-default-background);
-    --code-color: var(--code-default-color);
-    --code-font-size: var(--code-default-font-size);
-    --code-padding: var(--code-default-padding);
-    --code-radius: var(--code-default-radius);
-
-    background: var(--code-background);
-    color: var(--code-color);
-    font-size: var(--code-font-size);
+    background: var(--code-background, var(--code-default-background));
+    color: var(--code-color, var(--code-default-color));
+    font-size: var(--code-font-size, var(--code-default-font-size));
   }
 
   pre {
-    border-radius: var(--code-radius);
-    padding: var(--code-padding);
+    border-radius: var(--code-radius, var(--code-default-radius));
+    padding: var(--code-padding, var(--code-default-padding));
   }
 
   /* Inline code inside prose */

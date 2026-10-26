@@ -72,6 +72,13 @@ import order declares layers once, in ascending priority order:
 
 ### Overriding tokens
 
+Components read their local override variables with a fallback to the default
+token, e.g. `background: var(--card-background, var(--card-default-background))`.
+Setting `--card-background` on `:root`, on an ancestor or inline therefore works;
+variants and states set the same variables on the element, so they take
+precedence over inherited overrides. To retheme every state at once, change the
+`--card-default-*` tokens.
+
 Because tokens are `:root` declarations in `@layer tokens`, you can override
 any input, button, or component token from a `<style>` block or a later layer:
 

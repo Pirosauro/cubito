@@ -22,7 +22,7 @@ TOKENS
     --[namespace]-[variant]-[property]-[optional-state]
     Example: --nav-default-link-background-hover
 
-  Local/common bridge vars:
+  Local override vars (unset by default; fall back to the --*-default-* tokens):
     --[namespace]-[property]-[optional-state]
     Example: --nav-link-color-hover
 
@@ -113,47 +113,33 @@ INTERNAL
   /* --- Default --- */
 
   nav {
-    /* Bridge vars — initialized from default variant tokens */
-    --nav-background: var(--nav-default-background);
-    --nav-color: var(--nav-default-color);
-    --nav-gap: var(--nav-default-gap);
-    --nav-padding: var(--nav-default-padding);
-
-    background-color: var(--nav-background);
-    color: var(--nav-color);
+    background-color: var(--nav-background, var(--nav-default-background));
+    color: var(--nav-color, var(--nav-default-color));
   }
 
   nav li a {
-    /* Bridge vars — state rules redirect these to hover/active counterparts */
-    --nav-link-background: var(--nav-default-link-background);
-    --nav-link-background-hover: var(--nav-default-link-background-hover);
-    --nav-link-background-active: var(--nav-default-link-background-active);
-    --nav-link-color: var(--nav-default-link-color);
-    --nav-link-color-hover: var(--nav-default-link-color-hover);
-    --nav-link-color-active: var(--nav-default-link-color-active);
-
     align-items: center;
-    background-color: var(--nav-link-background);
+    background-color: var(--nav-link-background, var(--nav-default-link-background));
     border-radius: var(--nav-link-radius, var(--nav-default-link-radius));
-    color: var(--nav-link-color);
+    color: var(--nav-link-color, var(--nav-default-link-color));
     display: flex;
-    padding: var(--nav-padding);
+    padding: var(--nav-padding, var(--nav-default-padding));
     transition: var(--nav-link-transition, var(--nav-default-link-transition));
   }
 
   /* --- Default: hover state --- */
 
   nav li a:hover {
-    --nav-link-background: var(--nav-link-background-hover);
-    --nav-link-color: var(--nav-link-color-hover);
+    --nav-link-background: var(--nav-link-background-hover, var(--nav-default-link-background-hover));
+    --nav-link-color: var(--nav-link-color-hover, var(--nav-default-link-color-hover));
   }
 
   /* --- Default: active / current state --- */
 
   nav li a[aria-current="page"],
   nav li a[data-state="active"] {
-    --nav-link-background: var(--nav-link-background-active);
-    --nav-link-color: var(--nav-link-color-active);
+    --nav-link-background: var(--nav-link-background-active, var(--nav-default-link-background-active));
+    --nav-link-color: var(--nav-link-color-active, var(--nav-default-link-color-active));
   }
 
   nav li a span {
@@ -165,7 +151,7 @@ INTERNAL
   /* --- Horizontal variant --- */
 
   nav[data-variant="horizontal"] {
-    /* Redirect bridge vars to horizontal variant tokens */
+    /* Redirect local vars to horizontal variant tokens */
     --nav-gap: var(--nav-horizontal-gap);
     --nav-padding: var(--nav-horizontal-padding);
   }
@@ -174,7 +160,7 @@ INTERNAL
     align-items: center;
     display: flex;
     flex-wrap: wrap;
-    gap: var(--nav-gap);
+    gap: var(--nav-gap, var(--nav-default-gap));
     list-style: none;
     margin: 0;
     padding: 0;
@@ -186,13 +172,13 @@ INTERNAL
 
   nav[data-variant="horizontal"] a {
     display: inline-flex;
-    padding: var(--nav-padding);
+    padding: var(--nav-padding, var(--nav-default-padding));
   }
 
   /* --- Sidebar variant --- */
 
   nav[data-variant="sidebar"] {
-    /* Redirect bridge vars to sidebar variant tokens */
+    /* Redirect local vars to sidebar variant tokens */
     --nav-gap: var(--nav-sidebar-gap);
     --nav-padding: var(--nav-sidebar-padding);
   }

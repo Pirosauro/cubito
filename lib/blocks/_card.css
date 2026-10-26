@@ -68,7 +68,8 @@ TOKENS
     --card-subtle-background        Subtle fill.           Default: tinted neutral
     --card-subtle-background-hover  Subtle hover fill.     Default: stronger tinted neutral
 
-  Bridge Variables (internal, set on .card):
+  Local override variables (unset by default; each falls back to its
+  --card-default-* / variant token, so :root or any ancestor can set them):
     --card-background, --card-border-color, --card-border-style, --card-border-width,
     --card-color, --card-image-ratio, --card-opacity, --card-shadow, --card-transform,
     --card-background-hover, --card-border-color-hover
@@ -133,33 +134,22 @@ TOKENS
 
 @layer blocks {
   .card {
-    --card-background: var(--card-default-background);
-    --card-border-color: var(--card-default-border-color);
-    --card-border-style: var(--card-default-border-style);
-    --card-border-width: var(--card-default-border-width);
-    --card-color: var(--card-default-color);
-    --card-image-ratio: var(--card-default-image-ratio);
-    --card-opacity: var(--card-default-opacity);
-    --card-shadow: var(--card-default-shadow);
-    --card-transform: var(--card-default-transform);
-    --card-background-hover: var(--card-default-background-hover);
-    --card-border-color-hover: var(--card-default-border-color-hover);
 
     display: flex;
     flex-direction: column;
     position: relative;
-    border-color: var(--card-border-color);
-    border-style: var(--card-border-style);
-    border-width: var(--card-border-width);
+    border-color: var(--card-border-color, var(--card-default-border-color));
+    border-style: var(--card-border-style, var(--card-default-border-style));
+    border-width: var(--card-border-width, var(--card-default-border-width));
     border-radius: var(--card-radius);
     overflow: hidden; /* clips image to radius */
-    background: var(--card-background);
+    background: var(--card-background, var(--card-default-background));
     text-decoration: none;
     transition: var(--card-transition);
-    color: var(--card-color);
-    box-shadow: var(--card-shadow);
-    transform: var(--card-transform);
-    opacity: var(--card-opacity);
+    color: var(--card-color, var(--card-default-color));
+    box-shadow: var(--card-shadow, var(--card-default-shadow));
+    transform: var(--card-transform, var(--card-default-transform));
+    opacity: var(--card-opacity, var(--card-default-opacity));
   }
 
   .card[data-variant="outline"] {
@@ -200,8 +190,8 @@ TOKENS
 
   .card:is(a):hover,
   .card:is(a):focus-within {
-    --card-background: var(--card-background-hover);
-    --card-border-color: var(--card-border-color-hover);
+    --card-background: var(--card-background-hover, var(--card-default-background-hover));
+    --card-border-color: var(--card-border-color-hover, var(--card-default-border-color-hover));
   }
 
   /* Consistent heading size regardless of heading level used */
@@ -245,7 +235,7 @@ TOKENS
   /* --- Image --- */
 
   .card > img {
-    aspect-ratio: var(--card-image-ratio);
+    aspect-ratio: var(--card-image-ratio, var(--card-default-image-ratio));
     object-fit: cover;
     width: 100%;
     flex-shrink: 0;

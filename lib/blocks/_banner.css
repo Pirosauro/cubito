@@ -68,20 +68,16 @@ TOKENS
 
 @layer blocks {
   .banner {
-    --banner-background: var(--banner-default-background);
-    --banner-border: var(--banner-default-border);
-    --banner-color: var(--banner-default-color);
-    --banner-padding: var(--banner-default-padding);
 
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     gap: var(--space-xs) var(--space-m);
-    padding: var(--banner-padding);
-    background: var(--banner-background);
-    color: var(--banner-color);
-    border-bottom: var(--banner-border);
+    padding: var(--banner-padding, var(--banner-default-padding));
+    background: var(--banner-background, var(--banner-default-background));
+    color: var(--banner-color, var(--banner-default-color));
+    border-bottom: var(--banner-border, var(--banner-default-border));
     text-align: center;
     font-size: var(--font-size-s);
   }

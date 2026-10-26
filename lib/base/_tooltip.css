@@ -30,7 +30,7 @@ TOKENS
     --tooltip-default-max-width    --tooltip-default-padding
     --tooltip-default-radius       --tooltip-default-transition
 
-  Local bridge vars (override per scope):
+  Local override vars (unset by default; fall back to the --*-default-* tokens):
     --tooltip-background   --tooltip-color   --tooltip-max-width
     --tooltip-padding      --tooltip-radius   --tooltip-transition
 
@@ -61,32 +61,24 @@ ACCESSIBILITY
   }
 
   [role="tooltip"] {
-    /* Bridge vars — initialized from default variant tokens */
-    --tooltip-background: var(--tooltip-default-background);
-    --tooltip-color: var(--tooltip-default-color);
-    --tooltip-max-width: var(--tooltip-default-max-width);
-    --tooltip-padding: var(--tooltip-default-padding);
-    --tooltip-radius: var(--tooltip-default-radius);
-    --tooltip-transition: var(--tooltip-default-transition);
-
-    background: var(--tooltip-background);
-    border-radius: var(--tooltip-radius);
+    background: var(--tooltip-background, var(--tooltip-default-background));
+    border-radius: var(--tooltip-radius, var(--tooltip-default-radius));
     bottom: calc(100% + var(--space-xxs, 0.5rem));
-    color: var(--tooltip-color);
+    color: var(--tooltip-color, var(--tooltip-default-color));
     font-size: var(--font-size-xs);
     font-weight: var(--font-weight-normal);
     left: 50%;
     letter-spacing: 0;
     line-height: var(--line-height-m);
-    max-width: var(--tooltip-max-width);
+    max-width: var(--tooltip-max-width, var(--tooltip-default-max-width));
     opacity: 0;
-    padding: var(--tooltip-padding);
+    padding: var(--tooltip-padding, var(--tooltip-default-padding));
     pointer-events: none;
     position: absolute;
     text-align: start;
     text-transform: none;
     transform: translateX(-50%);
-    transition: var(--tooltip-transition);
+    transition: var(--tooltip-transition, var(--tooltip-default-transition));
     visibility: hidden;
     width: max-content;
     z-index: var(--z-tooltip, 70);
@@ -101,7 +93,7 @@ ACCESSIBILITY
     border: 6px solid transparent;
     pointer-events: none;
     top: 100%;
-    border-top-color: var(--tooltip-background);
+    border-top-color: var(--tooltip-background, var(--tooltip-default-background));
   }
 
   /* --- Show on hover / focus --- */
@@ -126,7 +118,7 @@ ACCESSIBILITY
     top: auto;
     bottom: 100%;
     border-top-color: transparent;
-    border-bottom-color: var(--tooltip-background);
+    border-bottom-color: var(--tooltip-background, var(--tooltip-default-background));
   }
 
   /* --- Placement: left --- */
@@ -144,7 +136,7 @@ ACCESSIBILITY
     left: 100%;
     transform: translateY(-50%);
     border-top-color: transparent;
-    border-left-color: var(--tooltip-background);
+    border-left-color: var(--tooltip-background, var(--tooltip-default-background));
   }
 
   /* --- Placement: right --- */
@@ -162,7 +154,7 @@ ACCESSIBILITY
     right: 100%;
     transform: translateY(-50%);
     border-top-color: transparent;
-    border-right-color: var(--tooltip-background);
+    border-right-color: var(--tooltip-background, var(--tooltip-default-background));
   }
 
   /* --- Reduced motion --- */

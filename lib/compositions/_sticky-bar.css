@@ -66,7 +66,9 @@ TOKENS
     --sticky-bar-frosted-shadow        Default: none
     --sticky-bar-frosted-backdrop-filter Default: blur(var(--sticky-bar-blur))
 
-  Bridge Variables (internal, set on .sticky-bar):
+  Local override variables (unset by default; each falls back to its
+  --sticky-bar-default-* token, so :root or any ancestor can set them;
+  variants set them on the element):
     --sticky-bar-background, --sticky-bar-color, --sticky-bar-border,
     --sticky-bar-shadow, --sticky-bar-shadow-top, --sticky-bar-backdrop-filter
 
@@ -110,24 +112,17 @@ TOKENS
 
 @layer layout {
   .sticky-bar {
-    /* Bridge Variables - initialized with default variant */
-    --sticky-bar-background: var(--sticky-bar-default-background);
-    --sticky-bar-color: var(--sticky-bar-default-color);
-    --sticky-bar-border: var(--sticky-bar-default-border);
-    --sticky-bar-shadow: var(--sticky-bar-default-shadow);
-    --sticky-bar-shadow-top: var(--sticky-bar-default-shadow-top);
-    --sticky-bar-backdrop-filter: var(--sticky-bar-default-backdrop-filter);
 
     /* Layout */
     position: fixed;
     inset-inline: 0;
     z-index: var(--sticky-bar-z);
     padding: var(--sticky-bar-padding);
-    background: var(--sticky-bar-background);
-    color: var(--sticky-bar-color);
-    box-shadow: var(--sticky-bar-shadow);
-    -webkit-backdrop-filter: var(--sticky-bar-backdrop-filter);
-    backdrop-filter: var(--sticky-bar-backdrop-filter);
+    background: var(--sticky-bar-background, var(--sticky-bar-default-background));
+    color: var(--sticky-bar-color, var(--sticky-bar-default-color));
+    box-shadow: var(--sticky-bar-shadow, var(--sticky-bar-default-shadow));
+    -webkit-backdrop-filter: var(--sticky-bar-backdrop-filter, var(--sticky-bar-default-backdrop-filter));
+    backdrop-filter: var(--sticky-bar-backdrop-filter, var(--sticky-bar-default-backdrop-filter));
   }
 
   /* Bottom (default) */
@@ -135,9 +130,9 @@ TOKENS
   .sticky-bar[data-position="bottom"] {
     inset-block-end: 0;
     inset-block-start: auto;
-    border-top: var(--sticky-bar-border);
+    border-top: var(--sticky-bar-border, var(--sticky-bar-default-border));
     border-bottom: none;
-    box-shadow: var(--sticky-bar-shadow);
+    box-shadow: var(--sticky-bar-shadow, var(--sticky-bar-default-shadow));
   }
 
   /* Top */
@@ -145,8 +140,8 @@ TOKENS
     inset-block-start: 0;
     inset-block-end: auto;
     border-top: none;
-    border-bottom: var(--sticky-bar-border);
-    box-shadow: var(--sticky-bar-shadow-top);
+    border-bottom: var(--sticky-bar-border, var(--sticky-bar-default-border));
+    box-shadow: var(--sticky-bar-shadow-top, var(--sticky-bar-default-shadow-top));
   }
 
   /* Frosted glass variant */

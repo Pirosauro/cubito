@@ -27,7 +27,7 @@ TOKENS
     --[namespace]-[variant]-[property]-[optional-state]
     Example: --input-default-background-hover
 
-  Local/common bridge vars:
+  Local override vars (unset by default; fall back to the --*-default-* tokens):
     --[namespace]-[property]-[optional-state]
     Example: --input-border-color-hover
 
@@ -213,19 +213,13 @@ USAGE
 
 @layer blocks {
   fieldset {
-    --fieldset-background: var(--fieldset-default-background);
-    --fieldset-border-color: var(--fieldset-default-border-color);
-    --fieldset-border-style: var(--fieldset-default-border-style);
-    --fieldset-border-width: var(--fieldset-default-border-width);
-    --fieldset-color: var(--fieldset-default-color);
-    --fieldset-radius: var(--fieldset-default-radius);
 
-    background-color: var(--fieldset-background);
-    border-color: var(--fieldset-border-color);
-    border-radius: var(--fieldset-radius);
-    border-style: var(--fieldset-border-style);
-    border-width: var(--fieldset-border-width);
-    color: var(--fieldset-color);
+    background-color: var(--fieldset-background, var(--fieldset-default-background));
+    border-color: var(--fieldset-border-color, var(--fieldset-default-border-color));
+    border-radius: var(--fieldset-radius, var(--fieldset-default-radius));
+    border-style: var(--fieldset-border-style, var(--fieldset-default-border-style));
+    border-width: var(--fieldset-border-width, var(--fieldset-default-border-width));
+    color: var(--fieldset-color, var(--fieldset-default-color));
   }
 
   fieldset:disabled {
@@ -234,28 +228,20 @@ USAGE
   }
 
   legend {
-    --legend-background: var(--legend-default-background);
-    --legend-color: var(--legend-default-color);
-    --legend-font-weight: var(--legend-default-font-weight);
-    --legend-padding: var(--legend-default-padding);
 
-    background: var(--legend-background);
-    color: var(--legend-color);
-    font-weight: var(--legend-font-weight);
-    padding: var(--legend-padding);
+    background: var(--legend-background, var(--legend-default-background));
+    color: var(--legend-color, var(--legend-default-color));
+    font-weight: var(--legend-font-weight, var(--legend-default-font-weight));
+    padding: var(--legend-padding, var(--legend-default-padding));
   }
 
   label {
-    --label-color: var(--label-default-color);
-    --label-font-family: var(--label-default-font-family);
-    --label-font-size: var(--label-default-font-size);
-    --label-font-weight: var(--label-default-font-weight);
 
-    color: var(--label-color);
+    color: var(--label-color, var(--label-default-color));
     display: block;
-    font-family: var(--label-font-family);
-    font-size: var(--label-font-size);
-    font-weight: var(--label-font-weight);
+    font-family: var(--label-font-family, var(--label-default-font-family));
+    font-size: var(--label-font-size, var(--label-default-font-size));
+    font-weight: var(--label-font-weight, var(--label-default-font-weight));
     margin-block: var(--space-tiny, 0.25rem);
   }
 
@@ -284,28 +270,6 @@ USAGE
       input[type="text"], input[type="url"], input[type="date"],
       input[type="datetime-local"], input[type="month"], input[type="week"],
       input[type="time"], textarea, select) {
-    /* State bridge vars (local/common): defaults come from default variant tokens. */
-    --input-background-hover: var(--input-default-background-hover);
-    --input-border-color-hover: var(--input-default-border-color-hover);
-    --input-color-hover: var(--input-default-color-hover);
-    --input-outline-hover: var(--input-default-outline-hover);
-    --input-shadow-hover: var(--input-default-shadow-hover);
-
-    --input-background-focus: var(--input-default-background-focus);
-    --input-border-color-focus: var(--input-default-border-color-focus);
-    --input-color-focus: var(--input-default-color-focus);
-    --input-outline-focus: var(--input-default-outline-focus);
-    --input-shadow-focus: var(--input-default-shadow-focus);
-
-    --input-background-disabled: var(--input-default-background-disabled);
-    --input-border-color-disabled: var(--input-default-border-color-disabled);
-    --input-color-disabled: var(--input-default-color-disabled);
-    --input-outline-disabled: var(--input-default-outline-disabled);
-    --input-shadow-disabled: var(--input-default-shadow-disabled);
-
-    --input-border-color-invalid: var(--input-default-border-color-invalid);
-    --input-outline-color-invalid: var(--input-default-outline-color-invalid);
-
     background-color: var(--input-background, var(--input-default-background));
     border-color: var(--input-border-color, var(--input-default-border-color));
     border-radius: var(--input-radius, var(--border-radius-m));
@@ -336,11 +300,11 @@ USAGE
       input[type="text"], input[type="url"], input[type="date"],
       input[type="datetime-local"], input[type="month"], input[type="week"],
       input[type="time"], textarea, select):hover:not(:disabled) {
-    --input-background: var(--input-background-hover);
-    --input-border-color: var(--input-border-color-hover);
-    --input-color: var(--input-color-hover);
-    --input-outline: var(--input-outline-hover);
-    --input-shadow: var(--input-shadow-hover);
+    --input-background: var(--input-background-hover, var(--input-default-background-hover));
+    --input-border-color: var(--input-border-color-hover, var(--input-default-border-color-hover));
+    --input-color: var(--input-color-hover, var(--input-default-color-hover));
+    --input-outline: var(--input-outline-hover, var(--input-default-outline-hover));
+    --input-shadow: var(--input-shadow-hover, var(--input-default-shadow-hover));
   }
 
   /* Hover on a focused input must not override the focus shadow/outline */
@@ -349,8 +313,8 @@ USAGE
       input[type="text"], input[type="url"], input[type="date"],
       input[type="datetime-local"], input[type="month"], input[type="week"],
       input[type="time"], textarea, select):hover:focus-visible {
-    --input-outline: var(--input-outline-focus);
-    --input-shadow: var(--input-shadow-focus);
+    --input-outline: var(--input-outline-focus, var(--input-default-outline-focus));
+    --input-shadow: var(--input-shadow-focus, var(--input-default-shadow-focus));
   }
 
   /* --- Focus state --- */
@@ -360,18 +324,18 @@ USAGE
       input[type="text"], input[type="url"], input[type="date"],
       input[type="datetime-local"], input[type="month"], input[type="week"],
       input[type="time"], textarea, select):focus-visible {
-    --input-background: var(--input-background-focus);
-    --input-border-color: var(--input-border-color-focus);
-    --input-color: var(--input-color-focus);
-    --input-outline: var(--input-outline-focus);
-    --input-shadow: var(--input-shadow-focus);
+    --input-background: var(--input-background-focus, var(--input-default-background-focus));
+    --input-border-color: var(--input-border-color-focus, var(--input-default-border-color-focus));
+    --input-color: var(--input-color-focus, var(--input-default-color-focus));
+    --input-outline: var(--input-outline-focus, var(--input-default-outline-focus));
+    --input-shadow: var(--input-shadow-focus, var(--input-default-shadow-focus));
     /* focus indicator provided by shadow / outline tokens above */
   }
 
   :is(input[type="checkbox"], input[type="radio"]):focus-visible {
-    --checkbox-border-color: var(--checkbox-border-color-focus);
-    --checkbox-outline: var(--checkbox-outline-focus);
-    --checkbox-shadow: var(--checkbox-shadow-focus);
+    --checkbox-border-color: var(--checkbox-border-color-focus, var(--checkbox-default-border-color-focus));
+    --checkbox-outline: var(--checkbox-outline-focus, var(--checkbox-default-outline-focus));
+    --checkbox-shadow: var(--checkbox-shadow-focus, var(--checkbox-default-shadow-focus));
     /* focus indicator provided by shadow / outline tokens above */
   }
 
@@ -396,9 +360,9 @@ USAGE
   input[aria-invalid="true"],
   textarea[aria-invalid="true"],
   select[aria-invalid="true"] {
-    --input-border-color: var(--input-border-color-invalid);
+    --input-border-color: var(--input-border-color-invalid, var(--input-default-border-color-invalid));
     
-    outline-color: var(--input-outline-color-invalid);
+    outline-color: var(--input-outline-color-invalid, var(--input-default-outline-color-invalid));
   }
 
   /* --- Chevron for <select> --- */
@@ -414,32 +378,19 @@ USAGE
   /* --- Checkbox and radio --- */
 
   :is(input[type="checkbox"], input[type="radio"]) {
-    /* Bridge vars — state rules redirect these */
-    --checkbox-background: var(--checkbox-default-background);
-    --checkbox-background-hover: var(--checkbox-default-background-hover);
-    --checkbox-border-color: var(--checkbox-default-border-color);
-    --checkbox-border-color-hover: var(--checkbox-default-border-color-hover);
-    --checkbox-border-color-focus: var(--checkbox-default-border-color-focus);
-    --checkbox-outline: var(--checkbox-default-outline);
-    --checkbox-outline-hover: var(--checkbox-default-outline-hover);
-    --checkbox-outline-focus: var(--checkbox-default-outline-focus);
-    --checkbox-shadow: var(--checkbox-default-shadow);
-    --checkbox-shadow-hover: var(--checkbox-default-shadow-hover);
-    --checkbox-shadow-focus: var(--checkbox-default-shadow-focus);
-
-    background: var(--checkbox-background);
-    border-color: var(--checkbox-border-color);
+    background: var(--checkbox-background, var(--checkbox-default-background));
+    border-color: var(--checkbox-border-color, var(--checkbox-default-border-color));
     border-radius: var(--checkbox-radius);
     border-style: var(--checkbox-border-style, solid);
     border-width: var(--checkbox-border-width);
-    box-shadow: var(--checkbox-shadow);
+    box-shadow: var(--checkbox-shadow, var(--checkbox-default-shadow));
     color: var(--input-color);
     cursor: pointer;
     height: var(--checkbox-size);
     margin-block-end: 0;
     margin-inline-end: var(--space-xxs);
     margin-inline-start: 0;
-    outline: var(--checkbox-outline);
+    outline: var(--checkbox-outline, var(--checkbox-default-outline));
     transition: var(--checkbox-transition, var(--checkbox-default-transition));
     width: var(--checkbox-size);
   }
@@ -451,23 +402,23 @@ USAGE
   /* --- Checkbox / radio: hover state --- */
 
   :is(input[type="checkbox"], input[type="radio"]):hover:not(:disabled) {
-    --checkbox-background: var(--checkbox-background-hover);
-    --checkbox-border-color: var(--checkbox-border-color-hover);
-    --checkbox-outline: var(--checkbox-outline-hover);
-    --checkbox-shadow: var(--checkbox-shadow-hover);
+    --checkbox-background: var(--checkbox-background-hover, var(--checkbox-default-background-hover));
+    --checkbox-border-color: var(--checkbox-border-color-hover, var(--checkbox-default-border-color-hover));
+    --checkbox-outline: var(--checkbox-outline-hover, var(--checkbox-default-outline-hover));
+    --checkbox-shadow: var(--checkbox-shadow-hover, var(--checkbox-default-shadow-hover));
   }
 
   /* Hover on a focused checkbox/radio must not override the focus shadow/outline */
   :is(input[type="checkbox"], input[type="radio"]):hover:focus-visible {
-    --checkbox-outline: var(--checkbox-outline-focus);
-    --checkbox-shadow: var(--checkbox-shadow-focus);
+    --checkbox-outline: var(--checkbox-outline-focus, var(--checkbox-default-outline-focus));
+    --checkbox-shadow: var(--checkbox-shadow-focus, var(--checkbox-default-shadow-focus));
   }
 
   :is(input[type="checkbox"], input[type="radio"]):checked {
-    background-color: var(--checkbox-background);
+    background-color: var(--checkbox-background, var(--checkbox-default-background));
     background-image: radial-gradient(
       circle,
-      var(--checkbox-border-color) 35%,
+      var(--checkbox-border-color, var(--checkbox-default-border-color)) 35%,
       transparent 40%
     );
   }
@@ -483,11 +434,11 @@ USAGE
       input[type="text"], input[type="url"], input[type="date"],
       input[type="datetime-local"], input[type="month"], input[type="week"],
       input[type="time"], textarea, select):disabled {
-    --input-background: var(--input-background-disabled);
-    --input-border-color: var(--input-border-color-disabled);
-    --input-color: var(--input-color-disabled);
-    --input-outline: var(--input-outline-disabled);
-    --input-shadow: var(--input-shadow-disabled);
+    --input-background: var(--input-background-disabled, var(--input-default-background-disabled));
+    --input-border-color: var(--input-border-color-disabled, var(--input-default-border-color-disabled));
+    --input-color: var(--input-color-disabled, var(--input-default-color-disabled));
+    --input-outline: var(--input-outline-disabled, var(--input-default-outline-disabled));
+    --input-shadow: var(--input-shadow-disabled, var(--input-default-shadow-disabled));
 
     cursor: not-allowed;
     opacity: 1; /* tokens provide the visual fade — no double-dimming */

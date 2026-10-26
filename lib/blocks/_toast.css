@@ -79,27 +79,24 @@ TOKENS (on .toast)
   /* --- Toast region --- */
 
   .toast-region {
-    --toast-gap: var(--toast-default-gap);
-    --toast-inset: var(--toast-default-inset);
-    --toast-width: var(--toast-default-width);
 
     position: fixed;
     z-index: var(--z-notification, 80);
     display: flex;
     flex-direction: column;
-    gap: var(--toast-gap);
-    max-width: var(--toast-width);
-    width: calc(100% - var(--toast-inset) * 2);
+    gap: var(--toast-gap, var(--toast-default-gap));
+    max-width: var(--toast-width, var(--toast-default-width));
+    width: calc(100% - var(--toast-inset, var(--toast-default-inset)) * 2);
 
     /* Default: top-right */
-    inset-block-start: var(--toast-inset);
-    inset-inline-end: var(--toast-inset);
+    inset-block-start: var(--toast-inset, var(--toast-default-inset));
+    inset-inline-end: var(--toast-inset, var(--toast-default-inset));
   }
 
   /* Placement variants */
   .toast-region[data-position="top-left"] {
     inset-inline-end: unset;
-    inset-inline-start: var(--toast-inset);
+    inset-inline-start: var(--toast-inset, var(--toast-default-inset));
   }
 
   .toast-region[data-position="top-center"] {
@@ -110,19 +107,19 @@ TOKENS (on .toast)
 
   .toast-region[data-position="bottom-right"] {
     inset-block-start: unset;
-    inset-block-end: var(--toast-inset);
+    inset-block-end: var(--toast-inset, var(--toast-default-inset));
   }
 
   .toast-region[data-position="bottom-left"] {
     inset-block-start: unset;
-    inset-block-end: var(--toast-inset);
+    inset-block-end: var(--toast-inset, var(--toast-default-inset));
     inset-inline-end: unset;
-    inset-inline-start: var(--toast-inset);
+    inset-inline-start: var(--toast-inset, var(--toast-default-inset));
   }
 
   .toast-region[data-position="bottom-center"] {
     inset-block-start: unset;
-    inset-block-end: var(--toast-inset);
+    inset-block-end: var(--toast-inset, var(--toast-default-inset));
     inset-inline-end: unset;
     left: 50%;
     transform: translateX(-50%);
@@ -131,22 +128,16 @@ TOKENS (on .toast)
   /* --- Individual toast --- */
 
   .toast {
-    --toast-background: var(--toast-default-background);
-    --toast-border: var(--toast-default-border);
-    --toast-color: var(--toast-default-color);
-    --toast-padding: var(--toast-default-padding);
-    --toast-radius: var(--toast-default-radius);
-    --toast-shadow: var(--toast-default-shadow);
 
     display: flex;
     align-items: flex-start;
     gap: var(--space-xs);
-    padding: var(--toast-padding);
-    border: var(--toast-border);
-    border-radius: var(--toast-radius);
-    background: var(--toast-background);
-    color: var(--toast-color);
-    box-shadow: var(--toast-shadow);
+    padding: var(--toast-padding, var(--toast-default-padding));
+    border: var(--toast-border, var(--toast-default-border));
+    border-radius: var(--toast-radius, var(--toast-default-radius));
+    background: var(--toast-background, var(--toast-default-background));
+    color: var(--toast-color, var(--toast-default-color));
+    box-shadow: var(--toast-shadow, var(--toast-default-shadow));
     font-size: var(--font-size-s);
     line-height: var(--line-height-m);
 

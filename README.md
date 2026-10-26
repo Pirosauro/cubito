@@ -141,6 +141,15 @@ Define `--color-brand` and `--color-accent` in your own `:root` block **before**
 
 All component tokens are plain CSS custom properties. There is no separate "theme hook" layer — override tokens at any scope using the standard cascade:
 
+Each component exposes two kinds of tokens:
+
+| Kind | Example | Role |
+| ---- | ------- | ---- |
+| Default tokens | `--card-default-background` | Declared on `:root` in `@layer tokens`. Change these to retheme a component everywhere. |
+| Local override vars | `--card-background` | **Unset by default.** Where the property is applied the component reads `var(--card-background, var(--card-default-background))`, so setting the local var on `:root`, any ancestor or inline wins over the default. |
+
+Variants (`data-variant`) and states (`:hover`, `:disabled`, `[aria-pressed]`) set the local vars on the element itself, so they win over an inherited global override. For stateful components (buttons, inputs, nav links, table rows) override the state counterpart too — e.g. `--button-background` **and** `--button-background-hover` — or change the `--*-default-*` tokens, which cover every state.
+
 ```css
 /* ── Global default ───────────────────────────────────────────────────────── */
 :root {

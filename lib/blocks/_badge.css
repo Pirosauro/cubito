@@ -61,23 +61,17 @@ TOKENS
 
 @layer blocks {
   .badge {
-    --badge-background: var(--badge-default-background);
-    --badge-border: var(--badge-default-border);
-    --badge-color: var(--badge-default-color);
-    --badge-font-size: var(--badge-default-font-size);
-    --badge-padding: var(--badge-default-padding);
-    --badge-radius: var(--badge-default-radius);
 
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: var(--badge-padding);
+    padding: var(--badge-padding, var(--badge-default-padding));
     margin-inline: 0.5em;
-    border: var(--badge-border);
-    border-radius: var(--badge-radius);
-    background: var(--badge-background);
-    color: var(--badge-color);
-    font-size: var(--badge-font-size);
+    border: var(--badge-border, var(--badge-default-border));
+    border-radius: var(--badge-radius, var(--badge-default-radius));
+    background: var(--badge-background, var(--badge-default-background));
+    color: var(--badge-color, var(--badge-default-color));
+    font-size: var(--badge-font-size, var(--badge-default-font-size));
     font-weight: var(--font-weight-bold);
     line-height: 1;
     text-decoration: none;

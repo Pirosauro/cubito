@@ -114,8 +114,10 @@ PRESETS
   [data-preset="elevate"]     Hard-offset shadow at rest, deeper on hover, flush on active
 
 NOTE ON LOCAL OVERRIDES
-  If you override internal bridge vars at component scope, set their state
-  counterparts too (for example --button-background and --button-background-hover)
+  --button-background, --button-color, … are unset by default and fall back to
+  the --button-default-* tokens, so they can be set on :root or any ancestor.
+  State rules (hover, active, toggled, disabled) set them on the element, so
+  if you override them at component scope, set their state counterparts too (for example --button-background and --button-background-hover)
   to keep hover/active transitions coherent.
 */
 
@@ -216,11 +218,11 @@ NOTE ON LOCAL OVERRIDES
 
     --button-elevate-offset: 0.25rem;
     --button-elevate-shadow: 0 var(--button-elevate-offset) 0
-      var(--button-border-color);
+      var(--button-border-color, var(--button-default-border-color));
     --button-elevate-shadow-active: none;
     --button-elevate-transform-active: translate(0, 0);
     --button-elevate-shadow-hover: 0 calc(var(--button-elevate-offset) * 2) 0
-      var(--button-border-color);
+      var(--button-border-color, var(--button-default-border-color));
     --button-elevate-transform-hover: translateY(
       calc(-1 * var(--button-elevate-offset))
     );
@@ -235,38 +237,16 @@ NOTE ON LOCAL OVERRIDES
   input[type="reset"],
   input[type="button"],
   .button {
-    /* Internal bridge vars — initialize from public tokens */
-    --button-background: var(--button-default-background);
-    --button-border-color: var(--button-default-border-color);
-    --button-border-style: var(--button-default-border-style);
-    --button-border-width: var(--button-default-border-width);
-    --button-color: var(--button-default-color);
-    --button-opacity: var(--button-default-opacity);
-    --button-shadow: var(--button-default-shadow);
-    --button-transform: var(--button-default-transform);
-    /* Hover/active intermediaries — variants override these to redirect state appearance */
-    --button-background-active: var(--button-default-background-active);
-    --button-border-color-active: var(--button-default-border-color-active);
-    --button-color-active: var(--button-default-color-active);
-    --button-opacity-active: var(--button-default-opacity-active);
-    --button-shadow-active: var(--button-default-shadow-active);
-    --button-transform-active: var(--button-default-transform-active);
-    --button-background-hover: var(--button-default-background-hover);
-    --button-border-color-hover: var(--button-default-border-color-hover);
-    --button-color-hover: var(--button-default-color-hover);
-    --button-opacity-hover: var(--button-default-opacity-hover);
-    --button-shadow-hover: var(--button-default-shadow-hover);
-    --button-transform-hover: var(--button-default-transform-hover);
     /* Layout */
     align-items: center;
     display: inline-flex;
     gap: var(--button-gap);
     justify-content: center;
     /* Box model */
-    border-color: var(--button-border-color);
+    border-color: var(--button-border-color, var(--button-default-border-color));
     border-radius: var(--button-radius);
-    border-style: var(--button-border-style);
-    border-width: var(--button-border-width);
+    border-style: var(--button-border-style, var(--button-default-border-style));
+    border-width: var(--button-border-width, var(--button-default-border-width));
     padding: var(--button-padding);
     /* Typography */
     font-family: var(--button-font-family);
@@ -282,14 +262,14 @@ NOTE ON LOCAL OVERRIDES
     text-box-edge: cap alphabetic;
     text-box-trim: trim-both;
     /* Visual */
-    background-color: var(--button-background);
-    box-shadow: var(--button-shadow);
-    color: var(--button-color);
-    opacity: var(--button-opacity);
+    background-color: var(--button-background, var(--button-default-background));
+    box-shadow: var(--button-shadow, var(--button-default-shadow));
+    color: var(--button-color, var(--button-default-color));
+    opacity: var(--button-opacity, var(--button-default-opacity));
     /* Interaction */
     cursor: var(--cursor-pointer, pointer);
     touch-action: manipulation; /* suppress double-tap zoom on iOS */
-    transform: var(--button-transform);
+    transform: var(--button-transform, var(--button-default-transform));
     transition: var(--button-transition);
   }
 
@@ -320,12 +300,12 @@ NOTE ON LOCAL OVERRIDES
       [aria-pressed="true"],
       [aria-expanded="true"]
     ) {
-    --button-background: var(--button-background-hover);
-    --button-border-color: var(--button-border-color-hover);
-    --button-color: var(--button-color-hover);
-    --button-opacity: var(--button-opacity-hover);
-    --button-shadow: var(--button-shadow-hover);
-    --button-transform: var(--button-transform-hover);
+    --button-background: var(--button-background-hover, var(--button-default-background-hover));
+    --button-border-color: var(--button-border-color-hover, var(--button-default-border-color-hover));
+    --button-color: var(--button-color-hover, var(--button-default-color-hover));
+    --button-opacity: var(--button-opacity-hover, var(--button-default-opacity-hover));
+    --button-shadow: var(--button-shadow-hover, var(--button-default-shadow-hover));
+    --button-transform: var(--button-transform-hover, var(--button-default-transform-hover));
     /* Link inheritance */
     --decoration-thickness: var(--link-thickness-hover);
     --underline-offset: var(--link-offset-hover);
@@ -344,12 +324,12 @@ NOTE ON LOCAL OVERRIDES
   .button:active:not([aria-disabled="true"]):not([aria-pressed="true"]):not(
       [aria-expanded="true"]
     ) {
-    --button-background: var(--button-background-active);
-    --button-border-color: var(--button-border-color-active);
-    --button-color: var(--button-color-active);
-    --button-opacity: var(--button-opacity-active);
-    --button-shadow: var(--button-shadow-active);
-    --button-transform: var(--button-transform-active);
+    --button-background: var(--button-background-active, var(--button-default-background-active));
+    --button-border-color: var(--button-border-color-active, var(--button-default-border-color-active));
+    --button-color: var(--button-color-active, var(--button-default-color-active));
+    --button-opacity: var(--button-opacity-active, var(--button-default-opacity-active));
+    --button-shadow: var(--button-shadow-active, var(--button-default-shadow-active));
+    --button-transform: var(--button-transform-active, var(--button-default-transform-active));
   }
 
   /* --- Default, toggled (aria-pressed / aria-expanded) state --- */

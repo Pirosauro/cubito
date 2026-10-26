@@ -45,18 +45,13 @@ TOKENS
 
 @layer blocks {
   .callout {
-    --callout-background: var(--callout-default-background);
-    --callout-border: var(--callout-default-border);
-    --callout-color: var(--callout-default-color);
-    --callout-padding: var(--callout-default-padding);
-    --callout-radius: var(--callout-default-radius);
 
-    padding: var(--callout-padding);
-    border: var(--callout-border);
-    border-radius: var(--callout-radius);
+    padding: var(--callout-padding, var(--callout-default-padding));
+    border: var(--callout-border, var(--callout-default-border));
+    border-radius: var(--callout-radius, var(--callout-default-radius));
     max-width: var(--width-l);
-    color: var(--callout-color);
-    background-color: var(--callout-background);
+    color: var(--callout-color, var(--callout-default-color));
+    background-color: var(--callout-background, var(--callout-default-background));
   }
 
   .callout > * {

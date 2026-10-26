@@ -87,16 +87,9 @@ TOKENS
   /* --- Tablist --- */
 
   .tabs {
-    /* Bridge Variables - initialized with default variant */
-    --tabs-accent: var(--tabs-default-accent);
-    --tabs-background: var(--tabs-default-background);
-    --tabs-border: var(--tabs-default-border);
-    --tabs-tab-color: var(--tabs-default-tab-color);
-    --tabs-tab-hover-color: var(--tabs-default-tab-hover-color);
     --tabs-tablist-gap: var(--space-xxs);
     --tabs-tablist-padding: 0;
-    --tabs-tablist-border-bottom: var(--tabs-border);
-    --tabs-tablist-background: var(--tabs-default-background);
+    --tabs-tablist-border-bottom: var(--tabs-border, var(--tabs-default-border));
     --tabs-tablist-border-radius: 0;
     --tabs-tab-border: none;
     --tabs-tab-radius: 0;
@@ -118,7 +111,7 @@ TOKENS
     gap: var(--tabs-tablist-gap);
     padding: var(--tabs-tablist-padding);
     border-bottom: var(--tabs-tablist-border-bottom);
-    background: var(--tabs-tablist-background);
+    background: var(--tabs-tablist-background, var(--tabs-default-background));
     border-radius: var(--tabs-tablist-border-radius);
     -webkit-overflow-scrolling: touch;
   }
@@ -138,7 +131,7 @@ TOKENS
     border: var(--tabs-tab-border);
     border-radius: var(--tabs-tab-radius);
     background: var(--tabs-tab-background);
-    color: var(--tabs-tab-color);
+    color: var(--tabs-tab-color, var(--tabs-default-tab-color));
     font-size: var(--font-size-s);
     font-weight: var(--font-weight-normal);
     cursor: pointer;
@@ -150,12 +143,12 @@ TOKENS
   }
 
   .tabs [role="tab"]:hover {
-    color: var(--tabs-tab-hover-color);
+    color: var(--tabs-tab-hover-color, var(--tabs-default-tab-hover-color));
   }
 
   /* Active indicator underline */
   .tabs [role="tab"][aria-selected="true"] {
-    color: var(--tabs-accent);
+    color: var(--tabs-accent, var(--tabs-default-accent));
     font-weight: var(--font-weight-bold);
   }
 
@@ -165,7 +158,7 @@ TOKENS
     inset-inline: 0;
     inset-block-end: calc(-1 * var(--border-s, 0.0625rem));
     height: var(--tabs-indicator-height);
-    background: var(--tabs-accent);
+    background: var(--tabs-accent, var(--tabs-default-accent));
     border-radius: var(--tabs-indicator-height) var(--tabs-indicator-height) 0 0;
     display: var(--tabs-indicator-display);
   }
