@@ -1,4 +1,4 @@
-# @cubito/ui
+# cubito
 
 Enterprise-grade CSS design system built on [CUBE CSS](https://cube.fyi) methodology and [Every Layout](https://every-layout.dev) primitives.
 
@@ -46,9 +46,9 @@ The library uses explicit CSS cascade layers, declared in `_layers.css`:
 ## Installation
 
 ```sh
-npm install @cubito/ui
+npm install cubito
 # or
-pnpm add @cubito/ui
+pnpm add cubito
 ```
 
 ---
@@ -59,82 +59,82 @@ Import layers in order. `_layers.css` must be the very first import.
 
 ```css
 /* 0. Layer order — must come first */
-@import "@cubito/ui/lib/abstracts/_layers.css";
+@import "cubito/abstracts/_layers.css";
 
 /* 1. Abstracts — design tokens */
-@import "@cubito/ui/lib/abstracts/_theme.css";
-@import "@cubito/ui/lib/abstracts/_icons.css";
-@import "@cubito/ui/lib/abstracts/_z-index.css";
-@import "@cubito/ui/lib/abstracts/_motion.css";
-@import "@cubito/ui/lib/abstracts/_spacing.css";
-@import "@cubito/ui/lib/abstracts/_typography.css";
+@import "cubito/abstracts/_theme.css";
+@import "cubito/abstracts/_icons.css";
+@import "cubito/abstracts/_z-index.css";
+@import "cubito/abstracts/_motion.css";
+@import "cubito/abstracts/_spacing.css";
+@import "cubito/abstracts/_typography.css";
 
 /* 2. Base — element defaults */
-@import "@cubito/ui/lib/base/_button.css";
-@import "@cubito/ui/lib/base/_code.css";
-@import "@cubito/ui/lib/base/_details.css";
-@import "@cubito/ui/lib/base/_form.css";
-@import "@cubito/ui/lib/base/_nav.css";
-@import "@cubito/ui/lib/base/_reset.css";
-@import "@cubito/ui/lib/base/_table.css";
-@import "@cubito/ui/lib/base/_tooltip.css";
+@import "cubito/base/_button.css";
+@import "cubito/base/_code.css";
+@import "cubito/base/_details.css";
+@import "cubito/base/_form.css";
+@import "cubito/base/_nav.css";
+@import "cubito/base/_reset.css";
+@import "cubito/base/_table.css";
+@import "cubito/base/_tooltip.css";
 
 /* 3. Compositions — layout primitives */
-@import "@cubito/ui/lib/compositions/_cluster.css";
-@import "@cubito/ui/lib/compositions/_cover.css";
-@import "@cubito/ui/lib/compositions/_dialog.css";
-@import "@cubito/ui/lib/compositions/_frame.css";
-@import "@cubito/ui/lib/compositions/_grid.css";
-@import "@cubito/ui/lib/compositions/_reel.css";
-@import "@cubito/ui/lib/compositions/_repel.css";
-@import "@cubito/ui/lib/compositions/_sidebar.css";
-@import "@cubito/ui/lib/compositions/_sticky-bar.css";
-@import "@cubito/ui/lib/compositions/_switcher.css";
+@import "cubito/compositions/_cluster.css";
+@import "cubito/compositions/_cover.css";
+@import "cubito/compositions/_dialog.css";
+@import "cubito/compositions/_frame.css";
+@import "cubito/compositions/_grid.css";
+@import "cubito/compositions/_reel.css";
+@import "cubito/compositions/_repel.css";
+@import "cubito/compositions/_sidebar.css";
+@import "cubito/compositions/_sticky-bar.css";
+@import "cubito/compositions/_switcher.css";
 
 /* 4. Blocks — UI components */
-@import "@cubito/ui/lib/blocks/_avatar.css";
-@import "@cubito/ui/lib/blocks/_badge.css";
-@import "@cubito/ui/lib/blocks/_banner.css";
-@import "@cubito/ui/lib/blocks/_breadcrumb.css";
-@import "@cubito/ui/lib/blocks/_callout.css";
-@import "@cubito/ui/lib/blocks/_card.css";
-@import "@cubito/ui/lib/blocks/_data-list.css";
-@import "@cubito/ui/lib/blocks/_dialog.css";
-@import "@cubito/ui/lib/blocks/_drawer.css";
-@import "@cubito/ui/lib/blocks/_empty-state.css";
-@import "@cubito/ui/lib/blocks/_footnote.css";
-@import "@cubito/ui/lib/blocks/_hero.css";
-@import "@cubito/ui/lib/blocks/_pagination.css";
-@import "@cubito/ui/lib/blocks/_pictogram.css";
-@import "@cubito/ui/lib/blocks/_price.css";
-@import "@cubito/ui/lib/blocks/_progress-bar.css";
-@import "@cubito/ui/lib/blocks/_prose.css";
-@import "@cubito/ui/lib/blocks/_rating.css";
-@import "@cubito/ui/lib/blocks/_stepper.css";
-@import "@cubito/ui/lib/blocks/_tabs.css";
-@import "@cubito/ui/lib/blocks/_tag.css";
-@import "@cubito/ui/lib/blocks/_toast.css";
+@import "cubito/blocks/_avatar.css";
+@import "cubito/blocks/_badge.css";
+@import "cubito/blocks/_banner.css";
+@import "cubito/blocks/_breadcrumb.css";
+@import "cubito/blocks/_callout.css";
+@import "cubito/blocks/_card.css";
+@import "cubito/blocks/_data-list.css";
+@import "cubito/blocks/_dialog.css";
+@import "cubito/blocks/_drawer.css";
+@import "cubito/blocks/_empty-state.css";
+@import "cubito/blocks/_footnote.css";
+@import "cubito/blocks/_hero.css";
+@import "cubito/blocks/_pagination.css";
+@import "cubito/blocks/_pictogram.css";
+@import "cubito/blocks/_price.css";
+@import "cubito/blocks/_progress-bar.css";
+@import "cubito/blocks/_prose.css";
+@import "cubito/blocks/_rating.css";
+@import "cubito/blocks/_stepper.css";
+@import "cubito/blocks/_tabs.css";
+@import "cubito/blocks/_tag.css";
+@import "cubito/blocks/_toast.css";
 
 /* 5. Utilities — always last */
-@import "@cubito/ui/lib/utilities/_accessibility.css";
-@import "@cubito/ui/lib/utilities/_animation.css";
-@import "@cubito/ui/lib/utilities/_aspect.css";
-@import "@cubito/ui/lib/utilities/_border.css";
-@import "@cubito/ui/lib/utilities/_color.css";
-@import "@cubito/ui/lib/utilities/_flow.css";
-@import "@cubito/ui/lib/utilities/_gap.css";
-@import "@cubito/ui/lib/utilities/_low-contrast.css";
-@import "@cubito/ui/lib/utilities/_print.css";
-@import "@cubito/ui/lib/utilities/_region.css";
-@import "@cubito/ui/lib/utilities/_shadow.css";
-@import "@cubito/ui/lib/utilities/_skeleton.css";
-@import "@cubito/ui/lib/utilities/_spacing.css";
-@import "@cubito/ui/lib/utilities/_sticky.css";
-@import "@cubito/ui/lib/utilities/_truncate.css";
-@import "@cubito/ui/lib/utilities/_typography.css";
-@import "@cubito/ui/lib/utilities/_wide.css";
-@import "@cubito/ui/lib/utilities/_with-icon.css";
-@import "@cubito/ui/lib/utilities/_wrapper.css";
+@import "cubito/utilities/_accessibility.css";
+@import "cubito/utilities/_animation.css";
+@import "cubito/utilities/_aspect.css";
+@import "cubito/utilities/_border.css";
+@import "cubito/utilities/_color.css";
+@import "cubito/utilities/_flow.css";
+@import "cubito/utilities/_gap.css";
+@import "cubito/utilities/_low-contrast.css";
+@import "cubito/utilities/_print.css";
+@import "cubito/utilities/_region.css";
+@import "cubito/utilities/_shadow.css";
+@import "cubito/utilities/_skeleton.css";
+@import "cubito/utilities/_spacing.css";
+@import "cubito/utilities/_sticky.css";
+@import "cubito/utilities/_truncate.css";
+@import "cubito/utilities/_typography.css";
+@import "cubito/utilities/_wide.css";
+@import "cubito/utilities/_with-icon.css";
+@import "cubito/utilities/_wrapper.css";
 ```
 
 > **Legacy:** `utilities/_spacing-legacy.css` (`.padding-1`, `.margin-2`, …, based on the 8px `--su` unit) is deprecated in favour of `utilities/_spacing.css` (`.padding-s`, `.margin-m`, …, based on the fluid `--space-*` scale). It is not part of the quick start above but remains importable for backward compatibility.
@@ -694,7 +694,7 @@ Fixed overlay that centres a dialog. Prefer `<dialog showModal()>` where possibl
 <article class="prose flow">
   <h2>Getting started</h2>
   <p>Install the package…</p>
-  <pre><code>npm install @cubito/ui</code></pre>
+  <pre><code>npm install cubito</code></pre>
 </article>
 ```
 

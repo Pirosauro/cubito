@@ -1,6 +1,28 @@
 {
   "name": "cubito",
   "version": "0.8.0",
+  "description": "CSS design system built on CUBE CSS and Every Layout: fluid tokens, layout compositions, accessible components. No build step, no JavaScript.",
+  "keywords": [
+    "css",
+    "design-system",
+    "cube-css",
+    "every-layout",
+    "css-layers",
+    "design-tokens",
+    "utopia",
+    "fluid-typography"
+  ],
+  "homepage": "https://github.com/Pirosauro/cubito#readme",
+  "bugs": {
+    "url": "https://github.com/Pirosauro/cubito/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pirosauro/cubito.git",
+    "directory": "lib"
+  },
+  "license": "MIT",
+  "author": "Filippo Bovo",
   "type": "module",
   "engines": {
     "pnpm": ">=10.0.0 <11.0.0"

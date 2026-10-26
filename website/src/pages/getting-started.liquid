@@ -19,10 +19,10 @@
     <div class="flow" style="--flow-space: var(--space-s);">
       <h2 class="heading-l">Installation</h2>
       <p>Install the package from the private registry using your preferred package manager.</p>
-      <pre><code>pnpm add @cubito/ui</code></pre>
+      <pre><code>pnpm add cubito</code></pre>
       <p>Or with npm or yarn:</p>
-      <pre><code>npm install @cubito/ui
-  yarn add @cubito/ui</code></pre>
+      <pre><code>npm install cubito
+  yarn add cubito</code></pre>
       <div class="callout wide color-brand" role="note">
         <p>The package is hosted on a private registry. Make sure your <code>.npmrc</code> points to the correct registry URL before installing. Contact your team lead if you do not have access credentials.</p>
       </div>
@@ -51,52 +51,52 @@
       <pre><code>/* app/styles/main.css */
 
   /* 1. Declare layer order — must come first */
-  @import "@cubito/ui/abstracts/_layers.css";
+  @import "cubito/abstracts/_layers.css";
 
   /* 2. Design tokens */
-  @import "@cubito/ui/abstracts/_theme.css";
-  @import "@cubito/ui/abstracts/_z-index.css";
-  @import "@cubito/ui/abstracts/_motion.css";
-  @import "@cubito/ui/abstracts/_spacing.css";
-  @import "@cubito/ui/abstracts/_typography.css";
-  @import "@cubito/ui/abstracts/_icons.css";
+  @import "cubito/abstracts/_theme.css";
+  @import "cubito/abstracts/_z-index.css";
+  @import "cubito/abstracts/_motion.css";
+  @import "cubito/abstracts/_spacing.css";
+  @import "cubito/abstracts/_typography.css";
+  @import "cubito/abstracts/_icons.css";
 
   /* 3. Base element styles */
-  @import "@cubito/ui/base/_reset.css";
-  @import "@cubito/ui/base/_button.css";
-  @import "@cubito/ui/base/_code.css";
-  @import "@cubito/ui/base/_details.css";
-  @import "@cubito/ui/base/_form.css";
-  @import "@cubito/ui/base/_nav.css";
-  @import "@cubito/ui/base/_table.css";
-  @import "@cubito/ui/base/_tooltip.css";
+  @import "cubito/base/_reset.css";
+  @import "cubito/base/_button.css";
+  @import "cubito/base/_code.css";
+  @import "cubito/base/_details.css";
+  @import "cubito/base/_form.css";
+  @import "cubito/base/_nav.css";
+  @import "cubito/base/_table.css";
+  @import "cubito/base/_tooltip.css";
 
   /* 4. Block components */
-  @import "@cubito/ui/blocks/_avatar.css";
-  @import "@cubito/ui/blocks/_badge.css";
-  @import "@cubito/ui/blocks/_banner.css";
-  @import "@cubito/ui/blocks/_breadcrumb.css";
-  @import "@cubito/ui/blocks/_callout.css";
-  @import "@cubito/ui/blocks/_card.css";
-  @import "@cubito/ui/blocks/_data-list.css";
-  @import "@cubito/ui/blocks/_dialog.css";
-  @import "@cubito/ui/blocks/_empty-state.css";
-  @import "@cubito/ui/blocks/_hero.css";
-  @import "@cubito/ui/blocks/_pagination.css";
-  @import "@cubito/ui/blocks/_toast.css";
+  @import "cubito/blocks/_avatar.css";
+  @import "cubito/blocks/_badge.css";
+  @import "cubito/blocks/_banner.css";
+  @import "cubito/blocks/_breadcrumb.css";
+  @import "cubito/blocks/_callout.css";
+  @import "cubito/blocks/_card.css";
+  @import "cubito/blocks/_data-list.css";
+  @import "cubito/blocks/_dialog.css";
+  @import "cubito/blocks/_empty-state.css";
+  @import "cubito/blocks/_hero.css";
+  @import "cubito/blocks/_pagination.css";
+  @import "cubito/blocks/_toast.css";
   /* ...add only the blocks your project uses */
 
   /* 5. Compositions (Every Layout primitives) */
-  @import "@cubito/ui/compositions/_cluster.css";
-  @import "@cubito/ui/compositions/_grid.css";
-  @import "@cubito/ui/compositions/_sidebar.css";
+  @import "cubito/compositions/_cluster.css";
+  @import "cubito/compositions/_grid.css";
+  @import "cubito/compositions/_sidebar.css";
   /* ...add only what you use */
 
   /* 6. Utilities — highest precedence */
-  @import "@cubito/ui/utilities/_accessibility.css";
-  @import "@cubito/ui/utilities/_typography.css";
-  @import "@cubito/ui/utilities/_spacing.css";
-  @import "@cubito/ui/utilities/_color.css";
+  @import "cubito/utilities/_accessibility.css";
+  @import "cubito/utilities/_typography.css";
+  @import "cubito/utilities/_spacing.css";
+  @import "cubito/utilities/_color.css";
   /* ...add only what you use */
 
   /* 7. Your application tokens (brand colours, overrides) */

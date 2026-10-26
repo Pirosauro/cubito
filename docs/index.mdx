@@ -12,18 +12,18 @@ fluid-responsive design tokens.
 ```css
 /* 1. Declare layer order (controls cascade precedence).
       It must come first: abstracts/_layers.css contains exactly this line. */
-@import "@cubito/ui/lib/abstracts/_layers.css";
+@import "cubito/abstracts/_layers.css";
 
 /* 2. Import in any order — the layer declaration above governs precedence */
-@import "@cubito/ui/lib/abstracts/_motion.css";
-@import "@cubito/ui/lib/abstracts/_spacing.css";
-@import "@cubito/ui/lib/abstracts/_theme.css";
-@import "@cubito/ui/lib/abstracts/_typography.css";
-@import "@cubito/ui/lib/abstracts/_z-index.css";
+@import "cubito/abstracts/_motion.css";
+@import "cubito/abstracts/_spacing.css";
+@import "cubito/abstracts/_theme.css";
+@import "cubito/abstracts/_typography.css";
+@import "cubito/abstracts/_z-index.css";
 
-@import "@cubito/ui/lib/base/_reset.css";
-@import "@cubito/ui/lib/base/_button.css";
-@import "@cubito/ui/lib/base/_form.css";
+@import "cubito/base/_reset.css";
+@import "cubito/base/_button.css";
+@import "cubito/base/_form.css";
 /* … more base, blocks, compositions, utilities … */
 ```
 

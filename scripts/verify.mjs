@@ -115,7 +115,8 @@ check(
 
 const readme = read('README.md');
 const docsIndex = read('docs/index.mdx');
-const imported = (source) => [...source.matchAll(/@cubito\/ui\/(lib\/[\w/.-]+\.css)/g)].map((match) => match[1]);
+// The package maps `cubito/<path>.css` to `lib/<path>.css` (see lib/package.json "exports").
+const imported = (source) => [...source.matchAll(/["']cubito\/([\w/.-]+\.css)["']/g)].map((match) => `lib/${match[1]}`);
 const onDisk = cssFiles(lib)
   .map((file) => relative(root, file))
   .filter((file) => !file.endsWith('email.css') && !file.endsWith('_spacing-legacy.css'));

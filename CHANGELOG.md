@@ -1,4 +1,28 @@
-# @cubito/ui
+# cubito
+
+## 0.8.0
+
+### Breaking Changes
+
+- **Local override variables** — Components no longer set `--card-background`, `--button-background`, … on their own root element. The unprefixed variables are now optional and unset by default; the rule that applies them reads `var(--card-background, var(--card-default-background))`. Overrides on `:root`, on any ancestor or inline now work as documented, but code that relied on those variables being present on the element (for example reading them from a child) must read the `--*-default-*` token instead. Applies to `_button`, `_form`, `_nav`, `_table`, `_tooltip`, `_code`, `_details`, `_badge`, `_banner`, `_callout`, `_card`, `_tabs`, `_tag`, `_toast` and `_sticky-bar`.
+- **`_reel.css`** — Image-variant tokens renamed to `--reel-img-image-block-size` and `--reel-img-image-width`. `--reel-default-flex-basis` is removed; `--reel-item-width` (previously ignored) is now the item-width token. The image-variant height token is `--reel-img-height`.
+- **`_sidebar.css`** — The reverse-direction tokens were swapped by mistake: `--sidebar-reverse-content-*` now applies to the content and `--sidebar-reverse-sidebar-*` to the sidebar.
+- **`_theme.css`** — `--color-brand` and `--color-accent` now have defaults (`#26e`, and accent follows brand) in `@layer tokens`. Defining them in your own `:root` is optional rather than required.
+- **Package name** — Published as `cubito`; imports are `cubito/<folder>/<file>.css` (the `@cubito/ui` name in earlier documentation never existed on npm).
+
+### Bug Fixes
+
+- **`_hero.css`, `_tabs.css`, `_sidebar.css`, `_reel.css`** — Removed self-referencing custom properties (`--hero-space: var(--hero-space)`, …), which were invalid at computed-value time: hero spacing, tab and panel padding, sidebar sticky position and reel image sizing now resolve.
+- **`_sidebar.css`** — `data-direction="reverse"` now applies its widths; `data-variant="sticky"` pins the real sidebar (also in reverse) and no longer stretches it, so sticky actually sticks.
+- **`_theme.css`** — `@property --underline-offset` moved out of `:root`, where it was invalid and ignored.
+- **`_cover.css`, `_dialog.css`** — `100dvh` / `85dvh` are applied through `@supports`; as plain duplicate custom-property declarations the fallback never worked.
+- **`_button.css`** — `data-preset="elevate"` now applies its shadow; the missing `--button-outline-*` and `--button-ghost-transform-hover` tokens are defined.
+- **`_tooltip.css`** — `--tooltip-max-width` set on the wrapper is honoured.
+
+### Documentation & Tooling
+
+- README, `docs/` and the website now match the files on disk (import list, layer order, token names, utility class names).
+- `scripts/verify.mjs` reads real token values from the CSS, checks contrast against WCAG AA, rejects self-referencing and undefined custom properties, and checks that documented imports and layer order match the library.
 
 ## 0.7.0
 
