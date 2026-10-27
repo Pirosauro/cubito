@@ -1,6 +1,6 @@
 {
   "name": "cubito",
-  "version": "0.8.0",
+  "version": "0.9.0",
   "description": "CSS design system built on CUBE CSS and Every Layout: fluid tokens, layout compositions, accessible components. No build step, no JavaScript.",
   "keywords": [
     "css",
