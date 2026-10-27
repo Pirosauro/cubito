@@ -1,5 +1,27 @@
 # cubito
 
+## Unreleased
+
+### New Features
+
+- **Dark theme** — The library now ships a dark theme in the same tokens. Components read adaptive role tokens (`--surface`, `--surface-subtle`, `--surface-sunken`, `--surface-strong`, `--surface-inverse`, `--border-color-subtle`, `--border-color`, `--border-color-strong`, `--text`, `--text-muted`, `--text-subtle`, `--text-on-inverse`) declared as `light-dark(<light>, <dark>)`. Light values are the palette steps the components always used, so the light theme is unchanged. All text pairs keep WCAG AA in both themes.
+- **Theme selection** — `color-scheme: light dark` follows the OS; `data-theme="light|dark"` forces a theme on the page or on any section. `--color-scheme` on `:root` pins the whole site.
+- **`--color-on-status`** and **`--color-on-brand`** — text colour for status fills (toast, banner) and brand fills (selected tag, active page).
+- **Role utilities** in `_color.css`: `.background-surface | -subtle | -sunken | -strong | -inverse`, `.color-text | -muted | -subtle | -on-inverse | -on-brand`, `.border-subtle | -default | -strong`. The palette classes (`.color-neutral-600`, …) stay fixed in both themes.
+- **`verify.mjs`** checks contrast in both themes.
+- **Documentation site** follows the system theme and has a Auto / Light / Dark toggle in the sidebar (stored in `localStorage`, applied before first paint). Demos use the role tokens and classes.
+
+### Changes
+
+- **Status colours** are now `light-dark()` pairs; the dark values (`#5c8`, `#f93`, `#f77`, `#6af`) are lighter, so they work as text and as fills on dark surfaces. The light values are unchanged.
+- **Light status colours** darkened slightly so they pass AA on every surface: `--color-status-warning` `#b50` → `#a50`, `--color-status-ko` `#d22` → `#d11`.
+- **`--border-color-strong`** is `#888` in the light theme (was neutral-400, `#999`, 2.85:1): UI borders need 3:1. Used by disabled-button, outline-card and `kbd` borders.
+- **`--color-brand`** defaults to `light-dark(#26e, #6af)` and **`--color-on-brand`** to `light-dark(white, black)`, so brand text and fills pass AA in both themes. If you set a single brand colour, set `--color-on-brand` too (usually `#fff`).
+- **Small AA nudges** (text that was just under 4.5:1 on its own tint): `.price__badge`, the warning `.banner`, links inside the default `.banner` and the active `nav` link are mixed 15% toward `--text`; `.pagination__ellipsis` uses `--text-muted` (was neutral-400, 2.85:1).
+- **`_table.css`** — Header background is now `--color-neutral-700` with `--color-neutral-50` text (was inverse of the page: black on white, white on black); cell borders are `light-dark(neutral-700, neutral-600)` (were `--color`). Softer in both themes, and no white grid on dark pages.
+- **`--color` / `--background` / `--body-color` / `--body-background`** now point at `--text` / `--surface`.
+- Browsers without `light-dark()` (before Chrome 123, Safari 17.5, Firefox 120) stay on the light theme through an `@supports` fallback.
+
 ## 0.8.0
 
 ### Breaking Changes

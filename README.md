@@ -145,7 +145,7 @@ Import layers in order. `_layers.css` must be the very first import.
 
 ## Brand tokens
 
-Define `--color-brand` and `--color-accent` in your own `:root` block. Both have defaults (`#26e`, and accent follows brand) declared in `@layer tokens`, so your unlayered declaration wins regardless of import order. Everything else has sensible defaults too.
+Define `--color-brand` and `--color-accent` in your own `:root` block. Both have defaults (`light-dark(#26e, #6af)`, and accent follows brand) declared in `@layer tokens`, so your unlayered declaration wins regardless of import order. Everything else has sensible defaults too.
 
 ```css
 /* app/global.css */
@@ -226,8 +226,8 @@ Variants (`data-variant`) and states (`:hover`, `:disabled`, `[aria-pressed]`) s
 
 /* Status */
 --color-status-ok       /* #173 — green,  5.66:1 on white */
---color-status-warning  /* #b50 — amber,  4.76:1 on white */
---color-status-ko       /* #d22 — red,    4.85:1 on white */
+--color-status-warning  /* #a50 — amber,  5.24:1 on white */
+--color-status-ko       /* #d11 — red,    5.04:1 on white */
 --color-status-info     /* #26b — blue,   5.70:1 on white */
 
 /* Border scale */
@@ -919,25 +919,70 @@ Each component declares its tokens in `@layer tokens` as `--{component}-default-
 
 ## Dark mode
 
-Dark mode is supported through the cascade, not a separate theme API. The library ships light defaults and `color-scheme: light dark`; override semantic tokens directly in a `@layer theme` block to support dark surfaces or manual theme toggles:
+The library ships a light and a dark theme in the same tokens. Components read **adaptive role tokens** defined with `light-dark(<light>, <dark>)`, so the theme is chosen by the standard `color-scheme` property — nothing is duplicated and no JavaScript is needed.
+
+| Role tokens | Light (unchanged) | Dark |
+| ----------- | ----------------- | ---- |
+| `--surface`, `--surface-subtle`, `--surface-sunken`, `--surface-strong` | white, neutral-50, -100, -200 | neutral-900, -800, -700, -600 |
+| `--surface-inverse`, `--text-on-inverse` | neutral-900, neutral-50 | neutral-50, neutral-900 |
+| `--border-color-subtle`, `--border-color`, `--border-color-strong` | neutral-200, -300, `#888` | neutral-700, -600, -500 |
+| `--text`, `--text-muted`, `--text-subtle` | black, neutral-500, -600 | neutral-50, `#aaa`, neutral-300 |
+| `--color-status-ok / warning / ko / info` | `#173`, `#a50`, `#d11`, `#26b` | `#5c8`, `#f93`, `#f77`, `#6af` |
+| `--color-on-status` | white | black |
+
+All text pairs keep WCAG AA (≥ 4.5:1) in both themes; `scripts/verify.mjs` checks it.
+
+**Choosing the theme**
+
+```html
+<!-- Follows the operating system (default: color-scheme: light dark) -->
+<html>
+
+<!-- Forced on the whole page or on any section of it -->
+<html data-theme="dark">
+<section data-theme="light">…</section>
+```
+
+To pin the whole site to one theme without markup, set `--color-scheme` once: `:root { --color-scheme: light; }`.
+
+A forced section only switches the colours that are *used* inside it. `body` already sets `color` and `background` from the roles; give the section its own if it must also look different from the page behind it:
 
 ```css
-.force-light {
-  color-scheme: light;
-  --body-background: var(--color-white);
-  --body-color: var(--color-black);
-  --card-background: var(--color-white);
-  --card-border-color: var(--color-neutral-200);
-}
-
-.force-dark {
-  color-scheme: dark;
-  --body-background: var(--color-neutral-900);
-  --body-color: var(--color-neutral-100);
-  --card-background: var(--color-neutral-800);
-  --card-border-color: var(--color-neutral-700);
+[data-theme] {
+  background: var(--surface);
+  color: var(--text);
 }
 ```
+
+**Your brand colour**
+
+`--color-brand` defaults to `light-dark(#26e, #6af)` and `--color-on-brand` (the text on a brand fill) to `light-dark(white, black)`, so brand text and brand buttons pass AA (4.5:1) in both themes. Set the two together:
+
+```css
+:root {
+  --color-brand: light-dark(#2563eb, #60a5fa);
+  --color-on-brand: light-dark(#fff, #0a0a0a);
+}
+```
+
+> **If you set a single brand colour** (`--color-brand: #ff3366`), also set `--color-on-brand` to the colour that reads on it in *both* themes (usually `#fff`). Left at the default, the text on your brand fills turns black in the dark theme, which is unreadable on a dark brand colour.
+
+**Role classes**
+
+`utilities/_color.css` has classes for the roles: `.background-surface | -subtle | -sunken | -strong | -inverse`, `.color-text | -muted | -subtle | -on-inverse | -on-brand` and `.border-subtle | -default | -strong`. The palette classes (`.color-neutral-600`, `.background-white`, …) are fixed: they look the same in both themes.
+
+**Customising**
+
+Override the roles, not the components — every component default is built on them:
+
+```css
+:root {
+  --surface: light-dark(#fff, #0b1020);
+  --text-muted: light-dark(#666, #b8c0d4);
+}
+```
+
+Browsers without `light-dark()` (before Chrome 123, Safari 17.5, Firefox 120) stay on the light theme.
 
 ---
 
