@@ -8,6 +8,15 @@ NAMING PATTERN
   .background-{token}   sets background-color
   .color-{token}        sets color (text)
   .border-{token}       sets border-color (pair with a .border-* width utility)
+
+ADAPTIVE ROLES
+  The palette classes (.color-neutral-600, .background-white, …) are fixed: they
+  look the same in the light and the dark theme. The role classes at the end of
+  each group follow the active theme:
+
+    .background-surface | -subtle | -sunken | -strong | -inverse
+    .color-text | -muted | -subtle | -on-inverse | -on-brand
+    .border-subtle | -default | -strong
 */
 
 @layer utilities {
@@ -189,5 +198,49 @@ NAMING PATTERN
   }
   .border-neutral-950 {
     border-color: var(--color-neutral-950);
+  }
+
+  /* --- Adaptive roles — follow the active theme (see abstracts/_theme.css) --- */
+
+  .background-surface {
+    background-color: var(--surface);
+  }
+  .background-subtle {
+    background-color: var(--surface-subtle);
+  }
+  .background-sunken {
+    background-color: var(--surface-sunken);
+  }
+  .background-strong {
+    background-color: var(--surface-strong);
+  }
+  .background-inverse {
+    background-color: var(--surface-inverse);
+  }
+
+  .color-text {
+    color: var(--text);
+  }
+  .color-muted {
+    color: var(--text-muted);
+  }
+  .color-subtle {
+    color: var(--text-subtle);
+  }
+  .color-on-inverse {
+    color: var(--text-on-inverse);
+  }
+  .color-on-brand {
+    color: var(--color-on-brand);
+  }
+
+  .border-subtle {
+    border-color: var(--border-color-subtle);
+  }
+  .border-default {
+    border-color: var(--border-color);
+  }
+  .border-strong {
+    border-color: var(--border-color-strong);
   }
 }
