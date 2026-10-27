@@ -6,19 +6,28 @@
   <title>{% block title %}{{ site.name }} Docs{% endblock %}</title>
   <meta name="description" content="{% block description %}{{ site.name }} — Enterprise-grade CSS design system built on CUBE CSS and Every Layout.{% endblock %}">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <script>
+    /* Apply the stored theme before first paint; no value means "follow the system". */
+    try {
+      const theme = localStorage.getItem('cubito-theme');
+      if (theme === 'light' || theme === 'dark') document.documentElement.dataset.theme = theme;
+    } catch (e) {}
+  </script>
   <link rel="stylesheet" href="/src/styles/main.css">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
   <div class="sidebar" style="--sidebar-content-min-width: 55%;">
-    <aside class="padding-m background-neutral-900 color-neutral-50 flow" aria-label="Site navigation">
+    <aside class="padding-m site-nav flow" aria-label="Site navigation">
       <div style="display: inline-flex; align-items: center;">
         <a href="/" class="text-no-underline color-neutral-50" aria-label="{{ site.name }} home">
           <strong class="heading-m">{{ site.name }}</strong>
         </a>
         <span class="badge margin-x-xs">v{{ site.version }}</span>
       </div>
+
+      <button type="button" class="theme-toggle" data-variant="outline" id="theme-toggle" aria-label="Colour theme"></button>
 
       <nav aria-label="Documentation" class="navigation padding-y-s flow" style="--flow-space: var(--space-s);">
         {% for section in nav %}
@@ -42,6 +51,31 @@
   </div>
 
   <script>
+    const themes = ['auto', 'light', 'dark'];
+    const toggle = document.getElementById('theme-toggle');
+    const root = document.documentElement;
+    let current = root.dataset.theme || 'auto';
+
+    function renderTheme() {
+      toggle.textContent = 'Theme: ' + current;
+      toggle.setAttribute('aria-label', 'Colour theme: ' + current + '. Activate to change.');
+    }
+
+    toggle.addEventListener('click', () => {
+      current = themes[(themes.indexOf(current) + 1) % themes.length];
+      if (current === 'auto') {
+        root.removeAttribute('data-theme');
+      } else {
+        root.dataset.theme = current;
+      }
+      try {
+        if (current === 'auto') localStorage.removeItem('cubito-theme');
+        else localStorage.setItem('cubito-theme', current);
+      } catch (e) {}
+      renderTheme();
+    });
+    renderTheme();
+
     const path = window.location.pathname.replace(/\/$/, '') || '/';
     document.querySelectorAll('aside a[href]').forEach(a => {
       const href = a.getAttribute('href').replace(/\/$/, '') || '/';

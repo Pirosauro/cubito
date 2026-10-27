@@ -73,32 +73,42 @@
 
 /* --- Token overrides --- */
 :root {
-  --color-brand: #2563eb;
-  --color-accent: #7c3aed;
+  /* Brand: a lighter value in the dark theme keeps it readable as text */
+  --color-brand: light-dark(#2563eb, #6af);
+  --color-accent: light-dark(#7c3aed, #a8f);
+  --color-on-brand: light-dark(var(--color-white), var(--color-black));
 
-  --body-color: var(--color-neutral-900);
   --link-color: var(--color-brand);
-
-  --pre-background: var(--color-neutral-900);
-  --code-background: var(--color-neutral-100);
-  --code-color: var(--color-neutral-900);
 
   /* Buttons */
   --button-default-background: var(--color-brand);
   --button-default-border-color: var(--color-brand);
-  --button-default-color: var(--color-neutral-50);
+  --button-default-color: var(--color-on-brand);
 
   --button-outline-background-hover: var(--color-brand);
   --button-outline-border-color-active: var(--color-brand);
   --button-outline-border-color-hover: var(--color-brand);
-  --button-outline-color-active: var(--color-white);
-  --button-outline-color-hover: var(--color-white);
+  --button-outline-color-active: var(--color-on-brand);
+  --button-outline-color-hover: var(--color-on-brand);
 
   /* Vertical rhythm */
   --flow-space: var(--space-l);
 }
 
 /* --- Custom styles --- */
+
+/* Site navigation: always a dark panel; a shade deeper in the dark theme so it
+   stays distinct from the page */
+.site-nav {
+  background: light-dark(var(--color-neutral-900), var(--color-neutral-950));
+  border-inline-end: var(--border-s) solid light-dark(transparent, var(--border-color-subtle));
+  color: var(--color-neutral-50);
+}
+
+.theme-toggle {
+  --button-padding: var(--space-tiny) var(--space-xs);
+  --button-font-size: var(--font-size-xs);
+}
 
 /* Navigation */
 .navigation a {
