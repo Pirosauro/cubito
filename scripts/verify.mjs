@@ -33,32 +33,73 @@ const files = cssFiles(lib)
 // Token resolution — read the real values from the CSS, never a hardcoded copy
 // ---------------------------------------------------------------------------
 
+// Remove `@supports not (...) { ... }` blocks (legacy-browser fallbacks): they
+// redeclare tokens with their light value and must not shadow the real ones.
+function withoutFallbacks(source) {
+  let out = source;
+  for (let start = out.indexOf('@supports not'); start !== -1; start = out.indexOf('@supports not')) {
+    let depth = 0;
+    let end = out.indexOf('{', start);
+    for (; end < out.length; end++) {
+      if (out[end] === '{') depth++;
+      if (out[end] === '}' && --depth === 0) break;
+    }
+    out = out.slice(0, start) + out.slice(end + 1);
+  }
+  return out;
+}
+
 const declarations = new Map(); // --token -> last declared value
 for (const { source } of files) {
-  for (const [, name, value] of source.matchAll(/(--[\w-]+)\s*:\s*([^;{}]+);/g)) {
+  for (const [, name, value] of withoutFallbacks(source).matchAll(/(--[\w-]+)\s*:\s*([^;{}]+);/g)) {
     declarations.set(name, value.trim());
   }
 }
 
-function resolveColor(value, seen = new Set()) {
+// Split "a, b" at the top-level comma (ignores commas inside var(...) / functions).
+function splitArguments(text) {
+  const parts = [];
+  let depth = 0;
+  let current = '';
+  for (const char of text) {
+    if (char === '(') depth++;
+    if (char === ')') depth--;
+    if (char === ',' && depth === 0) {
+      parts.push(current.trim());
+      current = '';
+    } else {
+      current += char;
+    }
+  }
+  parts.push(current.trim());
+  return parts;
+}
+
+// Resolve a value to a hex colour for one colour scheme ('light' | 'dark').
+function resolveColor(value, mode = 'light', seen = new Set()) {
   const hex = value.match(/^#(?:[0-9a-f]{3}|[0-9a-f]{6})$/i);
   if (hex) return value;
 
-  const reference = value.match(/^var\(\s*(--[\w-]+)\s*(?:,\s*([^)]+))?\)$/);
+  const lightDark = value.match(/^light-dark\((.*)\)$/s);
+  if (lightDark) {
+    const [light, dark] = splitArguments(lightDark[1]);
+    return resolveColor(mode === 'dark' ? dark : light, mode, seen);
+  }
+
+  const reference = value.match(/^var\(\s*(--[\w-]+)\s*(?:,\s*(.+))?\)$/s);
   if (!reference) return null;
 
   const [, name, fallback] = reference;
   if (seen.has(name)) return null;
-  seen.add(name);
 
   const next = declarations.get(name) ?? fallback?.trim();
-  return next ? resolveColor(next, seen) : null;
+  return next ? resolveColor(next, mode, new Set(seen).add(name)) : null;
 }
 
-const color = (token) => {
+const color = (token, mode = 'light') => {
   const value = declarations.get(token);
-  const resolved = value && resolveColor(value);
-  check(resolved, `cannot resolve ${token} to a hex colour (found: ${value ?? 'nothing'})`);
+  const resolved = value && resolveColor(value, mode);
+  check(resolved, `cannot resolve ${token} (${mode}) to a hex colour (found: ${value ?? 'nothing'})`);
   return resolved;
 };
 
@@ -136,7 +177,7 @@ for (const [name, source] of [['README.md', readme], ['docs/index.mdx', docsInde
 }
 
 // ---------------------------------------------------------------------------
-// Contrast — values come from the CSS
+// Contrast — values come from the CSS, checked in both colour schemes
 // ---------------------------------------------------------------------------
 
 const buttonBackground = color('--button-default-background');
@@ -147,14 +188,34 @@ if (buttonBackground && buttonForeground) {
   check(ratio >= AA_TEXT, `default button contrast is ${ratio.toFixed(2)}:1, below AA (${AA_TEXT}:1)`);
 }
 
-for (const token of ['--color-status-ok', '--color-status-warning', '--color-status-ko', '--color-status-info']) {
-  const background = color(token);
-  if (!background) continue;
-  const ratio = contrastRatio(white, background);
-  check(ratio >= AA_TEXT, `${token} (${background}) is ${ratio.toFixed(2)}:1 with white text, below AA (${AA_TEXT}:1)`);
+const statuses = ['--color-status-ok', '--color-status-warning', '--color-status-ko', '--color-status-info'];
+const surfaces = ['--surface', '--surface-subtle', '--surface-sunken'];
+
+for (const mode of ['light', 'dark']) {
+  const pair = (foreground, background, minimum, label, report = check) => {
+    const fg = color(foreground, mode);
+    const bg = color(background, mode);
+    if (!fg || !bg) return;
+    const ratio = contrastRatio(fg, bg);
+    report(ratio >= minimum, `[${mode}] ${label}: ${foreground} (${fg}) on ${background} (${bg}) is ${ratio.toFixed(2)}:1, below ${minimum}:1`);
+  };
+
+  for (const surface of surfaces) {
+    for (const text of ['--text', '--text-muted', '--text-subtle']) {
+      pair(text, surface, AA_TEXT, 'text contrast');
+    }
+    for (const status of statuses) pair(status, surface, AA_TEXT, 'status colour as text');
+  }
+
+  pair('--text-on-inverse', '--surface-inverse', AA_TEXT, 'inverse surface');
+  pair('--color-on-brand', '--color-brand', AA_TEXT, 'text on brand');
+  for (const status of statuses) pair('--color-on-status', status, AA_TEXT, 'text on status fill');
+
+  pair('--border-color-strong', '--surface', AA_UI, 'UI border');
+  pair('--color-brand', '--surface', AA_TEXT, 'brand colour as text');
 }
 
-const inputBorder = resolveColor(declarations.get('--input-default-border-color') ?? declarations.get('--input-border-color') ?? '');
+const inputBorder = color('--input-default-border-color');
 if (inputBorder) {
   const ratio = contrastRatio(inputBorder, white);
   warn(ratio >= AA_UI, `input border (${inputBorder}) is ${ratio.toFixed(2)}:1 on white, below ${AA_UI}:1 for UI components (WCAG 1.4.11)`);
