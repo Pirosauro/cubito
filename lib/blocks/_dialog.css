@@ -43,9 +43,9 @@ TOKENS
 
 @layer tokens {
   :root {
-    --dialog-background: var(--color-neutral-50);
-    --dialog-border: solid var(--border-s) var(--color-neutral-200);
-    --dialog-color: var(--color-black);
+    --dialog-background: var(--surface-subtle);
+    --dialog-border: solid var(--border-s) var(--border-color-subtle);
+    --dialog-color: var(--text);
     --dialog-max-height: min(85vh, 40rem);
     --dialog-max-width: min(90vw, 40rem);
     --dialog-padding: var(--space-l);

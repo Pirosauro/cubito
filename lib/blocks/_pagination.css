@@ -46,10 +46,10 @@ TOKENS
   :root {
     --pagination-background: transparent;
     --pagination-background-active: var(--color-brand);
-    --pagination-background-hover: var(--color-neutral-100);
+    --pagination-background-hover: var(--surface-sunken);
     --pagination-border: none;
     --pagination-color: currentColor;
-    --pagination-color-active: var(--color-white);
+    --pagination-color-active: var(--color-on-brand);
     --pagination-gap: var(--space-tiny);
     --pagination-item-size: 2.5rem;
     --pagination-radius: var(--border-radius-m);
@@ -108,7 +108,7 @@ TOKENS
 
   /* Ellipsis — not a link */
   .pagination__ellipsis {
-    color: var(--color-neutral-400);
+    color: var(--text-muted);
     cursor: default;
   }
 

@@ -25,7 +25,7 @@ TOKENS
 
 @layer tokens {
   :root {
-    --footnote-color: var(--color-neutral-600);
+    --footnote-color: var(--text-subtle);
     --footnote-font-size: var(--font-size-xs);
   }
 }

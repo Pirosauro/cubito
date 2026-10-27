@@ -43,7 +43,7 @@ TOKENS
 
 @layer tokens {
   :root {
-    --rating-empty-color: var(--color-neutral-300);
+    --rating-empty-color: var(--border-color);
     --rating-gap: 0.1em;
     --rating-size: 1rem;
     --rating-star-color: #f59e0b;
@@ -96,7 +96,7 @@ TOKENS
   /* Review count */
   .rating__count {
     font-size: var(--font-size-xs);
-    color: var(--color-neutral-500);
+    color: var(--text-muted);
     white-space: nowrap;
   }
 }

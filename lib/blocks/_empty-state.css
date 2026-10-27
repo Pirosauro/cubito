@@ -48,7 +48,7 @@ TOKENS
     --empty-state-gap: var(--space-s);
     --empty-state-illustration-size: 12rem;
     --empty-state-padding: var(--space-xxl) var(--space-m);
-    --empty-state-description-color: var(--color-neutral-500);
+    --empty-state-description-color: var(--text-muted);
   }
 }
 

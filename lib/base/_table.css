@@ -77,7 +77,10 @@ TOKENS
 
     /* --- Cell: default variant --- */
 
-    --td-default-border-color: var(--color);
+    --td-default-border-color: light-dark(
+      var(--color-neutral-700),
+      var(--color-neutral-600)
+    );
     --td-default-border-style: solid;
     --td-default-border-width: var(--border-s);
     --td-default-font-size: inherit;
@@ -85,12 +88,12 @@ TOKENS
 
     /* --- Header cell: default variant --- */
 
-    --th-default-background: var(--color);
-    --th-default-color: var(--background);
+    --th-default-background: var(--color-neutral-700);
+    --th-default-color: var(--color-neutral-50);
 
     /* --- Caption: default variant --- */
 
-    --caption-default-color: var(--color-neutral-500);
+    --caption-default-color: var(--text-muted);
     --caption-default-font-size: var(--font-size-xs);
     --caption-default-padding: var(--space-tiny) var(--space-xxs);
 

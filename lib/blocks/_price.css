@@ -77,7 +77,7 @@ TOKENS
   .price__original {
     font-size: var(--price-original-size);
     font-weight: var(--font-weight-normal);
-    color: var(--color-neutral-500);
+    color: var(--text-muted);
     text-decoration: line-through;
     align-self: center;
   }
@@ -89,7 +89,8 @@ TOKENS
     padding: 0.15em 0.5em;
     border-radius: var(--border-radius-m);
     background: color-mix(in srgb, var(--price-badge-color) 12%, transparent);
-    color: var(--price-badge-color);
+    /* nudged toward the text colour: the status colour alone is just under AA on its own tint */
+    color: color-mix(in srgb, var(--price-badge-color) 85%, var(--text));
     font-size: var(--font-size-xxs);
     font-weight: var(--font-weight-bold);
     line-height: 1;
@@ -99,7 +100,7 @@ TOKENS
   /* Per-unit / billing cycle note */
   .price__unit {
     font-size: var(--font-size-xs);
-    color: var(--color-neutral-500);
+    color: var(--text-muted);
     align-self: center;
   }
 }

@@ -45,9 +45,9 @@ TOKENS
 
 @layer tokens {
   :root {
-    --badge-default-background: var(--color-neutral-200);
+    --badge-default-background: var(--surface-strong);
     --badge-default-border: none;
-    --badge-default-color: var(--color-neutral-800);
+    --badge-default-color: light-dark(var(--color-neutral-800), var(--color-neutral-100));
     --badge-default-font-size: var(--font-size-xxs);
     --badge-default-padding: 0.45em 0.55em;
     --badge-default-radius: 9999px;

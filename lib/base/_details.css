@@ -67,7 +67,7 @@ TOKENS
   :root {
     /* --- Default variant --- */
 
-    --details-default-background: var(--color-neutral-50);
+    --details-default-background: var(--surface-subtle);
     --details-default-color: var(--color);
     --details-default-radius: var(--border-radius);
 

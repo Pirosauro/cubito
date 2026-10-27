@@ -30,8 +30,8 @@ TOKENS
 
 @layer tokens {
   :root {
-    --breadcrumb-color: var(--color-neutral-600);
-    --breadcrumb-color-current: var(--color-neutral-900);
+    --breadcrumb-color: var(--text-subtle);
+    --breadcrumb-color-current: light-dark(var(--color-neutral-900), var(--color-neutral-50));
     --breadcrumb-separator: "/";
   }
 }
@@ -61,7 +61,7 @@ TOKENS
     display: inline-block;
     margin: 0 0.25em;
     content: var(--breadcrumb-separator);
-    color: var(--color-neutral-400);
+    color: var(--border-color-strong);
   }
 
   .breadcrumb a {

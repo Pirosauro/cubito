@@ -95,8 +95,8 @@ TOKENS
       transform var(--motion-duration-fast, 150ms) var(--motion-easing-out);
 
     /*  */
-    --card-default-background: var(--color-white);
-    --card-default-border-color: var(--color-neutral-200);
+    --card-default-background: var(--surface);
+    --card-default-border-color: var(--border-color-subtle);
     --card-default-border-style: solid;
     --card-default-border-width: var(--border-s);
     --card-default-color: inherit;
@@ -106,28 +106,28 @@ TOKENS
     --card-default-transform: none;
 
     /** --- State: hover (only for interactive cards) --- */
-    --card-default-background-hover: var(--color-white);
-    --card-default-border-color-hover: var(--color-neutral-700);
+    --card-default-background-hover: var(--surface);
+    --card-default-border-color-hover: light-dark(var(--color-neutral-700), var(--color-neutral-300));
 
     /* Variant: outline */
-    --card-outline-border-color: var(--color-neutral-400);
-    --card-outline-border-color-hover: var(--color-neutral-700);
+    --card-outline-border-color: var(--border-color-strong);
+    --card-outline-border-color-hover: light-dark(var(--color-neutral-700), var(--color-neutral-300));
 
     /* Variant: elevated */
-    --card-elevated-background: var(--color-white);
+    --card-elevated-background: var(--surface);
     --card-elevated-shadow: 0 6px 18px -10px rgba(0, 0, 0, 0.28);
     --card-elevated-shadow-hover: 0 10px 26px -12px rgba(0, 0, 0, 0.35);
 
     /* Variant: subtle */
     --card-subtle-background: color-mix(
       in srgb,
-      var(--color-neutral-100) 70%,
-      var(--color-white)
+      var(--surface-sunken) 70%,
+      var(--surface)
     );
     --card-subtle-background-hover: color-mix(
       in srgb,
-      var(--color-neutral-200) 65%,
-      var(--color-white)
+      var(--surface-strong) 65%,
+      var(--surface)
     );
   }
 }
@@ -177,13 +177,13 @@ TOKENS
     --card-background: var(--card-subtle-background);
     --card-border-color: color-mix(
       in srgb,
-      var(--color-neutral-200) 80%,
+      var(--border-color-subtle) 80%,
       transparent
     );
     --card-background-hover: var(--card-subtle-background-hover);
     --card-border-color-hover: color-mix(
       in srgb,
-      var(--color-neutral-300) 85%,
+      var(--border-color) 85%,
       transparent
     );
   }

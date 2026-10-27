@@ -91,7 +91,8 @@ INTERNAL
     /* --- Default variant: link, active/current state --- */
 
     --nav-default-link-background-active: color-mix(in srgb, currentColor 12%, transparent);
-    --nav-default-link-color-active: var(--link-color, inherit);
+    /* nudged toward the text colour: brand on its own 12% tint is just under AA */
+    --nav-default-link-color-active: color-mix(in srgb, var(--link-color, currentColor) 85%, var(--text));
 
     /* --- Horizontal variant --- */
 

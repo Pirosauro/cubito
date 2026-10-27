@@ -50,8 +50,8 @@ TOKENS
 
 @layer tokens {
   :root {
-    --stepper-background: var(--color-white);
-    --stepper-border: solid var(--border-s) var(--color-neutral-300);
+    --stepper-background: var(--surface);
+    --stepper-border: solid var(--border-s) var(--border-color);
     --stepper-color: currentColor;
     --stepper-input-width: 3rem;
     --stepper-radius: var(--border-radius-m);

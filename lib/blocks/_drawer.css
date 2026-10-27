@@ -64,8 +64,8 @@ PROGRESSIVE ENHANCEMENT
 
 @layer tokens {
   :root {
-    --drawer-background: var(--color-neutral-50);
-    --drawer-color: var(--color-black);
+    --drawer-background: var(--surface-subtle);
+    --drawer-color: var(--text);
     --drawer-width: min(28rem, 100vw);
     --drawer-padding: var(--space-l);
     --drawer-border: none;

@@ -58,9 +58,9 @@ TOKENS
 
 @layer tokens {
   :root {
-    --avatar-background: var(--color-neutral-300);
+    --avatar-background: light-dark(var(--color-neutral-300), var(--color-neutral-600));
     --avatar-border: none;
-    --avatar-color: var(--color-neutral-800);
+    --avatar-color: light-dark(var(--color-neutral-800), var(--color-neutral-100));
     --avatar-font-size: calc(var(--avatar-size) * 0.38);
     --avatar-radius: 9999px;
     --avatar-size: 2.5rem;
@@ -134,7 +134,7 @@ TOKENS
     border-radius: 50%;
     border: max(1px, calc(var(--avatar-size) * 0.05)) solid
       var(--body-background, var(--color-white));
-    background: var(--_avatar-status-color, var(--color-neutral-400));
+    background: var(--_avatar-status-color, var(--border-color-strong));
   }
 
   .avatar[data-status="online"] {
@@ -147,7 +147,7 @@ TOKENS
     --_avatar-status-color: var(--color-status-ko);
   }
   .avatar[data-status="offline"] {
-    --_avatar-status-color: var(--color-neutral-400);
+    --_avatar-status-color: var(--border-color-strong);
   }
 
   /* --- Avatar group --- */

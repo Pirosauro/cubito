@@ -33,8 +33,8 @@ TOKENS
   :root {
     /* --- Default variant --- */
 
-    --code-default-background: var(--color-neutral-100);
-    --code-default-color: var(--color-neutral-900);
+    --code-default-background: var(--surface-sunken);
+    --code-default-color: light-dark(var(--color-neutral-900), var(--color-neutral-50));
     --code-default-font-size: 0.85em;
     --code-default-padding: var(--space-xxs) var(--space-s);
     --code-default-radius: var(--border-radius);

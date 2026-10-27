@@ -189,9 +189,9 @@ NOTE ON LOCAL OVERRIDES
 
     /* --- Default, disabled state --- */
 
-    --button-default-background-disabled: var(--color-neutral-200);
-    --button-default-border-color-disabled: var(--color-neutral-400);
-    --button-default-color-disabled: var(--color-neutral-500);
+    --button-default-background-disabled: var(--surface-strong);
+    --button-default-border-color-disabled: var(--border-color-strong);
+    --button-default-color-disabled: var(--text-muted);
     --button-default-opacity-disabled: 0.6;
     --button-default-shadow-disabled: none;
     --button-default-transform-disabled: none;

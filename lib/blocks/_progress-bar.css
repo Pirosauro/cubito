@@ -54,10 +54,10 @@ TOKENS
 @layer tokens {
   :root {
     --progress-bar-color: var(--color-brand, var(--color-black));
-    --progress-bar-header-color: var(--color-neutral-600);
+    --progress-bar-header-color: var(--text-subtle);
     --progress-bar-height: var(--space-xs);
     --progress-bar-radius: 9999px;
-    --progress-bar-track: var(--color-neutral-200);
+    --progress-bar-track: var(--surface-strong);
   }
 }
 

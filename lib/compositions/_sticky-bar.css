@@ -88,9 +88,9 @@ TOKENS
     --sticky-bar-blur: 0.75rem;
 
     /* Default Variant Tokens */
-    --sticky-bar-default-background: var(--color-white);
+    --sticky-bar-default-background: var(--surface);
     --sticky-bar-default-color: currentColor;
-    --sticky-bar-default-border: solid var(--border-s) var(--color-neutral-200);
+    --sticky-bar-default-border: solid var(--border-s) var(--border-color-subtle);
     --sticky-bar-default-shadow: 0 -2px 8px rgba(0, 0, 0, 0.08);
     --sticky-bar-default-shadow-top: 0 2px 8px rgba(0, 0, 0, 0.08);
     --sticky-bar-default-backdrop-filter: none;

@@ -148,9 +148,9 @@ USAGE
 
     /* --- Input: default, disabled state --- */
 
-    --input-default-background-disabled: var(--color-neutral-100);
-    --input-default-border-color-disabled: var(--color-neutral-200);
-    --input-default-color-disabled: var(--color-neutral-500);
+    --input-default-background-disabled: var(--surface-sunken);
+    --input-default-border-color-disabled: var(--border-color-subtle);
+    --input-default-color-disabled: var(--text-muted);
     --input-default-outline-disabled: none;
     --input-default-shadow-disabled: none;
 
@@ -163,7 +163,7 @@ USAGE
 
     /* --- Checkbox / radio: default variant --- */
 
-    --checkbox-default-background: var(--color-white);
+    --checkbox-default-background: var(--surface);
     --checkbox-default-background-hover: var(--checkbox-default-background);
     --checkbox-default-border-color: var(--input-default-border-color);
     --checkbox-default-border-color-hover: var(--input-default-border-color-hover);
@@ -179,7 +179,7 @@ USAGE
     /* --- Fieldset: default variant --- */
 
     --fieldset-default-background: transparent;
-    --fieldset-default-border-color: var(--color-neutral-300);
+    --fieldset-default-border-color: var(--border-color);
     --fieldset-default-border-style: solid;
     --fieldset-default-border-width: var(--border-m);
     --fieldset-default-color: var(--color);

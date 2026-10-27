@@ -110,6 +110,12 @@ TOKENS
     opacity: 1;
   }
 
+  /* Links on the tinted default banner: brand on its own tint is just under AA,
+     so nudge toward the text colour. */
+  .banner a:not([class]) {
+    color: color-mix(in srgb, var(--link-color, currentColor) 85%, var(--text));
+  }
+
   /* --- Variants --- */
 
   .banner[data-variant="warning"] {
@@ -118,16 +124,16 @@ TOKENS
       var(--color-status-warning) 15%,
       transparent
     );
-    --banner-color: var(--color-status-warning);
+    --banner-color: color-mix(in srgb, var(--color-status-warning) 85%, var(--text));
   }
 
   .banner[data-variant="error"] {
     --banner-background: var(--color-status-ko);
-    --banner-color: var(--color-white);
+    --banner-color: var(--color-on-status);
   }
 
   .banner[data-variant="neutral"] {
-    --banner-background: var(--color-neutral-900);
-    --banner-color: var(--color-neutral-50);
+    --banner-background: var(--surface-inverse);
+    --banner-color: var(--text-on-inverse);
   }
 }

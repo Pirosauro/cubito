@@ -30,7 +30,7 @@ TOKENS
 @layer tokens {
   :root {
     --skeleton-animation: skeleton-pulse 1.5s infinite ease-in-out;
-    --skeleton-background: var(--color-neutral-200);
+    --skeleton-background: var(--surface-strong);
     --skeleton-height: 1.25rem;
     --skeleton-radius: var(--border-radius);
     --skeleton-width: 80%;

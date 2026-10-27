@@ -60,13 +60,13 @@ TOKENS
 
 @layer tokens {
   :root {
-    --tag-default-background: var(--color-neutral-100);
-    --tag-default-background-hover: var(--color-neutral-200);
+    --tag-default-background: var(--surface-sunken);
+    --tag-default-background-hover: var(--surface-strong);
     --tag-default-background-selected: var(--color-brand);
-    --tag-default-border: solid var(--border-s) var(--color-neutral-300);
+    --tag-default-border: solid var(--border-s) var(--border-color);
     --tag-default-border-selected: solid var(--border-s) var(--color-brand);
-    --tag-default-color: var(--color-neutral-700);
-    --tag-default-color-selected: var(--color-white);
+    --tag-default-color: light-dark(var(--color-neutral-700), var(--color-neutral-200));
+    --tag-default-color-selected: var(--color-on-brand);
     --tag-default-font-size: var(--font-size-xs);
     --tag-default-padding: 0.25em 0.7em;
     --tag-default-radius: 9999px;

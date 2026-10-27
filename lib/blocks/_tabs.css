@@ -59,21 +59,21 @@ TOKENS
     /* Default Variant Tokens */
     --tabs-default-accent: var(--color-brand, var(--color-black));
     --tabs-default-background: transparent;
-    --tabs-default-border: solid var(--border-s) var(--color-neutral-200);
-    --tabs-default-tab-color: var(--color-neutral-500);
-    --tabs-default-tab-hover-color: var(--color-neutral-800);
+    --tabs-default-border: solid var(--border-s) var(--border-color-subtle);
+    --tabs-default-tab-color: var(--text-muted);
+    --tabs-default-tab-hover-color: light-dark(var(--color-neutral-800), var(--color-neutral-100));
 
     /* Pills Variant Tokens */
-    --tabs-pills-background: var(--color-neutral-100);
-    --tabs-pills-selected-background: var(--color-white);
+    --tabs-pills-background: var(--surface-sunken);
+    --tabs-pills-selected-background: var(--surface);
     --tabs-pills-tab-padding: var(--space-tiny) var(--space-s);
     --tabs-pills-gap: var(--space-tiny);
     --tabs-pills-border-radius: var(--tabs-radius);
     --tabs-pills-selected-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 
     /* Lifted Variant Tokens */
-    --tabs-lifted-selected-background: var(--color-white);
-    --tabs-lifted-selected-border-color: var(--color-neutral-200);
+    --tabs-lifted-selected-background: var(--surface);
+    --tabs-lifted-selected-border-color: var(--border-color-subtle);
     --tabs-lifted-tab-border: var(--tabs-default-border);
     --tabs-lifted-tab-radius: var(--tabs-radius) var(--tabs-radius) 0 0;
     --tabs-lifted-tab-margin-end: calc(-1 * var(--border-s, 0.0625rem));

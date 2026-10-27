@@ -43,8 +43,8 @@ ACCESSIBILITY
   :root {
     /* --- Default variant --- */
 
-    --tooltip-default-background: var(--color-neutral-800);
-    --tooltip-default-color: var(--color-neutral-50);
+    --tooltip-default-background: light-dark(var(--color-neutral-800), var(--color-neutral-100));
+    --tooltip-default-color: light-dark(var(--color-neutral-50), var(--color-neutral-900));
     --tooltip-default-max-width: 18rem;
     --tooltip-default-padding: var(--space-tiny) var(--space-xxs);
     --tooltip-default-radius: var(--border-radius-m);

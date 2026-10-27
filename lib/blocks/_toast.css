@@ -62,9 +62,9 @@ TOKENS (on .toast)
 
 @layer tokens {
   :root {
-    --toast-default-background: var(--color-neutral-900);
+    --toast-default-background: var(--surface-inverse);
     --toast-default-border: none;
-    --toast-default-color: var(--color-neutral-50);
+    --toast-default-color: var(--text-on-inverse);
     --toast-default-gap: var(--space-xs);
     --toast-default-inset: var(--space-s);
     --toast-default-padding: var(--space-xs) var(--space-s);
@@ -217,22 +217,22 @@ TOKENS (on .toast)
 
   .toast[data-variant="success"] {
     --toast-background: var(--color-status-ok);
-    --toast-color: var(--color-white);
+    --toast-color: var(--color-on-status);
   }
 
   .toast[data-variant="warning"] {
     --toast-background: var(--color-status-warning);
-    --toast-color: var(--color-white);
+    --toast-color: var(--color-on-status);
   }
 
   .toast[data-variant="error"] {
     --toast-background: var(--color-status-ko);
-    --toast-color: var(--color-white);
+    --toast-color: var(--color-on-status);
   }
 
   .toast[data-variant="info"] {
     --toast-background: var(--color-status-info);
-    --toast-color: var(--color-white);
+    --toast-color: var(--color-on-status);
   }
 
   /* --- Reduced motion --- */
