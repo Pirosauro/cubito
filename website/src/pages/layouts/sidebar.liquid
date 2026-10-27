@@ -4,7 +4,7 @@
 {% block content %}
 <article class="flow">
 
-  <header class="flow" style="padding-block-end: var(--space-l); border-block-end: var(--border-s) solid var(--color-neutral-200);">
+  <header class="flow" style="padding-block-end: var(--space-l); border-block-end: var(--border-s) solid var(--border-color-subtle);">
     <nav aria-label="Breadcrumb" class="breadcrumb">
       <ol>
         <li><a href="/">Home</a></li>
@@ -13,7 +13,7 @@
       </ol>
     </nav>
     <h1>Sidebar</h1>
-    <p class="text-m color-neutral-600">Places a fixed-width sidebar next to a flexible main content area, stacking them vertically when the viewport is too narrow — no media queries needed.</p>
+    <p class="text-m color-subtle">Places a fixed-width sidebar next to a flexible main content area, stacking them vertically when the viewport is too narrow — no media queries needed.</p>
   </header>
 
   <section>
@@ -26,17 +26,17 @@
           <nav class="docs-demo-aside flow" style="--flow-space: var(--space-xxs);" aria-label="Demo navigation">
             <p class="heading-xs color-brand text-bold margin-0">Navigation</p>
             <ul class="flow margin-0 padding-0" role="list" style="--flow-space: var(--space-tiny); list-style: none;">
-              <li><a href="#" class="padding-xxs text-s text-no-underline color-neutral-800 background-neutral-200 radius-s" aria-current="page">Dashboard</a></li>
-              <li><a href="#" class="padding-xxs text-s text-no-underline color-neutral-800">Team</a></li>
-              <li><a href="#" class="padding-xxs text-s text-no-underline color-neutral-800">Projects</a></li>
-              <li><a href="#" class="padding-xxs text-s text-no-underline color-neutral-800">Reports</a></li>
-              <li><a href="#" class="padding-xxs text-s text-no-underline color-neutral-800">Settings</a></li>
+              <li><a href="#" class="padding-xxs text-s text-no-underline color-text background-strong radius-s" aria-current="page">Dashboard</a></li>
+              <li><a href="#" class="padding-xxs text-s text-no-underline color-text">Team</a></li>
+              <li><a href="#" class="padding-xxs text-s text-no-underline color-text">Projects</a></li>
+              <li><a href="#" class="padding-xxs text-s text-no-underline color-text">Reports</a></li>
+              <li><a href="#" class="padding-xxs text-s text-no-underline color-text">Settings</a></li>
             </ul>
           </nav>
 
           <main class="docs-demo-main flow" style="--flow-space: var(--space-xs);">
             <h2 class="heading-s margin-0">Dashboard</h2>
-            <p class="text-s color-neutral-600 margin-0">Main content area grows to fill available space. It will never be narrower than <code>--sidebar-content-min-width</code> (default 50%).</p>
+            <p class="text-s color-subtle margin-0">Main content area grows to fill available space. It will never be narrower than <code>--sidebar-content-min-width</code> (default 50%).</p>
           </main>
         </div>
       </div>
@@ -61,16 +61,16 @@
         <div class="sidebar" data-direction="reverse">
           <article class="docs-demo-main flow" style="--flow-space: var(--space-xs);">
             <h2 class="heading-s margin-0">Article title</h2>
-            <p class="text-s color-neutral-600 margin-0">The main content area sits on the left when the sidebar is reversed. Useful for article layouts with a contextual aside.</p>
+            <p class="text-s color-subtle margin-0">The main content area sits on the left when the sidebar is reversed. Useful for article layouts with a contextual aside.</p>
           </article>
 
           <aside class="docs-demo-aside flow" style="--flow-space: var(--space-xxs);">
             <p class="heading-xs color-brand text-bold margin-0">In this article</p>
             <ul class="flow margin-0 padding-0" role="list" style="--flow-space: var(--space-tiny); list-style: none;">
-              <li><a href="#" class="text-s text-no-underline color-neutral-800">Introduction</a></li>
-              <li><a href="#" class="text-s text-no-underline color-neutral-800">Getting started</a></li>
-              <li><a href="#" class="text-s text-no-underline color-neutral-800">Configuration</a></li>
-              <li><a href="#" class="text-s text-no-underline color-neutral-800">API reference</a></li>
+              <li><a href="#" class="text-s text-no-underline color-text">Introduction</a></li>
+              <li><a href="#" class="text-s text-no-underline color-text">Getting started</a></li>
+              <li><a href="#" class="text-s text-no-underline color-text">Configuration</a></li>
+              <li><a href="#" class="text-s text-no-underline color-text">API reference</a></li>
             </ul>
           </aside>
         </div>
@@ -97,15 +97,15 @@
           <nav class="docs-demo-aside flow" style="--flow-space: var(--space-xxs);">
             <p class="heading-xs color-brand text-bold margin-0">Docs</p>
             <ul class="flow margin-0 padding-0" role="list" style="--flow-space: var(--space-tiny); list-style: none;">
-              <li><a href="#" class="text-s text-no-underline color-neutral-800">Overview</a></li>
-              <li><a href="#" class="text-s text-no-underline color-neutral-800">Installation</a></li>
-              <li><a href="#" class="text-s text-no-underline color-neutral-800">Configuration</a></li>
+              <li><a href="#" class="text-s text-no-underline color-text">Overview</a></li>
+              <li><a href="#" class="text-s text-no-underline color-text">Installation</a></li>
+              <li><a href="#" class="text-s text-no-underline color-text">Configuration</a></li>
             </ul>
             <p class="text-xs color-brand margin-0">Sticky on ≥ 960 px</p>
           </nav>
 
           <main class="docs-demo-main">
-            <p class="text-s color-neutral-600 margin-0">The sidebar stays in view while the content area scrolls on wide viewports. On narrow viewports they stack normally.</p>
+            <p class="text-s color-subtle margin-0">The sidebar stays in view while the content area scrolls on wide viewports. On narrow viewports they stack normally.</p>
           </main>
         </div>
       </div>

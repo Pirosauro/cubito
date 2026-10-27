@@ -4,7 +4,7 @@
 {% block content %}
 <article class="flow">
 
-  <header class="flow" style="padding-block-end: var(--space-l); border-block-end: var(--border-s) solid var(--color-neutral-200);">
+  <header class="flow" style="padding-block-end: var(--space-l); border-block-end: var(--border-s) solid var(--border-color-subtle);">
     <nav aria-label="Breadcrumb" class="breadcrumb">
       <ol>
         <li><a href="/">Home</a></li>
@@ -13,7 +13,7 @@
       </ol>
     </nav>
     <h1>Tag</h1>
-    <p class="text-m color-neutral-600">Compact labels for taxonomy, filters, and attribute display. Static tags are purely presentational; chips are interactive and can be selected or dismissed.</p>
+    <p class="text-m color-subtle">Compact labels for taxonomy, filters, and attribute display. Static tags are purely presentational; chips are interactive and can be selected or dismissed.</p>
   </header>
 
   <section>
@@ -184,12 +184,12 @@
         <tbody>
           <tr>
             <td><code>--tag-default-background</code></td>
-            <td><code>var(--color-neutral-100)</code></td>
+            <td><code>var(--surface-sunken)</code></td>
             <td>Background of an idle tag.</td>
           </tr>
           <tr>
             <td><code>--tag-default-color</code></td>
-            <td><code>var(--color-neutral-700)</code></td>
+            <td><code>light-dark(var(--color-neutral-700), var(--color-neutral-200))</code></td>
             <td>Text colour of an idle tag.</td>
           </tr>
           <tr>
@@ -219,7 +219,7 @@
           </tr>
           <tr>
             <td><code>--tag-default-color-selected</code></td>
-            <td><code>var(--color-white)</code></td>
+            <td><code>var(--color-on-brand)</code></td>
             <td>Text colour when selected.</td>
           </tr>
           <tr>

@@ -13,7 +13,7 @@
       </ol>
     </nav>
     <h1>Color</h1>
-    <p class="text-m color-neutral-600">Convenience classes for applying colour tokens to text, backgrounds, and borders. All tokens are defined in the theme layer.</p>
+    <p class="text-m color-subtle">Convenience classes for applying colour tokens to text, backgrounds, and borders. All tokens are defined in the theme layer.</p>
   </header>
 
   <section>
@@ -22,7 +22,7 @@
       <p>Use <code>.color-{name}</code> to set the text colour of an element to a design token value.</p>
     
       <div class="">
-  <div class="flow" style="--flow-space: var(--space-xxs)">
+  <div class="flow background-white" data-theme="light" style="color: var(--text); --flow-space: var(--space-xxs); padding: var(--space-s); border-radius: var(--border-radius-m)">
     <p class="color-brand">.color-brand</p>
     <p class="color-accent">.color-accent</p>
     <p class="color-status-ok">.color-status-ok</p>
@@ -59,17 +59,17 @@
       <p>Use <code>.background-{name}</code> to set the background colour of an element.</p>
     
       <div class="">
-  <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr)); gap: var(--space-xs)">
-    <div class="background-brand" style="padding: var(--space-s); border-radius: var(--border-radius-m); color: white; font-size: var(--font-size-xs)">brand</div>
-    <div class="background-accent" style="padding: var(--space-s); border-radius: var(--border-radius-m); color: white; font-size: var(--font-size-xs)">accent</div>
-    <div class="background-status-ok" style="padding: var(--space-s); border-radius: var(--border-radius-m); color: white; font-size: var(--font-size-xs)">status-ok</div>
-    <div class="background-status-warning" style="padding: var(--space-s); border-radius: var(--border-radius-m); color: white; font-size: var(--font-size-xs)">status-warning</div>
-    <div class="background-status-ko" style="padding: var(--space-s); border-radius: var(--border-radius-m); color: white; font-size: var(--font-size-xs)">status-ko</div>
-    <div class="background-status-info" style="padding: var(--space-s); border-radius: var(--border-radius-m); color: white; font-size: var(--font-size-xs)">status-info</div>
+  <div class="background-white" data-theme="light" style="color: var(--text); display: grid; grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr)); gap: var(--space-xs); padding: var(--space-s); border-radius: var(--border-radius-m)">
+    <div class="background-brand" style="padding: var(--space-s); border-radius: var(--border-radius-m); color: var(--color-on-brand); font-size: var(--font-size-xs)">brand</div>
+    <div class="background-accent" style="padding: var(--space-s); border-radius: var(--border-radius-m); color: var(--color-on-brand); font-size: var(--font-size-xs)">accent</div>
+    <div class="background-status-ok" style="padding: var(--space-s); border-radius: var(--border-radius-m); color: var(--color-on-status); font-size: var(--font-size-xs)">status-ok</div>
+    <div class="background-status-warning" style="padding: var(--space-s); border-radius: var(--border-radius-m); color: var(--color-on-status); font-size: var(--font-size-xs)">status-warning</div>
+    <div class="background-status-ko" style="padding: var(--space-s); border-radius: var(--border-radius-m); color: var(--color-on-status); font-size: var(--font-size-xs)">status-ko</div>
+    <div class="background-status-info" style="padding: var(--space-s); border-radius: var(--border-radius-m); color: var(--color-on-status); font-size: var(--font-size-xs)">status-info</div>
     <div class="background-neutral-100 border border-neutral-200" style="padding: var(--space-s); border-radius: var(--border-radius-m); font-size: var(--font-size-xs)">neutral-100</div>
     <div class="background-neutral-200" style="padding: var(--space-s); border-radius: var(--border-radius-m); font-size: var(--font-size-xs)">neutral-200</div>
     <div class="background-neutral-300" style="padding: var(--space-s); border-radius: var(--border-radius-m); font-size: var(--font-size-xs)">neutral-300</div>
-    <div class="background-neutral-400" style="padding: var(--space-s); border-radius: var(--border-radius-m); color: white; font-size: var(--font-size-xs)">neutral-400</div>
+    <div class="background-neutral-400" style="padding: var(--space-s); border-radius: var(--border-radius-m); color: var(--color-neutral-900); font-size: var(--font-size-xs)">neutral-400</div>
     <div class="background-neutral-500" style="padding: var(--space-s); border-radius: var(--border-radius-m); color: white; font-size: var(--font-size-xs)">neutral-500</div>
     <div class="background-neutral-600" style="padding: var(--space-s); border-radius: var(--border-radius-m); color: white; font-size: var(--font-size-xs)">neutral-600</div>
     <div class="background-neutral-700" style="padding: var(--space-s); border-radius: var(--border-radius-m); color: white; font-size: var(--font-size-xs)">neutral-700</div>
@@ -82,16 +82,16 @@
       <details class="margin-y-s">
         <summary>Show code</summary>
         <pre class="padding-m"><code>&lt;div style=&quot;display: grid; grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr)); gap: var(--space-xs)&quot;&gt;
-    &lt;div class=&quot;background-brand&quot; style=&quot;padding: var(--space-s); border-radius: var(--border-radius-m); color: white; font-size: var(--font-size-xs)&quot;&gt;brand&lt;/div&gt;
-    &lt;div class=&quot;background-accent&quot; style=&quot;padding: var(--space-s); border-radius: var(--border-radius-m); color: white; font-size: var(--font-size-xs)&quot;&gt;accent&lt;/div&gt;
-    &lt;div class=&quot;background-status-ok&quot; style=&quot;padding: var(--space-s); border-radius: var(--border-radius-m); color: white; font-size: var(--font-size-xs)&quot;&gt;status-ok&lt;/div&gt;
-    &lt;div class=&quot;background-status-warning&quot; style=&quot;padding: var(--space-s); border-radius: var(--border-radius-m); color: white; font-size: var(--font-size-xs)&quot;&gt;status-warning&lt;/div&gt;
-    &lt;div class=&quot;background-status-ko&quot; style=&quot;padding: var(--space-s); border-radius: var(--border-radius-m); color: white; font-size: var(--font-size-xs)&quot;&gt;status-ko&lt;/div&gt;
-    &lt;div class=&quot;background-status-info&quot; style=&quot;padding: var(--space-s); border-radius: var(--border-radius-m); color: white; font-size: var(--font-size-xs)&quot;&gt;status-info&lt;/div&gt;
+    &lt;div class=&quot;background-brand&quot; style=&quot;padding: var(--space-s); border-radius: var(--border-radius-m); color: var(--color-on-brand); font-size: var(--font-size-xs)&quot;&gt;brand&lt;/div&gt;
+    &lt;div class=&quot;background-accent&quot; style=&quot;padding: var(--space-s); border-radius: var(--border-radius-m); color: var(--color-on-brand); font-size: var(--font-size-xs)&quot;&gt;accent&lt;/div&gt;
+    &lt;div class=&quot;background-status-ok&quot; style=&quot;padding: var(--space-s); border-radius: var(--border-radius-m); color: var(--color-on-status); font-size: var(--font-size-xs)&quot;&gt;status-ok&lt;/div&gt;
+    &lt;div class=&quot;background-status-warning&quot; style=&quot;padding: var(--space-s); border-radius: var(--border-radius-m); color: var(--color-on-status); font-size: var(--font-size-xs)&quot;&gt;status-warning&lt;/div&gt;
+    &lt;div class=&quot;background-status-ko&quot; style=&quot;padding: var(--space-s); border-radius: var(--border-radius-m); color: var(--color-on-status); font-size: var(--font-size-xs)&quot;&gt;status-ko&lt;/div&gt;
+    &lt;div class=&quot;background-status-info&quot; style=&quot;padding: var(--space-s); border-radius: var(--border-radius-m); color: var(--color-on-status); font-size: var(--font-size-xs)&quot;&gt;status-info&lt;/div&gt;
     &lt;div class=&quot;background-neutral-100 border border-neutral-200&quot; style=&quot;padding: var(--space-s); border-radius: var(--border-radius-m); font-size: var(--font-size-xs)&quot;&gt;neutral-100&lt;/div&gt;
     &lt;div class=&quot;background-neutral-200&quot; style=&quot;padding: var(--space-s); border-radius: var(--border-radius-m); font-size: var(--font-size-xs)&quot;&gt;neutral-200&lt;/div&gt;
     &lt;div class=&quot;background-neutral-300&quot; style=&quot;padding: var(--space-s); border-radius: var(--border-radius-m); font-size: var(--font-size-xs)&quot;&gt;neutral-300&lt;/div&gt;
-    &lt;div class=&quot;background-neutral-400&quot; style=&quot;padding: var(--space-s); border-radius: var(--border-radius-m); color: white; font-size: var(--font-size-xs)&quot;&gt;neutral-400&lt;/div&gt;
+    &lt;div class=&quot;background-neutral-400&quot; style=&quot;padding: var(--space-s); border-radius: var(--border-radius-m); color: var(--color-neutral-900); font-size: var(--font-size-xs)&quot;&gt;neutral-400&lt;/div&gt;
     &lt;div class=&quot;background-neutral-500&quot; style=&quot;padding: var(--space-s); border-radius: var(--border-radius-m); color: white; font-size: var(--font-size-xs)&quot;&gt;neutral-500&lt;/div&gt;
     &lt;div class=&quot;background-neutral-600&quot; style=&quot;padding: var(--space-s); border-radius: var(--border-radius-m); color: white; font-size: var(--font-size-xs)&quot;&gt;neutral-600&lt;/div&gt;
     &lt;div class=&quot;background-neutral-700&quot; style=&quot;padding: var(--space-s); border-radius: var(--border-radius-m); color: white; font-size: var(--font-size-xs)&quot;&gt;neutral-700&lt;/div&gt;
@@ -130,6 +130,50 @@
   &lt;/div&gt;</code></pre>
       </details>
   
+    </div>
+  </section>
+  <section>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Adaptive roles</h2>
+      <p>The palette classes above are fixed: <code>.color-neutral-600</code> looks the same in the light and the dark theme. The role classes follow the active theme (<code>color-scheme</code> or <code>data-theme</code>), so prefer them for surfaces, text and borders.</p>
+
+      <div class="">
+  <div style="display: flex; flex-wrap: wrap; gap: var(--space-s)">
+    <div class="background-surface border border-subtle" style="padding: var(--space-s); border-radius: var(--border-radius-m); font-size: var(--font-size-xs)">.background-surface</div>
+    <div class="background-subtle border border-subtle" style="padding: var(--space-s); border-radius: var(--border-radius-m); font-size: var(--font-size-xs)">.background-subtle</div>
+    <div class="background-sunken border border-subtle" style="padding: var(--space-s); border-radius: var(--border-radius-m); font-size: var(--font-size-xs)">.background-sunken</div>
+    <div class="background-strong" style="padding: var(--space-s); border-radius: var(--border-radius-m); font-size: var(--font-size-xs)">.background-strong</div>
+    <div class="background-inverse color-on-inverse" style="padding: var(--space-s); border-radius: var(--border-radius-m); font-size: var(--font-size-xs)">.background-inverse .color-on-inverse</div>
+  </div>
+  <div class="flow" style="--flow-space: var(--space-xxs); margin-block-start: var(--space-s)">
+    <p class="color-text">.color-text</p>
+    <p class="color-muted">.color-muted</p>
+    <p class="color-subtle">.color-subtle</p>
+  </div>
+  <div style="display: flex; flex-wrap: wrap; gap: var(--space-s); margin-block-start: var(--space-s)">
+    <div class="border border-subtle" style="padding: var(--space-s); border-radius: var(--border-radius-m); font-size: var(--font-size-xs)">.border-subtle</div>
+    <div class="border border-default" style="padding: var(--space-s); border-radius: var(--border-radius-m); font-size: var(--font-size-xs)">.border-default</div>
+    <div class="border border-strong" style="padding: var(--space-s); border-radius: var(--border-radius-m); font-size: var(--font-size-xs)">.border-strong</div>
+  </div>
+      </div>
+
+      <table>
+        <thead>
+          <tr><th>Class</th><th>Light</th><th>Dark</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>.background-surface</code></td><td>white</td><td>neutral-900</td></tr>
+          <tr><td><code>.background-subtle</code></td><td>neutral-50</td><td>neutral-800</td></tr>
+          <tr><td><code>.background-sunken</code></td><td>neutral-100</td><td>neutral-700</td></tr>
+          <tr><td><code>.background-strong</code></td><td>neutral-200</td><td>neutral-600</td></tr>
+          <tr><td><code>.background-inverse</code> + <code>.color-on-inverse</code></td><td>neutral-900 + neutral-50</td><td>neutral-50 + neutral-900</td></tr>
+          <tr><td><code>.color-text</code></td><td>black</td><td>neutral-50</td></tr>
+          <tr><td><code>.color-muted</code></td><td>neutral-500</td><td><code>#aaa</code></td></tr>
+          <tr><td><code>.color-subtle</code></td><td>neutral-600</td><td>neutral-300</td></tr>
+          <tr><td><code>.color-on-brand</code></td><td colspan="2"><code>--color-on-brand</code> — text for a <code>--color-brand</code> fill</td></tr>
+          <tr><td><code>.border-subtle</code> / <code>-default</code> / <code>-strong</code></td><td>neutral-200 / -300 / -400</td><td>neutral-700 / -600 / -500</td></tr>
+        </tbody>
+      </table>
     </div>
   </section>
 

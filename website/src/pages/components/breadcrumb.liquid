@@ -4,7 +4,7 @@
 {% block content %}
 <article class="flow">
 
-  <header class="flow" style="padding-block-end: var(--space-l); border-block-end: var(--border-s) solid var(--color-neutral-200);">
+  <header class="flow" style="padding-block-end: var(--space-l); border-block-end: var(--border-s) solid var(--border-color-subtle);">
     <nav aria-label="Breadcrumb" class="breadcrumb">
       <ol>
         <li><a href="/">Home</a></li>
@@ -13,7 +13,7 @@
       </ol>
     </nav>
     <h1>Breadcrumb</h1>
-    <p class="text-m color-neutral-600">A navigation aid that shows a user's current location within the site hierarchy, using an ordered list for correct screen-reader announcement.</p>
+    <p class="text-m color-subtle">A navigation aid that shows a user's current location within the site hierarchy, using an ordered list for correct screen-reader announcement.</p>
   </header>
 
   <section>
@@ -85,8 +85,8 @@
         </thead>
         <tbody>
           <tr><td><code>--breadcrumb-separator</code></td><td><code>"/"</code></td><td>The glyph rendered between each crumb via CSS <code>content</code>.</td></tr>
-          <tr><td><code>--breadcrumb-color</code></td><td><code>--color-neutral-600</code></td><td>Link text colour.</td></tr>
-          <tr><td><code>--breadcrumb-color-current</code></td><td><code>--color-neutral-900</code></td><td>Colour of the active (current page) crumb.</td></tr>
+          <tr><td><code>--breadcrumb-color</code></td><td><code>--text-subtle</code></td><td>Link text colour.</td></tr>
+          <tr><td><code>--breadcrumb-color-current</code></td><td><code>light-dark(--color-neutral-900, --color-neutral-50)</code></td><td>Colour of the active (current page) crumb.</td></tr>
         </tbody>
       </table>
   

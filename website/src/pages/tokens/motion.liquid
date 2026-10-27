@@ -4,7 +4,7 @@
 {% block content %}
 <article class="flow">
 
-  <header class="flow" style="padding-block-end: var(--space-l); border-block-end: var(--border-s) solid var(--color-neutral-200);">
+  <header class="flow" style="padding-block-end: var(--space-l); border-block-end: var(--border-s) solid var(--border-color-subtle);">
     <nav aria-label="Breadcrumb" class="breadcrumb">
       <ol>
         <li><a href="/">Home</a></li>
@@ -13,7 +13,7 @@
       </ol>
     </nav>
     <h1>Motion</h1>
-    <p class="text-m color-neutral-600">Duration and easing tokens for consistent, accessible animation. All durations automatically collapse to 0 ms when the user has enabled "reduce motion" at the OS level.</p>
+    <p class="text-m color-subtle">Duration and easing tokens for consistent, accessible animation. All durations automatically collapse to 0 ms when the user has enabled "reduce motion" at the OS level.</p>
   </header>
 
   <section>
@@ -113,8 +113,8 @@
       width: 10rem;
       height: 6rem;
       border-radius: var(--border-radius-l, 0.5rem);
-      background: var(--color-neutral-100, #f5f5f5);
-      border: 1px solid var(--color-neutral-200, #e2e2e2);
+      background: var(--surface-sunken);
+      border: 1px solid var(--border-color-subtle);
       font-weight: 700;
       cursor: pointer;
       transition:
@@ -125,13 +125,13 @@
     }
     .motion-demo-box:hover {
       background: var(--color-brand, #0057d9);
-      color: var(--color-white, #fff);
+      color: var(--color-on-brand);
       transform: translateY(-2px);
     }
   </style>
   <div style="padding: 2rem; display: flex; gap: 1.5rem; flex-wrap: wrap; align-items: center;">
     <div class="motion-demo-box">Hover me</div>
-    <div style="font-size: var(--font-size-xs, 0.8rem); color: var(--color-neutral-500, #6d6d6d); max-width: 22rem;">
+    <div style="font-size: var(--font-size-xs, 0.8rem); color: var(--text-muted); max-width: 22rem;">
       <p><code>transition: background var(--motion-duration-base) var(--motion-easing-out)</code></p>
       <p style="margin-block-start: 0.5rem;">250 ms, decelerating ease. Background shifts to <code>--color-brand</code>, text to white, with a subtle upward nudge.</p>
     </div>
@@ -148,8 +148,8 @@
       width: 10rem;
       height: 6rem;
       border-radius: var(--border-radius-l, 0.5rem);
-      background: var(--color-neutral-100, #f5f5f5);
-      border: 1px solid var(--color-neutral-200, #e2e2e2);
+      background: var(--surface-sunken);
+      border: 1px solid var(--border-color-subtle);
       font-weight: 700;
       cursor: pointer;
       transition:
@@ -160,13 +160,13 @@
     }
     .motion-demo-box:hover {
       background: var(--color-brand, #0057d9);
-      color: var(--color-white, #fff);
+      color: var(--color-on-brand);
       transform: translateY(-2px);
     }
   &lt;/style&gt;
   &lt;div style=&quot;padding: 2rem; display: flex; gap: 1.5rem; flex-wrap: wrap; align-items: center;&quot;&gt;
     &lt;div class=&quot;motion-demo-box&quot;&gt;Hover me&lt;/div&gt;
-    &lt;div style=&quot;font-size: var(--font-size-xs, 0.8rem); color: var(--color-neutral-500, #6d6d6d); max-width: 22rem;&quot;&gt;
+    &lt;div style=&quot;font-size: var(--font-size-xs, 0.8rem); color: var(--text-muted); max-width: 22rem;&quot;&gt;
       &lt;p&gt;&lt;code&gt;transition: background var(--motion-duration-base) var(--motion-easing-out)&lt;/code&gt;&lt;/p&gt;
       &lt;p style=&quot;margin-block-start: 0.5rem;&quot;&gt;250 ms, decelerating ease. Background shifts to &lt;code&gt;--color-brand&lt;/code&gt;, text to white, with a subtle upward nudge.&lt;/p&gt;
     &lt;/div&gt;

@@ -4,7 +4,7 @@
 {% block content %}
 <article class="flow">
 
-  <header class="flow" style="padding-block-end: var(--space-l); border-block-end: var(--border-s) solid var(--color-neutral-200);">
+  <header class="flow" style="padding-block-end: var(--space-l); border-block-end: var(--border-s) solid var(--border-color-subtle);">
     <nav aria-label="Breadcrumb" class="breadcrumb">
       <ol>
         <li><a href="/">Home</a></li>
@@ -13,7 +13,7 @@
       </ol>
     </nav>
     <h1>Drawer</h1>
-    <p class="text-m color-neutral-600">An off-canvas panel built on the native <code>&lt;dialog&gt;</code> element. It uses the browser’s top layer, focus trap, and Escape handling so the CSS only needs to handle layout and motion.</p>
+    <p class="text-m color-subtle">An off-canvas panel built on the native <code>&lt;dialog&gt;</code> element. It uses the browser’s top layer, focus trap, and Escape handling so the CSS only needs to handle layout and motion.</p>
   </header>
 
   <section>
@@ -30,7 +30,7 @@
             <div class="repel" style="align-items: start;">
               <div class="flow" style="--flow-space: var(--space-3xs);">
                 <h2 id="cart-drawer-title" class="heading-m">Your cart</h2>
-                <p class="text-s color-neutral-600">Review items before checkout.</p>
+                <p class="text-s color-subtle">Review items before checkout.</p>
               </div>
               <button type="button" class="button" data-variant="outline" onclick="this.closest('dialog').close()">Close</button>
             </div>
@@ -39,14 +39,14 @@
               <div class="cluster" style="justify-content: space-between; align-items: start;">
                 <div class="flow" style="--flow-space: var(--space-3xs);">
                   <strong>Everyday tee</strong>
-                  <span class="text-s color-neutral-600">1 × Navy / Medium</span>
+                  <span class="text-s color-subtle">1 × Navy / Medium</span>
                 </div>
                 <span class="text-s">$24.00</span>
               </div>
               <div class="cluster" style="justify-content: space-between; align-items: start;">
                 <div class="flow" style="--flow-space: var(--space-3xs);">
                   <strong>Canvas tote</strong>
-                  <span class="text-s color-neutral-600">2 × Natural</span>
+                  <span class="text-s color-subtle">2 × Natural</span>
                 </div>
                 <span class="text-s">$36.00</span>
               </div>
@@ -64,7 +64,7 @@
             <div class="repel" style="align-items: start;">
               <div class="flow" style="--flow-space: var(--space-3xs);">
                 <h2 id="settings-drawer-title" class="heading-m">Account settings</h2>
-                <p class="text-s color-neutral-600">A left-anchored example using the same drawer styles.</p>
+                <p class="text-s color-subtle">A left-anchored example using the same drawer styles.</p>
               </div>
               <button type="button" class="button" data-variant="outline" onclick="this.closest('dialog').close()">Close</button>
             </div>
@@ -86,7 +86,7 @@
     &lt;div class=&quot;repel&quot; style=&quot;align-items: start;&quot;&gt;
       &lt;div class=&quot;flow&quot; style=&quot;--flow-space: var(--space-3xs);&quot;&gt;
         &lt;h2 id=&quot;cart-drawer-title&quot; class=&quot;heading-m&quot;&gt;Your cart&lt;/h2&gt;
-        &lt;p class=&quot;text-s color-neutral-600&quot;&gt;Review items before checkout.&lt;/p&gt;
+        &lt;p class=&quot;text-s color-subtle&quot;&gt;Review items before checkout.&lt;/p&gt;
       &lt;/div&gt;
       &lt;button type=&quot;button&quot; class=&quot;button&quot; data-variant=&quot;outline&quot; onclick=&quot;this.closest(&#x27;dialog&#x27;).close()&quot;&gt;Close&lt;/button&gt;
     &lt;/div&gt;
@@ -133,8 +133,8 @@
           <tr><th>Token</th><th>Default</th><th>Description</th></tr>
         </thead>
         <tbody>
-          <tr><td><code>--drawer-background</code></td><td><code>var(--color-neutral-50)</code></td><td>Panel surface fill.</td></tr>
-          <tr><td><code>--drawer-color</code></td><td><code>var(--color-black)</code></td><td>Text colour inside the drawer.</td></tr>
+          <tr><td><code>--drawer-background</code></td><td><code>var(--surface-subtle)</code></td><td>Panel surface fill.</td></tr>
+          <tr><td><code>--drawer-color</code></td><td><code>var(--text)</code></td><td>Text colour inside the drawer.</td></tr>
           <tr><td><code>--drawer-width</code></td><td><code>min(28rem, 100vw)</code></td><td>Drawer width.</td></tr>
           <tr><td><code>--drawer-padding</code></td><td><code>var(--space-l)</code></td><td>Inner padding.</td></tr>
           <tr><td><code>--drawer-border</code></td><td><code>none</code></td><td>Panel border shorthand.</td></tr>

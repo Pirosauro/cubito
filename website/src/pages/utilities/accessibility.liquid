@@ -4,7 +4,7 @@
 {% block content %}
 <article class="flow">
 
-  <header class="flow" style="padding-block-end: var(--space-l); border-block-end: var(--border-s) solid var(--color-neutral-200);">
+  <header class="flow" style="padding-block-end: var(--space-l); border-block-end: var(--border-s) solid var(--border-color-subtle);">
     <nav aria-label="Breadcrumb" class="breadcrumb">
       <ol>
         <li><a href="/">Home</a></li>
@@ -14,7 +14,7 @@
     </nav>
     <h1>Accessibility</h1>
     <p>Cubito is WCAG 2.2 AA compliant out of the box. It provides an accessible foundation that can be extended and customized to meet AAA requirements where required by the product, content, design, and implementation.</p>
-    <p class="text-m color-neutral-600">Skip-link and visually-hidden utilities that keep content reachable by screen readers without affecting visual layout.</p>
+    <p class="text-m color-subtle">Skip-link and visually-hidden utilities that keep content reachable by screen readers without affecting visual layout.</p>
   </header>
 
   <section>
@@ -24,17 +24,17 @@
       <p>Place it as the very first child of <code>&lt;body&gt;</code>, before any navigation or header elements. The destination region should use the matching id, and Cubito highlights the target with <code>:target</code> when the link is activated.</p>
     
       <div class="">
-  <div style="position: relative; height: 4rem; overflow: hidden; background: var(--color-neutral-50); border-radius: var(--border-radius-m);">
+  <div style="position: relative; height: 4rem; overflow: hidden; background: var(--surface-subtle); border-radius: var(--border-radius-m);">
     <a href="#main" class="skip-link">Skip to main content</a>
-    <p style="padding: 1rem; font-size: var(--font-size-s); color: var(--color-neutral-500)">Tab into this area to see the skip link appear.</p>
+    <p style="padding: 1rem; font-size: var(--font-size-s); color: var(--text-muted)">Tab into this area to see the skip link appear.</p>
   </div>
       </div>
 
       <details class="margin-y-s">
         <summary>Show code</summary>
-        <pre class="padding-m"><code>&lt;div style=&quot;position: relative; height: 4rem; overflow: hidden; background: var(--color-neutral-50); border-radius: var(--border-radius-m);&quot;&gt;
+        <pre class="padding-m"><code>&lt;div style=&quot;position: relative; height: 4rem; overflow: hidden; background: var(--surface-subtle); border-radius: var(--border-radius-m);&quot;&gt;
     &lt;a href=&quot;#main&quot; class=&quot;skip-link&quot;&gt;Skip to main content&lt;/a&gt;
-    &lt;p style=&quot;padding: 1rem; font-size: var(--font-size-s); color: var(--color-neutral-500)&quot;&gt;Tab into this area to see the skip link appear.&lt;/p&gt;
+    &lt;p style=&quot;padding: 1rem; font-size: var(--font-size-s); color: var(--text-muted)&quot;&gt;Tab into this area to see the skip link appear.&lt;/p&gt;
   &lt;/div&gt;</code></pre>
       </details>
   
@@ -78,11 +78,11 @@
     
       <div class="">
   <div class="flow" style="--flow-space: var(--space-xs)">
-    <div style="display: flex; align-items: center; justify-content: space-between; padding: var(--space-xs) var(--space-s); background: var(--color-neutral-50); border-radius: var(--border-radius-m)">
+    <div style="display: flex; align-items: center; justify-content: space-between; padding: var(--space-xs) var(--space-s); background: var(--surface-subtle); border-radius: var(--border-radius-m)">
       <span>Annual report 2025.pdf</span>
       <a href="#">Edit<span class="sr-only"> Annual report 2025.pdf</span></a>
     </div>
-    <div style="display: flex; align-items: center; justify-content: space-between; padding: var(--space-xs) var(--space-s); background: var(--color-neutral-50); border-radius: var(--border-radius-m)">
+    <div style="display: flex; align-items: center; justify-content: space-between; padding: var(--space-xs) var(--space-s); background: var(--surface-subtle); border-radius: var(--border-radius-m)">
       <span>Brand guidelines.pdf</span>
       <a href="#">Edit<span class="sr-only"> Brand guidelines.pdf</span></a>
     </div>
@@ -92,11 +92,11 @@
       <details class="margin-y-s">
         <summary>Show code</summary>
         <pre class="padding-m"><code>&lt;div class=&quot;flow&quot; style=&quot;--flow-space: var(--space-xs)&quot;&gt;
-    &lt;div style=&quot;display: flex; align-items: center; justify-content: space-between; padding: var(--space-xs) var(--space-s); background: var(--color-neutral-50); border-radius: var(--border-radius-m)&quot;&gt;
+    &lt;div style=&quot;display: flex; align-items: center; justify-content: space-between; padding: var(--space-xs) var(--space-s); background: var(--surface-subtle); border-radius: var(--border-radius-m)&quot;&gt;
       &lt;span&gt;Annual report 2025.pdf&lt;/span&gt;
       &lt;a href=&quot;#&quot;&gt;Edit&lt;span class=&quot;sr-only&quot;&gt; Annual report 2025.pdf&lt;/span&gt;&lt;/a&gt;
     &lt;/div&gt;
-    &lt;div style=&quot;display: flex; align-items: center; justify-content: space-between; padding: var(--space-xs) var(--space-s); background: var(--color-neutral-50); border-radius: var(--border-radius-m)&quot;&gt;
+    &lt;div style=&quot;display: flex; align-items: center; justify-content: space-between; padding: var(--space-xs) var(--space-s); background: var(--surface-subtle); border-radius: var(--border-radius-m)&quot;&gt;
       &lt;span&gt;Brand guidelines.pdf&lt;/span&gt;
       &lt;a href=&quot;#&quot;&gt;Edit&lt;span class=&quot;sr-only&quot;&gt; Brand guidelines.pdf&lt;/span&gt;&lt;/a&gt;
     &lt;/div&gt;

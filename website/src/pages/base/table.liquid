@@ -4,7 +4,7 @@
 {% block content %}
 <article class="flow">
 
-  <header class="flow" style="padding-block-end: var(--space-l); border-block-end: var(--border-s) solid var(--color-neutral-200);">
+  <header class="flow" style="padding-block-end: var(--space-l); border-block-end: var(--border-s) solid var(--border-color-subtle);">
     <nav aria-label="Breadcrumb" class="breadcrumb">
       <ol>
         <li><a href="/">Home</a></li>
@@ -13,7 +13,7 @@
       </ol>
     </nav>
     <h1>Table</h1>
-    <p class="text-m color-neutral-600">Data tables with token-controlled striping, borders, and a sticky-header option — wrap in <code>.table-wrapper</code> to handle horizontal overflow on narrow viewports.</p>
+    <p class="text-m color-subtle">Data tables with token-controlled striping, borders, and a sticky-header option — wrap in <code>.table-wrapper</code> to handle horizontal overflow on narrow viewports.</p>
   </header>
 
   <section>
@@ -421,15 +421,15 @@
           <tr><td><code>--tr-background-odd-hover</code></td><td><code>var(--tr-background-odd)</code></td><td>Hover background for odd rows.</td></tr>
           <tr><td><code>--tr-background-even-hover</code></td><td><code>var(--tr-background-even)</code></td><td>Hover background for even rows.</td></tr>
           <tr><td colspan="3"><strong>Cells</strong></td></tr>
-          <tr><td><code>--td-border-color</code></td><td><code>var(--color)</code></td><td>Cell border colour.</td></tr>
+          <tr><td><code>--td-border-color</code></td><td><code>light-dark(--color-neutral-700, --color-neutral-600)</code></td><td>Cell border colour.</td></tr>
           <tr><td><code>--td-border-width</code></td><td><code>var(--border-s)</code></td><td>Cell border width.</td></tr>
           <tr><td><code>--td-border-style</code></td><td><code>solid</code></td><td>Cell border style.</td></tr>
           <tr><td><code>--td-padding</code></td><td><code>var(--space-tiny) var(--space-xxs)</code></td><td>Cell padding.</td></tr>
           <tr><td><code>--td-compact-padding</code></td><td><code>var(--space-xxs) var(--space-tiny)</code></td><td>Cell padding in compact variant.</td></tr>
           <tr><td><code>--td-compact-font-size</code></td><td><code>var(--font-size-xs)</code></td><td>Font size in compact variant.</td></tr>
           <tr><td colspan="3"><strong>Header</strong></td></tr>
-          <tr><td><code>--th-background</code></td><td><code>var(--color)</code></td><td>Header cell background.</td></tr>
-          <tr><td><code>--th-color</code></td><td><code>var(--background)</code></td><td>Header cell text colour.</td></tr>
+          <tr><td><code>--th-background</code></td><td><code>--color-neutral-700</code></td><td>Header cell background.</td></tr>
+          <tr><td><code>--th-color</code></td><td><code>--color-neutral-50</code></td><td>Header cell text colour.</td></tr>
           <tr><td colspan="3"><strong>Caption</strong></td></tr>
           <tr><td><code>--caption-color</code></td><td><code>var(--color-neutral-500)</code></td><td>Caption text colour.</td></tr>
           <tr><td><code>--caption-font-size</code></td><td><code>var(--font-size-xs)</code></td><td>Caption font size.</td></tr>

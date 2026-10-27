@@ -4,7 +4,7 @@
 {% block content %}
 <article class="flow">
 
-  <header class="flow" style="padding-block-end: var(--space-l); border-block-end: var(--border-s) solid var(--color-neutral-200);">
+  <header class="flow" style="padding-block-end: var(--space-l); border-block-end: var(--border-s) solid var(--border-color-subtle);">
     <nav aria-label="Breadcrumb" class="breadcrumb">
       <ol>
         <li><a href="/">Home</a></li>
@@ -13,7 +13,7 @@
       </ol>
     </nav>
     <h1>Grid</h1>
-    <p class="text-m color-neutral-600">An auto-fill CSS grid whose columns collapse responsively without any media queries — each column is at least <code>--grid-min-item-size</code> wide and the grid fits as many as it can.</p>
+    <p class="text-m color-subtle">An auto-fill CSS grid whose columns collapse responsively without any media queries — each column is at least <code>--grid-min-item-size</code> wide and the grid fits as many as it can.</p>
   </header>
 
   <section>
@@ -49,13 +49,13 @@
       <p>Use <code>data-layout="50%"</code> for a two-column layout or <code>data-layout="33%"</code> for three columns. Both still collapse when the container is too narrow.</p>
     
       <div class="">
-  <p class="text-s color-neutral-600 docs-caption">data-layout="50%" — two columns</p>
+  <p class="text-s color-subtle docs-caption">data-layout="50%" — two columns</p>
   <div class="grid" data-layout="50%">
     <div class="docs-demo-chip docs-demo-chip--1">Column A</div>
     <div class="docs-demo-chip docs-demo-chip--5">Column B</div>
   </div>
 
-  <p class="text-s color-neutral-600 docs-caption margin-y-m">data-layout="33%" — three columns</p>
+  <p class="text-s color-subtle docs-caption margin-y-m">data-layout="33%" — three columns</p>
   <div class="grid" data-layout="33%">
     <div class="docs-demo-chip docs-demo-chip--1">Col A</div>
     <div class="docs-demo-chip docs-demo-chip--3">Col B</div>
@@ -65,17 +65,17 @@
 
       <details class="margin-y-s">
         <summary>Show code</summary>
-        <pre class="padding-m"><code>&lt;p style=&quot;class="text-s color-neutral-600 docs-caption";&quot;&gt;data-layout=&quot;50%&quot; — two columns&lt;/p&gt;
+        <pre class="padding-m"><code>&lt;p style=&quot;class="text-s color-subtle docs-caption";&quot;&gt;data-layout=&quot;50%&quot; — two columns&lt;/p&gt;
   &lt;div class=&quot;grid&quot; data-layout=&quot;50%&quot;&gt;
     &lt;div style=&quot;background: #e0e7ff; padding: 1.25rem; border-radius: 0.25rem; text-align: center;&quot;&gt;Column A&lt;/div&gt;
-    &lt;div style=&quot;background: #6366f1; color: #fff; padding: 1.25rem; border-radius: 0.25rem; text-align: center;&quot;&gt;Column B&lt;/div&gt;
+    &lt;div style=&quot;background: #55e; color: #fff; padding: 1.25rem; border-radius: 0.25rem; text-align: center;&quot;&gt;Column B&lt;/div&gt;
   &lt;/div&gt;
 
-  &lt;p style=&quot;class="text-s color-neutral-600 docs-caption margin-y-m";&quot;&gt;data-layout=&quot;33%&quot; — three columns&lt;/p&gt;
+  &lt;p style=&quot;class="text-s color-subtle docs-caption margin-y-m";&quot;&gt;data-layout=&quot;33%&quot; — three columns&lt;/p&gt;
   &lt;div class=&quot;grid&quot; data-layout=&quot;33%&quot;&gt;
     &lt;div style=&quot;background: #e0e7ff; padding: 1.25rem; border-radius: 0.25rem; text-align: center;&quot;&gt;Col A&lt;/div&gt;
     &lt;div style=&quot;background: #a5b4fc; padding: 1.25rem; border-radius: 0.25rem; text-align: center;&quot;&gt;Col B&lt;/div&gt;
-    &lt;div style=&quot;background: #6366f1; color: #fff; padding: 1.25rem; border-radius: 0.25rem; text-align: center;&quot;&gt;Col C&lt;/div&gt;
+    &lt;div style=&quot;background: #55e; color: #fff; padding: 1.25rem; border-radius: 0.25rem; text-align: center;&quot;&gt;Col C&lt;/div&gt;
   &lt;/div&gt;</code></pre>
       </details>
   
@@ -88,13 +88,13 @@
       <p>Override <code>--grid-min-item-size</code> to control when columns collapse. A smaller value keeps more columns at narrower widths; a larger value collapses earlier.</p>
     
       <div class="">
-  <p class="text-s color-neutral-600 docs-caption">--grid-min-item-size: 8rem — fits more columns</p>
+  <p class="text-s color-subtle docs-caption">--grid-min-item-size: 8rem — fits more columns</p>
   <div class="grid" style="--grid-min-item-size: 8rem;">
-    <div style="background: #e0e7ff; padding: 1rem; border-radius: 0.25rem; text-align: center; font-size: 0.875rem;">A</div>
-    <div style="background: #c7d2fe; padding: 1rem; border-radius: 0.25rem; text-align: center; font-size: 0.875rem;">B</div>
-    <div style="background: #a5b4fc; padding: 1rem; border-radius: 0.25rem; text-align: center; font-size: 0.875rem;">C</div>
-    <div style="background: #818cf8; color: #fff; padding: 1rem; border-radius: 0.25rem; text-align: center; font-size: 0.875rem;">D</div>
-    <div style="background: #6366f1; color: #fff; padding: 1rem; border-radius: 0.25rem; text-align: center; font-size: 0.875rem;">E</div>
+    <div style="background: #e0e7ff; color: var(--color-neutral-900); padding: 1rem; border-radius: 0.25rem; text-align: center; font-size: 0.875rem;">A</div>
+    <div style="background: #c7d2fe; color: var(--color-neutral-900); padding: 1rem; border-radius: 0.25rem; text-align: center; font-size: 0.875rem;">B</div>
+    <div style="background: #a5b4fc; color: var(--color-neutral-900); padding: 1rem; border-radius: 0.25rem; text-align: center; font-size: 0.875rem;">C</div>
+    <div style="background: #818cf8; color: var(--color-neutral-900); padding: 1rem; border-radius: 0.25rem; text-align: center; font-size: 0.875rem;">D</div>
+    <div style="background: #55e; color: #fff; padding: 1rem; border-radius: 0.25rem; text-align: center; font-size: 0.875rem;">E</div>
     <div style="background: #4f46e5; color: #fff; padding: 1rem; border-radius: 0.25rem; text-align: center; font-size: 0.875rem;">F</div>
     <div style="background: #3730a3; color: #fff; padding: 1rem; border-radius: 0.25rem; text-align: center; font-size: 0.875rem;">G</div>
     <div style="background: #312e81; color: #fff; padding: 1rem; border-radius: 0.25rem; text-align: center; font-size: 0.875rem;">H</div>
@@ -103,13 +103,13 @@
 
       <details class="margin-y-s">
         <summary>Show code</summary>
-        <pre class="padding-m"><code>&lt;p style=&quot;class="text-s color-neutral-600 docs-caption";&quot;&gt;--grid-min-item-size: 8rem — fits more columns&lt;/p&gt;
+        <pre class="padding-m"><code>&lt;p style=&quot;class="text-s color-subtle docs-caption";&quot;&gt;--grid-min-item-size: 8rem — fits more columns&lt;/p&gt;
   &lt;div class=&quot;grid&quot; style=&quot;--grid-min-item-size: 8rem;&quot;&gt;
     &lt;div style=&quot;background: #e0e7ff; padding: 1rem; border-radius: 0.25rem; text-align: center; font-size: 0.875rem;&quot;&gt;A&lt;/div&gt;
     &lt;div style=&quot;background: #c7d2fe; padding: 1rem; border-radius: 0.25rem; text-align: center; font-size: 0.875rem;&quot;&gt;B&lt;/div&gt;
     &lt;div style=&quot;background: #a5b4fc; padding: 1rem; border-radius: 0.25rem; text-align: center; font-size: 0.875rem;&quot;&gt;C&lt;/div&gt;
     &lt;div style=&quot;background: #818cf8; color: #fff; padding: 1rem; border-radius: 0.25rem; text-align: center; font-size: 0.875rem;&quot;&gt;D&lt;/div&gt;
-    &lt;div style=&quot;background: #6366f1; color: #fff; padding: 1rem; border-radius: 0.25rem; text-align: center; font-size: 0.875rem;&quot;&gt;E&lt;/div&gt;
+    &lt;div style=&quot;background: #55e; color: #fff; padding: 1rem; border-radius: 0.25rem; text-align: center; font-size: 0.875rem;&quot;&gt;E&lt;/div&gt;
     &lt;div style=&quot;background: #4f46e5; color: #fff; padding: 1rem; border-radius: 0.25rem; text-align: center; font-size: 0.875rem;&quot;&gt;F&lt;/div&gt;
     &lt;div style=&quot;background: #3730a3; color: #fff; padding: 1rem; border-radius: 0.25rem; text-align: center; font-size: 0.875rem;&quot;&gt;G&lt;/div&gt;
     &lt;div style=&quot;background: #312e81; color: #fff; padding: 1rem; border-radius: 0.25rem; text-align: center; font-size: 0.875rem;&quot;&gt;H&lt;/div&gt;

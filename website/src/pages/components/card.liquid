@@ -4,7 +4,7 @@
 {% block content %}
 <article class="flow">
 
-  <header class="flow" style="padding-block-end: var(--space-l); border-block-end: var(--border-s) solid var(--color-neutral-200);">
+  <header class="flow" style="padding-block-end: var(--space-l); border-block-end: var(--border-s) solid var(--border-color-subtle);">
     <nav aria-label="Breadcrumb" class="breadcrumb">
       <ol>
         <li><a href="/">Home</a></li>
@@ -13,7 +13,7 @@
       </ol>
     </nav>
     <h1>Card</h1>
-    <p class="text-m color-neutral-600">A content container with an optional image, heading, and supporting text. The whole card is clickable via the pseudo-content trick, keeping inner links accessible.</p>
+    <p class="text-m color-subtle">A content container with an optional image, heading, and supporting text. The whole card is clickable via the pseudo-content trick, keeping inner links accessible.</p>
   </header>
 
   <section>
@@ -187,8 +187,8 @@
           <tr><th>Token</th><th>Default</th><th>Description</th></tr>
         </thead>
         <tbody>
-          <tr><td><code>--card-default-background</code></td><td><code>var(--color-white)</code></td><td>Card surface fill.</td></tr>
-          <tr><td><code>--card-default-border-color</code></td><td><code>var(--color-neutral-200)</code></td><td>Default border colour.</td></tr>
+          <tr><td><code>--card-default-background</code></td><td><code>var(--surface)</code></td><td>Card surface fill.</td></tr>
+          <tr><td><code>--card-default-border-color</code></td><td><code>var(--border-color-subtle)</code></td><td>Default border colour.</td></tr>
           <tr><td><code>--card-default-border-style</code></td><td><code>solid</code></td><td>Default border style.</td></tr>
           <tr><td><code>--card-default-border-width</code></td><td><code>var(--border-s)</code></td><td>Default border width.</td></tr>
           <tr><td><code>--card-default-color</code></td><td><code>inherit</code></td><td>Foreground text color.</td></tr>
@@ -196,8 +196,8 @@
           <tr><td><code>--card-default-shadow</code></td><td><code>none</code></td><td>Box shadow at rest.</td></tr>
           <tr><td><code>--card-default-transform</code></td><td><code>none</code></td><td>Transform at rest.</td></tr>
           <tr><td><code>--card-default-opacity</code></td><td><code>1</code></td><td>Opacity at rest.</td></tr>
-          <tr><td><code>--card-default-background-hover</code></td><td><code>var(--color-white)</code></td><td>Hover/focus surface fill for interactive cards.</td></tr>
-          <tr><td><code>--card-default-border-color-hover</code></td><td><code>var(--color-neutral-700)</code></td><td>Hover/focus border colour for interactive cards.</td></tr>
+          <tr><td><code>--card-default-background-hover</code></td><td><code>var(--surface)</code></td><td>Hover/focus surface fill for interactive cards.</td></tr>
+          <tr><td><code>--card-default-border-color-hover</code></td><td><code>light-dark(var(--color-neutral-700), var(--color-neutral-300))</code></td><td>Hover/focus border colour for interactive cards.</td></tr>
         </tbody>
       </table>
 
@@ -207,9 +207,9 @@
           <tr><th>Token</th><th>Default</th><th>Description</th></tr>
         </thead>
         <tbody>
-          <tr><td><code>--card-outline-border-color</code></td><td><code>var(--color-neutral-400)</code></td><td>Outline border colour.</td></tr>
-          <tr><td><code>--card-outline-border-color-hover</code></td><td><code>var(--color-neutral-700)</code></td><td>Outline hover border colour.</td></tr>
-          <tr><td><code>--card-elevated-background</code></td><td><code>var(--color-white)</code></td><td>Elevated surface fill.</td></tr>
+          <tr><td><code>--card-outline-border-color</code></td><td><code>var(--border-color-strong)</code></td><td>Outline border colour.</td></tr>
+          <tr><td><code>--card-outline-border-color-hover</code></td><td><code>light-dark(var(--color-neutral-700), var(--color-neutral-300))</code></td><td>Outline hover border colour.</td></tr>
+          <tr><td><code>--card-elevated-background</code></td><td><code>var(--surface)</code></td><td>Elevated surface fill.</td></tr>
           <tr><td><code>--card-elevated-shadow</code></td><td><code>layered shadow</code></td><td>Shadow at rest for elevated cards.</td></tr>
           <tr><td><code>--card-elevated-shadow-hover</code></td><td><code>stronger layered shadow</code></td><td>Hover/focus shadow for elevated cards.</td></tr>
           <tr><td><code>--card-subtle-background</code></td><td><code>tinted neutral mix</code></td><td>Subtle variant background.</td></tr>

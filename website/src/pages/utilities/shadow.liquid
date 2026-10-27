@@ -4,7 +4,7 @@
 {% block content %}
 <article class="flow">
 
-  <header class="flow" style="padding-block-end: var(--space-l); border-block-end: var(--border-s) solid var(--color-neutral-200);">
+  <header class="flow" style="padding-block-end: var(--space-l); border-block-end: var(--border-s) solid var(--border-color-subtle);">
     <nav aria-label="Breadcrumb" class="breadcrumb">
       <ol>
         <li><a href="/">Home</a></li>
@@ -13,23 +13,23 @@
       </ol>
     </nav>
     <h1>Shadow</h1>
-    <p class="text-m color-neutral-600">A hard-offset box shadow for a bold, graphic aesthetic, and a text outline effect via <code>.text-shadow</code>. Both use <code>currentColor</code> by default.</p>
+    <p class="text-m color-subtle">A hard-offset box shadow for a bold, graphic aesthetic, and a text outline effect via <code>.text-shadow</code>. Both use <code>currentColor</code> by default.</p>
   </header>
 
   <section>
     <div class="flow" style="--flow-space: var(--space-s);">
       <h2 class="heading-l">Box shadow</h2>
-      <p>The <code>.shadow</code> utility applies a solid offset shadow using <code>--shadow-color</code>, <code>--shadow-offset-x</code>, <code>--shadow-offset-y</code>, and <code>--shadow-blur</code>. When applied to an <code><a></code> or <code><button></code>, the shadow collapses and the element nudges into the vacated space on hover and focus — giving a physical "press" effect.</p>
+      <p>The <code>.shadow</code> utility applies a solid offset shadow using <code>--shadow-color</code>, <code>--shadow-offset-x</code>, <code>--shadow-offset-y</code>, and <code>--shadow-blur</code>. When applied to an <code>&lt;a&gt;</code> or <code><button></code>, the shadow collapses and the element nudges into the vacated space on hover and focus — giving a physical "press" effect.</p>
      
       <div class="">
   <div style="display: flex; flex-wrap: wrap; gap: var(--space-l); padding: var(--space-m)">
-    <div class="shadow background-neutral-100" style="--shadow-color: var(--color-black); padding: var(--space-m) var(--space-l); border-radius: var(--border-radius-m)">
+    <div class="shadow background-sunken color-text" style="--shadow-color: var(--color-black); padding: var(--space-m) var(--space-l); border-radius: var(--border-radius-m)">
       Static element
     </div>
-    <a href="#" class="shadow background-brand color-white" style="--shadow-color: var(--color-black); padding: var(--space-m) var(--space-l); border-radius: var(--border-radius-m); text-decoration: none; display: inline-block">
+    <a href="#" class="shadow background-brand color-on-brand" style="--shadow-color: var(--color-black); padding: var(--space-m) var(--space-l); border-radius: var(--border-radius-m); text-decoration: none; display: inline-block">
       Interactive link
     </a>
-    <button class="shadow" style="--shadow-color: var(--color-black); padding: var(--space-m) var(--space-l); border-radius: var(--border-radius-m); background: var(--color-accent); color: white; border: none; cursor: pointer">
+    <button class="shadow" style="--shadow-color: var(--color-black); padding: var(--space-m) var(--space-l); border-radius: var(--border-radius-m); background: var(--color-accent); color: var(--color-on-brand); border: none; cursor: pointer">
       Interactive button
     </button>
   </div>
@@ -38,13 +38,13 @@
       <details class="margin-y-s">
         <summary>Show code</summary>
         <pre class="padding-m"><code><div style="display: flex; flex-wrap: wrap; gap: var(--space-l); padding: var(--space-m)">
-    <div class="shadow background-neutral-100" style="padding: var(--space-m) var(--space-l); border-radius: var(--border-radius-m)">
+    <div class="shadow background-sunken color-text" style="padding: var(--space-m) var(--space-l); border-radius: var(--border-radius-m)">
       Static element
     </div>
-    <a href="#" class="shadow background-brand color-white" style="padding: var(--space-m) var(--space-l); border-radius: var(--border-radius-m); text-decoration: none; display: inline-block">
+    <a href="#" class="shadow background-brand color-on-brand" style="padding: var(--space-m) var(--space-l); border-radius: var(--border-radius-m); text-decoration: none; display: inline-block">
       Interactive link
     </a>
-    <button class="shadow" style="padding: var(--space-m) var(--space-l); border-radius: var(--border-radius-m); background: var(--color-accent); color: white; border: none; cursor: pointer">
+    <button class="shadow" style="padding: var(--space-m) var(--space-l); border-radius: var(--border-radius-m); background: var(--color-accent); color: var(--color-on-brand); border: none; cursor: pointer">
       Interactive button
     </button>
   </div></code></pre>
@@ -60,13 +60,13 @@
      
       <div class="">
   <div style="display: flex; flex-wrap: wrap; gap: var(--space-l); padding: var(--space-m)">
-    <div class="shadow" style="--shadow-color: var(--color-brand); padding: var(--space-m) var(--space-l); border-radius: var(--border-radius-m); background: var(--color-neutral-50)">
+    <div class="shadow" style="--shadow-color: var(--color-brand); padding: var(--space-m) var(--space-l); border-radius: var(--border-radius-m); background: var(--surface-subtle)">
       Brand shadow
     </div>
-    <div class="shadow" style="--shadow-color: var(--color-status-ok); padding: var(--space-m) var(--space-l); border-radius: var(--border-radius-m); background: var(--color-neutral-50)">
+    <div class="shadow" style="--shadow-color: var(--color-status-ok); padding: var(--space-m) var(--space-l); border-radius: var(--border-radius-m); background: var(--surface-subtle)">
       Status-ok shadow
     </div>
-    <div class="shadow" style="--shadow-color: oklch(40% 0.2 30); padding: var(--space-m) var(--space-l); border-radius: var(--border-radius-m); background: var(--color-neutral-50)">
+    <div class="shadow" style="--shadow-color: oklch(40% 0.2 30); padding: var(--space-m) var(--space-l); border-radius: var(--border-radius-m); background: var(--surface-subtle)">
       Custom colour
     </div>
   </div>
@@ -75,13 +75,13 @@
       <details class="margin-y-s">
         <summary>Show code</summary>
         <pre class="padding-m"><code><div style="display: flex; flex-wrap: wrap; gap: var(--space-l); padding: var(--space-m)">
-    <div class="shadow" style="--shadow-color: var(--color-brand); padding: var(--space-m) var(--space-l); border-radius: var(--border-radius-m); background: var(--color-neutral-50)">
+    <div class="shadow" style="--shadow-color: var(--color-brand); padding: var(--space-m) var(--space-l); border-radius: var(--border-radius-m); background: var(--surface-subtle)">
       Brand shadow
     </div>
-    <div class="shadow" style="--shadow-color: var(--color-status-ok); padding: var(--space-m) var(--space-l); border-radius: var(--border-radius-m); background: var(--color-neutral-50)">
+    <div class="shadow" style="--shadow-color: var(--color-status-ok); padding: var(--space-m) var(--space-l); border-radius: var(--border-radius-m); background: var(--surface-subtle)">
       Status-ok shadow
     </div>
-    <div class="shadow" style="--shadow-color: oklch(40% 0.2 30); padding: var(--space-m) var(--space-l); border-radius: var(--border-radius-m); background: var(--color-neutral-50)">
+    <div class="shadow" style="--shadow-color: oklch(40% 0.2 30); padding: var(--space-m) var(--space-l); border-radius: var(--border-radius-m); background: var(--surface-subtle)">
       Custom colour
     </div>
   </div></code></pre>
@@ -97,13 +97,13 @@
      
       <div class="">
   <div style="display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-l); padding: var(--space-m)">
-    <div class="shadow" style="--shadow-offset-x: 0.2rem; --shadow-offset-y: 0.2rem; padding: var(--space-m) var(--space-l); border-radius: var(--border-radius-m); background: var(--color-neutral-50)">
+    <div class="shadow" style="--shadow-offset-x: 0.2rem; --shadow-offset-y: 0.2rem; padding: var(--space-m) var(--space-l); border-radius: var(--border-radius-m); background: var(--surface-subtle)">
       0.2rem offset
     </div>
-    <div class="shadow" style="padding: var(--space-m) var(--space-l); border-radius: var(--border-radius-m); background: var(--color-neutral-50)">
+    <div class="shadow" style="padding: var(--space-m) var(--space-l); border-radius: var(--border-radius-m); background: var(--surface-subtle)">
       Default (0.35rem)
     </div>
-    <div class="shadow" style="--shadow-offset-x: 0.6rem; --shadow-offset-y: 0.6rem; padding: var(--space-m) var(--space-l); border-radius: var(--border-radius-m); background: var(--color-neutral-50)">
+    <div class="shadow" style="--shadow-offset-x: 0.6rem; --shadow-offset-y: 0.6rem; padding: var(--space-m) var(--space-l); border-radius: var(--border-radius-m); background: var(--surface-subtle)">
       0.6rem offset
     </div>
   </div>
@@ -112,13 +112,13 @@
       <details class="margin-y-s">
         <summary>Show code</summary>
         <pre class="padding-m"><code><div style="display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-l); padding: var(--space-m)">
-    <div class="shadow" style="--shadow-offset-x: 0.2rem; --shadow-offset-y: 0.2rem; padding: var(--space-m) var(--space-l); border-radius: var(--border-radius-m); background: var(--color-neutral-50)">
+    <div class="shadow" style="--shadow-offset-x: 0.2rem; --shadow-offset-y: 0.2rem; padding: var(--space-m) var(--space-l); border-radius: var(--border-radius-m); background: var(--surface-subtle)">
       0.2rem offset
     </div>
-    <div class="shadow" style="padding: var(--space-m) var(--space-l); border-radius: var(--border-radius-m); background: var(--color-neutral-50)">
+    <div class="shadow" style="padding: var(--space-m) var(--space-l); border-radius: var(--border-radius-m); background: var(--surface-subtle)">
       Default (0.35rem)
     </div>
-    <div class="shadow" style="--shadow-offset-x: 0.6rem; --shadow-offset-y: 0.6rem; padding: var(--space-m) var(--space-l); border-radius: var(--border-radius-m); background: var(--color-neutral-50)">
+    <div class="shadow" style="--shadow-offset-x: 0.6rem; --shadow-offset-y: 0.6rem; padding: var(--space-m) var(--space-l); border-radius: var(--border-radius-m); background: var(--surface-subtle)">
       0.6rem offset
     </div>
   </div></code></pre>
@@ -135,7 +135,7 @@
       <div class="">
   <div style="display: flex; flex-direction: column; gap: var(--space-s)">
     <h2 class="heading-xl text-shadow" style="--shadow-color: var(--color-black); color: var(--color-brand)">Display heading</h2>
-    <h2 class="heading-l text-shadow" style="color: var(--color-neutral-900)">Neutral outline</h2>
+    <h2 class="heading-l text-shadow" style="color: var(--text)">Neutral outline</h2>
     <h2 class="heading-m text-shadow" style="color: var(--color-accent)">Accent colour</h2>
     <h2 class="heading-s text-shadow" style="color: var(--color-brand); --shadow-color: var(--color-neutral-900)">Custom outline colour</h2>
   </div>
@@ -145,7 +145,7 @@
         <summary>Show code</summary>
         <pre class="padding-m"><code><div style="display: flex; flex-direction: column; gap: var(--space-s)">
     <h2 class="heading-xl text-shadow" style="color: var(--color-brand)">Display heading</h2>
-    <h2 class="heading-l text-shadow" style="color: var(--color-neutral-900)">Neutral outline</h2>
+    <h2 class="heading-l text-shadow" style="color: var(--text)">Neutral outline</h2>
     <h2 class="heading-m text-shadow" style="color: var(--color-accent)">Accent colour</h2>
       <h2 class="heading-s text-shadow" style="color: var(--color-brand); --shadow-color: var(--color-neutral-900)">Custom outline colour</h2>
   </div></code></pre>

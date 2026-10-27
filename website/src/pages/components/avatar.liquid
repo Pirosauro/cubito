@@ -4,7 +4,7 @@
 {% block content %}
 <article class="flow">
 
-  <header class="flow" style="padding-block-end: var(--space-l); border-block-end: var(--border-s) solid var(--color-neutral-200);">
+  <header class="flow" style="padding-block-end: var(--space-l); border-block-end: var(--border-s) solid var(--border-color-subtle);">
     <nav aria-label="Breadcrumb" class="breadcrumb">
       <ol>
         <li><a href="/">Home</a></li>
@@ -13,7 +13,7 @@
       </ol>
     </nav>
     <h1>Avatar</h1>
-    <p class="text-m color-neutral-600">User representation combining a photo with an initials fallback, optional status indicator, and a group stack.</p>
+    <p class="text-m color-subtle">User representation combining a photo with an initials fallback, optional status indicator, and a group stack.</p>
   </header>
 
   <section>
@@ -163,8 +163,8 @@
         <tbody>
           <tr><td><code>--avatar-size</code></td><td><code>2.5rem</code></td><td>Diameter of the avatar circle.</td></tr>
           <tr><td><code>--avatar-radius</code></td><td><code>9999px</code></td><td>Border radius — set to a smaller value for a rounded square.</td></tr>
-          <tr><td><code>--avatar-background</code></td><td><code>--color-neutral-300</code></td><td>Background fill used for the initials variant.</td></tr>
-          <tr><td><code>--avatar-color</code></td><td><code>--color-neutral-800</code></td><td>Initials text colour.</td></tr>
+          <tr><td><code>--avatar-background</code></td><td><code>light-dark(--color-neutral-300, --color-neutral-600)</code></td><td>Background fill used for the initials variant.</td></tr>
+          <tr><td><code>--avatar-color</code></td><td><code>light-dark(--color-neutral-800, --color-neutral-100)</code></td><td>Initials text colour.</td></tr>
           <tr><td><code>--avatar-font-size</code></td><td><code>0.4em</code></td><td>Initials text size (em relative to <code>--avatar-size</code>).</td></tr>
           <tr><td><code>--avatar-border</code></td><td><code>none</code></td><td>Ring border — useful for highlighting a selected avatar.</td></tr>
           <tr><td><code>--avatar-status-size</code></td><td><code>0.75em</code></td><td>Diameter of the status dot.</td></tr>

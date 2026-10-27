@@ -4,7 +4,7 @@
 {% block content %}
 <article class="flow">
 
-  <header class="flow" style="padding-block-end: var(--space-l); border-block-end: var(--border-s) solid var(--color-neutral-200);">
+  <header class="flow" style="padding-block-end: var(--space-l); border-block-end: var(--border-s) solid var(--border-color-subtle);">
     <nav aria-label="Breadcrumb" class="breadcrumb">
       <ol>
         <li><a href="/">Home</a></li>
@@ -13,7 +13,7 @@
       </ol>
     </nav>
     <h1>Progress Bar</h1>
-    <p class="text-m color-neutral-600">A labelled, accessible wrapper around the native <code>&lt;progress&gt;</code> element with theming and a visible percentage readout.</p>
+    <p class="text-m color-subtle">A labelled, accessible wrapper around the native <code>&lt;progress&gt;</code> element with theming and a visible percentage readout.</p>
   </header>
 
   <section>
@@ -131,7 +131,7 @@
     
       <div class="">
   <div class="progress-bar">
-    <span id="pb-proc" style="font-size: var(--font-size-xs); color: var(--color-neutral-600)">Processing…</span>
+    <span id="pb-proc" style="font-size: var(--font-size-xs); color: var(--text-subtle)">Processing…</span>
     <progress aria-labelledby="pb-proc"></progress>
   </div>
       </div>
@@ -139,7 +139,7 @@
       <details class="margin-y-s">
         <summary>Show code</summary>
         <pre class="padding-m"><code>&lt;div class=&quot;progress-bar&quot;&gt;
-    &lt;span id=&quot;pb-proc&quot; style=&quot;font-size: var(--font-size-xs); color: var(--color-neutral-600)&quot;&gt;Processing…&lt;/span&gt;
+    &lt;span id=&quot;pb-proc&quot; style=&quot;font-size: var(--font-size-xs); color: var(--text-subtle)&quot;&gt;Processing…&lt;/span&gt;
     &lt;progress aria-labelledby=&quot;pb-proc&quot;&gt;&lt;/progress&gt;
   &lt;/div&gt;</code></pre>
       </details>
@@ -222,7 +222,7 @@
           </tr>
           <tr>
             <td><code>--progress-bar-track</code></td>
-            <td><code>var(--color-neutral-200)</code></td>
+            <td><code>var(--surface-strong)</code></td>
             <td>Background (empty) colour of the track.</td>
           </tr>
           <tr>

@@ -4,7 +4,7 @@
 {% block content %}
 <article class="flow">
 
-  <header class="flow" style="padding-block-end: var(--space-l); border-block-end: var(--border-s) solid var(--color-neutral-200);">
+  <header class="flow" style="padding-block-end: var(--space-l); border-block-end: var(--border-s) solid var(--border-color-subtle);">
     <nav aria-label="Breadcrumb" class="breadcrumb">
       <ol>
         <li><a href="/">Home</a></li>
@@ -13,7 +13,7 @@
       </ol>
     </nav>
     <h1>Sticky Bar</h1>
-    <p class="text-m color-neutral-600">A full-width bar that stays fixed at the top or bottom of the viewport, used for persistent CTAs, cookie notices, mobile cart summaries, and sitewide notifications.</p>
+    <p class="text-m color-subtle">A full-width bar that stays fixed at the top or bottom of the viewport, used for persistent CTAs, cookie notices, mobile cart summaries, and sitewide notifications.</p>
   </header>
 
   <section>
@@ -23,7 +23,7 @@
      
       <div class="">
         <div class="docs-demo-frame docs-demo-frame--bar-bottom">
-          <p class="text-s color-neutral-600 margin-0">Page content sits above the bar.</p>
+          <p class="text-s color-subtle margin-0">Page content sits above the bar.</p>
           <div class="sticky-bar" data-position="bottom" style="position: absolute;">
             <div class="wrapper repel">
               <p class="margin-0">2 items — <strong>€58.00</strong></p>
@@ -54,11 +54,11 @@
      
       <div class="">
         <div class="docs-demo-frame docs-demo-frame--bar-top">
-          <p class="text-s color-neutral-600 margin-0">Page content sits below the bar.</p>
-          <div class="sticky-bar" data-position="top" style="position: absolute; --sticky-bar-background: var(--color-brand); --sticky-bar-color: var(--color-white); --sticky-bar-border: none;">
+          <p class="text-s color-subtle margin-0">Page content sits below the bar.</p>
+          <div class="sticky-bar" data-position="top" style="position: absolute; --sticky-bar-background: var(--color-brand); --sticky-bar-color: var(--color-on-brand); --sticky-bar-border: none;">
             <div class="wrapper repel">
-              <p class="text-s margin-0">We use cookies to improve your experience. <a href="#" class="color-white text-no-underline">Learn more</a></p>
-              <button class="button" style="--button-background: var(--color-white); --button-color: var(--color-brand);">Accept all</button>
+              <p class="text-s margin-0">We use cookies to improve your experience. <a href="#" class="color-on-brand text-no-underline">Learn more</a></p>
+              <button class="button" style="--button-background: var(--color-on-brand); --button-color: var(--color-brand);">Accept all</button>
             </div>
           </div>
         </div>
@@ -67,7 +67,7 @@
       <details class="margin-y-s">
         <summary>Show code</summary>
         <pre class="padding-m"><code><div class="sticky-bar" data-position="top"
-    style="--sticky-bar-background: var(--color-brand); --sticky-bar-color: var(--color-white);">
+    style="--sticky-bar-background: var(--color-brand); --sticky-bar-color: var(--color-on-brand);">
     …
   </div></code></pre>
       </details>
@@ -82,7 +82,7 @@
      
       <div class="">
         <div class="docs-demo-frame docs-demo-frame--bar-bottom">
-          <p class="text-s color-neutral-600 margin-0">Page content sits above the bar.</p>
+          <p class="text-s color-subtle margin-0">Page content sits above the bar.</p>
           <div class="sticky-bar" data-position="bottom" data-variant="frosted" style="position: absolute;">
             <div class="wrapper repel">
               <p class="margin-0">2 items — <strong>€58.00</strong></p>

@@ -4,7 +4,7 @@
 {% block content %}
 <article class="flow">
 
-  <header class="flow" style="padding-block-end: var(--space-l); border-block-end: var(--border-s) solid var(--color-neutral-200);">
+  <header class="flow" style="padding-block-end: var(--space-l); border-block-end: var(--border-s) solid var(--border-color-subtle);">
     <nav aria-label="Breadcrumb" class="breadcrumb">
       <ol>
         <li><a href="/">Home</a></li>
@@ -13,7 +13,7 @@
       </ol>
     </nav>
     <h1>Footnote</h1>
-    <p class="text-m color-neutral-600">A numbered list of end-of-document references, linked from inline superscript anchors in body copy.</p>
+    <p class="text-m color-subtle">A numbered list of end-of-document references, linked from inline superscript anchors in body copy.</p>
   </header>
 
   <section>
@@ -33,7 +33,7 @@
     </p>
   </article>
 
-  <section aria-labelledby="footnotes-label" style="margin-block-start: var(--space-l); padding-block-start: var(--space-s); border-top: 1px solid var(--color-neutral-200);">
+  <section aria-labelledby="footnotes-label" style="margin-block-start: var(--space-l); padding-block-start: var(--space-s); border-top: 1px solid var(--border-color-subtle);">
     <h2 id="footnotes-label" class="sr-only">Footnotes</h2>
     <ul class="footnote" role="doc-endnotes">
       <li id="fn-1" role="doc-endnote">
@@ -65,7 +65,7 @@
     &lt;/p&gt;
   &lt;/article&gt;
 
-  &lt;section aria-labelledby=&quot;footnotes-label&quot; style=&quot;margin-block-start: var(--space-l); padding-block-start: var(--space-s); border-top: 1px solid var(--color-neutral-200);&quot;&gt;
+  &lt;section aria-labelledby=&quot;footnotes-label&quot; style=&quot;margin-block-start: var(--space-l); padding-block-start: var(--space-s); border-top: 1px solid var(--border-color-subtle);&quot;&gt;
     &lt;h2 id=&quot;footnotes-label&quot; class=&quot;sr-only&quot;&gt;Footnotes&lt;/h2&gt;
     &lt;ul class=&quot;footnote&quot; role=&quot;doc-endnotes&quot;&gt;
       &lt;li id=&quot;fn-1&quot; role=&quot;doc-endnote&quot;&gt;
@@ -105,7 +105,7 @@
           <tr><th>Token</th><th>Default</th><th>Description</th></tr>
         </thead>
         <tbody>
-          <tr><td><code>--footnote-color</code></td><td><code>--color-neutral-600</code></td><td>Text colour of footnote items.</td></tr>
+          <tr><td><code>--footnote-color</code></td><td><code>--text-subtle</code></td><td>Text colour of footnote items.</td></tr>
           <tr><td><code>--footnote-font-size</code></td><td><code>--font-size-xs</code></td><td>Font size of footnote items.</td></tr>
         </tbody>
       </table>

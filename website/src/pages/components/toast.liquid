@@ -4,7 +4,7 @@
 {% block content %}
 <article class="flow">
 
-  <header class="flow" style="padding-block-end: var(--space-l); border-block-end: var(--border-s) solid var(--color-neutral-200);">
+  <header class="flow" style="padding-block-end: var(--space-l); border-block-end: var(--border-s) solid var(--border-color-subtle);">
     <nav aria-label="Breadcrumb" class="breadcrumb">
       <ol>
         <li><a href="/">Home</a></li>
@@ -13,7 +13,7 @@
       </ol>
     </nav>
     <h1>Toast</h1>
-    <p class="text-m color-neutral-600">Dismissible notification overlays that stack in a corner of the viewport. Variants cover success, error, warning, and info states.</p>
+    <p class="text-m color-subtle">Dismissible notification overlays that stack in a corner of the viewport. Variants cover success, error, warning, and info states.</p>
   </header>
 
   <div class="callout wide color-brand" role="note">
@@ -48,7 +48,7 @@
   <section>
     <div class="flow" style="--flow-space: var(--space-s);">
       <h2 class="heading-l">Variants</h2>
-      <p>Apply <code>data-variant</code> to individual <code>.toast</code> elements. Each variant sets its own background colour; text is always white for contrast.</p>
+      <p>Apply <code>data-variant</code> to individual <code>.toast</code> elements. Each variant sets its own background colour; text uses <code>--color-on-status</code> (white in the light theme, black in the dark one) for contrast.</p>
     
       <div class="">
   <div class="toast-region" style="position: static; max-width: 100%">
@@ -202,12 +202,12 @@
           </tr>
           <tr>
             <td><code>--toast-default-background</code></td>
-            <td><code>var(--color-neutral-900)</code></td>
+            <td><code>var(--surface-inverse)</code></td>
             <td>Background of a neutral toast.</td>
           </tr>
           <tr>
             <td><code>--toast-default-color</code></td>
-            <td><code>var(--color-neutral-50)</code></td>
+            <td><code>var(--text-on-inverse)</code></td>
             <td>Text colour of a neutral toast.</td>
           </tr>
           <tr>

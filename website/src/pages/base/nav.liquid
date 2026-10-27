@@ -4,7 +4,7 @@
 {% block content %}
 <article class="flow">
 
-  <header class="flow" style="padding-block-end: var(--space-l); border-block-end: var(--border-s) solid var(--color-neutral-200);">
+  <header class="flow" style="padding-block-end: var(--space-l); border-block-end: var(--border-s) solid var(--border-color-subtle);">
     <nav aria-label="Breadcrumb" class="breadcrumb">
       <ol>
         <li><a href="/">Home</a></li>
@@ -13,7 +13,7 @@
       </ol>
     </nav>
     <h1>Nav</h1>
-    <p class="text-m color-neutral-600">Navigation element styles with two variants — a horizontal top-bar (<code>data-variant="main"</code>) and a collapsible tree sidebar (<code>data-variant="sidebar"</code>).</p>
+    <p class="text-m color-subtle">Navigation element styles with two variants — a horizontal top-bar (<code>data-variant="main"</code>) and a collapsible tree sidebar (<code>data-variant="sidebar"</code>).</p>
   </header>
 
   <section>
@@ -110,7 +110,7 @@
       <p>Add <code>data-variant="sidebar"</code> for a tree-style navigation. Nested sub-lists are hidden by default; toggling <code>data-state="active"</code> on a parent <code>&lt;li&gt;</code> or adding <code>data-state="visible"</code> on the <code>&lt;ul&gt;</code> reveals them. Items that have children should also carry <code>data-children="true"</code> to render the animated chevron indicator.</p>
     
       <div class="">
-  <nav data-variant="sidebar" aria-label="Documentation navigation" style="max-width: 16rem; border: 1px solid var(--color-neutral-200); border-radius: var(--border-radius-m); overflow: hidden">
+  <nav data-variant="sidebar" aria-label="Documentation navigation" style="max-width: 16rem; border: 1px solid var(--border-color-subtle); border-radius: var(--border-radius-m); overflow: hidden">
     <ul role="list" style="list-style: none; margin: 0; padding: var(--space-xxs) 0">
       <li><a href="#">Getting started</a></li>
       <li data-children="true" data-state="active">
@@ -138,7 +138,7 @@
 
       <details class="margin-y-s">
         <summary>Show code</summary>
-        <pre class="padding-m"><code>&lt;nav data-variant=&quot;sidebar&quot; aria-label=&quot;Documentation navigation&quot; style=&quot;max-width: 16rem; border: 1px solid var(--color-neutral-200); border-radius: var(--border-radius-m); overflow: hidden&quot;&gt;
+        <pre class="padding-m"><code>&lt;nav data-variant=&quot;sidebar&quot; aria-label=&quot;Documentation navigation&quot; style=&quot;max-width: 16rem; border: 1px solid var(--border-color-subtle); border-radius: var(--border-radius-m); overflow: hidden&quot;&gt;
     &lt;ul role=&quot;list&quot; style=&quot;list-style: none; margin: 0; padding: var(--space-xxs) 0&quot;&gt;
       &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Getting started&lt;/a&gt;&lt;/li&gt;
       &lt;li data-children=&quot;true&quot; data-state=&quot;active&quot;&gt;
