@@ -14,8 +14,8 @@ CONFIGURATION
 
 @layer tokens {
   :root {
-    --body-background: var(--color-white);
-    --body-color: var(--color-black);
+    --body-background: var(--surface);
+    --body-color: var(--text);
 
     --link-background: transparent;
     --link-decoration: underline;
@@ -278,10 +278,10 @@ CONFIGURATION
   }
 
   kbd {
-    background: var(--kbd-background, var(--color-neutral-100));
+    background: var(--kbd-background, var(--surface-sunken));
     border-width: var(--kbd-border-width, var(--border-s));
     border-style: var(--kbd-border-style, solid);
-    border-color: var(--kbd-border-color, var(--color-neutral-400));
+    border-color: var(--kbd-border-color, var(--border-color-strong));
     border-radius: var(--kbd-border-radius, var(--border-radius-s));
     font-family: var(--font-family-mono);
     font-size: 0.875em;

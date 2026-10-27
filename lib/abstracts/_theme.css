@@ -4,9 +4,18 @@ Theme
 Core design tokens: colours, borders, focus, and transitions.
 
 COLOUR SYSTEM
-  Palette:   Raw named values — never reference directly in components.
-  Semantic:  Role-based aliases — always use these in components.
-  Status:    Feedback colours — ok / warning / ko / info.
+  Palette:   Raw named values (--color-neutral-*). Fixed: identical in both
+             themes. Reference them only for colours that must not adapt.
+  Roles:     --surface-*, --border-color-*, --text-*, --surface-inverse.
+             light-dark() pairs — always use these in components so they
+             follow the active theme.
+  Status:    Feedback colours (ok / warning / ko / info) with their text
+             colour --color-on-status. Adaptive.
+
+THEMES
+  color-scheme: light dark follows the operating system. Force a theme with
+  data-theme="light|dark" on <html> or on any section, or set --color-scheme
+  once on :root. Dark values use 3-char hex only where no palette step fits.
 
 APPLICATION TOKENS
   Consuming applications should define --color-brand and --color-accent in
@@ -53,22 +62,58 @@ CONFIGURATION
 
     /* --- Semantic (override in your application) --- */
 
-    --color-brand: #26e; /* 5.00:1 on white */
+    /* Light 5.00:1 on white (white text on it: 5.00:1).
+       Dark 7.81:1 on #121212 (dark text on it: 8.26:1). */
+    --color-brand: light-dark(#26e, #6af);
     --color-accent: var(--color-brand);
+
+    /* Text on a --color-brand fill. Always override the two together: if you
+       set a single brand colour, set --color-on-brand to the text colour that
+       reads on it in BOTH themes (usually white), or give both a light-dark()
+       pair. */
+    --color-on-brand: light-dark(var(--color-white), var(--color-black));
 
     /* --- Status --- */
 
-    /* 3-char hex (expanded from the quoted on white & with white text):
-       each value keeps WCAG AA ≥ 4.5:1 contrast ratio. */
-    --color-status-ok: #173; /* 5.66:1 */
-    --color-status-warning: #b50; /* 4.76:1 */
-    --color-status-ko: #d22; /* 4.85:1 */
-    --color-status-info: #26b; /* 5.70:1 */
+    /* light-dark(light, dark). Light values are used on white and with white
+       text (--color-on-status): each keeps WCAG AA >= 4.5:1.
+       Dark values are used on --surface (#121212) and with dark text: each
+       keeps AA on every dark surface below, so the same token works as a
+       text colour and as a fill. */
+    --color-status-ok: light-dark(#173, #5c8); /* 5.66:1 | 9.26:1 on #121212 */
+    --color-status-warning: light-dark(#a50, #f93); /* 5.24:1 | 8.79:1 */
+    --color-status-ko: light-dark(#d11, #f77); /* 5.04:1 | 7.28:1 */
+    --color-status-info: light-dark(#26b, #6af); /* 5.70:1 | 7.81:1 */
+    --color-on-status: light-dark(var(--color-white), var(--color-black));
+
+    /* --- Adaptive roles ---
+       Components read these instead of the palette. Each is
+       light-dark(<light>, <dark>): the light value is the palette step the
+       components always used, the dark one its counterpart on a dark page.
+       light-dark() is resolved where the token is used, against the
+       color-scheme of that element, so a [data-theme="dark"] section inside
+       a light page switches correctly. */
+
+    --surface: light-dark(var(--color-white), var(--color-neutral-900));
+    --surface-subtle: light-dark(var(--color-neutral-50), var(--color-neutral-800));
+    --surface-sunken: light-dark(var(--color-neutral-100), var(--color-neutral-700));
+    --surface-strong: light-dark(var(--color-neutral-200), var(--color-neutral-600));
+    --surface-inverse: light-dark(var(--color-neutral-900), var(--color-neutral-50));
+
+    --border-color-subtle: light-dark(var(--color-neutral-200), var(--color-neutral-700));
+    --border-color: light-dark(var(--color-neutral-300), var(--color-neutral-600));
+    /* #888 (3.54:1 on white) rather than neutral-400 (2.85:1): UI borders need 3:1 */
+    --border-color-strong: light-dark(#888, var(--color-neutral-500));
+
+    --text: light-dark(var(--color-black), var(--color-neutral-50));
+    --text-muted: light-dark(var(--color-neutral-500), #aaa);
+    --text-subtle: light-dark(var(--color-neutral-600), var(--color-neutral-300));
+    --text-on-inverse: light-dark(var(--color-neutral-50), var(--color-neutral-900));
 
     /* --- Surface aliases --- */
 
-    --color: var(--color-black);
-    --background: var(--color-white);
+    --color: var(--text);
+    --background: var(--surface);
     --link-color: currentColor;
     --link-color-hover: var(--link-color);
     --highlight-background: color-mix(in srgb, currentColor 15%, transparent);
@@ -101,6 +146,47 @@ CONFIGURATION
     --shadow-l: 0 0.5rem 0;
     --shadow-m: 0 0.25rem 0;
     --shadow-s: 0 0.125rem 0;
+  }
+}
+
+/* Browsers without light-dark() (before Chrome 123 / Safari 17.5 / Firefox 120)
+   stay on the light theme: every light-dark() token above is invalid there,
+   so the roles and status colours are redeclared with their light value. */
+@supports not (color: light-dark(#000, #fff)) {
+  @layer tokens {
+    :root {
+      --color-status-ok: #173;
+      --color-status-warning: #a50;
+      --color-status-ko: #d11;
+      --color-status-info: #26b;
+      --color-on-status: var(--color-white);
+      --color-brand: #26e;
+      --color-on-brand: var(--color-white);
+      --surface: var(--color-white);
+      --surface-subtle: var(--color-neutral-50);
+      --surface-sunken: var(--color-neutral-100);
+      --surface-strong: var(--color-neutral-200);
+      --surface-inverse: var(--color-neutral-900);
+      --border-color-subtle: var(--color-neutral-200);
+      --border-color: var(--color-neutral-300);
+      --border-color-strong: #888;
+      --text: var(--color-black);
+      --text-muted: var(--color-neutral-500);
+      --text-subtle: var(--color-neutral-600);
+      --text-on-inverse: var(--color-neutral-50);
+    }
+  }
+}
+
+/* Force a theme on the page or on any section of it. Without the attribute the
+   page follows the operating system (color-scheme: light dark). */
+@layer reset {
+  [data-theme="light"] {
+    color-scheme: light;
+  }
+
+  [data-theme="dark"] {
+    color-scheme: dark;
   }
 }
 
