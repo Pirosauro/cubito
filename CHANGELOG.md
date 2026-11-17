@@ -1,9 +1,13 @@
 # cubito
 
-## Unreleased
+## 0.9.2
 
 ### Bug Fixes
 
+- **`_button.css`** — Buttons no longer overflow their container with a long label: `max-inline-size: 100%` (use `white-space: normal` on a button that should wrap).
+- **`_button.css`** — A button with `aria-expanded="true"` (menu and disclosure triggers) is no longer shrunk by `scale(0.9)`. Colours and shadow still follow the toggled tokens; the pressed-in transform now applies to `aria-pressed` only.
+- **`_form.css`** — The hover border of inputs and checkboxes is `--color-brand` instead of `--link-color`. Setting a link colour on the site no longer changes the form fields, so the `--link-color: currentColor` workaround is not needed. On sites that kept the default (`--link-color: currentColor`) the hover border is now the brand colour instead of staying unchanged.
+- **`_breadcrumb.css`** — Breadcrumb links no longer get the `nav` hover and current-page background fill, so `--nav-link-background-active: transparent` overrides are not needed.
 - **`_toast.css`** — `.toast[hidden]` is now hidden. `display: flex` on `.toast` overrode the browser's `[hidden]` rule, so toasts rendered with `hidden` were always visible and the dismiss buttons and the interactive demo did nothing.
 
 ## 0.9.1

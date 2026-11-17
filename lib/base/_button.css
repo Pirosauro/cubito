@@ -101,7 +101,7 @@ STATES
   :disabled / [aria-disabled] Muted and non-interactive
   [data-busy="true"]          Uses toggled palette and appends spinner
   [aria-pressed="true"]       Uses toggled tokens
-  [aria-expanded="true"]      Mirrors aria-pressed styling
+  [aria-expanded="true"]      Mirrors aria-pressed styling, without the pressed-in transform
 
 VARIANTS
   [data-variant="outline"]    Transparent fill + currentColor border
@@ -264,6 +264,8 @@ NOTE ON LOCAL OVERRIDES
     text-decoration: none;
     text-transform: var(--button-text-transform);
     white-space: nowrap;
+    /* Long labels must not push the button out of its container */
+    max-inline-size: 100%;
     /* Trim cap-height space where supported (Safari TP, Chrome 120+) */
     text-box-edge: cap alphabetic;
     text-box-trim: trim-both;
@@ -350,6 +352,13 @@ NOTE ON LOCAL OVERRIDES
     --button-opacity: var(--button-default-opacity-toggled);
     --button-shadow: var(--button-default-shadow-toggled);
     --button-transform: var(--button-default-transform-toggled);
+  }
+
+  /* A disclosure trigger (aria-expanded) keeps its size: the pressed-in
+     transform belongs to toggle buttons (aria-pressed) only. */
+  button[aria-expanded="true"]:not([aria-pressed="true"]),
+  .button[aria-expanded="true"]:not([aria-pressed="true"]) {
+    --button-transform: var(--button-default-transform);
   }
 
   /* --- Default, disabled state --- */

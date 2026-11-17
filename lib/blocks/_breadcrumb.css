@@ -40,6 +40,11 @@ TOKENS
   .breadcrumb {
     --link-color: var(--breadcrumb-color);
     --link-color-hover: var(--breadcrumb-color-current);
+
+    /* A breadcrumb is a <nav>, but its links carry no highlight fill. */
+    --nav-link-background: transparent;
+    --nav-link-background-hover: transparent;
+    --nav-link-background-active: transparent;
   }
 
   .breadcrumb ol {

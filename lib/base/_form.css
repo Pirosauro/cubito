@@ -123,7 +123,7 @@ USAGE
     /* --- Input: default, hover state --- */
 
     --input-default-background-hover: var(--input-default-background);
-    --input-default-border-color-hover: var(--link-color);
+    --input-default-border-color-hover: var(--color-brand); /* not --link-color: link and field colours are independent */
     --input-default-color-hover: var(--input-default-color);
     --input-default-outline-hover: none;
     --input-default-shadow-hover: var(--input-default-shadow);
