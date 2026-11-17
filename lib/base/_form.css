@@ -245,7 +245,7 @@ USAGE
     margin-block: var(--space-tiny, 0.25rem);
   }
 
-  /* Labels paired with checkboxes / radios are inline and unbolded */
+  /* Labels paired with checkboxes / radios are unbolded and centre their control */
   label:has(+ input[type="checkbox"]),
   label:has(+ input[type="radio"]),
   label:has(> input[type="checkbox"]),
@@ -261,6 +261,19 @@ USAGE
     font-family: inherit;
     font-weight: inherit;
     font-size: inherit;
+  }
+
+  /*
+    A label that wraps its control is a whole choice: make it block-level so a
+    Stack (.flow) or any block container puts consecutive choices on their own
+    lines. fit-content keeps the clickable area as wide as the label. The
+    sibling patterns above (input + label, label + input) stay inline: the pair
+    must share a line.
+  */
+  label:has(> input[type="checkbox"]),
+  label:has(> input[type="radio"]) {
+    display: flex;
+    inline-size: fit-content;
   }
 
   /* --- Text-like inputs --- */

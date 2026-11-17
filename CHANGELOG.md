@@ -1,5 +1,11 @@
 # cubito
 
+## 0.9.3
+
+### Bug Fixes
+
+- **`_form.css`** — A `<label>` that wraps a checkbox or radio is now `display: flex; inline-size: fit-content` instead of `inline-flex`. Consecutive choices used to sit on one line, so `.flow` (and any block container) could not stack them. The clickable area is unchanged; inside `.cluster`, `.switcher` or `.grid` nothing changes. The sibling patterns (`input + label`, `label + input`) stay inline: wrap each pair in an element to stack it.
+
 ## 0.9.2
 
 ### Bug Fixes
