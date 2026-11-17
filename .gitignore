@@ -2,7 +2,6 @@
 node_modules/
 .pnpm-store/
 .pnpm-debug.log
-pnpm-lock.yaml
 
 # Build outputs
 dist/
@@ -29,3 +28,7 @@ Thumbs.db
 
 # Turbo
 .turbo/
+
+# AI
+.claude/
+.remember/
