@@ -1,5 +1,11 @@
 # cubito
 
+## Unreleased
+
+### Bug Fixes
+
+- **`_toast.css`** — `.toast[hidden]` is now hidden. `display: flex` on `.toast` overrode the browser's `[hidden]` rule, so toasts rendered with `hidden` were always visible and the dismiss buttons and the interactive demo did nothing.
+
 ## 0.9.1
 
 ### New Features

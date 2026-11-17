@@ -145,6 +145,11 @@ TOKENS (on .toast)
       both;
   }
 
+  /* display: flex above would otherwise override the UA rule for [hidden]. */
+  .toast[hidden] {
+    display: none;
+  }
+
   @keyframes toast-in {
     from {
       opacity: 0;

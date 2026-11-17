@@ -178,7 +178,7 @@ CONFIGURATION
     font-family: var(--font-family-mono);
     margin: 0;
     overflow-wrap: normal;
-    overflow-x: scroll;
+    overflow-x: auto;
   }
   /* Code inside pre: reset inline styles — let pre handle everything */
   pre code:not([class]) {
