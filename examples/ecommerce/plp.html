@@ -20,7 +20,7 @@
           </div>
           <div class="repel padding-y-xs section-divider">
             <nav data-variant="main" aria-label="Primary">
-              <ul role="list" class="cluster margin-0 padding-0">
+              <ul role="list" class="cluster margin-none padding-none">
                 <li><a href="./index.html">Home</a></li>
                 <li><a href="./plp.html" aria-current="page">Shop</a></li>
                 <li><a href="./pdp.html">Featured</a></li>
@@ -69,12 +69,18 @@
                 <button type="reset" data-variant="ghost">Clear</button>
               </div>
 
-              <details open>
-                <summary>Category</summary>
-                <label><input type="checkbox" checked> Jackets</label>
-                <label><input type="checkbox"> Knitwear</label>
-                <label><input type="checkbox"> Bags</label>
-                <label><input type="checkbox"> Travel sets</label>
+              <details class="multiselect" data-variant="inline" open>
+                <summary class="repel" data-nowrap>
+                  <span class="multiselect__label">Category</span>
+                </summary>
+                <fieldset class="multiselect__panel flow">
+                  <legend class="visually-hidden">Category</legend>
+                  <label class="multiselect__option"><input type="checkbox" name="category" value="jackets" checked> Jackets</label>
+                  <label class="multiselect__option"><input type="checkbox" name="category" value="knitwear"> Knitwear</label>
+                  <label class="multiselect__option"><input type="checkbox" name="category" value="bags"> Bags</label>
+                  <label class="multiselect__option"><input type="checkbox" name="category" value="travel"> Travel sets</label>
+                  <p class="multiselect__status" aria-live="polite"></p>
+                </fieldset>
               </details>
 
               <details open>

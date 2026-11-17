@@ -30,7 +30,9 @@ pnpm -C website build    # static build into website/dist
 
 Run `pnpm verify` after any change under `lib/` or the docs. It must pass with 0 errors.
 
-Check visual changes in the **dev server**, not in `vite build` / `vite preview`: the production build runs lightningcss, which rewrites `light-dark()` and breaks tokens passed through `var()` (known issue, not caused by the library).
+The docs site is deployed to GitHub Pages by `.github/workflows/pages.yml` on pushes to `main`. Project pages live under `/<repo>/`, so the build reads `BASE_PATH` (for example `BASE_PATH=/cubito/ pnpm -C website build`); `website/vite.config.ts` prefixes the root-relative links with it. Without `BASE_PATH` the site builds for the domain root (Cloudflare Pages, custom domain). Keep links in templates root-relative (`/components/tag`), never hardcode the repo name.
+
+The build sets an explicit `cssTarget` so lightningcss leaves `light-dark()` alone; do not remove it, or tokens passed through `var()` break in the built site.
 
 ## Cascade layers
 

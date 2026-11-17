@@ -76,7 +76,7 @@
     });
     renderTheme();
 
-    const path = window.location.pathname.replace(/\/$/, '') || '/';
+    const path = window.location.pathname.replace(/\.html$/, '').replace(/\/$/, '') || '/';
     document.querySelectorAll('aside a[href]').forEach(a => {
       const href = a.getAttribute('href').replace(/\/$/, '') || '/';
       if (href === path) {

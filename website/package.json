@@ -11,6 +11,7 @@
     "cubito": "workspace:*"
   },
   "devDependencies": {
+    "@types/node": "^26.6.6",
     "@vituum/vite-plugin-liquid": "^2.0.2",
     "vite": "^8.2.2",
     "vituum": "^2.0.2"

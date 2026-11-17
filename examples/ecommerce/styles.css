@@ -20,6 +20,7 @@
 @import url("../../lib/blocks/_card.css");
 @import url("../../lib/blocks/_data-list.css");
 @import url("../../lib/blocks/_hero.css");
+@import url("../../lib/blocks/_multiselect.css");
 @import url("../../lib/blocks/_pagination.css");
 @import url("../../lib/blocks/_price.css");
 @import url("../../lib/blocks/_progress-bar.css");
@@ -41,39 +42,39 @@
 @import url("../../lib/utilities/_wrapper.css");
 
 @layer theme {
+  /* The page follows the operating system (color-scheme: light dark).
+     Chrome uses the adaptive role tokens; only the brand identity is set here. */
   :root {
-    --color-brand: #2563eb;
+    --color-brand: light-dark(#2563eb, #6af);
+    --color-on-brand: light-dark(#fff, #000);
     --color-accent: #f97316;
-    --body-background: #ffffff;
-    --body-color: #111827;
     --site-sticky-offset: clamp(6.5rem, 8vw, 7.75rem);
-    --link-color: var(--color-neutral-900);
+    --link-color: var(--text);
     --link-color-hover: var(--color-brand);
     --button-background: var(--color-brand);
     --button-border-color: var(--color-brand);
-    --button-background-hover: #1d4ed8;
-    --button-border-color-hover: #1d4ed8;
-    --button-background-active: #1e40af;
-    --button-border-color-active: #1e40af;
+    --button-background-hover: color-mix(in srgb, var(--color-brand) 85%, var(--text));
+    --button-border-color-hover: color-mix(in srgb, var(--color-brand) 85%, var(--text));
+    --button-background-active: color-mix(in srgb, var(--color-brand) 70%, var(--text));
+    --button-border-color-active: color-mix(in srgb, var(--color-brand) 70%, var(--text));
     --button-radius: 9999px;
     --button-padding: var(--space-xs) var(--space-m);
     --card-radius: 1rem;
-    --card-border: solid var(--border-s) var(--color-neutral-200);
-    --card-border-hover: solid var(--border-s) var(--color-neutral-900);
+    --card-border: solid var(--border-s) var(--border-color-subtle);
+    --card-border-hover: solid var(--border-s) var(--text);
     --shadow-color: color-mix(in srgb, var(--color-brand) 16%, #111827);
-    --details-background: var(--color-neutral-50);
-    --fieldset-border-color: var(--color-neutral-200);
-    --input-background: #ffffff;
-    --input-border-color: var(--color-neutral-300);
-    --input-border-color-hover: var(--color-neutral-600);
+    --details-background: var(--surface-subtle);
+    --fieldset-border-color: var(--border-color-subtle);
+    --input-border-color: var(--border-color);
+    --input-border-color-hover: var(--border-color-strong);
     --input-shadow-focus: 0 0 0 var(--focus-ring-width)
       color-mix(in srgb, var(--color-brand) 22%, transparent);
   }
 
   body {
     background:
-      radial-gradient(circle at top left, rgba(37, 99, 235, 0.08), transparent 28%),
-      linear-gradient(180deg, #ffffff 0%, #fbfdff 30%, #ffffff 100%);
+      radial-gradient(circle at top left, color-mix(in srgb, var(--color-brand) 8%, transparent), transparent 28%),
+      var(--surface);
   }
 
   .site-shell {
@@ -90,19 +91,19 @@
   .site-header {
     position: sticky;
     top: 0;
-    z-index: 10;
-    background: rgba(255, 255, 255, 0.92);
+    z-index: var(--z-sticky);
+    background: color-mix(in srgb, var(--surface) 92%, transparent);
     backdrop-filter: blur(14px);
-    border-bottom: solid var(--border-s) var(--color-neutral-200);
+    border-bottom: solid var(--border-s) var(--border-color-subtle);
   }
 
   .site-footer {
-    border-top: solid var(--border-s) var(--color-neutral-200);
-    background: var(--color-neutral-50);
+    border-top: solid var(--border-s) var(--border-color-subtle);
+    background: var(--surface-subtle);
   }
 
   .logo {
-    color: var(--color-black);
+    color: var(--text);
     font-size: var(--font-size-m);
     font-weight: var(--font-weight-bold);
     letter-spacing: -0.04em;
@@ -114,34 +115,34 @@
   }
 
   .surface {
-    background: var(--color-white);
-    border: solid var(--border-s) var(--color-neutral-200);
+    background: var(--surface);
+    border: solid var(--border-s) var(--border-color-subtle);
     border-radius: var(--border-radius-l);
     padding: var(--space-m);
   }
 
   .surface-subtle {
-    background: var(--color-neutral-50);
+    background: var(--surface-subtle);
   }
 
   .badge[data-variant="brand"] {
-    background: color-mix(in srgb, var(--color-brand) 14%, white);
-    color: var(--color-brand);
+    background: color-mix(in srgb, var(--color-brand) 14%, var(--surface));
+    color: color-mix(in srgb, var(--color-brand) 75%, var(--text));
   }
 
   .badge[data-variant="success"] {
-    background: color-mix(in srgb, var(--color-status-ok) 14%, white);
-    color: var(--color-status-ok);
+    background: color-mix(in srgb, var(--color-status-ok) 14%, var(--surface));
+    color: color-mix(in srgb, var(--color-status-ok) 70%, var(--text));
   }
 
   .badge[data-variant="warning"] {
-    background: color-mix(in srgb, var(--color-status-warning) 18%, white);
-    color: #9a4d00;
+    background: color-mix(in srgb, var(--color-status-warning) 18%, var(--surface));
+    color: color-mix(in srgb, var(--color-status-warning) 70%, var(--text));
   }
 
   .badge[data-variant="info"] {
-    background: color-mix(in srgb, var(--color-status-info) 14%, white);
-    color: var(--color-status-info);
+    background: color-mix(in srgb, var(--color-status-info) 14%, var(--surface));
+    color: color-mix(in srgb, var(--color-status-info) 70%, var(--text));
   }
 
   .cluster .badge,
@@ -151,11 +152,12 @@
     margin-inline: 0;
   }
 
+  /* Product art stays light in both themes: the illustrations are drawn for a pale tile, like photos. */
   .product-stage,
   .thumbnail,
   .media-swatch {
     background: linear-gradient(135deg, #eff6ff 0%, #f8fafc 48%, #fff7ed 100%);
-    border: solid var(--border-s) var(--color-neutral-200);
+    border: solid var(--border-s) var(--border-color-subtle);
     border-radius: var(--border-radius-l);
     overflow: hidden;
   }
@@ -182,7 +184,7 @@
   .hero-art {
     padding: var(--space-xs);
     background: linear-gradient(160deg, #eff6ff 0%, #ffffff 40%, #fff7ed 100%);
-    border: solid var(--border-s) var(--color-neutral-200);
+    border: solid var(--border-s) var(--border-color-subtle);
     border-radius: var(--border-radius-l);
   }
 
@@ -214,13 +216,13 @@
   .kpi-grid > div,
   .mini-stat {
     padding: var(--space-s);
-    border: solid var(--border-s) var(--color-neutral-200);
+    border: solid var(--border-s) var(--border-color-subtle);
     border-radius: var(--border-radius-l);
-    background: var(--color-white);
+    background: var(--surface);
   }
 
   .section-divider {
-    border-top: solid var(--border-s) var(--color-neutral-200);
+    border-top: solid var(--border-s) var(--border-color-subtle);
   }
 
   .sidebar > * {
@@ -250,8 +252,8 @@
   }
 
   .payment-option {
-    background: var(--color-white);
-    border: solid var(--border-s) var(--color-neutral-200);
+    background: var(--surface);
+    border: solid var(--border-s) var(--border-color-subtle);
     border-radius: var(--border-radius-l);
     padding: var(--space-s);
   }
