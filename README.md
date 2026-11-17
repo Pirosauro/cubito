@@ -104,6 +104,7 @@ Import layers in order. `_layers.css` must be the very first import.
 @import "cubito/blocks/_empty-state.css";
 @import "cubito/blocks/_footnote.css";
 @import "cubito/blocks/_hero.css";
+@import "cubito/blocks/_multiselect.css";
 @import "cubito/blocks/_pagination.css";
 @import "cubito/blocks/_pictogram.css";
 @import "cubito/blocks/_price.css";
@@ -687,6 +688,31 @@ Fixed overlay that centres a dialog. Prefer `<dialog showModal()>` where possibl
 ```
 
 **Tokens:** `--hero-space`, `--hero-align`, `--hero-flow-space`, `--hero-split-gap`, `--hero-image-radius`
+
+### `.multiselect`
+
+No-JavaScript dropdown for picking several options. A native `<details>` is the disclosure, a `<fieldset>` of checkboxes is the option list, so values are submitted with the form and keyboard and screen readers work out of the box. Layout comes from the compositions: `.repel` for the trigger, `.flow` for the options.
+
+```html
+<details class="multiselect">
+  <summary class="repel" data-nowrap>
+    <span class="multiselect__label">Colours</span>
+  </summary>
+  <fieldset class="multiselect__panel flow">
+    <legend class="visually-hidden">Colours</legend>
+    <label class="multiselect__option"><input type="checkbox" name="colour" value="red"> Red</label>
+    <label class="multiselect__option"><input type="checkbox" name="colour" value="green" checked> Green</label>
+    <p class="multiselect__status" aria-live="polite"></p>
+  </fieldset>
+</details>
+
+<!-- Panel in the flow instead of floating -->
+<details class="multiselect" data-variant="inline">…</details>
+```
+
+The selected count is rendered by CSS counters (`--multiselect-status-text` sets the wording). Native `<details>` does not close on outside click or Escape; the file header has a short optional script. `aria-invalid="true"` and `aria-disabled="true"` on the `<details>` give the invalid and disabled styles. **Draft:** no search, no select-all, no selected-values summary in the trigger yet.
+
+**Tokens:** `--multiselect-default-panel-background`, `--multiselect-default-panel-border`, `--multiselect-default-panel-radius`, `--multiselect-default-panel-shadow`, `--multiselect-default-panel-padding`, `--multiselect-default-max-block-size`, `--multiselect-default-option-background-hover`, `--multiselect-default-option-background-selected`, `--multiselect-default-label-color`, `--multiselect-default-label-color-selected`, `--multiselect-default-status-color`, `--multiselect-default-status-text`, `--multiselect-default-chevron-size` (each also available without `-default-` as a local override). The trigger reuses the `--input-*` tokens.
 
 ### `.prose`
 

@@ -63,6 +63,7 @@
         { "label": "Empty State",   "href": "/components/empty-state" },
         { "label": "Footnote",      "href": "/components/footnote" },
         { "label": "Hero",          "href": "/components/hero" },
+        { "label": "Multiselect",    "href": "/components/multiselect" },
         { "label": "Pagination",    "href": "/components/pagination" },
         { "label": "Pictogram",     "href": "/components/pictogram" },
         { "label": "Price",         "href": "/components/price" },

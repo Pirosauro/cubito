@@ -1,5 +1,11 @@
 # cubito
 
+## 0.9.1
+
+### New Features
+
+- **`_multiselect.css`** (draft) — Dropdown for picking several options with no JavaScript: a native `<details>` is the trigger, a `<fieldset>` of checkboxes the option list, so values are submitted with the form. Layout reuses `.repel` (trigger), `.flow` (options) and `.cluster`; the selected count is rendered with CSS counters. `data-variant="inline"` keeps the panel in the flow; `aria-invalid` / `aria-disabled` on the `<details>` give the invalid and disabled states. Adaptive in both colour schemes through the role tokens. Not included yet: search, select all, a values summary in the trigger. Documented at `/components/multiselect`.
+
 ## 0.9.0
 
 ### New Features

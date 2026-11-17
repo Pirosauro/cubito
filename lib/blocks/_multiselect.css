@@ -1,0 +1,350 @@
+/*
+Multiselect
+---
+Dropdown that lets the user pick several options. Built from native elements
+so it works with no JavaScript: <details>/<summary> is the disclosure, a
+<fieldset> of checkboxes is the option list. Values are submitted with the
+form, keyboard and screen-reader behaviour come from the platform.
+
+Structure follows CUBE CSS: the markup is a block (.multiselect) with
+elements (__label, __panel, __option, __status), layout is delegated to the
+Every Layout compositions (.repel for the trigger, .flow for the options,
+.cluster for the footer), state is driven by native attributes and :has().
+
+MARKUP PATTERN
+  <details class="multiselect">
+    <summary class="repel" data-nowrap>
+      <span class="multiselect__label">Colours</span>
+    </summary>
+
+    <fieldset class="multiselect__panel flow">
+      <legend class="visually-hidden">Colours</legend>
+
+      <label class="multiselect__option">
+        <input type="checkbox" name="colour" value="red"> Red
+      </label>
+      <label class="multiselect__option">
+        <input type="checkbox" name="colour" value="green" checked> Green
+      </label>
+      <label class="multiselect__option">
+        <input type="checkbox" name="colour" value="blue"> Blue
+      </label>
+
+      <p class="multiselect__status" aria-live="polite"></p>
+    </fieldset>
+  </details>
+
+  The chevron is drawn by summary::after and is the second item of the .repel,
+  so the label and the chevron sit at opposite ends and never overlap.
+
+VARIANTS
+  (none)                    Panel floats under the trigger (position: absolute).
+  data-variant="inline"     Panel stays in the flow and pushes content down.
+                            Preferred on narrow screens and inside dialogs.
+
+STATES
+  [open]                    Native — the panel is visible.
+  :has(:checked)            At least one option is selected; label is emphasised.
+  [aria-invalid="true"]     Invalid style (set it on the <details>).
+  [aria-disabled="true"]    Not interactive (set it on the <details>; also
+                            disable the checkboxes, e.g. <fieldset disabled>).
+
+SELECTED COUNT
+  The status line shows how many options are checked using CSS counters, so
+  it needs no JavaScript. Change the wording through --multiselect-status-text.
+
+    .multiselect { --multiselect-status-text: " selezionati"; }
+
+  Keep the empty <p class="multiselect__status" aria-live="polite"> last in
+  the panel: a counter can only be read by elements that come after the
+  options in the document.
+
+LIMITS (no-JS draft)
+  <details> does not close on outside click or Escape. Add a few lines of
+  script if you need that, the CSS does not depend on it:
+
+    document.addEventListener('click', (e) => {
+      document.querySelectorAll('.multiselect[open]').forEach((d) => {
+        if (!d.contains(e.target)) d.open = false;
+      });
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key !== 'Escape') return;
+      document.querySelectorAll('.multiselect[open]').forEach((d) => {
+        d.open = false;
+        d.querySelector('summary').focus();
+      });
+    });
+
+CONFIGURATION
+  Override at any scope — globally, per-context, or inline:
+
+    :root {
+      --multiselect-default-max-block-size: 20rem;
+    }
+
+    .filters .multiselect {
+      --multiselect-panel-background: var(--surface);
+    }
+
+    <details class="multiselect" style="--multiselect-max-block-size: 12rem">
+
+TOKENS
+  Trigger (reuses the input tokens, so it looks like a <select>):
+    --input-default-background / -border-color / -color / -radius / -padding
+    --input-default-shadow-focus   focus ring
+
+  Design tokens:
+    --multiselect-default-panel-background   Panel fill.       Default: --surface
+    --multiselect-default-panel-border       Panel border.     Default: solid --border-s --border-color
+    --multiselect-default-panel-radius       Panel corners.    Default: --border-radius-m
+    --multiselect-default-panel-shadow       Floating shadow.  Default: layered shadow
+    --multiselect-default-panel-padding      Panel padding.    Default: --space-xxs
+    --multiselect-default-max-block-size     Panel scroll cap. Default: min(20rem, 60dvh)
+    --multiselect-default-option-background-hover      Default: --surface-sunken
+    --multiselect-default-option-background-selected   Default: brand 12% over --surface
+    --multiselect-default-label-color-selected         Default: --text
+    --multiselect-default-label-color                  Default: --text-muted
+    --multiselect-default-status-color       Counter colour.   Default: --text-muted
+    --multiselect-default-status-text        Text after the number. Default: " selected"
+    --multiselect-default-chevron-size       Default: 1em
+
+  Local override vars (unset by default; fall back to the --*-default-* tokens):
+    --multiselect-panel-background   --multiselect-panel-border   --multiselect-panel-radius
+    --multiselect-panel-shadow       --multiselect-panel-padding  --multiselect-max-block-size
+    --multiselect-option-background-hover   --multiselect-option-background-selected
+    --multiselect-label-color   --multiselect-label-color-selected
+    --multiselect-status-color  --multiselect-status-text   --multiselect-chevron-size
+
+@link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details
+*/
+
+@layer tokens {
+  :root {
+    --multiselect-default-chevron-size: 1em;
+    --multiselect-default-label-color: var(--text-muted);
+    --multiselect-default-label-color-selected: var(--text);
+    --multiselect-default-max-block-size: 20rem;
+    --multiselect-default-option-background-hover: var(--surface-sunken);
+    --multiselect-default-option-background-selected: color-mix(
+      in srgb,
+      var(--color-brand) 12%,
+      var(--surface)
+    );
+    --multiselect-default-panel-background: var(--surface);
+    --multiselect-default-panel-border: solid var(--border-s) var(--border-color);
+    --multiselect-default-panel-padding: var(--space-xxs);
+    --multiselect-default-panel-radius: var(--border-radius-m);
+    --multiselect-default-panel-shadow:
+      0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 10px 16px -4px rgba(0, 0, 0, 0.12);
+    --multiselect-default-status-color: var(--text-muted);
+    --multiselect-default-status-text: " selected";
+  }
+
+  /* No fallback declarations for custom properties: gate the dynamic unit. */
+  @supports (max-height: 60dvh) {
+    :root {
+      --multiselect-default-max-block-size: min(20rem, 60dvh);
+    }
+  }
+}
+
+@layer blocks {
+  .multiselect {
+    /* Neutralise the generic <details> chrome: the trigger carries the border. */
+    --details-background: transparent;
+    --details-radius: 0;
+    --summary-padding: 0;
+
+    position: relative;
+    inline-size: var(--input-width);
+  }
+
+  /* The base <details>[open] rule adds padding; the panel owns its own. */
+  .multiselect[open] {
+    padding: 0;
+  }
+
+  /* --- Trigger ---------------------------------------------------------- */
+
+  .multiselect > summary {
+    background-color: var(--input-background, var(--input-default-background));
+    border-color: var(--input-border-color, var(--input-default-border-color));
+    border-radius: var(--input-radius, var(--border-radius-m));
+    border-style: var(--input-border-style, var(--input-default-border-style));
+    border-width: var(--input-border-width, var(--input-default-border-width));
+    box-shadow: var(--input-shadow, var(--input-default-shadow));
+    color: var(--input-color, var(--input-default-color));
+    cursor: pointer;
+    font-weight: var(--font-weight-normal);
+    list-style: none;
+    margin: 0;
+    min-block-size: var(--input-min-height);
+    padding: var(--input-padding);
+    padding-inline-start: var(--space-xs);
+    transition: var(--input-transition);
+    user-select: none;
+  }
+
+  .multiselect[open] > summary {
+    margin: 0;
+    padding: var(--input-padding);
+    padding-inline-start: var(--space-xs);
+  }
+
+  .multiselect > summary::-webkit-details-marker,
+  .multiselect > summary::marker {
+    content: "";
+    display: none;
+  }
+
+  /* Chevron via mask-image: follows currentColor in every theme. */
+  .multiselect > summary::after {
+    background-color: currentColor;
+    block-size: var(--multiselect-chevron-size, var(--multiselect-default-chevron-size));
+    content: "";
+    flex: none;
+    inline-size: var(--multiselect-chevron-size, var(--multiselect-default-chevron-size));
+    mask-image: var(--select-chevron-icon);
+    mask-position: center;
+    mask-repeat: no-repeat;
+    mask-size: contain;
+    transition: transform var(--motion-duration-fast, 150ms) var(--motion-easing-in-out, ease);
+  }
+
+  .multiselect[open] > summary::after {
+    transform: rotate(180deg);
+  }
+
+  .multiselect > summary:hover {
+    --input-background: var(--input-background-hover, var(--input-default-background-hover));
+    --input-border-color: var(--input-border-color-hover, var(--input-default-border-color-hover));
+    --input-shadow: var(--input-shadow-hover, var(--input-default-shadow-hover));
+  }
+
+  .multiselect > summary:focus-visible {
+    --input-background: var(--input-background-focus, var(--input-default-background-focus));
+    --input-border-color: var(--input-border-color-focus, var(--input-default-border-color-focus));
+    --input-shadow: var(--input-shadow-focus, var(--input-default-shadow-focus));
+
+    outline: var(--input-outline-focus, var(--input-default-outline-focus));
+  }
+
+  /* --- Label: muted until something is chosen --- */
+
+  .multiselect__label {
+    color: var(--multiselect-label-color, var(--multiselect-default-label-color));
+    min-inline-size: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .multiselect:has(:checked) .multiselect__label {
+    color: var(--multiselect-label-color-selected, var(--multiselect-default-label-color-selected));
+    font-weight: var(--font-weight-bold);
+  }
+
+  /* --- Panel ------------------------------------------------------------ */
+
+  .multiselect__panel {
+    background: var(--multiselect-panel-background, var(--multiselect-default-panel-background));
+    border: var(--multiselect-panel-border, var(--multiselect-default-panel-border));
+    border-radius: var(--multiselect-panel-radius, var(--multiselect-default-panel-radius));
+    box-shadow: var(--multiselect-panel-shadow, var(--multiselect-default-panel-shadow));
+    counter-reset: multiselect-selected;
+    inset-block-start: calc(100% + var(--space-tiny));
+    inset-inline: 0;
+    margin: 0;
+    max-block-size: var(--multiselect-max-block-size, var(--multiselect-default-max-block-size));
+    min-inline-size: 0;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding: var(--multiselect-panel-padding, var(--multiselect-default-panel-padding));
+    position: absolute;
+    z-index: var(--z-dropdown);
+  }
+
+  .multiselect[data-variant="inline"] > .multiselect__panel {
+    box-shadow: none;
+    margin-block-start: var(--space-tiny);
+    position: static;
+  }
+
+  /* Rhythm between options comes from .flow; keep them tight. */
+  .multiselect__panel {
+    --flow-space: 0;
+  }
+
+  /* --- Option ----------------------------------------------------------- */
+
+  /* Two classes: must outrank the generic checkbox-label rule in _form.css. */
+  .multiselect__panel > .multiselect__option {
+    align-items: center;
+    border-radius: var(--border-radius-s, var(--border-radius-m));
+    color: var(--text);
+    cursor: pointer;
+    display: flex;
+    font-size: inherit;
+    font-weight: var(--font-weight-normal);
+    gap: var(--space-xxs);
+    margin: 0;
+    min-block-size: var(--input-min-height);
+    padding-inline: var(--space-xs);
+    transition: background-color var(--motion-duration-fast, 150ms) var(--motion-easing-out);
+  }
+
+  .multiselect__option:hover {
+    background-color: var(--multiselect-option-background-hover, var(--multiselect-default-option-background-hover));
+  }
+
+  .multiselect__option:has(:checked) {
+    background-color: var(--multiselect-option-background-selected, var(--multiselect-default-option-background-selected));
+  }
+
+  .multiselect__option:has(:focus-visible) {
+    outline: var(--focus-ring-width, 0.1875rem) solid var(--color-brand);
+    outline-offset: -2px;
+  }
+
+  /* Count every checked box; the status line below reads the total. */
+  .multiselect__panel :checked {
+    counter-increment: multiselect-selected;
+  }
+
+  /* --- Status ----------------------------------------------------------- */
+
+  .multiselect__status {
+    color: var(--multiselect-status-color, var(--multiselect-default-status-color));
+    font-size: var(--font-size-xs);
+    margin: 0;
+    padding: var(--space-tiny) var(--space-xs);
+  }
+
+  .multiselect__status::before {
+    content: counter(multiselect-selected) var(--multiselect-status-text, var(--multiselect-default-status-text));
+  }
+
+  /* --- States ----------------------------------------------------------- */
+
+  .multiselect[aria-invalid="true"] > summary {
+    --input-border-color: var(--input-border-color-invalid, var(--input-default-border-color-invalid));
+  }
+
+  .multiselect[aria-disabled="true"] > summary {
+    --input-background: var(--input-background-disabled, var(--input-default-background-disabled));
+    --input-border-color: var(--input-border-color-disabled, var(--input-default-border-color-disabled));
+    --input-color: var(--input-color-disabled, var(--input-default-color-disabled));
+    --input-shadow: var(--input-shadow-disabled, var(--input-default-shadow-disabled));
+
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .multiselect > summary::after,
+    .multiselect__option {
+      transition: none;
+    }
+  }
+}

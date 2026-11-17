@@ -1,0 +1,452 @@
+{% layout "layouts/base.liquid" %}
+{% block title %}Multiselect — Cubito UI Docs{% endblock %}
+
+{% block content %}
+<article class="flow">
+
+  <header class="flow" style="padding-block-end: var(--space-l); border-block-end: var(--border-s) solid var(--border-color-subtle);">
+    <nav aria-label="Breadcrumb" class="breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/components/">Components</a></li>
+        <li aria-current="page">Multiselect</li>
+      </ol>
+    </nav>
+    <h1>Multiselect</h1>
+    <p class="text-m color-subtle">A dropdown for choosing several options, built from native <code>&lt;details&gt;</code> and checkboxes. Works with no JavaScript and submits with the form.</p>
+  </header>
+
+  <div class="callout wide color-brand" role="note">
+    <p><strong>Draft.</strong> Layout is delegated to Every Layout compositions: <code>.repel</code> (trigger), <code>.flow</code> (options), <code>.cluster</code> (form actions). The component only adds the look and the state.</p>
+  </div>
+
+  <section>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Default</h2>
+      <p>Wrap a <code>&lt;fieldset&gt;</code> of checkboxes in a <code>&lt;details class="multiselect"&gt;</code>. The <code>&lt;summary&gt;</code> is the trigger and uses <code>.repel</code> to push the chevron to the far end. The panel floats under the trigger; the count at the bottom is rendered by CSS counters.</p>
+
+      <div class="" style="max-inline-size: 22rem; min-block-size: 22rem;">
+  <details class="multiselect">
+    <summary class="repel" data-nowrap>
+      <span class="multiselect__label">Colours</span>
+    </summary>
+    <fieldset class="multiselect__panel flow">
+      <legend class="visually-hidden">Colours</legend>
+      <label class="multiselect__option">
+        <input type="checkbox" name="colour" value="red"> Red
+      </label>
+      <label class="multiselect__option">
+        <input type="checkbox" name="colour" value="green" checked> Green
+      </label>
+      <label class="multiselect__option">
+        <input type="checkbox" name="colour" value="blue"> Blue
+      </label>
+      <label class="multiselect__option">
+        <input type="checkbox" name="colour" value="yellow"> Yellow
+      </label>
+      <label class="multiselect__option">
+        <input type="checkbox" name="colour" value="black"> Black
+      </label>
+      <p class="multiselect__status" aria-live="polite"></p>
+    </fieldset>
+  </details>
+      </div>
+
+      <details class="margin-y-s">
+        <summary>Show code</summary>
+        <pre class="padding-m"><code>  &lt;details class=&quot;multiselect&quot;&gt;
+    &lt;summary class=&quot;repel&quot; data-nowrap&gt;
+      &lt;span class=&quot;multiselect__label&quot;&gt;Colours&lt;/span&gt;
+    &lt;/summary&gt;
+    &lt;fieldset class=&quot;multiselect__panel flow&quot;&gt;
+      &lt;legend class=&quot;visually-hidden&quot;&gt;Colours&lt;/legend&gt;
+      &lt;label class=&quot;multiselect__option&quot;&gt;
+        &lt;input type=&quot;checkbox&quot; name=&quot;colour&quot; value=&quot;red&quot;&gt; Red
+      &lt;/label&gt;
+      &lt;label class=&quot;multiselect__option&quot;&gt;
+        &lt;input type=&quot;checkbox&quot; name=&quot;colour&quot; value=&quot;green&quot; checked&gt; Green
+      &lt;/label&gt;
+      &lt;label class=&quot;multiselect__option&quot;&gt;
+        &lt;input type=&quot;checkbox&quot; name=&quot;colour&quot; value=&quot;blue&quot;&gt; Blue
+      &lt;/label&gt;
+      &lt;label class=&quot;multiselect__option&quot;&gt;
+        &lt;input type=&quot;checkbox&quot; name=&quot;colour&quot; value=&quot;yellow&quot;&gt; Yellow
+      &lt;/label&gt;
+      &lt;label class=&quot;multiselect__option&quot;&gt;
+        &lt;input type=&quot;checkbox&quot; name=&quot;colour&quot; value=&quot;black&quot;&gt; Black
+      &lt;/label&gt;
+      &lt;p class=&quot;multiselect__status&quot; aria-live=&quot;polite&quot;&gt;&lt;/p&gt;
+    &lt;/fieldset&gt;
+  &lt;/details&gt;</code></pre>
+      </details>
+
+    </div>
+  </section>
+
+  <section>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Inline panel</h2>
+      <p>Add <code>data-variant="inline"</code> to keep the panel in the document flow instead of floating. Prefer it on small screens, inside dialogs, or anywhere an overlay could be clipped.</p>
+
+      <div class="" style="max-inline-size: 22rem;">
+  <details class="multiselect" data-variant="inline">
+    <summary class="repel" data-nowrap>
+      <span class="multiselect__label">Sizes</span>
+    </summary>
+    <fieldset class="multiselect__panel flow">
+      <legend class="visually-hidden">Sizes</legend>
+      <label class="multiselect__option">
+        <input type="checkbox" name="size" value="s"> Small
+      </label>
+      <label class="multiselect__option">
+        <input type="checkbox" name="size" value="m" checked> Medium
+      </label>
+      <label class="multiselect__option">
+        <input type="checkbox" name="size" value="l" checked> Large
+      </label>
+      <p class="multiselect__status" aria-live="polite"></p>
+    </fieldset>
+  </details>
+      </div>
+
+      <details class="margin-y-s">
+        <summary>Show code</summary>
+        <pre class="padding-m"><code>  &lt;details class=&quot;multiselect&quot; data-variant=&quot;inline&quot;&gt;
+    &lt;summary class=&quot;repel&quot; data-nowrap&gt;
+      &lt;span class=&quot;multiselect__label&quot;&gt;Sizes&lt;/span&gt;
+    &lt;/summary&gt;
+    &lt;fieldset class=&quot;multiselect__panel flow&quot;&gt;
+      &lt;legend class=&quot;visually-hidden&quot;&gt;Sizes&lt;/legend&gt;
+      &lt;label class=&quot;multiselect__option&quot;&gt;
+        &lt;input type=&quot;checkbox&quot; name=&quot;size&quot; value=&quot;s&quot;&gt; Small
+      &lt;/label&gt;
+      &lt;label class=&quot;multiselect__option&quot;&gt;
+        &lt;input type=&quot;checkbox&quot; name=&quot;size&quot; value=&quot;m&quot; checked&gt; Medium
+      &lt;/label&gt;
+      &lt;label class=&quot;multiselect__option&quot;&gt;
+        &lt;input type=&quot;checkbox&quot; name=&quot;size&quot; value=&quot;l&quot; checked&gt; Large
+      &lt;/label&gt;
+      &lt;p class=&quot;multiselect__status&quot; aria-live=&quot;polite&quot;&gt;&lt;/p&gt;
+    &lt;/fieldset&gt;
+  &lt;/details&gt;</code></pre>
+      </details>
+
+    </div>
+  </section>
+
+  <section>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Inside a form</h2>
+      <p>The options are real checkboxes, so every checked value is submitted under the same <code>name</code> and <code>FormData.getAll()</code> returns them all. Use <code>.cluster</code> to line up the control and the submit button.</p>
+
+      <div class="" style="">
+  <form class="flow" style="max-inline-size: 22rem;" onsubmit="return false">
+    <label for="ms-note">Label
+      <input id="ms-note" type="text" placeholder="Summer collection">
+    </label>
+    <details class="multiselect" data-variant="inline">
+      <summary class="repel" data-nowrap>
+        <span class="multiselect__label">Colours</span>
+      </summary>
+      <fieldset class="multiselect__panel flow">
+        <legend class="visually-hidden">Colours</legend>
+        <label class="multiselect__option">
+          <input type="checkbox" name="colour" value="red" checked> Red
+        </label>
+        <label class="multiselect__option">
+          <input type="checkbox" name="colour" value="green"> Green
+        </label>
+        <label class="multiselect__option">
+          <input type="checkbox" name="colour" value="blue" checked> Blue
+        </label>
+        <label class="multiselect__option">
+          <input type="checkbox" name="colour" value="yellow"> Yellow
+        </label>
+        <label class="multiselect__option">
+          <input type="checkbox" name="colour" value="black"> Black
+        </label>
+        <p class="multiselect__status" aria-live="polite"></p>
+      </fieldset>
+    </details>
+    <div class="cluster">
+      <button type="submit">Apply</button>
+      <button type="reset" data-variant="outline">Clear</button>
+    </div>
+  </form>
+      </div>
+
+      <details class="margin-y-s">
+        <summary>Show code</summary>
+        <pre class="padding-m"><code>  &lt;form class=&quot;flow&quot; style=&quot;max-inline-size: 22rem;&quot; onsubmit=&quot;return false&quot;&gt;
+    &lt;label for=&quot;ms-note&quot;&gt;Label
+      &lt;input id=&quot;ms-note&quot; type=&quot;text&quot; placeholder=&quot;Summer collection&quot;&gt;
+    &lt;/label&gt;
+    &lt;details class=&quot;multiselect&quot; data-variant=&quot;inline&quot;&gt;
+      &lt;summary class=&quot;repel&quot; data-nowrap&gt;
+        &lt;span class=&quot;multiselect__label&quot;&gt;Colours&lt;/span&gt;
+      &lt;/summary&gt;
+      &lt;fieldset class=&quot;multiselect__panel flow&quot;&gt;
+        &lt;legend class=&quot;visually-hidden&quot;&gt;Colours&lt;/legend&gt;
+        &lt;label class=&quot;multiselect__option&quot;&gt;
+          &lt;input type=&quot;checkbox&quot; name=&quot;colour&quot; value=&quot;red&quot; checked&gt; Red
+        &lt;/label&gt;
+        &lt;label class=&quot;multiselect__option&quot;&gt;
+          &lt;input type=&quot;checkbox&quot; name=&quot;colour&quot; value=&quot;green&quot;&gt; Green
+        &lt;/label&gt;
+        &lt;label class=&quot;multiselect__option&quot;&gt;
+          &lt;input type=&quot;checkbox&quot; name=&quot;colour&quot; value=&quot;blue&quot; checked&gt; Blue
+        &lt;/label&gt;
+        &lt;label class=&quot;multiselect__option&quot;&gt;
+          &lt;input type=&quot;checkbox&quot; name=&quot;colour&quot; value=&quot;yellow&quot;&gt; Yellow
+        &lt;/label&gt;
+        &lt;label class=&quot;multiselect__option&quot;&gt;
+          &lt;input type=&quot;checkbox&quot; name=&quot;colour&quot; value=&quot;black&quot;&gt; Black
+        &lt;/label&gt;
+        &lt;p class=&quot;multiselect__status&quot; aria-live=&quot;polite&quot;&gt;&lt;/p&gt;
+      &lt;/fieldset&gt;
+    &lt;/details&gt;
+    &lt;div class=&quot;cluster&quot;&gt;
+      &lt;button type=&quot;submit&quot;&gt;Apply&lt;/button&gt;
+      &lt;button type=&quot;reset&quot; data-variant=&quot;outline&quot;&gt;Clear&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/form&gt;</code></pre>
+      </details>
+
+    </div>
+  </section>
+
+  <section>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">States</h2>
+      <p>Set <code>aria-invalid="true"</code> or <code>aria-disabled="true"</code> on the <code>&lt;details&gt;</code>. For a disabled control also disable the checkboxes (<code>&lt;fieldset disabled&gt;</code>) so nothing is submitted.</p>
+
+      <div class="" style="">
+  <div class="flow" style="max-inline-size: 22rem;">
+  <details class="multiselect" aria-invalid="true">
+      <summary class="repel" data-nowrap>
+        <span class="multiselect__label">Invalid</span>
+      </summary>
+      <fieldset class="multiselect__panel flow">
+        <legend class="visually-hidden">Invalid</legend>
+        <label class="multiselect__option">
+          <input type="checkbox" name="a" value="red"> Red
+        </label>
+        <label class="multiselect__option">
+          <input type="checkbox" name="a" value="green"> Green
+        </label>
+        <label class="multiselect__option">
+          <input type="checkbox" name="a" value="blue"> Blue
+        </label>
+        <label class="multiselect__option">
+          <input type="checkbox" name="a" value="yellow"> Yellow
+        </label>
+        <label class="multiselect__option">
+          <input type="checkbox" name="a" value="black"> Black
+        </label>
+        <p class="multiselect__status" aria-live="polite"></p>
+      </fieldset>
+    </details>
+  <details class="multiselect" aria-disabled="true">
+      <summary class="repel" data-nowrap>
+        <span class="multiselect__label">Disabled</span>
+      </summary>
+      <fieldset class="multiselect__panel flow">
+        <legend class="visually-hidden">Disabled</legend>
+        <label class="multiselect__option">
+          <input type="checkbox" name="b" value="red" checked> Red
+        </label>
+        <label class="multiselect__option">
+          <input type="checkbox" name="b" value="green"> Green
+        </label>
+        <label class="multiselect__option">
+          <input type="checkbox" name="b" value="blue"> Blue
+        </label>
+        <label class="multiselect__option">
+          <input type="checkbox" name="b" value="yellow"> Yellow
+        </label>
+        <label class="multiselect__option">
+          <input type="checkbox" name="b" value="black"> Black
+        </label>
+        <p class="multiselect__status" aria-live="polite"></p>
+      </fieldset>
+    </details>
+  </div>
+      </div>
+
+      <details class="margin-y-s">
+        <summary>Show code</summary>
+        <pre class="padding-m"><code>  &lt;div class=&quot;flow&quot; style=&quot;max-inline-size: 22rem;&quot;&gt;
+  &lt;details class=&quot;multiselect&quot; aria-invalid=&quot;true&quot;&gt;
+      &lt;summary class=&quot;repel&quot; data-nowrap&gt;
+        &lt;span class=&quot;multiselect__label&quot;&gt;Invalid&lt;/span&gt;
+      &lt;/summary&gt;
+      &lt;fieldset class=&quot;multiselect__panel flow&quot;&gt;
+        &lt;legend class=&quot;visually-hidden&quot;&gt;Invalid&lt;/legend&gt;
+        &lt;label class=&quot;multiselect__option&quot;&gt;
+          &lt;input type=&quot;checkbox&quot; name=&quot;a&quot; value=&quot;red&quot;&gt; Red
+        &lt;/label&gt;
+        &lt;label class=&quot;multiselect__option&quot;&gt;
+          &lt;input type=&quot;checkbox&quot; name=&quot;a&quot; value=&quot;green&quot;&gt; Green
+        &lt;/label&gt;
+        &lt;label class=&quot;multiselect__option&quot;&gt;
+          &lt;input type=&quot;checkbox&quot; name=&quot;a&quot; value=&quot;blue&quot;&gt; Blue
+        &lt;/label&gt;
+        &lt;label class=&quot;multiselect__option&quot;&gt;
+          &lt;input type=&quot;checkbox&quot; name=&quot;a&quot; value=&quot;yellow&quot;&gt; Yellow
+        &lt;/label&gt;
+        &lt;label class=&quot;multiselect__option&quot;&gt;
+          &lt;input type=&quot;checkbox&quot; name=&quot;a&quot; value=&quot;black&quot;&gt; Black
+        &lt;/label&gt;
+        &lt;p class=&quot;multiselect__status&quot; aria-live=&quot;polite&quot;&gt;&lt;/p&gt;
+      &lt;/fieldset&gt;
+    &lt;/details&gt;
+  &lt;details class=&quot;multiselect&quot; aria-disabled=&quot;true&quot;&gt;
+      &lt;summary class=&quot;repel&quot; data-nowrap&gt;
+        &lt;span class=&quot;multiselect__label&quot;&gt;Disabled&lt;/span&gt;
+      &lt;/summary&gt;
+      &lt;fieldset class=&quot;multiselect__panel flow&quot;&gt;
+        &lt;legend class=&quot;visually-hidden&quot;&gt;Disabled&lt;/legend&gt;
+        &lt;label class=&quot;multiselect__option&quot;&gt;
+          &lt;input type=&quot;checkbox&quot; name=&quot;b&quot; value=&quot;red&quot; checked&gt; Red
+        &lt;/label&gt;
+        &lt;label class=&quot;multiselect__option&quot;&gt;
+          &lt;input type=&quot;checkbox&quot; name=&quot;b&quot; value=&quot;green&quot;&gt; Green
+        &lt;/label&gt;
+        &lt;label class=&quot;multiselect__option&quot;&gt;
+          &lt;input type=&quot;checkbox&quot; name=&quot;b&quot; value=&quot;blue&quot;&gt; Blue
+        &lt;/label&gt;
+        &lt;label class=&quot;multiselect__option&quot;&gt;
+          &lt;input type=&quot;checkbox&quot; name=&quot;b&quot; value=&quot;yellow&quot;&gt; Yellow
+        &lt;/label&gt;
+        &lt;label class=&quot;multiselect__option&quot;&gt;
+          &lt;input type=&quot;checkbox&quot; name=&quot;b&quot; value=&quot;black&quot;&gt; Black
+        &lt;/label&gt;
+        &lt;p class=&quot;multiselect__status&quot; aria-live=&quot;polite&quot;&gt;&lt;/p&gt;
+      &lt;/fieldset&gt;
+    &lt;/details&gt;
+  &lt;/div&gt;</code></pre>
+      </details>
+
+    </div>
+  </section>
+
+  <section>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Optional close behaviour</h2>
+      <p>Native <code>&lt;details&gt;</code> does not close on outside click or <kbd>Esc</kbd>. The CSS does not need it, but if you want it, this is the whole script.</p>
+
+      <div class="" style="">
+  <p class="text-s color-subtle">Not a live demo — paste it once per page.</p>
+      </div>
+
+      <details class="margin-y-s">
+        <summary>Show code</summary>
+        <pre class="padding-m"><code>document.addEventListener(&#x27;click&#x27;, (e) =&gt; {
+  document.querySelectorAll(&#x27;.multiselect[open]&#x27;).forEach((d) =&gt; {
+    if (!d.contains(e.target)) d.open = false;
+  });
+});
+document.addEventListener(&#x27;keydown&#x27;, (e) =&gt; {
+  if (e.key !== &#x27;Escape&#x27;) return;
+  document.querySelectorAll(&#x27;.multiselect[open]&#x27;).forEach((d) =&gt; {
+    d.open = false;
+    d.querySelector(&#x27;summary&#x27;).focus();
+  });
+});</code></pre>
+      </details>
+
+    </div>
+  </section>
+
+  <section>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Tokens</h2>
+      <p>The trigger reuses the <a href="/base/form">form</a> tokens (<code>--input-default-*</code>), so it always matches neighbouring inputs. Every token above also exists without <code>-default-</code> (for example <code>--multiselect-panel-radius</code>) as an optional local override.</p>
+      <table class="">
+        <thead>
+          <tr>
+            <th>Token</th>
+            <th>Default</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>--multiselect-default-panel-background</code></td>
+            <td><code>var(--surface)</code></td>
+            <td>Panel fill.</td>
+          </tr>
+          <tr>
+            <td><code>--multiselect-default-panel-border</code></td>
+            <td><code>solid var(--border-s) var(--border-color)</code></td>
+            <td>Panel border shorthand.</td>
+          </tr>
+          <tr>
+            <td><code>--multiselect-default-panel-radius</code></td>
+            <td><code>var(--border-radius-m)</code></td>
+            <td>Panel corner radius.</td>
+          </tr>
+          <tr>
+            <td><code>--multiselect-default-panel-shadow</code></td>
+            <td><code>layered shadow</code></td>
+            <td>Shadow of the floating panel (removed by the inline variant).</td>
+          </tr>
+          <tr>
+            <td><code>--multiselect-default-panel-padding</code></td>
+            <td><code>var(--space-xxs)</code></td>
+            <td>Space between the panel edge and the options.</td>
+          </tr>
+          <tr>
+            <td><code>--multiselect-default-max-block-size</code></td>
+            <td><code>min(20rem, 60dvh)</code></td>
+            <td>Height at which the option list starts to scroll.</td>
+          </tr>
+          <tr>
+            <td><code>--multiselect-default-option-background-hover</code></td>
+            <td><code>var(--surface-sunken)</code></td>
+            <td>Option fill on hover.</td>
+          </tr>
+          <tr>
+            <td><code>--multiselect-default-option-background-selected</code></td>
+            <td><code>brand 12% over var(--surface)</code></td>
+            <td>Fill of a checked option.</td>
+          </tr>
+          <tr>
+            <td><code>--multiselect-default-label-color</code></td>
+            <td><code>var(--text-muted)</code></td>
+            <td>Trigger text while nothing is selected.</td>
+          </tr>
+          <tr>
+            <td><code>--multiselect-default-label-color-selected</code></td>
+            <td><code>var(--text)</code></td>
+            <td>Trigger text once something is selected (also bold).</td>
+          </tr>
+          <tr>
+            <td><code>--multiselect-default-status-color</code></td>
+            <td><code>var(--text-muted)</code></td>
+            <td>Colour of the count line.</td>
+          </tr>
+          <tr>
+            <td><code>--multiselect-default-status-text</code></td>
+            <td><code>&quot; selected&quot;</code></td>
+            <td>Text after the number — change it to localise.</td>
+          </tr>
+          <tr>
+            <td><code>--multiselect-default-chevron-size</code></td>
+            <td><code>1em</code></td>
+            <td>Chevron size.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <div class="flow" style="--flow-space: var(--space-s);">
+      <h2 class="heading-l">Draft status</h2>
+      <p>This is a first draft. Not included yet: search/filter inside the panel, select all / clear all, a summary of the chosen values in the trigger (CSS cannot join values; it needs a few lines of JavaScript), and arrow-key navigation between options (Tab moves through the checkboxes). Feedback shapes the next iteration.</p>
+    </div>
+  </section>
+
+</article>
+{% endblock %}
